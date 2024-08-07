@@ -1,50 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Popular Topics Carousel</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Trending Topics</title>
+  <style>
+    body {
+      background-color: red;
+      color: white;
+      font-family: sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .topic-card {
+      background-color: white;
+      color: black;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      width: 500px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .topic-card h2 {
+      margin-top: 0;
+    }
+    .topic-card p {
+      margin-bottom: 10px;
+    }
+    .user-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Trending Topics</h1>
+    <p>The Community is an active and collaborative place to learn more about events and ask questions to fellow fans! Check out our most popular conversations happening right now!</p>
 
-  <div id="popularTopicsCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#popularTopicsCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#popularTopicsCarousel" data-slide-to="1"></li>
-      <li data-target="#popularTopicsCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="d-flex justify-content-center align-items-center" style="height: 300px; background-color: #f8f9fa;">
-          <h3>Topic 1: Technology</h3>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex justify-content-center align-items-center" style="height: 300px; background-color: #e9ecef;">
-          <h3>Topic 2: Science</h3>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex justify-content-center align-items-center" style="height: 300px; background-color: #dee2e6;">
-          <h3>Topic 3: Health</h3>
-        </div>
-      </div>
+    <div class="topic-card">
+      <h2>Very poor setup instructions with hopeless Broadband App</h2>
+      <p>by MJeff</p>
     </div>
-    <a class="carousel-control-prev" href="#popularTopicsCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#popularTopicsCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+
+    <div class="topic-card">
+      <h2>No mobile data for over 2 weeks!</h2>
+      <p>by Ana-mae99</p>
+      <img class="user-avatar" src="user_avatar.jpg" alt="User Avatar">
+    </div>
+
+    <div class="topic-card">
+      <h2>eSIM transfer when upgrading iPhone</h2>
+      <p>by Gueparde5</p>
+    </div>
   </div>
 
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Function to simulate topic views and update the order
+    function updateTrendingTopics() {
+      // Example: Get view counts from data source (database, API, etc.)
+      // ...
+
+      // Sort topic cards by view count in descending order
+      // ...
+
+      // Update the DOM to reflect the new order
+      // ...
+    }
+
+    // Call the update function periodically (e.g., every 5 seconds)
+    setInterval(updateTrendingTopics, 5000);
+  </script>
 </body>
 </html>
