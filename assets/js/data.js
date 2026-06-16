@@ -31,6 +31,14 @@ const GAMES = [
         href: "games/phasmophobia/cursed-possessions.html",
         available: true,
       },
+      {
+        id: "equipment",
+        name: "Equipment Guide",
+        type: "guide",
+        desc: "Every item with images, tier upgrades, usage and tips.",
+        href: "games/phasmophobia/equipment.html",
+        available: true,
+      },
     ],
   },
   {
