@@ -1,14 +1,14 @@
 :root {
-  --bg: #0a0b0f;
-  --bg-soft: #12141c;
-  --card: #161922;
-  --card-hover: #1c2030;
-  --border: #262b39;
-  --text: #e6e9f0;
-  --muted: #8b93a7;
-  --accent: #7c5cff;
-  --accent-2: #00e0b8;
-  --danger: #ff5470;
+  --bg: #0a0708;
+  --bg-soft: #14100f;
+  --card: #181113;
+  --card-hover: #221619;
+  --border: #321f22;
+  --text: #f0e7e8;
+  --muted: #9c8a8c;
+  --accent: #ff2435;
+  --accent-2: #ff6a5e;
+  --danger: #ff2435;
   --radius: 14px;
   --mono: "JetBrains Mono", ui-monospace, monospace;
   --sans: "Inter", system-ui, sans-serif;
@@ -30,8 +30,8 @@ body {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(124, 92, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 92, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 36, 53, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 36, 53, 0.05) 1px, transparent 1px);
   background-size: 44px 44px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
   z-index: 0;
@@ -188,8 +188,8 @@ body {
   color: var(--muted);
 }
 .tool-badge {
-  background: rgba(124, 92, 255, 0.14);
-  color: #b3a4ff;
+  background: rgba(255, 36, 53, 0.16);
+  color: #ff8a82;
   padding: 3px 9px;
   border-radius: 999px;
 }
@@ -318,15 +318,18 @@ body {
   color: var(--muted);
 }
 .evidence-btn.include {
-  border-color: var(--accent-2);
-  background: rgba(0, 224, 184, 0.08);
+  border-color: var(--accent);
+  background: rgba(255, 36, 53, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 36, 53, 0.3);
 }
-.evidence-btn.include .state { color: var(--accent-2); }
+.evidence-btn.include .state { color: #ff6a6a; }
 .evidence-btn.exclude {
-  border-color: var(--danger);
-  background: rgba(255, 84, 112, 0.08);
+  border-color: var(--border);
+  background: rgba(255, 255, 255, 0.015);
+  opacity: 0.5;
 }
-.evidence-btn.exclude .state { color: var(--danger); }
+.evidence-btn.exclude span:first-child { text-decoration: line-through; }
+.evidence-btn.exclude .state { color: var(--muted); }
 .evidence-btn.disabled { opacity: 0.4; }
 
 .controls { margin-top: 16px; display: flex; gap: 10px; }
@@ -371,10 +374,10 @@ body {
   font-size: 0.72rem;
   padding: 3px 8px;
   border-radius: 999px;
-  background: rgba(124, 92, 255, 0.12);
-  color: #b3a4ff;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
 }
-.ev-chip.confirmed { background: rgba(0, 224, 184, 0.16); color: var(--accent-2); }
+.ev-chip.confirmed { background: rgba(255, 36, 53, 0.18); color: #ff8a82; }
 .ghost-detail {
   font-size: 0.85rem;
   color: var(--muted);
@@ -503,11 +506,11 @@ body {
   padding: 5px 14px;
   border-radius: 999px;
 }
-.t-god { background: rgba(124,92,255,.18); color: #b3a4ff; }
-.t-great { background: rgba(0,224,184,.16); color: var(--accent-2); }
-.t-good { background: rgba(59,111,181,.18); color: #7fb0ff; }
-.t-decent { background: rgba(139,147,167,.16); color: var(--muted); }
-.t-low { background: rgba(255,84,112,.14); color: var(--danger); }
+.t-god { background: rgba(255,36,53,.26); color: #ff5b66; box-shadow: 0 0 22px rgba(255,36,53,.25); }
+.t-great { background: rgba(255,36,53,.18); color: #ff7a72; }
+.t-good { background: rgba(255,122,90,.16); color: #ffa07a; }
+.t-decent { background: rgba(156,138,140,.16); color: var(--muted); }
+.t-low { background: rgba(120,40,46,.22); color: #b97; }
 .gs-breakdown {
   margin-top: 18px;
   font-family: var(--mono);
