@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Damage / EHP Calculator · Epic Seven · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Epic Seven</a> / damage</p>
+    <h1>Damage / EHP Calculator</h1>
+    <p class="tool-sub">Compare offensive and defensive gear. Uses Epic Seven's defense formula: damage taken = 300 / (300 + DEF).</p>
+
+    <div class="gs-layout">
+      <div class="panel">
+        <h2>Offense</h2>
+        <div class="calc-field"><label>Attack</label><input type="number" id="atk" value="3000"></div>
+        <div class="calc-field"><label>Crit Chance %</label><input type="number" id="cc" value="70"></div>
+        <div class="calc-field"><label>Crit Damage %</label><input type="number" id="cd" value="230"></div>
+        <div class="calc-field"><label>Skill modifier %</label><input type="number" id="mod" value="100"></div>
+        <div class="calc-field"><label>Target Defense (opt.)</label><input type="number" id="tdef" value="1000"></div>
+        <div class="calc-out">
+          <div><span>Effective Attack</span><b id="eatk">0</b></div>
+          <div><span>Avg hit vs target</span><b id="hit">0</b></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Defense (EHP)</h2>
+        <div class="calc-field"><label>Health</label><input type="number" id="hp" value="15000"></div>
+        <div class="calc-field"><label>Defense</label><input type="number" id="def" value="1000"></div>
+        <div class="calc-out">
+          <div><span>Effective HP</span><b id="ehp" class="accent2">0</b></div>
+          <div><span>Damage Reduction</span><b id="dr">0%</b></div>
+        </div>
+        <p style="color:var(--muted);font-size:.82rem;margin-top:14px">EHP = HP × (1 + DEF/300). Defense scales multiplicatively, so it's usually stronger than raw HP — but is countered by Defense Break.</p>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
+  <script src="damage.js"></script>
+</body>
+</html>

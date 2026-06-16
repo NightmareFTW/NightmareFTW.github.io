@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tier List & Builds · NTE · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">NTE</a> / tier list</p>
+    <h1>Tier List &amp; Builds</h1>
+    <p class="tool-sub">Character rankings based on <a href="https://game8.co/games/Neverness-to-Everness/archives/597305" target="_blank" rel="noopener" style="color:var(--accent)">Game8</a>. Click any character for their builds &amp; best teams.</p>
+
+    <div class="controls" style="margin:18px 0">
+      <button class="btn filter-btn active" data-role="all">All roles</button>
+      <button class="btn filter-btn" data-role="DPS">DPS</button>
+      <button class="btn filter-btn" data-role="Buff">Buff</button>
+      <button class="btn filter-btn" data-role="Survival">Survival</button>
+    </div>
+
+    <div id="tier-root"></div>
+    <p class="tool-note">Rankings &amp; build pages are credited to Game8 and update as the meta shifts. Tell me if you'd prefer a different source or a drag-and-drop personal tier list.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · rankings via Game8.</span></div></footer>
+  <script src="tier-list.js"></script>
+</body>
+</html>
