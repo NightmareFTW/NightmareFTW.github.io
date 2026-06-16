@@ -663,3 +663,25 @@ body {
 .role-Survival { background: rgba(80,160,180,.16); color: #6cc; }
 .char-link { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
 .char-card:hover .char-link { color: var(--accent); }
+
+/* ---- Cursed possessions ---- */
+.cp-list { display: flex; flex-direction: column; gap: 12px; }
+.cp-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  transition: border-color 0.15s;
+}
+.cp-card.open { border-color: var(--accent); }
+.cp-head { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+.cp-name { font-weight: 700; font-size: 1.1rem; margin-right: 10px; }
+.cp-toggle { color: var(--muted); font-family: var(--mono); transition: transform 0.2s; }
+.cp-card.open .cp-toggle { transform: rotate(180deg); }
+.cp-summary { color: var(--muted); font-size: 0.92rem; margin-top: 8px; }
+.cp-detail { display: none; margin-top: 14px; border-top: 1px solid var(--border); padding-top: 14px; }
+.cp-card.open .cp-detail { display: block; }
+.cp-detail p { font-size: 0.92rem; margin-bottom: 10px; line-height: 1.55; }
+.cp-detail b { color: var(--text); }
+.cp-sublist { margin: 0 0 12px; padding-left: 18px; }
+.cp-sublist li { font-size: 0.88rem; color: var(--muted); margin-bottom: 5px; }

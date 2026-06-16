@@ -23,6 +23,14 @@ const GAMES = [
         href: "games/phasmophobia/ghost-evidence.html",
         available: true,
       },
+      {
+        id: "cursed-possessions",
+        name: "Cursed Possession Reference",
+        type: "reference",
+        desc: "All 7 cursed possessions — usage, risks and tips for each.",
+        href: "games/phasmophobia/cursed-possessions.html",
+        available: true,
+      },
     ],
   },
   {
