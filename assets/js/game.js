@@ -8,8 +8,11 @@
   document.title = `${game.name} · NightmareFTW`;
   document.getElementById("bc-game").textContent = game.name;
 
+  const icon = game.image
+    ? `<img class="game-icon-img" src="../../${game.image}" alt="">`
+    : game.icon;
   document.getElementById("game-hero").innerHTML = `
-    <div class="game-icon" style="background:${game.color}">${game.icon}</div>
+    <div class="game-icon" style="background:${game.color}">${icon}</div>
     <div>
       <h1>${game.name}</h1>
       <p>${game.blurb}</p>

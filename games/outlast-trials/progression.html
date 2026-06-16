@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progression Tracker · The Outlast Trials · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">The Outlast Trials</a> / progression</p>
+    <h1>Progression Tracker</h1>
+    <p class="tool-sub">Rigs persist forever; the weekly section resets automatically. Saved on this device.</p>
+    <p class="tool-note">Starter template — want different items (specific amps, perks, MK-Challenges)? Just ask and I'll tailor the list.</p>
+    <div class="checklist-wrap" id="checklist-root"></div>
+    <div class="controls"><button class="btn" id="reset-all">⟳ Clear all</button></div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
+  <script>
+    window.CHECKLIST = {
+      id: "outlast-progression",
+      sections: [
+        { id: "rigs", title: "Rigs", reset: null, items: [
+          "Stun Rig", "Blind Rig", "Heal Rig", "X-Ray Rig",
+        ]},
+        { id: "weekly", title: "Weekly", reset: "daily-local", items: [
+          "Weekly Program completed",
+          "MK-Challenge #1",
+          "MK-Challenge #2",
+          "MK-Challenge #3",
+        ]},
+      ],
+    };
+  </script>
+  <script src="../../assets/js/checklist.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gear Score Calculator · Epic Seven · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Epic Seven</a> / gear score</p>
+    <h1>Gear Score Calculator</h1>
+    <p class="tool-sub">Enter a piece's substats (and rolled values) to grade its quality. Speed and crit are weighted highest.</p>
+
+    <div class="gs-layout">
+      <div class="panel">
+        <h2>Substats</h2>
+        <div class="gs-rows" id="gs-rows"></div>
+        <button class="btn" id="gs-add">+ Add substat</button>
+      </div>
+
+      <div>
+        <div class="panel gs-score-box">
+          <div class="gs-score" id="gs-score">0.0</div>
+          <span class="gs-tier t-low" id="gs-tier">Reroll / fodder</span>
+        </div>
+        <div class="gs-breakdown panel" id="gs-breakdown" style="margin-top:18px"></div>
+      </div>
+    </div>
+
+    <p class="tool-note">Weighting follows the common community gear-score model (Speed ×2, Crit Chance ×1.6, Crit Dmg ×1.14, % stats ×1, flats much lower). It's a grading heuristic, not an in-game stat.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
+  <script src="gear-score.js"></script>
+</body>
+</html>

@@ -14,8 +14,11 @@
       ? `<span class="tool-badge">${liveTools} tool${liveTools > 1 ? "s" : ""}</span>`
       : `<span class="soon-badge">soon</span>`;
 
+    const icon = game.image
+      ? `<img class="game-icon-img" src="${game.image}" alt="">`
+      : game.icon;
     const inner = `
-      <div class="game-icon" style="background:${game.color}">${game.icon}</div>
+      <div class="game-icon" style="background:${game.color}">${icon}</div>
       <div>
         <h3>${game.name}</h3>
         <p>${game.blurb}</p>
