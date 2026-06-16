@@ -14,18 +14,16 @@
       ? `<span class="tool-badge">${liveTools} tool${liveTools > 1 ? "s" : ""}</span>`
       : `<span class="soon-badge">soon</span>`;
 
-    const icon = game.image
-      ? `<img class="game-icon-img" src="${game.image}" alt="">`
-      : game.icon;
+    const banner = `<div class="game-banner" style="background:${game.color}"><img src="${game.banner}" alt="${game.name}" loading="lazy"></div>`;
     const inner = `
-      <div class="game-icon" style="background:${game.color}">${icon}</div>
-      <div>
+      ${banner}
+      <div class="game-card-body">
         <h3>${game.name}</h3>
         <p>${game.blurb}</p>
-      </div>
-      <div class="game-meta">
-        <span>${game.tools.length || "no"} tool${game.tools.length === 1 ? "" : "s"}</span>
-        ${tag}
+        <div class="game-meta">
+          <span>${game.tools.length || "no"} tool${game.tools.length === 1 ? "" : "s"}</span>
+          ${tag}
+        </div>
       </div>`;
 
     if (href) {

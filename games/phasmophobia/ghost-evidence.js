@@ -38,6 +38,11 @@ const GHOSTS = [
   { name: "Moroi", evidence: ["spiritbox", "ghostwriting", "freezing"], note: "Curses via Spirit Box; faster the lower your sanity." },
   { name: "Deogen", evidence: ["spiritbox", "ghostwriting", "dots"], note: "Always senses you; very fast far away, crawls when close." },
   { name: "Thaye", evidence: ["dots", "ghostwriting", "orbs"], note: "Ages over time — starts fast/aggressive, slows down." },
+  { name: "Obambo", evidence: ["ghostwriting", "ultraviolet", "dots"], note: "Flickers between calm and aggressive; hunts faster when aggravated." },
+  { name: "Gallu", evidence: ["emf", "ultraviolet", "spiritbox"], note: "Protective equipment provokes it, making gear less effective until it tires." },
+  { name: "Dayan", evidence: ["emf", "spiritbox", "orbs"], note: "Strengthened by players moving nearby; weakened when you stay still." },
+  { name: "Kormos", evidence: ["ultraviolet", "spiritbox", "orbs"], note: "Nearly blind — stay silent and motionless and it may walk right past." },
+  { name: "Aswang", evidence: ["dots", "ghostwriting", "freezing"], note: "Accelerates hard with line of sight; break LoS to lose it." },
 ];
 
 const state = {};

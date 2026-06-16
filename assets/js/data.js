@@ -3,14 +3,14 @@
    To add a game: add an entry to GAMES.
    To add a tool: add it to that game's `tools` array.
    `available: false` shows it as "soon" and disables the link.
-   `image` is root-relative; pages add their own base path.
+   `banner` is root-relative key art; pages add their own base path.
    ============================================================ */
 
 const GAMES = [
   {
     id: "phasmophobia",
     name: "Phasmophobia",
-    image: "assets/img/games/phasmophobia.svg",
+    banner: "assets/img/games/phasmophobia-header.jpg",
     color: "#4a9d5b",
     glow: "rgba(74, 157, 91, 0.25)",
     blurb: "Co-op horror ghost hunting.",
@@ -28,7 +28,7 @@ const GAMES = [
   {
     id: "outlast-trials",
     name: "The Outlast Trials",
-    image: "assets/img/games/outlast-trials.svg",
+    banner: "assets/img/games/outlast-trials-header.jpg",
     color: "#d4842a",
     glow: "rgba(212, 132, 42, 0.22)",
     blurb: "Co-op survival horror.",
@@ -46,7 +46,7 @@ const GAMES = [
   {
     id: "ffxiv",
     name: "Final Fantasy XIV",
-    image: "assets/img/games/ffxiv.svg",
+    banner: "assets/img/games/ffxiv-header.jpg",
     color: "#3b6fb5",
     glow: "rgba(59, 111, 181, 0.22)",
     blurb: "MMORPG.",
@@ -64,7 +64,7 @@ const GAMES = [
   {
     id: "epic7",
     name: "Epic Seven",
-    image: "assets/img/games/epic7.svg",
+    banner: "assets/img/games/epic7-header.svg",
     color: "#c2497d",
     glow: "rgba(194, 73, 125, 0.22)",
     blurb: "Turn-based gacha RPG.",
@@ -82,7 +82,7 @@ const GAMES = [
   {
     id: "nte",
     name: "NTE",
-    image: "assets/img/games/nte.svg",
+    banner: "assets/img/games/nte-header.jpg",
     color: "#7c5cff",
     glow: "rgba(124, 92, 255, 0.22)",
     blurb: "Open-world action RPG.",
