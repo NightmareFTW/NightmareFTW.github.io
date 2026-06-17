@@ -1,56 +1,103 @@
 /* NTE — Tier List & Builds
-   Rankings sourced from Game8 (archives/597305). Each character links to a
-   Game8 search for their build & best teams. Update tiers as the meta shifts. */
+   Rankings and builds compiled from Game8. Clicking a character shows their
+   build (Arc, Cartridge, stat priority, recommended team) on-page. */
 
-const TIERS = [
-  { tier: "S", chars: [
-    { name: "Lacrimosa", role: "DPS" },
-    { name: "Hotori", role: "DPS" },
-    { name: "Nanally", role: "DPS" },
-    { name: "Sakiri", role: "Buff" },
-  ]},
-  { tier: "A", chars: [
-    { name: "Esper Zero", role: "DPS" },
-    { name: "Chiz", role: "DPS" },
-    { name: "Daffodil", role: "DPS" },
-    { name: "Baicang", role: "DPS" },
-    { name: "Jiuyuan", role: "DPS" },
-    { name: "Hathor", role: "DPS" },
-    { name: "Haniel", role: "Buff" },
-    { name: "Fadia", role: "Survival" },
-  ]},
-  { tier: "B", chars: [
-    { name: "Mint", role: "DPS" },
-    { name: "Adler", role: "Survival" },
-  ]},
-  { tier: "C", chars: [
-    { name: "Edgar", role: "Survival" },
-    { name: "Skia", role: "DPS" },
-    { name: "Aurelia", role: "DPS" },
-  ]},
+const STAT_HINT = {
+  DPS: "CRIT Rate → CRIT DMG, then ATK. Energy Recharge for ult uptime.",
+  Buff: "ATK and Energy Recharge — maximise buff uptime and how often you ult.",
+  Survival: "HP / DEF for bulk, plus Energy Recharge to keep shields/heals flowing.",
+};
+
+const CHARACTERS = [
+  { name: "Lacrimosa", tier: "S", role: "DPS", arc: "The Last Rose", cart: "Diabolos", team: ["Sakiri", "Haniel", "Daffodil"],
+    note: "DoT-focused — stack Nightmare & Scorch. Her DoT scales off ATK, so grab CRIT first, then ATK; Chaos DMG main stat with The Last Rose." },
+  { name: "Hotori", tier: "S", role: "DPS", arc: "Marching Beyond Time", cart: "Lost Radiance", team: ["Esper Zero", "Nanally", "Jiuyuan"],
+    note: "Burst sub-DPS — feeds on recorded Esper cycles for massive ultimates." },
+  { name: "Nanally", tier: "S", role: "DPS", arc: "Ready-Ready", cart: "Fireflies and the Forest", team: ["Sakiri", "Jiuyuan", "Esper Zero"],
+    note: "Blossom/Charge core — empower Vita Buds through team synergy." },
+  { name: "Sakiri", tier: "S", role: "Buff", arc: "Good Boy's Grand Adventure", cart: "Speedy Hedgehog", team: ["Baicang", "Adler", "Edgar"],
+    note: "Pulls enemies together and buffs team ATK by 30%. Fits almost every top team." },
+
+  { name: "Esper Zero", tier: "A", role: "DPS", arc: "The Rain That Shook the World", cart: "Lost Radiance", team: ["Nanally", "Sakiri", "Jiuyuan"],
+    note: "The premier cycler — enables faster rotations for the whole team." },
+  { name: "Chiz", tier: "A", role: "DPS", arc: "Contemplative Cat", cart: "Lost Radiance", team: ["Hathor", "Jiuyuan", "Adler"] },
+  { name: "Daffodil", tier: "A", role: "DPS", arc: "Youthful Fantasy", cart: "Diabolos", team: ["Baicang", "Jiuyuan", "Haniel"],
+    note: "Boss breaker — specialises in white-bar (Break) damage." },
+  { name: "Baicang", tier: "A", role: "DPS", arc: "Camellia Society", cart: "Crimson: Twin Butterflies", team: ["Daffodil", "Adler", "Haniel"] },
+  { name: "Jiuyuan", tier: "A", role: "DPS", arc: "Reality Refuge", cart: "Fireflies and the Forest", team: ["Nanally", "Sakiri", "Esper Zero"],
+    note: "Strong enemy-gathering for AoE setups." },
+  { name: "Hathor", tier: "A", role: "DPS", arc: "Raging Flames", cart: "Street Boxer", team: ["Jiuyuan", "Esper Zero", "Fadia"],
+    note: "Flexible between Charge and Stain reactions; relies on feather stacks." },
+  { name: "Haniel", tier: "A", role: "Buff", arc: "Blow up the Crowd", cart: "Speedy Hedgehog", team: ["Nanally", "Sakiri", "Daffodil"],
+    note: "Pure buffer that also helps apply Nova." },
+  { name: "Fadia", tier: "A", role: "Survival", arc: "Eternal Waltz", cart: "Devil's Blood: Curse", team: ["Nanally", "Sakiri", "Daffodil"],
+    note: "Team damage-share with damage reflection." },
+
+  { name: "Mint", tier: "B", role: "DPS", arc: "Clear Skies", cart: "Fireflies and the Forest", team: ["Esper Zero", "Skia", "Adler"],
+    note: "Best F2P DPS option — strong parry potential." },
+  { name: "Adler", tier: "B", role: "Survival", arc: "Umbrella", cart: "Kingdom's Guard", team: ["Baicang", "Sakiri", "Daffodil"],
+    note: "Team-wide shields plus DoT — lots of value with little setup." },
+
+  { name: "Edgar", tier: "C", role: "Survival", arc: "Call of the Twisted City", cart: "Thea's Night Tavern", team: ["Nanally", "Jiuyuan", "Esper Zero"],
+    note: "Healer with a stationary healing area." },
+  { name: "Skia", tier: "C", role: "DPS", arc: "Watch Your Heads!", cart: "Street Boxer", team: ["Sakiri", "Esper Zero", "Fadia"] },
+  { name: "Aurelia", tier: "C", role: "DPS", arc: "Stellar Veil", cart: "Devil's Blood: Curse", team: ["Sakiri", "Daffodil", "Haniel"] },
 ];
 
-const buildLink = (name) =>
-  `https://www.google.com/search?q=${encodeURIComponent(`site:game8.co Neverness to Everness ${name} build team`)}`;
-
+const TIER_ORDER = ["S", "A", "B", "C"];
 let role = "all";
+
 const root = document.getElementById("tier-root");
+const detail = document.getElementById("build-detail");
+
+function showBuild(name) {
+  const c = CHARACTERS.find((x) => x.name === name);
+  if (!c) return;
+  detail.style.display = "block";
+  detail.innerHTML = `
+    <div class="bd-head">
+      <div>
+        <span class="bd-name">${c.name}</span>
+        <span class="tier-badge tier-${c.tier} bd-tier">${c.tier}</span>
+        <span class="role-chip role-${c.role}">${c.role}</span>
+      </div>
+      <button class="mini-btn" id="bd-close">close ×</button>
+    </div>
+    <div class="bd-grid">
+      <div class="bd-item"><span class="bd-label">Best Arc</span><b>${c.arc}</b></div>
+      <div class="bd-item"><span class="bd-label">Best Cartridge</span><b>${c.cart}</b></div>
+      <div class="bd-item bd-wide"><span class="bd-label">Stat priority</span><b>${STAT_HINT[c.role]}</b></div>
+      <div class="bd-item bd-wide"><span class="bd-label">Recommended team</span>
+        <div class="bd-team">${c.team.map((t) => `<span class="ev-chip" data-jump="${t}">${t}</span>`).join("")}</div>
+      </div>
+      ${c.note ? `<div class="bd-item bd-wide"><span class="bd-label">Notes</span><span class="bd-note">${c.note}</span></div>` : ""}
+    </div>
+    <p class="bd-credit">Build compiled from Game8.</p>`;
+
+  detail.querySelector("#bd-close").addEventListener("click", () => { detail.style.display = "none"; });
+  detail.querySelectorAll("[data-jump]").forEach((el) =>
+    el.addEventListener("click", () => showBuild(el.dataset.jump)));
+  detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
 
 function render() {
-  root.innerHTML = TIERS.map((row) => {
-    const chars = row.chars.filter((c) => role === "all" || c.role === role);
+  root.innerHTML = TIER_ORDER.map((tier) => {
+    const chars = CHARACTERS.filter((c) => c.tier === tier && (role === "all" || c.role === role));
     if (!chars.length) return "";
     const cards = chars.map((c) => `
-      <a class="char-card" href="${buildLink(c.name)}" target="_blank" rel="noopener">
+      <button class="char-card" data-char="${c.name}">
         <span class="char-name">${c.name}</span>
         <span class="role-chip role-${c.role}">${c.role}</span>
-        <span class="char-link">builds &amp; teams →</span>
-      </a>`).join("");
+        <span class="char-link">view build →</span>
+      </button>`).join("");
     return `<div class="tier-row">
-      <div class="tier-badge tier-${row.tier}">${row.tier}</div>
+      <div class="tier-badge tier-${tier}">${tier}</div>
       <div class="tier-chars">${cards}</div>
     </div>`;
   }).join("");
+
+  root.querySelectorAll("[data-char]").forEach((b) =>
+    b.addEventListener("click", () => showBuild(b.dataset.char)));
 }
 
 document.querySelectorAll(".filter-btn").forEach((b) =>
