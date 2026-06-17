@@ -1,10 +1,17 @@
 {
   "game": "nte",
   "updated": "2026-06-17T00:00:00.000Z",
-  "source": "Compiled from public code listings",
+  "source": "https://game8.co/games/Neverness-to-Everness/archives/593718",
+  "note": "Active codes as of 2026-06-04. Codes can expire without notice.",
   "codes": [
-    { "code": "LACRIMOSA0603", "reward": "30 Annulith, Tomato Basil Macaroni, 20,000 Fons", "expires": null, "expired": false },
-    { "code": "504980102FKGOVNS", "reward": "20,000 Beetle Coins, Gubichi Chips, 30 Annulith", "expires": null, "expired": false },
-    { "code": "NTEHAVEFUN", "reward": "3 Rising Hunter Guides, 3 Colourless Dye, 3 Manhole Thug", "expires": null, "expired": false }
+    { "code": "NTEELITE", "reward": "30 Annulith, 20,000 Fons", "expires": null, "expired": false },
+    { "code": "NTECELEBRATE", "reward": "50 Annulith, 5 Rising Hunter Guide, 5 Light Dye", "expires": null, "expired": false },
+    { "code": "NTEMILESTONE", "reward": "100 Annulith, 5 Rising Hunter Guide, 5 Light Dye, 4,000 Beetle Coin", "expires": null, "expired": false },
+    { "code": "NTETHANKFUL", "reward": "100 Annulith, 5 Senior Hunter Guide, 5 Colorless Dye, 6,000 Beetle Coin", "expires": null, "expired": false },
+    { "code": "NTEPREMIUM", "reward": "100 Annulith, 2 Elite Hunter Guide, 2 Chaotic Dye, 12,000 Beetle Coin", "expires": null, "expired": false },
+    { "code": "NTESPECIAL", "reward": "30,000 Fons", "expires": null, "expired": false },
+    { "code": "NTEFUN", "reward": "20,000 Fons", "expires": null, "expired": false },
+    { "code": "NTEAWARD", "reward": "10,000 Fons", "expires": null, "expired": false },
+    { "code": "NTEGAMEDAY", "reward": "10,000 Fons, 10 DynamiK Zero, 10 Clicky Fries", "expires": null, "expired": false }
   ]
 }

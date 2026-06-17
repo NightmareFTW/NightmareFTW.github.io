@@ -1,9 +1,14 @@
 {
   "game": "warframe",
   "updated": "2026-06-17T00:00:00.000Z",
-  "source": "Compiled from public code listings",
+  "source": "https://www.pcgamesn.com/warframe/codes",
+  "note": "Active codes as of 2026-06-15. Glyph/promo codes rotate often.",
   "codes": [
-    { "code": "ANDROID-QV4RX", "reward": "Affinity Booster (3 days), Zylok, Wolf Howl glyph", "expires": null, "expired": false },
-    { "code": "PARVOS", "reward": "Golden Hand Decoration", "expires": null, "expired": false }
+    { "code": "ANDROID-QV4RX", "reward": "Affinity Booster (3 days), Zylok, Wolf Howl", "expires": null, "expired": false },
+    { "code": "SPECIALEFFECT", "reward": "Special Effect glyph", "expires": null, "expired": false },
+    { "code": "PARVOS", "reward": "Golden Hand decoration", "expires": null, "expired": false },
+    { "code": "PRIDE2025", "reward": "Pride Glyph IV, Pride Oro Decoration, Pride Qorvex Fusion Display", "expires": null, "expired": false },
+    { "code": "QTCC5KREWARD", "reward": "Glyph Display, Conquera Glyph IX", "expires": null, "expired": false },
+    { "code": "QTCC10KBUNDLE", "reward": "Display Glyph, Bird 3 floof, Conquera Glyph 7", "expires": null, "expired": false }
   ]
 }

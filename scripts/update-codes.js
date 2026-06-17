@@ -11,9 +11,11 @@ const path = require("path");
 
 const DATA_DIR = path.join(__dirname, "..", "data", "codes");
 
+// Frequently-updated public listing pages (the freshest signal we can get
+// without an official codes API).
 const SOURCES = {
   epic7: "https://www.pocketgamer.com/epic-seven/codes/",
-  nte: "https://www.pcgamer.com/games/action/neverness-to-everness-codes-redeem/",
+  nte: "https://game8.co/games/Neverness-to-Everness/archives/593718",
   warframe: "https://www.pcgamesn.com/warframe/codes",
 };
 
@@ -27,13 +29,14 @@ const BLACKLIST = new Set([
 function extractCodes(html) {
   const text = html.replace(/<[^>]+>/g, " ");
   const found = new Set();
-  const re = /\b[A-Z0-9][A-Z0-9_-]{4,29}\b/g;
+  const re = /\b[A-Z0-9][A-Z0-9_-]{5,29}\b/g;
   let m;
   while ((m = re.exec(text))) {
     const t = m[0];
     if (BLACKLIST.has(t)) continue;
-    // Keep tokens that contain a digit, underscore or hyphen (typical of codes)
-    if (!/[0-9_-]/.test(t)) continue;
+    // Real codes almost always mix letters AND digits — this filters out most
+    // shouty words (e.g. "REWARDS", "ANDROID") while keeping codes like E7VTPRESENT.
+    if (!/[A-Z]/.test(t) || !/[0-9]/.test(t)) continue;
     found.add(t);
   }
   return [...found];

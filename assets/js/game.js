@@ -149,6 +149,10 @@
     }
   }
 
+  // Escape user/data text before injecting into innerHTML (codes can contain "<").
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
   function renderCodes(root, data) {
     const now = Date.now();
     const codes = data.codes || [];
@@ -166,8 +170,8 @@
       return `<div class="code-row ${expired ? "is-expired" : ""} ${used ? "is-used" : ""}" data-code="${c.code}">
         <input type="checkbox" class="code-check" ${used ? "checked" : ""}>
         <div class="code-main">
-          <code class="code-text">${c.code}</code>
-          <span class="code-reward">${c.reward || ""}</span>
+          <code class="code-text">${esc(c.code)}</code>
+          <span class="code-reward">${esc(c.reward || "")}</span>
         </div>
         ${valid}
         <button class="btn code-copy">Copy</button>
