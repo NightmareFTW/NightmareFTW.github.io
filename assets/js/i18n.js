@@ -219,6 +219,147 @@
     "Strengthened by players moving nearby; weakened when you stay still.": "Fortalece-se com jogadores a mexer-se por perto; enfraquece quando ficas quieto.",
     "Nearly blind — stay silent and motionless and it may walk right past.": "Quase cego — fica em silêncio e imóvel e ele pode passar ao lado.",
     "Accelerates hard with line of sight; break LoS to lose it.": "Acelera muito com linha de visão; corta a LoS para o despistar.",
+
+    // ---- Phasmophobia: Equipment Guide ----
+    "All": "Todos", "Standard.": "Padrão.",
+    "Every item — what it's for, what each tier upgrade changes, how to use it to find evidence, and tips.":
+      "Cada equipamento — para que serve, o que muda cada tier, como usá-lo para encontrar evidências, e dicas.",
+    "Detects electromagnetic activity. A reading of EMF 5 is one of the seven evidences.":
+      "Deteta atividade eletromagnética. Uma leitura de EMF 5 é uma das sete evidências.",
+    "GheistField Meter — dial display, ~1.7 m range, needle sways with age.": "GheistField Meter — mostrador analógico, alcance ~1,7 m, a agulha oscila com a idade.",
+    "K2 Meter — five LED lights, ~2 m range, the classic reader.": "K2 Meter — cinco LEDs, alcance ~2 m, o leitor clássico.",
+    "EMF ParaMeter — PDA style, logs the location and value of the last reading.": "EMF ParaMeter — estilo PDA, regista o local e o valor da última leitura.",
+    "Carry it near interaction spots (doors, switches, thrown items). Levels 2–4 only confirm activity; a clear flash to 5 is the evidence.":
+      "Leva-o perto de pontos de interação (portas, interruptores, objetos atirados). Os níveis 2–4 só confirmam atividade; um flash claro até 5 é a evidência.",
+    "Place it down after an interaction to catch the EMF without holding everything. Raiju can make it malfunction.":
+      "Pousa-o após uma interação para apanhar o EMF sem segurar tudo. O Raiju pode fazê-lo avariar.",
+    "Lets you talk to the ghost; a spoken response is the evidence.": "Permite falar com o fantasma; uma resposta falada é a evidência.",
+    "Short range — must be very close, lights off.": "Alcance curto — tens de estar muito perto, luzes apagadas.",
+    "Larger response range and on-screen text of responses.": "Maior alcance de resposta e texto das respostas no ecrã.",
+    "Widest range — responses from further away and more reliably.": "Maior alcance — respostas de mais longe e mais fiáveis.",
+    "Turn the lights off, get close (often alone), and ask: \"Are you here?\", \"Where are you?\". A voice reply = evidence.":
+      "Apaga as luzes, aproxima-te (muitas vezes sozinho) e pergunta: \"Are you here?\", \"Where are you?\". Uma resposta por voz = evidência.",
+    "Many ghosts only answer when you're alone or at lower sanity. Lights off is essential.":
+      "Muitos fantasmas só respondem quando estás sozinho ou com sanidade baixa. Luzes apagadas é essencial.",
+    "Reads room temperature. Sub-zero (visible breath) in the ghost room is the evidence.":
+      "Lê a temperatura da sala. Abaixo de zero (respiração visível) na sala do fantasma é a evidência.",
+    "Standard reading speed.": "Velocidade de leitura padrão.",
+    "Faster readings.": "Leituras mais rápidas.",
+    "Fastest, and holds the lowest reading.": "Mais rápido, e guarda a leitura mais baixa.",
+    "Sweep rooms to find the coldest. Freezing only appears in the ghost's favourite room, so it also helps locate the room.":
+      "Percorre as salas para achar a mais fria. O freezing só aparece na sala preferida do fantasma, por isso também ajuda a localizá-la.",
+    "If you can see your breath, it's freezing. Hantu always has freezing and moves faster in the cold.":
+      "Se vês a tua respiração, está freezing. O Hantu tem sempre freezing e move-se mais rápido no frio.",
+    "Reveals fingerprints and footprints left by ghost interactions.": "Revela impressões digitais e pegadas deixadas pelas interações do fantasma.",
+    "UV flashlight — dim beam.": "Lanterna UV — feixe fraco.",
+    "Brighter UV with a wider beam.": "UV mais forte com feixe mais largo.",
+    "Strongest UV, easiest to spot prints.": "UV mais forte, mais fácil ver impressões.",
+    "Shine on door handles, light switches, windows and keyboards after the ghost touches them. Glowing prints = evidence.":
+      "Aponta a maçanetas, interruptores, janelas e teclados depois de o fantasma lhes tocar. Impressões brilhantes = evidência.",
+    "Obake can leave a six-finger print and its prints fade faster than normal. Check switches and handles first.":
+      "O Obake pode deixar uma impressão de seis dedos e as dele desaparecem mais rápido. Vê primeiro interruptores e maçanetas.",
+    "Projects a grid of green dots; a ghost silhouette walking through them is the evidence.":
+      "Projeta uma grelha de pontos verdes; uma silhueta do fantasma a passar por eles é a evidência.",
+    "Smaller dot area.": "Área de pontos menor.", "Wider coverage.": "Cobertura maior.", "Widest coverage.": "Cobertura máxima.",
+    "Place in the ghost room covering a doorway, ideally with a video camera pointed at it. Watch the feed for a moving silhouette.":
+      "Coloca na sala do fantasma a cobrir uma porta, idealmente com uma câmara apontada. Observa o feed à procura de uma silhueta em movimento.",
+    "It's far easier to spot D.O.T.S through a video camera on the truck monitor than with your eyes.":
+      "É muito mais fácil ver D.O.T.S por uma câmara no monitor da carrinha do que a olho nu.",
+    "On night vision it reveals ghost orbs, and it streams D.O.T.S and remote rooms to the truck.":
+      "Em visão noturna revela ghost orbs, e transmite D.O.T.S e salas remotas para a carrinha.",
+    "Basic camera.": "Câmara básica.", "Improved night vision.": "Visão noturna melhorada.", "Best night vision and clarity.": "Melhor visão noturna e nitidez.",
+    "Mount on a tripod in the ghost room with night vision on; watch the truck monitor for floating orbs near the centre.":
+      "Monta num tripé na sala do fantasma com visão noturna ligada; observa o monitor da carrinha à procura de orbs a flutuar perto do centro.",
+    "Orbs only appear on the night-vision camera feed, never to the naked eye.": "As orbs só aparecem no feed da câmara em visão noturna, nunca a olho nu.",
+    "The ghost writes or draws in it.": "O fantasma escreve ou desenha nele.",
+    "Plain book.": "Livro simples.", "A light indicates when it has been written in.": "Uma luz indica quando foi escrito.", "Clearer indicator / faster to notice.": "Indicador mais claro / mais fácil de notar.",
+    "Place it flat on the floor in the ghost room and leave it — it can't be written in while held. A used page = evidence.":
+      "Pousa-o no chão na sala do fantasma e deixa-o — não pode ser escrito enquanto segurado. Uma página usada = evidência.",
+    "Spread a few around the room. Myling and Mare write often; some ghosts never will.":
+      "Espalha alguns pela sala. O Myling e a Mare escrevem muito; alguns fantasmas nunca o fazem.",
+    "Takes photos for money and objectives (ghost, bone, interactions, cursed object, dirty water…).":
+      "Tira fotos por dinheiro e objetivos (fantasma, osso, interações, objeto amaldiçoado, água suja…).",
+    "Fewer photos, basic quality.": "Menos fotos, qualidade básica.", "More photos and better range.": "Mais fotos e melhor alcance.", "Most photos and best quality.": "Mais fotos e melhor qualidade.",
+    "Photograph the ghost, the bone, fingerprints and interactions. Each valid photo pays out.":
+      "Fotografa o fantasma, o osso, impressões e interações. Cada foto válida dá dinheiro.",
+    "Always grab the Bone (it's an objective) and a clear ghost photo for bonus cash.":
+      "Apanha sempre o osso (é objetivo) e uma foto nítida do fantasma para dinheiro extra.",
+    "Picks up faint paranormal sounds at distance to help locate the ghost room.":
+      "Capta sons paranormais ténues à distância para ajudar a localizar a sala do fantasma.",
+    "Short detection range.": "Alcance de deteção curto.", "Longer range.": "Maior alcance.", "Longest range and clearest spikes.": "Maior alcance e picos mais nítidos.",
+    "Point it down hallways and open areas; audio spikes and whispers point you toward the ghost.":
+      "Aponta por corredores e zonas abertas; picos de áudio e sussurros indicam a direção do fantasma.",
+    "Invaluable on large maps for narrowing down the room before you commit.":
+      "Valiosíssimo em mapas grandes para reduzir a sala antes de te comprometeres.",
+    "Monitors sound in an area and reports it on the truck map.": "Monitoriza o som numa área e reporta-o no mapa da carrinha.",
+    "Covers a small area.": "Cobre uma área pequena.", "Larger area.": "Área maior.", "Largest area and labels the sound type.": "Maior área e identifica o tipo de som.",
+    "Place to cover rooms you can't watch; the truck map lights up where sound happens.":
+      "Coloca para cobrir salas que não consegues ver; o mapa da carrinha acende onde há som.",
+    "Great for covering big open sections to triangulate the room.": "Ótimo para cobrir grandes zonas abertas e triangular a sala.",
+    "Pings when something crosses it — useful for tracking ghost movement.": "Apita quando algo o atravessa — útil para seguir o movimento do fantasma.",
+    "Basic trigger.": "Acionamento básico.", "Clearer indicator.": "Indicador mais claro.", "Best indicator and range.": "Melhor indicador e alcance.",
+    "Mount across a doorway (not on your own path); it lights up and notifies the truck on movement.":
+      "Monta a atravessar uma porta (fora do teu caminho); acende e avisa a carrinha quando há movimento.",
+    "Place facing across a door away from where you walk to avoid false triggers.":
+      "Coloca a apontar através de uma porta, longe de onde andas, para evitar falsos acionamentos.",
+    "Prevents a hunt from starting within its radius (it does not stop one already in progress).":
+      "Impede que um hunt comece dentro do seu raio (não para um já a decorrer).",
+    "~3 m radius, limited uses.": "Raio ~3 m, usos limitados.", "Larger radius.": "Raio maior.", "Largest radius and shows remaining uses.": "Maior raio e mostra os usos restantes.",
+    "Place or hold it near the ghost room or during a cursed event. It burns a charge each time it blocks a hunt.":
+      "Coloca ou segura perto da sala do fantasma ou durante um evento amaldiçoado. Gasta uma carga sempre que bloqueia um hunt.",
+    "Position it where the ghost starts hunts (its room). Useless once a hunt is already active.":
+      "Põe-no onde o fantasma começa os hunts (a sala dele). Inútil quando o hunt já está ativo.",
+    "Blinds the ghost and blocks hunts for a short time; can stop the ghost finding you mid-hunt.":
+      "Cega o fantasma e bloqueia hunts por pouco tempo; pode impedir que te encontre a meio de um hunt.",
+    "Short burn time.": "Tempo de queima curto.", "Longer burn.": "Queima mais longa.", "Longest burn / extra use.": "Queima mais longa / uso extra.",
+    "Light with an igniter. During a hunt, smudge at the ghost's location to blind it for ~6 s and break its line on you.":
+      "Acende com um isqueiro. Durante um hunt, faz smudge no local do fantasma para o cegar ~6 s e cortar a linha sobre ti.",
+    "Smudging a Spirit stops it hunting for 180 s. Keep one as your emergency escape.":
+      "Fazer smudge a um Spirit impede-o de caçar por 180 s. Guarda um como fuga de emergência.",
+    "Ghosts may step in it, leaving UV footprints; also an objective.": "Os fantasmas podem pisá-lo, deixando pegadas UV; também é um objetivo.",
+    "A couple of piles.": "Algumas pilhas.", "More piles.": "Mais pilhas.", "Most piles.": "Mais pilhas ainda.",
+    "Place piles in doorways and the ghost room, then check with UV for glowing footsteps.":
+      "Coloca pilhas nas portas e na sala do fantasma, depois verifica com UV à procura de pegadas brilhantes.",
+    "A Wraith never steps in salt — disturbed salt with no footprints is a strong hint.":
+      "Um Wraith nunca pisa sal — sal mexido sem pegadas é uma forte pista.",
+    "Restores sanity, lowering the chance of a hunt.": "Recupera sanidade, reduzindo a hipótese de um hunt.",
+    "Small restore.": "Recuperação pequena.", "Medium restore.": "Recuperação média.", "Large restore.": "Recuperação grande.",
+    "Take when your sanity drops low, especially before sanity-dependent objectives.":
+      "Toma quando a tua sanidade baixar muito, sobretudo antes de objetivos dependentes de sanidade.",
+    "Don't burn it early — save it for when low sanity actually puts you at risk.":
+      "Não a gastes cedo — guarda-a para quando a sanidade baixa te puser mesmo em risco.",
+    "Lights incense, candles and firelights — needed for several other items.":
+      "Acende incenso, velas e firelights — necessário para vários outros items.",
+    "Limited uses.": "Usos limitados.", "More uses.": "Mais usos.", "Unlimited uses.": "Usos ilimitados.",
+    "Equip and use on incense or candles to light them. Required for smudging and summoning circles.":
+      "Equipa e usa em incenso ou velas para os acender. Necessário para smudge e círculos de invocação.",
+    "The Tier III igniter never runs out — a quality-of-life upgrade worth buying early.":
+      "O isqueiro Tier III nunca acaba — uma melhoria de conforto que vale a pena comprar cedo.",
+    "A portable light source that keeps working when electronics are unreliable.":
+      "Uma fonte de luz portátil que continua a funcionar quando a eletrónica falha.",
+    "Dim, short.": "Fraca, curta.", "Brighter.": "Mais forte.", "Brightest / longest.": "Mais forte / mais duradoura.",
+    "Light it for steady ambient light in a room while you work, without relying on the breaker.":
+      "Acende-a para luz ambiente estável numa sala enquanto trabalhas, sem depender do quadro elétrico.",
+    "An Onryo can trigger a hunt when a flame is blown out — watch your candles around it.":
+      "Um Onryo pode despoletar um hunt quando uma chama se apaga — cuidado com as velas perto dele.",
+    "Standard light. Flashlights flicker just before a hunt — a free early warning.":
+      "Luz normal. As lanternas piscam mesmo antes de um hunt — um aviso grátis.",
+    "Basic beam.": "Feixe básico.", "Brighter beam.": "Feixe mais forte.", "Strong, wide beam.": "Feixe forte e largo.",
+    "Light your way; watch for flickering, which signals an imminent hunt so you can hide.":
+      "Ilumina o caminho; atento ao piscar, que sinaliza um hunt iminente para te poderes esconder.",
+    "If every flashlight in the area flickers, a hunt is starting — get to safety now.":
+      "Se todas as lanternas na zona piscarem, está a começar um hunt — põe-te a salvo já.",
+    "Mounts a video camera for a stable, aimed view.": "Suporta uma câmara de vídeo para uma vista estável e apontada.",
+    "Place it, then put a video camera on top pointing at the room centre or the D.O.T.S projector.":
+      "Coloca-o e põe uma câmara em cima apontada ao centro da sala ou ao projetor D.O.T.S.",
+    "Essential for hands-free orb and D.O.T.S monitoring from the truck.":
+      "Essencial para monitorizar orbs e D.O.T.S sem mãos a partir da carrinha.",
+    "A worn camera that streams your night-vision view to the truck.": "Uma câmara vestida que transmite a tua visão noturna para a carrinha.",
+    "Basic feed.": "Feed básico.", "Improved feed.": "Feed melhorado.", "Best feed.": "Melhor feed.",
+    "Wear it so a teammate in the truck can see what you see and guide you.":
+      "Veste-a para que um colega na carrinha veja o que vês e te guie.",
+    "Perfect for a solo investigator relaying their view to someone watching the monitors.":
+      "Perfeito para um investigador solo a transmitir a vista a quem vê os monitores.",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
