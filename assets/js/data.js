@@ -199,7 +199,7 @@ const GAMES = [
         type: "database",
         desc: "Every item with where to farm it — searchable and filterable.",
         href: "games/dreamlight-valley/items.html",
-        available: false,
+        available: true,
       },
     ],
   },

@@ -788,7 +788,9 @@ body {
 .rc-stars { font-size: 0.78rem; white-space: nowrap; }
 .rc-ing { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
 .rc-chip { font-size: 0.78rem; padding: 3px 8px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--muted); }
-.rc-meta { display: flex; gap: 16px; font-family: var(--mono); font-size: 0.85rem; color: var(--text); }
+.rc-meta { display: flex; gap: 16px; font-family: var(--mono); font-size: 0.85rem; color: var(--text); flex-wrap: wrap; }
+.it-where { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
+.it-where b { color: var(--text); }
 
 /* ---- Equipment guide ---- */
 .eq-grid {
