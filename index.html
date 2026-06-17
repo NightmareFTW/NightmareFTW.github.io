@@ -37,7 +37,24 @@
         <h2>Games</h2>
         <span class="count" id="game-count"></span>
       </div>
+
+      <div class="list-controls">
+        <input type="search" id="game-search" class="search-input" placeholder="Search games…" autocomplete="off">
+        <select id="game-sort" class="sort-select">
+          <option value="default">Sort: Default</option>
+          <option value="az">Name A–Z</option>
+          <option value="za">Name Z–A</option>
+          <option value="tools">Most tools</option>
+        </select>
+        <div class="view-toggle" id="view-toggle">
+          <button data-view="grid" class="active" title="Grid">▦</button>
+          <button data-view="list" title="List">≣</button>
+          <button data-view="compact" title="Compact">≡</button>
+        </div>
+      </div>
+
       <div class="game-grid" id="game-grid"><!-- populated by JS --></div>
+      <p id="no-results" class="no-results" style="display:none">No games match your search.</p>
     </section>
   </main>
 
