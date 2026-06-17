@@ -102,6 +102,8 @@ const GAMES = [
     color: "#c2497d",
     glow: "rgba(194, 73, 125, 0.22)",
     blurb: "Turn-based gacha RPG.",
+    // Global server daily reset 10:00 UTC.
+    reset: { daily: { h: 10, m: 0, utc: true } },
     tools: [
       {
         id: "gear-score",
@@ -216,6 +218,8 @@ const GAMES = [
     color: "#7c5cff",
     glow: "rgba(124, 92, 255, 0.22)",
     blurb: "Open-world action RPG.",
+    // Daily reset 04:00 local time.
+    reset: { daily: { h: 4, m: 0, utc: false } },
     tools: [
       {
         id: "dailies",
