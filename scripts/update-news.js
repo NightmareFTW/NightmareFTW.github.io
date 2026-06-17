@@ -17,6 +17,7 @@ const QUERIES = {
   epic7: "Epic Seven game",
   nte: "Neverness to Everness game",
   warframe: "Warframe game",
+  "dreamlight-valley": "Disney Dreamlight Valley",
 };
 
 const ENTITIES = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#39;": "'", "&apos;": "'" };

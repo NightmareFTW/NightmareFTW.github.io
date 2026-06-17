@@ -775,6 +775,10 @@ body {
 .cp-detail b { color: var(--text); }
 .cp-sublist { margin: 0 0 12px; padding-left: 18px; }
 .cp-sublist li { font-size: 0.88rem; color: var(--muted); margin-bottom: 5px; }
+.sp-check-wrap { display: flex; align-items: center; gap: 11px; cursor: pointer; }
+.sp-check { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+.cp-card.is-checked { opacity: 0.6; }
+.cp-card.is-checked .cp-name { text-decoration: line-through; color: var(--muted); }
 
 /* ---- Equipment guide ---- */
 .eq-grid {
