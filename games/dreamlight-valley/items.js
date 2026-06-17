@@ -3,8 +3,9 @@
    multi-select filters by cooking category and biome, with sorting. */
 
 let DATA = null;
-const sel = { category: new Set(), biome: new Set() };
+const sel = { category: new Set(), biome: new Set(), dlc: new Set() };
 let query = "", sort = "name";
+const DLC_CLASS = { "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" };
 
 const els = {
   search: document.getElementById("it-search"),
@@ -21,6 +22,7 @@ const uniqSorted = (arr) => [...new Set(arr)].filter(Boolean).sort();
 function buildFacets() {
   const cats = uniqSorted(DATA.items.map((i) => i.category));
   const biomes = uniqSorted(DATA.items.flatMap((i) => i.biomes));
+  const dlcs = uniqSorted(DATA.items.map((i) => i.dlc));
   const group = (title, key, items) => `
     <div class="facet-group">
       <span class="facet-title">${title}</span>
@@ -28,7 +30,8 @@ function buildFacets() {
         ${items.map((v) => `<button class="chip-toggle" data-facet="${key}" data-val="${v}">${v}</button>`).join("")}
       </div>
     </div>`;
-  els.facets.innerHTML = group("Category", "category", cats) + group("Biome", "biome", biomes);
+  els.facets.innerHTML = group("Category", "category", cats) + group("Biome", "biome", biomes) +
+    (dlcs.length ? group("DLC", "dlc", dlcs) : "");
   els.facets.querySelectorAll(".chip-toggle").forEach((b) =>
     b.addEventListener("click", () => {
       const f = b.dataset.facet, v = b.dataset.val;
@@ -41,6 +44,7 @@ function buildFacets() {
 function matches(it) {
   if (sel.category.size && !sel.category.has(it.category)) return false;
   if (sel.biome.size && !it.biomes.some((b) => sel.biome.has(b))) return false;
+  if (sel.dlc.size && !sel.dlc.has(it.dlc)) return false;
   if (query && !it.name.toLowerCase().includes(query)) return false;
   return true;
 }
@@ -57,7 +61,7 @@ function render() {
     <div class="rc-card">
       <div class="rc-top">
         <span class="rc-name">${it.name}</span>
-        <span class="ev-chip">${it.category}</span>
+        <span>${it.dlc ? `<span class="fr-dlc ${DLC_CLASS[it.dlc] || ""}">${it.dlc}</span> ` : ""}<span class="ev-chip">${it.category}</span></span>
       </div>
       <p class="it-where"><b>Where:</b> ${it.location}</p>
       <p class="it-where"><b>From:</b> ${it.source}</p>

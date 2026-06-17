@@ -49,13 +49,13 @@ function render() {
   els.list.innerHTML = list.map((r) => `
     <div class="rc-card">
       <div class="rc-top">
-        <span class="rc-name">${r.name}</span>
+        <span class="rc-name">${r.name}${r.dlc ? ` <span class="fr-dlc ${({ "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" })[r.dlc] || ""}">${r.dlc}</span>` : ""}</span>
         <span class="rc-stars">${"⭐".repeat(r.stars)}</span>
       </div>
       <div class="rc-ing">${r.ingredients.map((i) => `<span class="rc-chip">${i.q > 1 ? i.q + "× " : ""}${i.name}</span>`).join("")}</div>
       <div class="rc-meta">
-        <span>💰 ${r.sell.toLocaleString()}</span>
-        <span>⚡ ${r.energy.toLocaleString()}</span>
+        <span>💰 ${r.sell ? r.sell.toLocaleString() : "—"}</span>
+        <span>⚡ ${r.energy ? r.energy.toLocaleString() : "—"}</span>
       </div>
     </div>`).join("") || `<p class="no-results">No recipes match.</p>`;
 }
@@ -66,7 +66,7 @@ els.sort.addEventListener("change", () => { sort = els.sort.value; render(); });
 (async function init() {
   try {
     DATA = await (await fetch(`../../data/dreamlight-valley/recipes.json?cb=${Date.now()}`)).json();
-    els.updated.textContent = `${DATA.count} recipes · source: Nintendo Life`;
+    els.updated.textContent = `${DATA.count} recipes · sources: Crystal Dreams + Nintendo Life`;
     buildStarFilter();
     render();
   } catch (e) {

@@ -1,0 +1,34 @@
+name: Update Dreamlight Valley data
+
+on:
+  schedule:
+    - cron: "30 7 * * 1"   # weekly, Monday 07:30 UTC (Star Path reveals weekly)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ddv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build DDV datasets
+        run: |
+          node scripts/update-items.js
+          node scripts/update-recipes.js   # reads items.json, run after it
+          node scripts/update-starpath.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/dreamlight-valley)" ]; then
+            git add data/dreamlight-valley
+            git commit -m "chore: auto-update Dreamlight Valley data"
+            git push
+          else
+            echo "No DDV data changes."
+          fi

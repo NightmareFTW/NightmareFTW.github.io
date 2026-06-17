@@ -26,6 +26,14 @@ const BIOMES = [
 ];
 const biomesIn = (text) => BIOMES.filter((b) => text.includes(b));
 
+// Eternity Isle (A Rift in Time DLC) biomes — items found only here are DLC.
+const ETERNITY_ISLE = new Set([
+  "Wild Tangle", "Glittering Dunes", "The Promenade", "The Docks",
+  "The Grasslands", "Ancient's Landing", "The Overlook",
+]);
+const dlcOf = (biomes) =>
+  biomes.length && biomes.every((b) => ETERNITY_ISLE.has(b)) ? "A Rift in Time" : null;
+
 async function run() {
   const html = await (await fetch(SOURCE, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
   const table = (html.match(/<table[\s\S]*?<\/table>/) || [""])[0];
@@ -48,6 +56,7 @@ async function run() {
       location,
       source,
       biomes: biomesIn(`${location} ${source}`),
+      dlc: dlcOf(biomesIn(`${location} ${source}`)),
     });
   }
 
