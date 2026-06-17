@@ -186,12 +186,12 @@ const GAMES = [
         available: true,
       },
       {
-        id: "gifts",
-        name: "Gift & Friendship Tracker",
+        id: "friendship",
+        name: "Friendship Tracker",
         type: "tracker",
-        desc: "Favourite gifts per villager plus a personal friendship tracker.",
-        href: "games/dreamlight-valley/gifts.html",
-        available: false,
+        desc: "Track each villager's friendship level, with tips on levelling up fast.",
+        href: "games/dreamlight-valley/friendship.html",
+        available: true,
       },
       {
         id: "items",

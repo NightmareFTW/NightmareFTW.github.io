@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friendship Tracker · Disney Dreamlight Valley · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Disney Dreamlight Valley</a> / friendship</p>
+    <h1>Friendship Tracker</h1>
+    <p class="tool-sub">Track every villager's friendship level (0–10). Saved on this device.</p>
+    <p class="codes-updated" id="fr-summary"></p>
+
+    <div class="tool-note">
+      <b>Levelling up fast:</b> the quickest friendship gains come from giving a villager their
+      <b>daily favourite gifts</b> (the 3 that rotate each day — check the gift icon by their name),
+      having the <b>daily chat</b>, taking them out as your <b>companion</b> while you gather/fish/mine,
+      and completing their <b>Friendship Quests</b> (which also unlock new realms, recipes and rewards
+      at levels 2, 4, 7 and 10).
+    </div>
+
+    <div class="controls" style="margin:16px 0"><button class="btn" id="fr-reset">⟳ Reset all</button></div>
+    <div class="fr-grid" id="fr-grid"></div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
+  <script src="friendship.js"></script>
+</body>
+</html>

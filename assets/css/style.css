@@ -792,6 +792,19 @@ body {
 .it-where { font-size: 0.82rem; color: var(--muted); margin-bottom: 6px; }
 .it-where b { color: var(--text); }
 
+/* ---- DDV friendship tracker ---- */
+.fr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; padding-bottom: 60px; }
+.fr-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.fr-card.fr-max { border-color: var(--accent-2); }
+.fr-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.fr-name { font-weight: 600; font-size: 0.92rem; }
+.fr-lvl { font-family: var(--mono); font-weight: 800; font-size: 1.1rem; color: var(--accent); }
+.fr-card.fr-max .fr-lvl { color: var(--accent-2); }
+.fr-bar { height: 6px; background: var(--bg-soft); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+.fr-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.2s; }
+.fr-btns { display: flex; gap: 6px; }
+.fr-btns .mini-btn { flex: 1; padding: 6px 0; font-size: 0.85rem; }
+
 /* ---- Equipment guide ---- */
 .eq-grid {
   display: grid;
