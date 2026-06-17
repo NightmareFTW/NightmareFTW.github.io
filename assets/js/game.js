@@ -5,15 +5,7 @@
   const game = GAMES.find((g) => g.id === id);
   if (!game) return;
 
-  // Per-game news search query and which games actually have redeem codes.
-  const NEWS_QUERY = {
-    phasmophobia: "Phasmophobia game",
-    "outlast-trials": "The Outlast Trials game",
-    ffxiv: "Final Fantasy XIV",
-    epic7: "Epic Seven game",
-    nte: "Neverness to Everness game",
-    warframe: "Warframe game",
-  };
+  // Which games actually have redeem codes (others show a friendly note).
   const CODES_GAMES = new Set(["epic7", "nte", "warframe"]);
 
   document.title = `${game.name} · NightmareFTW`;
@@ -105,30 +97,27 @@
       if (name === "codes" && !codesLoaded) { codesLoaded = true; loadCodes(); }
     }));
 
-  // ---- News tab (live via Google News RSS + CORS proxy) ----
+  // ---- News tab (reads data/news/<id>.json, refreshed by a GitHub Action) ----
   async function loadNews() {
     const root = document.getElementById("news-root");
-    const q = NEWS_QUERY[game.id] || game.name;
-    const rss = `https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-US&gl=US&ceid=US:en`;
-    const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(rss)}`;
     try {
-      const txt = await (await fetch(proxy)).text();
-      const xml = new DOMParser().parseFromString(txt, "text/xml");
-      const items = [...xml.querySelectorAll("item")].slice(0, 15);
+      const res = await fetch(`../../data/news/${game.id}.json?cb=${Date.now()}`);
+      if (!res.ok) throw new Error("no file");
+      const data = await res.json();
+      const items = data.items || [];
       if (!items.length) throw new Error("empty");
-      root.innerHTML = items.map((it) => {
-        const title = it.querySelector("title")?.textContent || "";
-        const link = it.querySelector("link")?.textContent || "#";
-        const src = it.querySelector("source")?.textContent || "";
-        const d = it.querySelector("pubDate")?.textContent;
-        const date = d ? new Date(d).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
-        return `<a class="news-row" href="${link}" target="_blank" rel="noopener">
-          <span class="news-title">${title}</span>
-          <span class="news-meta">${src}${src && date ? " · " : ""}${date}</span>
-        </a>`;
-      }).join("");
+      const updated = data.updated ? new Date(data.updated).toLocaleString() : "";
+      root.innerHTML =
+        `<p class="codes-updated">${items.length} headlines · updated ${updated}</p>` +
+        items.map((it) => {
+          const date = it.date ? new Date(it.date).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
+          return `<a class="news-row" href="${it.link}" target="_blank" rel="noopener">
+            <span class="news-title">${esc(it.title)}</span>
+            <span class="news-meta">${esc(it.source || "")}${it.source && date ? " · " : ""}${date}</span>
+          </a>`;
+        }).join("");
     } catch (e) {
-      root.innerHTML = `<p class="tool-note">Couldn't load live news right now (the news proxy may be down). Try again later.</p>`;
+      root.innerHTML = `<p class="tool-note">No news data yet — the news updater hasn't published this game's headlines.</p>`;
     }
   }
 
