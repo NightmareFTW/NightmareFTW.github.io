@@ -151,6 +151,14 @@ const GAMES = [
         href: "games/warframe/cycles.html",
         available: true,
       },
+      {
+        id: "drops",
+        name: "Drop Table",
+        type: "database",
+        desc: "Searchable relic & mission drops with multi-select filters and sorting.",
+        href: "games/warframe/drops.html",
+        available: true,
+      },
     ],
   },
   {

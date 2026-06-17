@@ -958,3 +958,55 @@ body {
 .code-row.is-expired { border-color: rgba(255,36,53,.35); }
 .code-row.is-expired .code-text { color: var(--danger); }
 .code-copy { flex-shrink: 0; }
+
+/* ---- Warframe drop table ---- */
+.drop-facets {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.facet-group { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.facet-title {
+  font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--muted); width: 80px; flex-shrink: 0;
+}
+.facet-chips { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; }
+.chip-toggle {
+  font-family: var(--sans); font-size: 0.8rem;
+  padding: 4px 11px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg-soft);
+  color: var(--muted); cursor: pointer; transition: all 0.13s;
+}
+.chip-toggle:hover { border-color: var(--muted); color: var(--text); }
+.chip-toggle.on { background: rgba(255,36,53,.15); border-color: var(--accent); color: #ff8a82; }
+.drop-count { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; }
+.drop-list { display: flex; flex-direction: column; gap: 5px; padding-bottom: 60px; }
+.drop-row {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 9px 13px;
+}
+.drop-item { font-weight: 600; font-size: 0.92rem; flex: 1; min-width: 140px; }
+.drop-src { color: var(--muted); font-size: 0.82rem; flex: 1; display: flex; align-items: center; gap: 7px; }
+.src-tag {
+  font-family: var(--mono); font-size: 0.66rem; padding: 2px 6px; border-radius: 5px;
+  flex-shrink: 0;
+}
+.tag-R { background: rgba(124,92,255,.18); color: #b3a4ff; }
+.tag-M { background: rgba(42,143,168,.2); color: #5bc7e0; }
+.drop-chance { font-family: var(--mono); font-size: 0.9rem; color: var(--text); width: 64px; text-align: right; flex-shrink: 0; }
+.rar { font-family: var(--mono); font-size: 0.7rem; padding: 2px 8px; border-radius: 999px; flex-shrink: 0; width: 78px; text-align: center; }
+.rar-0 { background: rgba(150,150,150,.15); color: #aaa; }
+.rar-1 { background: rgba(180,200,210,.15); color: #cdd; }
+.rar-2 { background: rgba(212,175,55,.18); color: #e3c054; }
+.rar-3 { background: rgba(0,224,184,.16); color: var(--accent-2); }
+@media (max-width: 680px) {
+  .drop-row { flex-wrap: wrap; }
+  .drop-item { flex-basis: 100%; }
+  .facet-title { width: 100%; }
+}

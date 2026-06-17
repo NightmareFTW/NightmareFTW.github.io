@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drop Table · Warframe · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Warframe</a> / drop table</p>
+    <h1>Drop Table</h1>
+    <p class="tool-sub">Search relic and mission drops. Filter by source, rarity, relic tier and planet (multi-select), and sort by drop chance.</p>
+    <p class="codes-updated" id="drop-updated">Loading…</p>
+
+    <div class="list-controls">
+      <input type="search" id="drop-search" class="search-input" placeholder="Search item, relic or node…" autocomplete="off">
+      <select id="drop-sort" class="sort-select">
+        <option value="chance-desc">Sort: Chance (high→low)</option>
+        <option value="chance-asc">Chance (low→high)</option>
+        <option value="az">Item A–Z</option>
+        <option value="za">Item Z–A</option>
+      </select>
+      <button class="btn" id="drop-clear">Clear filters</button>
+    </div>
+
+    <div class="drop-facets" id="drop-facets"></div>
+    <p class="drop-count" id="drop-count"></p>
+    <div class="drop-list" id="drop-results"><p style="color:var(--muted)">Loading drop data…</p></div>
+    <p class="tool-note">Data from DE's official drop tables, parsed by WFCD (drops.warframestat.us). Relic rewards shown at Intact. Refreshed automatically.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · drop data © Digital Extremes, via WFCD.</span></div></footer>
+  <script src="drops.js"></script>
+</body>
+</html>
