@@ -1,0 +1,30 @@
+{
+  "game": "dreamlight-valley",
+  "updated": "2026-06-17T00:00:00.000Z",
+  "source": "https://dreamlightvalleywiki.com/Redemption_Codes",
+  "note": "Redeem in Settings → Help → Redemption code. Codes are case-sensitive; rewards arrive in your in-game mailbox. Most older cosmetic codes stay redeemable.",
+  "codes": [
+    { "code": "DDVPRIDE2026", "reward": "Round Rainbow Garden, Butterfly Tiara", "expires": null, "expired": false },
+    { "code": "JNHRMILADY0603", "reward": "5× Berry Salad, 15× Stone, 15× Softwood, 10× Carrot/Wheat/Lettuce Seed (or JNHRBEATEMUPS0603 / JNHRSYDMAC0603 — only one)", "expires": null, "expired": false },
+    { "code": "SPIRITOFSPRING2026", "reward": "Spirit of Spring Costume", "expires": null, "expired": false },
+    { "code": "EARTHDAY2026", "reward": "Sycamore Tree", "expires": null, "expired": false },
+    { "code": "RUNAWORLDOFFROZEN", "reward": "Rúna Handheld Purse", "expires": null, "expired": false },
+    { "code": "TIME4SPAGHETTI2026", "reward": "Bella Notte Photo Frame, Spaghetti Motif", "expires": null, "expired": false },
+    { "code": "PAWSOMEPLUTO26", "reward": "Paw Print Photo Frame", "expires": null, "expired": false },
+    { "code": "WISHBLOSSOMFRAME", "reward": "Wishblossom Photo Frame", "expires": null, "expired": false },
+    { "code": "HAPPYNEWYEAR2026", "reward": "New Year's Community Lanterns", "expires": null, "expired": false },
+    { "code": "COMMUNITYCOMPANIONDRAGON2025", "reward": "Sakura Blossom Dragon", "expires": null, "expired": false },
+    { "code": "VAMPIRETEETH2025", "reward": "Vampire Teeth", "expires": null, "expired": false },
+    { "code": "DDVPRIDE25", "reward": "Joy and Rainbows Sweater & Umbrella, Gleam Celebration Banner, Pride 2025 Frame", "expires": null, "expired": false },
+    { "code": "WELCOME2DDV", "reward": "Starter celebration pack — clothing, Mickey/Minnie ears, balloon décor & more", "expires": null, "expired": false },
+    { "code": "HADES15", "reward": "3× Carrot", "expires": null, "expired": false },
+    { "code": "PRIDEBRIGHT24", "reward": "Bright Pride set — balloons, arch, popcorn bucket, ears headband", "expires": null, "expired": false },
+    { "code": "PRIDEDAZZLE24", "reward": "Dazzle Pride set", "expires": null, "expired": false },
+    { "code": "PRIDEGLEAM24", "reward": "Gleam Pride set", "expires": null, "expired": false },
+    { "code": "PRIDEGLOW24", "reward": "Glow Pride set", "expires": null, "expired": false },
+    { "code": "PRIDEILLUMINATE24", "reward": "Illuminate Pride set", "expires": null, "expired": false },
+    { "code": "PRIDERADIATE24", "reward": "Radiate Pride set", "expires": null, "expired": false },
+    { "code": "PRIDESHIMMER24", "reward": "Shimmer Pride set", "expires": null, "expired": false },
+    { "code": "PRIDESHINE24", "reward": "Shine Pride set", "expires": null, "expired": false }
+  ]
+}
