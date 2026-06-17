@@ -1,0 +1,14 @@
+{
+  "game": "epic7",
+  "updated": "2026-06-17T00:00:00.000Z",
+  "source": "Compiled from public code listings",
+  "codes": [
+    { "code": "E7VTPRESENT", "reward": "VT present rewards", "expires": null, "expired": false },
+    { "code": "DIENE_GIFTO219", "reward": "Gifts and resources", "expires": null, "expired": false },
+    { "code": "E7EVENTLUNATIC", "reward": "Energy, charms, boxes", "expires": null, "expired": false },
+    { "code": "START_THE_MATCH", "reward": "Match start rewards", "expires": null, "expired": false },
+    { "code": "RPE7100G8", "reward": "Gear / points rewards", "expires": null, "expired": false },
+    { "code": "SY_ORBIS_RWDBOX", "reward": "Reward box", "expires": null, "expired": false },
+    { "code": "E7MLIVE_DROP7", "reward": "Livestream drop rewards", "expires": null, "expired": false }
+  ]
+}

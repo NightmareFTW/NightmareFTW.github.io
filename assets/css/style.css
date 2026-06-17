@@ -910,3 +910,51 @@ body {
 .ws-info span { font-size: 0.8rem; color: var(--muted); }
 .ws-row .ws-timer { margin-left: auto; white-space: nowrap; }
 .ws-baro { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ---- Game tabs ---- */
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin: 24px 0 22px; }
+.tab {
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); font-family: var(--sans); font-size: 0.98rem; font-weight: 600;
+  padding: 10px 18px; border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--text); border-bottom-color: var(--accent); }
+.tool-grid.view-list { grid-template-columns: 1fr; }
+
+/* ---- News ---- */
+#news-root { display: flex; flex-direction: column; gap: 8px; padding-bottom: 60px; }
+.news-row {
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--card); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px; padding: 13px 16px;
+  text-decoration: none; color: var(--text);
+  transition: border-color 0.15s, transform 0.15s;
+}
+.news-row:hover { transform: translateX(3px); border-left-color: var(--accent-2); }
+.news-title { font-weight: 600; font-size: 0.96rem; }
+.news-meta { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); }
+
+/* ---- Codes ---- */
+.codes-updated { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+.codes-list { display: flex; flex-direction: column; gap: 8px; padding-bottom: 60px; }
+.code-row {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 11px 14px;
+}
+.code-row.is-used { opacity: 0.55; }
+.code-check { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--accent); cursor: pointer; }
+.code-main { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+.code-text {
+  font-family: var(--mono); font-size: 1rem; font-weight: 700;
+  color: var(--accent-2); letter-spacing: 0.03em;
+}
+.code-row.is-used .code-text { text-decoration: line-through; }
+.code-reward { font-size: 0.82rem; color: var(--muted); }
+.code-valid { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); white-space: nowrap; }
+.code-valid.expired { color: var(--danger); font-weight: 700; }
+.code-row.is-expired { border-color: rgba(255,36,53,.35); }
+.code-row.is-expired .code-text { color: var(--danger); }
+.code-copy { flex-shrink: 0; }
