@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speed Tuning · Epic Seven · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Epic Seven</a> / speed tuning</p>
+    <h1>Speed Tuning / Turn Order</h1>
+    <p class="tool-sub">Enter each unit's Speed and starting CR. The simulator shows the opening turn order — who moves first and how the rotation plays out.</p>
+
+    <div class="gs-layout">
+      <div class="panel">
+        <h2>Units <span style="color:var(--muted);font-weight:400">(name · SPD · start CR%)</span></h2>
+        <div id="st-rows"></div>
+        <button class="btn" id="st-add" style="margin-top:12px">+ Add unit</button>
+      </div>
+      <div class="panel">
+        <h2>Turn Order</h2>
+        <div class="turn-seq" id="st-seq"></div>
+      </div>
+    </div>
+    <p class="tool-note">CR fills proportionally to Speed and overflow carries over after each turn. This models the natural turn order — it doesn't account for CR-push/pull skills or Speed buffs mid-fight.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
+  <script src="speed-tuning.js"></script>
+</body>
+</html>

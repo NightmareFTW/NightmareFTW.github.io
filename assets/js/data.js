@@ -117,6 +117,14 @@ const GAMES = [
         href: "games/epic7/damage.html",
         available: true,
       },
+      {
+        id: "speed-tuning",
+        name: "Speed Tuning / Turn Order",
+        type: "simulator",
+        desc: "Simulate opening turn order from each unit's Speed and starting CR.",
+        href: "games/epic7/speed-tuning.html",
+        available: true,
+      },
     ],
   },
   {
