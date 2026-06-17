@@ -360,6 +360,85 @@
       "Veste-a para que um colega na carrinha veja o que vês e te guie.",
     "Perfect for a solo investigator relaying their view to someone watching the monitors.":
       "Perfeito para um investigador solo a transmitir a vista a quem vê os monitores.",
+
+    // ---- Tool subtitles / notes / errors (all games) ----
+    "Track every villager's friendship level (0–10). Saved on this device.":
+      "Acompanha o nível de amizade de cada villager (0–10). Guardado neste dispositivo.",
+    "Every farmable ingredient and where to get it. Filter by category and biome (multi-select), search and sort.":
+      "Cada ingrediente farmável e onde o obter. Filtra por categoria e bioma (multi-seleção), pesquisa e ordena.",
+    "Data compiled from the Dreamlight Valley Wiki. Covers farmable ingredients (fish/gems can be added). DLC tags are inferred from the item's biome (Eternity Isle = A Rift in Time) and are best-effort.":
+      "Dados compilados da Dreamlight Valley Wiki. Cobre ingredientes farmáveis (peixes/gemas podem ser adicionados). As tags de DLC são inferidas pelo bioma do item (Eternity Isle = A Rift in Time) e são best-effort.",
+    "Search by recipe or ingredient, filter by star level, and sort by sell value or energy.":
+      "Pesquisa por receita ou ingrediente, filtra por estrelas, e ordena por valor de venda ou energia.",
+    "Full recipe list compiled from Crystal Dreams (incl. DLC recipes), with sell price & energy from Nintendo Life where available. DLC tags are inferred from DLC-only ingredients and are best-effort.":
+      "Lista completa de receitas do Crystal Dreams (incl. receitas de DLC), com preço & energia da Nintendo Life onde disponível. As tags de DLC são inferidas por ingredientes exclusivos de DLC e são best-effort.",
+    "Duties rotate during the season — every duty is listed with how to clear it. When a new Star Path starts, ask me to refresh the list.":
+      "As duties rodam durante a season — cada uma está listada com how-to. Quando começar um novo Star Path, pede-me para atualizar a lista.",
+    "Live day/night and warm/cold cycles. Countdowns update every second; data refreshes from the API every minute.":
+      "Ciclos de dia/noite e quente/frio ao vivo. Os countdowns atualizam a cada segundo; os dados renovam da API a cada minuto.",
+    "Live data via the Warframe API (api.warframestat.us).": "Dados ao vivo via API do Warframe (api.warframestat.us).",
+    "Live data via the Warframe API (api.warframestat.us), PC platform.": "Dados ao vivo via API do Warframe (api.warframestat.us), plataforma PC.",
+    "Compare offensive and defensive gear. Uses Epic Seven's defense formula: damage taken = 300 / (300 + DEF).":
+      "Compara gear ofensivo e defensivo. Usa a fórmula de defesa do Epic Seven: dano recebido = 300 / (300 + DEF).",
+    "Daily section resets at local midnight, weekly resets Monday. Saved on this device.":
+      "A secção diária reseta à meia-noite local, a semanal reseta segunda. Guardado neste dispositivo.",
+    "Generic gacha routine — once NTE's reset times and content are confirmed, ask me to lock the items and reset schedule to the real ones.":
+      "Rotina gacha genérica — quando os reset times e conteúdo do NTE forem confirmados, pede-me para fixar os items e o horário reais.",
+    "Images & tier data via the Phasmophobia Wiki. Tier effects are summarized; exact values can shift between patches.":
+      "Imagens & dados de tier via Phasmophobia Wiki. Os efeitos por tier estão resumidos; os valores exatos podem mudar entre patches.",
+    "Pick a rig and one amp from each group, name it, save and share. A real loadout is 1 rig + 1 Tool + 1 Skill + 1 Medicine amp.":
+      "Escolhe um rig e um amp de cada grupo, dá nome, guarda e partilha. Um loadout real é 1 rig + 1 Tool + 1 Skill + 1 Medicine amp.",
+    "The live Eorzea clock and up/next countdowns are exact. The node list is a starter set — tell me which nodes you farm and I'll lock in their items, locations and times.":
+      "O relógio de Eorzea e os countdowns up/next são exatos. A lista de nós é um conjunto inicial — diz-me que nós farmas e fixo os items, locais e horas.",
+    "Enter a piece's substats (and rolled values) to grade its quality. Speed and crit are weighted highest.":
+      "Mete os substats de uma peça (e os valores rolados) para avaliar a qualidade. Speed e crit têm o maior peso.",
+    "Weighting follows the common community gear-score model (Speed ×2, Crit Chance ×1.6, Crit Dmg ×1.14, % stats ×1, flats much lower). It's a grading heuristic, not an in-game stat.":
+      "A ponderação segue o modelo comunitário de gear-score (Speed ×2, Crit Chance ×1.6, Crit Dmg ×1.14, stats % ×1, flats muito menos). É uma heurística de avaliação, não um stat do jogo.",
+    "Search relic and mission drops. Filter by source, rarity, relic tier and planet (multi-select), and sort by drop chance.":
+      "Pesquisa drops de relíquias e missões. Filtra por fonte, raridade, tier de relíquia e planeta (multi-seleção), e ordena por hipótese de drop.",
+    "Data from DE's official drop tables, parsed by WFCD (drops.warframestat.us). Relic rewards shown at Intact. Refreshed automatically.":
+      "Dados das drop tables oficiais da DE, parseados pela WFCD (drops.warframestat.us). Recompensas de relíquia em Intact. Atualizado automaticamente.",
+    "Builds & rankings are compiled from Game8 and update as the meta shifts. Want a drag-and-drop personal tier list too? Just ask.":
+      "Builds & rankings são compilados do Game8 e atualizam conforme o meta muda. Queres também uma tier list pessoal arrastável? É só pedires.",
+    "Enter each unit's Speed and starting CR. The simulator shows the opening turn order — who moves first and how the rotation plays out.":
+      "Mete a Speed e o CR inicial de cada unidade. O simulador mostra a ordem de turnos inicial — quem joga primeiro e como roda a rotação.",
+    "CR fills proportionally to Speed and overflow carries over after each turn. This models the natural turn order — it doesn't account for CR-push/pull skills or Speed buffs mid-fight.":
+      "A CR enche proporcional à Speed e o overflow transita após cada turno. Modela a ordem natural de turnos — não considera skills de CR push/pull nem buffs de Speed a meio do combate.",
+    "Rigs persist forever; the weekly section resets automatically. Saved on this device.":
+      "Os rigs persistem sempre; a secção semanal reseta automaticamente. Guardado neste dispositivo.",
+    "All six rigs are listed. Want to track specific amps, perks or MK-Challenges too? Just ask and I'll add them.":
+      "Os seis rigs estão listados. Queres também acompanhar amps, perks ou MK-Challenges específicos? É só pedires.",
+    "Live Sortie, Arbitration, Baro Ki'Teer and Void Fissures. Refreshes automatically.":
+      "Sortie, Arbitration, Baro Ki'Teer e Void Fissures ao vivo. Atualiza automaticamente.",
+    "Couldn't load item data.": "Não foi possível carregar os dados dos items.",
+    "Couldn't load recipe data.": "Não foi possível carregar os dados das receitas.",
+    "Couldn't load the drop table data.": "Não foi possível carregar a drop table.",
+    "No news data yet — the news updater hasn't published this game's headlines.":
+      "Ainda não há notícias — o atualizador ainda não publicou as deste jogo.",
+    "No codes data yet — the updater hasn't published this game's list.":
+      "Ainda não há códigos — o atualizador ainda não publicou a lista deste jogo.",
+    "No drops match your filters.": "Nenhum drop corresponde aos filtros.",
+    "No recipes match.": "Nenhuma receita corresponde.", "No items match.": "Nenhum item corresponde.",
+    "No tools yet — coming soon.": "Ainda sem ferramentas — em breve.",
+
+    // ---- Subtitle / note fragments (with inline tags) ----
+    "Progress is saved on this device and resets automatically —": "O progresso é guardado neste dispositivo e reseta automaticamente —",
+    "daily at 15:00 UTC": "diariamente às 15:00 UTC", "weekly Tuesday 08:00 UTC": "semanalmente terça às 08:00 UTC",
+    "Live Eorzea clock. Nodes currently": "Relógio de Eorzea ao vivo. Os nós atualmente",
+    "up": "disponíveis", "are shown first with their real-time countdown.": "aparecem primeiro com o countdown em tempo real.",
+    "Rankings & builds compiled from": "Rankings & builds compilados do",
+    ". Click a character to see their build & best team.": ". Clica numa personagem para ver a build & melhor equipa.",
+    // Friendship tip
+    "Levelling up fast:": "Subir rápido:",
+    "the quickest friendship gains come from giving a villager their": "os maiores ganhos de amizade vêm de dar a um villager os seus",
+    "daily favourite gifts": "presentes favoritos diários",
+    "(the 3 that rotate each day — check the gift icon by their name), having the": "(os 3 que rodam por dia — vê o ícone de presente junto ao nome), ter a",
+    "daily chat": "conversa diária",
+    ", taking them out as your": ", levá-lo como teu",
+    "companion": "companheiro",
+    "while you gather/fish/mine, and completing their": "enquanto colhes/pescas/mineras, e completar as suas",
+    "Friendship Quests": "Friendship Quests",
+    "(which also unlock new realms, recipes and rewards at levels 2, 4, 7 and 10).": "(que também desbloqueiam novos realms, receitas e recompensas nos níveis 2, 4, 7 e 10).",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
