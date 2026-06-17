@@ -183,7 +183,7 @@ const GAMES = [
         type: "database",
         desc: "Searchable recipes — ingredients, star rating and value.",
         href: "games/dreamlight-valley/recipes.html",
-        available: false,
+        available: true,
       },
       {
         id: "gifts",
