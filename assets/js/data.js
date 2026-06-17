@@ -128,6 +128,32 @@ const GAMES = [
     ],
   },
   {
+    id: "warframe",
+    name: "Warframe",
+    banner: "assets/img/games/warframe-header.jpg",
+    color: "#2a8fa8",
+    glow: "rgba(42, 143, 168, 0.22)",
+    blurb: "Sci-fi co-op looter shooter.",
+    tools: [
+      {
+        id: "worldstate",
+        name: "Worldstate Tracker",
+        type: "live",
+        desc: "Live Sortie, Fissures, Arbitration and Baro Ki'Teer — straight from the API.",
+        href: "games/warframe/worldstate.html",
+        available: true,
+      },
+      {
+        id: "cycles",
+        name: "Open-World Cycle Timers",
+        type: "live",
+        desc: "Live day/night & warm/cold timers for Cetus, Vallis, Cambion, Duviri and Earth.",
+        href: "games/warframe/cycles.html",
+        available: true,
+      },
+    ],
+  },
+  {
     id: "nte",
     name: "NTE",
     banner: "assets/img/games/nte-header.jpg",

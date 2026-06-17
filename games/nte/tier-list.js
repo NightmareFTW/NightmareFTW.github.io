@@ -50,16 +50,23 @@ let role = "all";
 const root = document.getElementById("tier-root");
 const detail = document.getElementById("build-detail");
 
+const portrait = (name) => `../../assets/img/nte/${name.toLowerCase().replace(/ /g, "-")}.png`;
+
 function showBuild(name) {
   const c = CHARACTERS.find((x) => x.name === name);
   if (!c) return;
   detail.style.display = "block";
   detail.innerHTML = `
     <div class="bd-head">
-      <div>
-        <span class="bd-name">${c.name}</span>
-        <span class="tier-badge tier-${c.tier} bd-tier">${c.tier}</span>
-        <span class="role-chip role-${c.role}">${c.role}</span>
+      <div class="bd-title">
+        <span class="bd-portrait"><img src="${portrait(c.name)}" alt="${c.name}"></span>
+        <div>
+          <span class="bd-name">${c.name}</span>
+          <div style="margin-top:6px">
+            <span class="tier-badge tier-${c.tier} bd-tier">${c.tier}</span>
+            <span class="role-chip role-${c.role}">${c.role}</span>
+          </div>
+        </div>
       </div>
       <button class="mini-btn" id="bd-close">close ×</button>
     </div>
@@ -86,9 +93,9 @@ function render() {
     if (!chars.length) return "";
     const cards = chars.map((c) => `
       <button class="char-card" data-char="${c.name}">
+        <span class="char-portrait"><img src="${portrait(c.name)}" alt="${c.name}" loading="lazy"></span>
         <span class="char-name">${c.name}</span>
         <span class="role-chip role-${c.role}">${c.role}</span>
-        <span class="char-link">view build →</span>
       </button>`).join("");
     return `<div class="tier-row">
       <div class="tier-badge tier-${tier}">${tier}</div>
