@@ -80,6 +80,13 @@ body {
   transition: color 0.15s;
 }
 .top-nav a:hover, .top-nav a.active { color: var(--text); }
+.lang-switch { display: inline-flex; gap: 2px; margin-left: 4px; }
+.lang-switch button {
+  background: none; border: none; cursor: pointer; line-height: 1;
+  font-size: 1.05rem; opacity: 0.4; padding: 3px 5px; border-radius: 6px;
+}
+.lang-switch button.on { opacity: 1; background: rgba(255, 255, 255, 0.08); }
+.lang-switch button:hover { opacity: 0.85; }
 
 /* Hero */
 .hero { padding: 72px 0 40px; }
