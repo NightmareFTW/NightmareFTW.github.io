@@ -31,7 +31,14 @@
       at levels 2, 4, 7 and 10).
     </div>
 
-    <div class="controls" style="margin:16px 0"><button class="btn" id="fr-reset">⟳ Reset all</button></div>
+    <div class="controls" style="margin:16px 0;flex-wrap:wrap">
+      <button class="btn fr-filter active" data-dlc="all">All</button>
+      <button class="btn fr-filter" data-dlc="base">Base game</button>
+      <button class="btn fr-filter" data-dlc="A Rift in Time">A Rift in Time</button>
+      <button class="btn fr-filter" data-dlc="Storybook Vale">Storybook Vale</button>
+      <button class="btn fr-filter" data-dlc="Wishblossom Mountains">Wishblossom Mountains</button>
+      <button class="btn" id="fr-reset" style="margin-left:auto">⟳ Reset all</button>
+    </div>
     <div class="fr-grid" id="fr-grid"></div>
   </main>
   <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
