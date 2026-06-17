@@ -48,6 +48,8 @@ const GAMES = [
     color: "#d4842a",
     glow: "rgba(212, 132, 42, 0.22)",
     blurb: "Co-op survival horror.",
+    // Daily reset 15:00 UTC (10:00 EST); weekly reset Tuesday 15:00 UTC.
+    reset: { daily: { h: 15, m: 0, utc: true }, weekly: { dow: 2, h: 15, m: 0, utc: true } },
     tools: [
       {
         id: "progression",
