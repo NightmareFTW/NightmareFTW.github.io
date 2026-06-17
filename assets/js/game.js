@@ -18,7 +18,53 @@
     <div class="game-hero-text">
       <h1>${game.name}</h1>
       <p>${game.blurb}</p>
-    </div>`;
+    </div>
+    ${game.reset ? `<div class="reset-widget" id="reset-widget"></div>` : ""}`;
+
+  // ---- Reset countdowns (only for games with a daily/weekly reset) ----
+  if (game.reset) {
+    // Next occurrence (ms) of a daily reset at h:m, in UTC or local time.
+    const nextDaily = (r) => {
+      const now = new Date();
+      const d = new Date(now);
+      if (r.utc) { d.setUTCHours(r.h, r.m, 0, 0); if (d <= now) d.setUTCDate(d.getUTCDate() + 1); }
+      else { d.setHours(r.h, r.m, 0, 0); if (d <= now) d.setDate(d.getDate() + 1); }
+      return d.getTime();
+    };
+    // Next occurrence of a weekly reset on day-of-week `dow` at h:m.
+    const nextWeekly = (r) => {
+      const now = new Date();
+      const d = new Date(now);
+      if (r.utc) {
+        d.setUTCHours(r.h, r.m, 0, 0);
+        let add = (r.dow - d.getUTCDay() + 7) % 7;
+        if (add === 0 && d <= now) add = 7;
+        d.setUTCDate(d.getUTCDate() + add);
+      } else {
+        d.setHours(r.h, r.m, 0, 0);
+        let add = (r.dow - d.getDay() + 7) % 7;
+        if (add === 0 && d <= now) add = 7;
+        d.setDate(d.getDate() + add);
+      }
+      return d.getTime();
+    };
+    const fmt = (ms) => {
+      const s = Math.max(0, Math.floor(ms / 1000));
+      const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
+      const p = (n) => String(n).padStart(2, "0");
+      return d > 0 ? `${d}d ${h}h ${p(m)}m` : `${p(h)}:${p(m)}:${p(sec)}`;
+    };
+    const widget = document.getElementById("reset-widget");
+    const tick = () => {
+      const now = Date.now();
+      const parts = [];
+      if (game.reset.daily) parts.push(`<div class="reset-item"><span class="reset-label">Daily reset</span><span class="reset-time">${fmt(nextDaily(game.reset.daily) - now)}</span></div>`);
+      if (game.reset.weekly) parts.push(`<div class="reset-item"><span class="reset-label">Weekly reset</span><span class="reset-time">${fmt(nextWeekly(game.reset.weekly) - now)}</span></div>`);
+      widget.innerHTML = parts.join("");
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
 
   // ---- Build tabs ----
   const oldGrid = document.getElementById("tool-grid");

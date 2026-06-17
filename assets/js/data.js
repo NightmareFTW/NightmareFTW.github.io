@@ -74,6 +74,8 @@ const GAMES = [
     color: "#3b6fb5",
     glow: "rgba(59, 111, 181, 0.22)",
     blurb: "MMORPG.",
+    // Daily reset 15:00 UTC; weekly reset Tuesday 08:00 UTC.
+    reset: { daily: { h: 15, m: 0, utc: true }, weekly: { dow: 2, h: 8, m: 0, utc: true } },
     tools: [
       {
         id: "dailies",
@@ -134,6 +136,8 @@ const GAMES = [
     color: "#2a8fa8",
     glow: "rgba(42, 143, 168, 0.22)",
     blurb: "Sci-fi co-op looter shooter.",
+    // Daily reset 00:00 UTC; weekly reset Monday 00:00 UTC.
+    reset: { daily: { h: 0, m: 0, utc: true }, weekly: { dow: 1, h: 0, m: 0, utc: true } },
     tools: [
       {
         id: "worldstate",
@@ -168,6 +172,8 @@ const GAMES = [
     color: "#6a4fb3",
     glow: "rgba(106, 79, 179, 0.24)",
     blurb: "Cozy life-sim adventure.",
+    // Daily reset 05:00 local time (villager favourites & daily activities).
+    reset: { daily: { h: 5, m: 0, utc: false } },
     tools: [
       {
         id: "star-path",
