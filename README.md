@@ -116,4 +116,4 @@ Perfect World (NTE). Tier lists & builds for NTE are compiled from
 
 ---
 
-Built by **NightmareFTW** with [Claude Code](https://claude.com/claude-code).
+Built by **NightmareFTW**.
