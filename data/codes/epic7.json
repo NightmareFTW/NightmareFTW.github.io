@@ -1,26 +1,398 @@
 {
   "game": "epic7",
-  "updated": "2026-06-17T00:00:00.000Z",
+  "updated": "2026-06-17T07:46:23.599Z",
   "source": "https://www.pocketgamer.com/epic-seven/codes/",
   "note": "Reported active as of 2026-06-13. Epic Seven codes expire quickly — redeem ASAP.",
   "codes": [
-    { "code": "3SEMI_FINAL0", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "ROAD_2E7WC", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "26E7M_GLORYCHAMPION", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "05NOWEPIC17E7M", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "E_72ND16R17", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "05COUPON02", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "E7MLIVE_DROP7", "reward": "Livestream drop rewards", "expires": null, "expired": false },
-    { "code": "START_THE_MATCH", "reward": "Match start rewards", "expires": null, "expired": false },
-    { "code": "0418COUPON_NOW", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "2NDE7M_04", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "RPE7100G8", "reward": "Gear / points rewards", "expires": null, "expired": false },
-    { "code": "SY_ORBIS_RWDBOX", "reward": "Reward box", "expires": null, "expired": false },
-    { "code": "EPICDASHSTART", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "E7VTPRESENT", "reward": "VT present rewards", "expires": null, "expired": false },
-    { "code": "EPIC7TH", "reward": "Anniversary rewards (via Webstore)", "expires": null, "expired": false },
-    { "code": "E7EVENTLUNATIC", "reward": "200 Energy, 3 General Modification Boxes, 2 Epic Accessory Charms, 2 Epic Equipment Charms", "expires": null, "expired": false },
-    { "code": "HEIROFTHECOVENANT", "reward": "Event rewards", "expires": null, "expired": false },
-    { "code": "EPICDASHEND", "reward": "Event rewards", "expires": null, "expired": false }
+    {
+      "code": "3SEMI_FINAL0",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "ROAD_2E7WC",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "26E7M_GLORYCHAMPION",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "05NOWEPIC17E7M",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E_72ND16R17",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "05COUPON02",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7MLIVE_DROP7",
+      "reward": "Livestream drop rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "START_THE_MATCH",
+      "reward": "Match start rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "0418COUPON_NOW",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "2NDE7M_04",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "RPE7100G8",
+      "reward": "Gear / points rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "SY_ORBIS_RWDBOX",
+      "reward": "Reward box",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "EPICDASHSTART",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7VTPRESENT",
+      "reward": "VT present rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "EPIC7TH",
+      "reward": "Anniversary rewards (via Webstore)",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7EVENTLUNATIC",
+      "reward": "200 Energy, 3 General Modification Boxes, 2 Epic Accessory Charms, 2 Epic Equipment Charms",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "HEIROFTHECOVENANT",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "EPICDASHEND",
+      "reward": "Event rewards",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "141C22",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "2026-06-13T01",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "G-TL93SP7LES",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "SVGID_1_",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "3AB3FF",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "0084D1",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "IVANA0521EM",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "SPR_19_RELAY_E7",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "GIFT_SPR_21_RLY_E7",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "22E7_GIFT_SPRING",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "RELAY_E7_20_SPRING",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "RDTOE7WC_03",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "SPRING_17_E7_RLY",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "0411_BONUS",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "RPE7100G",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC_DAY4_EU",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "DAY4_E7WC2025_JP",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "ABOUT_E7WC2025",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "DAY3_E7WC_STREAM",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC_STANDTOLAST",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC_LIVE_REWARD",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "WATCHE7WC25",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC2025_EMO_COUPON",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7MASTERS_OPENING",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC_DAY2_LIVE",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC_OPENING25",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "VIOLET14",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "LIVEGIFT0714",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "13BLAZEDINGO",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "7NEWMOONLUNA",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "THANKYOU0713",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC2024OPEN",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "LUNATIC2E7EVENT",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "09FINALS23",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "LIVE0917DAY3",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "DAY2LIVELIVE",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "0909LIVEGIFT",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "DRAW0826DRAW",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "EULIVE0820",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "JAPANRO8",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "0819GLOBAL",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WCASIARO16",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7WC2023OPEN",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "5YEARSWITHU",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "2022E7COVENANT",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "E7HAPPYGIFT",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "EPIC7YOUTUBE100K",
+      "reward": "See source",
+      "expires": null,
+      "expired": false
+    }
   ]
 }
