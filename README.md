@@ -56,12 +56,14 @@ The home page supports live search, sorting and grid / list / compact views.
 Some data refreshes itself via scheduled GitHub Actions so the site stays current
 without manual edits:
 
-- **Game codes** — [`update-codes.yml`](.github/workflows/update-codes.yml) runs daily and
-  refreshes `data/codes/*.json` (Epic Seven, NTE, Warframe).
+- **News** — [`update-news.yml`](.github/workflows/update-news.yml) runs every 6 hours and
+  refreshes `data/news/*.json` from Google News (fetched server-side, so the site loads
+  it instantly with no CORS proxy).
 - **Warframe drop table** — [`update-drops.yml`](.github/workflows/update-drops.yml) runs
   weekly and rebuilds `data/warframe/drops.json` from Digital Extremes' official drop
   tables (parsed by [WFCD](https://drops.warframestat.us)).
-- **News** is fetched live in the browser, no storage needed.
+- **Game codes** are curated in `data/codes/*.json` — auto-scraping them proved too noisy
+  to be reliable (no official codes API), so they're kept hand-checked instead.
 
 ## Project structure
 
@@ -79,7 +81,8 @@ without manual edits:
 │   └── img/                  # game banners, NTE portraits, Phasmo equipment
 ├── games/<game>/             # per-game page + its tool pages
 ├── data/
-│   ├── codes/<game>.json     # redeem codes (auto-updated)
+│   ├── codes/<game>.json     # redeem codes (curated)
+│   ├── news/<game>.json      # headlines (auto-updated)
 │   └── warframe/drops.json   # drop table (auto-updated)
 └── scripts/                  # Node updaters run by the Actions
 ```
