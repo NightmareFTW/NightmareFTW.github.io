@@ -42,9 +42,12 @@ const MATERIALS = [
 const OUT = path.join(__dirname, "..", "data", "dreamlight-valley", "items.json");
 
 const clean = (s) => s.replace(/<[^>]+>/g, " ")
+  .replace(/&#91;/g, "[").replace(/&#93;/g, "]")
   .replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&#160;|&nbsp;/g, " ")
   .replace(/\s+/g, " ").trim();
 const num = (s) => parseInt(clean(s).replace(/[^\d]/g, ""), 10) || 0;
+// Strip footnote refs ([4]) and stray trailing punctuation from item names.
+const sname = (n) => clean(n).replace(/\[\d+\]/g, "").replace(/\s*[.•·*]+\s*$/, "").trim();
 
 const BIOMES = [
   "Peaceful Meadow", "Dazzle Beach", "Forest of Valor", "Glade of Trust",
@@ -74,10 +77,34 @@ function pickTable(tables, cols) {
     .sort((a, b) => b.length - a.length)[0];
 }
 
+// Collect rows from EVERY table on a page that has a "Name" column (auto-detects
+// the Name / Sell Price / Location columns). Lets us scrape pages whose data is
+// split across many tables (e.g. all fish, seasonal + special).
+async function collectFrom(url, category, source, require = []) {
+  const out = [];
+  for (const rows of await fetchTables(url)) {
+    const cols = (rows[0] || []).map(clean);
+    const hdr = cols.join(" ").toLowerCase();
+    if (!hdr.includes("name")) continue;
+    if (require.length && !require.every((k) => hdr.includes(k.toLowerCase()))) continue;
+    const nameI = Math.max(0, cols.findIndex((c) => /^name$/i.test(c)));
+    const sellI = cols.findIndex((c) => /sell/i.test(c));
+    const locI = cols.findIndex((c) => /location/i.test(c));
+    const enI = cols.findIndex((c) => /energy/i.test(c));
+    for (const r of rows.slice(1)) {
+      const name = sname(r[nameI] || "");
+      if (!name || /^name$/i.test(name)) continue;
+      out.push(mk(name, category, sellI >= 0 ? num(r[sellI]) : 0,
+        locI >= 0 ? clean(r[locI]) : "—", { source, energy: enI >= 0 ? num(r[enI]) : 0 }));
+    }
+  }
+  return out;
+}
+
 const isLimited = (text) => /seasonal|star ?path|limited|event|valentine|halloween|festive|lunar/i.test(text);
 const mk = (name, category, sell, location, extra = {}) => {
   const biomes = biomesIn(location);
-  return { name, name_pt: translateName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) };
+  return { name, name_pt: translateName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) || isLimited(name) };
 };
 
 async function run() {
@@ -88,7 +115,7 @@ async function run() {
   const ing = pickTable(ingTables, ["Cooking Category"]) || ingTables[0];
   for (const c of ing || []) {
     if (c.length < 11) continue;
-    const name = clean(c[1]);
+    const name = sname(c[1]);
     if (!name || /^name$/i.test(name)) continue;
     const location = clean(c[9]) || "—", source = clean(c[10]) || "—";
     const biomes = biomesIn(`${location} ${source}`);
@@ -99,25 +126,22 @@ async function run() {
   const gemTable = pickTable(await fetchTables(SRC.gems), ["Name", "Location"]);
   for (const c of gemTable || []) {
     if (c.length < 4) continue;
-    const name = clean(c[1]);
+    const name = sname(c[1]);
     if (!name || /^name$/i.test(name)) continue;
     rows.push(mk(name, "Gem / Mineral", num(c[2]), clean(c[3]), { source: "Mining" }));
   }
 
-  // ---- Fish (Image | Name | Sell | Energy | Ripples | Locations | …) ----
-  const fishTable = pickTable(await fetchTables(SRC.fish), ["Name", "Ripples", "Locations"]);
-  for (const c of fishTable || []) {
-    if (c.length < 6) continue;
-    const name = clean(c[1]);
-    if (!name || /^name$/i.test(name)) continue;
-    rows.push(mk(name, "Fish", num(c[2]), clean(c[5]), { energy: num(c[3]), source: "Fishing" }));
-  }
+  // ---- Fish (all tables on the Fish page: main + seasonal + special) ----
+  rows.push(...await collectFrom(SRC.fish, "Fish", "Fishing", ["ripples"]));
+
+  // ---- Ancient Machines (Eternity Isle) ----
+  rows.push(...await collectFrom("https://dreamlightvalleywiki.com/Ancient_Machines", "Ancient Machine", "Eternity Isle crafting", ["hourglass"]));
 
   // ---- Flowers / foraging (Image | Name | Sell Price | Max Spawns | Location) ----
   const flowerTable = pickTable(await fetchTables(SRC.flowers), ["Name", "Location"]);
   for (const c of flowerTable || []) {
     if (c.length < 5) continue;
-    const name = clean(c[1]);
+    const name = sname(c[1]);
     if (!name || /^name$/i.test(name)) continue;
     rows.push(mk(name, "Flower", num(c[2]), clean(c[c.length - 1]), { source: "Foraging" }));
   }
