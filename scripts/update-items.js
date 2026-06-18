@@ -101,6 +101,33 @@ async function collectFrom(url, category, source, require = []) {
   return out;
 }
 
+// Collect from a page where each section <h2/h3> precedes one table; only the
+// sections named in `map` are kept, labelled with map[heading] as the category.
+async function collectByHeading(url, map, source) {
+  const html = await (await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
+  const out = [];
+  for (const part of html.split(/(?=<h[23])/)) {
+    const hm = part.match(/<h[23][^>]*>(?:<[^>]+>)*([^<]+)/);
+    if (!hm) continue;
+    const cat = map[clean(hm[1])];
+    if (!cat) continue;
+    const tm = part.match(/<table[\s\S]*?<\/table>/);
+    if (!tm) continue;
+    const rows = (tm[0].match(/<tr[\s\S]*?<\/tr>/g) || []).map((tr) =>
+      [...tr.matchAll(/<t[hd][\s\S]*?>([\s\S]*?)<\/t[hd]>/g)].map((m) => m[1]));
+    const cols = (rows[0] || []).map(clean);
+    const nameI = Math.max(0, cols.findIndex((c) => /^name$/i.test(c)));
+    const sellI = cols.findIndex((c) => /sell/i.test(c));
+    const locI = cols.findIndex((c) => /location/i.test(c));
+    for (const r of rows.slice(1)) {
+      const name = sname(r[nameI] || "");
+      if (!name || /^name$/i.test(name)) continue;
+      out.push(mk(name, cat, sellI >= 0 ? num(r[sellI]) : 0, locI >= 0 ? clean(r[locI]) : "—", { source }));
+    }
+  }
+  return out;
+}
+
 const isLimited = (text) => /seasonal|star ?path|limited|event|valentine|halloween|festive|lunar/i.test(text);
 const mk = (name, category, sell, location, extra = {}) => {
   const biomes = biomesIn(location);
@@ -136,6 +163,16 @@ async function run() {
 
   // ---- Ancient Machines (Eternity Isle) ----
   rows.push(...await collectFrom("https://dreamlightvalleywiki.com/Ancient_Machines", "Ancient Machine", "Eternity Isle crafting", ["hourglass"]));
+
+  // ---- Timebending page: parts, gifts, fragments, furniture (by section) ----
+  rows.push(...await collectByHeading("https://dreamlightvalleywiki.com/Timebending", {
+    "Timebending Parts": "Timebending Part", "Gifts": "Gift", "Fragments": "Fragment", "Furniture": "Furniture",
+  }, "Eternity Isle"));
+
+  // ---- Snippets (bird / demon / frog) ----
+  rows.push(...await collectByHeading("https://dreamlightvalleywiki.com/Snippets", {
+    "Snippets": "Snippet",
+  }, "Snippet catching"));
 
   // ---- Flowers / foraging (Image | Name | Sell Price | Max Spawns | Location) ----
   const flowerTable = pickTable(await fetchTables(SRC.flowers), ["Name", "Location"]);
