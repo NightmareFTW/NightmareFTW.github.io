@@ -80,13 +80,17 @@ body {
   transition: color 0.15s;
 }
 .top-nav a:hover, .top-nav a.active { color: var(--text); }
-.lang-switch { display: inline-flex; gap: 2px; margin-left: 4px; }
+.lang-switch { display: inline-flex; gap: 6px; margin-left: 8px; align-items: center; }
 .lang-switch button {
-  background: none; border: none; cursor: pointer; line-height: 1;
-  font-size: 1.05rem; opacity: 0.4; padding: 3px 5px; border-radius: 6px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  background: none; border: 1px solid transparent; cursor: pointer;
+  padding: 3px 4px; border-radius: 7px; opacity: 0.5; transition: opacity 0.15s;
 }
-.lang-switch button.on { opacity: 1; background: rgba(255, 255, 255, 0.08); }
-.lang-switch button:hover { opacity: 0.85; }
+.lang-switch button.on { opacity: 1; border-color: var(--border); background: rgba(255, 255, 255, 0.06); }
+.lang-switch button:hover { opacity: 0.9; }
+.lang-switch .flag { width: 22px; height: 15px; border-radius: 2px; display: block; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18); }
+.lang-switch .flag-label { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.05em; }
+.lang-switch button.on .flag-label { color: var(--text); }
 
 /* Hero */
 .hero { padding: 72px 0 40px; }
@@ -838,7 +842,12 @@ body {
 .fr-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.2s; }
 .fr-btns { display: flex; gap: 5px; }
 .fr-btns .mini-btn { flex: 1; padding: 5px 0; font-size: 0.82rem; }
-.fr-filter.active { border-color: var(--accent); color: #ff8a82; }
+.fr-filter.active, .fr-act-filter.active { border-color: var(--accent); color: #ff8a82; }
+.fr-role {
+  width: 100%; margin-top: 6px;
+  background: var(--bg-soft); border: 1px solid var(--border); border-radius: 7px;
+  padding: 4px 6px; color: var(--text); font-size: 0.76rem; font-family: var(--sans); cursor: pointer;
+}
 
 /* ---- Equipment guide ---- */
 .eq-grid {

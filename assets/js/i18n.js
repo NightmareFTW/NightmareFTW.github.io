@@ -205,6 +205,14 @@
     "Could not load worldstate.": "Não foi possível carregar o worldstate.",
     "unavailable": "indisponível", "Inventory loading…": "A carregar inventário…",
 
+    // ---- DDV: Friendship activities & item categories ----
+    "Activity": "Atividade", "Base game": "Jogo base", "Unassigned": "Sem atribuição",
+    "— activity —": "— atividade —", "Gardening": "Jardinagem", "Fishing": "Pesca",
+    "Mining": "Mineração", "Digging": "Escavação", "Foraging": "Recoleção",
+    "Vegetables": "Vegetais", "Fruit": "Fruta", "Grains": "Cereais", "Dairy and Oil": "Laticínios e Óleo",
+    "Spices": "Especiarias", "Sweets": "Doces", "Ice": "Gelo", "Seafood": "Marisco",
+    "Protein": "Proteína", "Gem / Mineral": "Gema / Mineral", "Fish": "Peixe",
+
     // ---- Common content labels ----
     "How to use.": "Como usar.", "How to.": "Como fazer.", "Risk.": "Risco.", "Tip.": "Dica.",
     "How to": "Como usar", "Where:": "Onde:", "From:": "De:",
@@ -619,14 +627,28 @@
     }).observe(document.body, { childList: true, subtree: true });
   }
 
+  // Inline SVG flags (Windows browsers don't render flag emoji, so we draw them).
+  const FLAG_GB = `<svg viewBox="0 0 60 30" class="flag" aria-hidden="true">
+    <rect width="60" height="30" fill="#012169"/>
+    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2.5"/>
+    <rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/>
+    <rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/>
+  </svg>`;
+  const FLAG_PT = `<svg viewBox="0 0 60 40" class="flag" aria-hidden="true">
+    <rect width="24" height="40" fill="#060"/><rect x="24" width="36" height="40" fill="#e00"/>
+    <circle cx="24" cy="20" r="7" fill="#fc0"/><circle cx="24" cy="20" r="4" fill="#fff"/>
+    <circle cx="24" cy="20" r="2.3" fill="#C8102E"/>
+  </svg>`;
+
   function injectSwitcher() {
     const nav = document.querySelector(".top-nav");
     if (!nav) return;
     const wrap = document.createElement("span");
     wrap.className = "lang-switch";
     wrap.innerHTML =
-      `<button data-lang="en" title="English" class="${LANG === "en" ? "on" : ""}">🇬🇧</button>` +
-      `<button data-lang="pt" title="Português (PT)" class="${LANG === "pt" ? "on" : ""}">🇵🇹</button>`;
+      `<button data-lang="en" title="English" class="${LANG === "en" ? "on" : ""}">${FLAG_GB}<span class="flag-label">EN</span></button>` +
+      `<button data-lang="pt" title="Português (PT)" class="${LANG === "pt" ? "on" : ""}">${FLAG_PT}<span class="flag-label">PT</span></button>`;
     wrap.querySelectorAll("button").forEach((b) =>
       b.addEventListener("click", () => {
         localStorage.setItem("nftw:lang", b.dataset.lang);

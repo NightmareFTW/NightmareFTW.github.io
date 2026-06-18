@@ -36,7 +36,15 @@ try { levels = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { levels = {
 const save = () => localStorage.setItem(KEY, JSON.stringify(levels));
 const lvl = (n) => Math.min(Math.max(levels[n] || 0, 0), MAX);
 
+// Assignable in-game activities (Roles) for each villager.
+const ROLES = ["Gardening", "Fishing", "Mining", "Digging", "Foraging"];
+const RKEY = "nftw:ddv:roles";
+let roles = {};
+try { roles = JSON.parse(localStorage.getItem(RKEY)) || {}; } catch { roles = {}; }
+const saveRoles = () => localStorage.setItem(RKEY, JSON.stringify(roles));
+
 let dlcFilter = "all";
+let activityFilter = "all";
 const grid = document.getElementById("fr-grid");
 const summary = document.getElementById("fr-summary");
 
@@ -57,11 +65,17 @@ function set(name, n) {
 }
 
 function render() {
-  const list = VILLAGERS.filter((v) =>
-    dlcFilter === "all" ? true : dlcFilter === "base" ? !v.dlc : v.dlc === dlcFilter);
+  const list = VILLAGERS.filter((v) => {
+    const dlcOk = dlcFilter === "all" ? true : dlcFilter === "base" ? !v.dlc : v.dlc === dlcFilter;
+    const actOk = activityFilter === "all" ? true
+      : activityFilter === "none" ? !roles[v.name] : roles[v.name] === activityFilter;
+    return dlcOk && actOk;
+  });
 
   grid.innerHTML = list.map((v) => {
     const tag = v.dlc ? `<span class="fr-dlc ${dlcClass(v.dlc)}">${v.dlc}</span>` : "";
+    const opts = ['<option value="">— activity —</option>']
+      .concat(ROLES.map((r) => `<option value="${r}" ${roles[v.name] === r ? "selected" : ""}>${r}</option>`)).join("");
     return `<div class="fr-card ${lvl(v.name) === MAX ? "fr-max" : ""}" data-v="${v.name}">
       <div class="fr-portrait" style="background:${"#6a4fb3"}">
         <span class="fr-initial">${v.name[0]}</span>
@@ -76,6 +90,7 @@ function render() {
           <button class="mini-btn" data-act="inc">+</button>
           <button class="mini-btn" data-act="max">max</button>
         </div>
+        <select class="fr-role">${opts}</select>
       </div>
     </div>`;
   }).join("");
@@ -85,6 +100,11 @@ function render() {
     card.querySelector('[data-act="dec"]').addEventListener("click", () => set(v, lvl(v) - 1));
     card.querySelector('[data-act="inc"]').addEventListener("click", () => set(v, lvl(v) + 1));
     card.querySelector('[data-act="max"]').addEventListener("click", () => set(v, MAX));
+    card.querySelector(".fr-role").addEventListener("change", (e) => {
+      if (e.target.value) roles[v] = e.target.value; else delete roles[v];
+      saveRoles();
+      if (activityFilter !== "all") render();
+    });
   });
 }
 
@@ -92,6 +112,13 @@ document.querySelectorAll(".fr-filter").forEach((b) =>
   b.addEventListener("click", () => {
     dlcFilter = b.dataset.dlc;
     document.querySelectorAll(".fr-filter").forEach((x) => x.classList.toggle("active", x === b));
+    render();
+  }));
+
+document.querySelectorAll(".fr-act-filter").forEach((b) =>
+  b.addEventListener("click", () => {
+    activityFilter = b.dataset.act;
+    document.querySelectorAll(".fr-act-filter").forEach((x) => x.classList.toggle("active", x === b));
     render();
   }));
 
