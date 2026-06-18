@@ -109,8 +109,10 @@ async function collectByHeading(url, map, source) {
   for (const part of html.split(/(?=<h[23])/)) {
     const hm = part.match(/<h[23][^>]*>(?:<[^>]+>)*([^<]+)/);
     if (!hm) continue;
-    const cat = map[clean(hm[1])];
-    if (!cat) continue;
+    const conf = map[clean(hm[1])];
+    if (!conf) continue;
+    const cat = typeof conf === "string" ? conf : conf.category;
+    const limited = typeof conf === "object" ? !!conf.limited : false;
     const tm = part.match(/<table[\s\S]*?<\/table>/);
     if (!tm) continue;
     const rows = (tm[0].match(/<tr[\s\S]*?<\/tr>/g) || []).map((tr) =>
@@ -118,11 +120,13 @@ async function collectByHeading(url, map, source) {
     const cols = (rows[0] || []).map(clean);
     const nameI = Math.max(0, cols.findIndex((c) => /^name$/i.test(c)));
     const sellI = cols.findIndex((c) => /sell/i.test(c));
-    const locI = cols.findIndex((c) => /location/i.test(c));
+    const locI = cols.findIndex((c) => /location|found/i.test(c));
+    const catI = cols.findIndex((c) => /^category$/i.test(c));
     for (const r of rows.slice(1)) {
       const name = sname(r[nameI] || "");
       if (!name || /^name$/i.test(name)) continue;
-      out.push(mk(name, cat, sellI >= 0 ? num(r[sellI]) : 0, locI >= 0 ? clean(r[locI]) : "—", { source }));
+      const rowCat = (catI >= 0 && clean(r[catI])) ? clean(r[catI]) : cat;
+      out.push(mk(name, rowCat, sellI >= 0 ? num(r[sellI]) : 0, locI >= 0 ? clean(r[locI]) : "—", { source, limited }));
     }
   }
   return out;
@@ -183,7 +187,17 @@ async function run() {
     rows.push(mk(name, "Flower", num(c[2]), clean(c[c.length - 1]), { source: "Foraging" }));
   }
 
-  // ---- Crafting materials (curated: woods, ores, refined goods) ----
+  // ---- Crafting page: materials, enchantments, fences & paving (by section) ----
+  rows.push(...await collectByHeading("https://dreamlightvalleywiki.com/Crafting", {
+    "Materials": "Crafting Material", "Enchantments": "Enchantment", "Fences & Paving": "Fence / Paving",
+  }, "Crafting"));
+
+  // ---- Limited-time ingredients (Star Path / event) ----
+  rows.push(...await collectByHeading(SRC.ingredients, {
+    "Limited Time Ingredients": { category: "Ingredient", limited: true },
+  }, "Limited-time"));
+
+  // Fallback curated materials (ensures core woods/ores exist even if scrape misses them).
   for (const [name, location] of MATERIALS) {
     rows.push(mk(name, "Crafting Material", 0, location, { source: "Gathering / crafting" }));
   }

@@ -229,6 +229,9 @@
     "Spices": "Especiarias", "Sweets": "Doces", "Ice": "Gelo", "Seafood": "Marisco",
     "Protein": "Proteína", "Gem / Mineral": "Gema / Mineral", "Fish": "Peixe",
     "Flower": "Flor", "Crafting Material": "Material de Craft", "Limited": "Limitado",
+    "Ancient Machine": "Máquina Ancestral", "Timebending Part": "Peça de Timebending",
+    "Gift": "Presente", "Fragment": "Fragmento", "Furniture": "Mobília", "Snippet": "Snippet",
+    "Enchantment": "Encantamento", "Fence / Paving": "Cerca / Pavimento", "Ingredient": "Ingrediente",
 
     // ---- Common content labels ----
     "How to use.": "Como usar.", "How to.": "Como fazer.", "Risk.": "Risco.", "Tip.": "Dica.",
