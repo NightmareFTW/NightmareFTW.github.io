@@ -1,14 +1,20 @@
-/* Disney Dreamlight Valley — items (ingredients) scraper.
-   Parses the Dreamlight Valley Wiki "Ingredients" table into
-   data/dreamlight-valley/items.json — every farmable ingredient with its
-   cooking category, biome location, prices, energy, grow time and source.
-   Best-effort HTML scrape; re-run if the source layout changes.
+/* Disney Dreamlight Valley — items / resources scraper.
+   Merges several Dreamlight Valley Wiki tables into data/dreamlight-valley/items.json:
+   - Ingredients (cooking ingredients: category, prices, energy, grow time)
+   - Gems (gems, minerals & ores: sell price, location)
+   - Fish (sell price, energy, location)
+   Every entry gets a biome list and a best-effort DLC tag.
+   Best-effort HTML scrape; re-run if a source's layout changes.
    Node 18+ (global fetch), no dependencies. */
 
 const fs = require("fs");
 const path = require("path");
 
-const SOURCE = "https://dreamlightvalleywiki.com/Ingredients";
+const SRC = {
+  ingredients: "https://dreamlightvalleywiki.com/Ingredients",
+  gems: "https://dreamlightvalleywiki.com/Gems",
+  fish: "https://dreamlightvalleywiki.com/Fish",
+};
 const OUT = path.join(__dirname, "..", "data", "dreamlight-valley", "items.json");
 
 const clean = (s) => s.replace(/<[^>]+>/g, " ")
@@ -16,8 +22,6 @@ const clean = (s) => s.replace(/<[^>]+>/g, " ")
   .replace(/\s+/g, " ").trim();
 const num = (s) => parseInt(clean(s).replace(/[^\d]/g, ""), 10) || 0;
 
-// Known biomes/realms used to extract clean filter facets from the messy
-// "Location"/"Sources" text (which sometimes also contains plant names).
 const BIOMES = [
   "Peaceful Meadow", "Dazzle Beach", "Forest of Valor", "Glade of Trust",
   "Sunlit Plateau", "Frosted Heights", "Forgotten Lands", "Wild Tangle",
@@ -25,8 +29,6 @@ const BIOMES = [
   "Ancient's Landing", "Moana Realm",
 ];
 const biomesIn = (text) => BIOMES.filter((b) => text.includes(b));
-
-// Eternity Isle (A Rift in Time DLC) biomes — items found only here are DLC.
 const ETERNITY_ISLE = new Set([
   "Wild Tangle", "Glittering Dunes", "The Promenade", "The Docks",
   "The Grasslands", "Ancient's Landing", "The Overlook",
@@ -34,38 +36,67 @@ const ETERNITY_ISLE = new Set([
 const dlcOf = (biomes) =>
   biomes.length && biomes.every((b) => ETERNITY_ISLE.has(b)) ? "A Rift in Time" : null;
 
+async function fetchTables(url) {
+  const html = await (await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
+  return (html.match(/<table[\s\S]*?<\/table>/g) || []).map((t) =>
+    (t.match(/<tr[\s\S]*?<\/tr>/g) || []).map((tr) =>
+      [...tr.matchAll(/<t[hd][\s\S]*?>([\s\S]*?)<\/t[hd]>/g)].map((m) => m[1])));
+}
+
+// Pick the data table whose header row contains all `cols` keywords; prefer most rows.
+function pickTable(tables, cols) {
+  return tables
+    .filter((rows) => rows.length > 2 && cols.every((k) => clean((rows[0] || []).join(" ")).toLowerCase().includes(k.toLowerCase())))
+    .sort((a, b) => b.length - a.length)[0];
+}
+
+const mk = (name, category, sell, location, extra = {}) => {
+  const biomes = biomesIn(location);
+  return { name, category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes) };
+};
+
 async function run() {
-  const html = await (await fetch(SOURCE, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
-  const table = (html.match(/<table[\s\S]*?<\/table>/) || [""])[0];
-  const trs = table.match(/<tr[\s\S]*?<\/tr>/g) || [];
   const rows = [];
 
-  for (const tr of trs) {
-    const c = [...tr.matchAll(/<t[hd][\s\S]*?>([\s\S]*?)<\/t[hd]>/g)].map((m) => m[1]);
+  // ---- Ingredients ----
+  const ingTables = await fetchTables(SRC.ingredients);
+  const ing = pickTable(ingTables, ["Cooking Category"]) || ingTables[0];
+  for (const c of ing || []) {
     if (c.length < 11) continue;
     const name = clean(c[1]);
-    if (!name || /^name$/i.test(name)) continue; // header
-    const location = clean(c[9]) || "—";
-    const source = clean(c[10]) || "—";
-    rows.push({
-      name,
-      category: clean(c[2]),
-      sell: num(c[4]),
-      energy: num(c[5]),
-      growTime: clean(c[6]) || "—",
-      location,
-      source,
-      biomes: biomesIn(`${location} ${source}`),
-      dlc: dlcOf(biomesIn(`${location} ${source}`)),
-    });
+    if (!name || /^name$/i.test(name)) continue;
+    const location = clean(c[9]) || "—", source = clean(c[10]) || "—";
+    const biomes = biomesIn(`${location} ${source}`);
+    rows.push({ name, category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, biomes, dlc: dlcOf(biomes) });
   }
 
+  // ---- Gems / minerals (Image | Name | Sell Price | Location) ----
+  const gemTable = pickTable(await fetchTables(SRC.gems), ["Name", "Location"]);
+  for (const c of gemTable || []) {
+    if (c.length < 4) continue;
+    const name = clean(c[1]);
+    if (!name || /^name$/i.test(name)) continue;
+    rows.push(mk(name, "Gem / Mineral", num(c[2]), clean(c[3]), { source: "Mining" }));
+  }
+
+  // ---- Fish (Image | Name | Sell | Energy | Ripples | Locations | …) ----
+  const fishTable = pickTable(await fetchTables(SRC.fish), ["Name", "Ripples", "Locations"]);
+  for (const c of fishTable || []) {
+    if (c.length < 6) continue;
+    const name = clean(c[1]);
+    if (!name || /^name$/i.test(name)) continue;
+    rows.push(mk(name, "Fish", num(c[2]), clean(c[5]), { energy: num(c[3]), source: "Fishing" }));
+  }
+
+  // De-dupe by name (first source wins → richer ingredient data kept).
   const seen = new Set();
   const unique = rows.filter((r) => (seen.has(r.name) ? false : seen.add(r.name)));
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
-  fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: SOURCE, count: unique.length, items: unique }));
-  console.log(`Wrote ${unique.length} items -> ${OUT}`);
+  fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: SRC.ingredients, count: unique.length, items: unique }));
+  const byCat = {};
+  unique.forEach((r) => (byCat[r.category] = (byCat[r.category] || 0) + 1));
+  console.log(`Wrote ${unique.length} items. By category:`, byCat);
 }
 
 run().catch((e) => { console.error(e); process.exit(1); });
