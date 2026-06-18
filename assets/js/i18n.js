@@ -33,11 +33,27 @@
 
     // ---- Home ----
     "// gaming tools hub": "// hub de ferramentas de jogos",
-    "Tools for the worlds I keep": "Ferramentas para os mundos a que",
-    "coming back to": "volto sempre",
+    "Less grind,": "Menos grind,", "more game": "mais jogo",
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento — calculadoras, checklists e trackers. Nada é removido; só continua a crescer.",
     "Games": "Jogos",
+
+    // ---- Tool names (cards + page titles) ----
+    "Ghost Evidence Checker": "Verificador de Evidências",
+    "Cursed Possession Reference": "Referência de Objetos Amaldiçoados",
+    "Equipment Guide": "Guia de Equipamento", "Progression Tracker": "Tracker de Progresso",
+    "Loadout Builder": "Construtor de Loadout", "Daily / Weekly Checklist": "Checklist Diária / Semanal",
+    "Daily Checklist": "Checklist Diária", "Gathering Node Timer": "Timer de Nós de Recolha",
+    "Gear Score Calculator": "Calculadora de Gear Score", "Damage / EHP Calculator": "Calculadora de Dano / EHP",
+    "Speed Tuning / Turn Order": "Speed Tuning / Ordem de Turnos", "Worldstate Tracker": "Tracker de Worldstate",
+    "Open-World Cycle Timers": "Timers de Ciclos (Mundo Aberto)", "Drop Table": "Tabela de Drops",
+    "Tier List & Builds": "Tier List & Builds", "Star Path Tracker": "Tracker do Star Path",
+    "Recipe Browser": "Navegador de Receitas", "Friendship Tracker": "Tracker de Amizade",
+    "Items Database": "Base de Dados de Items",
+    // tool type chips
+    "tracker": "tracker", "checklist": "checklist", "builder": "construtor", "calculator": "calculadora",
+    "timer": "timer", "reference": "referência", "guide": "guia", "simulator": "simulador",
+    "live": "ao vivo", "database": "base de dados", "tier list": "tier list",
 
     // ---- Game blurbs ----
     "Co-op horror ghost hunting.": "Caça aos fantasmas co-op de terror.",
