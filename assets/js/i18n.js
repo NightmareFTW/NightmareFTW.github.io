@@ -97,6 +97,114 @@
     "Units": "Unidades", "Offense": "Ataque", "Defense (EHP)": "Defesa (EHP)",
     "Saved on this device.": "Guardado neste dispositivo.",
 
+    // ---- DDV: Star Path ----
+    "Routine Duties": "Duties de Rotina", "repeatable": "repetíveis",
+    "· Mount Olympus / Greek gods · 2026-06-03 → 2026-07-28": "· Monte Olimpo / deuses gregos · 2026-06-03 → 2026-07-28",
+    "Uproot Night Thorns": "Arrancar Night Thorns", "Collect Star Coins": "Juntar Star Coins",
+    "Get crafty!": "Mãos à obra!", "Change outfit": "Mudar de roupa",
+    "Find gems with your pickaxe": "Encontrar gemas com a picareta", "Start Discussions": "Iniciar Discussões",
+    "Finish some Dreamlight Duties": "Completar Dreamlight Duties", "Earn 5,000 Dreamlight": "Ganhar 5.000 Dreamlight",
+    "Catch Fish": "Apanhar peixe", "Harvest Spinach": "Colher Spinach", "Sell Spinach": "Vender Spinach",
+    "Take a selfie with Merlin": "Tirar uma selfie com o Merlin",
+    "Clear the dark spiky weeds that spawn around the Valley overnight — walk up and hold interact. They respawn daily; check every biome.":
+      "Limpa as ervas escuras e espinhosas que surgem pelo Valley durante a noite — aproxima-te e mantém interagir. Reaparecem diariamente; vê todos os biomas.",
+    "Earn Star Coins through normal play — sell crops, fish, gems or crafted goods. Selling a stack of high-value crops is fastest.":
+      "Ganha Star Coins a jogar normalmente — vende colheitas, peixe, gemas ou items criados. Vender uma pilha de colheitas valiosas é o mais rápido.",
+    "Craft anything at a Crafting Station — even cheap items like fences. Craft in bulk to finish instantly.":
+      "Cria o que for numa Crafting Station — até items baratos como cercas. Cria em quantidade para terminar logo.",
+    "Open your wardrobe and add or swap any single clothing piece, then confirm.":
+      "Abre o guarda-roupa e adiciona ou troca uma peça de roupa qualquer, depois confirma.",
+    "Mine the sparkling dark rock nodes in any biome. A Pickaxe Polish potion boosts yield; Forgotten Lands and the Mines give the best gems.":
+      "Minera os nós de rocha escura brilhante em qualquer bioma. Uma poção Pickaxe Polish aumenta o rendimento; Forgotten Lands e as Minas dão as melhores gemas.",
+    "Talk to villagers and pick the daily 'Discussion' option. One per villager per day, so hop between several.":
+      "Fala com villagers e escolhe a opção diária 'Discussion'. Uma por villager por dia, por isso passa por vários.",
+    "Open the Dreamlight Menu (moon icon), complete the listed duties and redeem them — redeeming is what counts.":
+      "Abre o Dreamlight Menu (ícone da lua), completa as duties listadas e resgata-as — resgatar é o que conta.",
+    "From completing quests and redeeming Dreamlight Duties. First-time activities give big chunks.":
+      "De completar quests e resgatar Dreamlight Duties. Atividades feitas pela 1ª vez dão grandes quantidades.",
+    "Fish at any ripple in the Valley. Seaweed does NOT count — aim for the white/gold ripple circles.":
+      "Pesca em qualquer ondulação no Valley. Algas NÃO contam — aponta aos círculos de ondulação brancos/dourados.",
+    "Buy Spinach Seeds from Goofy in the Glade of Trust, plant, water and harvest. WALL-E's garden doesn't count.":
+      "Compra Spinach Seeds ao Goofy na Glade of Trust, planta, rega e colhe. O jardim do WALL-E não conta.",
+    "Sell harvested Spinach to any stall. Wait until this duty is ACTIVE before selling, or it won't count.":
+      "Vende o Spinach colhido em qualquer banca. Espera que esta duty esteja ATIVA antes de vender, ou não conta.",
+    "Equip the Royal Camera, stand near Merlin with him in frame, and take the photo.":
+      "Equipa a Royal Camera, fica perto do Merlin com ele no enquadramento, e tira a foto.",
+
+    // ---- Checklists (FFXIV / NTE / Outlast) ----
+    "Daily": "Diário", "Weekly": "Semanal", "Rigs": "Rigs",
+    "Duty Roulette: Leveling": "Duty Roulette: Leveling", "Duty Roulette: Trials": "Duty Roulette: Trials",
+    "Duty Roulette: Expert": "Duty Roulette: Expert",
+    "Grand Company turn-ins (Expert Delivery)": "Entregas Grand Company (Expert Delivery)",
+    "Mini Cactpot (3 scratchers)": "Mini Cactpot (3 raspadinhas)", "Beast Tribe / Tribal dailies": "Beast Tribe / dailies tribais",
+    "Wondrous Tails": "Wondrous Tails", "Custom Deliveries (12 allowances)": "Custom Deliveries (12 entregas)",
+    "Challenge Log": "Challenge Log", "Raid lockout — Savage": "Lockout de raid — Savage",
+    "Raid lockout — Normal / Alliance": "Lockout de raid — Normal / Alliance", "Faux Hollows (Unreal)": "Faux Hollows (Unreal)",
+    "Hunt: Elite Marks": "Hunt: Elite Marks", "Jumbo Cactpot ticket": "Bilhete Jumbo Cactpot",
+    "Daily login reward": "Recompensa de login diária", "Daily commissions / quests": "Comissões / quests diárias",
+    "Spend stamina / energy": "Gastar stamina / energia", "Crafting / synthesis run": "Sessão de crafting / síntese",
+    "Social / guild check-in": "Check-in social / de guild", "Weekly boss clears": "Clears de bosses semanais",
+    "Weekly store purchases": "Compras semanais na loja", "Weekly challenges": "Desafios semanais",
+    "Weekly Program completed": "Programa Semanal concluído",
+
+    // ---- FFXIV node timer ----
+    "Eorzea Time": "Hora de Eorzea", "Botanist": "Botânico", "Miner": "Minerador", "Up now": "Disponível agora",
+    "No nodes match this filter.": "Nenhum nó corresponde a este filtro.",
+
+    // ---- Epic 7: Damage / Gear Score / Speed Tuning ----
+    "Offense": "Ataque", "Defense (EHP)": "Defesa (EHP)", "Attack": "Ataque",
+    "Crit Chance %": "Crit Chance %", "Crit Damage %": "Crit Damage %", "Skill modifier %": "Modificador de skill %",
+    "Target Defense (opt.)": "Defesa do alvo (opc.)", "Effective Attack": "Ataque Efetivo",
+    "Avg hit vs target": "Dano médio vs alvo", "Health": "Vida", "Defense": "Defesa",
+    "Effective HP": "HP Efetivo", "Damage Reduction": "Redução de Dano",
+    "EHP = HP × (1 + DEF/300). Defense scales multiplicatively, so it's usually stronger than raw HP — but is countered by Defense Break.":
+      "EHP = HP × (1 + DEF/300). A defesa escala multiplicativamente, por isso costuma ser mais forte que HP puro — mas é contornada por Defense Break.",
+    "Substats": "Substats", "Add substats above to score the gear.": "Adiciona substats acima para avaliar a gear.",
+    "Reroll / fodder": "Reroll / fodder", "Decent": "Razoável", "Good": "Boa", "Great": "Ótima", "God-tier": "Topo de gama",
+    "Turn Order": "Ordem de Turnos", "Units": "Unidades", "Add unit": "Adicionar unidade",
+
+    // ---- NTE Tier List & Builds ----
+    "Best Arc": "Melhor Arc", "Best Cartridge": "Melhor Cartridge", "Stat priority": "Prioridade de stats",
+    "Recommended team": "Equipa recomendada", "Notes": "Notas", "Build compiled from Game8.": "Build compilada do Game8.",
+    "Survival": "Sobrevivência", "Buff": "Buff", "DPS": "DPS", "view build →": "ver build →",
+    "CRIT Rate → CRIT DMG, then ATK. Energy Recharge for ult uptime.":
+      "CRIT Rate → CRIT DMG, depois ATK. Energy Recharge para uptime do ult.",
+    "ATK and Energy Recharge — maximise buff uptime and how often you ult.":
+      "ATK e Energy Recharge — maximiza o uptime do buff e a frequência do ult.",
+    "HP / DEF for bulk, plus Energy Recharge to keep shields/heals flowing.":
+      "HP / DEF para resistência, mais Energy Recharge para manter shields/heals.",
+    "DoT-focused — stack Nightmare & Scorch. Her DoT scales off ATK, so grab CRIT first, then ATK; Chaos DMG main stat with The Last Rose.":
+      "Focada em DoT — acumula Nightmare & Scorch. O DoT dela escala com ATK, por isso CRIT primeiro, depois ATK; Chaos DMG no stat principal com The Last Rose.",
+    "Burst sub-DPS — feeds on recorded Esper cycles for massive ultimates.":
+      "Sub-DPS de burst — alimenta-se de ciclos Esper gravados para ultimates enormes.",
+    "Blossom/Charge core — empower Vita Buds through team synergy.":
+      "Núcleo Blossom/Charge — reforça Vita Buds com sinergia de equipa.",
+    "Pulls enemies together and buffs team ATK by 30%. Fits almost every top team.":
+      "Junta os inimigos e dá +30% ATK à equipa. Encaixa em quase todas as melhores equipas.",
+    "The premier cycler — enables faster rotations for the whole team.":
+      "O melhor cycler — permite rotações mais rápidas para toda a equipa.",
+    "Boss breaker — specialises in white-bar (Break) damage.":
+      "Boss breaker — especialista em dano de barra branca (Break).",
+    "Strong enemy-gathering for AoE setups.": "Forte a juntar inimigos para setups de AoE.",
+    "Flexible between Charge and Stain reactions; relies on feather stacks.":
+      "Flexível entre reações Charge e Stain; depende de feather stacks.",
+    "Pure buffer that also helps apply Nova.": "Buffer puro que também ajuda a aplicar Nova.",
+    "Team damage-share with damage reflection.": "Partilha de dano da equipa com reflexão de dano.",
+    "Best F2P DPS option — strong parry potential.": "Melhor opção de DPS F2P — forte potencial de parry.",
+    "Team-wide shields plus DoT — lots of value with little setup.":
+      "Shields para toda a equipa mais DoT — muito valor com pouco setup.",
+    "Healer with a stationary healing area.": "Healer com uma área de cura estacionária.",
+
+    // ---- Outlast Loadout / misc panels ----
+    "(pick 1)": "(escolhe 1)", "Tool Amp": "Amp de Ferramenta", "Skill Amp": "Amp de Habilidade",
+    "Medicine Amp": "Amp de Medicina", "Build name (e.g. Solo Stealth)": "Nome da build (ex.: Solo Stealth)",
+    "no rig": "sem rig", "Share link copied to clipboard ✓": "Link de partilha copiado ✓",
+    "Possible Ghosts": "Fantasmas Possíveis", "Evidence": "Evidências",
+    "Substats": "Substats", "Turn Order": "Ordem de Turnos",
+    "Away — arrives at": "Ausente — chega a", "leaves in": "sai em", "At": "Em",
+    "Could not load worldstate.": "Não foi possível carregar o worldstate.",
+    "unavailable": "indisponível", "Inventory loading…": "A carregar inventário…",
+
     // ---- Common content labels ----
     "How to use.": "Como usar.", "How to.": "Como fazer.", "Risk.": "Risco.", "Tip.": "Dica.",
     "How to": "Como usar", "Where:": "Onde:", "From:": "De:",
@@ -464,6 +572,14 @@
     [/^(\d+) farmable items · source: (.+)$/, "$1 items farmáveis · fonte: $2"],
     [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
+    [/^resets in (.+)$/, "reseta em $1"],
+    [/^Week (\d+)$/, "Semana $1"],
+    [/^Unlocks (.+)$/, "Desbloqueia: $1"],
+    [/^UP · closes in (.+)$/, "ATIVO · fecha em $1"],
+    [/^in (\d[\d:hm ]*)$/, "em $1"],
+    [/^(\d+)\/(\d+)$/, "$1/$2"],
+    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · atualizado $2"],
+    [/^(\d[\d,]*) drops · updated (.+)$/, "$1 drops · atualizado $2"],
   ];
 
   function translateText(raw) {
