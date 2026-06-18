@@ -62,7 +62,7 @@ function render() {
   els.list.innerHTML = list.map((it) => `
     <div class="rc-card">
       <div class="rc-top">
-        <span class="rc-name">${nm(it)}</span>
+        <span class="rc-name">${it.img ? `<img class="rc-img" src="${it.img}" alt="" loading="lazy">` : ""}${nm(it)}</span>
         <span>${it.limited ? `<span class="fr-dlc dlc-wish">Limited</span> ` : ""}${it.dlc ? `<span class="fr-dlc ${DLC_CLASS[it.dlc] || ""}">${it.dlc}</span> ` : ""}<span class="ev-chip">${it.category}</span></span>
       </div>
       <p class="it-where"><b>Where:</b> ${it.location}</p>

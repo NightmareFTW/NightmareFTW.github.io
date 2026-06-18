@@ -46,6 +46,21 @@ const clean = (s) => s.replace(/<[^>]+>/g, " ")
   .replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&#160;|&nbsp;/g, " ")
   .replace(/\s+/g, " ").trim();
 const num = (s) => parseInt(clean(s).replace(/[^\d]/g, ""), 10) || 0;
+const WIKI = "https://dreamlightvalleywiki.com";
+// First <img> URL found across a row's raw cells, bumped to a crisper thumb.
+const imgFrom = (cells) => {
+  for (const c of cells) {
+    const m = (c || "").match(/<img[^>]+src="([^"]+)"/);
+    if (m) {
+      // Resolve the wiki thumb to the original file (thumb sizes other than the
+      // one in the page aren't pre-generated and 301-redirect).
+      const t = m[1].match(/\/images\/thumb\/(.+?\.(?:png|jpe?g|gif))\/\d+px-/i);
+      const u = t ? `/images/${t[1]}` : m[1];
+      return u.startsWith("http") ? u : WIKI + u;
+    }
+  }
+  return "";
+};
 // Strip footnote refs ([4]) and stray trailing punctuation from item names.
 const sname = (n) => clean(n).replace(/\[\d+\]/g, "").replace(/\s*[.•·*]+\s*$/, "").trim();
 
@@ -103,7 +118,7 @@ async function collectFrom(url, category, source, require = []) {
       const name = sname(r[nameI] || "");
       if (!name || /^name$/i.test(name)) continue;
       out.push(mk(name, category, sellI >= 0 ? num(r[sellI]) : 0,
-        locI >= 0 ? clean(r[locI]) : "—", { source, energy: enI >= 0 ? num(r[enI]) : 0 }));
+        locI >= 0 ? clean(r[locI]) : "—", { source, energy: enI >= 0 ? num(r[enI]) : 0, img: imgFrom(r) }));
     }
   }
   return out;
@@ -134,7 +149,7 @@ async function collectByHeading(url, map, source) {
       const name = sname(r[nameI] || "");
       if (!name || /^name$/i.test(name)) continue;
       const rowCat = (catI >= 0 && clean(r[catI])) ? clean(r[catI]) : cat;
-      out.push(mk(name, rowCat, sellI >= 0 ? num(r[sellI]) : 0, locI >= 0 ? clean(r[locI]) : "—", { source, limited }));
+      out.push(mk(name, rowCat, sellI >= 0 ? num(r[sellI]) : 0, locI >= 0 ? clean(r[locI]) : "—", { source, limited, img: imgFrom(r) }));
     }
   }
   return out;
@@ -143,7 +158,7 @@ async function collectByHeading(url, map, source) {
 const isLimited = (text) => /seasonal|star ?path|limited|event|valentine|halloween|festive|lunar/i.test(text);
 const mk = (name, category, sell, location, extra = {}) => {
   const biomes = biomesIn(location);
-  return { name, name_pt: translateName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) || isLimited(name) };
+  return { name, name_pt: translateName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", img: extra.img || "", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) || isLimited(name) };
 };
 
 async function run() {
@@ -158,7 +173,7 @@ async function run() {
     if (!name || /^name$/i.test(name)) continue;
     const location = clean(c[9]) || "—", source = clean(c[10]) || "—";
     const biomes = biomesIn(`${location} ${source}`);
-    rows.push({ name, name_pt: translateName(name), category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
+    rows.push({ name, name_pt: translateName(name), category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, img: imgFrom(c), biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
   }
 
   // ---- Gems / minerals (Image | Name | Sell Price | Location) ----
@@ -167,7 +182,7 @@ async function run() {
     if (c.length < 4) continue;
     const name = sname(c[1]);
     if (!name || /^name$/i.test(name)) continue;
-    rows.push(mk(name, "Gem / Mineral", num(c[2]), clean(c[3]), { source: "Mining" }));
+    rows.push(mk(name, "Gem / Mineral", num(c[2]), clean(c[3]), { source: "Mining", img: imgFrom(c) }));
   }
 
   // ---- Fish (all tables on the Fish page: main + seasonal + special) ----
@@ -192,7 +207,7 @@ async function run() {
     if (c.length < 5) continue;
     const name = sname(c[1]);
     if (!name || /^name$/i.test(name)) continue;
-    rows.push(mk(name, "Flower", num(c[2]), clean(c[c.length - 1]), { source: "Foraging" }));
+    rows.push(mk(name, "Flower", num(c[2]), clean(c[c.length - 1]), { source: "Foraging", img: imgFrom(c) }));
   }
 
   // ---- Crafting page: materials, enchantments, fences & paving (by section) ----
