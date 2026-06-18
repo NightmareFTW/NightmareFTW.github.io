@@ -49,19 +49,27 @@ const num = (s) => parseInt(clean(s).replace(/[^\d]/g, ""), 10) || 0;
 // Strip footnote refs ([4]) and stray trailing punctuation from item names.
 const sname = (n) => clean(n).replace(/\[\d+\]/g, "").replace(/\s*[.•·*]+\s*$/, "").trim();
 
+// Each DLC realm and the biomes that belong to it. An item whose only known
+// biomes all fall inside one realm is tagged with that realm's DLC.
+const REGIONS = [
+  { dlc: "A Rift in Time", biomes: ["Wild Tangle", "Glittering Dunes", "The Promenade", "The Docks", "The Grasslands", "Ancient's Landing", "The Overlook", "Overlook"] },
+  { dlc: "Storybook Vale", biomes: ["The Bind", "Mythopia", "Everafter", "Stardust Port", "Dream Castle"] },
+  { dlc: "Wishblossom Mountains", biomes: ["Wishing Alps", "Glamour Gulch", "Pixie Acres"] },
+];
 const BIOMES = [
   "Peaceful Meadow", "Dazzle Beach", "Forest of Valor", "Glade of Trust",
-  "Sunlit Plateau", "Frosted Heights", "Forgotten Lands", "Wild Tangle",
-  "Glittering Dunes", "Overlook", "The Promenade", "The Docks", "The Grasslands",
-  "Ancient's Landing", "Moana Realm",
+  "Sunlit Plateau", "Frosted Heights", "Forgotten Lands", "Moana Realm",
+  ...REGIONS.flatMap((r) => r.biomes),
 ];
 const biomesIn = (text) => BIOMES.filter((b) => text.includes(b));
-const ETERNITY_ISLE = new Set([
-  "Wild Tangle", "Glittering Dunes", "The Promenade", "The Docks",
-  "The Grasslands", "Ancient's Landing", "The Overlook",
-]);
-const dlcOf = (biomes) =>
-  biomes.length && biomes.every((b) => ETERNITY_ISLE.has(b)) ? "A Rift in Time" : null;
+const dlcOf = (biomes) => {
+  if (!biomes.length) return null;
+  for (const r of REGIONS) {
+    const set = new Set(r.biomes);
+    if (biomes.every((b) => set.has(b))) return r.dlc;
+  }
+  return null;
+};
 
 async function fetchTables(url) {
   const html = await (await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
