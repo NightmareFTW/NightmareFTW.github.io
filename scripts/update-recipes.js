@@ -8,6 +8,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { translateName } = require("./ddv-translate");
 
 const FULL_LIST = "https://www.crystal-dreams.us/?page_id=13228";
 const VALUES = "https://www.nintendolife.com/guides/disney-dreamlight-valley-recipes-ingredients-sell-prices-star-ratings-full-list";
@@ -32,8 +33,8 @@ async function run() {
     if (!Number.isFinite(stars)) continue; // skip header
     const name = c[1].replace(/^\d+\s+/, "").trim();
     if (!name) continue;
-    const ingredients = c.slice(2).filter((x) => x && x !== "—").map((n) => ({ q: 1, name: n }));
-    recipes.push({ name, stars, ingredients, sell: 0, energy: 0 });
+    const ingredients = c.slice(2).filter((x) => x && x !== "—").map((n) => ({ q: 1, name: n, name_pt: translateName(n) }));
+    recipes.push({ name, name_pt: translateName(name), stars, ingredients, sell: 0, energy: 0 });
   }
 
   // 2) Sell price + energy from the second guide, merged by name.

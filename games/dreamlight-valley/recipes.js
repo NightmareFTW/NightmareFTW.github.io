@@ -5,6 +5,8 @@
 let DATA = null;
 const starSel = new Set();
 let query = "", sort = "sell-desc";
+const PT = localStorage.getItem("nftw:lang") === "pt";
+const nm = (o) => (PT && o.name_pt) ? o.name_pt : o.name;
 
 const els = {
   search: document.getElementById("rc-search"),
@@ -30,7 +32,8 @@ function buildStarFilter() {
 function matches(r) {
   if (starSel.size && !starSel.has(r.stars)) return false;
   if (query) {
-    const hay = (r.name + " " + r.ingredients.map((i) => i.name).join(" ")).toLowerCase();
+    const hay = (r.name + " " + (r.name_pt || "") + " " +
+      r.ingredients.map((i) => `${i.name} ${i.name_pt || ""}`).join(" ")).toLowerCase();
     if (!hay.includes(query)) return false;
   }
   return true;
@@ -43,16 +46,16 @@ function render() {
   else if (sort === "sell-asc") list.sort((a, b) => a.sell - b.sell);
   else if (sort === "energy-desc") list.sort((a, b) => b.energy - a.energy);
   else if (sort === "stars-desc") list.sort((a, b) => b.stars - a.stars);
-  else if (sort === "az") list.sort((a, b) => a.name.localeCompare(b.name));
+  else if (sort === "az") list.sort((a, b) => nm(a).localeCompare(nm(b)));
 
   els.count.textContent = `${total} recipe${total === 1 ? "" : "s"}`;
   els.list.innerHTML = list.map((r) => `
     <div class="rc-card">
       <div class="rc-top">
-        <span class="rc-name">${r.name}${r.dlc ? ` <span class="fr-dlc ${({ "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" })[r.dlc] || ""}">${r.dlc}</span>` : ""}</span>
+        <span class="rc-name">${nm(r)}${r.dlc ? ` <span class="fr-dlc ${({ "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" })[r.dlc] || ""}">${r.dlc}</span>` : ""}</span>
         <span class="rc-stars">${"⭐".repeat(r.stars)}</span>
       </div>
-      <div class="rc-ing">${r.ingredients.map((i) => `<span class="rc-chip">${i.q > 1 ? i.q + "× " : ""}${i.name}</span>`).join("")}</div>
+      <div class="rc-ing">${r.ingredients.map((i) => `<span class="rc-chip">${i.q > 1 ? i.q + "× " : ""}${nm(i)}</span>`).join("")}</div>
       <div class="rc-meta">
         <span>💰 ${r.sell ? r.sell.toLocaleString() : "—"}</span>
         <span>⚡ ${r.energy ? r.energy.toLocaleString() : "—"}</span>

@@ -6,6 +6,8 @@ let DATA = null;
 const sel = { category: new Set(), biome: new Set(), dlc: new Set() };
 let query = "", sort = "name";
 const DLC_CLASS = { "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" };
+const PT = localStorage.getItem("nftw:lang") === "pt";
+const nm = (it) => (PT && it.name_pt) ? it.name_pt : it.name;
 
 const els = {
   search: document.getElementById("it-search"),
@@ -45,7 +47,7 @@ function matches(it) {
   if (sel.category.size && !sel.category.has(it.category)) return false;
   if (sel.biome.size && !it.biomes.some((b) => sel.biome.has(b))) return false;
   if (sel.dlc.size && !sel.dlc.has(it.dlc)) return false;
-  if (query && !it.name.toLowerCase().includes(query)) return false;
+  if (query && !`${it.name} ${it.name_pt || ""}`.toLowerCase().includes(query)) return false;
   return true;
 }
 
@@ -54,13 +56,13 @@ function render() {
   const total = list.length;
   if (sort === "sell-desc") list.sort((a, b) => b.sell - a.sell);
   else if (sort === "energy-desc") list.sort((a, b) => b.energy - a.energy);
-  else list.sort((a, b) => a.name.localeCompare(b.name));
+  else list.sort((a, b) => nm(a).localeCompare(nm(b)));
 
   els.count.textContent = `${total} item${total === 1 ? "" : "s"}`;
   els.list.innerHTML = list.map((it) => `
     <div class="rc-card">
       <div class="rc-top">
-        <span class="rc-name">${it.name}</span>
+        <span class="rc-name">${nm(it)}</span>
         <span>${it.limited ? `<span class="fr-dlc dlc-wish">Limited</span> ` : ""}${it.dlc ? `<span class="fr-dlc ${DLC_CLASS[it.dlc] || ""}">${it.dlc}</span> ` : ""}<span class="ev-chip">${it.category}</span></span>
       </div>
       <p class="it-where"><b>Where:</b> ${it.location}</p>

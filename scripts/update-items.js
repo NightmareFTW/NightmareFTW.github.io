@@ -9,6 +9,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { translateName } = require("./ddv-translate");
 
 const SRC = {
   ingredients: "https://dreamlightvalleywiki.com/Ingredients",
@@ -76,7 +77,7 @@ function pickTable(tables, cols) {
 const isLimited = (text) => /seasonal|star ?path|limited|event|valentine|halloween|festive|lunar/i.test(text);
 const mk = (name, category, sell, location, extra = {}) => {
   const biomes = biomesIn(location);
-  return { name, category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) };
+  return { name, name_pt: translateName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) };
 };
 
 async function run() {
@@ -91,7 +92,7 @@ async function run() {
     if (!name || /^name$/i.test(name)) continue;
     const location = clean(c[9]) || "—", source = clean(c[10]) || "—";
     const biomes = biomesIn(`${location} ${source}`);
-    rows.push({ name, category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
+    rows.push({ name, name_pt: translateName(name), category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
   }
 
   // ---- Gems / minerals (Image | Name | Sell Price | Location) ----
