@@ -228,6 +228,7 @@
     "Vegetables": "Vegetais", "Fruit": "Fruta", "Grains": "Cereais", "Dairy and Oil": "Laticínios e Óleo",
     "Spices": "Especiarias", "Sweets": "Doces", "Ice": "Gelo", "Seafood": "Marisco",
     "Protein": "Proteína", "Gem / Mineral": "Gema / Mineral", "Fish": "Peixe",
+    "Flower": "Flor", "Crafting Material": "Material de Craft", "Limited": "Limitado",
 
     // ---- Common content labels ----
     "How to use.": "Como usar.", "How to.": "Como fazer.", "Risk.": "Risco.", "Tip.": "Dica.",

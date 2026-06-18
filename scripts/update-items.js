@@ -14,7 +14,30 @@ const SRC = {
   ingredients: "https://dreamlightvalleywiki.com/Ingredients",
   gems: "https://dreamlightvalleywiki.com/Gems",
   fish: "https://dreamlightvalleywiki.com/Fish",
+  flowers: "https://dreamlightvalleywiki.com/Foraging",
 };
+
+// Core crafting materials (woods, ores, refined goods) — finite & well known.
+const MATERIALS = [
+  ["Softwood", "Shake or chop trees in most biomes"],
+  ["Hardwood", "Forest of Valor, Sunlit Plateau, Forgotten Lands, Eternity Isle"],
+  ["Stone", "Mining rock nodes (all biomes)"],
+  ["Clay", "Mining nodes near water"],
+  ["Sand", "Dazzle Beach"],
+  ["Glass", "Crafted from Sand + Coal Ore"],
+  ["Iron Ore", "Mining nodes (most biomes)"],
+  ["Iron Ingot", "Crafted from Iron Ore + Coal Ore"],
+  ["Coal Ore", "Mining (Dazzle Beach, Sunlit Plateau, Glittering Dunes)"],
+  ["Fiber", "Picked from plant stems while foraging"],
+  ["Cloth", "Crafted from Fiber"],
+  ["Rope", "Crafted from Fiber"],
+  ["Niobium", "Mining (Sunlit Plateau)"],
+  ["Cobalt", "Mining (Frosted Heights)"],
+  ["Pearl", "Fishing the dark/gold ripples"],
+  ["Seashell", "Dazzle Beach shoreline"],
+  ["Sponge", "Dazzle Beach underwater"],
+  ["Empty Vial", "Crafted from Glass"],
+];
 const OUT = path.join(__dirname, "..", "data", "dreamlight-valley", "items.json");
 
 const clean = (s) => s.replace(/<[^>]+>/g, " ")
@@ -50,9 +73,10 @@ function pickTable(tables, cols) {
     .sort((a, b) => b.length - a.length)[0];
 }
 
+const isLimited = (text) => /seasonal|star ?path|limited|event|valentine|halloween|festive|lunar/i.test(text);
 const mk = (name, category, sell, location, extra = {}) => {
   const biomes = biomesIn(location);
-  return { name, category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes) };
+  return { name, category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) };
 };
 
 async function run() {
@@ -67,7 +91,7 @@ async function run() {
     if (!name || /^name$/i.test(name)) continue;
     const location = clean(c[9]) || "—", source = clean(c[10]) || "—";
     const biomes = biomesIn(`${location} ${source}`);
-    rows.push({ name, category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, biomes, dlc: dlcOf(biomes) });
+    rows.push({ name, category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
   }
 
   // ---- Gems / minerals (Image | Name | Sell Price | Location) ----
@@ -86,6 +110,20 @@ async function run() {
     const name = clean(c[1]);
     if (!name || /^name$/i.test(name)) continue;
     rows.push(mk(name, "Fish", num(c[2]), clean(c[5]), { energy: num(c[3]), source: "Fishing" }));
+  }
+
+  // ---- Flowers / foraging (Image | Name | Sell Price | Max Spawns | Location) ----
+  const flowerTable = pickTable(await fetchTables(SRC.flowers), ["Name", "Location"]);
+  for (const c of flowerTable || []) {
+    if (c.length < 5) continue;
+    const name = clean(c[1]);
+    if (!name || /^name$/i.test(name)) continue;
+    rows.push(mk(name, "Flower", num(c[2]), clean(c[c.length - 1]), { source: "Foraging" }));
+  }
+
+  // ---- Crafting materials (curated: woods, ores, refined goods) ----
+  for (const [name, location] of MATERIALS) {
+    rows.push(mk(name, "Crafting Material", 0, location, { source: "Gathering / crafting" }));
   }
 
   // De-dupe by name (first source wins → richer ingredient data kept).
