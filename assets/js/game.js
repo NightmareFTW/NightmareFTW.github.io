@@ -155,13 +155,17 @@
       const updated = data.updated ? new Date(data.updated).toLocaleString() : "";
       root.innerHTML =
         `<p class="codes-updated">${items.length} headlines · updated ${updated}</p>` +
-        items.map((it) => {
+        `<div class="news-grid">` + items.map((it, i) => {
           const date = it.date ? new Date(it.date).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "";
-          return `<a class="news-row" href="${it.link}" target="_blank" rel="noopener">
-            <span class="news-title">${esc(it.title)}</span>
-            <span class="news-meta">${esc(it.source || "")}${it.source && date ? " · " : ""}${date}</span>
+          return `<a class="news-card" href="../../article.html?g=${game.id}&i=${i}">
+            <span class="news-thumb">${it.image ? `<img src="${esc(it.image)}" alt="" loading="lazy" onerror="this.closest('.news-thumb').classList.add('no-img')">` : ""}</span>
+            <span class="news-body">
+              <span class="news-title">${esc(it.title)}</span>
+              ${it.summary ? `<span class="news-snippet">${esc(it.summary)}</span>` : ""}
+              <span class="news-meta">${esc(it.source || "")}${it.source && date ? " · " : ""}${date}</span>
+            </span>
           </a>`;
-        }).join("");
+        }).join("") + `</div>`;
     } catch (e) {
       root.innerHTML = `<p class="tool-note">No news data yet — the news updater hasn't published this game's headlines.</p>`;
     }

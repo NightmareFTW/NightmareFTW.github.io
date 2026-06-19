@@ -1035,6 +1035,36 @@ body {
 .news-title { font-weight: 600; font-size: 0.96rem; }
 .news-meta { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); }
 
+/* News cards (preview thumbnails linking to the article preview page) */
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.news-card {
+  display: flex; flex-direction: column;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; text-decoration: none; color: var(--text);
+  transition: border-color 0.15s, transform 0.15s;
+}
+.news-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.news-thumb { display: block; aspect-ratio: 16 / 9; background: var(--bg-soft); overflow: hidden; }
+.news-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.news-thumb.no-img, .news-thumb:empty { background: linear-gradient(135deg, var(--bg-soft), rgba(255,255,255,.03)); }
+.news-body { display: flex; flex-direction: column; gap: 7px; padding: 13px 15px; }
+.news-card .news-title { font-weight: 700; font-size: 0.95rem; line-height: 1.3; }
+.news-snippet {
+  font-size: 0.82rem; color: var(--muted); line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* News article preview page */
+.news-article { max-width: 760px; }
+.na-hero { width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--bg-soft); margin-bottom: 20px; }
+.na-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.na-source { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); }
+.na-title { font-size: 1.8rem; line-height: 1.2; margin: 8px 0 16px; }
+.na-summary { font-size: 1.05rem; line-height: 1.6; color: var(--text); }
+.na-summary.na-muted { color: var(--muted); font-style: italic; }
+.na-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 24px 0 8px; }
+.na-cta { text-decoration: none; }
+
 /* ---- Codes ---- */
 .codes-updated { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
 .codes-list { display: flex; flex-direction: column; gap: 8px; padding-bottom: 60px; }

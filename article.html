@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="/index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb" id="bc"><a href="/index.html">hub</a> / …</p>
+    <article class="news-article" id="article"><p style="color:var(--muted)">Loading…</p></article>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · headlines via Google News; preview &amp; image from the source article.</span></div></footer>
+  <script src="/assets/js/data.js"></script>
+  <script>
+    (function () {
+      const q = new URLSearchParams(location.search);
+      const gid = q.get("g"), idx = parseInt(q.get("i"), 10);
+      const allGames = (typeof GAMES !== "undefined") ? GAMES : (window.GAMES || []);
+      const game = allGames.find((g) => g.id === gid);
+      const gameName = game ? game.name : gid;
+      const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const bc = document.getElementById("bc");
+      const root = document.getElementById("article");
+      bc.innerHTML = `<a href="/index.html">hub</a> / <a href="/games/${esc(gid)}/index.html">${esc(gameName)}</a> / news`;
+
+      (async function () {
+        try {
+          const data = await (await fetch(`/data/news/${gid}.json?cb=${Date.now()}`)).json();
+          const it = (data.items || [])[idx];
+          if (!it) throw new Error("not found");
+          document.title = `${it.title} · ${gameName} · NightmareFTW`;
+          const date = it.date ? new Date(it.date).toLocaleDateString(undefined, { weekday: "short", year: "numeric", month: "long", day: "numeric" }) : "";
+          const host = (() => { try { return new URL(it.url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+          root.innerHTML = `
+            ${it.image ? `<div class="na-hero"><img src="${esc(it.image)}" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>` : ""}
+            <span class="na-source">${esc(it.source || host)}${date ? " · " + esc(date) : ""}</span>
+            <h1 class="na-title">${esc(it.title)}</h1>
+            ${it.summary ? `<p class="na-summary">${esc(it.summary)}</p>` : `<p class="na-summary na-muted">No preview text was available for this article — open the source for the full story.</p>`}
+            <div class="na-actions">
+              <a class="btn na-cta" href="${esc(it.url)}" target="_blank" rel="noopener">Read the full article at ${esc(it.source || host || "the source")} ↗</a>
+              <a class="mini-btn" href="/games/${esc(gid)}/index.html">← Back to ${esc(gameName)}</a>
+            </div>
+            <p class="tool-note">This is a short preview built from the article's own summary and image. The full story lives on the source site.</p>`;
+        } catch (e) {
+          root.innerHTML = `<p class="tool-note">Couldn't load this article. <a href="/games/${esc(gid)}/index.html" style="color:var(--accent)">Back to ${esc(gameName)}</a>.</p>`;
+        }
+      })();
+    })();
+  </script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>
