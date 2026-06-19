@@ -566,6 +566,12 @@
       "Ainda não há notícias — o atualizador ainda não publicou as deste jogo.",
     "No codes data yet — the updater hasn't published this game's list.":
       "Ainda não há códigos — o atualizador ainda não publicou a lista deste jogo.",
+    "Active": "Ativo", "Expired": "Expirado", "No expiry listed": "Sem validade indicada",
+    "Read the full article at the source ↗": "Ler o artigo completo na fonte ↗",
+    "No preview text was available for this article — open the source for the full story.":
+      "Não havia texto de pré-visualização para este artigo — abre a fonte para a história completa.",
+    "This is a short preview built from the article's own summary and image. The full story lives on the source site.":
+      "Esta é uma pré-visualização curta feita a partir do resumo e imagem do próprio artigo. A história completa está no site da fonte.",
     "No drops match your filters.": "Nenhum drop corresponde aos filtros.",
     "No recipes match.": "Nenhuma receita corresponde.", "No items match.": "Nenhum item corresponde.",
     "No tools yet — coming soon.": "Ainda sem ferramentas — em breve.",
@@ -602,6 +608,11 @@
     [/^(\d[\d,]*) items?$/, (m, n) => `${n} item${n === "1" ? "" : "s"}`],
     [/^(\d+) headlines · updated (.+)$/, "$1 notícias · atualizado $2"],
     [/^(\d+) codes · updated (.+)$/, "$1 códigos · atualizado $2"],
+    [/^(\d+) active · (\d+) total · updated (.+)$/, "$1 ativos · $2 total · atualizado $3"],
+    [/^Added (.+)$/, "Adicionado $1"],
+    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · atualizado $2"],
+    [/^Read the full article at (.+) ↗$/, "Ler o artigo completo em $1 ↗"],
+    [/^← Back to (.+)$/, "← Voltar a $1"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
     [/^(\d+) characters · (\d+) maxed · (\d+)\/(\d+) total levels$/,
       "$1 personagens · $2 no máximo · $3/$4 níveis totais"],

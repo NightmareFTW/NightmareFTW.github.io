@@ -194,31 +194,41 @@
 
   function renderCodes(root, data) {
     const now = Date.now();
-    const codes = data.codes || [];
+    const isExpired = (c) => c.expired || (c.expires && new Date(c.expires).getTime() < now);
+    // Newest first (by added date), active above expired. Codes without an
+    // `added` date keep their source order (V8 sort is stable).
+    const codes = (data.codes || []).slice().sort((a, b) =>
+      (isExpired(a) ? 1 : 0) - (isExpired(b) ? 1 : 0) || (b.added || "").localeCompare(a.added || ""));
     const upd = data.updated ? new Date(data.updated).toLocaleString() : "";
     const usedKey = (c) => `nftw:codes:${game.id}:${c}`;
+    const fmtDate = (s) => { const d = new Date(s); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); };
+    const activeCount = codes.filter((c) => !isExpired(c)).length;
 
     const rowsHtml = codes.map((c) => {
-      const expired = c.expired || (c.expires && new Date(c.expires).getTime() < now);
+      const expired = isExpired(c);
       const used = localStorage.getItem(usedKey(c.code)) === "1";
+      const added = c.added ? fmtDate(c.added) : "";
       const valid = expired
         ? `<span class="code-valid expired">Expired</span>`
         : c.expires
           ? `<span class="code-valid">Expires ${new Date(c.expires).toLocaleDateString()}</span>`
-          : `<span class="code-valid">No expiry listed</span>`;
+          : `<span class="code-valid ok">Active</span>`;
       return `<div class="code-row ${expired ? "is-expired" : ""} ${used ? "is-used" : ""}" data-code="${c.code}">
         <input type="checkbox" class="code-check" ${used ? "checked" : ""}>
         <div class="code-main">
           <code class="code-text">${esc(c.code)}</code>
           <span class="code-reward">${esc(c.reward || "")}</span>
         </div>
-        ${valid}
+        <div class="code-side">
+          ${valid}
+          ${added ? `<span class="code-added">Added ${added}</span>` : ""}
+        </div>
         <button class="btn code-copy">Copy</button>
       </div>`;
     }).join("");
 
     root.innerHTML = `
-      <p class="codes-updated">${codes.length} codes · updated ${upd || "—"}</p>
+      <p class="codes-updated">${activeCount} active · ${codes.length} total · updated ${upd || "—"}</p>
       <div class="codes-list">${rowsHtml || `<p style="color:var(--muted)">No codes right now.</p>`}</div>`;
 
     root.querySelectorAll(".code-row").forEach((row) => {

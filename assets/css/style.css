@@ -1082,8 +1082,11 @@ body {
 }
 .code-row.is-used .code-text { text-decoration: line-through; }
 .code-reward { font-size: 0.82rem; color: var(--muted); }
+.code-side { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex-shrink: 0; }
 .code-valid { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); white-space: nowrap; }
+.code-valid.ok { color: #5bd6a0; font-weight: 700; }
 .code-valid.expired { color: var(--danger); font-weight: 700; }
+.code-added { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); white-space: nowrap; opacity: .8; }
 .code-row.is-expired { border-color: rgba(255,36,53,.35); }
 .code-row.is-expired .code-text { color: var(--danger); }
 .code-copy { flex-shrink: 0; }
