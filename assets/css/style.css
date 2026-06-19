@@ -1062,7 +1062,22 @@ body {
 .na-title { font-size: 1.8rem; line-height: 1.2; margin: 8px 0 16px; }
 .na-summary { font-size: 1.05rem; line-height: 1.6; color: var(--text); }
 .na-summary.na-muted { color: var(--muted); font-style: italic; }
-.na-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 24px 0 8px; }
+.na-content { font-size: 1.02rem; line-height: 1.7; color: var(--text); }
+.na-content p { margin: 0 0 16px; }
+.na-content h2, .na-content h3, .na-content h4 { margin: 24px 0 10px; line-height: 1.25; }
+.na-content ul { margin: 0 0 16px; padding-left: 22px; }
+.na-content li { margin: 4px 0; }
+.na-content a { color: var(--accent-2); }
+.na-content img { max-width: 100%; height: auto; border-radius: 10px; margin: 12px 0; display: block; }
+.na-content blockquote { margin: 0 0 16px; padding: 8px 16px; border-left: 3px solid var(--accent); color: var(--muted); }
+.na-credit {
+  margin: 28px 0 4px; padding: 14px 16px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; border-left: 3px solid var(--accent-2);
+}
+.na-credit-label { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-right: 8px; }
+.na-credit a { color: var(--accent-2); font-weight: 700; text-decoration: none; }
+.na-credit-note { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+.na-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0 8px; }
 .na-cta { text-decoration: none; }
 
 /* ---- Codes ---- */

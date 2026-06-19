@@ -1,16 +1,20 @@
 /* News updater (run locally and by .github/workflows/update-news.yml).
-   Fetches Google News RSS per game server-side (no browser CORS issues), then
-   for each headline resolves the real article URL (Google News wraps links in a
-   redirect) and pulls OpenGraph metadata — summary + image — so the site can
-   show a rich preview page. Writes data/news/<game>.json read same-origin.
 
+   Two sources per game, merged and sorted newest-first:
+   1. Steam developer posts (ISteamNews API) — official announcements with the
+      FULL post body (converted from Steam's BBCode to HTML) and its image.
+   2. Google News headlines — resolved to the publisher's real URL, then
+      enriched with an OpenGraph summary/image plus a best-effort article body.
+
+   Writes data/news/<game>.json, read same-origin by the site.
    Node 18+ (global fetch), no dependencies. */
 
 const fs = require("fs");
 const path = require("path");
 
 const OUT_DIR = path.join(__dirname, "..", "data", "news");
-const PER_GAME = 12;          // headlines kept (and enriched) per game
+const PER_SOURCE = 12;        // headlines per source before merge
+const KEEP = 18;              // items kept per game after merge
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 NightmareFTW-bot";
 
 const QUERIES = {
@@ -23,14 +27,33 @@ const QUERIES = {
   "dreamlight-valley": "Disney Dreamlight Valley",
 };
 
-const ENTITIES = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#39;": "'", "&apos;": "'", "&#160;": " ", "&nbsp;": " " };
-const decode = (s = "") => s.replace(/&amp;|&lt;|&gt;|&quot;|&#39;|&apos;|&#160;|&nbsp;/g, (m) => ENTITIES[m]).trim();
+// Steam appids for the games that publish dev news on Steam (Epic Seven is
+// mobile/Stove-only, so it has no Steam feed).
+const STEAM_APPIDS = {
+  phasmophobia: 739630,
+  "outlast-trials": 1304930,
+  ffxiv: 39210,
+  warframe: 230410,
+  "dreamlight-valley": 1401590,
+  nte: 4508340,
+};
+
+// ---- text helpers -----------------------------------------------------------
+const NAMED = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", "#39": "'" };
+// Decode named + numeric (&#039; , &#x27;) HTML entities.
+const decodeEntities = (s = "") => s
+  .replace(/&#x([0-9a-f]+);/gi, (_, h) => safeCp(parseInt(h, 16)))
+  .replace(/&#(\d+);/g, (_, n) => safeCp(parseInt(n, 10)))
+  .replace(/&(amp|lt|gt|quot|apos|nbsp|#39);/g, (_, e) => NAMED[e] || "");
+const safeCp = (n) => { try { return String.fromCodePoint(n); } catch { return ""; } };
+const decode = (s = "") => decodeEntities(s).replace(/\s+/g, " ").trim();
+const stripTags = (s = "") => decode(s.replace(/<[^>]+>/g, " "));
 const tag = (block, name) => {
   const m = block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`));
   return m ? decode(m[1].replace(/<!\[CDATA\[|\]\]>/g, "")) : "";
 };
 
-// Fetch with a hard timeout so a single slow article can't stall the run.
+// Fetch with a hard timeout so one slow request can't stall the run.
 async function fetchT(url, opts = {}, ms = 12000) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), ms);
@@ -38,8 +61,25 @@ async function fetchT(url, opts = {}, ms = 12000) {
   finally { clearTimeout(t); }
 }
 
-// Resolve a Google News article id to the publisher's real URL via the same
-// batchexecute endpoint the News site uses. Returns "" on any failure.
+// ---- Steam BBCode -> HTML ----------------------------------------------------
+const STEAM_IMG = "https://clan.cloudflare.steamstatic.com/images";
+function bbcodeToHtml(src = "") {
+  let s = src.replace(/\{STEAM_CLAN_IMAGE\}/g, STEAM_IMG);
+  s = s.replace(/\[img\][\s]*([^\[\]]+?)[\s]*\[\/img\]/gi, (_, u) => `<img src="${u.trim()}" loading="lazy" alt="">`);
+  s = s.replace(/\[url=([^\]]+)\]([\s\S]*?)\[\/url\]/gi, '<a href="$1" target="_blank" rel="noopener">$2</a>');
+  s = s.replace(/\[h([1-3])\]([\s\S]*?)\[\/h\1\]/gi, (_, n, t) => `<h${Math.min(4, +n + 1)}>${t}</h${Math.min(4, +n + 1)}>`);
+  s = s.replace(/\[b\]([\s\S]*?)\[\/b\]/gi, "<strong>$1</strong>")
+       .replace(/\[i\]([\s\S]*?)\[\/i\]/gi, "<em>$1</em>")
+       .replace(/\[u\]([\s\S]*?)\[\/u\]/gi, "<u>$1</u>");
+  s = s.replace(/\[list[^\]]*\]/gi, "<ul>").replace(/\[\/list\]/gi, "</ul>").replace(/\[\*\]/gi, "<li>");
+  s = s.replace(/\[quote[^\]]*\]([\s\S]*?)\[\/quote\]/gi, "<blockquote>$1</blockquote>");
+  s = s.replace(/\[p[^\]]*\]([\s\S]*?)\[\/p\]/gi, "<p>$1</p>").replace(/\[p[^\]]*\]/gi, "<p>");
+  s = s.replace(/\[\/?[a-z][^\]]*\]/gi, "");          // drop any remaining tags
+  s = s.replace(/&amp;quot;/g, '"').replace(/&amp;/g, "&");
+  return s.trim();
+}
+
+// ---- Google News URL resolution ---------------------------------------------
 async function resolveGN(id) {
   try {
     const art = await (await fetchT(`https://news.google.com/rss/articles/${id}`)).text();
@@ -59,7 +99,7 @@ async function resolveGN(id) {
   } catch { return ""; }
 }
 
-// Pull OpenGraph (+ fallbacks) summary / image / publish time from an article.
+// OpenGraph + readable article body from a publisher page.
 async function articleMeta(url) {
   try {
     const html = await (await fetchT(url, { redirect: "follow" })).text();
@@ -74,18 +114,47 @@ async function articleMeta(url) {
     };
     let image = meta("og:image", "twitter:image", "twitter:image:src");
     if (image && image.startsWith("//")) image = "https:" + image;
+    // Body: prefer <article>, else <main>, else whole doc; keep substantial <p>.
+    const scope = (html.match(/<article[\s\S]*?<\/article>/i) || [])[0]
+      || (html.match(/<main[\s\S]*?<\/main>/i) || [])[0] || html;
+    const paras = [...scope.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
+      .map((m) => stripTags(m[1]))
+      .filter((t) => t.length > 45 && !/^(advertisement|sign up|subscribe|share this)/i.test(t));
+    const seen = new Set();
+    const body = paras.filter((p) => (seen.has(p) ? false : seen.add(p))).slice(0, 14);
     return {
       summary: meta("og:description", "twitter:description", "description"),
       image,
       published: meta("article:published_time", "og:updated_time"),
+      content: body.length ? body.map((p) => `<p>${p}</p>`).join("") : "",
     };
-  } catch { return { summary: "", image: "", published: "" }; }
+  } catch { return { summary: "", image: "", published: "", content: "" }; }
 }
 
-async function fetchNews(query) {
+// ---- sources ----------------------------------------------------------------
+async function steamNews(appid) {
+  const url = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=${appid}&count=${PER_SOURCE}&maxlength=0&feeds=steam_community_announcements&format=json`;
+  const j = await (await fetchT(url)).json();
+  const items = (j.appnews && j.appnews.newsitems) || [];
+  return items.map((it) => {
+    const content = bbcodeToHtml(it.contents || "");
+    const image = (content.match(/<img[^>]+src="([^"]+)"/) || [])[1] || "";
+    return {
+      title: decode(it.title),
+      source: "Steam",
+      date: new Date(it.date * 1000).toISOString(),
+      url: `https://store.steampowered.com/news/app/${appid}/view/${it.gid}`,
+      summary: stripTags(content).slice(0, 240),
+      image,
+      content,
+    };
+  });
+}
+
+async function googleNews(query) {
   const url = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`;
   const xml = await (await fetchT(url)).text();
-  return [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0, PER_GAME).map((m) => {
+  const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0, PER_SOURCE).map((m) => {
     const b = m[1];
     let title = tag(b, "title");
     const source = tag(b, "source");
@@ -94,36 +163,46 @@ async function fetchNews(query) {
     const gnId = (gnLink.match(/\/articles\/([^?]+)/) || [])[1] || "";
     return { title, gnLink, gnId, source, date: tag(b, "pubDate") };
   }).filter((it) => it.title && it.gnLink);
-}
 
-// Resolve + enrich items with limited concurrency to be polite and fast.
-async function enrich(items, concurrency = 5) {
+  // Resolve + enrich with limited concurrency.
   let i = 0;
-  async function worker() {
+  const worker = async () => {
     while (i < items.length) {
       const it = items[i++];
-      const url = it.gnId ? await resolveGN(it.gnId) : "";
-      const meta = url ? await articleMeta(url) : { summary: "", image: "", published: "" };
-      it.url = url || it.gnLink;          // real article, or the GN link as fallback
+      const real = it.gnId ? await resolveGN(it.gnId) : "";
+      const meta = real ? await articleMeta(real) : { summary: "", image: "", published: "", content: "" };
+      it.url = real || it.gnLink;
       it.summary = meta.summary || "";
       it.image = meta.image || "";
+      it.content = meta.content || "";
       if (meta.published) it.date = it.date || meta.published;
-      delete it.gnId;
+      it.date = new Date(it.date || Date.now()).toISOString();
+      delete it.gnId; delete it.gnLink;
     }
-  }
-  await Promise.all(Array.from({ length: Math.min(concurrency, items.length) }, worker));
+  };
+  await Promise.all(Array.from({ length: Math.min(5, items.length) }, worker));
   return items;
 }
+
+// Drop near-duplicate titles across the two sources (Steam wins, it has full text).
+const normTitle = (t) => t.toLowerCase().replace(/[^a-z0-9]/g, "");
 
 async function run() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   for (const [game, query] of Object.entries(QUERIES)) {
     try {
-      const items = await enrich(await fetchNews(query));
+      const [steam, google] = await Promise.all([
+        STEAM_APPIDS[game] ? steamNews(STEAM_APPIDS[game]).catch(() => []) : Promise.resolve([]),
+        googleNews(query).catch(() => []),
+      ]);
+      const seen = new Set();
+      const items = [...steam, ...google]
+        .filter((it) => it.title && it.url && (seen.has(normTitle(it.title)) ? false : seen.add(normTitle(it.title))))
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, KEEP);
       const out = { game, query, updated: new Date().toISOString(), items };
       fs.writeFileSync(path.join(OUT_DIR, `${game}.json`), JSON.stringify(out));
-      const withImg = items.filter((x) => x.image).length, withSum = items.filter((x) => x.summary).length;
-      console.log(`[${game}] ${items.length} headlines · ${withImg} images · ${withSum} summaries.`);
+      console.log(`[${game}] ${items.length} (steam ${steam.length}, google ${google.length}) · ${items.filter((x) => x.image).length} img · ${items.filter((x) => x.content).length} full`);
     } catch (e) {
       console.warn(`[${game}] failed:`, e.message);
     }

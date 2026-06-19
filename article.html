@@ -43,16 +43,29 @@
           document.title = `${it.title} · ${gameName} · NightmareFTW`;
           const date = it.date ? new Date(it.date).toLocaleDateString(undefined, { weekday: "short", year: "numeric", month: "long", day: "numeric" }) : "";
           const host = (() => { try { return new URL(it.url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+          const srcName = it.source || host || "the source";
+          // Full body when we have it, otherwise the short OG summary.
+          const bodyHtml = it.content
+            ? `<div class="na-content">${it.content}</div>`
+            : it.summary
+              ? `<p class="na-summary">${esc(it.summary)}</p>`
+              : `<p class="na-summary na-muted">No preview text was available for this article — open the source for the full story.</p>`;
           root.innerHTML = `
             ${it.image ? `<div class="na-hero"><img src="${esc(it.image)}" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>` : ""}
-            <span class="na-source">${esc(it.source || host)}${date ? " · " + esc(date) : ""}</span>
+            <span class="na-source">${esc(srcName)}${date ? " · " + esc(date) : ""}</span>
             <h1 class="na-title">${esc(it.title)}</h1>
-            ${it.summary ? `<p class="na-summary">${esc(it.summary)}</p>` : `<p class="na-summary na-muted">No preview text was available for this article — open the source for the full story.</p>`}
-            <div class="na-actions">
-              <a class="btn na-cta" href="${esc(it.url)}" target="_blank" rel="noopener">Read the full article at ${esc(it.source || host || "the source")} ↗</a>
-              <a class="mini-btn" href="/games/${esc(gid)}/index.html">← Back to ${esc(gameName)}</a>
+            ${bodyHtml}
+            <div class="na-credit">
+              <span class="na-credit-label">Source</span>
+              <a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(srcName)} ↗</a>
+              <p class="na-credit-note">${it.content
+                ? "Full post shown here for convenience. All rights and the original belong to the source above — open it to view in context."
+                : "Preview built from the article's own summary. Read the full story at the source above."}</p>
             </div>
-            <p class="tool-note">This is a short preview built from the article's own summary and image. The full story lives on the source site.</p>`;
+            <div class="na-actions">
+              <a class="btn na-cta" href="${esc(it.url)}" target="_blank" rel="noopener">Open at ${esc(srcName)} ↗</a>
+              <a class="mini-btn" href="/games/${esc(gid)}/index.html">← Back to ${esc(gameName)}</a>
+            </div>`;
         } catch (e) {
           root.innerHTML = `<p class="tool-note">Couldn't load this article. <a href="/games/${esc(gid)}/index.html" style="color:var(--accent)">Back to ${esc(gameName)}</a>.</p>`;
         }
