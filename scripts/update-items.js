@@ -10,6 +10,9 @@
 const fs = require("fs");
 const path = require("path");
 const { translateName } = require("./ddv-translate");
+const { officialName } = require("./ddv-official");
+// Official in-game PT-BR name when the game has one, else the best-effort translator.
+const ptName = (name) => officialName(name) || translateName(name);
 
 const SRC = {
   ingredients: "https://dreamlightvalleywiki.com/Ingredients",
@@ -158,7 +161,7 @@ async function collectByHeading(url, map, source) {
 const isLimited = (text) => /seasonal|star ?path|limited|event|valentine|halloween|festive|lunar/i.test(text);
 const mk = (name, category, sell, location, extra = {}) => {
   const biomes = biomesIn(location);
-  return { name, name_pt: translateName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", img: extra.img || "", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) || isLimited(name) };
+  return { name, name_pt: ptName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", img: extra.img || "", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) || isLimited(name) };
 };
 
 async function run() {
@@ -173,7 +176,7 @@ async function run() {
     if (!name || /^name$/i.test(name)) continue;
     const location = clean(c[9]) || "—", source = clean(c[10]) || "—";
     const biomes = biomesIn(`${location} ${source}`);
-    rows.push({ name, name_pt: translateName(name), category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, img: imgFrom(c), biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
+    rows.push({ name, name_pt: ptName(name), category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, img: imgFrom(c), biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
   }
 
   // ---- Gems / minerals (Image | Name | Sell Price | Location) ----
