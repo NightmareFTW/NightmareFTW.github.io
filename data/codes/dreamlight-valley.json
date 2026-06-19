@@ -1,302 +1,218 @@
 {
   "game": "dreamlight-valley",
-  "updated": "2026-06-19T15:39:27.451Z",
-  "source": "https://dreamlightvalleywiki.com/Redemption_Codes",
+  "updated": "2026-06-19T18:41:31.136Z",
+  "source": "https://www.pcgamesn.com/dreamlight-valley/codes",
   "note": "Redeem in Settings → Help → Redemption code. Codes are case-sensitive; rewards arrive in your in-game mailbox. Newest first; retired codes shown as expired.",
   "codes": [
     {
-      "code": "JNHRMILADY0603",
-      "reward": "Berry Salad (5) / Stone (15) / Softwood (15) / Carrot Seed (10) / Wheat Seed (10) / Lettuce Seed (10) / (alt: JNHRBEATEMUPS0603, JNHRSYDMAC0603)",
-      "added": "2026-06-03",
+      "code": "JNHRSYDMAC0603",
+      "reward": "Loads of seeds and ingredients",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "DDVPRIDE2026",
-      "reward": "Round Rainbow Garden / Butterfly Tiara",
-      "added": "2026-06-03",
+      "reward": "Round Rainbow Garden and a Butterfly Tiara",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "SPIRITOFSPRING2026",
-      "reward": "Spirit of Spring Costume",
-      "added": "2026-04-30",
+      "reward": "Spirit of Spring outfit",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "EARTHDAY2026",
-      "reward": "Sycamore Tree",
-      "added": "2026-04-22",
+      "reward": "a Sycamore Tree",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "SLEAPRSYDNEE0409",
+      "reward": "Bouillabaisse, Corn Seeds, Tomato Seeds, and Sugercane",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "RUNAWORLDOFFROZEN",
-      "reward": "Rúna Handheld Purse",
-      "added": "2026-04-08",
+      "reward": "Runa purse",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "WLCMJAMESTURNER0326",
+      "reward": "Berry Salad, Stone, Softwood, Carrot, Wheat, and Cabbage seeds",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "TIME4SPAGHETTI2026",
-      "reward": "Photo Mode Frame / Spaghetti Motif",
-      "added": "2026-03-06",
+      "reward": "Spaghetti Motif, Photo Mode Frame",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PAWSOMEPLUTO26",
       "reward": "Photo Mode Frame",
-      "added": "2026-02-25",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "WISHBLOSSOMFRAME",
       "reward": "Photo Mode Frame",
-      "added": "2026-01-07",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "HAPPYNEWYEAR2026",
       "reward": "New Year's Community Lanterns",
-      "added": "2025-12-31",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "COMMUNITYCOMPANIONDRAGON2025",
-      "reward": "Sakura Blossom Dragon",
-      "added": "2025-12-10",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "VAMPIRETEETH2025",
-      "reward": "Vampire Teeth",
-      "added": "2025-10-29",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "DDVPRIDE25",
-      "reward": "Joy and Rainbows Sweater / Joy and Rainbows Umbrella / Gleam Celebration Banner / Photo Mode Frame",
-      "added": "2025-06-20",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "WELCOME2DDV",
-      "reward": "Blue Mickey-and-Minnie-Patch Pants / Red Flannel Jacket / Plain Gray T-Shirt / Chunky Sneakers With Red Highlights / Celebration Mickey Mouse Ears / Celebration Minnie Mouse Ears / Celebration Balloon Arch / Celebration Balloon Cluster (4) / Celebration Backpack / Red Velvet (5)",
-      "added": "2024-12-13",
+      "reward": "Sakura Blossom Dragon Companion",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "HADES15",
-      "reward": "Carrot (3)",
-      "added": "2024-11-20",
+      "reward": "3x Carrots",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "DDVPRIDE25",
+      "reward": "Joy and Rainbows Sweater, Joy and Rainbows Umbrella, Gleam Celebration Banner, Photo Mode ",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDEBRIGHT24",
-      "reward": "Bright Balloon Bouquet (2) / Bright Balloon Arch / Bright Popcorn Bucket / Bright Ears Headband",
-      "added": "2024-06-26",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "PRIDE20231",
-      "reward": "Pride — Gleam Tee",
-      "added": "2023-06-20",
+      "reward": "(Trans Pride flag) - 2x Bright Balloon Bouquet, Bright Balloon Arch, Bright Popcorn Bucket",
+      "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDEDAZZLE24",
-      "reward": "Dazzle Balloon Bouquet (2) / Dazzle Balloon Arch / Dazzle Popcorn Bucket / Dazzle Ears Headband",
+      "reward": "(Non-binary Pride flag) - 2x Dazzle Balloon Bouquet, Dazzle Balloon Arch, Dazzle Popcorn B",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDEGLEAM24",
-      "reward": "Gleam Balloon Bouquet (2) / Gleam Balloon Arch / Gleam Popcorn Bucket / Gleam Ears Headband",
+      "reward": "(Pride flag) - 2x Gleam Balloon Bouquet, Gleam Balloon Arch, Gleam Popcorn Bucket, Gleam E",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDEGLOW24",
-      "reward": "Glow Balloon Bouquet (2) / Glow Balloon Arch / Glow Popcorn Bucket / Glow Ears Headband",
+      "reward": "(MLM Pride flag) - 2x Glow Balloon Bouquet, Glow Balloon Arch, Glow Popcorn Bucket, Glow E",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDEILLUMINATE24",
-      "reward": "Illuminate Balloon Bouquet (2) / Illuminate Balloon Arch / Illuminate Popcorn Bucket / Illuminate Ears Headband",
+      "reward": "(Bi Pride flag)",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDERADIATE24",
-      "reward": "Radiate Balloon Bouquet (2) / Radiate Balloon Arch / Radiate Popcorn Bucket / Radiate Ears Headband",
+      "reward": "(WLW Pride flag) - 2x Radiate Balloon Bouquet, Radiate Balloon Arch, Radiate Popcorn Bucke",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDESHIMMER24",
-      "reward": "Shimmer Balloon Bouquet (2) / Shimmer Balloon Arch / Shimmer Popcorn Bucket / Shimmer Ears Headband",
+      "reward": "(Asexual Pride flag) - 2x Shimmer Balloon Bouquet, Shimmer Balloon Arch, Shimmer Popcorn B",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDESHINE24",
-      "reward": "Shine Balloon Bouquet (2) / Shine Balloon Arch / Shine Popcorn Bucket / Shine Ears Headband",
+      "reward": "(Pansexual Pride flag) - 2x Shine Balloon Bouquet, Shine Balloon Arch, Shine Popcorn Bucke",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "PRIDE20231",
+      "reward": "\"Gleam\" Pride flag",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDE20232",
-      "reward": "Pride — Illuminate Tee",
+      "reward": "\"Illuminate\" Bi Pride flag",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDE20233",
-      "reward": "Pride — Shine Tee",
+      "reward": "\"Shine\" Pan Pride flag",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDE20234",
-      "reward": "Pride — Shimmer Tee",
+      "reward": "\"Shimmer\" Asexual Pride flag",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDE20235",
-      "reward": "Pride — Glow Tee",
+      "reward": "\"Glow\" MLM Pride flag",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDE20236",
-      "reward": "Pride — Radiate Tee",
+      "reward": "\"Radiate\" WLW Pride flag",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDE20237",
-      "reward": "Pride — Bright Tee",
+      "reward": "\"Bright\" Trans Pride flag",
       "added": "",
       "expires": null,
       "expired": false
     },
     {
       "code": "PRIDE20238",
-      "reward": "Pride — Dazzle Tee",
+      "reward": "\"Dazzle\" Non-binary Pride flag",
       "added": "",
       "expires": null,
       "expired": false
-    },
-    {
-      "code": "FROGGYGIFT2025",
-      "reward": "Pixel Shard Duplicates (5) / Gingerbread House / Minnie's Gingerbread Cookies / Hot Cocoa / Fruitcake / Yule Log / Miracle Fishing Bait / Miracle Growth Elixir / Miracle Pickaxe Polish / Miracle Shovel Varnish / Pixelized Cooking Flame (alt: JAMESTGIFT2025, SYDMACGIFT2025)",
-      "added": "2025-12-10",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "UPDDDV18JAMEST",
-      "reward": "Pixel Shard Duplicates (5) / Miracle Fishing Bait / Miracle Growth Elixir / Miracle Pickaxe Polish / Miracle Shovel Varnish / Pixelized Cooking Flame (alt: UPD18DDVVIXELLA, UPDDDV18FROGGY, UPDDDV18LBW)",
-      "added": "2025-08-20",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "SLEAPRSYDNEE0409",
-      "reward": "Bouillabaisse (3) / Corn Seed (10) / Tomato Seed (10) / Sugarcane (10) / (alt: SLEAPRSYDMAC0409, SLEAPRFROGGY0409)",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "WLCMJAMESTURNER0326",
-      "reward": "Berry Salad (5) / Stone (15) / Softwood (15) / Carrot Seed (10) / Wheat Seed (10) / Cabbage Seed (10)",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "GPOT-OATO-LDFS-ENNM",
-      "reward": "Mysterious Golden Potato",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "CENTENNIAL",
-      "reward": "Melting Platinum Minnie Mouse Ears / Iron Ingot (15)",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "DREAMLIGHTPARK",
-      "reward": "Magical Recyclers",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "FOFSOUVENIR",
-      "reward": "Iron Ingot (5) / Gold Ingot (5) / Tinkering Parts (5)",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "FOFCRAFTYKIT",
-      "reward": "Clay (5) / Fabric (5) / Cotton (5)",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "FOFCATCHDAY",
-      "reward": "Kingfish (5) / Fugu (5) / Anglerfish (5)",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "FOFSURPRISEKIT",
-      "reward": "Snowball (15) / Hardwood (15) / Glass (15)",
-      "added": "",
-      "expires": null,
-      "expired": true
-    },
-    {
-      "code": "FOFSUCCESS",
-      "reward": "Pumpkin (8)",
-      "added": "",
-      "expires": null,
-      "expired": true
     }
   ]
 }
