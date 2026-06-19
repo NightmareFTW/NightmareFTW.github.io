@@ -215,7 +215,7 @@ const GAMES = [
   },
   {
     id: "nte",
-    name: "NTE",
+    name: "Neverness to Everness",
     banner: "assets/img/games/nte-header.jpg",
     color: "#7c5cff",
     glow: "rgba(124, 92, 255, 0.22)",

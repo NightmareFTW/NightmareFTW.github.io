@@ -99,6 +99,12 @@
     "The 5 best affinity gifts per character — value, cost in Fons, and where to buy.":
       "Os 5 melhores gifts de afinidade por personagem — valor, custo em Fons e onde comprar.",
     "Works on everyone:": "Funciona com todos:",
+    "The 5 most affinity-efficient gifts for each character — how much Bond they give, where to buy them and the cost in Fons (in-game currency, no real money). Click a character.":
+      "Os 5 gifts mais eficientes em afinidade para cada personagem — quanto Bond dão, onde comprá-los e o custo em Fons (currency do jogo, sem dinheiro real). Clica numa personagem.",
+    "Affinity values & prices compiled from GameWith & ZeroLuck.gg; they can shift between patches. Gifts are capped at 3 per character per day (10 total) — spend the +400/+200 slots first. Per-item art will be added once a reliable source is available; for now each gift shows its category icon.":
+      "Valores de afinidade & preços compilados do GameWith & ZeroLuck.gg; podem mudar entre patches. Os gifts estão limitados a 3 por personagem por dia (10 no total) — gasta primeiro os slots de +400/+200. As imagens de cada item serão adicionadas quando houver fonte fiável; por agora cada gift mostra o ícone da sua categoria.",
+    "Affinity values & prices via GameWith & ZeroLuck.gg · costs in Fons (in-game currency). Max 3 gifts per character/day.":
+      "Valores de afinidade & preços via GameWith & ZeroLuck.gg · custos em Fons (currency do jogo). Máx 3 gifts por personagem/dia.",
     "Flower": "Flor", "Electronics": "Eletrónica", "Figure": "Figura", "Book": "Livro",
     "Record": "Disco", "Gift Shop": "Loja de Presentes", "Vending": "Máquina", "Special": "Especial",
     "Food & Drink": "Comida e Bebida", "not buyable": "não comprável", "close ×": "fechar ×",
@@ -525,8 +531,8 @@
       "Compara gear ofensivo e defensivo. Usa a fórmula de defesa do Epic Seven: dano recebido = 300 / (300 + DEF).",
     "Daily section resets at local midnight, weekly resets Monday. Saved on this device.":
       "A secção diária reseta à meia-noite local, a semanal reseta segunda. Guardado neste dispositivo.",
-    "Generic gacha routine — once NTE's reset times and content are confirmed, ask me to lock the items and reset schedule to the real ones.":
-      "Rotina gacha genérica — quando os reset times e conteúdo do NTE forem confirmados, pede-me para fixar os items e o horário reais.",
+    "Generic gacha routine — once Neverness to Everness's reset times and content are confirmed, ask me to lock the items and reset schedule to the real ones.":
+      "Rotina gacha genérica — quando os reset times e conteúdo do Neverness to Everness forem confirmados, pede-me para fixar os items e o horário reais.",
     "Images & tier data via the Phasmophobia Wiki. Tier effects are summarized; exact values can shift between patches.":
       "Imagens & dados de tier via Phasmophobia Wiki. Os efeitos por tier estão resumidos; os valores exatos podem mudar entre patches.",
     "Pick a rig and one amp from each group, name it, save and share. A real loadout is 1 rig + 1 Tool + 1 Skill + 1 Medicine amp.":
@@ -607,6 +613,7 @@
     [/^(\d+) farmable items · source: (.+)$/, "$1 items farmáveis · fonte: $2"],
     [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
+    [/^Top (\d+) bond gifts · best value first$/, "Top $1 gifts de bond · melhor valor primeiro"],
     [/^resets in (.+)$/, "reseta em $1"],
     [/^Week (\d+)$/, "Semana $1"],
     [/^Unlocks (.+)$/, "Desbloqueia: $1"],

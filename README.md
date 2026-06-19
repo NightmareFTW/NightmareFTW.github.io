@@ -22,15 +22,15 @@ headlines) and **Codes** (redeemable codes, kept fresh automatically).
 | **Final Fantasy XIV** | Daily/Weekly Checklist (reset-aware) · Gathering Node Timer (live Eorzea clock) |
 | **Epic Seven** | Gear Score · Damage / EHP Calculator · Speed Tuning / Turn Order |
 | **Warframe** | Worldstate Tracker · Cycle Timers · Drop Table |
-| **NTE** | Daily Checklist · Tier List & Builds |
+| **Neverness to Everness** | Daily Checklist · Tier List & Builds · Bond Gift Planner |
 
 The home page supports live search, sorting and grid / list / compact views.
 
 ### A few in action
 
-**NTE — Tier List & Builds** (rankings & builds compiled from Game8, shown on-site)
+**Neverness to Everness — Tier List & Builds** (rankings & builds compiled from Game8, shown on-site)
 
-![NTE tier list](assets/screenshots/nte-tierlist.png)
+![Neverness to Everness tier list](assets/screenshots/nte-tierlist.png)
 
 **Warframe — Drop Table** (14k+ drops, multi-select filters by source, rarity, relic tier and planet)
 
@@ -78,7 +78,7 @@ without manual edits:
 │   │   ├── home.js           # home grid + search/sort/views
 │   │   ├── game.js           # game page: tabs (Tools/News/Codes)
 │   │   └── checklist.js       # reusable reset-aware checklist engine
-│   └── img/                  # game banners, NTE portraits, Phasmo equipment
+│   └── img/                  # game banners, character portraits, Phasmo equipment
 ├── games/<game>/             # per-game page + its tool pages
 ├── data/
 │   ├── codes/<game>.json     # redeem codes (curated)
@@ -111,8 +111,8 @@ themselves.
 Game data and images belong to their respective owners and are used for reference:
 Digital Extremes (Warframe, via WFCD), Smilegate (Epic Seven), Square Enix (FFXIV),
 Kinetic Games (Phasmophobia), Red Barrels (The Outlast Trials), Hotta Studio /
-Perfect World (NTE). Tier lists & builds for NTE are compiled from
-[Game8](https://game8.co/games/Neverness-to-Everness).
+Perfect World (Neverness to Everness). Tier lists & builds for Neverness to
+Everness are compiled from [Game8](https://game8.co/games/Neverness-to-Everness).
 
 ---
 
