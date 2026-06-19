@@ -52,11 +52,27 @@ const GAMES = [
     reset: { daily: { h: 15, m: 0, utc: true }, weekly: { dow: 2, h: 15, m: 0, utc: true } },
     tools: [
       {
-        id: "progression",
-        name: "Progression Tracker",
-        type: "checklist",
-        desc: "Track unlocked rigs and your weekly program & challenge runs.",
-        href: "games/outlast-trials/progression.html",
+        id: "enemies",
+        name: "Enemies & Counters",
+        type: "reference",
+        desc: "Every Ex-Pop, Night Hunter and Prime Asset — behaviour and how to deal with each.",
+        href: "games/outlast-trials/enemies.html",
+        available: true,
+      },
+      {
+        id: "trials",
+        name: "Trials & Maps Guide",
+        type: "guide",
+        desc: "Every trial's full objective walkthrough plus the map screenshot.",
+        href: "games/outlast-trials/trials.html",
+        available: true,
+      },
+      {
+        id: "builds",
+        name: "Recommended Builds",
+        type: "reference",
+        desc: "Meta rig + amp loadouts for each role, with the reasoning behind them.",
+        href: "games/outlast-trials/builds.html",
         available: true,
       },
       {

@@ -1161,3 +1161,56 @@ body {
   .drop-item { flex-basis: 100%; }
   .facet-title { width: 100%; }
 }
+
+/* ---- Outlast: Trials & Maps guide ---- */
+.trial-list { display: flex; flex-direction: column; gap: 12px; padding-bottom: 60px; }
+.trial-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.trial-head { display: flex; align-items: center; gap: 14px; padding: 12px 14px; cursor: pointer; list-style: none; }
+.trial-head::-webkit-details-marker { display: none; }
+.trial-thumb { width: 84px; height: 48px; flex: 0 0 auto; border-radius: 8px; overflow: hidden; background: var(--bg-soft); }
+.trial-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.trial-headtext { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.trial-map { font-weight: 700; font-size: 1.05rem; }
+.trial-names { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.trial-caret { color: var(--muted); transition: transform 0.15s; }
+.trial-card[open] .trial-caret { transform: rotate(90deg); }
+.trial-body { padding: 0 16px 18px; }
+.trial-hero { width: 100%; max-height: 280px; object-fit: cover; border-radius: 10px; margin-bottom: 16px; display: block; }
+.trial-block { margin-top: 14px; }
+.trial-title { font-size: 1.05rem; margin-bottom: 6px; color: var(--accent-2); }
+.trial-intro { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+.trial-objs { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 5px; }
+.trial-objs li { font-size: 0.92rem; }
+
+/* ---- Outlast: Enemies & Counters ---- */
+.enemy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; padding-bottom: 60px; }
+.enemy-card { display: flex; gap: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.enemy-portrait { width: 92px; height: 92px; flex: 0 0 auto; border-radius: 10px; overflow: hidden; background: var(--bg-soft); }
+.enemy-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.enemy-portrait.no-img { background: linear-gradient(135deg, var(--bg-soft), rgba(255,36,53,.08)); }
+.enemy-info { flex: 1; min-width: 0; }
+.enemy-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.enemy-name { font-weight: 700; font-size: 1.02rem; }
+.enemy-tags { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.enemy-where { background: rgba(212,132,42,.16); color: #e0a45a; }
+.enemy-danger { font-family: var(--mono); font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+.dg-low { background: rgba(80,160,180,.16); color: #6cc; }
+.dg-med { background: rgba(210,170,60,.16); color: #d8b65a; }
+.dg-high { background: rgba(255,120,40,.16); color: #ff9a52; }
+.dg-boss { background: rgba(255,36,53,.18); color: #ff8a82; }
+.enemy-behavior { font-size: 0.88rem; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.enemy-counter { font-size: 0.88rem; line-height: 1.5; }
+.enemy-counter b { color: var(--accent-2); }
+
+/* ---- Outlast: Recommended builds ---- */
+.mbuild-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; padding-bottom: 60px; }
+.mbuild-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.mbuild-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.mbuild-name { font-weight: 800; font-size: 1.08rem; }
+.mbuild-tags { display: flex; gap: 5px; }
+.mbuild-slots { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mbuild-slot { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; }
+.mbuild-slot-label { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.mbuild-slot b { font-size: 0.92rem; }
+.mbuild-why { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+.mbuild-card .mini-btn { align-self: flex-start; text-decoration: none; }

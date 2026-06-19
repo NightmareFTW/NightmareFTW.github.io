@@ -18,7 +18,7 @@ headlines) and **Codes** (redeemable codes, kept fresh automatically).
 | Game | Tools |
 | --- | --- |
 | **Phasmophobia** | Ghost Evidence Checker · Cursed Possession Reference · Equipment Guide |
-| **The Outlast Trials** | Progression Tracker · Loadout Builder (shareable builds) |
+| **The Outlast Trials** | Enemies & Counters · Trials & Maps Guide · Recommended Builds · Loadout Builder (shareable builds) |
 | **Final Fantasy XIV** | Daily/Weekly Checklist (reset-aware) · Gathering Node Timer (live Eorzea clock) |
 | **Epic Seven** | Gear Score · Damage / EHP Calculator · Speed Tuning / Turn Order |
 | **Warframe** | Worldstate Tracker · Cycle Timers · Drop Table |

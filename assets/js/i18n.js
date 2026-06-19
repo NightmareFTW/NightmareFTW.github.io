@@ -43,6 +43,27 @@
     "Cursed Possession Reference": "Referência de Objetos Amaldiçoados",
     "Equipment Guide": "Guia de Equipamento", "Progression Tracker": "Tracker de Progresso",
     "Loadout Builder": "Construtor de Loadout", "Daily / Weekly Checklist": "Checklist Diária / Semanal",
+    "Enemies & Counters": "Inimigos & Counters", "Trials & Maps Guide": "Guia de Trials & Mapas",
+    "Recommended Builds": "Builds Recomendadas",
+    "Every Ex-Pop, Night Hunter and Prime Asset — behaviour and how to deal with each.":
+      "Todos os Ex-Pops, Night Hunters e Prime Assets — comportamento e como lidar com cada um.",
+    "Every trial's full objective walkthrough plus the map screenshot.":
+      "O walkthrough completo de objetivos de cada trial mais a screenshot do mapa.",
+    "Meta rig + amp loadouts for each role, with the reasoning behind them.":
+      "Loadouts meta de rig + amps para cada função, com a justificação.",
+    "Every Ex-Pop, Night Hunter and Prime Asset — how it behaves and exactly how to deal with it.":
+      "Todos os Ex-Pops, Night Hunters e Prime Assets — como se comportam e exatamente como lidar com cada um.",
+    "Every Trial and the map it runs on — the full objective walkthrough plus the map screenshot. Click a map to expand its steps.":
+      "Cada Trial e o mapa onde decorre — o walkthrough completo de objetivos mais a screenshot do mapa. Clica num mapa para expandir os passos.",
+    "Meta loadouts for different roles — rig + amps that work together, with the reasoning. A loadout is 1 Rig + 1 Tool + 1 Skill + 1 Medicine amp.":
+      "Loadouts meta para diferentes funções — rig + amps que combinam, com a justificação. Um loadout é 1 Rig + 1 Tool + 1 Skill + 1 Medicine amp.",
+    "How to deal with it:": "Como lidar:",
+    "All": "Todos", "Common": "Comum", "Specialist": "Especialista", "Night Hunter": "Night Hunter", "Prime Asset": "Prime Asset",
+    "Low": "Baixo", "Medium": "Médio", "High": "Alto", "Boss": "Boss",
+    "Rig": "Rig", "Tool Amp": "Tool Amp", "Skill Amp": "Skill Amp", "Medicine Amp": "Medicine Amp",
+    "↗ Recreate in the Loadout Builder": "↗ Recriar no Construtor de Loadout",
+    "Search maps, trials or objectives…": "Procurar mapas, trials ou objetivos…",
+    "Couldn't load trial data.": "Não foi possível carregar os dados dos trials.",
     "Daily Checklist": "Checklist Diária", "Gathering Node Timer": "Timer de Nós de Recolha",
     "Gear Score Calculator": "Calculadora de Gear Score", "Damage / EHP Calculator": "Calculadora de Dano / EHP",
     "Speed Tuning / Turn Order": "Speed Tuning / Ordem de Turnos", "Worldstate Tracker": "Tracker de Worldstate",

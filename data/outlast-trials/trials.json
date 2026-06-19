@@ -1,0 +1,297 @@
+{
+  "updated": "2026-06-19T16:11:16.183Z",
+  "source": "https://outlast.fandom.com",
+  "maps": [
+    {
+      "name": "Police Station",
+      "img": "https://static.wikia.nocookie.net/outlast/images/6/62/OLTrials_PoliceStation.png",
+      "trials": [
+        {
+          "name": "Kill the Snitch",
+          "intro": "Kill the Snitch is a Trial that takes place at the Police Station in The Outlast Trials. It was released on October 28th, 2022 during the closed beta launch.",
+          "objectives": [
+            "Infiltrate the Police Station",
+            "Reach the Security Room",
+            "Get to the Snitch",
+            "Push the Snitch",
+            "Reach the Basement (Introductory difficulty)",
+            "Start the Generators in the Basement",
+            "Get back to the Snitch",
+            "Push the Snitch",
+            "Find the Key",
+            "Find the Other Keys",
+            "Open the Admin Gate (Introductory difficulty)",
+            "Open the Detective Gate (Introductory difficulty)",
+            "Open the Execution Room Gate (Introductory difficulty)",
+            "Electrocute the Snitch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orphanage",
+      "img": "https://static.wikia.nocookie.net/outlast/images/8/8b/OLTrials_TheOrphanage.png",
+      "trials": [
+        {
+          "name": "Cleanse the Orphans",
+          "intro": "Cleanse the Orphans is a Trial that takes place at the Orphanage in The Outlast Trials. It was released on May 18th, 2023 during the early access launch.",
+          "objectives": [
+            "Enter the Orphanage",
+            "Broadcast the Religious Station",
+            "Tune Radio Receivers in the Dorms",
+            "Return to the Reception Desk",
+            "Swap Film Reels in Classrooms",
+            "Return to the Reception Desk",
+            "Stop the Blasphemers in the Chapel",
+            "Power up Generators",
+            "Find Saw Handle Keys",
+            "Serve the Body of Christ",
+            "Regroup in the Chapel",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fun Park",
+      "img": "https://static.wikia.nocookie.net/outlast/images/4/45/OLTrials_FunPark_Carousel.png",
+      "trials": [
+        {
+          "name": "Grind the Bad Apples",
+          "intro": "Grind the Bad Apples is a Trial that takes place at the Fun Park in The Outlast Trials. It was released on May 18th, 2023 during the early access launch.",
+          "objectives": [
+            "Infiltrate the Fun Park",
+            "Reach the Root Canal Ride",
+            "Get access to the Root Canal Ride",
+            "Regroup into the Root Canal",
+            "Push the Boat",
+            "Power off the Barriers",
+            "Raise the Water Level",
+            "Push the Boat",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Toy Factory",
+      "img": "https://static.wikia.nocookie.net/outlast/images/2/2e/Toy_factory_exterior_1.jpg",
+      "trials": [
+        {
+          "name": "Pervert the Futterman",
+          "intro": "Pervert the Futterman is a Trial that takes place at the Toy Factory in The Outlast Trials. It was released March 5th, 2024 with the full launch of The Outlast Trials.",
+          "objectives": [
+            "Infiltrate the Toy Factory",
+            "Reach the Production Line",
+            "Start the Production Line",
+            "Unlock the Security System",
+            "Find Wax Boxes in Storage",
+            "Complete all Production Steps",
+            "Reroute the Production Line",
+            "Burn the Sex Toy",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Courthouse",
+      "img": "https://static.wikia.nocookie.net/outlast/images/f/ff/OLTrials_Courthouse.png",
+      "trials": [
+        {
+          "name": "Vindicate the Guilty",
+          "intro": "Vindicate the Guilty is a Trial that takes place at the Courthouse in The Outlast Trials. It was released on October 26th, 2023 as part of the first Program Geister event.",
+          "objectives": [
+            "Infiltrate the Courthouse",
+            "Reach the Courtroom",
+            "Unlock the Evidence",
+            "Drop the Evidence in the Fountain",
+            "Gather Acid and pour into the Fountain",
+            "Destroy the Remaining Evidence",
+            "Return to the Courtroom",
+            "Kill the Witness",
+            "Kill the remaining Witnesses",
+            "Return to the Courtroom",
+            "Execute the Judge",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Shopping Mall",
+      "img": "https://static.wikia.nocookie.net/outlast/images/5/57/OLTrials_ShoppingMall_Entrance.png",
+      "trials": [
+        {
+          "name": "Kill the Politician",
+          "intro": "Kill the Politician is a Trial that takes place at the Shopping Mall in The Outlast Trials. It was released on July 15th, 2025 with the release of the Season 4: Project Diarchy, and the Kress Twins event.",
+          "objectives": [
+            "Gain Access to the Main Plaza",
+            "Access the Department Store",
+            "Win a Ticket",
+            "Use the Ticket to Enter the Event",
+            "Regroup to Fill the Fountain",
+            "Fix the Water Pressure",
+            "Fix the Fountain Valves",
+            "Regroup to Fill the Fountain",
+            "Execute The Politician",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Downtown",
+      "img": "https://static.wikia.nocookie.net/outlast/images/7/78/The_Outlast_Trials_-_The_Downtown.png",
+      "trials": [
+        {
+          "name": "Pleasure the Prosecutor",
+          "intro": "Pleasure the Prosecutor is a Trial that takes place at the Downtown in The Outlast Trials. It was released on December 10th, 2024 with the launch of Season 2: Project Breach, and the second Winter Kills event.",
+          "objectives": [
+            "Gain Access to the Theater",
+            "Explore the Theater",
+            "Throw away the Kinky Mannequins",
+            "Find and Install the Sadist Mannequin",
+            "Get the Remaining Sadist Mannequins",
+            "Execute The District Attorney",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Suburbs",
+      "img": "https://static.wikia.nocookie.net/outlast/images/9/95/OLTrials_Suburbs_WealthyNeighborhood1.png",
+      "trials": [
+        {
+          "name": "Liquidate the Union",
+          "intro": "Liquidate the Union is a Trial that takes place at The Suburbs in The Outlast Trials. It was released on April 22nd, 2025 with the launch of Season 3: Project Relapse and the Jaeger Onboarding event.",
+          "objectives": [
+            "Reach the Town Hall",
+            "Find the Union Boss In the Mansion",
+            "Find a way to Open the Panic Room",
+            "Escort the Union Boss to the Factory",
+            "Hit the Correct Safety Sign",
+            "Drown the Union Boss",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Television Studio",
+      "img": "https://static.wikia.nocookie.net/outlast/images/3/35/Silence_The_Idol_photo_%28Clear%29.png",
+      "trials": [
+        {
+          "name": "Silence the Idol",
+          "intro": "Silence the Idol is a Trial that takes place at the Television Studio in The Outlast Trials. It was released on March 24th, 2026 with the release of the Season 6: Project Judas, and the Scavenger event.",
+          "objectives": [
+            "Infiltrate the Studio",
+            "Ruin the conference",
+            "Follow the Idol to Studio 1",
+            "Setup the scene on the Studio floor",
+            "Reach the Studio control room",
+            "Find codes and use them on the switchboard",
+            "Sabotage the recording",
+            "Escort the Idol to Studio 2",
+            "Join the Idol to Studio 2",
+            "Prepare Studio 2 for recording",
+            "Sabotage the recording",
+            "Escort the Idol to Studio 3",
+            "Recharge the power stations",
+            "Join the Idol to Studio 3"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Docks",
+      "img": "https://static.wikia.nocookie.net/outlast/images/d/de/The_docks_steam_update.png",
+      "trials": [
+        {
+          "name": "Poison the Medicine",
+          "intro": "Poison the Medicine is a Trial that takes place at The Docks in The Outlast Trials. It was released on July 16th, 2024 with the launch of Season 1: Project Lupara, and the Bambino event.",
+          "objectives": [
+            "Find the Drug Laboratory",
+            "Start the Drug Production",
+            "Put Drugs into the Cooker",
+            "Push Cart to the Train Depot for Refilling",
+            "Refill the Cart with Drugs",
+            "Deliver the Cart to the Laboratory",
+            "Put Poison into the Drugs",
+            "Add Poison from the Chemical Storage",
+            "Cut and Package the Poisoned Drugs",
+            "Hide the Drugs in the Cargo Hold",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Resort",
+      "img": "https://static.wikia.nocookie.net/outlast/images/b/b9/Deposit_The_Auction_photo_%28Clear%29.png",
+      "trials": [
+        {
+          "name": "Despoil the Auction",
+          "intro": "Despoil the Auction is a Trial that takes place at the Resort in The Outlast Trials. It was released on December 9th, 2025 with the release of the Season 5: Project Messiah, and the third Winter Kills event.",
+          "objectives": [
+            "Infiltrate the Resort",
+            "Register for the Auction",
+            "Deposit the Initial Contribution",
+            "Cover the Rest of the Balance",
+            "Start the Auction",
+            "Destroy the Lot",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mansion",
+      "img": "https://static.wikia.nocookie.net/outlast/images/7/7e/OLTrials_TheMansion.png",
+      "trials": [
+        {
+          "name": "Rebirth",
+          "intro": "thumb|Rebirth icon thumb|The form handed to the Reagents for Rebirth Rebirth, formerly known as the Reagent Release Protocol, is a game mechanic in The Outlast Trials that serves as the final step for Reagents to complete their therapy and ",
+          "objectives": [
+            "Who are you?",
+            "Hear the Words.",
+            "See the Words.",
+            "Rebirth"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Waste Tunnel",
+      "img": "https://static.wikia.nocookie.net/outlast/images/c/cb/Reagent_equipment_harvester.jpg",
+      "trials": [
+        {
+          "name": "Escape",
+          "intro": "Escape, also known as Unknown, is a temporary Trial in The Outlast Trials where Reagents are given an option to finally escape from the Sinyala Facility through the Waste Tunnel. Reagents could only access the escape trial after being promp",
+          "objectives": [
+            "|date        = April 21st - 24, 1960"
+          ]
+        }
+      ]
+    }
+  ]
+}
