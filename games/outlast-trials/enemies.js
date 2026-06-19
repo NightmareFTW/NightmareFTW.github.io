@@ -28,15 +28,11 @@ const ENEMIES = [
     behavior: "Hides in dark corners and vents, then ambushes and pins you in place for a grab.",
     counter: "Carry your light and sweep dark nooks before walking in. Listen for its lurking cue. If grabbed, mash to break free or have a teammate melee it off you." },
 
-  // ---- Night Hunters ----
-  { name: "Berserker", cat: "Night Hunter", danger: "High",
+  // ---- Elite ----
+  { name: "Berserker", cat: "Elite", danger: "High",
     img: `${IMG}/6/61/Berserker_preview.png`,
-    behavior: "A relentless Night Hunter that pursues you across the whole trial with high speed and aggression, ignoring most distractions.",
+    behavior: "A relentless elite Ex-Pop that pursues you with high speed and aggression, ignoring most distractions once it locks on.",
     counter: "Don't duel it — keep doing objectives and rotate. Use rigs to peel it off, never get cornered, and keep two escape routes open at all times." },
-  { name: "Night Hunters", cat: "Night Hunter", danger: "High",
-    img: `${IMG}/2/20/Night_Hunters_%28evidence%29.png`,
-    behavior: "Roaming hunters that track Reagents persistently, showing up in higher MK / escalation runs to keep constant pressure on the team.",
-    counter: "Stay mobile and split their attention in co-op. Save Blind/Stun for grab escapes, and don't all funnel into the same room." },
 
   // ---- Prime Assets (map bosses) ----
   { name: "The Skinner Man", cat: "Prime Asset", where: "Police Station", danger: "Boss",
@@ -52,7 +48,7 @@ const ENEMIES = [
     behavior: "A deranged clown with a candy cart who deploys 'Gooseberry juice' gas and toys, and sings to track your location.",
     counter: "Avoid her gas and don't linger near the cart. Work objectives while she patrols, and keep rigs ready to escape a grab." },
   { name: "Franco \"Il Bambino\" Barbi", cat: "Prime Asset", where: "The Docks", danger: "Boss",
-    img: `${IMG}/8/8f/OLTrials_Franco_MainMenu.png`,
+    img: `${IMG}/5/50/Franco_Barbi_Portrait.png`,
     behavior: "A hulking mobster Prime Asset with devastating melee that bullies you around the Docks.",
     counter: "Use vertical and tight routes to create space; never get cornered against the water. Rigs to break grabs and reset the chase." },
   { name: "Liliya Bogomolova", cat: "Prime Asset", where: "Resort", danger: "Boss",
@@ -61,7 +57,7 @@ const ENEMIES = [
     counter: "Keep moving and use cover and rotations; prioritise objectives over hiding in place, and save escape rigs for when she closes in." },
 ];
 
-const CATS = ["All", "Common", "Specialist", "Night Hunter", "Prime Asset"];
+const CATS = ["All", "Common", "Specialist", "Elite", "Prime Asset"];
 const DANGER_CLASS = { Low: "dg-low", Medium: "dg-med", High: "dg-high", Boss: "dg-boss" };
 let cat = "All";
 

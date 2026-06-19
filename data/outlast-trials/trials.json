@@ -1,10 +1,28 @@
 {
-  "updated": "2026-06-19T18:41:33.338Z",
+  "updated": "2026-06-19T21:41:01.232Z",
   "source": "https://outlast.fandom.com",
+  "fex": "https://outlast.fex.dev/maps",
+  "generalTips": [
+    "Crouch-walk and break line of sight — most Ex-Pop lose you within seconds once they can't see you.",
+    "Lockers and under-beds reset a chase, but a Pouncer may be hiding in dark spots — shine your light first.",
+    "Loot side rooms for batteries, lockpicks and meds before triggering loud objectives (generators, alarms).",
+    "Save your rig for grab-escapes and Prime Asset encounters, not trash mobs.",
+    "In co-op, split roles: one handles the noisy objective while the others scout and peel enemies."
+  ],
   "maps": [
     {
       "name": "Police Station",
       "img": "https://static.wikia.nocookie.net/outlast/images/6/62/OLTrials_PoliceStation.png",
+      "layouts": [
+        {
+          "label": "Sabotage The Lockdown Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/b/b8/Police_Station_-_Sabotage_The_Lockdown_Map.png"
+        },
+        {
+          "label": "Ground Floor Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/0/09/Police_Station_-_Ground_Floor_Map.png"
+        }
+      ],
       "trials": [
         {
           "name": "Kill the Snitch",
@@ -24,13 +42,29 @@
             "Open the Detective Gate (Introductory difficulty)",
             "Open the Execution Room Gate (Introductory difficulty)",
             "Electrocute the Snitch"
+          ],
+          "tips": [
+            "The Snitch is pushed to his death — protect the slow, exposed push route.",
+            "Basement generators are loud; clear nearby enemies first or post a watcher.",
+            "The Skinner Man stalks here — keep a locker or window in reach while looting the security room."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Orphanage",
       "img": "https://static.wikia.nocookie.net/outlast/images/8/8b/OLTrials_TheOrphanage.png",
+      "layouts": [
+        {
+          "label": "Faith broadcast map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/e/e9/Faith_broadcast_map.jpg"
+        },
+        {
+          "label": "Second Floor Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/1/1c/Orphanage_-_Second_Floor_Map.png"
+        }
+      ],
       "trials": [
         {
           "name": "Cleanse the Orphans",
@@ -50,13 +84,29 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "You're defenceless while carrying an orphan — scout and clear the route first.",
+            "Leland Coyle charges with an electrified baton; bait the charge near cover, then break away.",
+            "Use the chapel basement and second floor to shake chases."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Fun Park",
       "img": "https://static.wikia.nocookie.net/outlast/images/4/45/OLTrials_FunPark_Carousel.png",
+      "layouts": [
+        {
+          "label": "GTBA Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/b/bb/Futterland_-_GTBA_Map.png"
+        },
+        {
+          "label": "Punish The Miscreants Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/0/05/Futterland_-_Punish_The_Miscreants_Map.png"
+        }
+      ],
       "trials": [
         {
           "name": "Grind the Bad Apples",
@@ -73,13 +123,20 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "The Root Canal boat ride is the hub — power off the barriers, then push the boat together.",
+            "Sightlines are wide open; hug stalls and rides for cover.",
+            "Group up before the boat push so a hunter can't pick off a straggler."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Toy Factory",
       "img": "https://static.wikia.nocookie.net/outlast/images/2/2e/Toy_factory_exterior_1.jpg",
+      "layouts": [],
       "trials": [
         {
           "name": "Pervert the Futterman",
@@ -96,13 +153,37 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "Machinery noise masks enemy audio — rely on sight and the X-Ray rig.",
+            "Mother Gooseberry's gas lingers; never fight or loot inside it.",
+            "Long trial — bank meds and batteries between objectives."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Courthouse",
       "img": "https://static.wikia.nocookie.net/outlast/images/f/ff/OLTrials_Courthouse.png",
+      "layouts": [
+        {
+          "label": "First Floor Lobby Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/2/29/Courthouse_-_First_Floor_Lobby_Map.png"
+        },
+        {
+          "label": "First Floor Outside Courtroom Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/1/1a/Courthouse_-_First_Floor_Outside_Courtroom_Map.png"
+        },
+        {
+          "label": "Second Floor Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/c/c4/Courthouse_-_Second_Floor_Map.png"
+        },
+        {
+          "label": "Tilt The Scales of Justice Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/3/38/Tilt_The_Scales_of_Justice_Map.png"
+        }
+      ],
       "trials": [
         {
           "name": "Vindicate the Guilty",
@@ -122,13 +203,25 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "Multi-floor — use the lobby and second-floor layouts to plan routes between objectives.",
+            "The scales-of-justice area is a chokepoint; clear it before committing.",
+            "Courtrooms echo — move during ambient noise to mask your steps."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Shopping Mall",
       "img": "https://static.wikia.nocookie.net/outlast/images/5/57/OLTrials_ShoppingMall_Entrance.png",
+      "layouts": [
+        {
+          "label": "ShoppingMall Map",
+          "img": "https://static.wikia.nocookie.net/outlast/images/d/d2/OLTrials_-_ShoppingMall_Map.png"
+        }
+      ],
       "trials": [
         {
           "name": "Kill the Politician",
@@ -146,13 +239,20 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "Big open mall floors — use shops and escalators to break line of sight.",
+            "Track the politician's patrol and isolate him from nearby enemies.",
+            "Mind the long sightlines on the atrium; cross them only when clear."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Downtown",
       "img": "https://static.wikia.nocookie.net/outlast/images/7/78/The_Outlast_Trials_-_The_Downtown.png",
+      "layouts": [],
       "trials": [
         {
           "name": "Pleasure the Prosecutor",
@@ -167,13 +267,20 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "Street-level with long sightlines — move building to building, off the open road.",
+            "Use alleys and interiors to rotate around patrols.",
+            "Watch for Pushers funnelling you into the open with gas."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "The Suburbs",
       "img": "https://static.wikia.nocookie.net/outlast/images/9/95/OLTrials_Suburbs_WealthyNeighborhood1.png",
+      "layouts": [],
       "trials": [
         {
           "name": "Liquidate the Union",
@@ -188,13 +295,20 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "Spread-out houses — clear each before grabbing objectives.",
+            "Ambushes happen between yards; cross gaps deliberately, not on a sprint.",
+            "Keep an escape house in mind for when a hunter locks on."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Television Studio",
       "img": "https://static.wikia.nocookie.net/outlast/images/3/35/Silence_The_Idol_photo_%28Clear%29.png",
+      "layouts": [],
       "trials": [
         {
           "name": "Silence the Idol",
@@ -214,13 +328,20 @@
             "Escort the Idol to Studio 3",
             "Recharge the power stations",
             "Join the Idol to Studio 3"
+          ],
+          "tips": [
+            "Studio sets are maze-like — learn the loops to lose hunters.",
+            "Stage lighting creates dark pockets where Pouncers lurk; light them up.",
+            "Use prop cover, but don't get cornered on a closed set."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "The Docks",
       "img": "https://static.wikia.nocookie.net/outlast/images/d/de/The_docks_steam_update.png",
+      "layouts": [],
       "trials": [
         {
           "name": "Poison the Medicine",
@@ -239,13 +360,20 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "Franco 'Il Bambino' bullies tight spaces — keep to looping, vertical routes near the water.",
+            "Don't get cornered against the docks edge.",
+            "Save a rig charge to break his grab and reset the chase."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Resort",
       "img": "https://static.wikia.nocookie.net/outlast/images/b/b9/Deposit_The_Auction_photo_%28Clear%29.png",
+      "layouts": [],
       "trials": [
         {
           "name": "Despoil the Auction",
@@ -260,13 +388,20 @@
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
+          ],
+          "tips": [
+            "Season 5 trial — Liliya Bogomolova keeps relentless pressure; prioritise objectives over hiding.",
+            "Rotate cover constantly and keep two exits open.",
+            "Bank resources before the auction-floor objectives."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Mansion",
       "img": "https://static.wikia.nocookie.net/outlast/images/7/7e/OLTrials_TheMansion.png",
+      "layouts": [],
       "trials": [
         {
           "name": "Rebirth",
@@ -276,22 +411,35 @@
             "Hear the Words.",
             "See the Words.",
             "Rebirth"
+          ],
+          "tips": [
+            "Story finale with heavy enemy density — co-ordinate rig usage and don't over-extend.",
+            "Stick together; a downed solo player is hard to revive in the crush.",
+            "Clear a fallback route before each objective."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     },
     {
       "name": "Waste Tunnel",
       "img": "https://static.wikia.nocookie.net/outlast/images/c/cb/Reagent_equipment_harvester.jpg",
+      "layouts": [],
       "trials": [
         {
           "name": "Escape",
           "intro": "Escape, also known as Unknown, is a temporary Trial in The Outlast Trials where Reagents are given an option to finally escape from the Sinyala Facility through the Waste Tunnel. Reagents could only access the escape trial after being promp",
           "objectives": [
             "|date        = April 21st - 24, 1960"
+          ],
+          "tips": [
+            "Linear escape — keep moving, don't stop to fight.",
+            "Use the tunnels' tight turns to shake pursuers.",
+            "Push through as a group so no one is left behind a closing gap."
           ]
         }
-      ]
+      ],
+      "fex": "https://outlast.fex.dev/maps"
     }
   ]
 }
