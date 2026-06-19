@@ -2,7 +2,8 @@
   "game": "warframe",
   "updated": "2026-06-17T00:00:00.000Z",
   "source": "https://www.pcgamesn.com/warframe/codes",
-  "note": "Active codes as of 2026-06-15. Glyph/promo codes rotate often.",
+  "redeem": "https://www.warframe.com/promocode",
+  "note": "Redeem on the official promo-code page (button below), or in-game. Glyph/promo codes rotate often.",
   "codes": [
     { "code": "ANDROID-QV4RX", "reward": "Affinity Booster (3 days), Zylok, Wolf Howl", "expires": null, "expired": false },
     { "code": "SPECIALEFFECT", "reward": "Special Effect glyph", "expires": null, "expired": false },

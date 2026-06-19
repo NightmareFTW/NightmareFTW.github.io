@@ -21,13 +21,12 @@ jobs:
           node scripts/update-items.js
           node scripts/update-recipes.js   # reads items.json, run after it
           node scripts/update-starpath.js
-          node scripts/update-codes.js     # redemption codes (wiki, dated)
       - name: Commit changes if any
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/dreamlight-valley data/codes/dreamlight-valley.json)" ]; then
-            git add data/dreamlight-valley data/codes/dreamlight-valley.json
+          if [ -n "$(git status --porcelain data/dreamlight-valley)" ]; then
+            git add data/dreamlight-valley
             git commit -m "chore: auto-update Dreamlight Valley data"
             git push
           else

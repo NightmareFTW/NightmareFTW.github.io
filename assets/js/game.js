@@ -228,7 +228,11 @@
     }).join("");
 
     root.innerHTML = `
-      <p class="codes-updated">${activeCount} active · ${codes.length} total · updated ${upd || "—"}</p>
+      <div class="codes-head">
+        <p class="codes-updated">${activeCount} active · ${codes.length} total · updated ${upd || "—"}</p>
+        ${data.redeem ? `<a class="btn redeem-btn" href="${esc(data.redeem)}" target="_blank" rel="noopener">Redeem codes ↗</a>` : ""}
+      </div>
+      ${data.note ? `<p class="codes-note">${esc(data.note)}</p>` : ""}
       <div class="codes-list">${rowsHtml || `<p style="color:var(--muted)">No codes right now.</p>`}</div>`;
 
     root.querySelectorAll(".code-row").forEach((row) => {

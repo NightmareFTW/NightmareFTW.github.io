@@ -18,14 +18,16 @@ jobs:
           node-version: "20"
       - name: Fetch news
         run: node scripts/update-news.js
+      - name: Refresh redemption codes (DDV wiki + Epic Seven)
+        run: node scripts/update-codes.js
       - name: Commit changes if any
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/news)" ]; then
-            git add data/news
-            git commit -m "chore: auto-update game news"
+          if [ -n "$(git status --porcelain data/news data/codes)" ]; then
+            git add data/news data/codes
+            git commit -m "chore: auto-update game news & codes"
             git push
           else
-            echo "No news changes."
+            echo "No news/code changes."
           fi

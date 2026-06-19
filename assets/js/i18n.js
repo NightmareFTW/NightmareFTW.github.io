@@ -567,6 +567,13 @@
     "No codes data yet — the updater hasn't published this game's list.":
       "Ainda não há códigos — o atualizador ainda não publicou a lista deste jogo.",
     "Active": "Ativo", "Expired": "Expirado", "No expiry listed": "Sem validade indicada",
+    "Redeem codes ↗": "Resgatar códigos ↗", "Source": "Fonte",
+    "Redeem in Settings → Help → Redemption code. Codes are case-sensitive; rewards arrive in your in-game mailbox. Newest first; retired codes shown as expired.":
+      "Resgata em Definições → Ajuda → Código de resgate. Os códigos são sensíveis a maiúsculas; as recompensas chegam ao correio no jogo. Mais recentes no topo; os retirados aparecem como expirados.",
+    "Redeem on the official Stove coupon page (button below). Epic Seven codes expire fast — newest at the top; some may already be gone.":
+      "Resgata na página oficial de cupões da Stove (botão acima). Os códigos do Epic Seven expiram depressa — os mais recentes no topo; alguns podem já ter expirado.",
+    "Redeem on the official promo-code page (button below), or in-game. Glyph/promo codes rotate often.":
+      "Resgata na página oficial de promo-codes (botão acima), ou no jogo. Os glyph/promo codes mudam com frequência.",
     "Read the full article at the source ↗": "Ler o artigo completo na fonte ↗",
     "No preview text was available for this article — open the source for the full story.":
       "Não havia texto de pré-visualização para este artigo — abre a fonte para a história completa.",
