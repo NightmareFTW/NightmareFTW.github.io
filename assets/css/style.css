@@ -743,6 +743,31 @@ body {
 .char-link { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
 .char-card:hover .char-link { color: var(--accent); }
 
+/* ---- NTE bond gift planner ---- */
+.char-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.gift-best { font-size: 0.74rem; color: var(--muted); line-height: 1.2; }
+.gift-best-aff { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; color: #6cc; }
+.uni-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 4px 0 20px;
+  padding: 12px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; }
+.uni-title { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+#gift-universal { display: flex; flex-wrap: wrap; gap: 8px; }
+.uni-chip { font-size: 0.78rem; padding: 4px 10px; border-radius: 999px;
+  background: rgba(80,160,180,.14); color: #9dd; }
+.gift-sub { margin-top: 6px; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.gift-list { display: flex; flex-direction: column; gap: 8px; }
+.gift-row { display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; }
+.gift-icon { font-size: 1.5rem; flex: 0 0 auto; width: 34px; text-align: center; }
+.gift-main { flex: 1; min-width: 0; }
+.gift-name { display: block; font-weight: 700; font-size: 0.95rem; }
+.gift-where { display: block; font-size: 0.78rem; color: var(--muted); }
+.gift-stats { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex: 0 0 auto; }
+.gift-aff { font-family: var(--mono); font-weight: 800; font-size: 0.9rem; padding: 1px 8px; border-radius: 6px; }
+.gift-aff.aff-hi { background: rgba(255,36,53,.16); color: #ff8a82; }
+.gift-aff.aff-mid { background: rgba(210,170,60,.16); color: #d8b65a; }
+.gift-aff.aff-lo { background: rgba(80,160,180,.16); color: #6cc; }
+.gift-cost { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); white-space: nowrap; }
+
 /* ---- NTE build detail panel ---- */
 .bd-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
 .bd-title { display: flex; align-items: center; gap: 16px; }

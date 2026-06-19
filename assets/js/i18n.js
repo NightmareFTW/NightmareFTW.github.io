@@ -95,6 +95,13 @@
       "Um tracker simples de rotina diária/semanal que reseta sozinho.",
     "Character rankings (via Game8) with links to builds and best teams.":
       "Rankings de personagens (via Game8) com builds e melhores equipas.",
+    "Bond Gift Planner": "Planeador de Gifts de Bond",
+    "The 5 best affinity gifts per character — value, cost in Fons, and where to buy.":
+      "Os 5 melhores gifts de afinidade por personagem — valor, custo em Fons e onde comprar.",
+    "Works on everyone:": "Funciona com todos:",
+    "Flower": "Flor", "Electronics": "Eletrónica", "Figure": "Figura", "Book": "Livro",
+    "Record": "Disco", "Gift Shop": "Loja de Presentes", "Vending": "Máquina", "Special": "Especial",
+    "Food & Drink": "Comida e Bebida", "not buyable": "não comprável", "close ×": "fechar ×",
     "Current season's duties with detailed how-to for each, tracked on your device.":
       "As duties da season atual com how-to detalhado, guardadas no teu dispositivo.",
     "Searchable recipes — ingredients, star rating and value.":

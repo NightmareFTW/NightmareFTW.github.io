@@ -239,6 +239,14 @@ const GAMES = [
         href: "games/nte/tier-list.html",
         available: true,
       },
+      {
+        id: "gifts",
+        name: "Bond Gift Planner",
+        type: "reference",
+        desc: "The 5 best affinity gifts per character — value, cost in Fons, and where to buy.",
+        href: "games/nte/gifts.html",
+        available: true,
+      },
     ],
   },
 ];

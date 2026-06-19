@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bond Gift Planner · NTE · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">NTE</a> / bond gifts</p>
+    <h1>Bond Gift Planner</h1>
+    <p class="tool-sub">The 5 most affinity-efficient gifts for each character — how much Bond they give, where to buy them and the cost in <b>Fons</b> (in-game currency, no real money). Click a character.</p>
+
+    <div class="uni-banner"><span class="uni-title">Works on everyone:</span><div id="gift-universal"></div></div>
+
+    <div id="gift-detail" class="panel" style="display:none"></div>
+
+    <div id="gift-root" class="char-grid"></div>
+    <p class="tool-note">Affinity values &amp; prices compiled from GameWith &amp; ZeroLuck.gg; they can shift between patches. Gifts are capped at 3 per character per day (10 total) — spend the +400/+200 slots first. Per-item art will be added once a reliable source is available; for now each gift shows its category icon.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · gift data via GameWith &amp; ZeroLuck.gg.</span></div></footer>
+  <script src="gifts.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>
