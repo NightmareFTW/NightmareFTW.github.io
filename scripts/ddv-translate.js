@@ -4,7 +4,9 @@
    Unknown words are kept as-is. Imperfect by design — used to fill name_pt. */
 
 // Connectors / articles (lowercased lookups).
-const SMALL = { of: "de", and: "e", the: "", with: "com", or: "ou", any: "qualquer", "n'": "e", "'n'": "e", a: "um", en: "à", con: "com", e: "e" };
+// "and" / "&" are dropped: noun modifiers are already joined with " e ", so
+// keeping them would double the connector ("ouro e & e opala").
+const SMALL = { of: "de", and: "", "&": "", the: "", with: "com", or: "ou", any: "qualquer", "n'": "e", "'n'": "e", a: "um", en: "à", con: "com", e: "e" };
 
 // Adjectives & cooking styles — placed AFTER the noun in Portuguese.
 const ADJ = new Set(["red", "blue", "green", "yellow", "white", "black", "pink", "purple",
@@ -48,6 +50,9 @@ const WORD = {
   steak: "bife", snail: "caracol", tofu: "tofu", sprouts: "rebentos", sprout: "rebento",
   leaves: "folhas", leaf: "folha", seeds: "sementes", seed: "semente", root: "raiz",
   dates: "tâmaras", leek: "alho-francês", bamboo: "bambu", figs: "figos", fig: "figo",
+  fruit: "fruta", fruits: "frutas", vegetable: "vegetal", clover: "trevo", herb: "erva",
+  herbs: "ervas", mint: "hortelã", thyme: "tomilho", rosemary: "alecrim", sage: "salva",
+  parsley: "salsa", coriander: "coentros", cabbages: "couves", wheat: "trigo",
   // fish / seafood
   fish: "peixe", seafood: "marisco", shellfish: "marisco", crab: "caranguejo", shrimp: "camarão",
   tuna: "atum", salmon: "salmão", herring: "arenque", bass: "robalo", cod: "bacalhau",
@@ -97,6 +102,18 @@ const WORD = {
   fiber: "fibra", cloth: "tecido", rope: "corda", niobium: "nióbio", cobalt: "cobalto",
   pearl: "pérola", seashell: "concha", sponge: "esponja", empty: "vazio", vial: "frasco",
   shovel: "pá", measuring: "fita-métrica", tape: "fita",
+  gold: "ouro", nugget: "pepita", nuggets: "pepitas", copper: "cobre", brass: "latão",
+  bronze: "bronze", steel: "aço", wood: "madeira", softwood: "madeira macia",
+  brick: "tijolo", bricks: "tijolos", fabric: "tecido", gravel: "gravilha", amber: "âmbar",
+  bones: "ossos", bone: "osso", crystal: "cristal", shard: "fragmento", fragment: "fragmento",
+  fragments: "fragmentos", power: "energia", mechanical: "mecânico", parts: "peças",
+  part: "peça", gift: "presente", gifts: "presentes",
+  // decor / paths & fences
+  road: "estrada", path: "caminho", pathway: "caminho", paving: "pavimento",
+  fence: "cerca", fences: "cercas", wall: "parede", border: "bordadura", slab: "laje",
+  picket: "estaca", lamppost: "candeeiro", frame: "moldura", frames: "molduras",
+  pillow: "almofada", bird: "pássaro", birds: "pássaros", frog: "sapo", demon: "demónio",
+  plant: "planta", trap: "armadilha", night: "noite", eggs: "ovos", benedict: "benedict",
   // misc descriptors handled as nouns
   sea: "mar", mountain: "montanha", spring: "primavera", star: "estrela", dream: "sonho",
   valley: "vale", milky: "leitoso", way: "via", french: "francês", greek: "grego",
@@ -143,7 +160,7 @@ function translateName(en) {
   const nounMods = [], adjMods = [];
   for (let i = 0; i < words.length - 1; i++) {
     const lw = words[i].toLowerCase();
-    if (lw in SMALL && !SMALL[lw]) continue; // drop "the"
+    if (lw in SMALL) continue; // drop connectors (the/of/and/with/&) — join adds them back
     const t = tword(words[i]);
     (ADJ.has(lw) ? adjMods : nounMods).push(t);
   }
