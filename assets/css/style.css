@@ -833,6 +833,23 @@ body {
 
 /* ---- DDV recipe browser ---- */
 .rc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; padding-bottom: 60px; }
+/* DDV items — catalogue category tabs (in-game collection style) */
+.cat-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.cat-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: inherit; font-size: 0.85rem; cursor: pointer;
+  padding: 7px 12px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card); color: var(--muted);
+  transition: all 0.13s;
+}
+.cat-tab:hover { border-color: var(--muted); color: var(--text); }
+.cat-tab.on { background: rgba(255,36,53,.14); border-color: var(--accent); color: #ff8a82; font-weight: 700; }
+.cat-tab .cat-count {
+  font-family: var(--mono); font-size: 0.7rem; padding: 1px 7px; border-radius: 999px;
+  background: rgba(255,255,255,.06); color: var(--muted);
+}
+.cat-tab.on .cat-count { background: rgba(255,36,53,.2); color: #ffb0aa; }
+
 .rc-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
 .rc-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
 .rc-name { font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; }

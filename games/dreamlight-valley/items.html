@@ -20,8 +20,10 @@
   <main class="container tool-page">
     <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Disney Dreamlight Valley</a> / items</p>
     <h1>Items Database</h1>
-    <p class="tool-sub">Every farmable ingredient and where to get it. Filter by category and biome (multi-select), search and sort.</p>
+    <p class="tool-sub">A catalogue of the valley's items &amp; resources, laid out by category like the in-game collection. Pick a category, then search, filter and sort.</p>
     <p class="codes-updated" id="it-updated">Loading…</p>
+
+    <div class="cat-tabs" id="it-tabs"></div>
 
     <div class="list-controls">
       <input type="search" id="it-search" class="search-input" placeholder="Search item…" autocomplete="off">
@@ -35,7 +37,7 @@
     <div class="drop-facets" id="it-facets"></div>
     <p class="drop-count" id="it-count"></p>
     <div class="rc-grid" id="it-list"><p style="color:var(--muted)">Loading items…</p></div>
-    <p class="tool-note">Data compiled from the Dreamlight Valley Wiki. Covers farmable ingredients (fish/gems can be added). DLC tags are inferred from the item's biome (Eternity Isle = A Rift in Time) and are best-effort.</p>
+    <p class="tool-note">Names &amp; locations use the game's official PT-BR data; the rest is compiled from the Dreamlight Valley Wiki. The catalogue covers gathered, crafted &amp; cooked resources (not cosmetics like clothing). DLC tags are best-effort.</p>
   </main>
   <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · item data via Dreamlight Valley Wiki.</span></div></footer>
   <script src="items.js"></script>

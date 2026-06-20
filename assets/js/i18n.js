@@ -780,6 +780,10 @@
       "Acompanha o nível de amizade de cada villager (0–10). Guardado neste dispositivo.",
     "Every farmable ingredient and where to get it. Filter by category and biome (multi-select), search and sort.":
       "Cada ingrediente farmável e onde o obter. Filtra por categoria e bioma (multi-seleção), pesquisa e ordena.",
+    "A catalogue of the valley's items & resources, laid out by category like the in-game collection. Pick a category, then search, filter and sort.":
+      "Um catálogo dos items & recursos do valley, organizado por categoria como a coleção do jogo. Escolhe uma categoria, depois pesquisa, filtra e ordena.",
+    "Names & locations use the game's official PT-BR data; the rest is compiled from the Dreamlight Valley Wiki. The catalogue covers gathered, crafted & cooked resources (not cosmetics like clothing). DLC tags are best-effort.":
+      "Os nomes & locations usam os dados oficiais PT-BR do jogo; o resto vem da Dreamlight Valley Wiki. O catálogo cobre recursos apanhados, craftados & cozinhados (não cosméticos como roupas). As tags de DLC são best-effort.",
     "Data compiled from the Dreamlight Valley Wiki. Covers farmable ingredients (fish/gems can be added). DLC tags are inferred from the item's biome (Eternity Isle = A Rift in Time) and are best-effort.":
       "Dados compilados da Dreamlight Valley Wiki. Cobre ingredientes farmáveis (peixes/gemas podem ser adicionados). As tags de DLC são inferidas pelo bioma do item (Eternity Isle = A Rift in Time) e são best-effort.",
     "Search by recipe or ingredient, filter by star level, and sort by sell value or energy.":
