@@ -27,6 +27,11 @@ const GENERAL_TIPS = [
   "Save your rig for grab-escapes and Prime Asset encounters, not trash mobs.",
   "In co-op, split roles: one handles the noisy objective while the others scout and peel enemies.",
 ];
+// Clean intros for the two non-standard pages whose wiki leads are messy.
+const INTRO_OVERRIDE = {
+  "Rebirth": "Rebirth is the final therapy step in The Outlast Trials — the Reagent Release Protocol, where you either become a Reborn agent or attempt to escape.",
+  "Escape": "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.",
+};
 const TIPS = {
   "Kill the Snitch": ["The Snitch is pushed to his death — protect the slow, exposed push route.", "Basement generators are loud; clear nearby enemies first or post a watcher.", "The Skinner Man stalks here — keep a locker or window in reach while looting the security room."],
   "Cleanse the Orphans": ["You're defenceless while carrying an orphan — scout and clear the route first.", "Leland Coyle charges with an electrified baton; bait the charge near cover, then break away.", "Use the chapel basement and second floor to shake chases."],
@@ -78,8 +83,14 @@ async function run() {
     if (!w) continue;
     const env = dewiki(field(w, "environment|map|location")).split("\n")[0].trim();
     const lead = w.replace(/\{\{[\s\S]*?\}\}/g, " ").split(/\n==/)[0];
-    const intro = dewiki(lead).replace(/==.*?==/g, "").replace(/\s+/g, " ").trim().slice(0, 240);
-    const objectives = bullets(field(w, "objectives?")).slice(0, 14);
+    let introText = dewiki(lead).replace(/thumb\|/gi, "").replace(/\|[a-z]+\s*=\s*[^|]*/gi, "")
+      .replace(/\b\d+x?\d*px\b/gi, "").replace(/==.*?==/g, "").replace(/\s+/g, " ").trim();
+    // Start at the trial name and keep just the first sentence (clean & translatable).
+    const at = introText.indexOf(t); if (at > 0) introText = introText.slice(at);
+    let intro = (introText.split(/\.(?:\s|$)/)[0] || "").trim().slice(0, 200) + ".";
+    if (INTRO_OVERRIDE[t]) intro = INTRO_OVERRIDE[t]; // non-standard pages with messy leads
+    const objectives = bullets(field(w, "objectives?"))
+      .filter((o) => !/^[|{]/.test(o) && o.length > 3 && o.toLowerCase() !== t.toLowerCase()).slice(0, 14);
     if (!env) continue;
     (byEnv[env] = byEnv[env] || []).push({ name: t, intro, objectives, tips: TIPS[t] || [] });
   }

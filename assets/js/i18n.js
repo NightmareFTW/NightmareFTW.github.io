@@ -63,7 +63,231 @@
     "Rig": "Rig", "Tool Amp": "Tool Amp", "Skill Amp": "Skill Amp", "Medicine Amp": "Medicine Amp",
     "↗ Recreate in the Loadout Builder": "↗ Recriar no Construtor de Loadout",
     "Search maps, trials or objectives…": "Procurar mapas, trials ou objetivos…",
+    "Search maps, trials, objectives or tips…": "Procurar mapas, trials, objetivos ou dicas…",
     "Couldn't load trial data.": "Não foi possível carregar os dados dos trials.",
+    "Elite": "Elite", "Objectives": "Objetivos", "Tips": "Dicas",
+    "Map layouts — find objectives, documents & routes": "Layouts do mapa — encontra objetivos, documentos & rotas",
+    "🗺 Open the interactive maps ↗": "🗺 Abrir os mapas interativos ↗",
+    "💡 Survival basics (all trials)": "💡 Básicos de sobrevivência (todos os trials)",
+    "No top-down layout on the wiki yet — use the interactive maps above for objectives, documents & hidden spots.":
+      "Ainda sem layout de cima na wiki — usa os mapas interativos acima para objetivos, documentos & hidden spots.",
+    // ---- Outlast: build roles, tags, names ----
+    "Solo": "Solo", "Co-op": "Co-op", "Solo / Co-op": "Solo / Co-op",
+    "Awareness": "Perceção", "Support": "Suporte", "Aggro": "Aggro", "Survival": "Sobrevivência", "Speed": "Velocidade", "Control": "Controlo",
+    "Solo Stealth Scout": "Batedor Furtivo Solo", "Team Medic": "Médico de Equipa", "Crowd Control Bruiser": "Bruto de Controlo de Multidões",
+    "Escape Artist": "Artista da Fuga", "Objective Rusher": "Rusher de Objetivos", "Lockdown Anchor": "Âncora de Bloqueio",
+    // ---- Outlast: build rationale ----
+    "X-Ray lets you see enemies through walls so you never round a corner blind. Noise Reduction + Invisible keep you off their radar while you scout and grab objectives; Incognito buys extra time when you do get spotted.":
+      "O X-Ray deixa-te ver inimigos através das paredes para nunca virares uma esquina às cegas. Noise Reduction + Invisible mantêm-te fora do radar deles enquanto exploras e apanhas objetivos; o Incognito dá tempo extra quando és detetado.",
+    "Heal Rig keeps the squad topped up from range. Battery Charger keeps your rig online, Hide and Heal lets you recover safely in lockers, and Double Doses stretches every medicine pickup — you become the reason the team survives MK runs.":
+      "O Heal Rig mantém a equipa curada à distância. O Battery Charger mantém o teu rig ativo, Hide and Heal deixa-te recuperar em segurança nos cacifos, e Double Doses estica cada medicina apanhada — passas a ser a razão de a equipa sobreviver às MK runs.",
+    "Stun Rig freezes a chasing enemy (or a Big Grunt) so the team can push past. Short Circuit speeds rig cooldown, Strong Arm shoves enemies off teammates, and Boosted keeps your stamina up for the constant repositioning.":
+      "O Stun Rig congela um inimigo a perseguir (ou um Big Grunt) para a equipa passar. Short Circuit acelera o cooldown do rig, Strong Arm empurra inimigos para longe dos colegas, e Boosted mantém a tua stamina para o reposicionamento constante.",
+    "Blind a hunter to break a chase on demand. Slippers make you near-silent, Quick Escape rips you out of grabs faster, and Last Chance gives a clutch survival window — built to slip away from Night Hunters and Prime Assets.":
+      "Cega um caçador para quebrar uma perseguição quando quiseres. Slippers tornam-te quase silencioso, Quick Escape liberta-te de agarrões mais depressa, e Last Chance dá uma janela de sobrevivência decisiva — feito para escapar a Night Hunters e Prime Assets.",
+    "Lock Breaker shreds locked doors so you blitz objectives; Blind Rig clears the path when something's in the way. Hide and Breathe resets your sanity/stamina in cover and Surplus keeps resources flowing for a fast clear.":
+      "O Lock Breaker arromba portas trancadas para correres os objetivos; o Blind Rig limpa o caminho quando algo está à frente. Hide and Breathe repõe a sanidade/stamina em cobertura e Surplus mantém os recursos a fluir para um clear rápido.",
+    "Barricade Rig seals doors to control where enemies can reach you. Key Master speeds locks, Door Trap Breaker safely clears rigged doors, and Self Revive means a solo mistake doesn't end the run — a self-sufficient survival kit.":
+      "O Barricade Rig sela portas para controlar por onde os inimigos te chegam. Key Master acelera fechaduras, Door Trap Breaker limpa portas armadilhadas em segurança, e Self Revive faz com que um erro a solo não acabe a run — um kit de sobrevivência autossuficiente.",
+    // ---- Outlast: enemy behaviour & counters ----
+    "The basic Ex-Pop. Patrols rooms and chases the moment it sees or hears you, swinging a melee weapon.":
+      "O Ex-Pop básico. Patrulha salas e persegue assim que te vê ou ouve, com uma arma corpo-a-corpo.",
+    "Break line of sight around a corner, vault or slide through gaps, and hide in a locker or under a bed — they quickly lose interest. Cheap to shake off; don't panic-sprint into a dead end.":
+      "Corta a linha de visão numa esquina, salta ou desliza por aberturas, e esconde-te num cacifo ou debaixo de uma cama — perdem o interesse depressa. Fácil de despistar; não corras em pânico para um beco sem saída.",
+    "A massive, simple-minded heavy. Slow but hits like a truck and can smash through some obstacles; melee can down you fast on higher tiers.":
+      "Um pesado enorme e simplório. Lento mas bate como um camião e pode destruir alguns obstáculos; o corpo-a-corpo derruba-te depressa em dificuldades altas.",
+    "Never out-run it in a straight line — use tight corners, vaults and windows it's slow to follow through. A Blind or Stun rig buys an escape. Keep an exit; avoid dead ends entirely.":
+      "Nunca fujas em linha reta — usa esquinas apertadas, saltos e janelas que ele atravessa devagar. Um rig Blind ou Stun dá tempo para fugir. Mantém uma saída; evita becos sem saída.",
+    "Stands dormant until it spots you or hears noise, then lets out a scream that stuns you and alerts every nearby Ex-Pop to your position.":
+      "Fica imóvel até te ver ou ouvir barulho, depois solta um grito que te atordoa e alerta todos os Ex-Pop por perto para a tua posição.",
+    "They're stationary — spot them early and sneak past quietly. Never sprint near one. A Blind throwable / rig shuts the scream down if you must pass close.":
+      "São estáticos — deteta-os cedo e passa em silêncio. Nunca corras perto de um. Um Blind (atirável/rig) cala o grito se tiveres de passar perto.",
+    "Gas-masked Ex-Pop that lobs and sprays psychosis gas, distorting your vision and spawning hallucinations that disorient you.":
+      "Ex-Pop com máscara de gás que atira e pulveriza gás de psicose, distorcendo a visão e criando alucinações que te desorientam.",
+    "Leave the cloud immediately — don't fight or loot inside it. The hallucinations can't actually hurt you; keep moving to clean air and reorient.":
+      "Sai da nuvem imediatamente — não lutes nem saqueies lá dentro. As alucinações não te magoam; continua a andar para ar limpo e reorienta-te.",
+    "Hides in dark corners and vents, then ambushes and pins you in place for a grab.":
+      "Esconde-se em cantos escuros e condutas, depois embosca-te e prende-te para te agarrar.",
+    "Carry your light and sweep dark nooks before walking in. Listen for its lurking cue. If grabbed, mash to break free or have a teammate melee it off you.":
+      "Leva a tua luz e varre os cantos escuros antes de entrar. Ouve a pista de que está à espreita. Se fores agarrado, martela para te libertares ou pede a um colega para o tirar de cima de ti.",
+    "A relentless elite Ex-Pop that pursues you with high speed and aggression, ignoring most distractions once it locks on.":
+      "Um Ex-Pop de elite implacável que te persegue com muita velocidade e agressividade, ignorando a maioria das distrações quando te fixa.",
+    "Don't duel it — keep doing objectives and rotate. Use rigs to peel it off, never get cornered, and keep two escape routes open at all times.":
+      "Não o enfrentes — continua os objetivos e roda. Usa rigs para o afastar, nunca fiques encurralado e mantém sempre duas rotas de fuga abertas.",
+    "A flaying killer who stalks the Police Station with a blade, punishing players who linger or loot greedily.":
+      "Um assassino esfolador que percorre a Police Station com uma lâmina, punindo quem se demora ou saqueia em excesso.",
+    "Keep distance and break line of sight constantly; use the environment to lose him. Grab objectives and move — don't get greedy.":
+      "Mantém distância e corta a linha de visão constantemente; usa o ambiente para o despistar. Apanha os objetivos e segue — não sejas ganancioso.",
+    "A corrupt, taunting cop with an electrified baton who charges and stuns. His baton hit is brutal in the open.":
+      "Um polícia corrupto e provocador com um bastão eletrificado que investe e atordoa. O golpe do bastão é brutal em campo aberto.",
+    "Bait the charge, then dodge around cover or a vault as he commits. Fight near windows/vaults so you can break away — never trade in open rooms.":
+      "Provoca a investida, depois esquiva-te à volta de cobertura ou de um salto quando ele se compromete. Joga perto de janelas/saltos para poderes fugir — nunca troques golpes em salas abertas.",
+    "A deranged clown with a candy cart who deploys 'Gooseberry juice' gas and toys, and sings to track your location.":
+      "Uma palhaça desequilibrada com um carrinho de doces que liberta gás de 'sumo Gooseberry' e brinquedos, e canta para te localizar.",
+    "Avoid her gas and don't linger near the cart. Work objectives while she patrols, and keep rigs ready to escape a grab.":
+      "Evita o gás dela e não te demores perto do carrinho. Trata dos objetivos enquanto ela patrulha, e mantém rigs prontos para escapar a um agarrão.",
+    "A hulking mobster Prime Asset with devastating melee that bullies you around the Docks.":
+      "Um Prime Asset mafioso e corpulento com corpo-a-corpo devastador que te encurrala pelos Docks.",
+    "Use vertical and tight routes to create space; never get cornered against the water. Rigs to break grabs and reset the chase.":
+      "Usa rotas verticais e apertadas para criar espaço; nunca fiques encurralado contra a água. Rigs para quebrar agarrões e reiniciar a perseguição.",
+    "The Season 5 Prime Asset who stalks the Resort, keeping relentless pressure on the team.":
+      "A Prime Asset da Season 5 que percorre o Resort, mantendo pressão implacável sobre a equipa.",
+    "Keep moving and use cover and rotations; prioritise objectives over hiding in place, and save escape rigs for when she closes in.":
+      "Mantém-te em movimento e usa cobertura e rotações; prioriza os objetivos em vez de te esconderes parado, e guarda rigs de fuga para quando ela se aproximar.",
+    // ---- Outlast: intro overrides ----
+    "Rebirth is the final therapy step in The Outlast Trials — the Reagent Release Protocol, where you either become a Reborn agent or attempt to escape.":
+      "Rebirth é o passo final da terapia no The Outlast Trials — o Reagent Release Protocol, onde te tornas um agente Reborn ou tentas escapar.",
+    "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.":
+      "Escape é um Trial temporário no The Outlast Trials onde os Reagents tentam fugir da Instalação Sinyala pelo Waste Tunnel.",
+    // ---- Outlast: trial objectives ----
+    "Infiltrate the Police Station": "Infiltrar a Police Station", "Reach the Security Room": "Chegar à Sala de Segurança",
+    "Get to the Snitch": "Chegar ao Snitch", "Push the Snitch": "Empurrar o Snitch",
+    "Reach the Basement (Introductory difficulty)": "Chegar à Cave (dificuldade Introdutória)",
+    "Start the Generators in the Basement": "Ligar os Geradores na Cave", "Get back to the Snitch": "Voltar ao Snitch",
+    "Find the Key": "Encontrar a Chave", "Find the Other Keys": "Encontrar as Outras Chaves",
+    "Open the Admin Gate (Introductory difficulty)": "Abrir o Portão da Administração (dificuldade Introdutória)",
+    "Open the Detective Gate (Introductory difficulty)": "Abrir o Portão dos Detetives (dificuldade Introdutória)",
+    "Open the Execution Room Gate (Introductory difficulty)": "Abrir o Portão da Sala de Execução (dificuldade Introdutória)",
+    "Electrocute the Snitch": "Eletrocutar o Snitch", "Enter the Orphanage": "Entrar no Orphanage",
+    "Broadcast the Religious Station": "Transmitir a Estação Religiosa", "Tune Radio Receivers in the Dorms": "Sintonizar os Recetores de Rádio nos Dormitórios",
+    "Return to the Reception Desk": "Voltar à Receção", "Swap Film Reels in Classrooms": "Trocar os Rolos de Filme nas Salas de Aula",
+    "Stop the Blasphemers in the Chapel": "Parar os Blasfemos na Capela", "Power up Generators": "Ligar os Geradores",
+    "Find Saw Handle Keys": "Encontrar as Chaves do Cabo da Serra", "Serve the Body of Christ": "Servir o Corpo de Cristo",
+    "Regroup in the Chapel": "Reagrupar na Capela", "Return to the Shuttle": "Voltar à Carrinha",
+    "Wait for the Shuttle": "Esperar pela Carrinha", "Exit the Trial": "Sair do Trial",
+    "Infiltrate the Fun Park": "Infiltrar o Fun Park", "Reach the Root Canal Ride": "Chegar ao Root Canal Ride",
+    "Get access to the Root Canal Ride": "Obter acesso ao Root Canal Ride", "Regroup into the Root Canal": "Reagrupar no Root Canal",
+    "Push the Boat": "Empurrar o Barco", "Power off the Barriers": "Desligar as Barreiras", "Raise the Water Level": "Subir o Nível da Água",
+    "Infiltrate the Toy Factory": "Infiltrar a Toy Factory", "Reach the Production Line": "Chegar à Linha de Produção",
+    "Start the Production Line": "Iniciar a Linha de Produção", "Unlock the Security System": "Desbloquear o Sistema de Segurança",
+    "Find Wax Boxes in Storage": "Encontrar as Caixas de Cera no Armazém", "Complete all Production Steps": "Completar todos os Passos de Produção",
+    "Reroute the Production Line": "Redirecionar a Linha de Produção", "Burn the Sex Toy": "Queimar o Brinquedo Sexual",
+    "Infiltrate the Courthouse": "Infiltrar o Courthouse", "Reach the Courtroom": "Chegar à Sala de Audiências",
+    "Unlock the Evidence": "Desbloquear as Provas", "Drop the Evidence in the Fountain": "Largar as Provas na Fonte",
+    "Gather Acid and pour into the Fountain": "Recolher Ácido e despejar na Fonte", "Destroy the Remaining Evidence": "Destruir as Provas Restantes",
+    "Return to the Courtroom": "Voltar à Sala de Audiências", "Kill the Witness": "Matar a Testemunha",
+    "Kill the remaining Witnesses": "Matar as Testemunhas restantes", "Execute the Judge": "Executar o Juiz",
+    "Gain Access to the Main Plaza": "Obter Acesso à Praça Principal", "Access the Department Store": "Aceder ao Centro Comercial",
+    "Win a Ticket": "Ganhar um Bilhete", "Use the Ticket to Enter the Event": "Usar o Bilhete para Entrar no Evento",
+    "Regroup to Fill the Fountain": "Reagrupar para Encher a Fonte", "Fix the Water Pressure": "Reparar a Pressão da Água",
+    "Fix the Fountain Valves": "Reparar as Válvulas da Fonte", "Execute The Politician": "Executar O Político",
+    "Gain Access to the Theater": "Obter Acesso ao Teatro", "Explore the Theater": "Explorar o Teatro",
+    "Throw away the Kinky Mannequins": "Deitar fora os Manequins Pervertidos", "Find and Install the Sadist Mannequin": "Encontrar e Instalar o Manequim Sádico",
+    "Get the Remaining Sadist Mannequins": "Obter os Manequins Sádicos Restantes", "Execute The District Attorney": "Executar O Procurador",
+    "Reach the Town Hall": "Chegar à Câmara Municipal", "Find the Union Boss In the Mansion": "Encontrar o Chefe do Sindicato na Mansion",
+    "Find a way to Open the Panic Room": "Encontrar forma de Abrir a Sala do Pânico", "Escort the Union Boss to the Factory": "Escoltar o Chefe do Sindicato até à Fábrica",
+    "Hit the Correct Safety Sign": "Acertar no Sinal de Segurança Correto", "Drown the Union Boss": "Afogar o Chefe do Sindicato",
+    "Infiltrate the Studio": "Infiltrar o Estúdio", "Ruin the conference": "Arruinar a conferência",
+    "Follow the Idol to Studio 1": "Seguir o Ídolo até ao Estúdio 1", "Setup the scene on the Studio floor": "Preparar a cena no piso do Estúdio",
+    "Reach the Studio control room": "Chegar à sala de controlo do Estúdio", "Find codes and use them on the switchboard": "Encontrar códigos e usá-los no quadro de comando",
+    "Sabotage the recording": "Sabotar a gravação", "Escort the Idol to Studio 2": "Escoltar o Ídolo até ao Estúdio 2",
+    "Join the Idol to Studio 2": "Juntar-te ao Ídolo no Estúdio 2", "Prepare Studio 2 for recording": "Preparar o Estúdio 2 para gravação",
+    "Escort the Idol to Studio 3": "Escoltar o Ídolo até ao Estúdio 3", "Recharge the power stations": "Recarregar as estações de energia",
+    "Join the Idol to Studio 3": "Juntar-te ao Ídolo no Estúdio 3", "Find the Drug Laboratory": "Encontrar o Laboratório de Droga",
+    "Start the Drug Production": "Iniciar a Produção de Droga", "Put Drugs into the Cooker": "Colocar Droga no Cozedor",
+    "Push Cart to the Train Depot for Refilling": "Empurrar o Carrinho até ao Depósito do Comboio para Reabastecer", "Refill the Cart with Drugs": "Reabastecer o Carrinho com Droga",
+    "Deliver the Cart to the Laboratory": "Entregar o Carrinho ao Laboratório", "Put Poison into the Drugs": "Colocar Veneno na Droga",
+    "Add Poison from the Chemical Storage": "Adicionar Veneno do Armazém Químico", "Cut and Package the Poisoned Drugs": "Cortar e Embalar a Droga Envenenada",
+    "Hide the Drugs in the Cargo Hold": "Esconder a Droga no Porão de Carga", "Infiltrate the Resort": "Infiltrar o Resort",
+    "Register for the Auction": "Inscrever-te no Leilão", "Deposit the Initial Contribution": "Depositar a Contribuição Inicial",
+    "Cover the Rest of the Balance": "Cobrir o Resto do Saldo", "Start the Auction": "Iniciar o Leilão", "Destroy the Lot": "Destruir o Lote",
+    "Who are you?": "Quem és tu?", "Hear the Words.": "Ouve as Palavras.", "See the Words.": "Vê as Palavras.",
+    // ---- Outlast: general survival tips ----
+    "Crouch-walk and break line of sight — most Ex-Pop lose you within seconds once they can't see you.":
+      "Anda agachado e corta a linha de visão — a maioria dos Ex-Pop perde-te em segundos quando deixa de te ver.",
+    "Lockers and under-beds reset a chase, but a Pouncer may be hiding in dark spots — shine your light first.":
+      "Cacifos e debaixo das camas reiniciam uma perseguição, mas um Pouncer pode estar escondido em cantos escuros — ilumina primeiro.",
+    "Loot side rooms for batteries, lockpicks and meds before triggering loud objectives (generators, alarms).":
+      "Saqueia as salas laterais por pilhas, gazuas e medicinas antes de acionar objetivos barulhentos (geradores, alarmes).",
+    "Save your rig for grab-escapes and Prime Asset encounters, not trash mobs.":
+      "Guarda o teu rig para escapar a agarrões e para os Prime Assets, não para inimigos comuns.",
+    "In co-op, split roles: one handles the noisy objective while the others scout and peel enemies.":
+      "Em co-op, dividam funções: um trata do objetivo barulhento enquanto os outros exploram e afastam inimigos.",
+    // ---- Outlast: per-trial tips ----
+    "The Snitch is pushed to his death — protect the slow, exposed push route.":
+      "O Snitch é empurrado até à morte — protege a rota de empurrão, lenta e exposta.",
+    "Basement generators are loud; clear nearby enemies first or post a watcher.":
+      "Os geradores da cave são barulhentos; limpa os inimigos próximos primeiro ou põe um vigia.",
+    "The Skinner Man stalks here — keep a locker or window in reach while looting the security room.":
+      "O Skinner Man ronda aqui — mantém um cacifo ou janela ao alcance enquanto saqueias a sala de segurança.",
+    "You're defenceless while carrying an orphan — scout and clear the route first.":
+      "Estás indefeso enquanto carregas um órfão — explora e limpa a rota primeiro.",
+    "Leland Coyle charges with an electrified baton; bait the charge near cover, then break away.":
+      "O Leland Coyle investe com um bastão eletrificado; provoca a investida perto de cobertura e depois foge.",
+    "Use the chapel basement and second floor to shake chases.":
+      "Usa a cave da capela e o segundo piso para despistar perseguições.",
+    "The Root Canal boat ride is the hub — power off the barriers, then push the boat together.":
+      "O Root Canal boat ride é o centro — desliga as barreiras e depois empurrem o barco juntos.",
+    "Sightlines are wide open; hug stalls and rides for cover.":
+      "As linhas de visão são muito abertas; cola-te a bancas e atrações para te cobrires.",
+    "Group up before the boat push so a hunter can't pick off a straggler.":
+      "Juntem-se antes do empurrão do barco para um caçador não apanhar um isolado.",
+    "Machinery noise masks enemy audio — rely on sight and the X-Ray rig.":
+      "O barulho das máquinas mascara o áudio dos inimigos — confia na visão e no X-Ray rig.",
+    "Mother Gooseberry's gas lingers; never fight or loot inside it.":
+      "O gás da Mother Gooseberry fica no ar; nunca lutes nem saqueies lá dentro.",
+    "Long trial — bank meds and batteries between objectives.":
+      "Trial longo — acumula medicinas e pilhas entre objetivos.",
+    "Multi-floor — use the lobby and second-floor layouts to plan routes between objectives.":
+      "Vários pisos — usa os layouts do átrio e do segundo piso para planear rotas entre objetivos.",
+    "The scales-of-justice area is a chokepoint; clear it before committing.":
+      "A zona da balança da justiça é um ponto de estrangulamento; limpa-a antes de avançar.",
+    "Courtrooms echo — move during ambient noise to mask your steps.":
+      "As salas de audiências têm eco — move-te durante o ruído ambiente para mascarar os passos.",
+    "Big open mall floors — use shops and escalators to break line of sight.":
+      "Pisos amplos do centro comercial — usa lojas e escadas rolantes para cortar a linha de visão.",
+    "Track the politician's patrol and isolate him from nearby enemies.":
+      "Segue a patrulha do político e isola-o dos inimigos próximos.",
+    "Mind the long sightlines on the atrium; cross them only when clear.":
+      "Atenção às linhas de visão longas no átrio; atravessa-as só quando estiver livre.",
+    "Street-level with long sightlines — move building to building, off the open road.":
+      "Ao nível da rua com linhas de visão longas — move-te de edifício em edifício, fora da estrada aberta.",
+    "Use alleys and interiors to rotate around patrols.":
+      "Usa becos e interiores para rodar à volta das patrulhas.",
+    "Watch for Pushers funnelling you into the open with gas.":
+      "Cuidado com Pushers a empurrar-te para o aberto com gás.",
+    "Spread-out houses — clear each before grabbing objectives.":
+      "Casas espalhadas — limpa cada uma antes de apanhar objetivos.",
+    "Ambushes happen between yards; cross gaps deliberately, not on a sprint.":
+      "Há emboscadas entre os quintais; atravessa as aberturas com cuidado, não a correr.",
+    "Keep an escape house in mind for when a hunter locks on.":
+      "Tem uma casa de fuga em mente para quando um caçador te fixar.",
+    "Studio sets are maze-like — learn the loops to lose hunters.":
+      "Os cenários do estúdio são labirínticos — aprende os circuitos para despistar caçadores.",
+    "Stage lighting creates dark pockets where Pouncers lurk; light them up.":
+      "A iluminação de palco cria zonas escuras onde os Pouncers espreitam; ilumina-as.",
+    "Use prop cover, but don't get cornered on a closed set.":
+      "Usa adereços como cobertura, mas não fiques encurralado num cenário fechado.",
+    "Franco 'Il Bambino' bullies tight spaces — keep to looping, vertical routes near the water.":
+      "O Franco 'Il Bambino' domina os espaços apertados — mantém-te em rotas verticais e em circuito perto da água.",
+    "Don't get cornered against the docks edge.":
+      "Não fiques encurralado contra a beira dos docks.",
+    "Save a rig charge to break his grab and reset the chase.":
+      "Guarda uma carga do rig para quebrar o agarrão dele e reiniciar a perseguição.",
+    "Season 5 trial — Liliya Bogomolova keeps relentless pressure; prioritise objectives over hiding.":
+      "Trial da Season 5 — a Liliya Bogomolova mantém pressão implacável; prioriza os objetivos em vez de te esconderes.",
+    "Rotate cover constantly and keep two exits open.":
+      "Roda de cobertura constantemente e mantém duas saídas abertas.",
+    "Bank resources before the auction-floor objectives.":
+      "Acumula recursos antes dos objetivos do piso do leilão.",
+    "Story finale with heavy enemy density — co-ordinate rig usage and don't over-extend.":
+      "Final da história com muita densidade de inimigos — coordenem o uso de rigs e não se exponham demais.",
+    "Stick together; a downed solo player is hard to revive in the crush.":
+      "Fiquem juntos; um jogador caído sozinho é difícil de reviver no meio da confusão.",
+    "Clear a fallback route before each objective.":
+      "Limpa uma rota de recuo antes de cada objetivo.",
+    "Linear escape — keep moving, don't stop to fight.":
+      "Fuga linear — continua em movimento, não pares para lutar.",
+    "Use the tunnels' tight turns to shake pursuers.":
+      "Usa as curvas apertadas dos túneis para despistar os perseguidores.",
+    "Push through as a group so no one is left behind a closing gap.":
+      "Avancem em grupo para ninguém ficar para trás numa passagem a fechar.",
+    // ---- Outlast: layout labels ----
+    "Ground Floor Map": "Mapa do Piso Térreo", "Second Floor Map": "Mapa do Segundo Piso",
+    "First Floor Lobby Map": "Mapa do Átrio (1º Piso)", "First Floor Outside Courtroom Map": "Mapa Exterior da Sala (1º Piso)",
+    "Faith broadcast map": "Mapa da transmissão Faith", "Sabotage The Lockdown Map": "Mapa Sabotage The Lockdown",
+    "GTBA Map": "Mapa GTBA", "Punish The Miscreants Map": "Mapa Punish The Miscreants",
+    "Tilt The Scales of Justice Map": "Mapa Tilt The Scales of Justice", "ShoppingMall Map": "Mapa Shopping Mall",
     "Daily Checklist": "Checklist Diária", "Gathering Node Timer": "Timer de Nós de Recolha",
     "Gear Score Calculator": "Calculadora de Gear Score", "Damage / EHP Calculator": "Calculadora de Dano / EHP",
     "Speed Tuning / Turn Order": "Speed Tuning / Ordem de Turnos", "Worldstate Tracker": "Tracker de Worldstate",
@@ -653,6 +877,7 @@
     [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
     [/^Top (\d+) bond gifts · best value first$/, "Top $1 gifts de bond · melhor valor primeiro"],
+    [/^(.+) is a Trial that takes place at (?:the )?(.+) in The Outlast Trials\.$/, "$1 é um Trial que decorre em $2 no The Outlast Trials."],
     [/^resets in (.+)$/, "reseta em $1"],
     [/^Week (\d+)$/, "Semana $1"],
     [/^Unlocks (.+)$/, "Desbloqueia: $1"],

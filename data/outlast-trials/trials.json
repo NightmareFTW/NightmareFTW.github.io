@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-19T21:41:01.232Z",
+  "updated": "2026-06-19T21:56:08.740Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -26,7 +26,7 @@
       "trials": [
         {
           "name": "Kill the Snitch",
-          "intro": "Kill the Snitch is a Trial that takes place at the Police Station in The Outlast Trials. It was released on October 28th, 2022 during the closed beta launch.",
+          "intro": "Kill the Snitch is a Trial that takes place at the Police Station in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Police Station",
             "Reach the Security Room",
@@ -68,7 +68,7 @@
       "trials": [
         {
           "name": "Cleanse the Orphans",
-          "intro": "Cleanse the Orphans is a Trial that takes place at the Orphanage in The Outlast Trials. It was released on May 18th, 2023 during the early access launch.",
+          "intro": "Cleanse the Orphans is a Trial that takes place at the Orphanage in The Outlast Trials.",
           "objectives": [
             "Enter the Orphanage",
             "Broadcast the Religious Station",
@@ -110,7 +110,7 @@
       "trials": [
         {
           "name": "Grind the Bad Apples",
-          "intro": "Grind the Bad Apples is a Trial that takes place at the Fun Park in The Outlast Trials. It was released on May 18th, 2023 during the early access launch.",
+          "intro": "Grind the Bad Apples is a Trial that takes place at the Fun Park in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Fun Park",
             "Reach the Root Canal Ride",
@@ -140,7 +140,7 @@
       "trials": [
         {
           "name": "Pervert the Futterman",
-          "intro": "Pervert the Futterman is a Trial that takes place at the Toy Factory in The Outlast Trials. It was released March 5th, 2024 with the full launch of The Outlast Trials.",
+          "intro": "Pervert the Futterman is a Trial that takes place at the Toy Factory in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Toy Factory",
             "Reach the Production Line",
@@ -187,7 +187,7 @@
       "trials": [
         {
           "name": "Vindicate the Guilty",
-          "intro": "Vindicate the Guilty is a Trial that takes place at the Courthouse in The Outlast Trials. It was released on October 26th, 2023 as part of the first Program Geister event.",
+          "intro": "Vindicate the Guilty is a Trial that takes place at the Courthouse in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Courthouse",
             "Reach the Courtroom",
@@ -225,7 +225,7 @@
       "trials": [
         {
           "name": "Kill the Politician",
-          "intro": "Kill the Politician is a Trial that takes place at the Shopping Mall in The Outlast Trials. It was released on July 15th, 2025 with the release of the Season 4: Project Diarchy, and the Kress Twins event.",
+          "intro": "Kill the Politician is a Trial that takes place at the Shopping Mall in The Outlast Trials.",
           "objectives": [
             "Gain Access to the Main Plaza",
             "Access the Department Store",
@@ -256,7 +256,7 @@
       "trials": [
         {
           "name": "Pleasure the Prosecutor",
-          "intro": "Pleasure the Prosecutor is a Trial that takes place at the Downtown in The Outlast Trials. It was released on December 10th, 2024 with the launch of Season 2: Project Breach, and the second Winter Kills event.",
+          "intro": "Pleasure the Prosecutor is a Trial that takes place at the Downtown in The Outlast Trials.",
           "objectives": [
             "Gain Access to the Theater",
             "Explore the Theater",
@@ -284,7 +284,7 @@
       "trials": [
         {
           "name": "Liquidate the Union",
-          "intro": "Liquidate the Union is a Trial that takes place at The Suburbs in The Outlast Trials. It was released on April 22nd, 2025 with the launch of Season 3: Project Relapse and the Jaeger Onboarding event.",
+          "intro": "Liquidate the Union is a Trial that takes place at The Suburbs in The Outlast Trials.",
           "objectives": [
             "Reach the Town Hall",
             "Find the Union Boss In the Mansion",
@@ -312,7 +312,7 @@
       "trials": [
         {
           "name": "Silence the Idol",
-          "intro": "Silence the Idol is a Trial that takes place at the Television Studio in The Outlast Trials. It was released on March 24th, 2026 with the release of the Season 6: Project Judas, and the Scavenger event.",
+          "intro": "Silence the Idol is a Trial that takes place at the Television Studio in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Studio",
             "Ruin the conference",
@@ -345,7 +345,7 @@
       "trials": [
         {
           "name": "Poison the Medicine",
-          "intro": "Poison the Medicine is a Trial that takes place at The Docks in The Outlast Trials. It was released on July 16th, 2024 with the launch of Season 1: Project Lupara, and the Bambino event.",
+          "intro": "Poison the Medicine is a Trial that takes place at The Docks in The Outlast Trials.",
           "objectives": [
             "Find the Drug Laboratory",
             "Start the Drug Production",
@@ -377,7 +377,7 @@
       "trials": [
         {
           "name": "Despoil the Auction",
-          "intro": "Despoil the Auction is a Trial that takes place at the Resort in The Outlast Trials. It was released on December 9th, 2025 with the release of the Season 5: Project Messiah, and the third Winter Kills event.",
+          "intro": "Despoil the Auction is a Trial that takes place at the Resort in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Resort",
             "Register for the Auction",
@@ -405,12 +405,11 @@
       "trials": [
         {
           "name": "Rebirth",
-          "intro": "thumb|Rebirth icon thumb|The form handed to the Reagents for Rebirth Rebirth, formerly known as the Reagent Release Protocol, is a game mechanic in The Outlast Trials that serves as the final step for Reagents to complete their therapy and ",
+          "intro": "Rebirth is the final therapy step in The Outlast Trials — the Reagent Release Protocol, where you either become a Reborn agent or attempt to escape.",
           "objectives": [
             "Who are you?",
             "Hear the Words.",
-            "See the Words.",
-            "Rebirth"
+            "See the Words."
           ],
           "tips": [
             "Story finale with heavy enemy density — co-ordinate rig usage and don't over-extend.",
@@ -428,10 +427,8 @@
       "trials": [
         {
           "name": "Escape",
-          "intro": "Escape, also known as Unknown, is a temporary Trial in The Outlast Trials where Reagents are given an option to finally escape from the Sinyala Facility through the Waste Tunnel. Reagents could only access the escape trial after being promp",
-          "objectives": [
-            "|date        = April 21st - 24, 1960"
-          ],
+          "intro": "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.",
+          "objectives": [],
           "tips": [
             "Linear escape — keep moving, don't stop to fight.",
             "Use the tunnels' tight turns to shake pursuers.",
