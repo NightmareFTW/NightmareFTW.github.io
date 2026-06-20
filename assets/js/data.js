@@ -227,6 +227,14 @@ const GAMES = [
         href: "games/dreamlight-valley/items.html",
         available: true,
       },
+      {
+        id: "animals",
+        name: "Animal Guide",
+        type: "guide",
+        desc: "Every critter — food, schedule, DLC & how to approach — plus all event/shop companions, with a collection tracker.",
+        href: "games/dreamlight-valley/animals.html",
+        available: true,
+      },
     ],
   },
   {

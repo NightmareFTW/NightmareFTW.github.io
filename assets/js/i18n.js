@@ -51,6 +51,42 @@
       "O walkthrough completo de objetivos de cada trial mais a screenshot do mapa.",
     "Meta rig + amp loadouts for each role, with the reasoning behind them.":
       "Loadouts meta de rig + amps para cada função, com a justificação.",
+    // ---- DDV Animal Guide ----
+    "Animal Guide": "Guia de Animais",
+    "Every critter — food, schedule, DLC & how to approach — plus all event/shop companions, with a collection tracker.":
+      "Cada critter — comida, horário, DLC & como aproximar — mais todos os companions de evento/loja, com tracker de coleção.",
+    "Wild Critters": "Critters Selvagens", "Companions (event / shop)": "Companions (evento / loja)",
+    "Any approach": "Qualquer aproximação", "Collected": "Coletados", "Not collected": "Não coletados",
+    "All sources": "Todas as fontes", "Search…": "Procurar…",
+    "Red Light, Green Light": "Luz Vermelha, Luz Verde", "Tag (chase)": "Apanhada (perseguir)",
+    "Patience (wait)": "Paciência (esperar)", "Just approach": "Aproxima-te direto",
+    "Always around": "Sempre por perto",
+    "Event": "Evento", "Premium": "Premium", "Quest Reward": "Recompensa de Quest", "Craftable": "Craftável",
+    "Event reward (limited-time — returns in rotations/Star Paths)": "Recompensa de evento (tempo limitado — volta em rotações/Star Paths)",
+    "Premium Shop (bought with Moonstones)": "Loja Premium (comprado com Moonstones)",
+    "Reward from a quest": "Recompensa de uma quest", "Crafted at a crafting station": "Craftado numa estação de fabrico",
+    "Every wild critter — favourite food, when it appears, which DLC, and how to approach it to feed it — plus a section for every collectible companion (event, premium shop, quest & craftable). Tick what you've collected; it dims and you can filter by it.":
+      "Cada critter selvagem — comida favorita, quando aparece, que DLC, e como te aproximares para o alimentar — mais uma secção para cada companion colecionável (evento, loja premium, quest & craftável). Marca o que já coletaste; fica esbatido e podes filtrar por isso.",
+    "Critter data, schedules & companion sources from the Dreamlight Valley Wiki; names from the game's official PT-BR data. Your collection is saved on this device.":
+      "Dados de critters, horários & fontes de companions da Dreamlight Valley Wiki; nomes dos dados oficiais PT-BR do jogo. A tua coleção é guardada neste dispositivo.",
+    "Favourite:": "Favorita:", "How to approach:": "Como aproximar:", "Liked:": "Gosta:",
+    "No critters match.": "Nenhum critter corresponde.", "No companions match.": "Nenhum companion corresponde.",
+    "No variants match.": "Nenhuma variante corresponde.", "Couldn't load animal data.": "Não foi possível carregar os dados dos animais.",
+    "Red Light, Green Light: Stop when they have their heads up. Go when they have their heads down. Repeat until they lay on their bellies. Approach them carefully to start the game.":
+      "Luz Vermelha, Luz Verde: Para quando têm a cabeça levantada. Avança quando têm a cabeça baixa. Repete até se deitarem de barriga. Aproxima-te com cuidado para começar o jogo.",
+    "Tag: When you have caught their attention, chase after them until they stop.":
+      "Apanhada: Quando tiveres a atenção deles, persegue-os até pararem.",
+    "Red Light, Green Light: Watch their body language, and approach when they are relaxed. When they are alert, with their head up, remain still - otherwise they will run away.":
+      "Luz Vermelha, Luz Verde: Observa a linguagem corporal e aproxima-te quando estão relaxados. Quando estão alerta, com a cabeça levantada, fica imóvel — senão fogem.",
+    "Patience: Wait until they have finished circling your head.":
+      "Paciência: Espera até acabarem de circular a tua cabeça.",
+    "Patience: Wait until they are ready to come out of their shells. You can also drop food, like seaweed, in front of them and they will come out immediately.":
+      "Paciência: Espera até estarem prontos para sair da carapaça. Também podes largar comida, como algas, à frente deles e saem logo.",
+    "Patience: Wait until they aren't shy.": "Paciência: Espera até deixarem de ser tímidos.",
+    "Squirrels play no games. Simply approach and be ready to feed them!": "Os esquilos não brincam. Aproxima-te simplesmente e prepara-te para os alimentar!",
+    "Sunbirds play no games. Simply approach and be ready to feed them!": "Os sunbirds não brincam. Aproxima-te simplesmente e prepara-te para os alimentar!",
+    "Capybaras play no games. Simply approach and be ready to feed them!": "As capivaras não brincam. Aproxima-te simplesmente e prepara-te para as alimentar!",
+    "Owls play no games. Simply approach and be ready to feed them!": "As corujas não brincam. Aproxima-te simplesmente e prepara-te para as alimentar!",
     "Every Ex-Pop, Night Hunter and Prime Asset — how it behaves and exactly how to deal with it.":
       "Todos os Ex-Pops, Night Hunters e Prime Assets — como se comportam e exatamente como lidar com cada um.",
     "Every Trial and the map it runs on — the full objective walkthrough plus the map screenshot. Click a map to expand its steps.":
@@ -912,6 +948,8 @@
     [/^(\d[\d,]*) items · showing (\d+), pick a theme or search to narrow$/, "$1 items · a mostrar $2, escolhe um tema ou pesquisa para reduzir"],
     [/^(\d[\d,]*) items · showing (\d+), narrow with a filter or search$/, "$1 items · a mostrar $2, refina com um filtro ou pesquisa"],
     [/^All themes \((\d[\d,]*)\)$/, "Todos os temas ($1)"],
+    [/^(\d+) species · (\d+)\/(\d+) critters collected$/, "$1 espécies · $2/$3 critters coletados"],
+    [/^(\d+) of (\d+) companions · (\d+) collected$/, "$1 de $2 companions · $3 coletados"],
     [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
     [/^Top (\d+) bond gifts · best value first$/, "Top $1 gifts de bond · melhor valor primeiro"],

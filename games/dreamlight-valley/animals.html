@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Guide · Disney Dreamlight Valley · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Disney Dreamlight Valley</a> / animals</p>
+    <h1>Animal Guide</h1>
+    <p class="tool-sub">Every wild critter — favourite food, when it appears, which DLC, and how to approach it to feed it — plus a section for every collectible companion (event, premium shop, quest &amp; craftable). Tick what you've collected; it dims and you can filter by it.</p>
+    <p class="codes-updated" id="an-updated">Loading…</p>
+
+    <div class="cat-tabs" id="an-tabs">
+      <button class="cat-tab on" data-tab="critters"><span class="cat-name">Wild Critters</span><span class="cat-count" id="cnt-critters"></span></button>
+      <button class="cat-tab" data-tab="companions"><span class="cat-name">Companions (event / shop)</span><span class="cat-count" id="cnt-companions"></span></button>
+    </div>
+
+    <div class="list-controls" id="an-controls"></div>
+    <p class="drop-count" id="an-count"></p>
+    <div id="an-list"><p style="color:var(--muted)">Loading animals…</p></div>
+    <p class="tool-note">Critter data, schedules &amp; companion sources from the Dreamlight Valley Wiki; names from the game's official PT-BR data. Your collection is saved on this device.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · animal data via Dreamlight Valley Wiki.</span></div></footer>
+  <script src="animals.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>
