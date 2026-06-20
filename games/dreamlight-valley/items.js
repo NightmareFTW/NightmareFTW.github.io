@@ -8,6 +8,10 @@ let query = "", sort = "name";
 const DLC_CLASS = { "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" };
 const PT = localStorage.getItem("nftw:lang") === "pt";
 const nm = (it) => (PT && it.name_pt) ? it.name_pt : it.name;
+const where = (it) => (PT && it.location_pt) ? it.location_pt : it.location;
+const from = (it) => (PT && it.source_pt) ? it.source_pt : it.source;
+// Official PT-BR biome label for facet chips (filter still uses the English value).
+const biomeLabel = (v) => (PT && DATA && DATA.biomesPt && DATA.biomesPt[v]) ? DATA.biomesPt[v] : v;
 
 const els = {
   search: document.getElementById("it-search"),
@@ -29,7 +33,7 @@ function buildFacets() {
     <div class="facet-group">
       <span class="facet-title">${title}</span>
       <div class="facet-chips">
-        ${items.map((v) => `<button class="chip-toggle" data-facet="${key}" data-val="${v}">${v}</button>`).join("")}
+        ${items.map((v) => `<button class="chip-toggle" data-facet="${key}" data-val="${v}">${key === "biome" ? biomeLabel(v) : v}</button>`).join("")}
       </div>
     </div>`;
   els.facets.innerHTML = group("Category", "category", cats) + group("Biome", "biome", biomes) +
@@ -65,8 +69,8 @@ function render() {
         <span class="rc-name">${it.img ? `<img class="rc-img" src="${it.img}" alt="" loading="lazy">` : ""}${nm(it)}</span>
         <span>${it.limited ? `<span class="fr-dlc dlc-wish">Limited</span> ` : ""}${it.dlc ? `<span class="fr-dlc ${DLC_CLASS[it.dlc] || ""}">${it.dlc}</span> ` : ""}<span class="ev-chip">${it.category}</span></span>
       </div>
-      <p class="it-where"><b>Where:</b> ${it.location}</p>
-      <p class="it-where"><b>From:</b> ${it.source}</p>
+      <p class="it-where"><b>Where:</b> ${where(it)}</p>
+      <p class="it-where"><b>From:</b> ${from(it)}</p>
       <div class="rc-meta">
         <span>💰 ${it.sell.toLocaleString()}</span>
         <span>⚡ ${it.energy.toLocaleString()}</span>

@@ -14,6 +14,26 @@ const { officialName } = require("./ddv-official");
 // Official in-game PT-BR name when the game has one, else the best-effort translator.
 const ptName = (name) => officialName(name) || translateName(name);
 
+// Official PT-BR region/biome names + location terms, from the game's LocDB.
+let LOC = { biomes: {}, terms: {} };
+try { LOC = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "dreamlight-valley", "locations-pt.json"), "utf8")); } catch { /* keep empty */ }
+// Replace English biome names and common location terms in a free-text "where"
+// string with their official PT-BR equivalents (longest match first).
+const LOC_PAIRS = [...Object.entries(LOC.biomes || {}), ...Object.entries(LOC.terms || {})]
+  .sort((a, b) => b[0].length - a[0].length);
+function translateLocation(s) {
+  if (!s) return s;
+  let out = s;
+  for (const [en, pt] of LOC_PAIRS) {
+    const esc = en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // Word-bounded where the phrase ends in a letter/digit, so short terms
+    // (Seed, Stall) don't match inside other words.
+    const re = /[A-Za-z0-9]$/.test(en) ? new RegExp("\\b" + esc + "\\b", "g") : new RegExp(esc, "g");
+    out = out.replace(re, pt);
+  }
+  return out;
+}
+
 const SRC = {
   ingredients: "https://dreamlightvalleywiki.com/Ingredients",
   gems: "https://dreamlightvalleywiki.com/Gems",
@@ -41,6 +61,23 @@ const MATERIALS = [
   ["Seashell", "Dazzle Beach shoreline"],
   ["Sponge", "Dazzle Beach underwater"],
   ["Empty Vial", "Crafted from Glass"],
+  // Woods (shaken/chopped from trees) — the valley has more than just soft/hardwood.
+  ["Dark Wood", "Shake trees in Glade of Trust & Forest of Valor"],
+  ["Dry Wood", "Shake trees in Dazzle Beach, Sunlit Plateau & Forgotten Lands"],
+  // Other gathered / crafted materials.
+  ["Dream Shard", "Mining nodes, dig spots & fishing (all biomes, rare)"],
+  ["Gold Nugget", "Mining (Forgotten Lands, Sunlit Plateau)"],
+  ["Coal Ore", "Mining (Dazzle Beach, Sunlit Plateau, Glittering Dunes)"],
+  ["Brick", "Crafted from Clay + Coal Ore"],
+  ["Gold Ingot", "Crafted from Gold Nugget + Coal Ore"],
+  ["Tinkering Parts", "Found while digging & in chests"],
+  ["Soil", "Digging spots (all biomes)"],
+  // Eternity Isle (A Rift in Time) materials.
+  ["Vitalys Crystal", "Mining (Wild Tangle, Eternity Isle)"],
+  ["Limestone", "Mining (The Grasslands, Eternity Isle)"],
+  ["Marble", "Mining (Ancient's Landing, Eternity Isle)"],
+  // Frosted Heights / seasonal.
+  ["Snowball", "Frosted Heights"],
 ];
 const OUT = path.join(__dirname, "..", "data", "dreamlight-valley", "items.json");
 
@@ -161,7 +198,7 @@ async function collectByHeading(url, map, source) {
 const isLimited = (text) => /seasonal|star ?path|limited|event|valentine|halloween|festive|lunar/i.test(text);
 const mk = (name, category, sell, location, extra = {}) => {
   const biomes = biomesIn(location);
-  return { name, name_pt: ptName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", source: extra.source || "—", img: extra.img || "", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) || isLimited(name) };
+  return { name, name_pt: ptName(name), category, sell, energy: extra.energy || 0, growTime: extra.growTime || "—", location: location || "—", location_pt: translateLocation(location || "—"), source: extra.source || "—", source_pt: translateLocation(extra.source || "—"), img: extra.img || "", biomes, dlc: dlcOf(biomes), limited: extra.limited || isLimited(location) || isLimited(name) };
 };
 
 async function run() {
@@ -176,7 +213,7 @@ async function run() {
     if (!name || /^name$/i.test(name)) continue;
     const location = clean(c[9]) || "—", source = clean(c[10]) || "—";
     const biomes = biomesIn(`${location} ${source}`);
-    rows.push({ name, name_pt: ptName(name), category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, source, img: imgFrom(c), biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
+    rows.push({ name, name_pt: ptName(name), category: clean(c[2]), sell: num(c[4]), energy: num(c[5]), growTime: clean(c[6]) || "—", location, location_pt: translateLocation(location), source, source_pt: translateLocation(source), img: imgFrom(c), biomes, dlc: dlcOf(biomes), limited: isLimited(`${location} ${source}`) });
   }
 
   // ---- Gems / minerals (Image | Name | Sell Price | Location) ----
@@ -233,7 +270,7 @@ async function run() {
   const unique = rows.filter((r) => (seen.has(r.name) ? false : seen.add(r.name)));
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
-  fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: SRC.ingredients, count: unique.length, items: unique }));
+  fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: SRC.ingredients, count: unique.length, biomesPt: LOC.biomes || {}, items: unique }));
   const byCat = {};
   unique.forEach((r) => (byCat[r.category] = (byCat[r.category] || 0) + 1));
   console.log(`Wrote ${unique.length} items. By category:`, byCat);
