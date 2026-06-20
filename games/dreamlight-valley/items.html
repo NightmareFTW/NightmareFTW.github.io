@@ -32,9 +32,11 @@
         <option value="sell-desc">Sell (high→low)</option>
         <option value="energy-desc">Energy (high→low)</option>
       </select>
-      <button class="btn" id="it-clear">Clear filters</button>
+      <select id="it-biome" class="sort-select"></select>
+      <select id="it-dlc" class="sort-select"></select>
+      <select id="it-theme" class="sort-select" style="display:none"></select>
+      <button class="btn" id="it-clear">Clear</button>
     </div>
-    <div class="drop-facets" id="it-facets"></div>
     <p class="drop-count" id="it-count"></p>
     <div class="rc-grid" id="it-list"><p style="color:var(--muted)">Loading items…</p></div>
     <p class="tool-note">Names &amp; locations use the game's official PT-BR data; the rest is compiled from the Dreamlight Valley Wiki. The catalogue covers gathered, crafted &amp; cooked resources (not cosmetics like clothing). DLC tags are best-effort.</p>

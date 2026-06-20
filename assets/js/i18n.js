@@ -836,6 +836,7 @@
     "Loading furniture…": "A carregar mobília…", "Couldn't load furniture data.": "Não foi possível carregar os dados da mobília.",
     "Loading clothing…": "A carregar roupas…", "Couldn't load clothing data.": "Não foi possível carregar os dados das roupas.",
     "Clothing": "Roupas", "Theme": "Tema", "No furniture match.": "Nenhuma mobília corresponde.",
+    "All biomes": "Todos os biomas", "All DLC": "Todos os DLC", "Clear": "Limpar",
     "Couldn't load recipe data.": "Não foi possível carregar os dados das receitas.",
     "Couldn't load the drop table data.": "Não foi possível carregar a drop table.",
     "No news data yet — the news updater hasn't published this game's headlines.":
@@ -909,6 +910,8 @@
     [/^(\d+) missions?$/, (m, n) => `${n} ${n === "1" ? "missão" : "missões"}`],
     [/^All themes \(([\d,]+)\)$/, "Todos os temas ($1)"],
     [/^(\d[\d,]*) items · showing (\d+), pick a theme or search to narrow$/, "$1 items · a mostrar $2, escolhe um tema ou pesquisa para reduzir"],
+    [/^(\d[\d,]*) items · showing (\d+), narrow with a filter or search$/, "$1 items · a mostrar $2, refina com um filtro ou pesquisa"],
+    [/^All themes \((\d[\d,]*)\)$/, "Todos os temas ($1)"],
     [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
     [/^Top (\d+) bond gifts · best value first$/, "Top $1 gifts de bond · melhor valor primeiro"],

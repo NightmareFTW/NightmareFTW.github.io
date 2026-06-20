@@ -53,13 +53,8 @@ const MATERIALS = [
   ["Iron Ingot", "Crafted from Iron Ore + Coal Ore"],
   ["Coal Ore", "Mining (Dazzle Beach, Sunlit Plateau, Glittering Dunes)"],
   ["Fiber", "Picked from plant stems while foraging"],
-  ["Cloth", "Crafted from Fiber"],
   ["Rope", "Crafted from Fiber"],
-  ["Niobium", "Mining (Sunlit Plateau)"],
-  ["Cobalt", "Mining (Frosted Heights)"],
   ["Pearl", "Fishing the dark/gold ripples"],
-  ["Seashell", "Dazzle Beach shoreline"],
-  ["Sponge", "Dazzle Beach underwater"],
   ["Empty Vial", "Crafted from Glass"],
   // Woods (shaken/chopped from trees) — the valley has more than just soft/hardwood.
   ["Dark Wood", "Shake trees in Glade of Trust & Forest of Valor"],
@@ -103,6 +98,18 @@ const imgFrom = (cells) => {
 };
 // Strip footnote refs ([4]) and stray trailing punctuation from item names.
 const sname = (n) => clean(n).replace(/\[\d+\]/g, "").replace(/\s*[.•·*]+\s*$/, "").trim();
+
+// Resolve an item's own wiki image (the file whose name matches the item) for
+// curated items that don't come from a table with a thumbnail.
+const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+async function wikiItemImg(name) {
+  try {
+    const html = await (await fetch(`${WIKI}/${encodeURIComponent(name.replace(/ /g, "_"))}`, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
+    const files = [...html.matchAll(/\/images\/(?:thumb\/)?([0-9a-f]\/[0-9a-f]{2}\/[^"\/]+?\.png)/gi)].map((m) => m[0]);
+    const hit = files.find((s) => norm(decodeURIComponent(s.split("/").pop().replace(/\.png$/i, ""))) === norm(name));
+    return hit ? WIKI + hit.replace(/\/thumb\//, "/").replace(/(\.png).*$/i, "$1") : "";
+  } catch { return ""; }
+}
 
 // Each DLC realm and the biomes that belong to it. An item whose only known
 // biomes all fall inside one realm is tagged with that realm's DLC.
@@ -261,9 +268,10 @@ async function run() {
     "Limited Time Ingredients": { category: "Ingredient", limited: true },
   }, "Limited-time"));
 
-  // Fallback curated materials (ensures core woods/ores exist even if scrape misses them).
+  // Fallback curated materials (ensures core woods/ores exist even if scrape misses
+  // them). Resolve each one's own wiki image so the catalogue isn't imageless.
   for (const [name, location] of MATERIALS) {
-    rows.push(mk(name, "Crafting Material", 0, location, { source: "Gathering / crafting" }));
+    rows.push(mk(name, "Crafting Material", 0, location, { source: "Gathering / crafting", img: await wikiItemImg(name) }));
   }
 
   // De-dupe by name (first source wins → richer ingredient data kept).
