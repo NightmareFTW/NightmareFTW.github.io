@@ -51,9 +51,17 @@ const ENEMIES = [
     img: `${IMG}/5/50/Franco_Barbi_Portrait.png`,
     behavior: "A hulking mobster Prime Asset with devastating melee that bullies you around the Docks.",
     counter: "Use vertical and tight routes to create space; never get cornered against the water. Rigs to break grabs and reset the chase." },
+  { name: "Henrietta \"The Jaeger\" Grubbs", cat: "Prime Asset", where: "The Suburbs", danger: "Boss",
+    img: `${IMG}/3/32/The_Jaeger_Profile.png`,
+    behavior: "The Season 3 (Project Relapse) Prime Asset — a relentless hunter (\"Jaeger\") who tracks Reagents across The Suburbs and punishes anyone who holds still too long.",
+    counter: "Stay mobile and keep changing rooms so she can't lock your trail. Break her tracking with line-of-sight cuts, and save a Blind/Stun rig for when she closes the gap." },
+  { name: "Otto & Arora Kress", cat: "Prime Asset", where: "Shopping Mall", danger: "Boss",
+    img: `${IMG}/9/9b/Otto_%26_Arora_Profile.png`,
+    behavior: "The Season 4 (Project Diarchy) twin Prime Assets — two hunters who patrol the Shopping Mall and can pincer you from both sides.",
+    counter: "Never get caught between them — track both before committing to a room. Use the mall's escalators and shops to put a wall between you and one twin while you handle the other." },
   { name: "Liliya Bogomolova", cat: "Prime Asset", where: "Resort", danger: "Boss",
     img: `${IMG}/4/44/Liliya_Bogomolova_profile.png`,
-    behavior: "The Season 5 Prime Asset who stalks the Resort, keeping relentless pressure on the team.",
+    behavior: "The Season 5 (Project Messiah) Prime Asset who stalks the Resort, keeping relentless pressure on the team.",
     counter: "Keep moving and use cover and rotations; prioritise objectives over hiding in place, and save escape rigs for when she closes in." },
 ];
 

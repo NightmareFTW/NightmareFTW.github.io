@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-20T00:54:14.469Z",
+  "updated": "2026-06-20T01:23:32.490Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -16,7 +16,8 @@
       "layouts": [
         {
           "label": "Sabotage The Lockdown Map",
-          "img": "https://static.wikia.nocookie.net/outlast/images/b/b8/Police_Station_-_Sabotage_The_Lockdown_Map.png"
+          "img": "https://static.wikia.nocookie.net/outlast/images/b/b8/Police_Station_-_Sabotage_The_Lockdown_Map.png",
+          "trial": "Sabotage the Lockdown"
         },
         {
           "label": "Ground Floor Map",
@@ -26,7 +27,7 @@
       "trials": [
         {
           "name": "Kill the Snitch",
-          "intro": "Kill the Snitch is a Trial that takes place at the Police Station in The Outlast Trials.",
+          "goal": "False witnesses must not be allowed to spread their false truths. Take the Snitch to the execution chamber and silence his lies.",
           "objectives": [
             "Infiltrate the Police Station",
             "Reach the Security Room",
@@ -43,11 +44,81 @@
             "Open the Execution Room Gate (Introductory difficulty)",
             "Electrocute the Snitch"
           ],
+          "prime": "Leland Coyle",
           "tips": [
             "The Snitch is pushed to his death — protect the slow, exposed push route.",
             "Basement generators are loud; clear nearby enemies first or post a watcher.",
             "The Skinner Man stalks here — keep a locker or window in reach while looting the security room."
           ]
+        },
+        {
+          "name": "Cancel the Autopsy",
+          "goal": "Corpses offer forensic facts incompatible with our truth. Grind the bodies into factually correct slurry.",
+          "objectives": [
+            "Find Keys to Release Agents to their deaths",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Sabotage the Lockdown",
+          "goal": "If you can open doors, no prison can hold you. Power the generator to enable your escape.",
+          "objectives": [
+            "Reach the Exit",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Release the Prisoners",
+          "goal": "Only Murkoff arbitrates justice; free the convicts falsely imprisoned for their conspicuous guilt.",
+          "objectives": [
+            "Reach the Security Room to free the Prisoners",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Teach the Police Officer",
+          "goal": "Teach the Police Officer is the fourth MK-Challenge that takes place at the Police Station in The Outlast Trials.",
+          "objectives": [
+            "Switch the Training Film Reel",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Eliminate the Past",
+          "goal": "Destroy as many of the historical records as you can within the allotted time. The more you eradicate, the less we punish.",
+          "objectives": [
+            "No time to waste",
+            "Regroup in the Gymnasium",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Seize the Narcotics",
+          "goal": "You are the controlled substance. The law enslaves minds by caging bodies. You destroy bodies and liberate minds, making users more desperate for control. Find the narcotics and set yourself free.",
+          "objectives": [
+            "Open the prison door to escape",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -57,10 +128,6 @@
       "img": "https://static.wikia.nocookie.net/outlast/images/8/8b/OLTrials_TheOrphanage.png",
       "layouts": [
         {
-          "label": "Faith broadcast map",
-          "img": "https://static.wikia.nocookie.net/outlast/images/e/e9/Faith_broadcast_map.jpg"
-        },
-        {
           "label": "Second Floor Map",
           "img": "https://static.wikia.nocookie.net/outlast/images/1/1c/Orphanage_-_Second_Floor_Map.png"
         }
@@ -68,7 +135,7 @@
       "trials": [
         {
           "name": "Cleanse the Orphans",
-          "intro": "Cleanse the Orphans is a Trial that takes place at the Orphanage in The Outlast Trials.",
+          "goal": "Education establishes obedience and Faith makes it manifest. Teach the children, give them First Communion, and make them ours.",
           "objectives": [
             "Enter the Orphanage",
             "Broadcast the Religious Station",
@@ -85,11 +152,61 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Mother Gooseberry",
           "tips": [
             "You're defenceless while carrying an orphan — scout and clear the route first.",
             "Leland Coyle charges with an electrified baton; bait the charge near cover, then break away.",
             "Use the chapel basement and second floor to shake chases."
           ]
+        },
+        {
+          "name": "Feed the Children",
+          "goal": "A healthy body makes for a healthy mind. Provide the Children with the nutrition they deserve.",
+          "objectives": [
+            "Pour bleach into the soup",
+            "Finish the soup of the day",
+            "Serve the Soup in the Cafeteria",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Foster the Orphans",
+          "goal": "Save the children from Mother Gooseberry and lead them to their new foster home.",
+          "objectives": [
+            "Adjust the Frequencies to Unlock the Lobby Gate",
+            "Open the Lobby gate",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Gather the Children of God",
+          "goal": "Too much mother-love makes a weak child. Gather the Children and bring them to the priest for a more strenuous education.",
+          "objectives": [
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Reunite the Family",
+          "goal": "The nuclear family is the societal ideal. Release the orphan from the shackles of the state and reunite him with mother and father.",
+          "objectives": [
+            "Reach the Exit Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -104,13 +221,14 @@
         },
         {
           "label": "Punish The Miscreants Map",
-          "img": "https://static.wikia.nocookie.net/outlast/images/0/05/Futterland_-_Punish_The_Miscreants_Map.png"
+          "img": "https://static.wikia.nocookie.net/outlast/images/0/05/Futterland_-_Punish_The_Miscreants_Map.png",
+          "trial": "Punish the Miscreants"
         }
       ],
       "trials": [
         {
           "name": "Grind the Bad Apples",
-          "intro": "Grind the Bad Apples is a Trial that takes place at the Fun Park in The Outlast Trials.",
+          "goal": "Feed The Clowns",
           "objectives": [
             "Infiltrate the Fun Park",
             "Reach the Root Canal Ride",
@@ -124,11 +242,94 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Mother Gooseberry",
           "tips": [
             "The Root Canal boat ride is the hub — power off the barriers, then push the boat together.",
             "Sightlines are wide open; hug stalls and rides for cover.",
             "Group up before the boat push so a hunter can't pick off a straggler."
           ]
+        },
+        {
+          "name": "Punish the Miscreants",
+          "goal": "Naughty children can only learn obedience through punishment. Teach the children to behave.",
+          "objectives": [
+            "Find and Grind the Bad Children",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Open the Gates",
+          "goal": "You cannot let power imprison you. Disconnect the electric gates and make your escape.",
+          "objectives": [
+            "Open the Gates to Reach the Exit",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Drill the Futterman",
+          "goal": "People are not toys, stop Mother Gooseberry from making a human Dr. Futterman.",
+          "objectives": [
+            "Kill Mr. Futterman in Gooseberry's Office",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Deface the Futtermans",
+          "goal": "Childhood memories are the stagnation that impede your growth. Put away the childish things that clutter your mind.",
+          "objectives": [
+            "Reach the Exit",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Redeem your Freedom",
+          "goal": "Currency, like your survival, is worthless unless you give it value with faith. Collect tickets like your life depended on it.",
+          "objectives": [
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Beguile the Children",
+          "goal": "Beguile the Children is the sixth MK-Challenge that takes place at the Fun Park in The Outlast Trials.",
+          "objectives": [
+            "Find the codes to modify the messages",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Win the Truth",
+          "goal": "You are the blind observer, who consumes screen-fed ignorance and swells with the genius of idiot artifice. Regurgitate the knowledge that brings suffering to the wise, win the game which only punishes the defeated, and we will let you out.",
+          "objectives": [
+            "Complete the First Round",
+            "Survive the Game Show",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -140,7 +341,7 @@
       "trials": [
         {
           "name": "Pervert the Futterman",
-          "intro": "Pervert the Futterman is a Trial that takes place at the Toy Factory in The Outlast Trials.",
+          "goal": "We cannot allow secret messages and innuendo to brainwash our children; expose and humiliate the hidden deviant, then destroy him.",
           "objectives": [
             "Infiltrate the Toy Factory",
             "Reach the Production Line",
@@ -154,11 +355,71 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Mother Gooseberry",
           "tips": [
             "Machinery noise masks enemy audio — rely on sight and the X-Ray rig.",
             "Mother Gooseberry's gas lingers; never fight or loot inside it.",
             "Long trial — bank meds and batteries between objectives."
           ]
+        },
+        {
+          "name": "Crush the Sex Toys",
+          "goal": "Discreet packaging hides dangerous perversion. Shine a light to expose the boxes of sex toys, then crush them with industrial force.",
+          "objectives": [
+            "Crush the Sex Toy Boxes",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Incinerate the Sex Toys",
+          "goal": "Perversion on an industrial scale ferments widespread corruption and disobedience. Push the production carts of sex dolls into the incinerator and burn the sickness.",
+          "objectives": [
+            "Push the Carts into the Incinerator",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Shutdown the Factory",
+          "goal": "Murkoff controls the means of production; use the emergency breaks to shut down the factory.",
+          "objectives": [
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Fumigate the Factory",
+          "goal": "Aging workers with their pensions and benefits are the bleeding wounds of our economy, draining the corporate body with their chronic existence. Stop the bleeding with a sterilizing gas and put the workers out of our misery.",
+          "objectives": [
+            "Spread gas throughout the factory",
+            "Regroup at the incinerator",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Flatten the Foreman",
+          "goal": "Section A",
+          "objectives": [
+            "Enter the Factory",
+            "Power Up the Compactor",
+            "Exit the Trial"
+          ],
+          "prime": "Mother Gooseberry",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -181,13 +442,14 @@
         },
         {
           "label": "Tilt The Scales of Justice Map",
-          "img": "https://static.wikia.nocookie.net/outlast/images/3/38/Tilt_The_Scales_of_Justice_Map.png"
+          "img": "https://static.wikia.nocookie.net/outlast/images/3/38/Tilt_The_Scales_of_Justice_Map.png",
+          "trial": "Tilt the Scales of Justice"
         }
       ],
       "trials": [
         {
           "name": "Vindicate the Guilty",
-          "intro": "Vindicate the Guilty is a Trial that takes place at the Courthouse in The Outlast Trials.",
+          "goal": "We cannot allow our innocent institutions to be persecuted for their clear guilt. Sabotage the proceedings, silence the witnesses, and revoke the authority of the judge.",
           "objectives": [
             "Infiltrate the Courthouse",
             "Reach the Courtroom",
@@ -204,11 +466,71 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Leland Coyle",
           "tips": [
             "Multi-floor — use the lobby and second-floor layouts to plan routes between objectives.",
             "The scales-of-justice area is a chokepoint; clear it before committing.",
             "Courtrooms echo — move during ambient noise to mask your steps."
           ]
+        },
+        {
+          "name": "Escape the Courthouse",
+          "goal": "Escape the Courthouse is the first MK-Challenge that takes place at the Courthouse in The Outlast Trials.",
+          "objectives": [
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Destroy the Evidence",
+          "goal": "If there is no evidence, there is no crime. Destroy the proof of our mistakes, and then we never did anything wrong.",
+          "objectives": [
+            "Pour Acid to Dissolve the Body in the Courtroom",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Tilt the Scales of Justice",
+          "goal": "Can real evidence of false crimes outweigh the power of corrupting wealth? Load the scales of Lady Justice and observe.",
+          "objectives": [
+            "Present the Head to Lady Justice",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Fuel the Release",
+          "goal": "Justice, like civilization, requires power, and power requires fuel. Carry the fuel, power the court, and secure your liberty.",
+          "objectives": [
+            "Reach the Exit",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
+        },
+        {
+          "name": "Sentence the Prosecuted",
+          "goal": "They call it a \"sentence\" because a few choice words can condemn a human to death. Decipher the charges, pin it to the defendant, and make sure that it sticks.",
+          "objectives": [
+            "Solve the Word",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -225,7 +547,7 @@
       "trials": [
         {
           "name": "Kill the Politician",
-          "intro": "Kill the Politician is a Trial that takes place at the Shopping Mall in The Outlast Trials.",
+          "goal": "At the intersection of commerce and politics stands an unholy union meant to lull you into a false sense of security and control. Vote with your wallet, and show the world what you stand for.",
           "objectives": [
             "Gain Access to the Main Plaza",
             "Access the Department Store",
@@ -240,11 +562,37 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Otto and Arora Kress",
           "tips": [
             "Big open mall floors — use shops and escalators to break line of sight.",
             "Track the politician's patrol and isolate him from nearby enemies.",
             "Mind the long sightlines on the atrium; cross them only when clear."
           ]
+        },
+        {
+          "name": "Investigate the Minotaur",
+          "goal": "Investigate the Minotaur is the first MK-Challenge that takes place at the Shopping Mall in The Outlast Trials.",
+          "objectives": [
+            "Find evidence in the Spatlin store",
+            "Deliver the evidence to the journalist",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Otto and Arora Kress",
+          "tips": []
+        },
+        {
+          "name": "Fabricate the Scandal",
+          "goal": "Fabricate the Scandal is the second MK-Challenge that takes place at the Shopping Mall in The Outlast Trials.",
+          "objectives": [
+            "Deliver compromising Arora photos",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Otto and Arora Kress",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -256,7 +604,7 @@
       "trials": [
         {
           "name": "Pleasure the Prosecutor",
-          "intro": "Pleasure the Prosecutor is a Trial that takes place at the Downtown in The Outlast Trials.",
+          "goal": "Pleasure the Prosecutor is a Trial that takes place at the Downtown in The Outlast Trials.",
           "objectives": [
             "Gain Access to the Theater",
             "Explore the Theater",
@@ -268,11 +616,52 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Franco Barbi",
           "tips": [
             "Street-level with long sightlines — move building to building, off the open road.",
             "Use alleys and interiors to rotate around patrols.",
             "Watch for Pushers funnelling you into the open with gas."
           ]
+        },
+        {
+          "name": "Kidnap the Mistress",
+          "goal": "Prostitutes receive more honest confessions than priests. Identify the pervert by his tastes, kidnap his dominatrix, deliver her for interrogation, and we will let you out.",
+          "objectives": [
+            "Discover the first clue",
+            "Discover clues by turning on radio frequencies",
+            "Use clues to locate and return the right mannequin",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
+        },
+        {
+          "name": "Spread the Disease",
+          "goal": "Sexually transmitted diseases are the secret handshake of evolutionary judgement and divine retribution. Spread the infection, and we will let you out.",
+          "objectives": [
+            "Deliver STD Bottles",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
+        },
+        {
+          "name": "Traffick the Product",
+          "goal": "Traffick the Product is the third MK-Challenge that takes place at the Downtown in The Outlast Trials.",
+          "objectives": [
+            "Complete the first Drug Deal on Franco's turf",
+            "Distribute Murkoff's product",
+            "Deliver the profits",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -284,7 +673,7 @@
       "trials": [
         {
           "name": "Liquidate the Union",
-          "intro": "Liquidate the Union is a Trial that takes place at The Suburbs in The Outlast Trials.",
+          "goal": "Human labor is the backbone of liberty and profit. We cannot allow the vanity of self-preservation to threaten production. Cross the picket line, persuade labor to resume production, and liquify the union.",
           "objectives": [
             "Reach the Town Hall",
             "Find the Union Boss In the Mansion",
@@ -296,11 +685,47 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Franco Barbi",
           "tips": [
             "Spread-out houses — clear each before grabbing objectives.",
             "Ambushes happen between yards; cross gaps deliberately, not on a sprint.",
             "Keep an escape house in mind for when a hunter locks on."
           ]
+        },
+        {
+          "name": "Get Out the Vote",
+          "goal": "The illusion of choice is the pretext that makes obedience feel like liberty. Do your part for the dream of democracy.",
+          "objectives": [
+            "Find and Cast the Missing Votes",
+            "Return the Candidate to the School",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
+        },
+        {
+          "name": "Disrupt the Neighborhood",
+          "goal": "Communities that erect their own gates determine their own boundaries. Remove the obstacles and invite intrusion. No fences make interesting neighbors.",
+          "objectives": [
+            "Open the gates to reach the Exit",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
+        },
+        {
+          "name": "Eliminate the Legacy",
+          "goal": "Children born to wealth are the inbred bastards of greed and corruption, cheating at even the games for idiot children, drooling at the teat of avarice. Match the symbols, eliminate the legacy, and we will let you out.",
+          "objectives": [
+            "Find and Erase Franco's Legacy",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -312,7 +737,7 @@
       "trials": [
         {
           "name": "Silence the Idol",
-          "intro": "Silence the Idol is a Trial that takes place at the Television Studio in The Outlast Trials.",
+          "goal": "You are the electric eye, the ravenous panopticon that births and consumes with the same razor-toothed orifice. Tear, burn, and crush the face of false charisma, and we will let you out.",
           "objectives": [
             "Infiltrate the Studio",
             "Ruin the conference",
@@ -329,6 +754,7 @@
             "Recharge the power stations",
             "Join the Idol to Studio 3"
           ],
+          "prime": "Otto and Arora Kress",
           "tips": [
             "Studio sets are maze-like — learn the loops to lose hunters.",
             "Stage lighting creates dark pockets where Pouncers lurk; light them up.",
@@ -345,7 +771,7 @@
       "trials": [
         {
           "name": "Poison the Medicine",
-          "intro": "Poison the Medicine is a Trial that takes place at The Docks in The Outlast Trials.",
+          "goal": "In a godless world, opiates will be the religion of the masses. Take control of drug production, and you can kill with the nonchalance of a god.",
           "objectives": [
             "Find the Drug Laboratory",
             "Start the Drug Production",
@@ -361,11 +787,62 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Franco Barbi",
           "tips": [
             "Franco 'Il Bambino' bullies tight spaces — keep to looping, vertical routes near the water.",
             "Don't get cornered against the docks edge.",
             "Save a rig charge to break his grab and reset the chase."
           ]
+        },
+        {
+          "name": "Empty the Vault",
+          "goal": "Casinos are the temple of idiot waste and willful failure; steal from those who would steal from you.",
+          "objectives": [
+            "Break into the Vault",
+            "Find the Codes to Unlock the Vault",
+            "Open the Vault",
+            "Deliver the Loot",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
+        },
+        {
+          "name": "Poison the Cattle",
+          "goal": "The milk of human kindness must be contaminated with liberty and progress. Poison the cattle and spoil their milk.",
+          "objectives": [
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
+        },
+        {
+          "name": "Stash the Contraband",
+          "goal": "Economies based on narcotics crumble without their primary market. Steal the drugs, hide them securely, and we will let you out.",
+          "objectives": [
+            "Hide the Drugs in Franco's Barrels",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
+        },
+        {
+          "name": "Cook the Informant",
+          "goal": "Nobody can resist interrogation by torture, and any manner of death is mercy. Microwave the informant, burst his head, and we will let you out.",
+          "objectives": [
+            "Locate the Informant",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Franco Barbi",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -377,7 +854,7 @@
       "trials": [
         {
           "name": "Despoil the Auction",
-          "intro": "Despoil the Auction is a Trial that takes place at the Resort in The Outlast Trials.",
+          "goal": "She could be in here!",
           "objectives": [
             "Infiltrate the Resort",
             "Register for the Auction",
@@ -389,11 +866,36 @@
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
+          "prime": "Liliya Bogomolova",
           "tips": [
             "Season 5 trial — Liliya Bogomolova keeps relentless pressure; prioritise objectives over hiding.",
             "Rotate cover constantly and keep two exits open.",
             "Bank resources before the auction-floor objectives."
           ]
+        },
+        {
+          "name": "Solve the Murder",
+          "goal": "You are the fetishist, whose obsession with the totems of violence allows you to define more convenient truths. Find the evidence to condemn our chosen killer, and we will let you out.",
+          "objectives": [
+            "Identify the Killer, Weapon, and Crime Scene",
+            "Exit the Trial"
+          ],
+          "prime": "Liliya Bogomolova",
+          "tips": []
+        },
+        {
+          "name": "Incinerate the Relic",
+          "goal": "You are the heretic and you are the zealot. Relics are the proof of an impossible gospel, the belief that makes whole the deservedly slaughtered lamb. Pay your way into heaven, incinerate the relic, and we will let you out.",
+          "objectives": [
+            "Find gems to buy the first key",
+            "Purchase Liliya's Relic",
+            "Incinerate Liliya's Relic",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Liliya Bogomolova",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -402,22 +904,7 @@
       "name": "Mansion",
       "img": "https://static.wikia.nocookie.net/outlast/images/7/7e/OLTrials_TheMansion.png",
       "layouts": [],
-      "trials": [
-        {
-          "name": "Rebirth",
-          "intro": "Rebirth is the final therapy step in The Outlast Trials — the Reagent Release Protocol, where you either become a Reborn agent or attempt to escape.",
-          "objectives": [
-            "Who are you?",
-            "Hear the Words.",
-            "See the Words."
-          ],
-          "tips": [
-            "Story finale with heavy enemy density — co-ordinate rig usage and don't over-extend.",
-            "Stick together; a downed solo player is hard to revive in the crush.",
-            "Clear a fallback route before each objective."
-          ]
-        }
-      ],
+      "trials": [],
       "fex": "https://outlast.fex.dev/maps"
     },
     {
@@ -427,13 +914,27 @@
       "trials": [
         {
           "name": "Escape",
-          "intro": "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.",
+          "goal": "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.",
           "objectives": [],
+          "prime": "",
           "tips": [
             "Linear escape — keep moving, don't stop to fight.",
             "Use the tunnels' tight turns to shake pursuers.",
             "Push through as a group so no one is left behind a closing gap."
           ]
+        },
+        {
+          "name": "Escape the Lies",
+          "goal": "Escape the Lies is the first MK-Challenge that takes place at the Waste Tunnel in The Outlast Trials.",
+          "objectives": [
+            "Escort Amelia's loyalists to the incinerators",
+            "Return to Easterman",
+            "Kill Amelia",
+            "Escape",
+            "Exit the Trial"
+          ],
+          "prime": "Mother GooseberryLeland CoyleFranco BarbiOtto and Arora KressLiliya Bogomolova",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"

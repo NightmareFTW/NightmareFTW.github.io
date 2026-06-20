@@ -69,6 +69,26 @@
     "Map layouts — find objectives, documents & routes": "Layouts do mapa — encontra objetivos, documentos & rotas",
     "🗺 Open the interactive maps ↗": "🗺 Abrir os mapas interativos ↗",
     "💡 Survival basics (all trials)": "💡 Básicos de sobrevivência (todos os trials)",
+    "💡 Survival basics (all missions)": "💡 Básicos de sobrevivência (todas as missões)",
+    "🗺 Open the interactive map": "🗺 Abrir o mapa interativo",
+    "Map layouts — objectives, documents & routes": "Layouts do mapa — objetivos, documentos & rotas",
+    "This mission's layout": "Layout desta missão", "Prime Asset:": "Prime Asset:",
+    "Objective list not on the wiki yet — open the interactive map for the route.":
+      "Lista de objetivos ainda não está na wiki — abre o mapa interativo para a rota.",
+    "Search maps, missions, objectives or tips…": "Procurar mapas, missões, objetivos ou dicas…",
+    "Every map and all of its missions — pick a mission to see its goal, full objectives, strategy tips and floor-plan layout. Open the community interactive maps full-screen for documents, hidden spots & collectibles.":
+      "Cada mapa e todas as suas missões — escolhe uma missão para ver o objetivo, objetivos completos, dicas de estratégia e a planta do piso. Abre os mapas interativos da comunidade em ecrã inteiro para documentos, hidden spots & colecionáveis.",
+    "🗺 Interactive maps — by": "🗺 Mapas interativos — por", "close ✕": "fechar ✕",
+    "The Season 3 (Project Relapse) Prime Asset — a relentless hunter (\"Jaeger\") who tracks Reagents across The Suburbs and punishes anyone who holds still too long.":
+      "A Prime Asset da Season 3 (Project Relapse) — uma caçadora implacável (\"Jaeger\") que persegue os Reagents por The Suburbs e pune quem fica parado tempo demais.",
+    "Stay mobile and keep changing rooms so she can't lock your trail. Break her tracking with line-of-sight cuts, and save a Blind/Stun rig for when she closes the gap.":
+      "Mantém-te em movimento e muda de sala para ela não fixar o teu rasto. Quebra o tracking cortando a linha de visão, e guarda um rig Blind/Stun para quando ela se aproximar.",
+    "The Season 4 (Project Diarchy) twin Prime Assets — two hunters who patrol the Shopping Mall and can pincer you from both sides.":
+      "As Prime Assets gémeas da Season 4 (Project Diarchy) — dois caçadores que patrulham o Shopping Mall e te podem cercar pelos dois lados.",
+    "Never get caught between them — track both before committing to a room. Use the mall's escalators and shops to put a wall between you and one twin while you handle the other.":
+      "Nunca fiques entre eles — localiza os dois antes de entrar numa sala. Usa as escadas rolantes e lojas do centro comercial para pôr uma parede entre ti e um gémeo enquanto tratas do outro.",
+    "The Season 5 (Project Messiah) Prime Asset who stalks the Resort, keeping relentless pressure on the team.":
+      "A Prime Asset da Season 5 (Project Messiah) que percorre o Resort, mantendo pressão implacável sobre a equipa.",
     "No top-down layout on the wiki yet — use the interactive maps above for objectives, documents & hidden spots.":
       "Ainda sem layout de cima na wiki — usa os mapas interativos acima para objetivos, documentos & hidden spots.",
     // ---- Outlast: build roles, tags, names ----
@@ -874,6 +894,8 @@
     [/^Showing (\d+) of ([\d,]+) — refine to narrow down$/, "A mostrar $1 de $2 — refina para reduzir"],
     [/^(\d+) recipe[s]? · sources: (.+)$/, "$1 receitas · fontes: $2"],
     [/^(\d+) farmable items · source: (.+)$/, "$1 items farmáveis · fonte: $2"],
+    [/^(\d+) items & resources · source: (.+)$/, "$1 items & recursos · fonte: $2"],
+    [/^(\d+) missions?$/, (m, n) => `${n} ${n === "1" ? "missão" : "missões"}`],
     [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
     [/^Top (\d+) bond gifts · best value first$/, "Top $1 gifts de bond · melhor valor primeiro"],

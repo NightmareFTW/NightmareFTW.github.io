@@ -1182,13 +1182,24 @@ body {
 .trial-objs { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 5px; }
 .trial-objs li { font-size: 0.92rem; }
 /* general tips + per-trial tips + layouts + interactive-map button */
-.fex-embed { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent-2); border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
-.fex-embed > summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; list-style: none; }
-.fex-embed > summary::-webkit-details-marker { display: none; }
-.fex-frame-wrap { margin-top: 12px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-.fex-frame { width: 100%; height: 70vh; min-height: 460px; border: 0; display: block; background: #0b0809; }
-.fex-credit { font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
-.fex-credit a { color: var(--accent-2); }
+/* Mission selector + per-mission panel */
+.mission-tabs { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0 14px; }
+.mission-tab { font-family: var(--sans); font-size: 0.82rem; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg-soft); color: var(--muted); cursor: pointer; transition: all 0.13s; }
+.mission-tab:hover { border-color: var(--muted); color: var(--text); }
+.mission-tab.on { background: rgba(212,132,42,.16); border-color: var(--accent); color: #e0a45a; font-weight: 700; }
+.mission-goal { font-size: 0.98rem; font-style: italic; color: var(--text); border-left: 3px solid var(--accent-2); padding-left: 12px; margin-bottom: 10px; }
+.mission-prime { font-size: 0.88rem; color: var(--muted); margin-bottom: 12px; }
+.mission-prime b { color: var(--accent-2); }
+
+/* Full-screen interactive-map modal (scrolling only moves the map, not the page) */
+.map-modal { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.82); backdrop-filter: blur(3px);
+  display: none; flex-direction: column; padding: 24px; }
+.map-modal.on { display: flex; }
+.map-modal-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px 4px 12px; color: var(--text); font-size: 0.9rem; }
+.map-modal-bar a { color: var(--accent-2); }
+.map-modal-frame { flex: 1; width: 100%; border: 1px solid var(--border); border-radius: 12px; background: #0b0809; display: block; }
 .general-tips { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent-2); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
 .gt-title { font-weight: 700; font-size: 0.95rem; display: block; margin-bottom: 8px; }
 .general-tips ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 5px; }

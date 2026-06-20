@@ -91,7 +91,7 @@ els.clear.addEventListener("click", () => {
 (async function init() {
   try {
     DATA = await (await fetch(`../../data/dreamlight-valley/items.json?cb=${Date.now()}`)).json();
-    els.updated.textContent = `${DATA.count} farmable items · source: Dreamlight Valley Wiki`;
+    els.updated.textContent = `${DATA.count} items & resources · source: Dreamlight Valley Wiki + game data`;
     buildFacets();
     render();
   } catch (e) {

@@ -13,9 +13,6 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 const OUT = path.join(__dirname, "..", "data", "outlast-trials", "trials.json");
 const FEX = "https://outlast.fex.dev/maps"; // community interactive maps
 
-const TRIALS = ["Kill the Snitch", "Cleanse the Orphans", "Grind the Bad Apples", "Pervert the Futterman",
-  "Vindicate the Guilty", "Kill the Politician", "Pleasure the Prosecutor", "Liquidate the Union",
-  "Silence the Idol", "Poison the Medicine", "Despoil the Auction", "Rebirth", "Escape"];
 const ENV_ORDER = ["Police Station", "Orphanage", "Fun Park", "Toy Factory", "Courthouse", "Shopping Mall",
   "Downtown", "The Suburbs", "Television Studio", "The Docks", "Resort", "Mansion", "Waste Tunnel"];
 
@@ -68,47 +65,64 @@ async function fileUrls(files) {
   }
   return out;
 }
-// Floor / layout map images used on an environment page (the top-down maps).
+const norm = (s) => (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+// Clean, uniform floor-plan layouts only (top-down PNG maps; skip in-game photos).
 async function mapLayouts(env) {
   const imgs = (((await api({ action: "parse", page: env, prop: "images" })).parse) || {}).images || [];
-  const files = imgs.filter((f) => /(_Map\.(png|jpg)$|Floor.*Map|Ground_Floor|Scales.*Map|Lockdown_Map)/i.test(f));
+  const files = imgs.filter((f) => /\.png$/i.test(f) && /(_Map\.png$|Floor.*Map|Ground_Floor)/i.test(f));
   const urls = await fileUrls(files);
   return files.map((f) => ({ label: f.replace(/\.(png|jpg|jpeg)$/i, "").replace(/_/g, " ").replace(/^.*? - /, ""), img: urls[f] })).filter((x) => x.img);
 }
 
-async function run() {
-  const byEnv = {};
-  for (const t of TRIALS) {
-    const w = await wikitext(t);
-    if (!w) continue;
-    const env = dewiki(field(w, "environment|map|location")).split("\n")[0].trim();
-    const lead = w.replace(/\{\{[\s\S]*?\}\}/g, " ").split(/\n==/)[0];
-    let introText = dewiki(lead).replace(/thumb\|/gi, "").replace(/\|[a-z]+\s*=\s*[^|]*/gi, "")
-      .replace(/\b\d+x?\d*px\b/gi, "").replace(/==.*?==/g, "").replace(/\s+/g, " ").trim();
-    // Start at the trial name and keep just the first sentence (clean & translatable).
-    const at = introText.indexOf(t); if (at > 0) introText = introText.slice(at);
-    let intro = (introText.split(/\.(?:\s|$)/)[0] || "").trim().slice(0, 200) + ".";
-    if (INTRO_OVERRIDE[t]) intro = INTRO_OVERRIDE[t]; // non-standard pages with messy leads
-    const objectives = bullets(field(w, "objectives?"))
-      .filter((o) => !/^[|{]/.test(o) && o.length > 3 && o.toLowerCase() !== t.toLowerCase()).slice(0, 14);
-    if (!env) continue;
-    (byEnv[env] = byEnv[env] || []).push({ name: t, intro, objectives, tips: TIPS[t] || [] });
-  }
+// The list of trials (missions) hosted on an environment, from its "Trials" section.
+async function envTrials(env) {
+  const w = await wikitext(env);
+  const sec = (w.split(/==\s*Trials\s*==/)[1] || "").split(/\n==/)[0];
+  return [...new Set([...sec.matchAll(/\[\[([^\]|#]+)/g)].map((m) => m[1].trim())
+    .filter((x) => x && !/File:|Category:|Reagents|Rebirth$/.test(x)))];
+}
 
+// Scrape one trial/mission: its goal tagline, step objectives and Prime Asset.
+async function scrapeTrial(title) {
+  const w = await wikitext(title);
+  if (!w) return null;
+  const prime = dewiki(field(w, "primeasset|prime asset|prime")).split("\n")[0].replace(/\bN\/?A\b/i, "").trim();
+  const objectives = bullets(field(w, "objectives?"))
+    .filter((o) => !/^[|{]/.test(o) && o.length > 3 && o.toLowerCase() !== title.toLowerCase()).slice(0, 14);
+  // Goal: the italicised tagline that opens the Gameplay section.
+  const gp = (w.split(/==\s*Gameplay\s*==/)[1] || "").split(/\n==/)[0];
+  const tag = gp.match(/''+([^']{8,260}?)''+/);
+  let goal = tag ? dewiki(tag[1]).replace(/\s+/g, " ").trim() : "";
+  if (!goal) { // fall back to the lead sentence
+    const lead = dewiki(w.replace(/\{\{[\s\S]*?\}\}/g, " ").split(/\n==/)[0]).replace(/thumb\|/gi, "").replace(/\|[a-z]+\s*=\s*[^|]*/gi, "").replace(/\b\d+x?\d*px\b/gi, "").replace(/\s+/g, " ").trim();
+    const at = lead.indexOf(title); goal = (at >= 0 ? lead.slice(at) : lead).split(/\.(?:\s|$)/)[0].slice(0, 200) + ".";
+  }
+  if (INTRO_OVERRIDE[title]) goal = INTRO_OVERRIDE[title];
+  return { name: title, goal, objectives, prime, tips: TIPS[title] || [] };
+}
+
+async function run() {
   const hero = {};
-  const j = await api({ action: "query", prop: "pageimages", piprop: "original", titles: ENV_ORDER.join("|"), redirects: "1" });
-  for (const k in (j.query || {}).pages) { const p = j.query.pages[k]; if (p.original) hero[p.title] = p.original.source.replace(/\/revision.*$/, ""); }
+  const hj = await api({ action: "query", prop: "pageimages", piprop: "original", titles: ENV_ORDER.join("|"), redirects: "1" });
+  for (const k in (hj.query || {}).pages) { const p = hj.query.pages[k]; if (p.original) hero[p.title] = p.original.source.replace(/\/revision.*$/, ""); }
 
   const maps = [];
   for (const env of ENV_ORDER) {
-    if (!byEnv[env] && !hero[env]) continue;
-    maps.push({ name: env, img: hero[env] || "", layouts: await mapLayouts(env), trials: byEnv[env] || [], fex: FEX });
+    const list = await envTrials(env);
+    const trials = [];
+    for (const t of list) { const tr = await scrapeTrial(t); if (tr) trials.push(tr); }
+    const layouts = await mapLayouts(env);
+    // Attach a layout to the trial whose name it matches (so the selector can show it).
+    for (const l of layouts) { const tr = trials.find((t) => norm(l.label).includes(norm(t.name)) || norm(t.name).includes(norm(l.label.replace(/ map$/i, "")))); if (tr) l.trial = tr.name; }
+    if (!trials.length && !hero[env]) continue;
+    maps.push({ name: env, img: hero[env] || "", layouts, trials, fex: FEX });
   }
   if (!maps.some((m) => m.trials.length)) throw new Error("no trials parsed — keeping previous file");
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: "https://outlast.fandom.com", fex: FEX, generalTips: GENERAL_TIPS, maps }, null, 2));
-  console.log(`Wrote ${maps.length} maps, ${maps.reduce((n, m) => n + m.trials.length, 0)} trials, ${maps.reduce((n, m) => n + m.layouts.length, 0)} layout images.`);
+  console.log(`Wrote ${maps.length} maps, ${maps.reduce((n, m) => n + m.trials.length, 0)} trials, ${maps.reduce((n, m) => n + m.layouts.length, 0)} layouts.`);
 }
 
 run().catch((e) => { console.error(e); process.exit(1); });
