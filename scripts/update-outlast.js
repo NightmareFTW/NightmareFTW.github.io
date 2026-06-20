@@ -12,6 +12,11 @@ const API = "https://outlast.fandom.com/api.php";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 const OUT = path.join(__dirname, "..", "data", "outlast-trials", "trials.json");
 const FEX = "https://outlast.fex.dev/maps"; // community interactive maps
+// Community floor plans (Steam guide "Maps for Outlast Trials") for maps the
+// wiki has no floor plan for. Loaded into our own pan/zoom viewer.
+const STEAM_MAPS = {
+  "Toy Factory": [{ label: "Floor Map", img: "https://images.steamusercontent.com/ugc/16419302165167330/4381DCD1ED04F249C8C11D40D8FBCCCD6F3774D6/" }],
+};
 
 const ENV_ORDER = ["Police Station", "Orphanage", "Fun Park", "Toy Factory", "Courthouse", "Shopping Mall",
   "Downtown", "The Suburbs", "Television Studio", "The Docks", "Resort", "Mansion", "Waste Tunnel"];
@@ -113,6 +118,8 @@ async function run() {
     const trials = [];
     for (const t of list) { const tr = await scrapeTrial(t); if (tr) trials.push(tr); }
     const layouts = await mapLayouts(env);
+    // Supplement with community floor plans for maps the wiki has none for.
+    for (const sm of STEAM_MAPS[env] || []) if (!layouts.some((l) => l.img === sm.img)) layouts.push(sm);
     // Attach a layout to the trial whose name it matches (so the selector can show it).
     for (const l of layouts) { const tr = trials.find((t) => norm(l.label).includes(norm(t.name)) || norm(t.name).includes(norm(l.label.replace(/ map$/i, "")))); if (tr) l.trial = tr.name; }
     if (!trials.length && !hero[env]) continue;

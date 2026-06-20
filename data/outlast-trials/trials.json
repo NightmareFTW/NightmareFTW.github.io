@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-20T12:42:07.205Z",
+  "updated": "2026-06-20T14:45:27.703Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -337,7 +337,12 @@
     {
       "name": "Toy Factory",
       "img": "https://static.wikia.nocookie.net/outlast/images/2/2e/Toy_factory_exterior_1.jpg",
-      "layouts": [],
+      "layouts": [
+        {
+          "label": "Floor Map",
+          "img": "https://images.steamusercontent.com/ugc/16419302165167330/4381DCD1ED04F249C8C11D40D8FBCCCD6F3774D6/"
+        }
+      ],
       "trials": [
         {
           "name": "Pervert the Futterman",
