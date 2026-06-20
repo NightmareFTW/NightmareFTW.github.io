@@ -71,6 +71,10 @@
     "💡 Survival basics (all trials)": "💡 Básicos de sobrevivência (todos os trials)",
     "💡 Survival basics (all missions)": "💡 Básicos de sobrevivência (todas as missões)",
     "🗺 Open the interactive map": "🗺 Abrir o mapa interativo",
+    "🗺 Open the interactive map (Fex)": "🗺 Abrir o mapa interativo (Fex)",
+    "Floor maps — click to open the zoomable viewer": "Plantas dos pisos — clica para abrir o visualizador com zoom",
+    "Scroll to zoom · drag to pan · double-click to reset": "Scroll para zoom · arrasta para mover · duplo-clique para repor",
+    "Scroll to zoom · drag to pan · double-click to reset · pick a floor above": "Scroll para zoom · arrasta para mover · duplo-clique para repor · escolhe um piso acima",
     "Map layouts — objectives, documents & routes": "Layouts do mapa — objetivos, documentos & rotas",
     "This mission's layout": "Layout desta missão", "Prime Asset:": "Prime Asset:",
     "Objective list not on the wiki yet — open the interactive map for the route.":
