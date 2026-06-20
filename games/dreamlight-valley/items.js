@@ -4,9 +4,14 @@
    biome / DLC and sort. Names & locations show the official PT-BR when PT. */
 
 let DATA = null;
-let FURN = null;           // lazy-loaded furniture catalogue (loaded on first Furniture tab open)
-let furnTheme = "All";
 let activeCat = "All";
+let catTheme = "All";
+// Big per-theme catalogues are lazy-loaded (kept out of items.json) on first open.
+const LAZY = {
+  Furniture: { file: "furniture.json", countKey: "furnitureCount", data: null },
+  Clothing: { file: "clothing.json", countKey: "clothingCount", data: null },
+};
+const isLazy = (cat) => Object.prototype.hasOwnProperty.call(LAZY, cat);
 const sel = { biome: new Set(), dlc: new Set() };
 let query = "", sort = "name";
 const DLC_CLASS = { "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" };
@@ -24,7 +29,7 @@ const CAT_ORDER = [
   "Fish", "Gem / Mineral", "Flower",
   "Crafting Material", "Fragment", "Snippet", "Enchantment",
   "Ancient Machine", "Timebending Part",
-  "Furniture", "Fence / Paving", "Gift",
+  "Furniture", "Fence / Paving", "Clothing", "Gift",
 ];
 
 const els = {
@@ -42,7 +47,7 @@ const uniqSorted = (arr) => [...new Set(arr)].filter(Boolean).sort();
 function buildTabs() {
   const counts = {};
   DATA.items.forEach((i) => (counts[i.category] = (counts[i.category] || 0) + 1));
-  if (DATA.furnitureCount) counts["Furniture"] = DATA.furnitureCount; // lazy catalogue
+  for (const cat in LAZY) { const n = DATA[LAZY[cat].countKey]; if (n) counts[cat] = n; } // lazy catalogues
   const present = Object.keys(counts);
   const ordered = [...CAT_ORDER.filter((c) => present.includes(c)), ...present.filter((c) => !CAT_ORDER.includes(c)).sort()];
   const tab = (cat, count) => `<button class="cat-tab ${cat === activeCat ? "on" : ""}" data-cat="${cat}"><span class="cat-name">${cat}</span><span class="cat-count">${count}</span></button>`;
@@ -50,33 +55,35 @@ function buildTabs() {
   els.tabs.querySelectorAll(".cat-tab").forEach((b) =>
     b.addEventListener("click", () => {
       activeCat = b.dataset.cat;
+      catTheme = "All";
       els.tabs.querySelectorAll(".cat-tab").forEach((x) => x.classList.toggle("on", x === b));
-      if (activeCat === "Furniture") { openFurniture(); return; }
+      if (isLazy(activeCat)) { openCatalogue(activeCat); return; }
       sel.biome.clear(); sel.dlc.clear(); buildFacets(); render(); // restore biome/DLC filters
     }));
 }
 
-// Lazy-load the big furniture catalogue the first time the Furniture tab opens.
-async function openFurniture() {
+// Lazy-load a big catalogue (Furniture/Clothing) the first time its tab opens.
+async function openCatalogue(cat) {
+  const L = LAZY[cat];
   els.facets.innerHTML = "";
-  if (!FURN) {
-    els.list.innerHTML = `<p style="color:var(--muted)">Loading furniture…</p>`;
-    try { FURN = await (await fetch(`../../data/dreamlight-valley/furniture.json?cb=${Date.now()}`)).json(); }
-    catch { els.list.innerHTML = `<p class="tool-note">Couldn't load furniture data.</p>`; return; }
+  if (!L.data) {
+    els.list.innerHTML = `<p style="color:var(--muted)">Loading ${cat.toLowerCase()}…</p>`;
+    try { L.data = await (await fetch(`../../data/dreamlight-valley/${L.file}?cb=${Date.now()}`)).json(); }
+    catch { els.list.innerHTML = `<p class="tool-note">Couldn't load ${cat.toLowerCase()} data.</p>`; return; }
   }
   // Theme sub-filter (each Disney theme is its own collection).
   els.facets.innerHTML = `<div class="facet-group"><span class="facet-title">Theme</span>
-    <div class="facet-chips"><select id="furn-theme" class="sort-select">
-      <option value="All">All themes (${FURN.count})</option>
-      ${FURN.themes.map((t) => `<option value="${t}" ${t === furnTheme ? "selected" : ""}>${t}</option>`).join("")}
+    <div class="facet-chips"><select id="cat-theme" class="sort-select">
+      <option value="All">All themes (${L.data.count})</option>
+      ${L.data.themes.map((t) => `<option value="${t}" ${t === catTheme ? "selected" : ""}>${t}</option>`).join("")}
     </select></div></div>`;
-  document.getElementById("furn-theme").addEventListener("change", (e) => { furnTheme = e.target.value; renderFurniture(); });
-  renderFurniture();
+  document.getElementById("cat-theme").addEventListener("change", (e) => { catTheme = e.target.value; renderCatalogue(cat); });
+  renderCatalogue(cat);
 }
 
-function renderFurniture() {
+function renderCatalogue(cat) {
   const CAP = 400;
-  let list = FURN.items.filter((f) => (furnTheme === "All" || f.theme === furnTheme) &&
+  let list = LAZY[cat].data.items.filter((f) => (catTheme === "All" || f.theme === catTheme) &&
     (!query || `${f.name} ${f.name_pt || ""}`.toLowerCase().includes(query)));
   list.sort((a, b) => nm(a).localeCompare(nm(b)));
   const total = list.length, capped = list.length > CAP;
@@ -88,7 +95,7 @@ function renderFurniture() {
         <span class="rc-name">${f.img ? `<img class="rc-img" src="${esc(f.img)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ""}${nm(f)}</span>
         <span class="ev-chip">${esc(f.theme)}</span>
       </div>
-    </div>`).join("") || `<p class="no-results">No furniture match.</p>`;
+    </div>`).join("") || `<p class="no-results">No items match.</p>`;
 }
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -121,7 +128,7 @@ function matches(it) {
 }
 
 function render() {
-  if (activeCat === "Furniture") { if (FURN) renderFurniture(); return; }
+  if (isLazy(activeCat)) { if (LAZY[activeCat].data) renderCatalogue(activeCat); return; }
   let list = DATA.items.filter(matches);
   const total = list.length;
   if (sort === "sell-desc") list.sort((a, b) => b.sell - a.sell);
@@ -149,7 +156,7 @@ els.search.addEventListener("input", () => { query = els.search.value.trim().toL
 els.sort.addEventListener("change", () => { sort = els.sort.value; render(); });
 els.clear.addEventListener("click", () => {
   Object.values(sel).forEach((s) => s.clear());
-  activeCat = "All"; furnTheme = "All"; query = ""; els.search.value = "";
+  activeCat = "All"; catTheme = "All"; query = ""; els.search.value = "";
   els.tabs.querySelectorAll(".cat-tab").forEach((b) => b.classList.toggle("on", b.dataset.cat === "All"));
   buildFacets();
   render();

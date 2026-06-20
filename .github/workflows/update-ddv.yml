@@ -19,6 +19,7 @@ jobs:
       - name: Build DDV datasets
         run: |
           node scripts/update-furniture.js   # full furniture catalogue (items.js reads its count)
+          node scripts/update-clothing.js    # full clothing catalogue
           node scripts/update-items.js
           node scripts/update-recipes.js   # reads items.json, run after it
           node scripts/update-starpath.js

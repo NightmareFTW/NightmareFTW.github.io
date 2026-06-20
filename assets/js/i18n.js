@@ -830,7 +830,8 @@
       "Sortie, Arbitration, Baro Ki'Teer e Void Fissures ao vivo. Atualiza automaticamente.",
     "Couldn't load item data.": "Não foi possível carregar os dados dos items.",
     "Loading furniture…": "A carregar mobília…", "Couldn't load furniture data.": "Não foi possível carregar os dados da mobília.",
-    "Theme": "Tema", "No furniture match.": "Nenhuma mobília corresponde.",
+    "Loading clothing…": "A carregar roupas…", "Couldn't load clothing data.": "Não foi possível carregar os dados das roupas.",
+    "Clothing": "Roupas", "Theme": "Tema", "No furniture match.": "Nenhuma mobília corresponde.",
     "Couldn't load recipe data.": "Não foi possível carregar os dados das receitas.",
     "Couldn't load the drop table data.": "Não foi possível carregar a drop table.",
     "No news data yet — the news updater hasn't published this game's headlines.":
