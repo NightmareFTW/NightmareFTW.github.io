@@ -231,9 +231,10 @@ async function run() {
   // ---- Ancient Machines (Eternity Isle) ----
   rows.push(...await collectFrom("https://dreamlightvalleywiki.com/Ancient_Machines", "Ancient Machine", "Eternity Isle crafting", ["hourglass"]));
 
-  // ---- Timebending page: parts, gifts, fragments, furniture (by section) ----
+  // ---- Timebending page: parts, gifts, fragments (furniture lives in its own
+  //      full catalogue, data/.../furniture.json, lazy-loaded by the Furniture tab) ----
   rows.push(...await collectByHeading("https://dreamlightvalleywiki.com/Timebending", {
-    "Timebending Parts": "Timebending Part", "Gifts": "Gift", "Fragments": "Fragment", "Furniture": "Furniture",
+    "Timebending Parts": "Timebending Part", "Gifts": "Gift", "Fragments": "Fragment",
   }, "Eternity Isle"));
 
   // ---- Snippets (bird / demon / frog) ----
@@ -270,7 +271,11 @@ async function run() {
   const unique = rows.filter((r) => (seen.has(r.name) ? false : seen.add(r.name)));
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
-  fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: SRC.ingredients, count: unique.length, biomesPt: LOC.biomes || {}, items: unique }));
+  // Count the lazy-loaded furniture catalogue (if built) so the Furniture tab
+  // can show its total without loading the big file.
+  let furnitureCount = 0;
+  try { furnitureCount = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "dreamlight-valley", "furniture.json"), "utf8")).count || 0; } catch { /* none yet */ }
+  fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: SRC.ingredients, count: unique.length, furnitureCount, biomesPt: LOC.biomes || {}, items: unique }));
   const byCat = {};
   unique.forEach((r) => (byCat[r.category] = (byCat[r.category] || 0) + 1));
   console.log(`Wrote ${unique.length} items. By category:`, byCat);

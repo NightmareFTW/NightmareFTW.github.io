@@ -4,6 +4,8 @@
    biome / DLC and sort. Names & locations show the official PT-BR when PT. */
 
 let DATA = null;
+let FURN = null;           // lazy-loaded furniture catalogue (loaded on first Furniture tab open)
+let furnTheme = "All";
 let activeCat = "All";
 const sel = { biome: new Set(), dlc: new Set() };
 let query = "", sort = "name";
@@ -40,6 +42,7 @@ const uniqSorted = (arr) => [...new Set(arr)].filter(Boolean).sort();
 function buildTabs() {
   const counts = {};
   DATA.items.forEach((i) => (counts[i.category] = (counts[i.category] || 0) + 1));
+  if (DATA.furnitureCount) counts["Furniture"] = DATA.furnitureCount; // lazy catalogue
   const present = Object.keys(counts);
   const ordered = [...CAT_ORDER.filter((c) => present.includes(c)), ...present.filter((c) => !CAT_ORDER.includes(c)).sort()];
   const tab = (cat, count) => `<button class="cat-tab ${cat === activeCat ? "on" : ""}" data-cat="${cat}"><span class="cat-name">${cat}</span><span class="cat-count">${count}</span></button>`;
@@ -48,9 +51,46 @@ function buildTabs() {
     b.addEventListener("click", () => {
       activeCat = b.dataset.cat;
       els.tabs.querySelectorAll(".cat-tab").forEach((x) => x.classList.toggle("on", x === b));
-      render();
+      if (activeCat === "Furniture") { openFurniture(); return; }
+      sel.biome.clear(); sel.dlc.clear(); buildFacets(); render(); // restore biome/DLC filters
     }));
 }
+
+// Lazy-load the big furniture catalogue the first time the Furniture tab opens.
+async function openFurniture() {
+  els.facets.innerHTML = "";
+  if (!FURN) {
+    els.list.innerHTML = `<p style="color:var(--muted)">Loading furniture…</p>`;
+    try { FURN = await (await fetch(`../../data/dreamlight-valley/furniture.json?cb=${Date.now()}`)).json(); }
+    catch { els.list.innerHTML = `<p class="tool-note">Couldn't load furniture data.</p>`; return; }
+  }
+  // Theme sub-filter (each Disney theme is its own collection).
+  els.facets.innerHTML = `<div class="facet-group"><span class="facet-title">Theme</span>
+    <div class="facet-chips"><select id="furn-theme" class="sort-select">
+      <option value="All">All themes (${FURN.count})</option>
+      ${FURN.themes.map((t) => `<option value="${t}" ${t === furnTheme ? "selected" : ""}>${t}</option>`).join("")}
+    </select></div></div>`;
+  document.getElementById("furn-theme").addEventListener("change", (e) => { furnTheme = e.target.value; renderFurniture(); });
+  renderFurniture();
+}
+
+function renderFurniture() {
+  const CAP = 400;
+  let list = FURN.items.filter((f) => (furnTheme === "All" || f.theme === furnTheme) &&
+    (!query || `${f.name} ${f.name_pt || ""}`.toLowerCase().includes(query)));
+  list.sort((a, b) => nm(a).localeCompare(nm(b)));
+  const total = list.length, capped = list.length > CAP;
+  if (capped) list = list.slice(0, CAP);
+  els.count.textContent = `${total} item${total === 1 ? "" : "s"}${capped ? ` · showing ${CAP}, pick a theme or search to narrow` : ""}`;
+  els.list.innerHTML = list.map((f) => `
+    <div class="rc-card furn-card">
+      <div class="rc-top">
+        <span class="rc-name">${f.img ? `<img class="rc-img" src="${esc(f.img)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ""}${nm(f)}</span>
+        <span class="ev-chip">${esc(f.theme)}</span>
+      </div>
+    </div>`).join("") || `<p class="no-results">No furniture match.</p>`;
+}
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 function buildFacets() {
   const biomes = uniqSorted(DATA.items.flatMap((i) => i.biomes));
@@ -81,6 +121,7 @@ function matches(it) {
 }
 
 function render() {
+  if (activeCat === "Furniture") { if (FURN) renderFurniture(); return; }
   let list = DATA.items.filter(matches);
   const total = list.length;
   if (sort === "sell-desc") list.sort((a, b) => b.sell - a.sell);
@@ -108,9 +149,9 @@ els.search.addEventListener("input", () => { query = els.search.value.trim().toL
 els.sort.addEventListener("change", () => { sort = els.sort.value; render(); });
 els.clear.addEventListener("click", () => {
   Object.values(sel).forEach((s) => s.clear());
-  activeCat = "All"; query = ""; els.search.value = "";
-  els.facets.querySelectorAll(".chip-toggle.on").forEach((b) => b.classList.remove("on"));
+  activeCat = "All"; furnTheme = "All"; query = ""; els.search.value = "";
   els.tabs.querySelectorAll(".cat-tab").forEach((b) => b.classList.toggle("on", b.dataset.cat === "All"));
+  buildFacets();
   render();
 });
 

@@ -829,6 +829,8 @@
     "Live Sortie, Arbitration, Baro Ki'Teer and Void Fissures. Refreshes automatically.":
       "Sortie, Arbitration, Baro Ki'Teer e Void Fissures ao vivo. Atualiza automaticamente.",
     "Couldn't load item data.": "Não foi possível carregar os dados dos items.",
+    "Loading furniture…": "A carregar mobília…", "Couldn't load furniture data.": "Não foi possível carregar os dados da mobília.",
+    "Theme": "Tema", "No furniture match.": "Nenhuma mobília corresponde.",
     "Couldn't load recipe data.": "Não foi possível carregar os dados das receitas.",
     "Couldn't load the drop table data.": "Não foi possível carregar a drop table.",
     "No news data yet — the news updater hasn't published this game's headlines.":
@@ -900,6 +902,8 @@
     [/^(\d+) farmable items · source: (.+)$/, "$1 items farmáveis · fonte: $2"],
     [/^(\d+) items & resources · source: (.+)$/, "$1 items & recursos · fonte: $2"],
     [/^(\d+) missions?$/, (m, n) => `${n} ${n === "1" ? "missão" : "missões"}`],
+    [/^All themes \(([\d,]+)\)$/, "Todos os temas ($1)"],
+    [/^(\d[\d,]*) items · showing (\d+), pick a theme or search to narrow$/, "$1 items · a mostrar $2, escolhe um tema ou pesquisa para reduzir"],
     [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
     [/^Top (\d+) bond gifts · best value first$/, "Top $1 gifts de bond · melhor valor primeiro"],

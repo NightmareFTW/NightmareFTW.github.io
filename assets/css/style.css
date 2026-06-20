@@ -851,6 +851,9 @@ body {
 .cat-tab.on .cat-count { background: rgba(255,36,53,.2); color: #ffb0aa; }
 
 .rc-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.furn-card { padding: 12px 14px; }
+.furn-card .rc-top { margin-bottom: 0; align-items: center; }
+.furn-card .rc-img { width: 44px; height: 44px; }
 .rc-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
 .rc-name { font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; }
 .rc-img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; background: rgba(255,255,255,.04); flex: 0 0 auto; vertical-align: middle; }
