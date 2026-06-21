@@ -1,31 +1,92 @@
 {
   "version": "Post-launch / patch 1.x",
-  "teamNote": "A cohesive end-game meta team, not five separate builds. Maelle is the carry; Lune and Monoco generate AP, Breaks and buffs to fuel her; Sciel banks Foretell for a second nuke. You field three at a time — run the core trio (Maelle + Lune + one of Monoco/Sciel) and swap the fourth to the fight. Verso is the flex swap when you want raw aggression over support.",
-  "note": "Each character shows their part of the team build — best-in-slot weapon, the three defining Pictos (with icons), the Luminas to run, attribute spread and skills. Attribute emphasis uses the in-game 0–99 scale; exact totals depend on level and gear. Pictos double as Luminas you can share across the party.",
+  "note": "Five end-game meta team builds — pick a strategy, then tap each member to see their part of it (weapon, Pictos, Luminas, attributes and skills) on a recreation of the in-game build screen. Maelle is the best carry so she anchors most comps; the team around her changes the gameplan. Pictos double as Luminas you can share across the party.",
   "attrMax": 99,
-  "characters": [
+  "builds": [
     {
-      "id": "maelle",
+      "id": "stance-carry",
+      "name": "Stance Carry",
+      "type": "Balanced · beginner-friendly",
+      "tier": "S",
+      "summary": "The safe, do-everything meta. The team feeds Maelle AP and Break windows; she converts them into team-wide damage from Virtuose stance. Forgiving and strong on any fight.",
+      "synergy": "Lune and Monoco generate AP, Breaks and buffs; Sciel banks a second nuke; Maelle cashes it all in.",
+      "members": [
+        { "id": "maelle", "job": "The win condition — stance-dance to Virtuose and dump your biggest skills." },
+        { "id": "lune", "job": "AP battery + Burn + heals; keep the squad topped up." },
+        { "id": "monoco", "job": "Break opener and AP refunds with Energising Parry." },
+        { "id": "sciel", "job": "Second nuke while Maelle resets stances." }
+      ]
+    },
+    {
+      "id": "burn-stack",
+      "name": "Burn Stack",
+      "type": "Sustained DoT · melts tanky bosses",
+      "tier": "S",
+      "summary": "Set the world on fire. Multiple Burn sources stack into enormous damage-over-time that ignores defenses — perfect for high-health bosses you can't burst.",
+      "synergy": "Maelle's Burning Canvas and Lune's Immolation/Wildfire pile on Burn; Sciel amplifies and detonates while it ticks.",
+      "members": [
+        { "id": "maelle", "job": "Apply and refresh Burn with Burning Canvas between stance dumps." },
+        { "id": "lune", "job": "Stack and spread Burn with Immolation and Wildfire — the main DoT engine." },
+        { "id": "sciel", "job": "Amplify damage and detonate while Burn ticks down their bar." }
+      ]
+    },
+    {
+      "id": "break-burst",
+      "name": "Break & Burst",
+      "type": "Stagger windows · anti-bruiser",
+      "tier": "A",
+      "summary": "Stagger first, then delete. Shred the enemy Break gauge and unload everything during the stagger, when they take massively increased damage and can't act.",
+      "synergy": "Monoco breaks the gauge fast; Maelle and Lune hold their biggest skills for the stagger window and burst together.",
+      "members": [
+        { "id": "monoco", "job": "Break specialist — pick Bestial skills that shred the gauge." },
+        { "id": "maelle", "job": "Hold Virtuose and dump the instant the enemy is Broken." },
+        { "id": "lune", "job": "Break-assist elements + AP so the burst lands in one window." }
+      ]
+    },
+    {
+      "id": "parry-counter",
+      "name": "Parry Counter",
+      "type": "Aggro · highest skill ceiling",
+      "tier": "S",
+      "summary": "All offense, all reactions. Parry and counter everything — no dodging, no downtime. The most damage in the game in skilled hands, the riskiest in unskilled ones.",
+      "synergy": "Verso climbs to S-Rank off counters, Maelle parries straight into Virtuose, and Monoco's Energising Parry refunds the AP to keep dumping.",
+      "members": [
+        { "id": "verso", "job": "Counter-DPS — climb to S-Rank and stay there." },
+        { "id": "maelle", "job": "Parry-burst carry; convert perfect parries into Virtuose damage." },
+        { "id": "monoco", "job": "Energising Parry AP battery + Break to open windows." }
+      ]
+    },
+    {
+      "id": "foretell-nuke",
+      "name": "Foretell Nuke",
+      "type": "Delayed burst · one-shot windows",
+      "tier": "A",
+      "summary": "Charge up, then erase. Sciel banks Foretell (Sun/Moon) over a few turns for a single colossal detonation, while the team protects the set-up and chips in between nukes.",
+      "synergy": "Lune sets up Dark/elements and feeds AP, Maelle provides consistent damage and parries, and Sciel lands the haymaker.",
+      "members": [
+        { "id": "sciel", "job": "The nuke carry — stack Foretell and detonate for a massive hit." },
+        { "id": "lune", "job": "Set up Dark/elements, heal and feed AP for the next charge." },
+        { "id": "maelle", "job": "Consistent burst and parries between Sciel's nukes." }
+      ]
+    }
+  ],
+  "characters": {
+    "maelle": {
       "name": "Maelle",
       "role": "Carry — parry burst DPS",
-      "core": true,
       "portrait": "https://static.wikia.nocookie.net/clair-obscur/images/d/d6/COE33_char_icon_Maelle.png",
       "element": "Stance / Physical",
-      "teamRole": "The win condition. The team exists to hand Maelle AP and Break windows; she converts them into team-wide damage from Virtuose stance.",
-      "summary": "Stance-dance into Virtuose and unload near-100% crit hits without ever taking damage. Glass Cannon + Immaculate make her a one-woman wipe button — as long as the team keeps her topped up on AP and she keeps parrying.",
+      "summary": "Stance-dance into Virtuose and unload near-100% crit hits without ever taking damage. Glass Cannon + Immaculate make her a one-woman wipe button — as long as the team keeps her on AP and she keeps parrying.",
       "weapon": { "name": "Medalum", "scales": ["Agility", "Defense"], "element": "Physical" },
       "skills": ["Fleuret Fury", "Stendhal", "Burning Canvas", "Phantom Strike", "Breaking Rules", "Swift Stride"],
       "pictos": [
-        { "name": "Immaculate", "effect": "Big damage bonus while you've taken no damage this battle — rewards perfect parrying.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/f/f5/COE33_Pictos_Red_11.png" },
-        { "name": "Glass Cannon", "effect": "30%+ increased damage, but you can't be healed — pure offense.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/5/5b/COE33_Pictos_Red_4.png" },
-        { "name": "Inverted Affinity", "effect": "Flips a drawback into an advantage for her scaling — leans all-in.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/6/60/COE33_Pictos_Red_3.png" }
+        { "name": "Immaculate", "effect": "Big damage bonus while you've taken no damage this battle.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/f/f5/COE33_Pictos_Red_11.png" },
+        { "name": "Glass Cannon", "effect": "30%+ increased damage, but you can't be healed.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/5/5b/COE33_Pictos_Red_4.png" },
+        { "name": "Inverted Affinity", "effect": "Flips a drawback into an advantage for her scaling.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/6/60/COE33_Pictos_Red_3.png" }
       ],
       "luminas": [
-        { "name": "Confident Fighter", "cost": 15 },
-        { "name": "Energising Turn", "cost": 20 },
-        { "name": "Cheater", "cost": 40 },
-        { "name": "Energy Master", "cost": 40 },
-        { "name": "Survivor", "cost": 20 }
+        { "name": "Confident Fighter", "cost": 15 }, { "name": "Energising Turn", "cost": 20 },
+        { "name": "Cheater", "cost": 40 }, { "name": "Energy Master", "cost": 40 }, { "name": "Survivor", "cost": 20 }
       ],
       "attributes": { "vitality": 0, "might": 50, "agility": 99, "defense": 99, "luck": 5 },
       "attrFocus": ["Agility", "Defense"],
@@ -38,28 +99,22 @@
       "pros": ["Highest burst in the game", "Near-100% crit", "Snowballs once stances are set up"],
       "cons": ["Squishy — one missed parry hurts", "No self-healing", "Depends on the team for AP"]
     },
-    {
-      "id": "lune",
+    "lune": {
       "name": "Lune",
       "role": "Support — elements & AP",
-      "core": true,
       "portrait": "https://static.wikia.nocookie.net/clair-obscur/images/9/91/COE33_char_icon_Lune.png",
       "element": "Elemental / Burn",
-      "teamRole": "The engine. Generates AP and elemental Stains, keeps Burn ticking for free damage, and heals/cleanses so the squad never stalls.",
-      "summary": "Bank elemental Stains to power empowered spells, loop Burn for damage-over-time, and feed the party AP with Energising Parry. Fast, safe and flexible — the glue of the comp.",
+      "summary": "Bank elemental Stains to power empowered spells, loop Burn for damage-over-time, and feed the party AP with Energising Parry. Fast, safe and flexible — the glue of every comp.",
       "weapon": { "name": "Choralim", "scales": ["Agility", "Defense"], "element": "Elemental (Fire/Ice/Lightning/Earth)" },
       "skills": ["Immolation", "Thermal Transfer", "Wildfire", "Rebound", "Purity", "Healing Light"],
       "pictos": [
-        { "name": "Energising Parry", "effect": "A successful parry grants AP — fuels the whole team's economy.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/4/49/COE33_Pictos_Green_9.png" },
-        { "name": "Charging Critical", "effect": "Builds Critical Rate as you act, so your spells start landing crits.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/6/60/COE33_Pictos_Green_6.png" },
+        { "name": "Energising Parry", "effect": "A successful parry grants AP — fuels the whole team.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/4/49/COE33_Pictos_Green_9.png" },
+        { "name": "Charging Critical", "effect": "Builds Critical Rate as you act, so your spells start critting.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/6/60/COE33_Pictos_Green_6.png" },
         { "name": "Shortcut", "effect": "Reduces the AP cost of skills so you cast more per turn.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/f/f0/COE33_Pictos_Green_7.png" }
       ],
       "luminas": [
-        { "name": "Energising Turn", "cost": 20 },
-        { "name": "Painted Power", "cost": 5 },
-        { "name": "Energy Master", "cost": 40 },
-        { "name": "Teamwork", "cost": 5 },
-        { "name": "In Medias Res", "cost": 10 }
+        { "name": "Energising Turn", "cost": 20 }, { "name": "Painted Power", "cost": 5 },
+        { "name": "Energy Master", "cost": 40 }, { "name": "Teamwork", "cost": 5 }, { "name": "In Medias Res", "cost": 10 }
       ],
       "attributes": { "vitality": 10, "might": 40, "agility": 99, "defense": 80, "luck": 5 },
       "attrFocus": ["Agility", "Defense"],
@@ -67,19 +122,16 @@
       "playstyle": [
         "Generate elemental Stains early, then spend them on empowered spells.",
         "Keep Burn applied for free damage-over-time while the team sets up.",
-        "Parry to bank AP for Maelle, and heal/cleanse the squad when needed."
+        "Parry to bank AP for the carry, and heal/cleanse when needed."
       ],
       "pros": ["Strong AoE + sustained damage", "Feeds the team AP", "Built-in healing/utility"],
       "cons": ["Stain management has a learning curve", "Lower personal burst than the carries"]
     },
-    {
-      "id": "sciel",
+    "sciel": {
       "name": "Sciel",
       "role": "Nuke — Foretell / Dark",
-      "core": true,
       "portrait": "https://static.wikia.nocookie.net/clair-obscur/images/4/44/COE33_char_icon_Sciel.png",
       "element": "Dark",
-      "teamRole": "The second nuke. While Maelle resets stances, Sciel banks Foretell and detonates for a huge hit — so the team always has burst available.",
       "summary": "A slow build to an enormous payoff. Stack Foretell (Sun/Moon) and Dark, weaken enemies, then detonate for a massive hit while scaling through criticals and survivability.",
       "weapon": { "name": "Charnon", "scales": ["Luck", "Defense"], "element": "Dark" },
       "skills": ["Twilight Slash", "Intervention", "Plentiful Harvest", "Fortune's Wheel", "Dark Wave", "Sealed Fate"],
@@ -89,11 +141,8 @@
         { "name": "Inverted Affinity", "effect": "Turns a drawback into an advantage for her scaling.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/6/60/COE33_Pictos_Red_3.png" }
       ],
       "luminas": [
-        { "name": "Cheater", "cost": 40 },
-        { "name": "Energy Master", "cost": 40 },
-        { "name": "Survivor", "cost": 20 },
-        { "name": "Teamwork", "cost": 5 },
-        { "name": "Painted Power", "cost": 5 }
+        { "name": "Cheater", "cost": 40 }, { "name": "Energy Master", "cost": 40 },
+        { "name": "Survivor", "cost": 20 }, { "name": "Teamwork", "cost": 5 }, { "name": "Painted Power", "cost": 5 }
       ],
       "attributes": { "vitality": 10, "might": 40, "agility": 50, "defense": 80, "luck": 99 },
       "attrFocus": ["Luck", "Defense"],
@@ -106,15 +155,12 @@
       "pros": ["Massive delayed burst", "Strong vs. Dark-weak enemies", "Tanky for a DPS"],
       "cons": ["Slow to come online", "Weaker single-turn damage", "Set-up punished by burst fights"]
     },
-    {
-      "id": "monoco",
+    "monoco": {
       "name": "Monoco",
       "role": "Break / support flex",
-      "core": true,
       "portrait": "https://static.wikia.nocookie.net/clair-obscur/images/d/d0/Monoco.png",
       "element": "Bestial (varies)",
-      "teamRole": "The opener. Shreds Break gauges to stagger tough foes for the whole party and refunds AP with Energising Parry — turning hard fights into Maelle windows.",
-      "summary": "The toolbox. Copies enemy abilities through the Bestial Wheel, breaks staggers, and runs high-Speed parry support to keep AP flowing. Pick the Bestial skills that match the fight.",
+      "summary": "The toolbox. Copies enemy abilities through the Bestial Wheel, shreds Break gauges to stagger tough foes, and runs high-Speed parry support to keep AP flowing.",
       "weapon": { "name": "Joyaro", "scales": ["Agility", "Defense"], "element": "Bestial (varies)" },
       "skills": ["Gestral Bash", "Volester Dive", "Lancelier Charge", "Rampart", "Bigger Impact", "Speedy"],
       "pictos": [
@@ -123,11 +169,8 @@
         { "name": "Charging Critical", "effect": "Builds Critical Rate as he acts for steadier damage.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/6/60/COE33_Pictos_Green_6.png" }
       ],
       "luminas": [
-        { "name": "Energising Turn", "cost": 20 },
-        { "name": "Painted Power", "cost": 5 },
-        { "name": "Teamwork", "cost": 5 },
-        { "name": "In Medias Res", "cost": 10 },
-        { "name": "Auto Death", "cost": 1 }
+        { "name": "Energising Turn", "cost": 20 }, { "name": "Painted Power", "cost": 5 },
+        { "name": "Teamwork", "cost": 5 }, { "name": "In Medias Res", "cost": 10 }, { "name": "Auto Death", "cost": 1 }
       ],
       "attributes": { "vitality": 10, "might": 30, "agility": 99, "defense": 90, "luck": 10 },
       "attrFocus": ["Agility", "Defense"],
@@ -140,28 +183,22 @@
       "pros": ["Best Break pressure", "Fuels party AP", "Incredible flexibility"],
       "cons": ["Lower personal damage", "Bestial Wheel takes investment", "Reward depends on knowing the fight"]
     },
-    {
-      "id": "verso",
+    "verso": {
       "name": "Verso",
-      "role": "Flex swap — counter DPS",
-      "core": false,
+      "role": "Counter DPS",
       "portrait": "https://static.wikia.nocookie.net/clair-obscur/images/2/25/Painted_Verso_Icon.png",
       "element": "Rank / Physical",
-      "teamRole": "Aggression swap. Drop in for Monoco or Sciel when a fight rewards pure damage over support — Verso climbs Ranks to S and counters for huge hits.",
       "summary": "Lives on the edge. Verso climbs combat Ranks (S being the peak) where his damage explodes, fuelled by parries and counters. Precise and devastating once he's at S-Rank.",
       "weapon": { "name": "Simoso", "scales": ["Agility", "Luck"], "element": "Physical" },
       "skills": ["Marking Shot", "From Fortissimo", "Sword Ballet", "Light Cascade", "In Medias Res", "Perfect Recovery"],
       "pictos": [
-        { "name": "Confident Fighter", "effect": "30% increased damage but can't be Healed — leans into the aggression.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/8/81/COE33_Pictos_Red_7.png" },
+        { "name": "Confident Fighter", "effect": "30% increased damage but can't be Healed — leans into aggression.", "img": "https://static.wikia.nocookie.net/clair-obscur/images/8/81/COE33_Pictos_Red_7.png" },
         { "name": "Augmented Counter", "effect": "Counter-attacks deal significantly more damage." },
         { "name": "Perilous Parry", "effect": "Tighter parry window for a much bigger reward — high risk, high payoff." }
       ],
       "luminas": [
-        { "name": "In Medias Res", "cost": 10 },
-        { "name": "Energising Turn", "cost": 20 },
-        { "name": "Cheater", "cost": 40 },
-        { "name": "Energy Master", "cost": 40 },
-        { "name": "Survivor", "cost": 20 }
+        { "name": "In Medias Res", "cost": 10 }, { "name": "Energising Turn", "cost": 20 },
+        { "name": "Cheater", "cost": 40 }, { "name": "Energy Master", "cost": 40 }, { "name": "Survivor", "cost": 20 }
       ],
       "attributes": { "vitality": 10, "might": 40, "agility": 99, "defense": 50, "luck": 80 },
       "attrFocus": ["Agility", "Luck"],
@@ -174,5 +211,5 @@
       "pros": ["Enormous damage at S-Rank", "Great counter/parry payoff", "Fast turns"],
       "cons": ["Rank resets if you slip", "Demands sharp parry timing", "No support utility"]
     }
-  ]
+  }
 }

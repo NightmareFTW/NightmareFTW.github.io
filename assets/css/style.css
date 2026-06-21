@@ -1587,6 +1587,33 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 [data-game="expedition-33"] .cb-attr.is-primary .cb-attr-fill { box-shadow: 0 0 10px -1px currentColor; }
 [data-game="expedition-33"] .cb-prim { color: #e6cf95; }
 
+/* team-build selector */
+.ex-builds { display: flex; gap: 10px; overflow-x: auto; padding: 4px 0 14px; margin: 6px 0 4px; scrollbar-width: thin; }
+.ex-bcard { flex: 0 0 auto; min-width: 170px; display: flex; flex-direction: column; gap: 5px; text-align: left;
+  background: var(--card); border: 1px solid var(--border); border-radius: 11px; padding: 11px 14px; cursor: pointer;
+  color: var(--text); transition: .15s; }
+.ex-bcard:hover { border-color: var(--accent-2); transform: translateY(-2px); }
+.ex-bcard.on { border-color: #c9a24b; background: rgba(201,162,75,.12); box-shadow: 0 0 0 1px rgba(201,162,75,.2); }
+.ex-bcard-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ex-bcard-name { font-weight: 800; font-size: 1rem; }
+.ex-bcard.on .ex-bcard-name { color: #e6cf95; }
+.ex-bcard-type { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.ex-tier { font-family: var(--mono); font-weight: 800; font-size: 0.62rem; border-radius: 5px; padding: 2px 6px; flex-shrink: 0; }
+.ex-tier-s { background: rgba(201,162,75,.22); color: #e6c878; }
+.ex-tier-a { background: rgba(106,168,255,.16); color: #9fc2f0; }
+
+/* team synergy banner */
+.ex-team-sum { margin: 6px 0 8px; font-size: 0.92rem; color: var(--text); line-height: 1.6; opacity: .95; }
+.ex-team-syn { margin: 0; font-size: 0.86rem; color: var(--muted); line-height: 1.55; }
+.ex-team-syn b, .ex-team-sum b { color: #e6cf95; }
+
+/* spacing fixes — keep sections from crowding each other */
+.ex-grid { margin-bottom: 8px; }
+.ex-sec { margin-top: 22px; }
+.ex-procon { margin-top: 22px; }
+#ex-screen { padding-bottom: 8px; }
+#ex-screen + .tool-note { margin-top: 26px; }
+
 @media (max-width: 560px) {
   .ex-grid { grid-template-columns: 1fr; }
 }
