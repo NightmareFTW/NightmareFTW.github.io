@@ -54,53 +54,28 @@ function parseHours(str) {
   }
   return ranges;
 }
-// Variants active at the local "now": one entry per active variant with its window end.
-function activeNow() {
+// Is this variant active right now, on the player's local clock?
+function isActiveNow(variant) {
   const now = new Date();
   const day = DAYS_FULL[now.getDay()];
   const hf = now.getHours() + now.getMinutes() / 60;
-  const out = [];
-  for (const sp of DATA.critters) {
-    for (const v of sp.variants || []) {
-      const s = (v.schedule || []).find((x) => x.day === day);
-      if (!s) continue;
-      const win = parseHours(s.hours).find(([a, b]) => hf >= a && hf < b);
-      if (win) out.push({ sp, v, end: win[1], allDay: /all\s*day/i.test(s.hours) });
-    }
-  }
-  out.sort((a, b) => (a.allDay - b.allDay) || (a.end - b.end)); // time-limited first
-  return out;
+  const s = (variant.schedule || []).find((x) => x.day === day);
+  return !!s && parseHours(s.hours).some(([a, b]) => hf >= a && hf < b);
 }
-function fmtEnd(end, allDay) {
-  if (allDay) return "all day";
-  if (end >= 24) return "until midnight";
-  const ap = end >= 12 ? "PM" : "AM", h12 = end % 12 === 0 ? 12 : end % 12;
-  return `until ${h12} ${ap}`;
-}
-function renderActive() {
-  const el = document.getElementById("an-active");
-  if (!el || !DATA) return;
-  const list = activeNow();
-  const now = new Date();
-  const hf = now.getHours() + now.getMinutes() / 60;
-  const timeStr = now.toLocaleString(undefined, { weekday: "long", hour: "numeric", minute: "2-digit" });
-  const cards = list.map(({ sp, v, end, allDay }) => {
-    const soon = !allDay && (end - hf) <= 2; // ending within 2 hours
-    return `
-    <div class="an-act-card ${isOwned(v.name) ? "is-owned" : ""}">
-      <span class="an-act-img">${(v.img || sp.img) ? `<img src="${esc(v.img || sp.img)}" alt="" loading="lazy">` : ""}</span>
-      <span class="an-act-text"><span class="an-act-name">${esc(nm(v))}</span><span class="an-act-sp">${esc(nm(sp))} · ${esc(sp.biome)}</span></span>
-      <span class="an-act-end ${soon ? "soon" : ""}">${fmtEnd(end, allDay)}</span>
-    </div>`;
-  }).join("");
-  el.innerHTML = `
-    <div class="an-act-head">
-      <h2 class="an-act-h">Active right now</h2>
-      <span class="an-act-time">${esc(timeStr)} · your local time</span>
-      <span class="an-act-count">${list.length} active</span>
-    </div>
-    <p class="an-act-note">Dreamlight Valley critters follow your device's local clock, so this matches your game. Time-limited windows are shown first.</p>
-    <div class="an-act-grid">${cards || `<p class="ac-muted">Nothing on a fixed schedule right now — check back later.</p>`}</div>`;
+// Update each variant row's active/inactive status in place (no full re-render).
+let VAR_BY_NAME = null;
+function refreshActiveStatus() {
+  if (!DATA) return;
+  if (!VAR_BY_NAME) { VAR_BY_NAME = {}; DATA.critters.forEach((c) => c.variants.forEach((v) => { VAR_BY_NAME[v.name] = v; })); }
+  document.querySelectorAll(".variant-row[data-vname]").forEach((row) => {
+    const v = VAR_BY_NAME[row.dataset.vname];
+    if (!v) return;
+    const active = isActiveNow(v);
+    row.classList.toggle("va-on", active);
+    row.classList.toggle("va-off", !active);
+    const st = row.querySelector(".var-status");
+    if (st) st.title = active ? "Active now" : "Not active right now";
+  });
 }
 
 const els = {
@@ -166,12 +141,13 @@ function critterCard(c) {
         <p class="ac-line">🤝 <b>How to approach:</b> ${esc(c.feeding)}</p>
         ${c.favReward ? `<p class="ac-line ac-muted">🎁 ${esc(tr(c, "favReward"))}</p>` : ""}
         <div class="variant-grid">
-          ${variants.map((v) => `
-            <label class="variant-row ${isOwned(v.name) ? "is-owned" : ""}">
+          ${variants.map((v) => { const active = isActiveNow(v); return `
+            <label class="variant-row ${isOwned(v.name) ? "is-owned" : ""} ${active ? "va-on" : "va-off"}" data-vname="${esc(v.name)}">
+              <span class="var-status" title="${active ? "Active now" : "Not active right now"}"></span>
               <input type="checkbox" class="var-check" data-name="${esc(v.name)}" ${isOwned(v.name) ? "checked" : ""}>
               <span class="var-img">${v.img ? `<img src="${esc(v.img)}" alt="" loading="lazy">` : ""}</span>
               <span class="var-text"><span class="var-name">${esc(nm(v))}</span><span class="var-sched">${esc(scheduleText(v.schedule))}</span></span>
-            </label>`).join("") || `<p class="ac-muted" style="grid-column:1/-1">No variants match.</p>`}
+            </label>`; }).join("") || `<p class="ac-muted" style="grid-column:1/-1">No variants match.</p>`}
         </div>
       </div>
     </div>`;
@@ -203,7 +179,8 @@ function render() {
     });
     const totalVars = DATA.critters.reduce((n, c) => n + c.variants.length, 0);
     const haveVars = DATA.critters.reduce((n, c) => n + c.variants.filter((v) => isOwned(v.name)).length, 0);
-    els.count.textContent = `${list.length} species · ${haveVars}/${totalVars} critters collected`;
+    els.count.innerHTML = `${list.length} species · ${haveVars}/${totalVars} critters collected` +
+      ` <span class="var-legend"><span class="leg"><i class="leg-bar on"></i>active now</span><span class="leg"><i class="leg-bar off"></i>inactive</span></span>`;
     els.list.className = "animal-grid";
     els.list.innerHTML = list.map(critterCard).join("") || `<p class="no-results">No critters match.</p>`;
   } else {
@@ -223,7 +200,6 @@ function render() {
     // refresh counts / progress without losing scroll
     if (tab === "critters") { const c = ch.closest(".animal-card"); if (c) { const sp = DATA.critters.find((s) => s.variants.some((v) => v.name === ch.dataset.name)); if (sp) c.querySelector(".ac-progress").textContent = `${sp.variants.filter((v) => isOwned(v.name)).length}/${sp.variants.length}`; } }
     updateCounts();
-    renderActive();
   }));
 }
 
@@ -245,8 +221,7 @@ els.tabs.querySelectorAll(".cat-tab").forEach((b) => b.addEventListener("click",
     updateCounts();
     buildControls();
     render();
-    renderActive();
-    setInterval(renderActive, 60000); // keep "active now" current
+    setInterval(refreshActiveStatus, 60000); // keep the active/inactive bars current
   } catch (e) {
     els.list.innerHTML = `<p class="tool-note">Couldn't load animal data.</p>`;
   }
