@@ -146,7 +146,7 @@
       "cyberware": [
         { "slot": "Hands", "item": "Smart Link", "why": "Mandatory — unlocks smart-weapon target tracking. This build is built around it." },
         { "slot": "Operating System", "item": "Militech Canto Mk.6 (Cyberdeck)", "why": "Slots utility quickhacks (Ping, Weapon Glitch, Reboot Optics) to mark and blind targets." },
-        { "slot": "Frontal Cortex", "item": "Kiroshi 'Cockatrice' Optics + Target Analysis", "why": "Improves smart-link lock speed and weak-spot detection." },
+        { "slot": "Face", "item": "Kiroshi 'Cockatrice' Optics + Target Analysis", "why": "Improves smart-link lock speed and weak-spot detection." },
         { "slot": "Integumentary System", "item": "Subdermal Armor", "why": "Stays alive at mid-range while the guns track." },
         { "slot": "Legs", "item": "Reinforced Tendons", "why": "Double jump for high firing angles over cover." }
       ],
@@ -187,7 +187,7 @@
       "cyberware": [
         { "slot": "Nervous System", "item": "Reflex Tuner + Kerenzikov", "why": "Slow-mo at low HP and on aim — buys the split-second you need to land headshots." },
         { "slot": "Operating System", "item": "Zetatech Sandevistan Mk.4", "why": "Optional slow-mo so you can place precision shots; swap to Berserk for recoil if you prefer raw stats." },
-        { "slot": "Frontal Cortex", "item": "Kiroshi Optics + Trajectory Generator", "why": "Predicts moving targets and boosts headshot reliability." },
+        { "slot": "Face", "item": "Kiroshi Optics + Trajectory Generator", "why": "Predicts moving targets and boosts headshot reliability." },
         { "slot": "Circulatory System", "item": "Second Heart + Biomonitor", "why": "Insurance for a glass-cannon that wants to stay mobile." },
         { "slot": "Skeleton", "item": "Bionic Joints", "why": "Mitigation so a stray hit doesn't end a run." }
       ],
@@ -229,7 +229,7 @@
         { "slot": "Operating System", "item": "Tetratronic Rippler Mk.4 (Cyberdeck)", "why": "Spread Reboot Optics / Cyberpsychosis to neutralise cameras and lone guards quietly." },
         { "slot": "Legs", "item": "Lynx Paws + Reinforced Tendons", "why": "Silent movement and a double jump for sniper perches." },
         { "slot": "Nervous System", "item": "Synaptic Accelerator", "why": "Slow-mo when you're detected — buys time to re-cloak or land the kill." },
-        { "slot": "Frontal Cortex", "item": "Kiroshi Optics + Threat Detector", "why": "See enemy cones and tag everyone through walls before you move." }
+        { "slot": "Face", "item": "Kiroshi Optics + Threat Detector", "why": "See enemy cones and tag everyone through walls before you move." }
       ],
       "weapons": [
         { "type": "sniper", "name": "Breakthrough (Iconic Tech Sniper)", "role": "Primary", "why": "Silenced charged shots punch through walls for one-tap stealth kills." },

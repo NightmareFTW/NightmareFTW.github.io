@@ -55,8 +55,6 @@
   <!-- wordmark -->
   <text x="400" y="250" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
         font-size="62" fill="#fcee0a" letter-spacing="2">CYBER<tspan fill="#00e5ff">PUNK</tspan></text>
-  <text x="400" y="292" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
-        font-size="30" fill="#0c0a02" stroke="#fcee0a" stroke-width="1.5" letter-spacing="14">2077</text>
-  <text x="400" y="330" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="600"
-        font-size="13" fill="#ff2e88" letter-spacing="6">// META BUILDS</text>
+  <text x="400" y="296" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
+        font-size="34" fill="#0c0a02" stroke="#fcee0a" stroke-width="1.5" letter-spacing="16">2077</text>
 </svg>
