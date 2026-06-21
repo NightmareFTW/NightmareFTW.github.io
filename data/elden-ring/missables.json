@@ -1,0 +1,58 @@
+{
+  "intro": {
+    "headline": "Unlike most games here, Elden Ring's NPC quests ARE permanently missable.",
+    "points": [
+      "Quests advance when you defeat bosses / change the world state — progress too far and an NPC vanishes or dies mid-quest, with no way back that run.",
+      "The big lock is defeating Maliketh (Crumbling Farum Azula), which turns Leyndell into the Ashen Capital and ends many quests. Finish what you can before it.",
+      "Most quests also need you to talk to the NPC again after each major step (often after resting or beating an area boss) — skip a step and the quest stalls.",
+      "Use this as a per-quest tracker. Tick a questline once you've finished it (or consciously skipped it)."
+    ]
+  },
+  "sections": [
+    {
+      "title": "World-state triggers that lock content (clear quests first)",
+      "kind": "awareness",
+      "note": "These advance the story and can end NPC quests. Mop up the relevant questlines before you cross them.",
+      "items": [
+        { "label": "Before defeating Maliketh — Leyndell becomes the Ashen Capital and many quests end here", "flag": "one-time" },
+        { "label": "Before burning the Erdtree / entering Crumbling Farum Azula", "flag": "one-time" },
+        { "label": "Choosing the Frenzied Flame is a near-point-of-no-return (only undone with Miquella's Needle)", "flag": "one-time" },
+        { "label": "Talk to each NPC again after every major boss / after resting — quests stall if you skip a step", "flag": "story" }
+      ]
+    },
+    {
+      "title": "Ending-path questlines (commit before the finale)",
+      "kind": "tracker",
+      "note": "Each unlocks a different ending or a key item. You generally can't complete more than one of the ending-altering ones per run.",
+      "items": [
+        { "label": "Ranni — Age of the Stars ending (Blaidd, Iji, Seluvis, Rennala, Renna's Rise)" },
+        { "label": "Fia — Age of the Duskborn (Deathbed Companion, the Mending Rune)" },
+        { "label": "Goldmask & Brother Corhyn — Age of Order ending" },
+        { "label": "Dung Eater — Blessing of Despair (Seethewater, Deathbed Smalls)" },
+        { "label": "Hyetta — Lord of the Frenzied Flame (Shabriri Grapes, the Three Fingers)" }
+      ]
+    },
+    {
+      "title": "NPC questlines (finish before progressing their region)",
+      "kind": "tracker",
+      "note": "None tied to endings, but all are permanently missable. Roughly in the order you meet them.",
+      "items": [
+        { "label": "Roderika — Stormhill → Roundtable Hold (Spirit Tuning)" },
+        { "label": "Nepheli Loux & Kenneth Haight — Stormveil, Fort Haight, Village of the Albinaurics" },
+        { "label": "Gostoc — Stormveil gate" },
+        { "label": "Iron Fist Alexander — the jar warrior, multiple regions (don't over-progress)" },
+        { "label": "Sorcerer Rogier — Stormveil → Roundtable (ties into Ranni & Fia)" },
+        { "label": "Yura, Bloody Finger Hunter — Nagakiba, Eleonora at Second Church of Marika" },
+        { "label": "Thops — Church of Irith → Raya Lucaria (give the Academy Glintstone Key)" },
+        { "label": "Gowry & Millicent — Sellia, Unalloyed Gold Needle, Haligtree (choose her or the sisters)" },
+        { "label": "Latenna — Slumbering Wolf's Shack, the Haligtree Secret Medallion (Right)" },
+        { "label": "Rya / Volcano Manor — Tanith's assassination requests (Rykard)" },
+        { "label": "Diallos — Volcano Manor → Jarburg, and Jar-Bairn" },
+        { "label": "Patches — Murkwater Cave (recurring, don't kill him)" },
+        { "label": "Boc the Seamster — Coastal Cave onward (give him the Larval Tear / Sewing Needle)" },
+        { "label": "Gurranq, Beast Clergyman — offer Deathroot at the Bestial Sanctum" },
+        { "label": "D, Hunter of the Dead & his brother — Roundtable (conflicts with Fia)" }
+      ]
+    }
+  ]
+}

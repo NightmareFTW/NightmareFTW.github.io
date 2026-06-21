@@ -1,0 +1,615 @@
+{
+  "version": "Base game · level ~150 meta",
+  "note": "Five proven base-game meta builds, each shown buildtierlist-style: equipment with item icons, the full attribute spread for ~level 150, the weapon's Ash of War, how to play it and where to get the key pieces. Swap armour to hit your equip-load breakpoint; the weapon, talismans and stats are what matter.",
+  "attrOrder": [
+    "vigor",
+    "mind",
+    "endurance",
+    "strength",
+    "dexterity",
+    "intelligence",
+    "faith",
+    "arcane"
+  ],
+  "attrLabels": {
+    "vigor": "Vigor",
+    "mind": "Mind",
+    "endurance": "Endurance",
+    "strength": "Strength",
+    "dexterity": "Dexterity",
+    "intelligence": "Intelligence",
+    "faith": "Faith",
+    "arcane": "Arcane"
+  },
+  "builds": [
+    {
+      "id": "moonveil",
+      "name": "Moonveil Spellblade",
+      "tier": "S",
+      "type": "Intelligence / Dexterity Hybrid",
+      "level": 150,
+      "summary": "The classic do-everything starter meta. Moonveil's Transient Moonlight fires a magic blade projectile on both light and heavy follow-ups — huge ranged poke that staggers, plus a strong melee katana when enemies close in. Forgiving, flexible, and strong in PvE and PvP.",
+      "stats": {
+        "vigor": 60,
+        "mind": 20,
+        "endurance": 25,
+        "strength": 12,
+        "dexterity": 50,
+        "intelligence": 60,
+        "faith": 7,
+        "arcane": 9
+      },
+      "statNote": "60 Vigor for survivability, 50 Dex / 60 Int to two-hand Moonveil and power its magic scaling. Mind/Endurance cover FP and a medium roll.",
+      "equipment": {
+        "weapons": [
+          {
+            "slot": "Right Hand",
+            "name": "Moonveil",
+            "type": "weapon",
+            "note": "Int/Dex katana — its Transient Moonlight skill is the whole build.",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f69a10accl0i1pfj7uwvc9kzei7d.png"
+          },
+          {
+            "slot": "Left Hand",
+            "name": "Carian Glintblade Staff",
+            "type": "weapon",
+            "note": "Optional staff for utility sorceries.",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f69bfdbcdl0i1ozxotkx767c6z5e.png"
+          }
+        ],
+        "armor": [
+          {
+            "slot": "Helm",
+            "name": "Spellblade's Pointed Hat",
+            "type": "armor",
+            "note": "+sorcery damage of a type",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69351e86l0i0pbni6j7eg9mlcea.png"
+          },
+          {
+            "slot": "Chest",
+            "name": "Raptor's Black Feathers",
+            "type": "armor",
+            "note": "+jump-attack damage",
+            "img": "https://eldenring.fanapis.com/images/armors/17f694e6f19l0i0o0r406cvwvhvfuvs.png"
+          },
+          {
+            "slot": "Gauntlets",
+            "name": "Sorcerer Manchettes",
+            "type": "armor",
+            "note": "light",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69b2e1f0l0i0oivw4at5v3v4x2z.png"
+          },
+          {
+            "slot": "Legs",
+            "name": "Sorcerer Leggings",
+            "type": "armor",
+            "note": "light",
+            "img": "https://eldenring.fanapis.com/images/armors/17f6937579el0i0pq4dn4l0mcnf8of.png"
+          }
+        ],
+        "talismans": [
+          {
+            "name": "Graven-Mass Talisman",
+            "type": "talisman",
+            "note": "+8% sorcery damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69ee87e3l0i2swe4iei5nanxbr.png"
+          },
+          {
+            "name": "Magic Scorpion Charm",
+            "type": "talisman",
+            "note": "+magic damage (more damage taken)",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69747fbcl0i2sxow29iyn6fm75v.png"
+          },
+          {
+            "name": "Radagon Icon",
+            "type": "talisman",
+            "note": "faster casting",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69db3ddfl0i2stxpa5we7cuil2.png"
+          },
+          {
+            "name": "Shard of Alexander",
+            "type": "talisman",
+            "note": "+skill (Ash of War) damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f698e1ea9l0i2sy8csbpc3y128lo.png"
+          }
+        ],
+        "spells": [
+          {
+            "name": "Glintstone Cometshard",
+            "type": "sorcery",
+            "note": "ranged burst when you want pure magic",
+            "img": "https://eldenring.fanapis.com/images/sorceries/17f6933356el0hykwkb5c4f5eue05g.png"
+          }
+        ]
+      },
+      "skill": "Transient Moonlight — sheathe-and-slash that fires a magic wave on light and heavy attacks.",
+      "howto": [
+        "Poke from range with Transient Moonlight (light tap), then heavy for the bigger wave.",
+        "When enemies close, mix normal katana combos and jump attacks (Raptor's).",
+        "Keep FP topped up — the build lives on the skill."
+      ],
+      "obtain": "Moonveil drops from the Magma Wyrm in the Gael Tunnel (Caelid).",
+      "pros": [
+        "Strong ranged + melee",
+        "Staggers and builds frost-like pressure",
+        "Beginner-friendly and PvP-viable"
+      ],
+      "cons": [
+        "FP-hungry",
+        "Needs two damage stats (Int + Dex)"
+      ]
+    },
+    {
+      "id": "rivers-of-blood",
+      "name": "Rivers of Blood Bleed",
+      "tier": "S",
+      "type": "Arcane / Dexterity Bleed",
+      "level": 150,
+      "summary": "Death by a thousand cuts. Corpse Piler unleashes a rapid flurry that stacks hemorrhage almost instantly, deleting most bosses and players. The benchmark bleed build — cheap, fast, and brutally effective.",
+      "stats": {
+        "vigor": 60,
+        "mind": 16,
+        "endurance": 25,
+        "strength": 12,
+        "dexterity": 45,
+        "intelligence": 7,
+        "faith": 12,
+        "arcane": 50
+      },
+      "statNote": "Arcane 50 drives bleed build-up and the weapon's scaling; 45 Dex meets the requirement and adds damage. 60 Vigor to trade safely.",
+      "equipment": {
+        "weapons": [
+          {
+            "slot": "Right Hand",
+            "name": "Rivers of Blood",
+            "type": "weapon",
+            "note": "Arc katana — Corpse Piler is the win button.",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f6946d08bl0i1pfb4sevs913hvu.png"
+          },
+          {
+            "slot": "Left Hand",
+            "name": "Uchigatana",
+            "type": "weapon",
+            "note": "Seppuku Ash of War for even faster bleed (optional).",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f69cd8a23l0i1peugvwepjdkaqh.png"
+          }
+        ],
+        "armor": [
+          {
+            "slot": "Helm",
+            "name": "White Mask",
+            "type": "armor",
+            "note": "+10% attack after nearby blood loss",
+            "img": "https://eldenring.fanapis.com/images/armors/17f695fbe3cl0i0pdeuqbgchkcazkl.png"
+          },
+          {
+            "slot": "Chest",
+            "name": "Raptor's Black Feathers",
+            "type": "armor",
+            "note": "+jump-attack damage",
+            "img": "https://eldenring.fanapis.com/images/armors/17f694e6f19l0i0o0r406cvwvhvfuvs.png"
+          },
+          {
+            "slot": "Gauntlets",
+            "name": "Bloodsoaked Manchettes",
+            "type": "armor",
+            "note": "light",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69b9eb6bl0i0o7tl4067pzud217.png"
+          },
+          {
+            "slot": "Legs",
+            "name": "Land of Reeds Greaves",
+            "type": "armor",
+            "note": "light",
+            "img": "https://eldenring.fanapis.com/images/armors/17f6956f3cfl0i0pl04d031fv2ld7.png"
+          }
+        ],
+        "talismans": [
+          {
+            "name": "Lord of Blood's Exultation",
+            "type": "talisman",
+            "note": "+attack when blood loss occurs nearby",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69c66a45l0i2sswom5whqqzshn.png"
+          },
+          {
+            "name": "Millicent's Prosthesis",
+            "type": "talisman",
+            "note": "+dexterity and rising attack on hits",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69afb835l0i2sykg6ynuw6wl9b.png"
+          },
+          {
+            "name": "Winged Sword Insignia",
+            "type": "talisman",
+            "note": "rising attack on successive hits",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69a2445bl0i2svl6l9dei5cxhbd.png"
+          },
+          {
+            "name": "Shard of Alexander",
+            "type": "talisman",
+            "note": "+skill (Corpse Piler) damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f698e1ea9l0i2sy8csbpc3y128lo.png"
+          }
+        ],
+        "spells": []
+      },
+      "skill": "Corpse Piler — a chained flurry of blood slashes that stacks hemorrhage fast.",
+      "howto": [
+        "Open with one Corpse Piler, then spam follow-ups to proc bleed for a huge chunk.",
+        "Stack the rising-attack talismans by keeping the hits flowing.",
+        "Pair with Seppuku on an off-hand katana for even faster procs."
+      ],
+      "obtain": "Rivers of Blood drops from the Bloody Finger Okina invader at the Church of Repose (Mountaintops).",
+      "pros": [
+        "Melts bosses with bleed",
+        "Cheap stat investment",
+        "Fast and aggressive"
+      ],
+      "cons": [
+        "Nerfed from launch but still strong",
+        "Bleed-immune enemies are a wall"
+      ]
+    },
+    {
+      "id": "blasphemous-blade",
+      "name": "Blasphemous Blade Faith",
+      "tier": "S",
+      "type": "Faith / Strength",
+      "level": 150,
+      "summary": "Heal as you kill. Taker's Flames throws a fire wave and refunds HP on every kill, so you sustain through fights while dealing huge fire damage. One of the safest, strongest PvE builds in the game.",
+      "stats": {
+        "vigor": 60,
+        "mind": 20,
+        "endurance": 30,
+        "strength": 22,
+        "dexterity": 15,
+        "intelligence": 7,
+        "faith": 55,
+        "arcane": 9
+      },
+      "statNote": "Faith 55 maxes the blade's scaling and incantations; 22 Str / 15 Dex meet the requirement. 60 Vigor + 30 Endurance for a heavy, tanky frontline.",
+      "equipment": {
+        "weapons": [
+          {
+            "slot": "Right Hand",
+            "name": "Blasphemous Blade",
+            "type": "weapon",
+            "note": "Faith greatsword — Taker's Flames heals on kill.",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f69a18c12l0i1p6irjv6m8ue2f5.png"
+          },
+          {
+            "slot": "Left Hand",
+            "name": "Finger Seal",
+            "type": "weapon",
+            "note": "Cast buffs and fire incantations.",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f699368ccl0i1ph45qf42ty540od.png"
+          }
+        ],
+        "armor": [
+          {
+            "slot": "Helm",
+            "name": "Lionel's Helm",
+            "type": "armor",
+            "note": "heavy poise",
+            "img": "https://eldenring.fanapis.com/images/armors/17f6950e137l0i0p2q9h6f0ocw3c77.png"
+          },
+          {
+            "slot": "Chest",
+            "name": "Lionel's Armor",
+            "type": "armor",
+            "note": "heavy poise",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69669128l0i0nuklvpxe21yb3kp.png"
+          },
+          {
+            "slot": "Gauntlets",
+            "name": "Lionel's Gauntlets",
+            "type": "armor",
+            "note": "heavy",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69654184l0i0odyh0dtdavp394v.png"
+          },
+          {
+            "slot": "Legs",
+            "name": "Lionel's Greaves",
+            "type": "armor",
+            "note": "heavy",
+            "img": "https://eldenring.fanapis.com/images/armors/17f6987f610l0i0pm1vzwigb76cu0m.png"
+          }
+        ],
+        "talismans": [
+          {
+            "name": "Fire Scorpion Charm",
+            "type": "talisman",
+            "note": "+fire damage (more damage taken)",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f697b6373l0i2srhja32ffmg9v7s.png"
+          },
+          {
+            "name": "Flock's Canvas Talisman",
+            "type": "talisman",
+            "note": "+incantation damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f6976f6b0l0i2szav175mw9xww9x.png"
+          },
+          {
+            "name": "Shard of Alexander",
+            "type": "talisman",
+            "note": "+skill (Taker's Flames) damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f698e1ea9l0i2sy8csbpc3y128lo.png"
+          },
+          {
+            "name": "Godfrey Icon",
+            "type": "talisman",
+            "note": "+charged skill/spell damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69c0c973l0i2sw8w6uvbwqiqfmy.png"
+          }
+        ],
+        "spells": [
+          {
+            "name": "Flame, Grant Me Strength",
+            "type": "incantation",
+            "note": "+fire and physical attack buff"
+          },
+          {
+            "name": "Golden Vow",
+            "type": "incantation",
+            "note": "+attack and defence buff",
+            "img": "https://eldenring.fanapis.com/images/incantations/17f69510ee3l0hyo0f0mccaj31dwhq.png"
+          }
+        ]
+      },
+      "skill": "Taker's Flames — a forward fire wave that restores HP for each enemy it kills.",
+      "howto": [
+        "Buff with Flame, Grant Me Strength + Golden Vow, then spam Taker's Flames.",
+        "The kill-heal keeps you topped up against groups — be aggressive.",
+        "Use the colossal-sword poise to trade through attacks."
+      ],
+      "obtain": "Blasphemous Blade is a Remembrance reward from Rykard, Lord of Blasphemy (Volcano Manor).",
+      "pros": [
+        "Self-healing on kills",
+        "Huge fire damage + range",
+        "Very tanky"
+      ],
+      "cons": [
+        "Slow heavy weapon",
+        "Weak vs. fire-resistant enemies"
+      ]
+    },
+    {
+      "id": "pure-mage",
+      "name": "Pure Intelligence Sorcerer",
+      "tier": "A",
+      "type": "Intelligence Caster",
+      "level": 150,
+      "summary": "Glass-cannon wizard. Snipe with Rock Sling and Night Comet, delete bosses with a charged Comet Azur inside Terra Magica. Pure ranged carry that keeps most fights at arm's length.",
+      "stats": {
+        "vigor": 55,
+        "mind": 40,
+        "endurance": 20,
+        "strength": 10,
+        "dexterity": 12,
+        "intelligence": 80,
+        "faith": 7,
+        "arcane": 9
+      },
+      "statNote": "Intelligence 80 hits the hard cap for max sorcery damage; 40 Mind for a big FP pool. Keep 55 Vigor — you're fragile, so don't skip health.",
+      "equipment": {
+        "weapons": [
+          {
+            "slot": "Right Hand",
+            "name": "Lusat's Glintstone Staff",
+            "type": "weapon",
+            "note": "highest sorcery damage (more FP cost).",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f695a0063l0i1p0qdogpnbjb7xnf.png"
+          },
+          {
+            "slot": "Left Hand",
+            "name": "Carian Regal Scepter",
+            "type": "weapon",
+            "note": "best all-round staff / full-moon scaling.",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f6953c900l0i1ozjupz92p99yzi.png"
+          }
+        ],
+        "armor": [
+          {
+            "slot": "Helm",
+            "name": "Azur's Glintstone Crown",
+            "type": "armor",
+            "note": "+sorcery (more FP cost)",
+            "img": "https://eldenring.fanapis.com/images/armors/17f695b9b2bl0i0on94j5g3fwtv4f.png"
+          },
+          {
+            "slot": "Chest",
+            "name": "Azur's Glintstone Robe",
+            "type": "armor",
+            "note": "light caster robe",
+            "img": "https://eldenring.fanapis.com/images/armors/17f694ffd2el0i0ndf0zrwzni9hv1.png"
+          },
+          {
+            "slot": "Gauntlets",
+            "name": "Sorcerer Manchettes",
+            "type": "armor",
+            "note": "light",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69b2e1f0l0i0oivw4at5v3v4x2z.png"
+          },
+          {
+            "slot": "Legs",
+            "name": "Sorcerer Leggings",
+            "type": "armor",
+            "note": "light",
+            "img": "https://eldenring.fanapis.com/images/armors/17f6937579el0i0pq4dn4l0mcnf8of.png"
+          }
+        ],
+        "talismans": [
+          {
+            "name": "Graven-Mass Talisman",
+            "type": "talisman",
+            "note": "+8% sorcery damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69ee87e3l0i2swe4iei5nanxbr.png"
+          },
+          {
+            "name": "Magic Scorpion Charm",
+            "type": "talisman",
+            "note": "+magic damage (more damage taken)",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69747fbcl0i2sxow29iyn6fm75v.png"
+          },
+          {
+            "name": "Radagon Icon",
+            "type": "talisman",
+            "note": "faster casting",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69db3ddfl0i2stxpa5we7cuil2.png"
+          },
+          {
+            "name": "Cerulean Amber Medallion",
+            "type": "talisman",
+            "note": "+max FP",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69ed62a2l0i2sq0x8kqy5oe9mwn.png"
+          }
+        ],
+        "spells": [
+          {
+            "name": "Rock Sling",
+            "type": "sorcery",
+            "note": "gravity stagger sniper — your bread and butter",
+            "img": "https://eldenring.fanapis.com/images/sorceries/17f697513fdl0hyl1yp7y0bcj3si6i.png"
+          },
+          {
+            "name": "Comet Azur",
+            "type": "sorcery",
+            "note": "boss-deleting beam",
+            "img": "https://eldenring.fanapis.com/images/sorceries/17f69383db4l0hykt8reipbquz8e6t.png"
+          },
+          {
+            "name": "Terra Magica",
+            "type": "sorcery",
+            "note": "magic-damage zone — cast before Comet Azur"
+          }
+        ]
+      },
+      "skill": "Spells over skills — Rock Sling to poke, Comet Azur inside Terra Magica to nuke.",
+      "howto": [
+        "Open at range with Rock Sling and Night Comet to stagger.",
+        "For big targets: drop Terra Magica, chug a Cerulean Physick, then channel Comet Azur.",
+        "Keep your distance — your defence is low."
+      ],
+      "obtain": "Lusat's Staff is in Sellia (Caelid); Comet Azur is taught by Master Azur in the Mountaintops.",
+      "pros": [
+        "Enormous ranged burst",
+        "Controls space and staggers",
+        "Trivialises stationary bosses"
+      ],
+      "cons": [
+        "Squishy",
+        "FP-reliant",
+        "Comet Azur is awkward vs. mobile enemies"
+      ]
+    },
+    {
+      "id": "strength-colossal",
+      "name": "Colossal Strength Bonk",
+      "tier": "A",
+      "type": "Pure Strength",
+      "level": 150,
+      "summary": "Hit it until it stops moving. Max poise, a colossal weapon and Lion's Claw stagger almost anything; one charged heavy can stun-lock and break a boss. The simplest, most satisfying powerhouse.",
+      "stats": {
+        "vigor": 60,
+        "mind": 12,
+        "endurance": 35,
+        "strength": 80,
+        "dexterity": 12,
+        "intelligence": 7,
+        "faith": 9,
+        "arcane": 9
+      },
+      "statNote": "Strength 80 (hard cap two-handed) for max damage; 35 Endurance to wear Bull-Goat and still medium-load. 60 Vigor to facetank.",
+      "equipment": {
+        "weapons": [
+          {
+            "slot": "Right Hand",
+            "name": "Giant-Crusher",
+            "type": "weapon",
+            "note": "highest-AR colossal — pure Strength scaling.",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f698d50ael0i1ooor7m3e3wm1ksn.png"
+          },
+          {
+            "slot": "Left Hand",
+            "name": "Bloodhound's Fang",
+            "type": "weapon",
+            "note": "mobile backup with a great skill (optional).",
+            "img": "https://eldenring.fanapis.com/images/weapons/17f697d9a68l0i1oqeay5e8bb4oc3g.png"
+          }
+        ],
+        "armor": [
+          {
+            "slot": "Helm",
+            "name": "Bull-Goat Helm",
+            "type": "armor",
+            "note": "max poise",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69654befl0i0oqpddt81oyl2ymq.png"
+          },
+          {
+            "slot": "Chest",
+            "name": "Bull-Goat Armor",
+            "type": "armor",
+            "note": "max poise",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69a8a3f0l0i0nhqn02vvk1xgq65q.png"
+          },
+          {
+            "slot": "Gauntlets",
+            "name": "Bull-Goat Gauntlets",
+            "type": "armor",
+            "note": "max poise",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69a9b4adl0i0o7ta34gq0aep43h.png"
+          },
+          {
+            "slot": "Legs",
+            "name": "Bull-Goat Greaves",
+            "type": "armor",
+            "note": "max poise",
+            "img": "https://eldenring.fanapis.com/images/armors/17f69387d24l0i0ph15szdiegzloyc.png"
+          }
+        ],
+        "talismans": [
+          {
+            "name": "Great-Jar's Arsenal",
+            "type": "talisman",
+            "note": "+equip load (run heavy armour + colossal)",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69882e78l0i2ss2r6zb3cbd6h3k.png"
+          },
+          {
+            "name": "Bull-Goat's Talisman",
+            "type": "talisman",
+            "note": "+poise",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69659808l0i2sphoobyfsfvku2i.png"
+          },
+          {
+            "name": "Claw Talisman",
+            "type": "talisman",
+            "note": "+jump-attack damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f69ba1d62l0i2sq92f4o8t2tlzp7.png"
+          },
+          {
+            "name": "Shard of Alexander",
+            "type": "talisman",
+            "note": "+skill (Lion's Claw) damage",
+            "img": "https://eldenring.fanapis.com/images/talismans/17f698e1ea9l0i2sy8csbpc3y128lo.png"
+          }
+        ],
+        "spells": []
+      },
+      "skill": "Lion's Claw (on the colossal) — a leaping overhead that staggers and breaks poise.",
+      "howto": [
+        "Trade with charged heavies — your poise eats their hits while yours land.",
+        "Lion's Claw and jump attacks shred boss stance for critical ripostes.",
+        "Stay medium-load with Great-Jar's Arsenal so you can still roll."
+      ],
+      "obtain": "Giant-Crusher sits on a corpse under a wagon in the Forbidden Lands (Mountaintops).",
+      "pros": [
+        "Massive stagger and damage",
+        "Tanky max-poise frontline",
+        "Dead simple to play"
+      ],
+      "cons": [
+        "Slow swings — punishable whiffs",
+        "Low range",
+        "Poor vs. very mobile bosses"
+      ]
+    }
+  ]
+}

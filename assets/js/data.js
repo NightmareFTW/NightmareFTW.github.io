@@ -343,4 +343,30 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "elden-ring",
+    name: "Elden Ring",
+    banner: "assets/img/games/elden-ring-header.jpg",
+    color: "#b8924a",
+    glow: "rgba(199, 160, 98, 0.24)",
+    blurb: "Open-world Soulslike, the Lands Between.",
+    tools: [
+      {
+        id: "builds",
+        name: "Meta Builds",
+        type: "guide",
+        desc: "Proven meta builds with item icons — full equipment, the level-150 attribute spread, the weapon's Ash of War, how to play it and where to get the pieces.",
+        href: "games/elden-ring/builds.html",
+        available: true,
+      },
+      {
+        id: "missables",
+        name: "Missables Checklist",
+        type: "checklist",
+        desc: "Track the famously missable NPC questlines (Ranni, Fia, Millicent…) and progression triggers so you don't break a quest by accident.",
+        href: "games/elden-ring/missables.html",
+        available: true,
+      },
+    ],
+  },
 ];
