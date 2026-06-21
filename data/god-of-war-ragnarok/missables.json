@@ -1,0 +1,150 @@
+{
+  "intro": {
+    "headline": "Good news — nothing required for 100% is permanently missable.",
+    "points": [
+      "You can finish every favor and collectible in free roam after the credits. Many collectibles don't even spawn until the story is done.",
+      "Story-only areas that lock behind you (like Asgard) contain nothing needed for 100% or trophies.",
+      "The game flags major points of no return before you cross them.",
+      "So play the story without fear and mop everything up at your own pace — this checklist is just so nothing slips your mind."
+    ]
+  },
+  "sections": [
+    {
+      "title": "Time-sensitive / one-time areas",
+      "kind": "awareness",
+      "note": "These lock behind story progress. Per the completion guides none hold anything needed for 100%, but explore them fully while you're there.",
+      "items": [
+        { "label": "Asgard — explore it fully during the story; it's permanently inaccessible after the final battle", "flag": "one-time" },
+        { "label": "Heed the game's point-of-no-return prompts before the final mission and before leaving certain story areas", "flag": "story" },
+        { "label": "Some favors and realm areas only unlock as the story progresses — revisit realms after big story beats", "flag": "post-game" }
+      ]
+    },
+    {
+      "title": "Favors — Svartalfheim",
+      "kind": "favors",
+      "items": [
+        { "label": "In Service of Asgard" },
+        { "label": "The Weight of Chains" },
+        { "label": "Spirit of Rebellion" },
+        { "label": "The Lost Treasure" },
+        { "label": "A Viking Funeral" }
+      ]
+    },
+    {
+      "title": "Favors — Vanaheim",
+      "kind": "favors",
+      "items": [
+        { "label": "Cure for the Dead" },
+        { "label": "Garden for the Dead" },
+        { "label": "Conscience for the Dead" },
+        { "label": "The Mysterious Orb" },
+        { "label": "Freya's Missing Peace" },
+        { "label": "Scent of Survival" }
+      ]
+    },
+    {
+      "title": "Favors — Vanaheim: The Jungle",
+      "kind": "favors",
+      "items": [
+        { "label": "Return of the River" },
+        { "label": "What Lies Below" },
+        { "label": "Trail of the Dead" },
+        { "label": "Path of Destruction" },
+        { "label": "Casualty of War: The Stein" },
+        { "label": "Casualty of War: The Toy" }
+      ]
+    },
+    {
+      "title": "Favors — Vanaheim: The Sinkholes",
+      "kind": "favors",
+      "items": [
+        { "label": "Quaking Hollow" },
+        { "label": "The Burning Skies" },
+        { "label": "Casualty of War: The Hourglass" }
+      ]
+    },
+    {
+      "title": "Favors — Vanaheim: The Plains",
+      "kind": "favors",
+      "items": [
+        { "label": "In the Dead of Night" },
+        { "label": "In Plain Sight" },
+        { "label": "For Vanaheim!" },
+        { "label": "Nocturnal Predator" },
+        { "label": "Casualty of War: The Brooch" },
+        { "label": "Casualty of War: The Scroll" }
+      ]
+    },
+    {
+      "title": "Favors — Alfheim",
+      "kind": "favors",
+      "items": [
+        { "label": "Secret of the Sands" },
+        { "label": "Song of the Sands" },
+        { "label": "The Elven Sanctum" },
+        { "label": "Freyr's Gift" },
+        { "label": "The Desert Door" }
+      ]
+    },
+    {
+      "title": "Favors — Niflheim",
+      "kind": "favors",
+      "items": [
+        { "label": "The Eyes of Odin" },
+        { "label": "The Broken Prison" }
+      ]
+    },
+    {
+      "title": "Favors — Muspelheim",
+      "kind": "favors",
+      "items": [
+        { "label": "The Crucible" },
+        { "label": "The Final Challenges" },
+        { "label": "Defend Your Valor" }
+      ]
+    },
+    {
+      "title": "Favors — Midgard",
+      "kind": "favors",
+      "items": [
+        { "label": "Animal Instincts" },
+        { "label": "Sigrun's Curse" },
+        { "label": "Guiding Light" },
+        { "label": "Across the Realms" }
+      ]
+    },
+    {
+      "title": "Favors — World (span multiple realms)",
+      "kind": "favors",
+      "note": "These open up as you progress and are completed across several realms.",
+      "items": [
+        { "label": "A Stag for All Seasons" },
+        { "label": "Born From Fire" },
+        { "label": "Fit for a King" },
+        { "label": "Hel to Pay" },
+        { "label": "Nine Realms in Bloom" },
+        { "label": "The Last Remnants" },
+        { "label": "The Lost Lindwyrms" }
+      ]
+    },
+    {
+      "title": "100% collectibles tracker (return-friendly)",
+      "kind": "tracker",
+      "note": "418 collectibles in total. Tick a category once you've cleared it — none of these are lost if you progress the story.",
+      "items": [
+        { "label": "Odin's Ravens — all 48 (rewards a relic)" },
+        { "label": "Nornir Chests — all 35 (Idunn Apple & Horn of Blood Mead upgrades)" },
+        { "label": "Artifacts — all 38" },
+        { "label": "Kvasir's Poems (Books) — all 14" },
+        { "label": "Flowers — one from each of the 9 realms (Nine Realms in Bloom)" },
+        { "label": "Legendary Chests — open every one (gear & runic attacks)" },
+        { "label": "Relics & Sword Hilts — collect all 14" },
+        { "label": "Shields — unlock all 5" },
+        { "label": "Berserker Gravestones — defeat every Berserker (Fit for a King)" },
+        { "label": "Draugr Holes & Hel Tears — clear them all" },
+        { "label": "Buried Treasure (treasure maps) — dig up each one" },
+        { "label": "Yggdrasil Rifts & Remnants of Asgard — clear them all" }
+      ]
+    }
+  ]
+}

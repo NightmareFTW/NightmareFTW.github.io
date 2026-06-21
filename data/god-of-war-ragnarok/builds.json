@@ -1,0 +1,182 @@
+{
+  "version": "Patch 6 · base game + Valhalla balance",
+  "note": "Stat values are rough fully-upgraded (Level 9) targets — armor stats shift slightly with your enchantments. The set perk is what defines each build; weapons, runic attacks, shield and relic are swappable to taste. All sets are craftable on a normal playthrough.",
+  "statMax": 150,
+  "builds": [
+    {
+      "id": "surtr",
+      "name": "Surtr's Scorched",
+      "archetype": "Balanced offense",
+      "difficulty": "Best all-round",
+      "tags": ["Strength", "Burn", "Stagger"],
+      "summary": "The default 'best' set for most players. Huge bonus damage when you strike an enemy mid-attack, strong defense and vitality, and a Burn that melts health bars. Aggressive but forgiving — great from your first Give Me No Mercy run to GMGOW.",
+      "stats": { "strength": 142, "runic": 88, "defense": 120, "vitality": 128, "cooldown": 70, "luck": 64 },
+      "statNote": "Leans Strength + Vitality + Defense. Pump Strength gems in the armor and you hit like a truck while staying tanky enough to trade.",
+      "armor": [
+        { "slot": "Chest", "piece": "Scorched Plackart", "perk": "Flame Whiplash — landing an attack on an enemy that's attacking deals big bonus damage and applies Burn." },
+        { "slot": "Wrist", "piece": "Scorched Bracers", "perk": "Reduces damage taken and raises Stagger resistance while you're attacking." },
+        { "slot": "Waist", "piece": "Scorched Girdle", "perk": "Builds toward a melee-damage burst as you keep landing hits." }
+      ],
+      "setPerk": "Reward aggression: attacking into the enemy's attack is when this set hits hardest, while the wrists/waist keep you from getting staggered out of it.",
+      "loadout": [
+        { "slot": "Weapon", "name": "Leviathan Axe + Blades of Chaos", "why": "Axe for control and ranged pokes, Blades for crowd damage and Burn synergy." },
+        { "slot": "Light Runic", "name": "Winter's Bite (Axe)", "why": "Fast, high-damage frost combo that builds Stun for free." },
+        { "slot": "Heavy Runic", "name": "Rampage of the Furies (Blades)", "why": "A flurry that shreds health and stunlocks — the best damage heavy in the game." },
+        { "slot": "Shield", "name": "Dauntless Shield", "why": "Perfect-parry into a heavy counter feeds the 'attack into their attack' perk perfectly." },
+        { "slot": "Relic", "name": "Talisman of Meign", "why": "Pop it for a burst of melee damage to delete elites and bosses." }
+      ],
+      "skills": [
+        { "tree": "Leviathan Axe", "picks": ["Frost Awaken — charge the axe with frost for bonus damage and faster Stun", "Permafrost — extend freezes for guaranteed follow-up hits"] },
+        { "tree": "Blades of Chaos", "picks": ["Immolation — release stored heat as an AoE blast", "Hyperion Slam — gap-closer that staggers groups"] }
+      ],
+      "playstyle": [
+        "Stay aggressive — the set rewards attacking into incoming attacks, so don't over-dodge.",
+        "Open with Winter's Bite to build Stun, then Rampage of the Furies when the bar is high.",
+        "Parry with Dauntless and immediately counter for the Flame Whiplash bonus."
+      ],
+      "obtain": "Crafted from Surtr's Hidden Trials in Muspelheim (post-game). Requires Glowing Embers and Crucible currency.",
+      "pros": ["Top-tier on every difficulty", "Aggressive yet tanky", "Burn adds free damage over time"],
+      "cons": ["Post-game grind to craft and upgrade", "Rewards aggression — punishes passive play"]
+    },
+    {
+      "id": "berserker",
+      "name": "Berserker Set",
+      "archetype": "Glass-cannon offense",
+      "difficulty": "High risk / high reward",
+      "tags": ["Strength", "Burst", "Realm Shift"],
+      "summary": "Maximum melee damage. Every hit can trigger a Soul Explosion and slow time (Realm Shift), letting you chunk bosses in seconds — but your defense is paper, so you live and die by your dodges and parries.",
+      "stats": { "strength": 150, "runic": 96, "defense": 86, "vitality": 92, "cooldown": 88, "luck": 78 },
+      "statNote": "All-in on Strength (and a healthy Cooldown/Luck for proc chance). Don't bother with Defense gems — you're not meant to get hit.",
+      "armor": [
+        { "slot": "Chest", "piece": "Berserker Cuirass", "perk": "Big Strength; melee hits have a chance to trigger a Soul Explosion AoE." },
+        { "slot": "Wrist", "piece": "Berserker Bracers", "perk": "Chance on hit to enter Realm Shift (slow time) for free burst windows." },
+        { "slot": "Waist", "piece": "Berserker Waist Guard", "perk": "Raises the proc chance and rewards sustained aggression." }
+      ],
+      "setPerk": "Snowballing offense: the more you hit, the more Soul Explosions and Realm Shifts you trigger, which let you hit even more.",
+      "loadout": [
+        { "slot": "Weapon", "name": "Blades of Chaos + Draupnir Spear", "why": "Fast multi-hits maximise proc chances; Spear adds ranged burst." },
+        { "slot": "Light Runic", "name": "Nemean Crush (Blades)", "why": "Quick stun opener to set up a safe burst window." },
+        { "slot": "Heavy Runic", "name": "Artillery of the Ancients (Spear)", "why": "Auto-aiming AoE that staggers and deletes single targets — ideal burst." },
+        { "slot": "Shield", "name": "Dauntless Shield", "why": "Parries are your defense; a perfect parry buys a free aggression window." },
+        { "slot": "Relic", "name": "Talisman of Meign", "why": "Stack its damage buff with a Realm Shift to one-shot elites." }
+      ],
+      "skills": [
+        { "tree": "Blades of Chaos", "picks": ["Immolation — convert heat stacks into a burst", "Hyperion Slam — close distance and stagger"] },
+        { "tree": "Draupnir Spear", "picks": ["Honour the Fallen — quick chargeable poke", "Gungnir's Onslaught — detonate planted spears for AoE"] }
+      ],
+      "playstyle": [
+        "Build Strength as high as possible and ignore Defense.",
+        "Use parries/perfect dodges as your survival tool, then unload during Realm Shift.",
+        "Keep attacking — every hit feeds the snowball of Soul Explosions."
+      ],
+      "obtain": "Defeat the 12 Berserker Gravestone bosses across the realms (and King Hrólf Kraki) for the pieces and materials.",
+      "pros": ["Highest melee damage ceiling", "Realm Shift slows time for free", "Trivialises bosses once mastered"],
+      "cons": ["Very low survivability", "Hard on GMGOW for newer players", "Requires beating tough optional bosses to assemble"]
+    },
+    {
+      "id": "steinbjorn",
+      "name": "Steinbjörn Set",
+      "archetype": "Tank / retaliation",
+      "difficulty": "Beginner-friendly",
+      "tags": ["Defense", "Lifesteal", "Stun"],
+      "summary": "Be an unkillable wall. The highest Defense in the game (more than the bar can even display), and taking big hits triggers lifesteal plus a stunning frost shockwave — so the harder you're hit, the more you heal and crowd-control.",
+      "stats": { "strength": 96, "runic": 80, "defense": 150, "vitality": 140, "cooldown": 64, "luck": 58 },
+      "statNote": "Stack Defense and Vitality. You want to face-tank hits to trigger Bloodthirsty Retaliation, so survivability is the whole point.",
+      "armor": [
+        { "slot": "Chest", "piece": "Steinbjörn Plackart", "perk": "Bloodthirsty Retaliation — after taking significant damage, your attacks heal you for a short time." },
+        { "slot": "Wrist", "piece": "Steinbjörn Gauntlets", "perk": "Massive Defense; builds a protective layer while you avoid damage." },
+        { "slot": "Waist", "piece": "Steinbjörn Girdle", "perk": "Releases a stunning frost shockwave when you take a heavy hit." }
+      ],
+      "setPerk": "Turn damage into healing and crowd control — perfect for new players or anyone learning a hard encounter.",
+      "loadout": [
+        { "slot": "Weapon", "name": "Leviathan Axe", "why": "Frost pairs with the set's shockwaves to keep everything frozen and stunned." },
+        { "slot": "Light Runic", "name": "Hel's Touch (Axe)", "why": "Low damage but huge Stun — locks down whatever the shockwave didn't." },
+        { "slot": "Heavy Runic", "name": "Ivaldi's Anvil (Axe)", "why": "Drops an AoE zone for sustained crowd damage while you tank." },
+        { "slot": "Shield", "name": "Stonewall Shield", "why": "Absorb hits to charge it, then slam for a big stagger — pure defense." },
+        { "slot": "Relic", "name": "Mardöll", "why": "Heals you and stuns the area — doubles down on the survive-and-control plan." }
+      ],
+      "skills": [
+        { "tree": "Leviathan Axe", "picks": ["Permafrost — longer freezes to combo with shockwave stuns", "Serpent's Snare — pull-in for crowd control"] },
+        { "tree": "Guardian Shield", "picks": ["Shield Strike skills — convert blocks into stagger", "Charged slam follow-ups"] }
+      ],
+      "playstyle": [
+        "Don't be afraid to take hits — that's how you trigger lifesteal and the shockwave.",
+        "Freeze and stun-lock with Hel's Touch while the set keeps you topped up.",
+        "Great training-wheels set to learn a fight before swapping to Surtr's/Berserker."
+      ],
+      "obtain": "Crafted from materials in Vanaheim (the Jungle and Crucible) plus mini-boss drops — available mid/late game without post-game grinding.",
+      "pros": ["Nearly unkillable", "Heals through damage", "Forgiving for newcomers and hard difficulties"],
+      "cons": ["Low Strength — fights take longer", "Encourages passive play", "Overkill on easier difficulties"]
+    },
+    {
+      "id": "dragon-scaled",
+      "name": "Dragon Scaled Set",
+      "archetype": "Survivability + offense",
+      "difficulty": "Medium",
+      "tags": ["Defense", "Fire", "Stagger immunity"],
+      "summary": "A defensive set that fights back. Perfect dodges and blocks unleash a fire burst, and you take less stagger — so you can stand your ground in the open and punish without getting knocked around.",
+      "stats": { "strength": 118, "runic": 100, "defense": 132, "vitality": 116, "cooldown": 72, "luck": 66 },
+      "statNote": "Balanced Strength/Defense with solid Runic — flexible enough to lean offensive or defensive with your gems.",
+      "armor": [
+        { "slot": "Chest", "piece": "Dragon Scaled Plackart", "perk": "Perfect evades/blocks release a fire burst that damages and ignites nearby enemies." },
+        { "slot": "Wrist", "piece": "Dragon Scaled Gauntlets", "perk": "Reduces stagger taken so you keep your footing in a brawl." },
+        { "slot": "Waist", "piece": "Dragon Scaled Girdle", "perk": "Adds fire damage and rewards tight defensive timing." }
+      ],
+      "setPerk": "Defense as offense — clean dodges and blocks become free fire AoE, so good timing is directly rewarded.",
+      "loadout": [
+        { "slot": "Weapon", "name": "Blades of Chaos + Leviathan Axe", "why": "Blades for fire synergy, Axe for ranged control." },
+        { "slot": "Light Runic", "name": "Winter's Bite (Axe)", "why": "Reliable damage + Stun for a balanced kit." },
+        { "slot": "Heavy Runic", "name": "Rampage of the Furies (Blades)", "why": "Top-tier flurry to cash in after a perfect-evade burst." },
+        { "slot": "Shield", "name": "Dauntless Shield", "why": "Perfect parries trigger the set's fire burst — aggressive defense." },
+        { "slot": "Relic", "name": "Mardöll", "why": "On-demand heal + stun for sticky moments." }
+      ],
+      "skills": [
+        { "tree": "Blades of Chaos", "picks": ["Immolation — burst stored heat", "Hyperion Slam — reposition and stagger"] },
+        { "tree": "Leviathan Axe", "picks": ["Frost Awaken — charged frost damage", "Permafrost — extend freezes"] }
+      ],
+      "playstyle": [
+        "Hold your ground and time perfect dodges/blocks to trigger the fire burst.",
+        "Use the stagger resistance to keep attacking through chip damage.",
+        "Punish the burst window with Rampage of the Furies."
+      ],
+      "obtain": "Crafted from the three optional Drake/Dragon fights in Vanaheim (Dragon Tears, Claws and Scales).",
+      "pros": ["Strong, balanced stats", "Rewards good defensive timing", "Stagger resistance keeps your combos going"],
+      "cons": ["Burst depends on precise timing", "No single standout stat", "Needs the Vanaheim dragon hunts"]
+    },
+    {
+      "id": "lundas",
+      "name": "Lunda's Lost Armor",
+      "archetype": "Parry / early meta",
+      "difficulty": "Medium",
+      "tags": ["Strength", "Parry", "Early game"],
+      "summary": "The best set you can build early and a parry-build staple all game. Successful blocks build a charge that supercharges your next attacks, so a shield-and-counter playstyle snowballs into big damage — strong even on the hardest difficulty.",
+      "stats": { "strength": 124, "runic": 92, "defense": 110, "vitality": 104, "cooldown": 74, "luck": 70 },
+      "statNote": "Strength-leaning with enough Defense to trade. Pairs best with a parry shield and aggressive blocking.",
+      "armor": [
+        { "slot": "Chest", "piece": "Lunda's Lost Plackart", "perk": "Blocking and parrying builds a charge that boosts your next melee attacks." },
+        { "slot": "Wrist", "piece": "Lunda's Lost Bracers", "perk": "Improves block/parry windows and feeds the charge faster." },
+        { "slot": "Waist", "piece": "Lunda's Lost Belt", "perk": "Converts the charge into extra damage on release." }
+      ],
+      "setPerk": "Block-to-burst loop — defend well and your counters hit for a lot, making it a forgiving but high-damage parry build.",
+      "loadout": [
+        { "slot": "Weapon", "name": "Leviathan Axe", "why": "Reliable frost damage and Stun to cash in your charged hits." },
+        { "slot": "Light Runic", "name": "Winter's Bite (Axe)", "why": "Best all-round light runic for damage and Stun." },
+        { "slot": "Heavy Runic", "name": "Ivaldi's Anvil (Axe)", "why": "AoE zone to control space while you bait parries." },
+        { "slot": "Shield", "name": "Dauntless Shield", "why": "The aggressive parry shield — perfect parries build your charge instantly." },
+        { "slot": "Relic", "name": "Talisman of Meign", "why": "Stack a damage burst with a full charge for huge counter hits." }
+      ],
+      "skills": [
+        { "tree": "Leviathan Axe", "picks": ["Frost Awaken — charged frost damage", "Permafrost — extend freezes for free hits"] },
+        { "tree": "Guardian Shield", "picks": ["Parry timing upgrades", "Counter-attack follow-ups"] }
+      ],
+      "playstyle": [
+        "Block and perfect-parry to build the set's charge, then unleash boosted attacks.",
+        "Use Dauntless for aggressive parries; punish openings with Winter's Bite.",
+        "Cheap to craft early — a great bridge until you unlock Surtr's or the Berserker set."
+      ],
+      "obtain": "Crafted at Lunda's shop (the Huldra Brothers) in Svartalfheim early in the story, with common materials.",
+      "pros": ["Available very early", "Rewards parrying with big damage", "Holds up even on GMGOW"],
+      "cons": ["Relies on good parry timing", "Outscaled late by Surtr's/Berserker raw stats"]
+    }
+  ]
+}

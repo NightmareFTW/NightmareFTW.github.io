@@ -291,4 +291,30 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "god-of-war-ragnarok",
+    name: "God of War Ragnarök",
+    banner: "assets/img/games/god-of-war-ragnarok-header.svg",
+    color: "#3b6fb5",
+    glow: "rgba(59, 111, 181, 0.24)",
+    blurb: "Norse action-adventure epic.",
+    tools: [
+      {
+        id: "builds",
+        name: "Meta Builds",
+        type: "guide",
+        desc: "Top armor sets and loadouts in detail — stat spread, set perks, weapons, runic attacks, shield & relic, shown on the in-game gear screen.",
+        href: "games/god-of-war-ragnarok/builds.html",
+        available: true,
+      },
+      {
+        id: "missables",
+        name: "Missables Checklist",
+        type: "checklist",
+        desc: "What you can and can't miss, the one time-sensitive area, and a full return-friendly 100% tracker (favors + collectibles) saved on your device.",
+        href: "games/god-of-war-ragnarok/missables.html",
+        available: true,
+      },
+    ],
+  },
 ];

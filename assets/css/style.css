@@ -1420,6 +1420,58 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
   .cb-name { font-size: 1.15rem; }
 }
 
+/* set-perk callout (GoW builds) */
+.cb-setperk { background: rgba(205,170,83,.08); border: 1px solid rgba(205,170,83,.3); border-radius: 10px;
+  padding: 12px 14px; font-size: 0.88rem; color: var(--text); line-height: 1.55; margin-bottom: 18px; }
+.cb-setperk-h { display: block; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: .1em;
+  color: #cdaa53; margin-bottom: 5px; }
+
+/* God of War Ragnarök — theme overrides for the shared build components */
+[data-game="god-of-war-ragnarok"] .cb-build.open { border-color: #3b6fb5;
+  box-shadow: 0 0 0 1px rgba(59,111,181,.14), 0 10px 40px -20px rgba(59,111,181,.5); }
+[data-game="god-of-war-ragnarok"] .cb-os { color: #cdaa53; }
+[data-game="god-of-war-ragnarok"] .cb-build.open .cb-caret { color: #3b6fb5; }
+[data-game="god-of-war-ragnarok"] .cb-fchip.on { background: rgba(59,111,181,.16); border-color: #3b6fb5; color: #9fc2f0; }
+[data-game="god-of-war-ragnarok"] .cb-attrnote { border-left-color: #cdaa53; }
+[data-game="god-of-war-ragnarok"] .cb-slot-label { color: #cdaa53; }
+[data-game="god-of-war-ragnarok"] .cb-side-left .cb-slotbox { border-left-color: rgba(205,170,83,.45); }
+[data-game="god-of-war-ragnarok"] .cb-side-right .cb-slotbox { border-right-color: rgba(59,111,181,.5); }
+[data-game="god-of-war-ragnarok"] .cb-side-right .cb-slot-label { color: #9fc2f0; }
+[data-game="god-of-war-ragnarok"] .cb-body-arm-l { color: #cdaa53; }
+[data-game="god-of-war-ragnarok"] .cb-body-arm-r { color: #9fc2f0; }
+
+/* God of War Ragnarök — Missables checklist */
+.ms-intro-card { background: rgba(59,111,181,.08); border: 1px solid rgba(59,111,181,.3); border-left: 3px solid #3b6fb5;
+  border-radius: 12px; padding: 16px 18px; margin-bottom: 18px; }
+.ms-intro-head { font-weight: 800; font-size: 1.02rem; color: #9fc2f0; margin: 0 0 8px; }
+.ms-intro-list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.ms-intro-list li { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+.ms-controls { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 4px 0 16px; }
+.ms-progress { font-size: 0.9rem; color: var(--muted); }
+.ms-progress b { color: var(--accent-2); font-family: var(--mono); }
+.ms-hidecomplete { display: flex; align-items: center; gap: 7px; font-size: 0.85rem; color: var(--muted); cursor: pointer; }
+.ms-hidecomplete input { width: 16px; height: 16px; accent-color: var(--accent-2); cursor: pointer; }
+.ms-controls .mini-btn { margin-left: auto; cursor: pointer; }
+.ms-section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+.ms-sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.ms-sec-head h3 { margin: 0; font-size: 1.02rem; }
+.ms-sec-count { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); flex-shrink: 0; }
+.ms-sec-note { font-size: 0.84rem; color: var(--muted); line-height: 1.5; margin: 6px 0 0; }
+.ms-items { display: flex; flex-direction: column; gap: 2px; margin-top: 10px; }
+.ms-item { display: flex; align-items: center; gap: 11px; padding: 8px 9px; border-radius: 8px; cursor: pointer; transition: background .12s; }
+.ms-item:hover { background: var(--bg-soft); }
+.ms-check { width: 18px; height: 18px; accent-color: var(--accent-2); cursor: pointer; flex-shrink: 0; }
+.ms-item-text { font-size: 0.9rem; line-height: 1.4; }
+.ms-item.done .ms-item-text { text-decoration: line-through; color: var(--muted); opacity: .7; }
+.ms-flag { margin-left: auto; flex-shrink: 0; font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase;
+  letter-spacing: .05em; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.ms-flag-onetime { background: rgba(255,36,53,.16); color: #ff8a82; }
+.ms-flag-postgame { background: rgba(59,111,181,.18); color: #9fc2f0; }
+.ms-flag-story { background: var(--bg-soft); color: var(--muted); }
+.ms-hide-done .ms-item.done { display: none; }
+.ms-kind-awareness { border-left: 3px solid #cdaa53; }
+.ms-kind-tracker { border-left: 3px solid var(--accent-2); }
+
 /* =========================================
    DDV Animal Guide - Styled for NightmareFTW
    ========================================= */
