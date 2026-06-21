@@ -1,0 +1,47 @@
+{
+  "intro": {
+    "headline": "Almost nothing is permanently missable — but the Prologue has a few one-shot moments.",
+    "points": [
+      "After the story you can free-roam and clean up the vast majority of side content, so don't stress about exploring later.",
+      "The real missables are concentrated in the Prologue in Lumière, before the Harbor point-of-no-return.",
+      "When you approach the Harbor as Sophie you get a selectable prompt — pick \"No\" if you still have things to grab.",
+      "This list focuses on the genuinely time-sensitive things so you can progress confidently."
+    ]
+  },
+  "sections": [
+    {
+      "title": "Prologue — do these before the Harbor (genuinely missable)",
+      "kind": "awareness",
+      "note": "Lumière during the festival is a one-time window. Approaching the Harbor ends it (it's a selectable action, so you can back out).",
+      "items": [
+        { "label": "Fight the Mime in Lumière before heading to the Harbor", "flag": "one-time" },
+        { "label": "Grab the Old Key during the festival scene to open the gate to the Journal", "flag": "one-time" },
+        { "label": "Fully explore festival-era Lumière before approaching the Harbor as Sophie", "flag": "one-time" }
+      ]
+    },
+    {
+      "title": "Time-sensitive actions (don't skip these)",
+      "kind": "awareness",
+      "note": "These are tied to specific story beats — easy to walk past if you're rushing.",
+      "items": [
+        { "label": "Don't kill Nevrons before completing their associated quests", "flag": "story" },
+        { "label": "Check up on the others at camp after the events at Visages", "flag": "story" },
+        { "label": "With Maelle, choose the \"Yes. (Truth)\" option to raise her relationship from 6 to 7", "flag": "story" },
+        { "label": "Heed the point-of-no-return prompt before the final act and finish outstanding side content first", "flag": "story" }
+      ]
+    },
+    {
+      "title": "Return-friendly content (clean up at your pace)",
+      "kind": "tracker",
+      "note": "None of this is lost by progressing — track it whenever you like.",
+      "items": [
+        { "label": "Gestral encounters & Gestral Village activities" },
+        { "label": "Music Records / Journals across the world map" },
+        { "label": "Optional boss fights and Chromatic / superbosses" },
+        { "label": "Pictos collected from exploration and enemies" },
+        { "label": "Esquie ability upgrades that open new areas to revisit" },
+        { "label": "Relationship / camp conversations with each Expeditioner" }
+      ]
+    }
+  ]
+}

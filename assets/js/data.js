@@ -317,4 +317,30 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "expedition-33",
+    name: "Clair Obscur: Expedition 33",
+    banner: "assets/img/games/expedition-33-header.jpg",
+    color: "#c9a24b",
+    glow: "rgba(201, 162, 75, 0.24)",
+    blurb: "Turn-based RPG, Belle Époque fantasy.",
+    tools: [
+      {
+        id: "builds",
+        name: "Meta Builds",
+        type: "guide",
+        desc: "Best end-game build per character — weapon, Pictos, Luminas, attributes and skills, shown on a recreation of the in-game build screen.",
+        href: "games/expedition-33/builds.html",
+        available: true,
+      },
+      {
+        id: "missables",
+        name: "Missables Checklist",
+        type: "checklist",
+        desc: "Point-of-no-return warnings plus a tracker for the genuinely missable content so you can progress the story without losing anything.",
+        href: "games/expedition-33/missables.html",
+        available: true,
+      },
+    ],
+  },
 ];

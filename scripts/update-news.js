@@ -25,6 +25,10 @@ const QUERIES = {
   nte: "Neverness to Everness game",
   warframe: "Warframe game",
   "dreamlight-valley": "Disney Dreamlight Valley",
+  "cyberpunk-2077": "Cyberpunk 2077 game",
+  "god-of-war-ragnarok": "God of War Ragnarok game",
+  "expedition-33": "Clair Obscur Expedition 33 game",
+  "elden-ring": "Elden Ring game",
 };
 
 // Steam appids for the games that publish dev news on Steam (Epic Seven is
@@ -36,6 +40,10 @@ const STEAM_APPIDS = {
   warframe: 230410,
   "dreamlight-valley": 1401590,
   nte: 4508340,
+  "cyberpunk-2077": 1091500,
+  "god-of-war-ragnarok": 2322010,
+  "expedition-33": 1903340,
+  "elden-ring": 1245620,
 };
 
 // ---- text helpers -----------------------------------------------------------

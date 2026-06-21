@@ -1,0 +1,192 @@
+{
+  "version": "Post-launch / patch 1.x",
+  "note": "Recommended end-game build per character — best-in-slot weapon, the three defining Pictos, the Luminas to run, where to put attribute points and how to play it. Attribute emphasis uses the in-game 0–99 scale; exact stat totals depend on your level and gear, so they're shown as priorities. Pictos and their mastered effects double as Luminas you can share across the party.",
+  "attrMax": 99,
+  "characters": [
+    {
+      "id": "maelle",
+      "name": "Maelle",
+      "role": "Parry burst DPS",
+      "element": "Stance / Physical",
+      "summary": "The party's damage engine. Stance-dance into Virtuose and unload near-100% crit hits without ever taking damage thanks to flawless parries. Glass Cannon + Immaculate turns her into a one-woman wipe button.",
+      "weapon": { "name": "Yeverum / Medalum", "scales": ["Agility", "Defense"], "element": "Physical" },
+      "skills": ["Fleuret Fury", "Stendhal", "Burning Canvas", "Phantom Strike", "Breaking Rules", "Swift Stride"],
+      "pictos": [
+        { "name": "Glass Cannon", "effect": "30%+ increased damage, but you can't be healed — pure offense." },
+        { "name": "Immaculate", "effect": "Big damage bonus while you've taken no damage this battle (rewards perfect parrying)." },
+        { "name": "Confident Fighter", "effect": "30% increased damage but can't be Healed — stacks the all-in gameplan." }
+      ],
+      "luminas": [
+        { "name": "Confident Fighter", "cost": 15 },
+        { "name": "Energising Turn", "cost": 20 },
+        { "name": "Cheater", "cost": 40 },
+        { "name": "Energy Master", "cost": 40 },
+        { "name": "Survivor", "cost": 20 }
+      ],
+      "attributes": { "vitality": 0, "might": 50, "agility": 99, "defense": 99, "luck": 5 },
+      "attrFocus": ["Agility", "Defense"],
+      "statsFocus": "Stack Critical Rate toward 100% and Speed for extra turns; Health/Defense come from the gear, not points.",
+      "playstyle": [
+        "Open in Offensive stance, build to Virtuose, then dump your biggest skills during an extra turn.",
+        "Parry everything — Immaculate keeps your damage maxed only while you stay untouched.",
+        "Never rely on heals (Glass Cannon blocks them); survive with parries and Survivor."
+      ],
+      "pros": ["Highest single-target burst in the game", "Near-100% crit", "Snowballs once stances are set up"],
+      "cons": ["Squishy — one missed parry hurts", "No self-healing", "Needs good parry timing"]
+    },
+    {
+      "id": "lune",
+      "name": "Lune",
+      "role": "Elemental controller",
+      "element": "Elemental / Burn",
+      "summary": "Stains and elements. Lune banks elemental Stains to power up spells and loops Burn for big damage-over-time while supporting the party. Fast, flexible, and safe.",
+      "weapon": { "name": "Choralim", "scales": ["Agility", "Defense"], "element": "Elemental (Fire/Ice/Lightning/Earth)" },
+      "skills": ["Immolation", "Thermal Transfer", "Wildfire", "Rebound", "Purity", "Healing Light"],
+      "pictos": [
+        { "name": "Empowering Parry", "effect": "A successful parry grants a damage buff — turns defense into offense." },
+        { "name": "Charging Critical", "effect": "Builds Critical Rate as you act, so your spells start landing crits." },
+        { "name": "Shortcut", "effect": "Reduces the AP cost of skills so you cast more per turn." }
+      ],
+      "luminas": [
+        { "name": "Energising Turn", "cost": 20 },
+        { "name": "Painted Power", "cost": 5 },
+        { "name": "Energy Master", "cost": 40 },
+        { "name": "Teamwork", "cost": 5 },
+        { "name": "In Medias Res", "cost": 10 }
+      ],
+      "attributes": { "vitality": 10, "might": 40, "agility": 99, "defense": 80, "luck": 5 },
+      "attrFocus": ["Agility", "Defense"],
+      "statsFocus": "Speed first (act often to keep Stains and Burn rolling), then Critical Rate.",
+      "playstyle": [
+        "Generate elemental Stains early, then spend them on empowered spells.",
+        "Keep Burn applied for free damage-over-time while you set up.",
+        "Use her heals/cleanse when the party needs it — she's a flexible backbone."
+      ],
+      "pros": ["Strong AoE + sustained damage", "Built-in healing/utility", "Safe and flexible"],
+      "cons": ["Stain management has a learning curve", "Lower raw burst than Maelle"]
+    },
+    {
+      "id": "verso",
+      "name": "Verso",
+      "role": "Counter duelist",
+      "element": "Rank / Physical",
+      "summary": "Lives on the edge. Verso climbs through combat Ranks (S being the peak) where his damage explodes, fuelled by parries and counters. Aggressive, precise, and devastating once he's at S-rank.",
+      "weapon": { "name": "Simoso / Chevalam", "scales": ["Agility", "Luck"], "element": "Physical" },
+      "skills": ["Marking Shot", "From Fortissimo", "Sword Ballet", "Light Cascade", "In Medias Res", "Perfect Recovery"],
+      "pictos": [
+        { "name": "Augmented Counter", "effect": "Counter-attacks deal significantly more damage." },
+        { "name": "Perilous Parry", "effect": "Tighter parry window for a much bigger reward — high risk, high payoff." },
+        { "name": "Confident Fighter", "effect": "30% increased damage but can't be Healed — leans into the aggression." }
+      ],
+      "luminas": [
+        { "name": "In Medias Res", "cost": 10 },
+        { "name": "Energising Turn", "cost": 20 },
+        { "name": "Cheater", "cost": 40 },
+        { "name": "Energy Master", "cost": 40 },
+        { "name": "Survivor", "cost": 20 }
+      ],
+      "attributes": { "vitality": 10, "might": 40, "agility": 99, "defense": 50, "luck": 80 },
+      "attrFocus": ["Agility", "Luck"],
+      "statsFocus": "Critical Rate (Luck) and Speed; he wants to act fast and crit to climb Ranks.",
+      "playstyle": [
+        "Start fights and immediately work up to S-Rank for the damage multiplier.",
+        "Parry and counter relentlessly — Augmented Counter is most of his damage.",
+        "Don't let your Rank drop; avoid taking hits that knock you down a tier."
+      ],
+      "pros": ["Enormous damage at S-Rank", "Great counter/parry payoff", "Fast turns"],
+      "cons": ["Rank resets if you slip", "Demands sharp parry timing", "No self-heal with Confident Fighter"]
+    },
+    {
+      "id": "sciel",
+      "name": "Sciel",
+      "role": "Foretell / Dark scaler",
+      "element": "Dark",
+      "summary": "A slow build to an enormous payoff. Sciel stacks Foretell (Sun/Moon charges) and Dark damage, then detonates for huge hits while scaling her own stats through criticals and survivability.",
+      "weapon": { "name": "Charnon", "scales": ["Luck", "Defense"], "element": "Dark" },
+      "skills": ["Twilight Slash", "Intervention", "Plentiful Harvest", "Fortune's Wheel", "Dark Wave", "Sealed Fate"],
+      "pictos": [
+        { "name": "Immaculate", "effect": "Big damage bonus while undamaged — pairs with her survivability." },
+        { "name": "Glass Cannon", "effect": "30%+ damage, no healing — cash in her detonations." },
+        { "name": "Inverted Affinity", "effect": "Turns a drawback into an advantage for her scaling — leans into the all-in." }
+      ],
+      "luminas": [
+        { "name": "Cheater", "cost": 40 },
+        { "name": "Energy Master", "cost": 40 },
+        { "name": "Survivor", "cost": 20 },
+        { "name": "Teamwork", "cost": 5 },
+        { "name": "Painted Power", "cost": 5 }
+      ],
+      "attributes": { "vitality": 10, "might": 40, "agility": 50, "defense": 80, "luck": 99 },
+      "attrFocus": ["Luck", "Defense"],
+      "statsFocus": "Luck for Critical Rate plus Defense to survive the build-up; she scales with crits.",
+      "playstyle": [
+        "Stack Foretell charges (Sun/Moon) over a few turns.",
+        "Apply Dark and weaken enemies, then unleash her detonation skills for a massive hit.",
+        "Use her survivability so the long set-up never gets interrupted."
+      ],
+      "pros": ["Massive delayed burst", "Strong vs. Dark-weak enemies", "Tanky for a DPS"],
+      "cons": ["Slow to come online", "Set-up punished by burst encounters", "Weaker single-turn damage"]
+    },
+    {
+      "id": "monoco",
+      "name": "Monoco",
+      "role": "Break / support flex",
+      "element": "Varies (Bestial)",
+      "summary": "The toolbox. Monoco copies enemy abilities through his Bestial Wheel, shreds Break gauges to stagger tough foes, and runs high-Speed parry support to keep the party's AP flowing.",
+      "weapon": { "name": "Joyaro", "scales": ["Agility", "Defense"], "element": "Bestial (varies)" },
+      "skills": ["Gestral Bash", "Volester Dive", "Lancelier Charge", "Rampart", "Bigger Impact", "Speedy"],
+      "pictos": [
+        { "name": "Immaculate", "effect": "Damage bonus while undamaged — supported by his parry uptime." },
+        { "name": "Energising Parry", "effect": "Parrying grants AP — fuels the whole party economy." },
+        { "name": "Empowering Parry", "effect": "Parrying grants a damage buff to convert defense into offense." }
+      ],
+      "luminas": [
+        { "name": "Energising Turn", "cost": 20 },
+        { "name": "Painted Power", "cost": 5 },
+        { "name": "Teamwork", "cost": 5 },
+        { "name": "In Medias Res", "cost": 10 },
+        { "name": "Auto Death", "cost": 1 }
+      ],
+      "attributes": { "vitality": 10, "might": 30, "agility": 99, "defense": 90, "luck": 10 },
+      "attrFocus": ["Agility", "Defense"],
+      "statsFocus": "Speed above all (act first to set up Break), with Defense to keep him on the field.",
+      "playstyle": [
+        "Pick Bestial skills from the Wheel that match the fight (Break, damage or utility).",
+        "Focus the enemy Break gauge to stagger them for the whole party.",
+        "Parry constantly — Energising Parry refunds AP so the team can spend freely."
+      ],
+      "pros": ["Incredible flexibility", "Best Break pressure", "Fuels party AP"],
+      "cons": ["Lower personal damage", "Bestial Wheel takes investment to unlock", "Reward depends on knowing the fight"]
+    },
+    {
+      "id": "gustave",
+      "name": "Gustave",
+      "role": "Overcharge tank-DPS (early game)",
+      "element": "Lightning / Physical",
+      "summary": "Your starting powerhouse. Gustave charges his arm to unleash Overcharge for big single hits while debuffing and tanking. A strong, beginner-friendly bruiser for the first stretch of the game.",
+      "weapon": { "name": "Abysseram", "scales": ["Vitality", "Agility"], "element": "Lightning" },
+      "skills": ["Marking Shot", "Strike", "Powerful", "Overcharge", "Sword Slash", "Recovery"],
+      "pictos": [
+        { "name": "Exposing Attack", "effect": "Attacks apply a vulnerability so the party hits harder." },
+        { "name": "SOS Shell", "effect": "Grants protection when low on health — keeps him standing." },
+        { "name": "Rewarding Mark", "effect": "Marking enemies returns resources/AP for more actions." }
+      ],
+      "luminas": [
+        { "name": "Energising Turn", "cost": 20 },
+        { "name": "Survivor", "cost": 20 },
+        { "name": "Painted Power", "cost": 5 },
+        { "name": "Teamwork", "cost": 5 }
+      ],
+      "attributes": { "vitality": 99, "might": 60, "agility": 80, "defense": 40, "luck": 5 },
+      "attrFocus": ["Vitality", "Agility"],
+      "statsFocus": "Vitality for survivability and Agility for turns; build Overcharge then spend it.",
+      "playstyle": [
+        "Charge your arm across turns, then release Overcharge for a huge single hit.",
+        "Apply Mark/vulnerability so the team piles on.",
+        "Tank for the squad early — he's your sturdy frontliner before the full roster arrives."
+      ],
+      "pros": ["Strong and simple early game", "Tanky bruiser", "Good single-target burst"],
+      "cons": ["Falls off vs. the late-game carries", "Charge-up can be interrupted", "Only available early"]
+    }
+  ]
+}

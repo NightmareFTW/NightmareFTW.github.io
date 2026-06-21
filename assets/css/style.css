@@ -1473,6 +1473,57 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .ms-kind-tracker { border-left: 3px solid var(--accent-2); }
 
 /* =========================================
+   Clair Obscur: Expedition 33 — Meta Builds (in-game build screen)
+   ========================================= */
+.ex-tabs { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 12px; margin-bottom: 6px;
+  border-bottom: 1px solid var(--border); scrollbar-width: thin; }
+.ex-tab { flex: 0 0 auto; display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
+  background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 9px 16px; cursor: pointer;
+  color: var(--muted); transition: .15s; min-width: 120px; }
+.ex-tab:hover { color: var(--text); border-color: var(--accent-2); }
+.ex-tab.on { background: rgba(201,162,75,.14); border-color: #c9a24b; color: #e6cf95; }
+.ex-tab-name { font-weight: 800; font-size: 1rem; }
+.ex-tab.on .ex-tab-name { color: #e6cf95; }
+.ex-tab-role { font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: .05em; }
+
+.ex-summary { margin: 14px 0 16px; }
+.ex-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); gap: 14px; align-items: start; }
+.ex-panel { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.ex-panel-h { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: .12em;
+  color: #c9a24b; margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); text-align: center; }
+.ex-skills-h, .ex-stats-h { margin-top: 18px; }
+
+.ex-weapon-name { display: block; font-size: 1.25rem; font-weight: 800; color: var(--text); text-align: center; margin-bottom: 12px; }
+.ex-weapon-meta { display: flex; flex-direction: column; gap: 8px; }
+.ex-wm { display: flex; flex-direction: column; gap: 4px; font-size: 0.86rem; color: var(--text); }
+.ex-wm b { font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; }
+.ex-chip { display: inline-block; font-size: 0.74rem; background: rgba(201,162,75,.12); border: 1px solid rgba(201,162,75,.3);
+  color: #e6cf95; border-radius: 999px; padding: 2px 9px; margin-right: 5px; }
+.ex-skills { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.ex-skills li { display: flex; align-items: center; gap: 9px; font-size: 0.88rem; }
+.ex-skill-dot { width: 7px; height: 7px; border-radius: 2px; background: #c9a24b; transform: rotate(45deg); flex-shrink: 0; }
+
+.ex-pictos { display: flex; flex-direction: column; gap: 10px; }
+.ex-picto { background: var(--bg-soft); border: 1px solid var(--border); border-left: 3px solid #c9a24b; border-radius: 8px; padding: 9px 11px; }
+.ex-picto-name { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 3px; }
+.ex-picto-effect { display: block; font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+
+.ex-luminas { display: flex; flex-direction: column; gap: 6px; }
+.ex-lumina { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 8px 11px; }
+.ex-lumina-name { font-size: 0.86rem; font-weight: 600; }
+.ex-lumina-cost { font-family: var(--mono); font-weight: 700; font-size: 0.82rem; color: #6aa8ff; flex-shrink: 0; }
+.ex-lumina-note { font-size: 0.74rem; color: var(--muted); margin: 10px 0 0; line-height: 1.45; }
+.ex-stats { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+[data-game="expedition-33"] .cb-attr.is-primary .cb-attr-fill { box-shadow: 0 0 10px -1px currentColor; }
+[data-game="expedition-33"] .cb-prim { color: #e6cf95; }
+
+@media (max-width: 560px) {
+  .ex-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
    DDV Animal Guide - Styled for NightmareFTW
    ========================================= */
 
