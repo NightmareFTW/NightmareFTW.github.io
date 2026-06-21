@@ -76,8 +76,8 @@
       "Luz Vermelha, Luz Verde: Para quando têm a cabeça levantada. Avança quando têm a cabeça baixa. Repete até se deitarem de barriga. Aproxima-te com cuidado para começar o jogo.",
     "Tag: When you have caught their attention, chase after them until they stop.":
       "Apanhada: Quando tiveres a atenção deles, persegue-os até pararem.",
-    "Red Light, Green Light: Watch their body language, and approach when they are relaxed. When they are alert, with their head up, remain still - otherwise they will run away.":
-      "Luz Vermelha, Luz Verde: Observa a linguagem corporal e aproxima-te quando estão relaxados. Quando estão alerta, com a cabeça levantada, fica imóvel — senão fogem.",
+    "Red Light, Green Light: Watch their body language, and approach when they are relaxed. When they are alert, with their head up, remain still - otherwise, the Critter will move to a new location.":
+      "Luz Vermelha, Luz Verde: Observa a linguagem corporal e aproxima-te quando estão relaxados. Quando estão alerta, com a cabeça levantada, fica imóvel — senão, o animal muda de sítio.",
     "Patience: Wait until they have finished circling your head.":
       "Paciência: Espera até acabarem de circular a tua cabeça.",
     "Patience: Wait until they are ready to come out of their shells. You can also drop food, like seaweed, in front of them and they will come out immediately.":

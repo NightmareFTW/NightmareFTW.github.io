@@ -10,6 +10,7 @@ let query = "", fBiome = "", fDlc = "", fApproach = "", fSource = "", fOwned = "
 const KEY = "nftw:ddv:animals";
 const PT = localStorage.getItem("nftw:lang") === "pt";
 const nm = (o) => (PT && o.name_pt) ? o.name_pt : o.name;
+const tr = (o, k) => (PT && o[k + "_pt"]) ? o[k + "_pt"] : o[k]; // food/reward in official PT when available
 const biomeLabel = (v) => v; // biome names already match the wild biomes; PT handled by i18n where mapped
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const DLC_CLASS = { "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" };
@@ -91,9 +92,9 @@ function critterCard(c) {
         <span class="ac-progress">${have}/${c.variants.length}</span>
       </div>
       <div class="ac-body">
-        <p class="ac-line">🍽 <b>Favourite:</b> ${esc(c.favoriteFood)}${c.likedFood ? ` · <span class="ac-muted">Liked: ${esc(c.likedFood)}</span>` : ""}</p>
+        <p class="ac-line">🍽 <b>Favourite:</b> ${esc(tr(c, "favoriteFood"))}${c.likedFood ? ` · <span class="ac-muted"><b class="ac-lbl">Liked:</b> ${esc(tr(c, "likedFood"))}</span>` : ""}</p>
         <p class="ac-line">🤝 <b>How to approach:</b> ${esc(c.feeding)}</p>
-        ${c.favReward ? `<p class="ac-line ac-muted">🎁 ${esc(c.favReward)}</p>` : ""}
+        ${c.favReward ? `<p class="ac-line ac-muted">🎁 ${esc(tr(c, "favReward"))}</p>` : ""}
         <div class="variant-grid">
           ${variants.map((v) => `
             <label class="variant-row ${isOwned(v.name) ? "is-owned" : ""}">
