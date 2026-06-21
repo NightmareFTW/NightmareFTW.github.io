@@ -33,6 +33,76 @@ function approachOf(feeding) {
 const DAY3 = { Sunday: "Sun", Monday: "Mon", Tuesday: "Tue", Wednesday: "Wed", Thursday: "Thu", Friday: "Fri", Saturday: "Sat" };
 const scheduleText = (sch) => sch.map((s) => `${DAY3[s.day]} ${s.hours}`).join(" · ") || "Always around";
 
+// ---- "Active now" — DDV critters spawn on the player's LOCAL device clock
+// (confirmed: gameplay schedules follow real local time + day, reset at local
+// midnight), so we read the browser's local time directly; no timezone offset. ----
+const DAYS_FULL = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+function to24(h, ap, isEnd) {
+  ap = (ap || "").toUpperCase();
+  if (ap === "PM") return h === 12 ? 12 : h + 12;
+  if (ap === "AM") return h === 12 ? (isEnd ? 24 : 0) : h;
+  return h;
+}
+// Parse a wiki hours string ("All day", "6 AM to 2 PM", "7-8 AM and 7-8 PM") into [start,end) ranges (24h).
+function parseHours(str) {
+  if (/all\s*day/i.test(str)) return [[0, 24]];
+  const ranges = [];
+  for (const part of String(str).split(/\s+and\s+/i)) {
+    let m;
+    if ((m = part.match(/(\d{1,2})\s*-\s*(\d{1,2})\s*(AM|PM)/i))) ranges.push([to24(+m[1], m[3]), to24(+m[2], m[3], true)]);
+    else if ((m = part.match(/(\d{1,2})\s*(AM|PM)?\s*to\s*(\d{1,2})\s*(AM|PM)?/i))) ranges.push([to24(+m[1], m[2] || m[4]), to24(+m[3], m[4] || m[2], true)]);
+  }
+  return ranges;
+}
+// Variants active at the local "now": one entry per active variant with its window end.
+function activeNow() {
+  const now = new Date();
+  const day = DAYS_FULL[now.getDay()];
+  const hf = now.getHours() + now.getMinutes() / 60;
+  const out = [];
+  for (const sp of DATA.critters) {
+    for (const v of sp.variants || []) {
+      const s = (v.schedule || []).find((x) => x.day === day);
+      if (!s) continue;
+      const win = parseHours(s.hours).find(([a, b]) => hf >= a && hf < b);
+      if (win) out.push({ sp, v, end: win[1], allDay: /all\s*day/i.test(s.hours) });
+    }
+  }
+  out.sort((a, b) => (a.allDay - b.allDay) || (a.end - b.end)); // time-limited first
+  return out;
+}
+function fmtEnd(end, allDay) {
+  if (allDay) return "all day";
+  if (end >= 24) return "until midnight";
+  const ap = end >= 12 ? "PM" : "AM", h12 = end % 12 === 0 ? 12 : end % 12;
+  return `until ${h12} ${ap}`;
+}
+function renderActive() {
+  const el = document.getElementById("an-active");
+  if (!el || !DATA) return;
+  const list = activeNow();
+  const now = new Date();
+  const hf = now.getHours() + now.getMinutes() / 60;
+  const timeStr = now.toLocaleString(undefined, { weekday: "long", hour: "numeric", minute: "2-digit" });
+  const cards = list.map(({ sp, v, end, allDay }) => {
+    const soon = !allDay && (end - hf) <= 2; // ending within 2 hours
+    return `
+    <div class="an-act-card ${isOwned(v.name) ? "is-owned" : ""}">
+      <span class="an-act-img">${(v.img || sp.img) ? `<img src="${esc(v.img || sp.img)}" alt="" loading="lazy">` : ""}</span>
+      <span class="an-act-text"><span class="an-act-name">${esc(nm(v))}</span><span class="an-act-sp">${esc(nm(sp))} · ${esc(sp.biome)}</span></span>
+      <span class="an-act-end ${soon ? "soon" : ""}">${fmtEnd(end, allDay)}</span>
+    </div>`;
+  }).join("");
+  el.innerHTML = `
+    <div class="an-act-head">
+      <h2 class="an-act-h">Active right now</h2>
+      <span class="an-act-time">${esc(timeStr)} · your local time</span>
+      <span class="an-act-count">${list.length} active</span>
+    </div>
+    <p class="an-act-note">Dreamlight Valley critters follow your device's local clock, so this matches your game. Time-limited windows are shown first.</p>
+    <div class="an-act-grid">${cards || `<p class="ac-muted">Nothing on a fixed schedule right now — check back later.</p>`}</div>`;
+}
+
 const els = {
   tabs: document.getElementById("an-tabs"),
   controls: document.getElementById("an-controls"),
@@ -153,6 +223,7 @@ function render() {
     // refresh counts / progress without losing scroll
     if (tab === "critters") { const c = ch.closest(".animal-card"); if (c) { const sp = DATA.critters.find((s) => s.variants.some((v) => v.name === ch.dataset.name)); if (sp) c.querySelector(".ac-progress").textContent = `${sp.variants.filter((v) => isOwned(v.name)).length}/${sp.variants.length}`; } }
     updateCounts();
+    renderActive();
   }));
 }
 
@@ -174,6 +245,8 @@ els.tabs.querySelectorAll(".cat-tab").forEach((b) => b.addEventListener("click",
     updateCounts();
     buildControls();
     render();
+    renderActive();
+    setInterval(renderActive, 60000); // keep "active now" current
   } catch (e) {
     els.list.innerHTML = `<p class="tool-note">Couldn't load animal data.</p>`;
   }
