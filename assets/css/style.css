@@ -1475,6 +1475,9 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 [data-game="god-of-war-ragnarok"] .cb-side-right .cb-slot-label { color: #9fc2f0; }
 [data-game="god-of-war-ragnarok"] .cb-body-arm-l { color: #cdaa53; }
 [data-game="god-of-war-ragnarok"] .cb-body-arm-r { color: #9fc2f0; }
+[data-game="god-of-war-ragnarok"] .cb-body-fig { min-height: 360px; }
+.gw-kratos { width: 100%; max-width: 168px; height: auto; max-height: 380px; object-fit: contain; display: block;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.55)); }
 
 /* God of War Ragnarök — Missables checklist */
 .ms-intro-card { background: rgba(59,111,181,.08); border: 1px solid rgba(59,111,181,.3); border-left: 3px solid #3b6fb5;

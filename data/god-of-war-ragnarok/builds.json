@@ -5,6 +5,7 @@
   "builds": [
     {
       "id": "surtr",
+      "armorImg": "https://static.wikia.nocookie.net/godofwar/images/7/7f/Ragnarok_Armor-Surtr%27sScorched.png",
       "name": "Surtr's Scorched",
       "archetype": "Balanced offense",
       "difficulty": "Best all-round",
@@ -40,6 +41,7 @@
     },
     {
       "id": "berserker",
+      "armorImg": "https://static.wikia.nocookie.net/godofwar/images/a/ad/Ragnarok_Armor-Berserker.png",
       "name": "Berserker Set",
       "archetype": "Glass-cannon offense",
       "difficulty": "High risk / high reward",
@@ -75,6 +77,7 @@
     },
     {
       "id": "steinbjorn",
+      "armorImg": "https://static.wikia.nocookie.net/godofwar/images/8/84/Ragnarok_Armor-Steinbjorn.png",
       "name": "Steinbjörn Set",
       "archetype": "Tank / retaliation",
       "difficulty": "Beginner-friendly",
@@ -110,6 +113,7 @@
     },
     {
       "id": "dragon-scaled",
+      "armorImg": "https://static.wikia.nocookie.net/godofwar/images/6/6d/Ragnarok_Armor-DragonScaled.png",
       "name": "Dragon Scaled Set",
       "archetype": "Survivability + offense",
       "difficulty": "Medium",
@@ -145,6 +149,7 @@
     },
     {
       "id": "lundas",
+      "armorImg": "https://static.wikia.nocookie.net/godofwar/images/2/26/Ragnarok_Armor-Lunda%27sLost1.png",
       "name": "Lunda's Lost Armor",
       "archetype": "Parry / early meta",
       "difficulty": "Medium",

@@ -84,9 +84,12 @@ function slotBox(label, item, why) {
 function gearDiagram(b) {
   const left = (b.armor || []).map((a) => slotBox(a.slot, a.piece, a.perk)).join("");
   const right = (b.loadout || []).map((l) => slotBox(l.slot, l.name, l.why)).join("");
+  const fig = b.armorImg
+    ? `<img class="gw-kratos" src="${esc(b.armorImg)}" alt="Kratos wearing ${esc(b.name)}" loading="lazy" onerror="this.style.display='none'">`
+    : BODY_SVG;
   return `<div class="cb-body-map">
     <div class="cb-body-col cb-side-left">${left}</div>
-    <div class="cb-body-fig"><span class="cb-body-arm-l">ARMOR</span>${BODY_SVG}<span class="cb-body-arm-r">LOADOUT</span></div>
+    <div class="cb-body-fig"><span class="cb-body-arm-l">ARMOR</span>${fig}<span class="cb-body-arm-r">LOADOUT</span></div>
     <div class="cb-body-col cb-side-right">${right}</div>
   </div>`;
 }
