@@ -36,13 +36,23 @@ function buildScreen(c) {
   const skills = (c.skills || []).map((s) => `<li><span class="ex-skill-dot"></span>${esc(s)}</li>`).join("");
   const pictos = (c.pictos || []).map((p) => `
     <div class="ex-picto">
-      <span class="ex-picto-name">${esc(p.name)}</span>
-      <span class="ex-picto-effect">${esc(p.effect)}</span>
+      <span class="ex-picto-ico ${p.img ? "" : "none"}">${p.img ? `<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.closest('.ex-picto-ico').classList.add('none');this.remove()">` : ""}</span>
+      <span class="ex-picto-body">
+        <span class="ex-picto-name">${esc(p.name)}</span>
+        <span class="ex-picto-effect">${esc(p.effect)}</span>
+      </span>
     </div>`).join("");
   const luminas = (c.luminas || []).map((l) => `
     <div class="ex-lumina"><span class="ex-lumina-name">${esc(l.name)}</span><span class="ex-lumina-cost">${esc(l.cost)}</span></div>`).join("");
 
   return `
+    <div class="ex-hero">
+      <span class="ex-hero-portrait">${c.portrait ? `<img src="${esc(c.portrait)}" alt="${esc(c.name)}" loading="lazy" onerror="this.remove()">` : ""}</span>
+      <div class="ex-hero-text">
+        <span class="ex-hero-name">${esc(c.name)}<span class="ex-hero-role">${esc(c.role)}</span></span>
+        ${c.teamRole ? `<span class="ex-hero-team"><b>Team role —</b> ${esc(c.teamRole)}</span>` : ""}
+      </div>
+    </div>
     <p class="cb-summary ex-summary">${esc(c.summary)}</p>
     <div class="ex-grid">
       <section class="ex-panel ex-weapon-panel">
@@ -88,9 +98,12 @@ function buildScreen(c) {
 function renderTabs() {
   const el = document.getElementById("ex-tabs");
   el.innerHTML = DATA.characters.map((c, i) =>
-    `<button class="ex-tab ${i === active ? "on" : ""}" data-i="${i}">
-      <span class="ex-tab-name">${esc(c.name)}</span>
-      <span class="ex-tab-role">${esc(c.role)}</span>
+    `<button class="ex-tab ${i === active ? "on" : ""} ${c.core ? "" : "is-flex"}" data-i="${i}">
+      <span class="ex-tab-portrait">${c.portrait ? `<img src="${esc(c.portrait)}" alt="" loading="lazy" onerror="this.closest('.ex-tab-portrait').classList.add('none');this.remove()">` : ""}</span>
+      <span class="ex-tab-info">
+        <span class="ex-tab-name">${esc(c.name)}${c.core ? "" : ' <span class="ex-flex-tag">flex</span>'}</span>
+        <span class="ex-tab-role">${esc(c.role)}</span>
+      </span>
     </button>`).join("");
   el.querySelectorAll(".ex-tab").forEach((b) => b.addEventListener("click", () => {
     active = +b.dataset.i;
@@ -106,7 +119,10 @@ function render() {
 (async function init() {
   try {
     DATA = await (await fetch(`../../data/expedition-33/builds.json?cb=${Date.now()}`)).json();
-    document.getElementById("ex-version").textContent = `${DATA.characters.length} character builds · ${DATA.version}`;
+    const core = DATA.characters.filter((c) => c.core).length;
+    document.getElementById("ex-version").textContent = `Meta team · ${core} core + ${DATA.characters.length - core} flex · ${DATA.version}`;
+    const team = document.getElementById("ex-team");
+    if (team && DATA.teamNote) team.innerHTML = `<span class="ex-team-h">Team synergy</span>${esc(DATA.teamNote)}`;
     document.getElementById("ex-note").textContent = DATA.note || "";
     renderTabs();
     render();
