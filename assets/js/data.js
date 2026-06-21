@@ -116,7 +116,7 @@ const GAMES = [
   {
     id: "epic7",
     name: "Epic Seven",
-    banner: "assets/img/games/epic7-promo.jpg",
+    banner: "assets/img/games/epic7-header.svg",
     color: "#c2497d",
     glow: "rgba(194, 73, 125, 0.22)",
     blurb: "Turn-based gacha RPG.",

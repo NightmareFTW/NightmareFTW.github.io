@@ -1,60 +1,63 @@
 <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cyberpunk 2077">
   <defs>
     <linearGradient id="cpSky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1a1305"/>
-      <stop offset="0.55" stop-color="#0c0a02"/>
-      <stop offset="1" stop-color="#050400"/>
+      <stop offset="0" stop-color="#2a0d3a"/>
+      <stop offset="0.42" stop-color="#7a1f5a"/>
+      <stop offset="0.72" stop-color="#e05a2a"/>
+      <stop offset="0.9" stop-color="#fcb415"/>
+      <stop offset="1" stop-color="#fcee0a"/>
     </linearGradient>
-    <linearGradient id="cpGlow" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#fcee0a" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#fcee0a" stop-opacity="0"/>
+    <linearGradient id="cpFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#08060c" stop-opacity="0"/>
+      <stop offset="1" stop-color="#08060c"/>
     </linearGradient>
-    <filter id="cpBlur"><feGaussianBlur stdDeviation="6"/></filter>
+    <linearGradient id="cpName" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fcee0a"/><stop offset="1" stop-color="#f5b400"/>
+    </linearGradient>
+    <filter id="cpG"><feGaussianBlur stdDeviation="2.2"/></filter>
   </defs>
 
   <rect width="800" height="450" fill="url(#cpSky)"/>
-  <!-- horizon glow -->
-  <rect x="0" y="250" width="800" height="200" fill="url(#cpGlow)"/>
+  <!-- sun -->
+  <circle cx="400" cy="300" r="120" fill="#fff3b0" opacity="0.55" filter="url(#cpG)"/>
+  <circle cx="400" cy="300" r="78" fill="#fff7c8" opacity="0.85"/>
 
-  <!-- skyline silhouette -->
-  <g fill="#000" opacity="0.85">
-    <rect x="40" y="180" width="55" height="180"/>
-    <rect x="110" y="230" width="40" height="130"/>
-    <rect x="160" y="120" width="70" height="240"/>
-    <rect x="245" y="200" width="45" height="160"/>
-    <rect x="300" y="150" width="60" height="210"/>
-    <rect x="500" y="160" width="58" height="200"/>
-    <rect x="565" y="210" width="42" height="150"/>
-    <rect x="615" y="110" width="75" height="250"/>
-    <rect x="705" y="190" width="50" height="170"/>
+  <!-- far skyline -->
+  <g fill="#3a1840" opacity="0.85">
+    <rect x="20" y="210" width="48" height="160"/><rect x="80" y="250" width="34" height="120"/>
+    <rect x="700" y="225" width="46" height="145"/><rect x="650" y="255" width="34" height="115"/>
+    <rect x="120" y="270" width="28" height="100"/><rect x="620" y="270" width="24" height="100"/>
   </g>
-  <!-- neon window strips -->
-  <g fill="#00e5ff" opacity="0.8">
-    <rect x="178" y="150" width="6" height="40"/><rect x="198" y="200" width="6" height="60"/>
-    <rect x="320" y="180" width="6" height="50"/><rect x="636" y="140" width="6" height="70"/>
-    <rect x="660" y="190" width="6" height="40"/>
+  <!-- mid skyline -->
+  <g fill="#190a22">
+    <rect x="40" y="250" width="60" height="150"/><rect x="105" y="290" width="44" height="110"/>
+    <rect x="150" y="225" width="70" height="175"/><polygon points="150,225 185,200 220,225"/>
+    <rect x="560" y="240" width="58" height="160"/><rect x="624" y="280" width="44" height="120"/>
+    <rect x="672" y="215" width="74" height="185"/><polygon points="672,215 709,188 746,215"/>
+    <rect x="700" y="150" width="8" height="65"/><rect x="185" y="170" width="6" height="55"/>
   </g>
-  <g fill="#ff2e88" opacity="0.85">
-    <rect x="58" y="210" width="6" height="50"/><rect x="262" y="230" width="6" height="40"/>
-    <rect x="520" y="190" width="6" height="60"/><rect x="722" y="220" width="6" height="50"/>
+  <!-- neon strips -->
+  <g opacity="0.9">
+    <rect x="60" y="270" width="5" height="70" fill="#19e3ff"/><rect x="170" y="245" width="5" height="80" fill="#ff2e88"/>
+    <rect x="585" y="260" width="5" height="80" fill="#19e3ff"/><rect x="690" y="240" width="5" height="95" fill="#ff2e88"/>
+    <rect x="120" y="300" width="4" height="50" fill="#ff2e88"/><rect x="640" y="300" width="4" height="55" fill="#19e3ff"/>
   </g>
 
-  <!-- glitch bars -->
-  <rect x="0" y="96" width="800" height="10" fill="#fcee0a" opacity="0.9"/>
-  <rect x="0" y="112" width="520" height="4" fill="#00e5ff" opacity="0.7"/>
-  <rect x="280" y="86" width="240" height="4" fill="#ff2e88" opacity="0.7"/>
-
-  <!-- circuit motif -->
-  <g stroke="#fcee0a" stroke-width="2.5" fill="none" opacity="0.55">
-    <path d="M30 400 H180 V360 H260"/>
-    <path d="M770 410 H600 V370 H520"/>
-    <circle cx="260" cy="360" r="5" fill="#fcee0a" stroke="none"/>
-    <circle cx="520" cy="370" r="5" fill="#fcee0a" stroke="none"/>
+  <!-- foreground street + figure (V) -->
+  <rect x="0" y="368" width="800" height="82" fill="url(#cpFade)"/>
+  <g fill="#050308">
+    <path d="M392 250c10-3 19 2 21 12l3 16 10 6-6 10 4 64 6 86h-16l-7-70-4 70h-18l5-92-5-58-7-7 6-9 3-15c1-8 4-12 5-13z"/>
+    <path d="M407 268l22 12-3 8-20-9z"/>
+    <rect x="386" y="300" width="9" height="70"/>
   </g>
+
+  <!-- glitch -->
+  <rect x="0" y="86" width="800" height="7" fill="#19e3ff" opacity="0.55"/>
+  <rect x="250" y="78" width="300" height="3" fill="#ff2e88" opacity="0.7"/>
 
   <!-- wordmark -->
-  <text x="400" y="250" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
-        font-size="62" fill="#fcee0a" letter-spacing="2">CYBER<tspan fill="#00e5ff">PUNK</tspan></text>
-  <text x="400" y="296" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
-        font-size="34" fill="#0c0a02" stroke="#fcee0a" stroke-width="1.5" letter-spacing="16">2077</text>
+  <text x="400" y="120" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
+        font-size="58" fill="url(#cpName)" letter-spacing="1" stroke="#1a0a0a" stroke-width="1">CYBERPUNK</text>
+  <text x="400" y="158" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
+        font-size="26" fill="none" stroke="#fcee0a" stroke-width="1.4" letter-spacing="20">2077</text>
 </svg>

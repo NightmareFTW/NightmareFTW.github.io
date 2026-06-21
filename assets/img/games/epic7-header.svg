@@ -1,0 +1,53 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Epic Seven">
+  <defs>
+    <linearGradient id="e7Sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a0f3a"/>
+      <stop offset="0.5" stop-color="#3a1a66"/>
+      <stop offset="0.82" stop-color="#7d2c74"/>
+      <stop offset="1" stop-color="#c2497d"/>
+    </linearGradient>
+    <linearGradient id="e7Name" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff4cf"/><stop offset="1" stop-color="#f0b86a"/>
+    </linearGradient>
+    <radialGradient id="e7Halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9b0" stop-opacity="0.9"/>
+      <stop offset="0.6" stop-color="#ffcaa0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffcaa0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="e7G"><feGaussianBlur stdDeviation="2.5"/></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#e7Sky)"/>
+  <!-- stars / sparkles -->
+  <g fill="#fff" opacity="0.9">
+    <circle cx="110" cy="70" r="1.6"/><circle cx="220" cy="50" r="1"/><circle cx="600" cy="60" r="1.4"/><circle cx="690" cy="100" r="1"/>
+    <circle cx="150" cy="150" r="1"/><circle cx="660" cy="180" r="1.2"/><circle cx="80" cy="210" r="1"/><circle cx="720" cy="230" r="1.4"/>
+  </g>
+  <g fill="#ffe9b0" opacity="0.85">
+    <path d="M250 110 l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+    <path d="M560 120 l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/>
+    <path d="M400 60 l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+  </g>
+
+  <!-- celestial halo -->
+  <circle cx="400" cy="250" r="150" fill="url(#e7Halo)" filter="url(#e7G)"/>
+  <g transform="translate(400,250)" fill="none" stroke="#ffe1a6" stroke-width="1.4" opacity="0.55">
+    <circle r="118"/><circle r="98" stroke-width="0.7" stroke-dasharray="3 8"/>
+  </g>
+
+  <!-- winged hero silhouette with sword -->
+  <g fill="#120a26">
+    <!-- wings -->
+    <path d="M400 250c-34-26-78-30-104-58 30 6 58 14 86 6-26-20-40-44-46-76 26 30 52 52 88 60z" opacity="0.92"/>
+    <path d="M400 250c34-26 78-30 104-58-30 6-58 14-86 6 26-20 40-44 46-76-26 30-52 52-88 60z" opacity="0.92"/>
+    <!-- body -->
+    <path d="M392 196c8-3 16 2 17 12l1 18 8 8-5 10 5 70 7 86h-16l-8-78-7 78h-16l7-92-5-66-7-8 6-10 2-18c1-8 4-12 5-12z"/>
+    <!-- sword -->
+    <path d="M409 150l9 4-2 96-7 4-7-4-2-96z"/>
+    <rect x="398" y="246" width="22" height="6"/>
+  </g>
+
+  <!-- title -->
+  <text x="400" y="392" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
+        font-size="50" fill="url(#e7Name)" letter-spacing="6" stroke="#3a1a2a" stroke-width="1">EPIC SEVEN</text>
+</svg>
