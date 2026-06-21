@@ -16,6 +16,13 @@ const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": 
 const DLC_CLASS = { "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" };
 const SRC_CLASS = { Event: "src-event", Premium: "src-premium", "Quest Reward": "src-quest", Craftable: "src-craft" };
 
+// In-game Collection order: critters are grouped by biome, in region-unlock order
+// (base valley first, then A Rift in Time, Storybook Vale, Wishblossom Mountains).
+const BIOME_ORDER = ["Plaza", "Peaceful Meadow", "Dazzle Beach", "Forest of Valor", "Glade of Trust",
+  "Sunlit Plateau", "Frosted Heights", "Forgotten Lands", "Wild Tangle", "Glittering Dunes",
+  "Ancient's Landing", "Everafter", "Mythopia", "The Bind", "Wishing Alps", "Glamour Gulch", "Pixie Acres"];
+const biomeRank = (b) => { const i = BIOME_ORDER.indexOf(b); return i < 0 ? 999 : i; };
+
 const owned = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
 const isOwned = (name) => owned.has(name);
 function setOwned(name, v) {
@@ -217,6 +224,7 @@ els.tabs.querySelectorAll(".cat-tab").forEach((b) => b.addEventListener("click",
 (async function init() {
   try {
     DATA = await (await fetch(`../../data/dreamlight-valley/animals.json?cb=${Date.now()}`)).json();
+    DATA.critters.sort((a, b) => biomeRank(a.biome) - biomeRank(b.biome)); // in-game Collection order
     els.updated.textContent = `${DATA.critters.length} wild species · ${DATA.companions.length} companions · source: Dreamlight Valley Wiki`;
     updateCounts();
     buildControls();
