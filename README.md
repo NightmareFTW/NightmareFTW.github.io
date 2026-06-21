@@ -22,7 +22,10 @@ headlines) and **Codes** (redeemable codes, kept fresh automatically).
 | **Final Fantasy XIV** | Daily/Weekly Checklist (reset-aware) · Gathering Node Timer (live Eorzea clock) |
 | **Epic Seven** | Gear Score · Damage / EHP Calculator · Speed Tuning / Turn Order |
 | **Warframe** | Worldstate Tracker · Cycle Timers · Drop Table |
+| **Disney Dreamlight Valley** | Star Path Tracker · Recipe Browser · Friendship Tracker · Items Database · Animal Guide |
 | **Neverness to Everness** | Daily Checklist · Tier List & Builds · Bond Gift Planner |
+| **Cyberpunk 2077** | Meta Builds (in-game-style skill tree & cyberware diagram) |
+| **God of War Ragnarök** | Meta Builds (gear-screen layout) · Missables Checklist |
 
 The home page supports live search, sorting and grid / list / compact views.
 
@@ -108,11 +111,18 @@ themselves.
 
 ## Credits
 
-Game data and images belong to their respective owners and are used for reference:
-Digital Extremes (Warframe, via WFCD), Smilegate (Epic Seven), Square Enix (FFXIV),
-Kinetic Games (Phasmophobia), Red Barrels (The Outlast Trials), Hotta Studio /
-Perfect World (Neverness to Everness). Tier lists & builds for Neverness to
-Everness are compiled from [Game8](https://game8.co/games/Neverness-to-Everness).
+Game data and images belong to their respective owners and are used for reference
+on this non-commercial personal fan site: Digital Extremes (Warframe, via WFCD),
+Smilegate (Epic Seven), Square Enix (FFXIV), Kinetic Games (Phasmophobia),
+Red Barrels (The Outlast Trials), Hotta Studio / Perfect World (Neverness to
+Everness), Gameloft (Disney Dreamlight Valley), CD Projekt Red (Cyberpunk 2077),
+and Sony Interactive Entertainment / Santa Monica Studio (God of War Ragnarök).
+Game banner / key-art images are sourced from each game's official Steam store
+page and remain the property of their respective publishers. Tier lists & builds
+for Neverness to Everness are compiled from
+[Game8](https://game8.co/games/Neverness-to-Everness); God of War Ragnarök favor
+and collectible data is cross-checked against community completion guides
+([PowerPyx](https://www.powerpyx.com/)).
 
 ---
 

@@ -116,7 +116,7 @@ const GAMES = [
   {
     id: "epic7",
     name: "Epic Seven",
-    banner: "assets/img/games/epic7-header.svg",
+    banner: "assets/img/games/epic7-promo.jpg",
     color: "#c2497d",
     glow: "rgba(194, 73, 125, 0.22)",
     blurb: "Turn-based gacha RPG.",
@@ -276,7 +276,7 @@ const GAMES = [
   {
     id: "cyberpunk-2077",
     name: "Cyberpunk 2077",
-    banner: "assets/img/games/cyberpunk-2077-header.svg",
+    banner: "assets/img/games/cyberpunk-2077-header.jpg",
     color: "#caa90a",
     glow: "rgba(252, 238, 10, 0.22)",
     blurb: "Open-world action RPG in Night City.",
@@ -294,7 +294,7 @@ const GAMES = [
   {
     id: "god-of-war-ragnarok",
     name: "God of War Ragnarök",
-    banner: "assets/img/games/god-of-war-ragnarok-header.svg",
+    banner: "assets/img/games/god-of-war-ragnarok-header.jpg",
     color: "#3b6fb5",
     glow: "rgba(59, 111, 181, 0.24)",
     blurb: "Norse action-adventure epic.",
