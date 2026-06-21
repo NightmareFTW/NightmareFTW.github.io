@@ -273,4 +273,22 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "cyberpunk-2077",
+    name: "Cyberpunk 2077",
+    banner: "assets/img/games/cyberpunk-2077-header.svg",
+    color: "#caa90a",
+    glow: "rgba(252, 238, 10, 0.22)",
+    blurb: "Open-world action RPG in Night City.",
+    tools: [
+      {
+        id: "builds",
+        name: "Meta Builds",
+        type: "guide",
+        desc: "Every meta build in detail — attribute spread, perks, cyberware, weapons and how to play it, with visual skill distribution.",
+        href: "games/cyberpunk-2077/builds.html",
+        available: true,
+      },
+    ],
+  },
 ];

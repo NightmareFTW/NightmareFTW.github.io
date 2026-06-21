@@ -1,0 +1,249 @@
+{
+  "version": "Patch 2.2 · Phantom Liberty",
+  "note": "Attribute values are end-game targets (level 60, all 5 attributes start at 3). Invest your primary attribute first — most perks and the strongest cyberware are gated behind attribute thresholds. Swap iconic weapons for whatever you find; the archetype is what matters.",
+  "attrMax": 20,
+  "builds": [
+    {
+      "id": "netrunner",
+      "name": "Quickhack Netrunner",
+      "archetype": "Netrunner",
+      "os": "Cyberdeck",
+      "difficulty": "Beginner-friendly",
+      "tags": ["Intelligence", "Ranged", "Crowd control"],
+      "summary": "Kill whole rooms without firing a shot. Spread Contagion + Overheat through a crowd, finish with Synapse Burnout, and let RAM regen do the rest. The most forgiving high-damage build in the game on any difficulty.",
+      "attributes": { "body": 9, "reflexes": 9, "technical": 9, "intelligence": 20, "cool": 15 },
+      "attrNote": "Intelligence is everything — it scales quickhack damage, RAM and cyberdeck slots. Cool adds crit + the headhunter quickhacks; the rest is survivability.",
+      "perks": [
+        { "tree": "Intelligence", "picks": [
+          "Spillover — combat quickhacks spread to nearby enemies, turning single targets into AoE",
+          "Embedded Exploit — quickhacking a target builds a stack that detonates as extra damage",
+          "Queen of Hearts — big damage bonus vs. high-health enemies",
+          "Bartmoss' Legacy — Ultimate quickhacks cost far less RAM, so you can chain Burnouts" ] },
+        { "tree": "Cool", "picks": [
+          "Ninjutsu / Crouching Tiger — sneak-attack and crouch bonuses for the opener",
+          "Deadeye + Killer Instinct — crit chance/damage that also boosts smart-gun cleanup" ] }
+      ],
+      "cyberware": [
+        { "slot": "Operating System", "item": "Tetratronic Rippler Mk.4 (Cyberdeck)", "why": "Lets a quickhack spread and lowers the cost of the next hack of the same type — the netrunner engine." },
+        { "slot": "Frontal Cortex", "item": "Mechatronic Core + Camillo RAM Manager", "why": "Mechatronic Core supercharges Ultimate quickhacks; Camillo refunds RAM on a hacked kill so you never run dry." },
+        { "slot": "Hands", "item": "Smart Link", "why": "Unlocks smart weapons as a reliable backup to clean up survivors." },
+        { "slot": "Circulatory System", "item": "Second Heart + Biomonitor", "why": "Free revive and an auto-heal at low HP — you're squishy, so insure the body." },
+        { "slot": "Integumentary System", "item": "Optical Camo", "why": "Cloak to reposition while hacks tick and RAM recovers." }
+      ],
+      "weapons": [
+        { "type": "smart", "name": "Yinglong (Smart AR)", "role": "Primary cleanup", "why": "Homing rounds finish anything that survives the hacks — no aiming required." },
+        { "type": "smg", "name": "Problem Solver (Smart SMG)", "role": "Backup", "why": "Locks onto multiple targets at once for crowd cleanup." }
+      ],
+      "playstyle": [
+        "Ping a target to reveal the whole network, then upload Contagion or Overheat — Spillover carries it across the room.",
+        "Detonate clusters with Synapse Burnout / Cyberpsychosis; reposition with Optical Camo while RAM regenerates.",
+        "Stay at range and in cover — your power is the deck, not your gun."
+      ],
+      "leveling": "Intelligence to 20 first (unlock Spillover/Bartmoss early), then Cool to 15, then spread the rest into Body/Reflexes/Tech for survivability.",
+      "pros": ["Trivialises crowds and tough enemies", "Safe — kill from cover/stealth", "Scales to the hardest difficulty"],
+      "cons": ["RAM-dependent — weak if caught with an empty deck", "Less satisfying for players who want gunplay"]
+    },
+    {
+      "id": "sandevistan-blades",
+      "name": "Sandevistan Katana",
+      "archetype": "Sandevistan",
+      "os": "Sandevistan",
+      "difficulty": "Medium",
+      "tags": ["Reflexes", "Cool", "Melee"],
+      "summary": "The Edgerunner fantasy. Freeze time with a Sandevistan and dice an entire room with a katana before anyone reacts. Highest skill-expression melee build, absurd burst.",
+      "attributes": { "body": 12, "reflexes": 20, "technical": 6, "intelligence": 4, "cool": 20 },
+      "attrNote": "Reflexes drives blade damage and crit; Cool drives crit damage, sneak damage and the best Sandevistan perks. Body keeps you alive in melee range.",
+      "perks": [
+        { "tree": "Reflexes", "picks": [
+          "Bladerunner — blade damage scales with how fast you're moving",
+          "Stuck Pig + Bloodlust — bleeding enemies take more, and you heal on blade hits",
+          "Float like a Butterfly / Dash — mobility to close gaps and dodge-cancel" ] },
+        { "tree": "Cool", "picks": [
+          "Deadeye — convert crouch/standstill into massive crit",
+          "Style over Substance / Killer Instinct — crit chance + damage during Sandevistan",
+          "Feared by the Dead — kills extend cooldown recovery" ] }
+      ],
+      "cyberware": [
+        { "slot": "Operating System", "item": "Militech Apogee Sandevistan", "why": "Best slow-mo: long duration, big crit and crit-damage bonus while active — the core of the build." },
+        { "slot": "Arms", "item": "Mantis Blades", "why": "Optional second melee — strong gap-closer and execute when the katana's on cooldown." },
+        { "slot": "Skeleton", "item": "Epimorphic Skeleton + Bionic Joints", "why": "Heal as you take cyberware segments + mitigation to survive the dive." },
+        { "slot": "Nervous System", "item": "Kerenzikov", "why": "A second mini slow-mo when you dodge/aim with a blade — extends your time-stop windows." },
+        { "slot": "Integumentary System", "item": "Subdermal Armor + Pain Editor", "why": "Raw armor and shorter debuffs — you're taking hits up close." }
+      ],
+      "weapons": [
+        { "type": "blade", "name": "Satori (Iconic Katana)", "role": "Primary", "why": "Guaranteed crit against enemies at full health — perfect for opening a fight in Sandevistan." },
+        { "type": "blade", "name": "Errata / Tsumetogi (Katana)", "role": "Alternative", "why": "Tech/cool katanas with bleed and crit for sustained fights." }
+      ],
+      "playstyle": [
+        "Activate Sandevistan, sprint into the densest group, and chain light attacks — everything is frozen.",
+        "Dodge-cancel to reset Kerenzikov and keep crit windows up; deflect bullets mid-Sandy.",
+        "Manage the meter — kill, drop out of slow-mo, let it recharge behind cover, repeat."
+      ],
+      "leveling": "Reflexes to ~15 early for blade perks, push Cool for crit, then both to 20; trickle into Body for HP.",
+      "pros": ["Insane burst — clears rooms in one window", "Pure style", "Deflects gunfire while active"],
+      "cons": ["Melee range is risky without the meter", "Punishing if you mistime the Sandevistan cooldown"]
+    },
+    {
+      "id": "shotgun-tank",
+      "name": "Shotgun Berserk Tank",
+      "archetype": "Solo / Tank",
+      "os": "Berserk",
+      "difficulty": "Beginner-friendly",
+      "tags": ["Body", "Technical", "Up-close"],
+      "summary": "Walk into the room and walk out. Berserk reduces damage and steadies your aim while you delete enemies point-blank with a shotgun and stack Adrenaline as a second health bar.",
+      "attributes": { "body": 20, "reflexes": 12, "technical": 18, "intelligence": 3, "cool": 9 },
+      "attrNote": "Body is the spine — Adrenaline (overshield), health and shotgun/melee damage. Technical pushes armor and unlocks Edgerunner so you can overload on chrome.",
+      "perks": [
+        { "tree": "Body", "picks": [
+          "Adrenaline Rush + Buffer Buildup — kills bank a growing overshield",
+          "Pain to Gain — heal a chunk of the damage you deal",
+          "Hard Hitter / Bushwhack — shotgun and blunt damage, bonus vs. dazed targets",
+          "Unshakable + Juggernaut — keep firing through hits, mitigation while Adrenaline is up" ] },
+        { "tree": "Technical Ability", "picks": [
+          "Edgerunner — exceed your cyberware capacity for a huge power spike",
+          "All Things Cyber + License to Chrome — more capacity and cheaper, stronger cyberware" ] }
+      ],
+      "cyberware": [
+        { "slot": "Operating System", "item": "Militech Berserk Mk.5", "why": "Damage reduction, recoil control and melee/health bonuses — turns you into a wall." },
+        { "slot": "Integumentary System", "item": "Subdermal Armor + Pain Editor", "why": "Stacks raw armor and cuts debuff duration — the tank core." },
+        { "slot": "Circulatory System", "item": "Second Heart + Adrenaline Booster", "why": "Revive insurance and even more overshield uptime." },
+        { "slot": "Skeleton", "item": "Epimorphic Skeleton + Titanium Bones", "why": "Heal on segments + carry/health for the brawl." },
+        { "slot": "Hands", "item": "Ballistic Coprocessor", "why": "Boosts Power-weapon ricochet shots for trick-shot shotgun kills." }
+      ],
+      "weapons": [
+        { "type": "shotgun", "name": "Carnage / Zhuo (Power & Tech Shotgun)", "role": "Primary", "why": "Carnage two-shots at range; Zhuo charges through cover. Either deletes targets up close." },
+        { "type": "lmg", "name": "Defender (LMG)", "role": "Secondary", "why": "Suppressing fire for when you want to stay back and tank rounds." },
+        { "type": "cyberarm", "name": "Gorilla Arms", "role": "Melee", "why": "Berserk-boosted punches stagger and execute; great for finishing dazed enemies." }
+      ],
+      "playstyle": [
+        "Pop Berserk, push the front line, and stack Adrenaline kills to build your overshield.",
+        "Stay aggressive — Pain to Gain heals you faster than you take damage when you keep killing.",
+        "Use Gorilla Arms on heavies/MaxTac to break their guard, then finish with the shotgun."
+      ],
+      "leveling": "Body to 20 first, then Technical to 18 (rush Edgerunner once your capacity can take it); dip Reflexes for handling.",
+      "pros": ["Extremely tanky — face-tanks most damage", "Simple, satisfying gameplay", "Great for new players"],
+      "cons": ["Short range — struggles vs. snipers/turrets at distance", "Lower single-target ceiling than netrunner/sandy"]
+    },
+    {
+      "id": "smart-tech",
+      "name": "Smart-Gun Tech Engineer",
+      "archetype": "Tech Engineer",
+      "os": "Cyberdeck",
+      "difficulty": "Medium",
+      "tags": ["Technical", "Intelligence", "Ranged"],
+      "summary": "Let the bullets do the aiming. Smart weapons home onto tagged enemies while charged tech weapons punch through walls and cover — a hybrid that softens with quickhacks and finishes with hardware.",
+      "attributes": { "body": 9, "reflexes": 3, "technical": 20, "intelligence": 18, "cool": 12 },
+      "attrNote": "Technical maxes cyberware capacity and tech-weapon damage; Intelligence powers the cyberdeck for tagging and softening. Cool adds crit for the smart-gun cleanup.",
+      "perks": [
+        { "tree": "Technical Ability", "picks": [
+          "Edgerunner — go over capacity for a massive cyberware power spike",
+          "Lickety Split — tech weapons charge faster and hit harder",
+          "Built Different / Renaissance Punk — flat damage based on attributes invested" ] },
+        { "tree": "Intelligence", "picks": [
+          "Embedded Exploit + Spillover — tag and soften groups for the smart guns",
+          "Ping → Weapon Glitch — light up the whole room and debuff their weapons" ] }
+      ],
+      "cyberware": [
+        { "slot": "Hands", "item": "Smart Link", "why": "Mandatory — unlocks smart-weapon target tracking. This build is built around it." },
+        { "slot": "Operating System", "item": "Militech Canto Mk.6 (Cyberdeck)", "why": "Slots utility quickhacks (Ping, Weapon Glitch, Reboot Optics) to mark and blind targets." },
+        { "slot": "Frontal Cortex", "item": "Kiroshi 'Cockatrice' Optics + Target Analysis", "why": "Improves smart-link lock speed and weak-spot detection." },
+        { "slot": "Integumentary System", "item": "Subdermal Armor", "why": "Stays alive at mid-range while the guns track." },
+        { "slot": "Legs", "item": "Reinforced Tendons", "why": "Double jump for high firing angles over cover." }
+      ],
+      "weapons": [
+        { "type": "smart", "name": "Yinglong / Divided We Stand (Smart AR)", "role": "Primary", "why": "Locks onto multiple targets and curves rounds around cover." },
+        { "type": "sniper", "name": "Nekomata (Tech Sniper)", "role": "Secondary", "why": "Charge a shot through walls to one-tap snipers and heavies you've tagged." },
+        { "type": "smart", "name": "Ashura (Smart Sniper)", "role": "Alternative", "why": "Smart sniper that tracks tagged enemies at long range." }
+      ],
+      "playstyle": [
+        "Ping to reveal and tag, optionally Weapon Glitch the dangerous shooters, then hold the trigger and let smart rounds track.",
+        "Switch to the charged tech sniper for armoured targets and through-wall kills.",
+        "Stay at medium-long range; reposition with the double jump."
+      ],
+      "leveling": "Technical to 20 (Edgerunner + tech-weapon perks), then Intelligence to 18, then Cool to 12.",
+      "pros": ["Forgiving aim — guns track for you", "Wallhack pressure with tech weapons", "Strong at every range"],
+      "cons": ["Gear-dependent (needs good smart/tech weapons)", "Lower mobility/defence than a tank"]
+    },
+    {
+      "id": "gunslinger",
+      "name": "Revolver Gunslinger",
+      "archetype": "Gunslinger",
+      "os": "Sandevistan (optional)",
+      "difficulty": "Hard",
+      "tags": ["Reflexes", "Cool", "Crit"],
+      "summary": "One bullet, one kill. Stack crit and headshot multipliers on revolvers and power pistols for one-shot bodyshots — the highest single-target ceiling in the game for players with good aim.",
+      "attributes": { "body": 12, "reflexes": 20, "technical": 9, "intelligence": 3, "cool": 18 },
+      "attrNote": "Reflexes scales handgun damage and crit chance; Cool scales crit damage, headshot damage and steadier aim. A Sandevistan is optional for buying aim time.",
+      "perks": [
+        { "tree": "Reflexes", "picks": [
+          "Gunslinger — faster reload/draw on handguns",
+          "Long Shot Draw — charge a handgun shot for huge bonus damage",
+          "Lead and Steel / Submission — handgun crit and stagger" ] },
+        { "tree": "Cool", "picks": [
+          "Deadeye — convert standstill into crit damage",
+          "Steady Hand + Quick Draw — reduce sway and ready the next shot instantly",
+          "Headhunter — stacking bonus damage on weak-spot hits" ] }
+      ],
+      "cyberware": [
+        { "slot": "Nervous System", "item": "Reflex Tuner + Kerenzikov", "why": "Slow-mo at low HP and on aim — buys the split-second you need to land headshots." },
+        { "slot": "Operating System", "item": "Zetatech Sandevistan Mk.4", "why": "Optional slow-mo so you can place precision shots; swap to Berserk for recoil if you prefer raw stats." },
+        { "slot": "Frontal Cortex", "item": "Kiroshi Optics + Trajectory Generator", "why": "Predicts moving targets and boosts headshot reliability." },
+        { "slot": "Circulatory System", "item": "Second Heart + Biomonitor", "why": "Insurance for a glass-cannon that wants to stay mobile." },
+        { "slot": "Skeleton", "item": "Bionic Joints", "why": "Mitigation so a stray hit doesn't end a run." }
+      ],
+      "weapons": [
+        { "type": "revolver", "name": "Comrade's Hammer (Iconic Tech Revolver)", "role": "Primary", "why": "Charged explosive round that one-shots almost anything — the gunslinger's hammer." },
+        { "type": "revolver", "name": "La Chingona Dorada / Overture", "role": "Secondary", "why": "Fast-firing power revolvers that ricochet for trick-shot crits." },
+        { "type": "handgun", "name": "Malorian Arms 3516 (Iconic)", "role": "Style pick", "why": "Johnny's smart pistol — huge damage and pure Cyberpunk flavour." }
+      ],
+      "playstyle": [
+        "Open from stealth with a charged headshot (Deadeye + Long Shot Draw) for an instant kill.",
+        "Slow time with Reflex Tuner/Sandevistan when swarmed and pick off heads one by one.",
+        "Reposition between shots — you hit like a truck but can't trade sustained fire."
+      ],
+      "leveling": "Reflexes to 20 first for handgun scaling, then Cool to 18 for crit/headshot, then Body to 12.",
+      "pros": ["Highest single-target burst", "Hugely satisfying one-shots", "Light cyberware needs"],
+      "cons": ["Aim-intensive — unforgiving of misses", "Glass cannon", "Weak crowd control without the Sandy"]
+    },
+    {
+      "id": "ghost-sniper",
+      "name": "Ghost Sniper / Netrunner",
+      "archetype": "Stealth",
+      "os": "Cyberdeck",
+      "difficulty": "Hard",
+      "tags": ["Cool", "Intelligence", "Stealth"],
+      "summary": "Clear the map and they never knew you were there. Cloak, breach the network, soften with quickhacks, and pick off the rest with silenced tech snipers and sneak takedowns.",
+      "attributes": { "body": 3, "reflexes": 12, "technical": 9, "intelligence": 18, "cool": 20 },
+      "attrNote": "Cool maxes stealth, sneak-attack and crit damage; Intelligence powers Breach Protocol and combat quickhacks to thin a base before you fire. Reflexes adds sniper handling.",
+      "perks": [
+        { "tree": "Cool", "picks": [
+          "Ninjutsu — buffed sneak attacks and non-lethal takedowns",
+          "Cutthroat + Feared by the Dead — stronger stealth strikes and post-kill stealth bonuses",
+          "Deadeye + Headhunter — turn the first sniper shot into an instant kill" ] },
+        { "tree": "Intelligence", "picks": [
+          "Breach Protocol mastery (Compression, Total Recall) — longer, cheaper daemon uploads",
+          "Embedded Exploit — soften the whole network before the first shot" ] }
+      ],
+      "cyberware": [
+        { "slot": "Integumentary System", "item": "Optical Camo", "why": "On-demand invisibility to reposition and break line of sight — the stealth core." },
+        { "slot": "Operating System", "item": "Tetratronic Rippler Mk.4 (Cyberdeck)", "why": "Spread Reboot Optics / Cyberpsychosis to neutralise cameras and lone guards quietly." },
+        { "slot": "Legs", "item": "Lynx Paws + Reinforced Tendons", "why": "Silent movement and a double jump for sniper perches." },
+        { "slot": "Nervous System", "item": "Synaptic Accelerator", "why": "Slow-mo when you're detected — buys time to re-cloak or land the kill." },
+        { "slot": "Frontal Cortex", "item": "Kiroshi Optics + Threat Detector", "why": "See enemy cones and tag everyone through walls before you move." }
+      ],
+      "weapons": [
+        { "type": "sniper", "name": "Breakthrough (Iconic Tech Sniper)", "role": "Primary", "why": "Silenced charged shots punch through walls for one-tap stealth kills." },
+        { "type": "sniper", "name": "Nekomata (Tech Sniper)", "role": "Alternative", "why": "Through-cover charge sniper that pairs with tagging." },
+        { "type": "blade", "name": "Mantis Blades", "role": "Melee", "why": "Silent leap-takedowns to clear isolated guards without a sound." }
+      ],
+      "playstyle": [
+        "Breach the access point on arrival to upload daemons across the network, then Reboot Optics on cameras.",
+        "Cloak, reposition to a perch, and chain charged headshots — re-cloak before the timer runs out.",
+        "Use quickhacks (Cyberpsychosis, Suicide) to make guards remove each other quietly."
+      ],
+      "leveling": "Cool to 20 for stealth/crit, Intelligence to 18 for Breach + quickhacks, Reflexes to 12 for sniper handling.",
+      "pros": ["Clears content without taking damage", "Flexible — stealth, hack or snipe", "Great for objectives/Gigs"],
+      "cons": ["Very low HP — one mistake hurts", "Slow, methodical pace", "Weakest in forced open fights"]
+    }
+  ]
+}

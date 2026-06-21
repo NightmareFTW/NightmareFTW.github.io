@@ -1,0 +1,62 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cyberpunk 2077">
+  <defs>
+    <linearGradient id="cpSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1305"/>
+      <stop offset="0.55" stop-color="#0c0a02"/>
+      <stop offset="1" stop-color="#050400"/>
+    </linearGradient>
+    <linearGradient id="cpGlow" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#fcee0a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#fcee0a" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="cpBlur"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#cpSky)"/>
+  <!-- horizon glow -->
+  <rect x="0" y="250" width="800" height="200" fill="url(#cpGlow)"/>
+
+  <!-- skyline silhouette -->
+  <g fill="#000" opacity="0.85">
+    <rect x="40" y="180" width="55" height="180"/>
+    <rect x="110" y="230" width="40" height="130"/>
+    <rect x="160" y="120" width="70" height="240"/>
+    <rect x="245" y="200" width="45" height="160"/>
+    <rect x="300" y="150" width="60" height="210"/>
+    <rect x="500" y="160" width="58" height="200"/>
+    <rect x="565" y="210" width="42" height="150"/>
+    <rect x="615" y="110" width="75" height="250"/>
+    <rect x="705" y="190" width="50" height="170"/>
+  </g>
+  <!-- neon window strips -->
+  <g fill="#00e5ff" opacity="0.8">
+    <rect x="178" y="150" width="6" height="40"/><rect x="198" y="200" width="6" height="60"/>
+    <rect x="320" y="180" width="6" height="50"/><rect x="636" y="140" width="6" height="70"/>
+    <rect x="660" y="190" width="6" height="40"/>
+  </g>
+  <g fill="#ff2e88" opacity="0.85">
+    <rect x="58" y="210" width="6" height="50"/><rect x="262" y="230" width="6" height="40"/>
+    <rect x="520" y="190" width="6" height="60"/><rect x="722" y="220" width="6" height="50"/>
+  </g>
+
+  <!-- glitch bars -->
+  <rect x="0" y="96" width="800" height="10" fill="#fcee0a" opacity="0.9"/>
+  <rect x="0" y="112" width="520" height="4" fill="#00e5ff" opacity="0.7"/>
+  <rect x="280" y="86" width="240" height="4" fill="#ff2e88" opacity="0.7"/>
+
+  <!-- circuit motif -->
+  <g stroke="#fcee0a" stroke-width="2.5" fill="none" opacity="0.55">
+    <path d="M30 400 H180 V360 H260"/>
+    <path d="M770 410 H600 V370 H520"/>
+    <circle cx="260" cy="360" r="5" fill="#fcee0a" stroke="none"/>
+    <circle cx="520" cy="370" r="5" fill="#fcee0a" stroke="none"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="400" y="250" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
+        font-size="62" fill="#fcee0a" letter-spacing="2">CYBER<tspan fill="#00e5ff">PUNK</tspan></text>
+  <text x="400" y="292" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="800"
+        font-size="30" fill="#0c0a02" stroke="#fcee0a" stroke-width="1.5" letter-spacing="14">2077</text>
+  <text x="400" y="330" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="600"
+        font-size="13" fill="#ff2e88" letter-spacing="6">// META BUILDS</text>
+</svg>

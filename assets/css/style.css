@@ -1287,6 +1287,106 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .mbuild-card .mini-btn { align-self: flex-start; text-decoration: none; }
 
 /* =========================================
+   Cyberpunk 2077 — Meta Builds
+   ========================================= */
+.cb-note { color: var(--muted); font-size: 0.9rem; line-height: 1.55; max-width: 70ch; margin: 4px 0 18px; }
+.cb-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 6px; }
+.cb-fchip { font-family: var(--mono); font-size: 0.76rem; padding: 7px 13px; border-radius: 999px;
+  background: var(--bg-soft); border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: .15s; }
+.cb-fchip:hover { color: var(--text); border-color: var(--accent-2); }
+.cb-fchip.on { background: rgba(252,238,10,.14); border-color: #caa90a; color: #fce96a; font-weight: 700; }
+
+.cb-builds { display: flex; flex-direction: column; gap: 16px; padding-bottom: 60px; }
+.cb-build { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 18px 16px; }
+.cb-build.open { border-color: #caa90a; box-shadow: 0 0 0 1px rgba(252,238,10,.12), 0 10px 40px -20px rgba(252,238,10,.4); }
+.cb-build-head { width: 100%; background: none; border: 0; padding: 0; cursor: pointer; color: inherit; text-align: left;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.cb-build-title { display: flex; flex-direction: column; gap: 4px; }
+.cb-os { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: .12em; color: #caa90a; }
+.cb-name { font-size: 1.3rem; font-weight: 800; line-height: 1.15; }
+.cb-build-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+.cb-arch { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: .06em;
+  background: var(--bg-soft); border: 1px solid var(--border); border-radius: 6px; padding: 3px 7px; color: var(--muted); }
+.cb-diff { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: .06em; border-radius: 6px; padding: 3px 7px; }
+.cb-diff-beginnerfriendly { background: rgba(74,157,91,.16); color: #6fcf8a; }
+.cb-diff-medium { background: rgba(212,132,42,.18); color: #e0a866; }
+.cb-diff-hard { background: rgba(255,36,53,.16); color: #ff8a82; }
+.cb-caret { font-size: 1.1rem; color: var(--muted); transition: transform .2s; flex-shrink: 0; margin-top: 4px; }
+.cb-build.open .cb-caret { transform: rotate(180deg); color: #caa90a; }
+.cb-summary { color: var(--text); font-size: 0.94rem; line-height: 1.6; margin: 12px 0 14px; opacity: .92; }
+
+/* attribute distribution bars */
+.cb-attrs { display: flex; flex-direction: column; gap: 7px; padding: 12px 14px; background: var(--bg-soft);
+  border: 1px solid var(--border); border-radius: 10px; }
+.cb-attr { display: grid; grid-template-columns: 110px 1fr 28px; align-items: center; gap: 10px; }
+.cb-attr-name { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.cb-attr.is-primary .cb-attr-name { color: var(--text); font-weight: 700; }
+.cb-prim { color: #fce96a; }
+.cb-attr-track { height: 9px; background: rgba(255,255,255,.07); border-radius: 999px; overflow: hidden; }
+.cb-attr-fill { display: block; height: 100%; border-radius: 999px; transition: width .4s ease; opacity: .55; }
+.cb-attr.is-primary .cb-attr-fill { opacity: 1; box-shadow: 0 0 10px -1px currentColor; }
+.cb-attr-val { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; text-align: right; }
+.cb-tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
+.cb-tag { font-size: 0.74rem; color: var(--accent-2); background: rgba(0,224,184,.1); border: 1px solid rgba(0,224,184,.25);
+  border-radius: 999px; padding: 3px 10px; }
+
+/* expanded detail */
+.cb-detail { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 14px; }
+.cb-detail[hidden] { display: none; }
+.cb-attrnote { font-size: 0.86rem; color: var(--muted); line-height: 1.55; font-style: italic; margin: 0 0 16px;
+  border-left: 2px solid #caa90a; padding-left: 12px; }
+.cb-sec { margin-bottom: 18px; }
+.cb-sec-h { font-family: var(--mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--accent-2); margin: 0 0 10px; }
+.cb-sec svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.cb-perktree { margin-bottom: 12px; }
+.cb-perktree-h { display: inline-block; font-weight: 700; font-size: 0.86rem; color: var(--text); margin-bottom: 6px; }
+.cb-perklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.cb-perklist li { display: flex; gap: 9px; align-items: flex-start; font-size: 0.87rem; color: var(--muted); line-height: 1.5; }
+.cb-perklist li svg { color: #caa90a; margin-top: 2px; }
+
+.cb-cyber-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.cb-cyber { display: flex; gap: 11px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 11px 12px; }
+.cb-cyber-ico { color: var(--accent-2); flex-shrink: 0; }
+.cb-cyber-ico svg { width: 22px; height: 22px; }
+.cb-cyber-body { display: flex; flex-direction: column; gap: 2px; }
+.cb-slot { font-family: var(--mono); font-size: 0.63rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+.cb-cyber-item { font-weight: 700; font-size: 0.9rem; }
+.cb-cyber-why { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+
+.cb-weapon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 10px; }
+.cb-weapon { display: flex; gap: 12px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+.cb-weapon-ico { display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; border-radius: 9px;
+  background: rgba(252,238,10,.1); border: 1px solid rgba(252,238,10,.28); color: #fce96a; }
+.cb-weapon-ico svg { width: 24px; height: 24px; }
+.cb-weapon-body { display: flex; flex-direction: column; gap: 2px; }
+.cb-weapon-name { font-weight: 700; font-size: 0.9rem; }
+.cb-weapon-role { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; margin-left: 4px; }
+.cb-weapon-why { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+
+.cb-play { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 7px; }
+.cb-play li { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+.cb-play li::marker { color: #caa90a; font-family: var(--mono); font-weight: 700; }
+.cb-level { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+.cb-procon { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cb-procon ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.cb-procon li { font-size: 0.85rem; color: var(--muted); line-height: 1.45; padding-left: 18px; position: relative; }
+.cb-pc-h { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+.cb-pros .cb-pc-h { color: #6fcf8a; }
+.cb-cons .cb-pc-h { color: #ff8a82; }
+.cb-pros li::before { content: "+"; position: absolute; left: 2px; color: #6fcf8a; font-weight: 700; }
+.cb-cons li::before { content: "–"; position: absolute; left: 2px; color: #ff8a82; font-weight: 700; }
+
+@media (max-width: 560px) {
+  .cb-attr { grid-template-columns: 88px 1fr 24px; gap: 8px; }
+  .cb-procon { grid-template-columns: 1fr; }
+  .cb-name { font-size: 1.15rem; }
+}
+
+/* =========================================
    DDV Animal Guide - Styled for NightmareFTW
    ========================================= */
 
