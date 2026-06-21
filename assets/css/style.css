@@ -1419,12 +1419,19 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .cb-slot-item { font-weight: 700; font-size: 0.86rem; }
 .cb-slot-why { font-size: 0.78rem; color: var(--muted); line-height: 1.45; margin-top: 1px; }
 .cb-slot-empty { font-size: 1.2rem; color: var(--muted); margin-left: auto; }
+.cb-slotbox.has-ico { flex-direction: row; align-items: flex-start; gap: 10px; }
+.cb-slot-ico { width: 42px; height: 42px; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #14110c;
+  border: 1px solid rgba(252,238,10,.22); display: grid; place-items: center; }
+.cb-slot-ico img { width: 100%; height: 100%; object-fit: contain; }
+.cb-slot-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 
 .cb-weapon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 10px; }
 .cb-weapon { display: flex; gap: 12px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
 .cb-weapon-ico { display: grid; place-items: center; width: 40px; height: 40px; flex-shrink: 0; border-radius: 9px;
-  background: rgba(252,238,10,.1); border: 1px solid rgba(252,238,10,.28); color: #fce96a; }
+  background: rgba(252,238,10,.1); border: 1px solid rgba(252,238,10,.28); color: #fce96a; overflow: hidden; }
+.cb-weapon-ico.has-img { background: #14110c; padding: 3px; }
 .cb-weapon-ico svg { width: 24px; height: 24px; }
+.cb-weapon-ico img { width: 100%; height: 100%; object-fit: contain; }
 .cb-weapon-body { display: flex; flex-direction: column; gap: 2px; }
 .cb-weapon-name { font-weight: 700; font-size: 0.9rem; }
 .cb-weapon-role { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: .05em;

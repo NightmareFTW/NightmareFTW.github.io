@@ -105,9 +105,10 @@ function perkTree(b) {
 function slotBox(slot, cw) {
   const c = cw[slot];
   if (!c) return `<div class="cb-slotbox is-empty"><span class="cb-slot-label">${esc(slot)}</span><span class="cb-slot-empty">+</span></div>`;
-  return `<div class="cb-slotbox"><span class="cb-slot-label">${esc(slot)}</span>
+  const ico = c.img ? `<span class="cb-slot-ico"><img src="${esc(c.img)}" alt="" loading="lazy" onerror="this.closest('.cb-slot-ico').remove()"></span>` : "";
+  return `<div class="cb-slotbox ${c.img ? "has-ico" : ""}">${ico}<span class="cb-slot-text"><span class="cb-slot-label">${esc(slot)}</span>
     <span class="cb-slot-item">${esc(c.item)}</span>
-    <span class="cb-slot-why">${esc(c.why)}</span></div>`;
+    <span class="cb-slot-why">${esc(c.why)}</span></span></div>`;
 }
 function cyberDiagram(b) {
   const cw = {};
@@ -129,7 +130,7 @@ function buildCard(b, max) {
   const tags = (b.tags || []).map((t) => `<span class="cb-tag">${esc(t)}</span>`).join("");
   const weapons = (b.weapons || []).map((w) => `
     <div class="cb-weapon">
-      <span class="cb-weapon-ico" title="${esc(w.type)}">${WEAPON_ICON(w.type)}</span>
+      <span class="cb-weapon-ico ${w.img ? "has-img" : ""}" title="${esc(w.type)}">${w.img ? `<img src="${esc(w.img)}" alt="" loading="lazy" onerror="this.style.display='none'">` : WEAPON_ICON(w.type)}</span>
       <div class="cb-weapon-body">
         <span class="cb-weapon-name">${esc(w.name)} <span class="cb-weapon-role">${esc(w.role)}</span></span>
         <span class="cb-weapon-why">${esc(w.why)}</span>

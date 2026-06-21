@@ -145,8 +145,8 @@ FromSoftware / Bandai Namco (Elden Ring).
 Image sources, all property of their publishers: game banners are official Steam
 store key art (Epic Seven's is from the Stove channel); Elden Ring item icons come
 from the community [Elden Ring API](https://eldenring.fanapis.com); Expedition 33
-character portraits & Picto icons and God of War armour renders come from their
-respective Fandom wikis.
+character portraits & Picto icons, Cyberpunk 2077 cyberware & weapon icons, and
+God of War armour renders come from their respective Fandom wikis.
 
 Build, favor and collectible data is curated and cross-checked against community
 guides — tier lists & builds for Neverness to Everness from
