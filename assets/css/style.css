@@ -254,6 +254,42 @@ body {
 .view-compact .game-card-body h3 { font-size: 1rem; }
 .view-compact .game-meta { margin-left: auto; margin-top: 0; }
 
+/* ---- Pinned section + pin / drag controls ---- */
+.pinned-section { margin-bottom: 26px; }
+.pinned-section .game-grid { padding-bottom: 0; }
+.pin-star { color: #f5c451; }
+
+.pin-btn {
+  position: absolute; top: 8px; right: 8px; z-index: 3; pointer-events: auto;
+  width: 30px; height: 30px; display: grid; place-items: center; padding: 0;
+  border-radius: 8px; cursor: pointer; color: #fff;
+  background: rgba(8, 8, 12, 0.6); border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0; transition: opacity 0.15s, background 0.15s, color 0.15s, transform 0.15s;
+  backdrop-filter: blur(2px);
+}
+.game-card:hover .pin-btn, .pin-btn:focus-visible { opacity: 1; }
+.pin-btn:hover { background: rgba(8, 8, 12, 0.85); transform: scale(1.08); }
+.pin-btn.pinned { opacity: 1; color: #f5c451; border-color: rgba(245, 196, 81, 0.6); background: rgba(40, 32, 8, 0.78); }
+.game-card.disabled { pointer-events: none; }
+.game-card.disabled .pin-btn { pointer-events: auto; }
+
+.drag-handle {
+  position: absolute; top: 8px; left: 8px; z-index: 3;
+  width: 28px; height: 28px; display: grid; place-items: center;
+  border-radius: 8px; cursor: grab; color: #fff; font-size: 1rem; line-height: 1;
+  background: rgba(8, 8, 12, 0.6); border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0; transition: opacity 0.15s; backdrop-filter: blur(2px);
+}
+.game-card:hover .drag-handle { opacity: 0.9; }
+.drag-handle:active { cursor: grabbing; }
+.game-card.is-draggable { user-select: none; }
+
+.game-card.dragging { opacity: 0.4; }
+.game-card.drag-over-before { box-shadow: inset 3px 0 0 0 var(--accent); }
+.game-card.drag-over-after { box-shadow: inset -3px 0 0 0 var(--accent); }
+.view-list .game-card.drag-over-before, .view-compact .game-card.drag-over-before { box-shadow: inset 0 3px 0 0 var(--accent); }
+.view-list .game-card.drag-over-after, .view-compact .game-card.drag-over-after { box-shadow: inset 0 -3px 0 0 var(--accent); }
+
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--border);
