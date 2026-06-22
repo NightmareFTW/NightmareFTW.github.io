@@ -1,0 +1,31 @@
+name: Update Honkai Star Rail tier list
+
+on:
+  schedule:
+    - cron: "30 7 * * 1"   # weekly, Monday 07:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-hsr-tierlist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape HSR tier list
+        run: node scripts/update-hsr-tierlist.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/honkai-star-rail)" ]; then
+            git add data/honkai-star-rail
+            git commit -m "chore: auto-update Honkai Star Rail tier list"
+            git push
+          else
+            echo "No tier list changes."
+          fi

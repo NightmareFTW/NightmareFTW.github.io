@@ -391,9 +391,9 @@ const GAMES = [
         id: "tier-list",
         name: "Tier List",
         type: "tier list",
-        desc: "Live character rankings with portraits and names, kept current from a maintained source.",
+        desc: "Live character rankings with portraits and names, auto-scraped from Game8 so it tracks the live patch.",
         href: "games/honkai-star-rail/tier-list.html",
-        available: false,
+        available: true,
       },
       {
         id: "meta-builds",

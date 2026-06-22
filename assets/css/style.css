@@ -736,7 +736,10 @@ body {
   display: grid; place-items: center;
   font-family: var(--mono); font-weight: 800; font-size: 1.6rem;
 }
+.tier-SS { background: linear-gradient(135deg, rgba(255,196,80,.26), rgba(155,140,255,.26)); color: #ffd27a; font-size: 1.25rem; }
 .tier-S { background: rgba(255,36,53,.28); color: #ff5b66; }
+.char-portrait.no-img { display: grid; place-items: center; }
+.char-portrait.no-img::after { content: "?"; color: var(--muted); font-weight: 700; }
 .tier-A { background: rgba(255,100,70,.2); color: #ff8a5b; }
 .tier-B { background: rgba(210,170,60,.16); color: #d8b65a; }
 .tier-C { background: rgba(156,138,140,.16); color: var(--muted); }
