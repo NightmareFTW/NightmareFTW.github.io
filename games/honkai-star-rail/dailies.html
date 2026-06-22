@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily / Weekly Checklist · Honkai: Star Rail · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="honkai-star-rail">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Honkai: Star Rail</a> / dailies</p>
+    <h1>Daily / Weekly Checklist</h1>
+    <p class="tool-sub">Trailblaze Power, Daily Training and the weekly endgame, auto-resetting on your server's 04:00 clock. Saved on this device. (The 6-week rotation — Memory of Chaos, Pure Fiction, Apocalyptic Shadow — is noted but not on a weekly reset.)</p>
+
+    <div class="list-controls">
+      <label class="hsr-server-label">Server&nbsp;
+        <select id="hsr-server" class="sort-select">
+          <option value="8">Asia (UTC+8)</option>
+          <option value="-5">America (UTC−5)</option>
+          <option value="1">Europe (UTC+1)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="checklist-wrap" id="checklist-root"></div>
+    <div class="controls"><button class="btn" id="reset-all">⟳ Clear all</button></div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · Honkai: Star Rail.</span></div></footer>
+  <script>
+    // Server selector → stored UTC offset, read by checklist.js for the HSR reset.
+    (function () {
+      const sel = document.getElementById("hsr-server");
+      const stored = localStorage.getItem("nftw:hsr:server");
+      if (stored !== null) sel.value = stored;
+      else localStorage.setItem("nftw:hsr:server", sel.value);
+      sel.addEventListener("change", () => {
+        localStorage.setItem("nftw:hsr:server", sel.value);
+        location.reload();
+      });
+    })();
+
+    window.CHECKLIST = {
+      id: "hsr-dailies",
+      sections: [
+        { id: "daily", title: "Daily", reset: "hsr-daily", items: [
+          "Claim the daily login / Travel Log reward",
+          "Complete Daily Training to 500 Activity and claim every tier",
+          "Spend Trailblaze Power before it caps (240)",
+          "Collect & redeploy Assignments",
+          "Do the daily Nameless Honor (Battle Pass) tasks",
+        ]},
+        { id: "weekly", title: "Weekly", reset: "hsr-weekly", items: [
+          "Simulated Universe — clear for weekly points (Immersifiers / Nameless Glory)",
+          "Echo of War — 3 weekly clears for rewards",
+          "Divergent Universe — weekly run",
+          "Weekly Nameless Honor (Battle Pass) tasks",
+          "Spend extra Trailblaze Power on Garden of Plenty (2× material drops)",
+        ]},
+      ],
+    };
+  </script>
+  <script src="../../assets/js/checklist.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

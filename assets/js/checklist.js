@@ -20,6 +20,13 @@
 
   const KEY = `nftw:checklist:${cfg.id}`;
 
+  // Honkai: Star Rail resets at 04:00 local server time. The page stores the
+  // chosen server's UTC offset (Asia +8, America -5, Europe +1) so the daily
+  // reset lands at (4 - offset) UTC hours and the weekly anchors to Monday 04:00.
+  const hsrOffset = () => { const v = parseFloat(localStorage.getItem("nftw:hsr:server")); return isNaN(v) ? 8 : v; };
+  const hsrDailyHourUTC = () => 4 - hsrOffset();                 // UTC hour of the daily reset (may be <0 or >24)
+  const hsrWeeklyEpoch = () => Date.UTC(2024, 0, 1, 0, 0, 0) + (4 - hsrOffset()) * 36e5; // a Monday 04:00 server time
+
   function periodKey(reset) {
     const now = Date.now();
     if (!reset) return "static";
@@ -32,6 +39,8 @@
       const epoch = Date.UTC(2024, 0, 2, 8, 0, 0); // a known Tuesday 08:00 UTC
       return String(Math.floor((now - epoch) / (7 * 864e5)));
     }
+    if (reset === "hsr-daily") return String(Math.floor((now - hsrDailyHourUTC() * 36e5) / 864e5));
+    if (reset === "hsr-weekly") return String(Math.floor((now - hsrWeeklyEpoch()) / (7 * 864e5)));
     return "static";
   }
 
@@ -46,6 +55,14 @@
       next = (period + 1) * 864e5 + 15 * 36e5;
     } else if (reset === "ffxiv-weekly") {
       const epoch = Date.UTC(2024, 0, 2, 8, 0, 0);
+      const period = Math.floor((now - epoch) / (7 * 864e5));
+      next = epoch + (period + 1) * 7 * 864e5;
+    } else if (reset === "hsr-daily") {
+      const off = hsrDailyHourUTC() * 36e5;
+      const period = Math.floor((now - off) / 864e5);
+      next = (period + 1) * 864e5 + off;
+    } else if (reset === "hsr-weekly") {
+      const epoch = hsrWeeklyEpoch();
       const period = Math.floor((now - epoch) / (7 * 864e5));
       next = epoch + (period + 1) * 7 * 864e5;
     } else return null;

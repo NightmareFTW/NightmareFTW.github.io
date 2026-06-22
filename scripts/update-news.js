@@ -29,6 +29,7 @@ const QUERIES = {
   "god-of-war-ragnarok": "God of War Ragnarok game",
   "expedition-33": "Clair Obscur Expedition 33 game",
   "elden-ring": "Elden Ring game",
+  "honkai-star-rail": "Honkai Star Rail game",
 };
 
 // Steam appids for the games that publish dev news on Steam (Epic Seven is
