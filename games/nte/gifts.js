@@ -11,7 +11,7 @@
 // of a character's favourites for the day.
 const UNIVERSAL = [
   { item: "A Handwritten Letter", aff: 2000, cost: null, where: "Warp Exchange Circle Bounty reward" },
-  { item: "Fluffy Cotton Wool", aff: 400, cost: null, where: "Free — event / exploration reward" },
+  { item: "Floe Cinema Ticket", aff: 400, cost: null, where: "Universal gift — event / exploration reward" },
 ];
 
 // character -> top gifts [{ item, aff, cost (Fons, null = not buyable), where }]
@@ -47,7 +47,7 @@ const GIFTS = {
   "Esper Zero": [
     { item: "A Handwritten Letter", aff: 2000, cost: null, where: "Warp Exchange Circle Bounty reward" },
     { item: "Promise", aff: 400, cost: 10000, where: "Oops! Chest Gift Shop" },
-    { item: "Fluffy Cotton Wool", aff: 400, cost: null, where: "Free — event / exploration reward" },
+    { item: "Floe Cinema Ticket", aff: 400, cost: null, where: "Universal gift — event / exploration reward" },
     { item: "Fantasia", aff: 200, cost: 3000, where: "Hillside Blooms Florist" },
     { item: "Chill Out", aff: 200, cost: 4000, where: "Moby-Dick Bookstore" },
   ],
@@ -126,7 +126,7 @@ const GIFTS = {
     { item: "Bob's Tea Garden", aff: 100, cost: 300, where: "Convenience stores" },
     { item: "A Handwritten Letter", aff: 2000, cost: null, where: "Warp Exchange Circle Bounty reward" },
     { item: "Promise", aff: 400, cost: 10000, where: "Oops! Chest Gift Shop" },
-    { item: "Fluffy Cotton Wool", aff: 400, cost: null, where: "Free — event / exploration reward" },
+    { item: "Floe Cinema Ticket", aff: 400, cost: null, where: "Universal gift — event / exploration reward" },
   ],
   Aurelia: [
     { item: "Ambient Night Light", aff: 400, cost: 18000, where: "Brown Electronics Store" },
@@ -196,18 +196,55 @@ function showGifts(name) {
   detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
+// ---- Pin the characters you're actively raising (heart). You can give 10
+// gifts a day, max 3 per character, so you can focus at most 4 (3·3 + 1). ----
+const PINKEY = "nftw:nte:bondpins";
+const MAX_PINS = 4;
+let pins = (() => { try { return new Set(JSON.parse(localStorage.getItem(PINKEY) || "[]").filter((n) => GIFTS[n])); } catch { return new Set(); } })();
+const savePins = () => localStorage.setItem(PINKEY, JSON.stringify([...pins]));
+const pinnedEl = document.getElementById("gift-pinned");
+const pinMsg = document.getElementById("pin-msg");
+
+function charCard(name) {
+  const best = GIFTS[name][0];
+  const on = pins.has(name);
+  return `<button class="char-card ${on ? "is-pinned" : ""}" data-char="${name}">
+    <span class="bond-pin ${on ? "on" : ""}" data-pin="${name}" role="button" tabindex="0" aria-label="${on ? "Unpin" : "Pin — raising now"}" title="${on ? "Unpin" : "Pin — raising now"}">${on ? "♥" : "♡"}</span>
+    <span class="char-portrait"><img src="${portrait(name)}" alt="${name}" loading="lazy"></span>
+    <span class="char-name">${name}</span>
+    <span class="gift-best">${giftKind(best.where).icon} ${best.item}</span>
+    <span class="gift-best-aff">+${best.aff}</span>
+  </button>`;
+}
+
+function flashCap() {
+  if (!pinMsg) return;
+  pinMsg.textContent = `You can pin up to ${MAX_PINS} characters — that's the most you can gift in a day (10 gifts, max 3 per character).`;
+  pinMsg.classList.add("show");
+  clearTimeout(flashCap.t); flashCap.t = setTimeout(() => pinMsg.classList.remove("show"), 3500);
+}
+
+function wire(container) {
+  container.querySelectorAll("[data-char]").forEach((b) => b.addEventListener("click", () => showGifts(b.dataset.char)));
+  container.querySelectorAll("[data-pin]").forEach((h) => h.addEventListener("click", (e) => {
+    e.preventDefault(); e.stopPropagation();
+    const n = h.dataset.pin;
+    if (pins.has(n)) pins.delete(n);
+    else if (pins.size >= MAX_PINS) { flashCap(); return; }
+    else pins.add(n);
+    savePins(); render();
+  }));
+}
+
 function render() {
-  root.innerHTML = ORDER.filter((n) => GIFTS[n]).map((name) => {
-    const best = GIFTS[name][0];
-    return `<button class="char-card" data-char="${name}">
-      <span class="char-portrait"><img src="${portrait(name)}" alt="${name}" loading="lazy"></span>
-      <span class="char-name">${name}</span>
-      <span class="gift-best">${giftKind(best.where).icon} ${best.item}</span>
-      <span class="gift-best-aff">+${best.aff}</span>
-    </button>`;
-  }).join("");
-  root.querySelectorAll("[data-char]").forEach((b) =>
-    b.addEventListener("click", () => showGifts(b.dataset.char)));
+  if (pinnedEl) {
+    const ps = ORDER.filter((n) => pins.has(n) && GIFTS[n]);
+    pinnedEl.innerHTML = ps.length
+      ? `<div class="pinned-head"><h2><span class="pin-heart">♥</span> Raising now</h2><span class="pinned-count">${ps.length}/${MAX_PINS}</span></div><div class="char-grid">${ps.map(charCard).join("")}</div>`
+      : `<p class="pinned-empty">Tap the ♡ on a character to track who you're raising — up to ${MAX_PINS} a day (10 gifts ÷ 3 per character).</p>`;
+  }
+  root.innerHTML = ORDER.filter((n) => GIFTS[n]).map(charCard).join("");
+  wire(root); if (pinnedEl) wire(pinnedEl);
 }
 
 // Render the universal-gifts banner.

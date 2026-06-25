@@ -745,6 +745,7 @@ body {
 .tier-C { background: rgba(156,138,140,.16); color: var(--muted); }
 .tier-chars { display: flex; flex-wrap: wrap; gap: 10px; flex: 1; }
 .char-card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -781,6 +782,25 @@ body {
 .role-Survival { background: rgba(80,160,180,.16); color: #6cc; }
 .char-link { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
 .char-card:hover .char-link { color: var(--accent); }
+
+/* Bond Gift Planner — pin (heart) + "Raising now" section */
+.bond-pin { position: absolute; top: 6px; right: 6px; z-index: 3; width: 26px; height: 26px; display: grid; place-items: center;
+  border-radius: 8px; cursor: pointer; font-size: 1rem; line-height: 1; color: var(--muted);
+  background: rgba(8,8,12,.55); border: 1px solid rgba(255,255,255,.14); transition: .15s; }
+.bond-pin:hover { color: #ff5b80; transform: scale(1.12); background: rgba(8,8,12,.8); }
+.bond-pin.on { color: #ff4f7e; border-color: rgba(255,79,126,.55); background: rgba(60,12,28,.7); opacity: 1; }
+.char-card.is-pinned { border-color: rgba(255,79,126,.5); box-shadow: 0 0 0 1px rgba(255,79,126,.18); }
+.gift-pinned { margin: 6px 0 4px; }
+.gift-pinned:empty { display: none; }
+.pinned-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+.pinned-head h2 { font-size: 1.05rem; margin: 0; }
+.pin-heart { color: #ff4f7e; }
+.pinned-count { font-family: var(--mono); font-size: 0.8rem; color: #ff7da0; }
+.pinned-empty { font-size: 0.85rem; color: var(--muted); background: var(--bg-soft); border: 1px dashed var(--border);
+  border-radius: 10px; padding: 11px 14px; margin: 6px 0 4px; }
+.pin-msg { max-height: 0; overflow: hidden; opacity: 0; transition: .25s; font-size: 0.84rem; color: #ff8aa6;
+  border-left: 3px solid #ff4f7e; padding-left: 0; }
+.pin-msg.show { max-height: 60px; opacity: 1; padding: 8px 0 8px 12px; margin: 4px 0 10px; }
 
 /* ---- NTE bond gift planner ---- */
 .char-grid { display: flex; flex-wrap: wrap; gap: 12px; }
