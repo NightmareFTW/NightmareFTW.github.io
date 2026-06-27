@@ -1,0 +1,31 @@
+name: Update Honkai Star Rail event calendar
+
+on:
+  schedule:
+    - cron: "5 8 * * *"   # daily, 08:05 UTC (events change often)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-hsr-events:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape HSR events (Game8)
+        run: node scripts/update-hsr-events.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/honkai-star-rail/events.json)" ]; then
+            git add data/honkai-star-rail/events.json
+            git commit -m "chore: auto-update HSR event calendar"
+            git push
+          else
+            echo "No event changes."
+          fi

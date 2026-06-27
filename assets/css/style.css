@@ -1920,3 +1920,25 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .wc-b-upcoming { background: rgba(255,36,53,.16); color: #ff8a82; }
 .wc-b-past { background: var(--bg-soft); color: var(--muted); }
 @media (max-width: 560px) { .wc-banners { grid-template-columns: 1fr; } }
+
+/* HSR — Event Calendar (timeline) */
+.ev-gantt { position: relative; padding: 8px 4px 4px; }
+.ev-axis { position: relative; height: 20px; margin-bottom: 8px; }
+.ev-tick { position: absolute; top: 0; bottom: -9999px; border-left: 1px solid var(--border); }
+.ev-tick span { position: absolute; top: 0; left: 4px; font-family: var(--mono); font-size: 0.62rem; color: var(--muted); white-space: nowrap; }
+.ev-today-line { position: absolute; top: 20px; bottom: 6px; border-left: 2px dotted var(--accent); pointer-events: none; z-index: 3; }
+.ev-axis .ev-today { position: absolute; top: 0; transform: translateX(-50%); }
+.ev-axis .ev-today span { font-family: var(--mono); font-size: 0.6rem; color: var(--accent); background: var(--bg); padding: 0 4px; border-radius: 4px; }
+.ev-row { margin-bottom: 14px; }
+.ev-head { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; flex-wrap: wrap; }
+.ev-name { font-weight: 700; font-size: 0.94rem; }
+.ev-when { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.ev-head .wc-badge { margin-left: auto; }
+.ev-track { position: relative; height: 26px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+.ev-bar { position: absolute; top: 3px; bottom: 3px; border-radius: 5px; min-width: 8px; display: flex; align-items: center; padding: 0 8px; overflow: hidden; }
+.ev-bar.ev-live { background: linear-gradient(90deg, rgba(91,214,160,.85), rgba(91,214,160,.55)); }
+.ev-bar.ev-upcoming { background: linear-gradient(90deg, rgba(255,90,90,.8), rgba(255,90,90,.5)); }
+.ev-bar.ev-past { background: rgba(255,255,255,.1); }
+.ev-bar-note { font-size: 0.68rem; color: #06121a; font-weight: 600; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.ev-bar.ev-past .ev-bar-note { color: var(--muted); }
+@media (max-width: 560px) { .ev-when { display: none; } }
