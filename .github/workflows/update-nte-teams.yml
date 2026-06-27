@@ -1,0 +1,31 @@
+name: Update Neverness to Everness teams
+
+on:
+  schedule:
+    - cron: "45 7 * * 1"   # weekly, Monday 07:45 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-nte-teams:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape NTE team comps (Prydwen)
+        run: node scripts/update-nte-teams.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/nte)" ]; then
+            git add data/nte
+            git commit -m "chore: auto-update NTE team comps"
+            git push
+          else
+            echo "No team changes."
+          fi

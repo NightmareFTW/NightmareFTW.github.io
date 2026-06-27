@@ -52,20 +52,35 @@ const detail = document.getElementById("build-detail");
 
 const portrait = (name) => `../../assets/img/nte/${name.toLowerCase().replace(/ /g, "-")}.png`;
 
-// One labelled team line: the character (carry, highlighted) + 3 teammates you
-// can click to jump to.
-function teamBlock(label, carry, members, isMeta) {
-  const chips = `<span class="ev-chip team-carry">${carry}</span>` +
-    members.map((t) => `<span class="ev-chip" data-jump="${t}">${t}</span>`).join("");
-  return `<div class="team-line ${isMeta ? "team-meta" : ""}">
+// Player-tested team comps scraped from each character's Prydwen page
+// (data/nte/teams.json). Populated on load; falls back to the Game8 meta team.
+let PRYDWEN_TEAMS = {};
+
+// One labelled team line: the current character is highlighted, the other
+// members are clickable chips that jump to their own build.
+function teamBlock(label, members, current) {
+  const chips = members.map((t) =>
+    t === current
+      ? `<span class="ev-chip team-carry">${t}</span>`
+      : `<span class="ev-chip" data-jump="${t}">${t}</span>`).join("");
+  return `<div class="team-line">
     <span class="team-label">${label}</span>
     <div class="bd-team">${chips}</div>
   </div>`;
 }
 
+// Teams to show for a character: Prydwen's named comps if we have them,
+// otherwise the single Game8 meta team as a labelled fallback.
+function teamsFor(c) {
+  const py = PRYDWEN_TEAMS[c.name];
+  if (py && py.length) return py;
+  return [{ label: "Recommended team", team: [c.name, ...c.team] }];
+}
+
 function showBuild(name) {
   const c = CHARACTERS.find((x) => x.name === name);
   if (!c) return;
+  detail.dataset.char = name;
   detail.style.display = "block";
   detail.innerHTML = `
     <div class="bd-head">
@@ -86,13 +101,13 @@ function showBuild(name) {
       <div class="bd-item"><span class="bd-label">Best Cartridge</span><b>${c.cart}</b></div>
       <div class="bd-item bd-wide"><span class="bd-label">Stat priority</span><b>${STAT_HINT[c.role]}</b></div>
       <div class="bd-item bd-wide bd-teams">
-        ${teamBlock("Recommended team", c.name, c.team, true)}
-        <a class="team-source-link" href="https://www.prydwen.gg/neverness-to-everness/characters/${c.name.toLowerCase().replace(/ /g, "-")}" target="_blank" rel="noopener">More tested team variations (incl. budget options) on Prydwen ↗</a>
-        <span class="bd-team-hint">Tap a teammate to jump to their build.</span>
+        <span class="bd-label">Recommended teams</span>
+        ${teamsFor(c).map((t) => teamBlock(t.label, t.team, c.name)).join("")}
+        <span class="bd-team-hint">Player-tested comps — pick the one whose characters you own. Tap a teammate to jump to their build.</span>
       </div>
       ${c.note ? `<div class="bd-item bd-wide"><span class="bd-label">Notes</span><span class="bd-note">${c.note}</span></div>` : ""}
     </div>
-    <p class="bd-credit">Builds &amp; tier compiled from Game8. Open the Prydwen link above for player-tested team variations.</p>`;
+    <p class="bd-credit">Builds &amp; tier compiled from Game8; team comps from Prydwen (player-tested).</p>`;
 
   detail.querySelector("#bd-close").addEventListener("click", () => { detail.style.display = "none"; });
   detail.querySelectorAll("[data-jump]").forEach((el) =>
@@ -128,3 +143,13 @@ document.querySelectorAll(".filter-btn").forEach((b) =>
   }));
 
 render();
+
+// Load Prydwen team comps; if a build is already open, re-render it with them.
+fetch(`../../data/nte/teams.json?cb=${Date.now()}`)
+  .then((r) => (r.ok ? r.json() : null))
+  .then((d) => {
+    if (!d || !d.teams) return;
+    PRYDWEN_TEAMS = d.teams;
+    if (detail.dataset.char) showBuild(detail.dataset.char);
+  })
+  .catch(() => {});

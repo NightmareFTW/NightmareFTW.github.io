@@ -858,20 +858,16 @@ body {
 .bd-team .ev-chip { cursor: pointer; }
 .bd-team .ev-chip:hover { background: rgba(255,36,53,.18); color: #ff8a82; }
 
-/* Meta team + alternatives */
-.bd-teams { display: flex; flex-direction: column; gap: 10px; }
-.team-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.team-label { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: .06em;
-  color: var(--muted); min-width: 116px; flex-shrink: 0; }
-.team-meta .team-label { color: var(--accent-2); }
-.team-meta { padding: 8px 10px; background: rgba(0,224,184,.06); border: 1px solid rgba(0,224,184,.22); border-radius: 9px; }
+/* Player-tested team comps (Prydwen) */
+.bd-teams { display: flex; flex-direction: column; gap: 8px; }
+.team-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 7px 10px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08); border-radius: 9px; }
+.team-label { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--accent-2); min-width: 120px; flex-shrink: 0; }
 .bd-team .ev-chip.team-carry { cursor: default; background: rgba(0,224,184,.16); border-color: rgba(0,224,184,.4);
   color: var(--accent-2); font-weight: 700; }
 .bd-team .ev-chip.team-carry:hover { background: rgba(0,224,184,.16); color: var(--accent-2); }
-.bd-team-hint { font-size: 0.78rem; color: var(--muted); line-height: 1.45; margin-top: 2px; }
-.team-source-link { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); text-decoration: none;
-  align-self: flex-start; border-bottom: 1px dashed rgba(0,224,184,.4); padding-bottom: 1px; }
-.team-source-link:hover { color: #fff; border-bottom-color: #fff; }
+.bd-team-hint { font-size: 0.78rem; color: var(--muted); line-height: 1.45; margin-top: 4px; }
 .bd-note { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
 .bd-credit { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 14px; }
 @media (max-width: 620px) { .bd-grid { grid-template-columns: 1fr; } }
