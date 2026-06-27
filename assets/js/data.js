@@ -415,9 +415,9 @@ const GAMES = [
         id: "warp-calendar",
         name: "Warp Calendar",
         type: "database",
-        desc: "Banner history — when each character released, who's up now and likely future reruns.",
+        desc: "Character banners — what's live now, what's coming next and recent history with dates, auto-updated.",
         href: "games/honkai-star-rail/warp-calendar.html",
-        available: false,
+        available: true,
       },
       {
         id: "event-calendar",

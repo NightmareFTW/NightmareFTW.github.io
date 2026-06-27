@@ -1,0 +1,31 @@
+name: Update Honkai Star Rail warp calendar
+
+on:
+  schedule:
+    - cron: "55 7 * * 1"   # weekly, Monday 07:55 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-hsr-banners:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape HSR warp banners (Game8)
+        run: node scripts/update-hsr-banners.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/honkai-star-rail/banners.json)" ]; then
+            git add data/honkai-star-rail/banners.json
+            git commit -m "chore: auto-update HSR warp calendar"
+            git push
+          else
+            echo "No banner changes."
+          fi

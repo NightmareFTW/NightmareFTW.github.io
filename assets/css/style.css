@@ -1899,3 +1899,24 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .hb-slot { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; font-size: 0.86rem; }
 .hb-slot b { display: block; font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase; color: var(--accent); letter-spacing: .05em; margin-bottom: 2px; }
 .hb-subs { display: block; margin-top: 5px; font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+
+/* HSR — Warp Calendar */
+.wc-version { margin-bottom: 26px; }
+.wc-vhead { font-family: var(--mono); font-size: 1.02rem; text-transform: uppercase; letter-spacing: .05em; margin: 0 0 12px; color: var(--accent); }
+.wc-banners { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.wc-banner { display: flex; align-items: center; gap: 12px; background: var(--card); border: 1px solid var(--border); border-radius: 11px; padding: 10px 12px; }
+.wc-banner.wc-live { border-color: rgba(91,214,160,.5); background: rgba(91,214,160,.06); box-shadow: 0 0 14px rgba(91,214,160,.12); }
+.wc-banner.wc-upcoming { border-color: rgba(255,36,53,.32); }
+.wc-banner.wc-past { opacity: .72; }
+.wc-pic { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--bg-soft); border: 1px solid var(--border); }
+.wc-pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wc-pic.no-img { display: grid; place-items: center; }
+.wc-pic.no-img::after { content: attr(data-init); color: var(--muted); font-weight: 800; font-family: var(--mono); }
+.wc-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.wc-char { font-weight: 700; font-size: 0.96rem; }
+.wc-dates { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.wc-badge { font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: .03em; padding: 3px 8px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+.wc-b-live { background: rgba(91,214,160,.18); color: #5bd6a0; }
+.wc-b-upcoming { background: rgba(255,36,53,.16); color: #ff8a82; }
+.wc-b-past { background: var(--bg-soft); color: var(--muted); }
+@media (max-width: 560px) { .wc-banners { grid-template-columns: 1fr; } }
