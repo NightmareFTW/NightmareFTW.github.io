@@ -399,9 +399,9 @@ const GAMES = [
         id: "meta-builds",
         name: "Meta Builds",
         type: "guide",
-        desc: "Current best builds and teams — relics, light cones and stats, updated to the live patch.",
+        desc: "Current best team comps for every DPS, by element — carry, supports and sustain roles, auto-updated to the live patch.",
         href: "games/honkai-star-rail/meta-builds.html",
-        available: false,
+        available: true,
       },
       {
         id: "builds",

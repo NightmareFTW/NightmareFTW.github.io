@@ -1,0 +1,31 @@
+name: Update Honkai Star Rail meta teams
+
+on:
+  schedule:
+    - cron: "40 7 * * 1"   # weekly, Monday 07:40 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-hsr-teams:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape HSR meta team comps (Game8)
+        run: node scripts/update-hsr-teams.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/honkai-star-rail/teams.json)" ]; then
+            git add data/honkai-star-rail/teams.json
+            git commit -m "chore: auto-update HSR meta team comps"
+            git push
+          else
+            echo "No team changes."
+          fi

@@ -1844,3 +1844,45 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .src-quest { background: rgba(80,160,180,.18); color: #6cc; }
 .src-craft { background: rgba(80,200,120,.16); color: #5bd6a0; }
 @media (max-width: 560px) { .variant-grid { grid-template-columns: 1fr; } }
+
+/* =========================================
+   Honkai: Star Rail — Meta Builds (team comps)
+   ========================================= */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter-btn { font-family: var(--mono); font-size: 0.76rem; padding: 5px 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--card); color: var(--muted); cursor: pointer; transition: border-color .15s, color .15s; }
+.filter-btn:hover { border-color: var(--accent); color: var(--text); }
+.mb-element { margin-bottom: 30px; }
+.mb-el-head { display: flex; align-items: center; gap: 9px; font-size: 1.05rem; margin: 0 0 14px;
+  font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+.el-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--muted); box-shadow: 0 0 10px currentColor; }
+.el-Quantum .el-dot { background: #b18cff; color: #b18cff; }
+.el-Lightning .el-dot { background: #cd7be0; color: #cd7be0; }
+.el-Fire .el-dot { background: #ff6b5a; color: #ff6b5a; }
+.el-Ice .el-dot { background: #6fd3f2; color: #6fd3f2; }
+.el-Wind .el-dot { background: #5fd39a; color: #5fd39a; }
+.el-Imaginary .el-dot { background: #f2d24a; color: #f2d24a; }
+.el-Physical .el-dot { background: #d3d8e0; color: #d3d8e0; }
+
+.dps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+.dps-block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.dps-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.dps-name { font-weight: 800; font-size: 1.02rem; }
+.dps-count { margin-left: auto; font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
+
+.team-comp { margin-top: 10px; }
+.comp-label { display: inline-block; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase;
+  letter-spacing: .04em; color: var(--accent-2, #00e0b8); margin-bottom: 6px; }
+.comp-members { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.comp-member { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  background: var(--bg-soft); border: 1px solid var(--border); border-radius: 9px; padding: 8px 4px; }
+.comp-member.is-carry { border-color: rgba(255,36,53,.4); background: rgba(255,36,53,.06); }
+.comp-portrait { width: 46px; height: 46px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  background: var(--bg-soft); border: 1px solid var(--border); }
+.comp-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.comp-portrait.no-img { display: grid; place-items: center; }
+.comp-portrait.no-img::after { content: "?"; color: var(--muted); font-weight: 700; }
+.dps-head .comp-portrait { width: 40px; height: 40px; }
+.comp-mname { font-size: 0.72rem; font-weight: 600; line-height: 1.2; }
+.comp-role { font-family: var(--mono); font-size: 0.58rem; padding: 1px 6px; border-radius: 999px; text-transform: uppercase; letter-spacing: .03em; }
+@media (max-width: 600px) { .dps-grid { grid-template-columns: 1fr; } }
