@@ -869,6 +869,9 @@ body {
   color: var(--accent-2); font-weight: 700; }
 .bd-team .ev-chip.team-carry:hover { background: rgba(0,224,184,.16); color: var(--accent-2); }
 .bd-team-hint { font-size: 0.78rem; color: var(--muted); line-height: 1.45; margin-top: 2px; }
+.team-source-link { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); text-decoration: none;
+  align-self: flex-start; border-bottom: 1px dashed rgba(0,224,184,.4); padding-bottom: 1px; }
+.team-source-link:hover { color: #fff; border-bottom-color: #fff; }
 .bd-note { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
 .bd-credit { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 14px; }
 @media (max-width: 620px) { .bd-grid { grid-template-columns: 1fr; } }
