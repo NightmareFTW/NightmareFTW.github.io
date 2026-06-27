@@ -1886,3 +1886,16 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .comp-mname { font-size: 0.72rem; font-weight: 600; line-height: 1.2; }
 .comp-role { font-family: var(--mono); font-size: 0.58rem; padding: 1px 6px; border-radius: 999px; text-transform: uppercase; letter-spacing: .03em; }
 @media (max-width: 600px) { .dps-grid { grid-template-columns: 1fr; } }
+
+/* HSR — Character Builds detail */
+.hb-build { border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-top: 12px; background: var(--bg-soft); }
+.hb-role { display: inline-block; margin-bottom: 10px; }
+.hb-gear { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.hb-item { display: flex; flex-direction: column; gap: 3px; background: var(--card); border: 1px solid var(--border); border-radius: 9px; padding: 9px 11px; }
+.hb-k { font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.hb-v { font-weight: 700; font-size: 0.92rem; line-height: 1.3; }
+.hb-stats { margin-top: 12px; }
+.hb-slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-top: 6px; }
+.hb-slot { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; font-size: 0.86rem; }
+.hb-slot b { display: block; font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase; color: var(--accent); letter-spacing: .05em; margin-bottom: 2px; }
+.hb-subs { display: block; margin-top: 5px; font-size: 0.88rem; color: var(--text); line-height: 1.5; }

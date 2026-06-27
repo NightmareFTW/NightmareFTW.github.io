@@ -407,9 +407,9 @@ const GAMES = [
         id: "builds",
         name: "Character Builds",
         type: "reference",
-        desc: "Per-character build references (relics, light cones, traces) linked to a maintained guide.",
+        desc: "Per-character builds — best Light Cone, relic set + ornament, main stats and substat priority, auto-updated to the live patch.",
         href: "games/honkai-star-rail/builds.html",
-        available: false,
+        available: true,
       },
       {
         id: "warp-calendar",
