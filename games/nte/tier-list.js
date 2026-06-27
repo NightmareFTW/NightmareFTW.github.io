@@ -44,6 +44,29 @@ const CHARACTERS = [
   { name: "Aurelia", tier: "C", role: "DPS", arc: "Stellar Veil", cart: "Devil's Blood: Curse", team: ["Sakiri", "Daffodil", "Haniel"] },
 ];
 
+// Two alternative team comps per character for when you're missing a meta unit.
+// Same archetype/roles as the meta team (first = swap a rarer support, second =
+// more budget-friendly). The meta team itself stays in each character's `team`.
+const ALT_TEAMS = {
+  Lacrimosa: [["Sakiri", "Adler", "Daffodil"], ["Haniel", "Adler", "Daffodil"]],
+  Hotori: [["Esper Zero", "Mint", "Jiuyuan"], ["Esper Zero", "Mint", "Skia"]],
+  Nanally: [["Haniel", "Jiuyuan", "Esper Zero"], ["Skia", "Adler", "Esper Zero"]],
+  Sakiri: [["Daffodil", "Adler", "Haniel"], ["Mint", "Esper Zero", "Adler"]],
+  "Esper Zero": [["Nanally", "Haniel", "Jiuyuan"], ["Mint", "Skia", "Adler"]],
+  Chiz: [["Hathor", "Sakiri", "Fadia"], ["Jiuyuan", "Adler", "Edgar"]],
+  Daffodil: [["Sakiri", "Adler", "Haniel"], ["Jiuyuan", "Adler", "Edgar"]],
+  Baicang: [["Daffodil", "Sakiri", "Fadia"], ["Jiuyuan", "Adler", "Edgar"]],
+  Jiuyuan: [["Nanally", "Haniel", "Esper Zero"], ["Mint", "Esper Zero", "Adler"]],
+  Hathor: [["Jiuyuan", "Sakiri", "Fadia"], ["Jiuyuan", "Adler", "Edgar"]],
+  Haniel: [["Lacrimosa", "Adler", "Daffodil"], ["Mint", "Esper Zero", "Adler"]],
+  Fadia: [["Lacrimosa", "Sakiri", "Daffodil"], ["Mint", "Esper Zero", "Adler"]],
+  Mint: [["Esper Zero", "Sakiri", "Haniel"], ["Esper Zero", "Skia", "Edgar"]],
+  Adler: [["Lacrimosa", "Haniel", "Daffodil"], ["Mint", "Esper Zero", "Daffodil"]],
+  Edgar: [["Lacrimosa", "Sakiri", "Daffodil"], ["Mint", "Esper Zero", "Adler"]],
+  Skia: [["Esper Zero", "Mint", "Adler"], ["Esper Zero", "Mint", "Edgar"]],
+  Aurelia: [["Haniel", "Adler", "Daffodil"], ["Jiuyuan", "Adler", "Edgar"]],
+};
+
 const TIER_ORDER = ["S", "A", "B", "C"];
 let role = "all";
 
@@ -51,6 +74,17 @@ const root = document.getElementById("tier-root");
 const detail = document.getElementById("build-detail");
 
 const portrait = (name) => `../../assets/img/nte/${name.toLowerCase().replace(/ /g, "-")}.png`;
+
+// One labelled team line: the character (carry, highlighted) + 3 teammates you
+// can click to jump to.
+function teamBlock(label, carry, members, isMeta) {
+  const chips = `<span class="ev-chip team-carry">${carry}</span>` +
+    members.map((t) => `<span class="ev-chip" data-jump="${t}">${t}</span>`).join("");
+  return `<div class="team-line ${isMeta ? "team-meta" : ""}">
+    <span class="team-label">${label}</span>
+    <div class="bd-team">${chips}</div>
+  </div>`;
+}
 
 function showBuild(name) {
   const c = CHARACTERS.find((x) => x.name === name);
@@ -74,8 +108,10 @@ function showBuild(name) {
       <div class="bd-item"><span class="bd-label">Best Arc</span><b>${c.arc}</b></div>
       <div class="bd-item"><span class="bd-label">Best Cartridge</span><b>${c.cart}</b></div>
       <div class="bd-item bd-wide"><span class="bd-label">Stat priority</span><b>${STAT_HINT[c.role]}</b></div>
-      <div class="bd-item bd-wide"><span class="bd-label">Recommended team</span>
-        <div class="bd-team">${c.team.map((t) => `<span class="ev-chip" data-jump="${t}">${t}</span>`).join("")}</div>
+      <div class="bd-item bd-wide bd-teams">
+        ${teamBlock("Recommended team", c.name, c.team, true)}
+        ${(ALT_TEAMS[c.name] || []).map((t, i) => teamBlock(`Alternative ${i + 1}`, c.name, t, false)).join("")}
+        <span class="bd-team-hint">Alternatives swap the rarer units — pick the one whose characters you own. Tap a name to jump to that character.</span>
       </div>
       ${c.note ? `<div class="bd-item bd-wide"><span class="bd-label">Notes</span><span class="bd-note">${c.note}</span></div>` : ""}
     </div>
