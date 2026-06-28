@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deck Importer · Marvel Snap · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="marvel-snap">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Marvel Snap</a> / deck importer</p>
+    <h1>Deck Importer</h1>
+    <p class="tool-sub">Found a build on <a href="https://snap.untapped.gg/meta/decks" target="_blank" rel="noopener" style="color:var(--accent)">Untapped</a> or <a href="https://marvelsnapzone.com/decks/" target="_blank" rel="noopener" style="color:var(--accent)">Marvel Snap Zone</a>? Hit their <b>Copy</b> button (or the in-game one) and paste the deck code below — it compiles the full deck here: every card, the energy curve and the archetype.</p>
+
+    <div class="di-input">
+      <textarea id="di-code" class="search-input di-textarea" rows="2" placeholder="Paste a deck code here (e.g. eyJDYXJkcyI6W3si…)" autocomplete="off"></textarea>
+      <div class="di-actions">
+        <button class="btn" id="di-go">Compile deck</button>
+        <button class="mini-btn" id="di-sample">Try a sample</button>
+      </div>
+      <p class="di-msg" id="di-msg"></p>
+    </div>
+
+    <div id="di-result"></div>
+    <p class="tool-note">Works with the standard Marvel Snap deck code (the same one the game and those sites copy). Cards are matched against our daily-updated database; if a brand-new card isn't recognised yet, it'll appear once the database refreshes.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · card data &amp; art via Marvel Snap Zone.</span></div></footer>
+  <script src="decks.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>
