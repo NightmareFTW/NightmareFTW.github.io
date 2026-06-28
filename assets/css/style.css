@@ -1942,3 +1942,40 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .ev-bar-note { font-size: 0.68rem; color: #06121a; font-weight: 600; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
 .ev-bar.ev-past .ev-bar-note { color: var(--muted); }
 @media (max-width: 560px) { .ev-when { display: none; } }
+
+/* =========================================
+   Far Far West — Meta Builds
+   ========================================= */
+.ffw-wsec { margin-bottom: 26px; }
+.ffw-whead { display: flex; align-items: center; gap: 9px; font-size: 1.05rem; margin: 0 0 14px;
+  font-family: var(--mono); text-transform: uppercase; letter-spacing: .04em; color: var(--accent); }
+.ffw-wcount { font-size: 0.7rem; color: var(--muted); background: var(--bg-soft); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; }
+.ffw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 12px; }
+.ffw-build { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 11px; }
+.ffw-bhead { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.ffw-btitle { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ffw-bname { font-weight: 800; font-size: 1rem; line-height: 1.2; }
+.ffw-bauthor { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+.ffw-bstats { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.ffw-votes { font-family: var(--mono); font-size: 0.78rem; font-weight: 800; color: #5bd6a0; }
+.ffw-lv { font-family: var(--mono); font-size: 0.64rem; color: var(--muted); }
+
+.ffw-loadout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.ffw-slot { display: flex; align-items: center; gap: 8px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 9px; padding: 7px 8px; min-width: 0; }
+.ffw-slot-txt { display: flex; flex-direction: column; min-width: 0; }
+.ffw-slot-txt b { font-size: 0.8rem; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ffw-k { font-family: var(--mono); font-size: 0.56rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.ffw-icon { width: 34px; height: 34px; border-radius: 7px; overflow: hidden; flex-shrink: 0; background: #0c0c12; border: 1px solid var(--border); display: grid; place-items: center; }
+.ffw-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.ffw-icon.no-img::after { content: attr(data-init); color: var(--muted); font-weight: 800; font-size: 0.8rem; font-family: var(--mono); }
+.ffw-icon-sm { width: 24px; height: 24px; border-radius: 6px; }
+
+.ffw-spells { display: flex; flex-direction: column; gap: 5px; }
+.ffw-spell-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.ffw-spell { display: inline-flex; align-items: center; gap: 5px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 999px; padding: 3px 9px 3px 3px; font-size: 0.76rem; }
+.ffw-extra { display: flex; flex-wrap: wrap; gap: 6px; }
+.ffw-tag { font-family: var(--mono); font-size: 0.66rem; padding: 3px 8px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--text); }
+.ffw-tag.ffw-gold { color: #d4a017; border-color: rgba(212,160,23,.3); }
+.ffw-tag.ffw-souls { color: #b482ff; border-color: rgba(180,130,255,.3); }
+.ffw-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.5; margin: 0; }
+@media (max-width: 560px) { .ffw-grid { grid-template-columns: 1fr; } }

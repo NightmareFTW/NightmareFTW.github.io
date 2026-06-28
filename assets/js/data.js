@@ -475,9 +475,9 @@ const GAMES = [
         id: "builds",
         name: "Meta Builds",
         type: "guide",
-        desc: "Top-rated builds by weapon type — full loadouts with item images.",
+        desc: "Top-rated community loadouts by weapon type — full kit with images, ordered by votes.",
         href: "games/far-far-west/builds.html",
-        available: false,
+        available: true,
       },
       {
         id: "maps",

@@ -1,0 +1,31 @@
+name: Update Far Far West builds
+
+on:
+  schedule:
+    - cron: "20 8 * * *"   # daily, 08:20 UTC (community votes shift)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ffw-builds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape Far Far West builds (wikily.gg)
+        run: node scripts/update-ffw-builds.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/far-far-west/builds.json)" ]; then
+            git add data/far-far-west/builds.json
+            git commit -m "chore: auto-update Far Far West builds"
+            git push
+          else
+            echo "No build changes."
+          fi
