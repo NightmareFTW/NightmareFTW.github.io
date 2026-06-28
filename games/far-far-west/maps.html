@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maps &amp; Collectibles · Far Far West · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="far-far-west">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Far Far West</a> / maps</p>
+    <h1>Maps &amp; Collectibles</h1>
+    <p class="tool-sub">Every region's interactive map with all collectibles, secrets, objectives, ore, loot and more plotted on it. Toggle a category in the legend to show or hide it. Data &amp; maps from <a href="https://farfarwest.wikily.gg/maps" target="_blank" rel="noopener" style="color:var(--accent)">wikily.gg</a>.</p>
+    <p class="codes-updated" id="fm-updated">Loading…</p>
+
+    <div class="filter-bar" id="fm-tabs"></div>
+    <div id="fm-root"><p style="color:var(--muted)">Loading maps…</p></div>
+    <p class="tool-note">Maps and point-of-interest data are auto-scraped from wikily.gg's interactive maps. Hover a marker for its name. The bulk pickups (ore, loot, pickups) are hidden by default — toggle them on in the legend. Marker positions are wikily's normalised coordinates.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · maps &amp; collectibles via wikily.gg.</span></div></footer>
+  <script src="maps.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

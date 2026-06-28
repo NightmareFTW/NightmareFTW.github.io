@@ -1,0 +1,31 @@
+name: Update Far Far West maps
+
+on:
+  schedule:
+    - cron: "30 8 * * 3"   # weekly, Wednesday 08:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ffw-maps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape Far Far West maps (wikily.gg)
+        run: node scripts/update-ffw-maps.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/far-far-west/maps.json)" ]; then
+            git add data/far-far-west/maps.json
+            git commit -m "chore: auto-update Far Far West maps"
+            git push
+          else
+            echo "No map changes."
+          fi

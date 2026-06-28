@@ -1979,3 +1979,23 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .ffw-tag.ffw-souls { color: #b482ff; border-color: rgba(180,130,255,.3); }
 .ffw-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.5; margin: 0; }
 @media (max-width: 560px) { .ffw-grid { grid-template-columns: 1fr; } }
+
+/* Far Far West — Maps & Collectibles (interactive map) */
+.fm-layout { display: grid; grid-template-columns: 1fr 230px; gap: 16px; align-items: start; }
+.fm-mapwrap { position: relative; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #0c0c12; line-height: 0; }
+.fm-terrain { width: 100%; height: auto; display: block; }
+.fm-markers { position: absolute; inset: 0; pointer-events: none; }
+.fm-dot { position: absolute; width: 11px; height: 11px; border-radius: 50%; transform: translate(-50%, -50%);
+  background: var(--c); border: 1.5px solid rgba(0,0,0,.65); box-shadow: 0 0 6px var(--c); pointer-events: auto; cursor: help; transition: transform .1s; }
+.fm-dot:hover { transform: translate(-50%, -50%) scale(1.7); z-index: 5; }
+.fm-legend { display: flex; flex-direction: column; gap: 5px; position: sticky; top: 14px; }
+.fm-legend-h { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 4px; }
+.fm-cat { display: flex; align-items: center; gap: 8px; padding: 6px 9px; border-radius: 8px; cursor: pointer;
+  background: var(--card); border: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; text-align: left; transition: all .12s; }
+.fm-cat:hover { border-color: var(--accent); }
+.fm-cat.on { color: var(--text); border-color: color-mix(in srgb, var(--c) 55%, var(--border)); background: color-mix(in srgb, var(--c) 9%, var(--card)); }
+.fm-cat em { margin-left: auto; font-style: normal; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); }
+.fm-swatch { width: 11px; height: 11px; border-radius: 50%; background: var(--c); flex-shrink: 0; box-shadow: 0 0 5px var(--c); opacity: .45; }
+.fm-cat.on .fm-swatch { opacity: 1; }
+.fm-all { margin-top: 6px; }
+@media (max-width: 680px) { .fm-layout { grid-template-columns: 1fr; } .fm-legend { position: static; flex-flow: row wrap; } .fm-cat { flex: 1 1 130px; } }
