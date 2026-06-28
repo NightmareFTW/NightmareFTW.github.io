@@ -24,6 +24,13 @@
 
     <section class="db-deck panel" id="db-deck"></section>
 
+    <div class="db-saverow">
+      <input type="text" id="db-name" class="search-input" placeholder="Name this deck to save it…" maxlength="40" autocomplete="off">
+      <button class="mini-btn" id="db-save">💾 Save deck</button>
+    </div>
+    <div id="db-saved" class="db-saved"></div>
+
+    <p class="tool-sub" style="margin:18px 0 10px">Drag a card onto the deck above, or tap it to add. Search and filter the pool below.</p>
     <div class="list-controls ms-controls">
       <input type="search" id="db-search" class="search-input" placeholder="Search card to add…" autocomplete="off">
       <div class="filter-bar" id="db-cost"></div>

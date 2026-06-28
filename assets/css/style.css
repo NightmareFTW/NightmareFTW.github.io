@@ -2093,6 +2093,19 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .ms-card.in-deck img { opacity: .55; }
 .db-check { position: absolute; inset: 0; display: grid; place-items: center; font-size: 1.6rem; color: #5bd6a0; text-shadow: 0 1px 4px #000; }
 @media (max-width: 700px) { .db-slots { grid-template-columns: repeat(6, 1fr); } }
+.db-deck.db-dragover { outline: 2px dashed var(--accent); outline-offset: 3px; }
+.ms-card[draggable="true"] { cursor: grab; }
+.db-saverow { display: flex; gap: 8px; margin: 14px 0 0; }
+.db-saverow .search-input { flex: 1; }
+.db-saved { margin-top: 12px; }
+.db-saved-h { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.db-saved-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.db-saved-item { display: flex; align-items: stretch; }
+.db-saved-load { font-family: var(--sans); font-size: 0.82rem; color: var(--text); background: var(--card); border: 1px solid var(--border);
+  border-right: none; border-radius: 8px 0 0 8px; padding: 5px 11px; cursor: pointer; }
+.db-saved-load:hover { border-color: var(--accent); }
+.db-saved-load span { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); margin-left: 5px; }
+.db-saved-del { border-radius: 0 8px 8px 0; padding: 5px 9px; }
 
 /* Marvel Snap — Deck Importer */
 .di-input { margin-bottom: 20px; }

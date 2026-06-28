@@ -17,7 +17,10 @@ function parseCode(code) {
   catch (e) { try { json = JSON.parse(code); } catch (e2) { return null; } }
   const arr = (json && (json.Cards || json.cards)) || [];
   const ids = arr.map((c) => c.CardDefId || c.cardDefId || c.defId).filter(Boolean);
-  return ids.length ? ids : null;
+  if (!ids.length) return null;
+  // Some exports include the deck name; grab it if present.
+  const name = (json.Name || json.name || json.DeckName || json.deckName || json.Title || "").toString().trim();
+  return { ids, name };
 }
 
 function archetype(cards) {
@@ -28,8 +31,9 @@ function archetype(cards) {
 }
 
 function compile(code) {
-  const ids = parseCode(code);
-  if (!ids) { msg.textContent = "Couldn't read that — paste a valid Marvel Snap deck code."; msg.className = "di-msg err"; out.innerHTML = ""; return; }
+  const parsed = parseCode(code);
+  if (!parsed) { msg.textContent = "Couldn't read that — paste a valid Marvel Snap deck code."; msg.className = "di-msg err"; out.innerHTML = ""; return; }
+  const { ids, name } = parsed;
   const cards = ids.map((id) => BY[id]).filter(Boolean);
   const unknown = ids.length - cards.length;
   cards.sort((a, b) => (a.cost - b.cost) || a.name.localeCompare(b.name));
@@ -43,9 +47,10 @@ function compile(code) {
 
   out.innerHTML = `<section class="panel di-deck">
     <div class="db-head">
-      <h2>Deck <span class="db-count ${cards.length === 12 ? "full" : ""}">${cards.length}/12</span>
+      <h2>${name ? esc(name) : "Deck"} <span class="db-count ${cards.length === 12 ? "full" : ""}">${cards.length}/12</span>
         ${arch.length ? `<span class="di-arch">${arch.map((a) => esc(a)).join(" · ")}</span>` : ""}</h2>
       <div class="db-actions">
+        <button class="mini-btn" id="di-save">💾 Save deck</button>
         <button class="mini-btn" id="di-copy">⧉ Copy code</button>
         <button class="mini-btn" id="di-edit">✎ Edit in Deck Builder</button>
       </div>
@@ -61,6 +66,16 @@ function compile(code) {
   out.querySelector("#di-edit").addEventListener("click", () => {
     try { localStorage.setItem("nftw:ms:deck", JSON.stringify(cards.map((c) => c.defid))); } catch (e) {}
     location.href = "deck-builder.html";
+  });
+  out.querySelector("#di-save").addEventListener("click", (e) => {
+    let dname = (name || "").trim() || prompt("Name this deck:", "Imported deck") || "";
+    dname = dname.trim(); if (!dname) return;
+    let list; try { list = JSON.parse(localStorage.getItem("nftw:ms:savedDecks")) || []; } catch (x) { list = []; }
+    const idx = list.findIndex((d) => d.name.toLowerCase() === dname.toLowerCase());
+    const entry = { name: dname, cards: cards.map((c) => c.defid), ts: Date.now() };
+    if (idx >= 0) list[idx] = entry; else list.unshift(entry);
+    try { localStorage.setItem("nftw:ms:savedDecks", JSON.stringify(list)); } catch (x) {}
+    e.target.textContent = "✓ Saved!"; setTimeout(() => (e.target.textContent = "💾 Save deck"), 1500);
   });
 }
 
