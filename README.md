@@ -29,8 +29,8 @@ headlines) and **Codes** (redeemable codes, kept fresh automatically).
 | **God of War Ragnarök** | Meta Builds (gear screen with Kratos in each set) · Missables Checklist |
 | **Clair Obscur: Expedition 33** | Meta Builds (in-game build screen — Weapon, Pictos, Luminas; meta team) · Missables Checklist |
 | **Elden Ring** | Meta Builds (buildtierlist-style, real item icons) · Missables Checklist (NPC questlines) |
+| **Far Far West** | Meta Builds (top-rated community loadouts by weapon, with images) · Maps & Collectibles (interactive region maps with every POI plotted) |
 | **Demonologist** | _Coming soon_ — Demon Evidence Checker · Demon Reference · Equipment Guide |
-| **Far Far West** | _Coming soon_ — Meta Builds (top-rated, by weapon) · Maps & Collectibles |
 
 <!-- ➕ New games go here. Each is one object in assets/js/data.js (see "Adding a game or tool"). -->
 
@@ -84,7 +84,6 @@ Newly added to the hub, tools in progress:
 | Game | Planned |
 | --- | --- |
 | ![Demonologist](assets/img/games/demonologist-header.jpg) | **Demonologist** — a Phasmophobia-style set: Demon Evidence Checker, Demon Reference and Equipment Guide. |
-| ![Far Far West](assets/img/games/far-far-west-header.jpg) | **Far Far West** — top-rated builds by weapon type (full loadouts with item images) and a per-map collectibles/sidequests/secrets database. |
 
 ---
 
@@ -113,6 +112,9 @@ without manual edits:
   (weekly, from Game8), plus the [event calendar](.github/workflows/update-hsr-events.yml) (daily, since events rotate fast).
 - **Neverness to Everness** — [`update-nte-teams.yml`](.github/workflows/update-nte-teams.yml)
   pulls each character's player-tested team comps from Prydwen weekly.
+- **Far Far West** — [`update-ffw-builds.yml`](.github/workflows/update-ffw-builds.yml) (daily) refreshes the
+  top-rated community loadouts, and [`update-ffw-maps.yml`](.github/workflows/update-ffw-maps.yml) (weekly)
+  rebuilds every region's collectible/secret map data — both from wikily.gg.
 - **Dreamlight Valley data** — [`update-ddv.yml`](.github/workflows/update-ddv.yml) rebuilds the
   recipes, items, furniture, clothing, animals and Star Path data, with official in-game PT-BR
   names from the game's localization files.
