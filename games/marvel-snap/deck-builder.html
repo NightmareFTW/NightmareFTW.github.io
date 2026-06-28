@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deck Builder · Marvel Snap · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="marvel-snap">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Marvel Snap</a> / deck builder</p>
+    <h1>Deck Builder</h1>
+    <p class="tool-sub">Tap cards to add them to your 12-card deck (no duplicates). See the energy curve, copy the in-game deck code, and your deck is saved on your device (and synced if you're signed in). Cards from <a href="https://marvelsnapzone.com/cards/" target="_blank" rel="noopener" style="color:var(--accent)">Marvel Snap Zone</a>.</p>
+
+    <section class="db-deck panel" id="db-deck"></section>
+
+    <div class="list-controls ms-controls">
+      <input type="search" id="db-search" class="search-input" placeholder="Search card to add…" autocomplete="off">
+      <div class="filter-bar" id="db-cost"></div>
+    </div>
+    <div class="filter-bar ms-filters" id="db-tags"></div>
+    <div id="db-pool" class="ms-grid"><p style="color:var(--muted)">Loading cards…</p></div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · card data &amp; art via Marvel Snap Zone.</span></div></footer>
+  <script src="deck-builder.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

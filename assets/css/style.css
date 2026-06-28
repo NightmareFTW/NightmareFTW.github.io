@@ -2073,3 +2073,23 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .ms-ability.ms-noability { color: var(--muted); }
 .ms-meta { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin: 12px 0 6px; }
 @media (max-width: 560px) { .ms-grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); } .ms-detail-grid { grid-template-columns: 1fr; } .ms-detail-art { max-width: 200px; margin: 0 auto; } }
+
+/* Marvel Snap — Deck Builder */
+.db-deck { margin-bottom: 22px; }
+.db-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.db-head h2 { margin: 0; display: flex; align-items: center; gap: 10px; }
+.db-count { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding: 2px 9px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); }
+.db-count.full { color: #5bd6a0; border-color: rgba(91,214,160,.4); }
+.db-actions { display: flex; gap: 8px; }
+.db-slots { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; }
+.db-slot { border-radius: 8px; }
+.db-empty { aspect-ratio: 2.5 / 3.5; background: var(--bg-soft); border: 1px dashed var(--border); cursor: default; }
+.db-curve { display: flex; align-items: flex-end; gap: 8px; margin-top: 16px; height: 70px; }
+.db-bar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; position: relative; }
+.db-barfill { width: 70%; min-height: 2px; background: linear-gradient(180deg, var(--accent), rgba(228,75,75,.5)); border-radius: 3px 3px 0 0; transition: height .2s; }
+.db-bar b { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); margin-top: 4px; }
+.db-bar em { position: absolute; top: -14px; font-style: normal; font-family: var(--mono); font-size: 0.66rem; color: var(--text); }
+.ms-card.in-deck { outline: 2px solid #5bd6a0; outline-offset: 1px; position: relative; }
+.ms-card.in-deck img { opacity: .55; }
+.db-check { position: absolute; inset: 0; display: grid; place-items: center; font-size: 1.6rem; color: #5bd6a0; text-shadow: 0 1px 4px #000; }
+@media (max-width: 700px) { .db-slots { grid-template-columns: repeat(6, 1fr); } }

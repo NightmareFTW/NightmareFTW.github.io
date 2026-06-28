@@ -511,7 +511,7 @@ const GAMES = [
         type: "tool",
         desc: "Build a 12-card deck by hand from the live card pool, see the curve and export the deck code.",
         href: "games/marvel-snap/deck-builder.html",
-        available: false,
+        available: true,
       },
       {
         id: "decks",
