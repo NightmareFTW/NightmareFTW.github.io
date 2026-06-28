@@ -443,7 +443,7 @@ const GAMES = [
         type: "checklist",
         desc: "Cross off evidence to narrow down the demon — like the in-game journal.",
         href: "games/demonologist/evidence.html",
-        available: false,
+        available: true,
       },
       {
         id: "demons",
@@ -451,7 +451,7 @@ const GAMES = [
         type: "reference",
         desc: "Every demon, its evidence combo, behaviour and hunt tells.",
         href: "games/demonologist/demons.html",
-        available: false,
+        available: true,
       },
       {
         id: "equipment",
@@ -459,7 +459,7 @@ const GAMES = [
         type: "guide",
         desc: "Every tool, how to use it and what it detects.",
         href: "games/demonologist/equipment.html",
-        available: false,
+        available: true,
       },
     ],
   },

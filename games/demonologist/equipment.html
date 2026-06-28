@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipment Guide · Demonologist · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="demonologist">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Demonologist</a> / equipment</p>
+    <h1>Equipment Guide</h1>
+    <p class="tool-sub">Every tool, what it does and which evidence it finds. Evidence tools are listed first. Data from the <a href="https://demonologist.fandom.com/wiki/Tools" target="_blank" rel="noopener" style="color:var(--accent)">Demonologist Wiki</a>.</p>
+    <p class="codes-updated" id="eq-updated">Loading…</p>
+
+    <div class="list-controls">
+      <input type="search" id="eq-search" class="search-input" placeholder="Search tool…" autocomplete="off">
+    </div>
+    <div id="eq-root"><p style="color:var(--muted)">Loading equipment…</p></div>
+    <p class="tool-note">Tool data is auto-scraped from the Demonologist Wiki. The "finds" badge marks which of the 7 evidence types a tool can detect; the rest are utility items.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · equipment data via the Demonologist Wiki.</span></div></footer>
+  <script src="equipment.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

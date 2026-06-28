@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demon Reference · Demonologist · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="demonologist">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Demonologist</a> / demon reference</p>
+    <h1>Demon Reference</h1>
+    <p class="tool-sub">Every demon, its three-evidence combo and its key strength &amp; weakness (how to identify and survive it). Filter by evidence or search. Data from the <a href="https://demonologist.fandom.com/wiki/Ghosts" target="_blank" rel="noopener" style="color:var(--accent)">Demonologist Wiki</a>.</p>
+    <p class="codes-updated" id="dr-updated">Loading…</p>
+
+    <div class="list-controls">
+      <div class="filter-bar" id="dr-evidence"></div>
+      <input type="search" id="dr-search" class="search-input" placeholder="Search demon…" autocomplete="off">
+    </div>
+    <div id="dr-root"><p style="color:var(--muted)">Loading demons…</p></div>
+    <p class="tool-note">Demon and evidence data are auto-scraped from the Demonologist Wiki. Each demon has exactly 3 evidence; the strength/weakness are the in-game tells for identifying and countering it.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · demon data via the Demonologist Wiki.</span></div></footer>
+  <script src="demons.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>
