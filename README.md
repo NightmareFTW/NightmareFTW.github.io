@@ -1,8 +1,8 @@
 # NightmareFTW · Gaming Tools Hub
 
 A growing hub of hand-built tools for the games I play — checklists, calculators,
-trackers, tier lists, drop tables and more. No frameworks, just vanilla
-HTML/CSS/JS, hosted on GitHub Pages.
+trackers, tier lists, drop tables, build guides and more. No frameworks, just
+vanilla HTML/CSS/JS, hosted on GitHub Pages.
 
 🔗 **Live:** https://nightmareftw.github.io/
 
@@ -24,15 +24,26 @@ headlines) and **Codes** (redeemable codes, kept fresh automatically).
 | **Warframe** | Worldstate Tracker · Cycle Timers · Drop Table |
 | **Disney Dreamlight Valley** | Star Path Tracker · Recipe Browser · Friendship Tracker · Items Database · Animal Guide |
 | **Neverness to Everness** | Daily Checklist · Tier List & Builds · Bond Gift Planner |
+| **Honkai: Star Rail** | Daily/Weekly Checklist · Tier List · Meta Builds (team comps) · Character Builds · Warp Calendar · Event Calendar |
 | **Cyberpunk 2077** | Meta Builds (in-game-style skill tree & cyberware body diagram) |
 | **God of War Ragnarök** | Meta Builds (gear screen with Kratos in each set) · Missables Checklist |
 | **Clair Obscur: Expedition 33** | Meta Builds (in-game build screen — Weapon, Pictos, Luminas; meta team) · Missables Checklist |
 | **Elden Ring** | Meta Builds (buildtierlist-style, real item icons) · Missables Checklist (NPC questlines) |
+| **Demonologist** | _Coming soon_ — Demon Evidence Checker · Demon Reference · Equipment Guide |
+| **Far Far West** | _Coming soon_ — Meta Builds (top-rated, by weapon) · Maps & Collectibles |
 
-A recurring theme in the newer guides: the build tools **recreate the game's own
-UI** so a build is impossible to misread — Cyberpunk's perk tree + cyberware body
-diagram, God of War's gear screen with Kratos wearing the set, Expedition 33's
-build screen, and Elden Ring's equipment grid with real item icons.
+<!-- ➕ New games go here. Each is one object in assets/js/data.js (see "Adding a game or tool"). -->
+
+Two recurring themes in the newer guides:
+
+- **The build tools recreate the game's own UI** so a build is impossible to
+  misread — Cyberpunk's perk tree + cyberware body diagram, God of War's gear
+  screen with Kratos wearing the set, Expedition 33's build screen, and Elden
+  Ring's equipment grid with real item icons.
+- **Live, sourced data over hand-typed lists** — tier lists, meta team comps,
+  per-character builds and banner/event calendars are scraped from reputable
+  community sites (Game8, Prydwen) and refreshed automatically, so they track
+  the live patch instead of going stale.
 
 The home page supports live search, sorting and grid / list / compact views, plus
 **pinning** favourite games to a section up top and **drag-to-reorder** for your
@@ -40,13 +51,21 @@ own default order (saved on your device).
 
 ### A few in action
 
+**Honkai: Star Rail — Meta Builds, Warp Calendar & Event Calendar** — the meta
+team comps grouped by element, a banner calendar with live/upcoming status, and
+an events timeline with a "today" marker — all scraped from Game8 and auto-updated.
+
+![Honkai Star Rail meta builds](assets/screenshots/hsr-meta-builds.png)
+![Honkai Star Rail warp calendar](assets/screenshots/hsr-warp-calendar.png)
+
 **Cyberpunk 2077 / God of War / Expedition 33 / Elden Ring — Meta Builds** — each
 recreates that game's build/gear UI: a circuit-style perk tree and 10-slot
 cyberware body diagram, a gear screen with Kratos wearing the set, the in-game
 Weapon/Pictos/Luminas screen, and a buildtierlist-style equipment grid with real
 item icons.
 
-**Neverness to Everness — Tier List & Builds** (rankings & builds compiled from Game8, shown on-site)
+**Neverness to Everness — Tier List & Builds** (rankings & builds from Game8;
+each character's player-tested team comps embedded from Prydwen)
 
 ![Neverness to Everness tier list](assets/screenshots/nte-tierlist.png)
 
@@ -58,6 +77,15 @@ item icons.
 
 ![Phasmophobia equipment guide](assets/screenshots/phasmo-equipment.png)
 
+### Coming soon
+
+Newly added to the hub, tools in progress:
+
+| Game | Planned |
+| --- | --- |
+| ![Demonologist](assets/img/games/demonologist-header.jpg) | **Demonologist** — a Phasmophobia-style set: Demon Evidence Checker, Demon Reference and Equipment Guide. |
+| ![Far Far West](assets/img/games/far-far-west-header.jpg) | **Far Far West** — top-rated builds by weapon type (full loadouts with item images) and a per-map collectibles/sidequests/secrets database. |
+
 ---
 
 ## Tech
@@ -67,7 +95,8 @@ item icons.
 - A single data file ([`assets/js/data.js`](assets/js/data.js)) drives the game grid
   and each game's tool list, so adding content is a one-file change.
 - Live data is pulled client-side where an API allows it (Warframe worldstate &
-  cycles via [warframestat.us](https://api.warframestat.us); news via Google News RSS).
+  cycles via [warframestat.us](https://api.warframestat.us); news via Google News RSS),
+  and from pre-scraped JSON in `data/<game>/` for everything else.
 
 ## Auto-updating data
 
@@ -75,14 +104,18 @@ Some data refreshes itself via scheduled GitHub Actions so the site stays curren
 without manual edits:
 
 - **News** — [`update-news.yml`](.github/workflows/update-news.yml) runs every 6 hours and
-  refreshes `data/news/*.json` from two sources merged newest-first: official **Steam dev
-  posts** (full body + image) and **Google News** headlines (resolved to the publisher and
-  enriched). Covers every game, including the single-player ones (Cyberpunk, God of War,
-  Expedition 33, Elden Ring). Fetched server-side, so the site loads it instantly with no
-  CORS proxy.
+  refreshes `data/news/*.json` from official **Steam dev posts** (full body + image) and
+  **Google News** headlines (resolved to the publisher), merged newest-first. Fetched
+  server-side, so the site loads it instantly with no CORS proxy.
+- **Honkai: Star Rail** — five scrapers keep HSR current to the live patch: the
+  [tier list](.github/workflows/update-hsr-tierlist.yml), [meta team comps](.github/workflows/update-hsr-teams.yml),
+  [per-character builds](.github/workflows/update-hsr-builds.yml) and [warp calendar](.github/workflows/update-hsr-banners.yml)
+  (weekly, from Game8), plus the [event calendar](.github/workflows/update-hsr-events.yml) (daily, since events rotate fast).
+- **Neverness to Everness** — [`update-nte-teams.yml`](.github/workflows/update-nte-teams.yml)
+  pulls each character's player-tested team comps from Prydwen weekly.
 - **Dreamlight Valley data** — [`update-ddv.yml`](.github/workflows/update-ddv.yml) rebuilds the
   recipes, items, furniture, clothing, animals and Star Path data, with official in-game PT-BR
-  names extracted from the game's localization files.
+  names from the game's localization files.
 - **Warframe drop table** — [`update-drops.yml`](.github/workflows/update-drops.yml) runs
   weekly and rebuilds `data/warframe/drops.json` from Digital Extremes' official drop
   tables (parsed by [WFCD](https://drops.warframestat.us)).
@@ -104,18 +137,19 @@ without manual edits:
 │   │   ├── i18n.js           # optional PT translation layer
 │   │   └── checklist.js      # reusable reset-aware checklist engine
 │   └── img/games/            # game banners (Steam key art) + generated art
-├── games/<game>/             # per-game page + its tool pages (+ build/missables data)
+├── games/<game>/             # per-game page + its tool pages (+ build/data files)
 ├── data/
 │   ├── codes/<game>.json     # redeem codes (curated)
 │   ├── news/<game>.json      # headlines (auto-updated)
-│   └── <game>/...            # per-game tool data (builds, missables, drops, DDV…)
-└── scripts/                  # Node updaters run by the Actions (news, drops, DDV)
+│   └── <game>/...            # per-game tool data (builds, tier lists, calendars, drops…)
+└── scripts/                  # Node updaters run by the Actions
 ```
 
 ## Adding a game or tool
 
-Everything is config-driven. To add a tool, append it to the relevant game's
-`tools` array in [`assets/js/data.js`](assets/js/data.js):
+Everything is config-driven. To add a **game**, append an object to the `GAMES`
+array in [`assets/js/data.js`](assets/js/data.js) with a `banner`, `color`, `blurb`
+and a `tools` array. To add a **tool**, append it to that game's `tools`:
 
 ```js
 {
@@ -129,7 +163,21 @@ Everything is config-driven. To add a tool, append it to the relevant game's
 ```
 
 Then create `games/<game>/my-tool.html`. The home grid and game page update
-themselves.
+themselves. Data-driven tools follow a pattern: a `scripts/update-*.js` scraper
+writes `data/<game>/*.json`, a `.github/workflows/update-*.yml` runs it on a
+schedule, and the tool's JS fetches the JSON with a cache-buster.
+
+## Screenshots
+
+Stored in `assets/screenshots/`. To refresh or add one, capture the tool and save
+it under the matching name. Current set (add/replace as the hub grows):
+
+- [x] `home.png` — home grid
+- [x] `nte-tierlist.png` — Neverness to Everness tier list
+- [x] `warframe-drops.png` — Warframe drop table
+- [x] `phasmo-equipment.png` — Phasmophobia equipment guide
+- [ ] `hsr-meta-builds.png` — Honkai: Star Rail meta builds
+- [ ] `hsr-warp-calendar.png` — Honkai: Star Rail warp calendar
 
 ## Credits
 
@@ -137,10 +185,11 @@ Game data and images belong to their respective owners and are used for referenc
 on this non-commercial personal fan site: Digital Extremes (Warframe, via WFCD),
 Smilegate (Epic Seven), Square Enix (FFXIV), Kinetic Games (Phasmophobia),
 Red Barrels (The Outlast Trials), Hotta Studio / Perfect World (Neverness to
-Everness), Gameloft (Disney Dreamlight Valley), CD Projekt Red (Cyberpunk 2077),
-Sony Interactive Entertainment / Santa Monica Studio (God of War Ragnarök),
-Sandfall Interactive / Kepler Interactive (Clair Obscur: Expedition 33), and
-FromSoftware / Bandai Namco (Elden Ring).
+Everness), HoYoverse (Honkai: Star Rail), Gameloft (Disney Dreamlight Valley),
+CD Projekt Red (Cyberpunk 2077), Sony Interactive Entertainment / Santa Monica
+Studio (God of War Ragnarök), Sandfall Interactive / Kepler Interactive (Clair
+Obscur: Expedition 33), FromSoftware / Bandai Namco (Elden Ring), Clock Wizard
+Games (Demonologist), and the Far Far West team.
 
 Image sources, all property of their publishers: game banners are official Steam
 store key art (Epic Seven's is from the Stove channel); Elden Ring item icons come
@@ -148,11 +197,13 @@ from the community [Elden Ring API](https://eldenring.fanapis.com); Expedition 3
 character portraits & Picto icons, Cyberpunk 2077 cyberware & weapon icons, and
 God of War armour renders come from their respective Fandom wikis.
 
-Build, favor and collectible data is curated and cross-checked against community
-guides — tier lists & builds for Neverness to Everness from
-[Game8](https://game8.co/games/Neverness-to-Everness); God of War Ragnarök and
-Expedition 33 missables/favors against [PowerPyx](https://www.powerpyx.com/) and
-Game8.
+Build, tier and meta data is sourced from community guides rather than invented:
+Honkai: Star Rail tier list, team comps, builds and banner/event calendars from
+[Game8](https://game8.co/games/Honkai-Star-Rail); Neverness to Everness tier &
+builds from [Game8](https://game8.co/games/Neverness-to-Everness) with player-tested
+team comps from [Prydwen](https://www.prydwen.gg/neverness-to-everness/); God of War
+Ragnarök and Expedition 33 missables/favors cross-checked against
+[PowerPyx](https://www.powerpyx.com/) and Game8.
 
 ---
 
