@@ -489,4 +489,38 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "marvel-snap",
+    name: "Marvel Snap",
+    banner: "assets/img/games/marvel-snap-header.jpg",
+    color: "#e44b4b",
+    glow: "rgba(228, 75, 75, 0.22)",
+    blurb: "Fast 3-lane collectible card game.",
+    tools: [
+      {
+        id: "cards",
+        name: "Card Database",
+        type: "database",
+        desc: "Every card with art — filter by cost, pool or archetype; click for full details. Refreshed daily.",
+        href: "games/marvel-snap/cards.html",
+        available: true,
+      },
+      {
+        id: "deck-builder",
+        name: "Deck Builder",
+        type: "tool",
+        desc: "Build a 12-card deck by hand from the live card pool, see the curve and export the deck code.",
+        href: "games/marvel-snap/deck-builder.html",
+        available: false,
+      },
+      {
+        id: "decks",
+        name: "Deck Search",
+        type: "database",
+        desc: "Search meta decks by card, name or archetype and view the full list compiled on-site.",
+        href: "games/marvel-snap/decks.html",
+        available: false,
+      },
+    ],
+  },
 ];

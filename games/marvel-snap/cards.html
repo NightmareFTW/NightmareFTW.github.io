@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Database · Marvel Snap · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="marvel-snap">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Marvel Snap</a> / cards</p>
+    <h1>Card Database</h1>
+    <p class="tool-sub">Every released card with art — filter by cost, pool or archetype, or search by name. Click a card for its full details. Data &amp; art from <a href="https://marvelsnapzone.com/cards/" target="_blank" rel="noopener" style="color:var(--accent)">Marvel Snap Zone</a>, refreshed daily.</p>
+    <p class="codes-updated" id="cd-updated">Loading…</p>
+
+    <div class="list-controls ms-controls">
+      <input type="search" id="cd-search" class="search-input" placeholder="Search card…" autocomplete="off">
+      <div class="filter-bar" id="cd-cost"></div>
+    </div>
+    <div class="filter-bar ms-filters" id="cd-tags"></div>
+
+    <div id="cd-root" class="ms-grid"><p style="color:var(--muted)">Loading cards…</p></div>
+    <div id="ms-detail"></div>
+    <p class="tool-note">Card art, stats and abilities are auto-scraped from Marvel Snap Zone's card API and refresh daily, so new cards and balance changes show up automatically.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · card data &amp; art via Marvel Snap Zone.</span></div></footer>
+  <script src="cards.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

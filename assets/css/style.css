@@ -2054,3 +2054,22 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .eq-badge.eq-util { background: var(--bg-soft); color: var(--muted); }
 .eq-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.5; margin: 0; }
 @media (max-width: 560px) { .dr-grid, .eq-grid { grid-template-columns: 1fr; } }
+
+/* Marvel Snap — Card Database */
+.ms-controls { align-items: center; }
+.ms-filters { margin: -8px 0 18px; }
+.ms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; }
+.ms-card { padding: 0; border: none; background: none; cursor: pointer; border-radius: 12px; line-height: 0; transition: transform .12s; }
+.ms-card img { width: 100%; height: auto; display: block; border-radius: 11px; }
+.ms-card:hover { transform: translateY(-4px) scale(1.03); z-index: 2; }
+.ms-modal { max-width: 560px; }
+.ms-detail-grid { display: grid; grid-template-columns: 200px 1fr; gap: 18px; align-items: start; }
+.ms-detail-art { width: 100%; height: auto; border-radius: 12px; }
+.ms-stats { display: flex; gap: 8px; margin: 8px 0 12px; }
+.ms-stat { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; padding: 3px 10px; border-radius: 7px; }
+.ms-cost { background: rgba(110,150,255,.18); color: #9ab4ff; }
+.ms-power { background: rgba(255,90,90,.18); color: #ff8a82; }
+.ms-ability { font-size: 0.95rem; line-height: 1.55; color: var(--text); margin: 0; }
+.ms-ability.ms-noability { color: var(--muted); }
+.ms-meta { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin: 12px 0 6px; }
+@media (max-width: 560px) { .ms-grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); } .ms-detail-grid { grid-template-columns: 1fr; } .ms-detail-art { max-width: 200px; margin: 0 auto; } }

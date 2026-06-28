@@ -1,0 +1,31 @@
+name: Update Marvel Snap cards
+
+on:
+  schedule:
+    - cron: "15 8 * * *"   # daily, 08:15 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-marvel-snap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape Marvel Snap cards (Marvel Snap Zone)
+        run: node scripts/update-marvel-snap.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/marvel-snap/cards.json)" ]; then
+            git add data/marvel-snap/cards.json
+            git commit -m "chore: auto-update Marvel Snap cards"
+            git push
+          else
+            echo "No card changes."
+          fi
