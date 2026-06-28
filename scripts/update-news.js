@@ -30,6 +30,8 @@ const QUERIES = {
   "expedition-33": "Clair Obscur Expedition 33 game",
   "elden-ring": "Elden Ring game",
   "honkai-star-rail": "Honkai Star Rail game",
+  demonologist: "Demonologist game",
+  "far-far-west": "Far Far West game",
 };
 
 // Steam appids for the games that publish dev news on Steam (Epic Seven is
@@ -45,6 +47,8 @@ const STEAM_APPIDS = {
   "god-of-war-ragnarok": 2322010,
   "expedition-33": 1903340,
   "elden-ring": 1245620,
+  demonologist: 1929610,
+  "far-far-west": 3124540,
 };
 
 // ---- text helpers -----------------------------------------------------------

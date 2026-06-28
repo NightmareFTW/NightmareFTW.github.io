@@ -37,16 +37,28 @@ function listBuilds(html) {
   return JSON.parse(rsc.slice(i, end + 1));
 }
 
-// Joker-rarity layout + weapon/hero stats from a build's detail page.
+// Named jokers per slot + weapon/hero stats from a build's detail page.
+const jokerName = (slug) => slug.replace(/^joker-/, "").split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 function detailOf(html) {
   const rsc = rscOf(html);
-  const jokers = balancedObj(rsc, '"jokers":{"primary"');
+  // Rarity composition per slot, plus the actual joker names in document order.
+  const rar = balancedObj(rsc, '"jokers":{"primary"');
+  const slugs = [...rsc.matchAll(/href":"\/jokers\/(joker-[a-z0-9-]+)"/g)].map((m) => m[1]);
+  let jokers = null;
+  if (rar && slugs.length) {
+    jokers = {}; let k = 0;
+    for (const slot of ["primary", "secondary", "hero"]) {
+      const n = (rar[slot] || []).length;
+      jokers[slot] = slugs.slice(k, k + n).map((s, i) => ({ name: jokerName(s), rarity: rar[slot][i] || "" }));
+      k += n;
+    }
+  }
   const wstats = (key) => {
     const w = balancedObj(rsc, `"${key}":{"label"`);
     return w && w.stats ? { label: w.label, element: w.element || null, dps: w.stats.dps, dmg: w.stats.effectiveDamage, mag: w.stats.effectiveMagazine, reload: w.stats.effectiveReloadTime, fireRate: w.stats.effectiveFireRate } : null;
   };
   const hero = balancedObj(rsc, '"hero":{"hp"');
-  return { jokers: jokers || null, stats: { primary: wstats("primary"), secondary: wstats("secondary"), hero: hero || null } };
+  return { jokers, stats: { primary: wstats("primary"), secondary: wstats("secondary"), hero: hero || null } };
 }
 
 function run() {

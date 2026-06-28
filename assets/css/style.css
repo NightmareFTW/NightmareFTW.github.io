@@ -2019,8 +2019,9 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .ffw-wrender.no-img::after { content: attr(data-init); color: var(--muted); font-weight: 800; font-family: var(--mono); }
 .ffw-wmeta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .ffw-wmeta b { font-size: 0.96rem; line-height: 1.15; }
-.ffw-jokers { display: flex; gap: 4px; flex-wrap: wrap; }
-.ffw-jk { width: 16px; height: 16px; border-radius: 4px; background: var(--c); border: 1px solid rgba(0,0,0,.5); box-shadow: 0 0 5px var(--c); }
+.ffw-jokers { display: flex; gap: 5px; flex-wrap: wrap; }
+.ffw-jk { font-family: var(--mono); font-size: 0.66rem; padding: 2px 8px; border-radius: 6px; line-height: 1.3;
+  color: var(--c); background: color-mix(in srgb, var(--c) 13%, var(--card)); border: 1px solid color-mix(in srgb, var(--c) 48%, var(--border)); }
 .ffw-stats { display: flex; flex-wrap: wrap; gap: 5px; }
 .ffw-statchip { font-family: var(--mono); font-size: 0.7rem; padding: 2px 7px; border-radius: 6px; background: var(--bg-soft); border: 1px solid var(--border); }
 .ffw-statchip em { font-style: normal; color: var(--muted); margin-right: 4px; }

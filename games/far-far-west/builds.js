@@ -38,7 +38,10 @@ function buildCard(b) {
 
 /* ---------- detail modal ---------- */
 const jokerRow = (arr) => !arr || !arr.length ? "" :
-  `<div class="ffw-jokers">${arr.map((r) => `<span class="ffw-jk" style="--c:${RARITY[r] || "#9aa0a6"}" title="${esc(r)} joker"></span>`).join("")}</div>`;
+  `<div class="ffw-jokers">${arr.map((j) => {
+    const name = typeof j === "string" ? j : j.name, rarity = typeof j === "string" ? j : j.rarity;
+    return `<span class="ffw-jk" style="--c:${RARITY[rarity] || "#9aa0a6"}" title="${esc(rarity)} joker">${esc(name)}</span>`;
+  }).join("")}</div>`;
 
 function weaponBlock(label, w, stats, jokers) {
   if (!w) return "";
