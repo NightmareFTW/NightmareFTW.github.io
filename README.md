@@ -58,6 +58,14 @@ an events timeline with a "today" marker — all scraped from Game8 and auto-upd
 ![Honkai Star Rail meta builds](assets/screenshots/hsr-meta-builds.png)
 ![Honkai Star Rail warp calendar](assets/screenshots/hsr-warp-calendar.png)
 
+**Far Far West — Meta Builds & Maps** — top-rated community loadouts by weapon
+(click any for the full kit: weapon stats, joker-rarity layout, spells, hero and
+mount, all imported from wikily.gg), and interactive region maps with every
+collectible, secret and objective plotted and toggleable by category.
+
+![Far Far West builds](assets/screenshots/ffw-builds.png)
+![Far Far West map](assets/screenshots/ffw-maps.png)
+
 **Cyberpunk 2077 / God of War / Expedition 33 / Elden Ring — Meta Builds** — each
 recreates that game's build/gear UI: a circuit-style perk tree and 10-slot
 cyberware body diagram, a gear screen with Kratos wearing the set, the in-game
@@ -180,6 +188,8 @@ it under the matching name. Current set (add/replace as the hub grows):
 - [x] `phasmo-equipment.png` — Phasmophobia equipment guide
 - [ ] `hsr-meta-builds.png` — Honkai: Star Rail meta builds
 - [ ] `hsr-warp-calendar.png` — Honkai: Star Rail warp calendar
+- [ ] `ffw-builds.png` — Far Far West builds (open a build's full detail)
+- [ ] `ffw-maps.png` — Far Far West interactive map with markers
 
 ## Credits
 
