@@ -32,6 +32,7 @@ const QUERIES = {
   "honkai-star-rail": "Honkai Star Rail game",
   demonologist: "Demonologist game",
   "far-far-west": "Far Far West game",
+  "marvel-snap": "Marvel Snap game",
 };
 
 // Steam appids for the games that publish dev news on Steam (Epic Seven is
@@ -49,6 +50,7 @@ const STEAM_APPIDS = {
   "elden-ring": 1245620,
   demonologist: 1929610,
   "far-far-west": 3124540,
+  "marvel-snap": 1997040,
 };
 
 // ---- text helpers -----------------------------------------------------------
