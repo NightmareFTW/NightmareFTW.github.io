@@ -16,7 +16,39 @@ const lsGet = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) || d;
 const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
 const save = () => lsSet(KEY, deck);
 const artCard = (c, cls, sub) => `<button class="ms-card ${cls}" data-defid="${esc(c.defid)}" draggable="true" title="${esc(c.name)}">
-  <img src="${esc(c.art)}" alt="${esc(c.name)}" loading="lazy" referrerpolicy="no-referrer">${sub || ""}</button>`;
+  <img src="${esc(c.art)}" alt="${esc(c.name)}" loading="lazy" referrerpolicy="no-referrer">${sub || ""}<span class="ms-view" data-view="${esc(c.defid)}" title="View card">🔍</span></button>`;
+
+function viewCard(id) {
+  const c = BY[id]; if (!c) return;
+  const inDeck = deck.includes(id), full = deck.length >= 12 && !inDeck;
+  const tags = (c.tags || []).map((t) => `<span class="ev-chip">${esc(t)}</span>`).join("");
+  const wrap = document.createElement("div"); wrap.className = "ffw-overlay ms-overlay";
+  wrap.innerHTML = `<div class="ffw-modal ms-modal" role="dialog" aria-modal="true">
+    <button class="mini-btn ffw-close" aria-label="Close">close ×</button>
+    <div class="ms-detail-grid">
+      <img class="ms-detail-art" src="${esc(c.art)}" alt="${esc(c.name)}" referrerpolicy="no-referrer">
+      <div>
+        <h2 class="ffw-mname">${esc(c.name)}</h2>
+        <div class="ms-stats"><span class="ms-stat ms-cost">${c.cost} Cost</span><span class="ms-stat ms-power">${c.power} Power</span></div>
+        ${c.ability ? `<p class="ms-ability">${esc(c.ability)}</p>` : `<p class="ms-ability ms-noability">No ability.</p>`}
+        ${tags ? `<div class="bd-team" style="margin:10px 0">${tags}</div>` : ""}
+        <p class="ms-meta">${esc(c.pool || "—")}</p>
+        <button class="btn ms-deck-toggle" ${full ? "disabled" : ""}>${inDeck ? "− Remove from deck" : full ? "Deck full (12/12)" : "+ Add to deck"}</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.appendChild(wrap); document.body.style.overflow = "hidden";
+  const close = () => { wrap.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", onKey); };
+  const onKey = (e) => { if (e.key === "Escape") close(); };
+  wrap.addEventListener("click", (e) => { if (e.target === wrap) close(); });
+  wrap.querySelector(".ffw-close").addEventListener("click", close);
+  document.addEventListener("keydown", onKey);
+  wrap.querySelector(".ms-deck-toggle").addEventListener("click", () => {
+    if (inDeck) deck = deck.filter((d) => d !== id); else if (deck.length < 12) deck.push(id); else return;
+    save(); renderDeck(); renderPool(); close();
+  });
+}
+const wireView = (container) => container.querySelectorAll(".ms-view").forEach((v) => v.addEventListener("click", (e) => { e.stopPropagation(); viewCard(v.dataset.view); }));
 const addCard = (id) => { if (!deck.includes(id) && deck.length < 12) { deck.push(id); save(); renderDeck(); renderPool(); } };
 
 function renderDeck() {
@@ -37,6 +69,7 @@ function renderDeck() {
     <div class="db-curve">${curve.map((n, i) => `<div class="db-bar"><span class="db-barfill" style="height:${(n / maxC) * 100}%"></span><b>${i === 6 ? "6+" : i}</b><em>${n || ""}</em></div>`).join("")}</div>`;
 
   deckEl.querySelectorAll(".db-slot[data-defid]").forEach((b) => b.addEventListener("click", () => { deck = deck.filter((d) => d !== b.dataset.defid); save(); renderDeck(); renderPool(); }));
+  wireView(deckEl);
   const copy = deckEl.querySelector("#db-copy");
   if (copy) copy.addEventListener("click", () => navigator.clipboard.writeText(code).then(() => { copy.textContent = "✓ Copied!"; setTimeout(() => (copy.textContent = "⧉ Copy deck code"), 1500); }));
   const clr = deckEl.querySelector("#db-clear");
@@ -70,6 +103,7 @@ function renderPool() {
     b.addEventListener("click", () => { const id = b.dataset.defid; if (deck.includes(id)) { deck = deck.filter((d) => d !== id); save(); renderDeck(); renderPool(); } else addCard(id); });
     b.addEventListener("dragstart", (e) => e.dataTransfer.setData("text/plain", b.dataset.defid));
   });
+  wireView(poolEl);
 }
 
 function chips() {

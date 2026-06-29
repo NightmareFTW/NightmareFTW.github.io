@@ -20,7 +20,7 @@ function openCard(name) {
   const c = CARDS.find((x) => x.name === name); if (!c) return;
   const tags = (c.tags || []).map((t) => `<span class="ev-chip">${esc(t)}</span>`).join("");
   const wrap = document.createElement("div");
-  wrap.className = "ffw-overlay";
+  wrap.className = "ffw-overlay ms-overlay";
   wrap.innerHTML = `<div class="ffw-modal ms-modal" role="dialog" aria-modal="true">
     <button class="mini-btn ffw-close" aria-label="Close">close ×</button>
     <div class="ms-detail-grid">

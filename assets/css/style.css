@@ -2106,6 +2106,16 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .db-saved-load:hover { border-color: var(--accent); }
 .db-saved-load span { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); margin-left: 5px; }
 .db-saved-del { border-radius: 0 8px 8px 0; padding: 5px 9px; }
+/* Marvel Snap — centered card modal + "view" affordance in the Deck Builder */
+.ffw-overlay.ms-overlay { align-items: center; }
+.ms-modal { max-height: 90vh; overflow-y: auto; }
+.ms-card { position: relative; }
+.ms-view { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(0,0,0,.62); color: #fff; font-size: 0.66rem; border: 1px solid rgba(255,255,255,.25); opacity: 0; transition: opacity .12s; z-index: 3; cursor: zoom-in; }
+.ms-card:hover .ms-view { opacity: 1; }
+.ms-view:hover { background: var(--accent); }
+@media (hover: none) { .ms-view { opacity: .85; } }
+.ms-deck-toggle { margin-top: 14px; }
 
 /* Marvel Snap — Deck Importer */
 .di-input { margin-bottom: 20px; }
