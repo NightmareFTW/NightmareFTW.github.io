@@ -1,0 +1,117 @@
+{
+  "game": "marvel-snap",
+  "updated": "2026-06-29T18:16:52.595Z",
+  "source": "https://marvelsnapzone.com/codes/",
+  "redeem": "https://marvelsnap.com/redeem-code/",
+  "note": "Redeem at the official portal: open Settings in-game to find your Snap ID, link it on the portal, then enter the code (case-sensitive) and claim from your in-game inbox. Codes rotate and some have a global use-limit, so grab new ones fast.",
+  "codes": [
+    {
+      "code": "PRIDE2026",
+      "reward": "America Chavez Pride Variant",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "AAPI2026",
+      "reward": "Sword Master ZG Variant",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "WHM2026",
+      "reward": "Spectrum Women's History Variant",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "LNY2026",
+      "reward": "Jubilee Lunar New Year Variant",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "BHM2026",
+      "reward": "Blade Legacy Variant",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "PRIDE2025",
+      "reward": "Valkyrie Pride Variant",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "NEWYEARNEWSNAP",
+      "reward": "Premium Mystery Variant Premium Mystery Border 500 Credits 155 Boosters",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "WINTERVERSEVOTEJEAN",
+      "reward": "Jean Grey Variant",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "DEADPOOLVR",
+      "reward": "Deadpool VR Bundle: Deadpool Flag Emote Deadpool Variant Deadpool Avatar Black Matte Border Red Matte Border",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "FREES3PACK",
+      "reward": "Series 3 Snap Pack (650 Tokens if Series 3 complete)",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "COSMICINVASION",
+      "reward": "Sentinel Variant",
+      "expires": null,
+      "expired": true
+    },
+    {
+      "code": "NAHM2025",
+      "reward": "Forge Eric Guerrero Variant",
+      "expires": null,
+      "expired": true
+    },
+    {
+      "code": "HASBRO2025",
+      "reward": "Cable Variant",
+      "expires": null,
+      "expired": true
+    },
+    {
+      "code": "HHM2025",
+      "reward": "Death Variant",
+      "expires": null,
+      "expired": true
+    },
+    {
+      "code": "PRIDE2025",
+      "reward": "Iceman Envar Studio Variant Angela Pride Variant Sera Pride Variant 1 Blue Ice Border 1 Rainbow Cosmic Border",
+      "expires": null,
+      "expired": true
+    },
+    {
+      "code": "WEBLAUNCH",
+      "reward": "1 Premium Mystery Border 1 Premium Mystery Variant",
+      "expires": null,
+      "expired": true
+    },
+    {
+      "code": "PAXCAP",
+      "reward": "Captain America Penny Arcade Variant",
+      "expires": null,
+      "expired": true
+    },
+    {
+      "code": "SMTMV1202",
+      "reward": "100 Credits",
+      "expires": null,
+      "expired": true
+    }
+  ]
+}

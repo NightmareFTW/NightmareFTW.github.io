@@ -18,14 +18,16 @@ jobs:
           node-version: "20"
       - name: Scrape Marvel Snap cards (Marvel Snap Zone)
         run: node scripts/update-marvel-snap.js
+      - name: Scrape Marvel Snap codes (Marvel Snap Zone)
+        run: node scripts/update-marvel-snap-codes.js
       - name: Commit changes if any
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/marvel-snap/cards.json)" ]; then
-            git add data/marvel-snap/cards.json
-            git commit -m "chore: auto-update Marvel Snap cards"
+          if [ -n "$(git status --porcelain data/marvel-snap/cards.json data/codes/marvel-snap.json)" ]; then
+            git add data/marvel-snap/cards.json data/codes/marvel-snap.json
+            git commit -m "chore: auto-update Marvel Snap cards & codes"
             git push
           else
-            echo "No card changes."
+            echo "No changes."
           fi

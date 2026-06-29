@@ -6,7 +6,7 @@
   if (!game) return;
 
   // Which games actually have redeem codes (others show a friendly note).
-  const CODES_GAMES = new Set(["epic7", "nte", "warframe", "dreamlight-valley", "honkai-star-rail", "far-far-west"]);
+  const CODES_GAMES = new Set(["epic7", "nte", "warframe", "dreamlight-valley", "honkai-star-rail", "far-far-west", "marvel-snap"]);
 
   document.title = `${game.name} · NightmareFTW`;
   document.getElementById("bc-game").textContent = game.name;
