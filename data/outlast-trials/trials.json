@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-03T12:42:50.460Z",
+  "updated": "2026-07-03T18:32:04.689Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -115,6 +115,8 @@
           "goal": "You are the controlled substance. The law enslaves minds by caging bodies. You destroy bodies and liberate minds, making users more desperate for control. Find the narcotics and set yourself free.",
           "objectives": [
             "Open the prison door to escape",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
             "Exit the Trial"
           ],
           "prime": "Leland Coyle",
