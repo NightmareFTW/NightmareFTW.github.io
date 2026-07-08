@@ -1,0 +1,4 @@
+# graphify internal markers (machine-specific paths / scratch) — not for the repo
+.graphify_*
+.needs_update
+cache/
