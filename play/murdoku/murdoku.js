@@ -25,32 +25,45 @@
     cv.width = W * TS; cv.height = H * TS;
     const g = cv.getContext("2d");
     const r = (x, y, w, h, col) => { g.fillStyle = col; g.fillRect(x, y, w, h); };
+    // 1) floors + furniture (the whole plan is floor; walls come next as lines)
     for (const t of C.tiles) {
       const px = t.x * TS, py = t.y * TS;
-      if (t.type === "void") continue;                       // outside the store
-      if (t.type === "wall") { drawWall(r, px, py); continue; }
-      if (t.type === "window") { drawWall(r, px, py); drawWindow(r, px, py); continue; }
-      const base = t.room >= 0 ? ZTINT[C.rooms[t.room].color] : "#e9dcc2"; // room tint / aisle
+      if (t.type === "void") continue;
+      const base = t.room >= 0 ? ZTINT[C.rooms[t.room].color] : "#e9dcc2";
       r(px, py, TS, TS, base);
-      if ((t.x + t.y) % 2 === 0) { g.fillStyle = "rgba(0,0,0,.05)"; g.fillRect(px, py, TS, TS); }
-      g.fillStyle = "rgba(0,0,0,.10)"; g.fillRect(px, py + TS - 1, TS, 1); g.fillRect(px + TS - 1, py, 1, TS);
+      if ((t.x + t.y) % 2 === 0) { g.fillStyle = "rgba(0,0,0,.045)"; g.fillRect(px, py, TS, TS); }
+      g.fillStyle = "rgba(0,0,0,.07)"; g.fillRect(px, py + TS - 1, TS, 1); g.fillRect(px + TS - 1, py, 1, TS); // faint grid
       if (t.type === "bench") drawFixture(r, px, py, "bench");
       else if (t.fixture) drawFixture(r, px, py, t.fixture);
     }
+    // 2) walls = thin lines on edges where the region changes (rooms + outer shell)
+    const winSet = new Set((C.windows || []).map(([x, y, s]) => x + "," + y + "," + s));
+    const reg = (x, y) => { if (x < 0 || y < 0 || x >= W || y >= H) return "V"; const t = C.tiles[y * W + x]; return t.type === "void" ? "V" : t.room; };
+    const DIRS = [[0, -1, "T"], [0, 1, "B"], [-1, 0, "L"], [1, 0, "R"]];
+    for (const t of C.tiles) {
+      if (t.type === "void") continue;
+      for (const [dx, dy, side] of DIRS) {
+        if (reg(t.x + dx, t.y + dy) === t.room) continue;   // same room → no wall
+        if (winSet.has(t.x + "," + t.y + "," + side)) edgeWindow(g, t.x, t.y, side);
+        else { const outer = reg(t.x + dx, t.y + dy) === "V"; edgeLine(g, t.x, t.y, side, outer ? 2 : 1, outer ? "#463c30" : "#6b5f4c"); }
+      }
+    }
   }
-  // plain interior wall (matches the reference — not stocked shelving)
-  function drawWall(r, px, py) {
-    r(px, py, 16, 16, "#b8a98f");
-    r(px, py, 16, 3, "#d0c2a8");          // top highlight
-    r(px, py + 13, 16, 3, "#8f826a");     // bottom shadow
-    r(px + 5, py, 1, 16, "rgba(0,0,0,.05)"); r(px + 11, py, 1, 16, "rgba(0,0,0,.05)");
-    r(px, py + 7, 16, 1, "rgba(0,0,0,.05)");
+  function edgeLine(g, x, y, side, lw, col) {
+    const TS = C.TS, px = x * TS, py = y * TS; g.fillStyle = col;
+    if (side === "T") g.fillRect(px, py, TS, lw);
+    else if (side === "B") g.fillRect(px, py + TS - lw, TS, lw);
+    else if (side === "L") g.fillRect(px, py, lw, TS);
+    else g.fillRect(px + TS - lw, py, lw, TS);
   }
-  function drawWindow(r, px, py) {
-    r(px + 2, py + 2, 12, 12, "#7a6a4c");  // frame
-    r(px + 3, py + 3, 10, 10, "#a9d4e6");  // glass
-    r(px + 3, py + 3, 10, 3, "#c9e7f2");   // sky highlight
-    r(px + 8, py + 3, 1, 10, "#7a6a4c"); r(px + 3, py + 8, 10, 1, "#7a6a4c"); // muntins
+  function edgeWindow(g, x, y, side) {
+    const TS = C.TS, px = x * TS, py = y * TS, FR = "#463c30", GL = "#a9d4e6", SK = "#cdeaf5";
+    const b = (X, Y, w, h, c) => { g.fillStyle = c; g.fillRect(X, Y, w, h); };
+    if (side === "T" || side === "B") { const yy = side === "T" ? py : py + TS - 3;
+      b(px, yy, TS, 3, FR); b(px + 3, yy, TS - 6, 2, GL); b(px + 3, yy, TS - 6, 1, SK); b(px + Math.floor(TS / 2), yy, 1, 3, FR);
+    } else { const xx = side === "L" ? px : px + TS - 3;
+      b(xx, py, 3, TS, FR); b(xx, py + 3, 2, TS - 6, GL); b(xx, py + 3, 1, TS - 6, SK); b(xx, py + Math.floor(TS / 2), 3, 1, FR);
+    }
   }
   function drawFixture(r, px, py, key) {
     const P = (x, y, w, h, c) => r(px + x, py + y, w, h, c);

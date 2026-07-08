@@ -1,10 +1,11 @@
 /* Murdoku — case engine (pure, no DOM). Murder + Sudoku.
-   The store is an IRREGULAR floor plan: rooms of varied sizes joined by aisles,
-   with walls, furniture (blocked) and a bench (2 cells, one is occupiable).
+   The store is a floor plan of rooms of varied sizes. Walls are thin LINES on
+   the edges between rooms (and around the outside) — the whole area is floor.
    Rules: every suspect stood on exactly one floor tile; no two share a row or a
-   column (placing one rules out its whole row + column). From spatial clues you
-   deduce each person's exact tile. Each case is seeded by its number and its
-   clue set is minimised to exactly one solution. Runs in browser and Node. */
+   column (placing one rules out its whole row + column). Furniture tiles are
+   blocked, but the bench is occupiable. From spatial clues you deduce each
+   person's exact tile. Cases are seeded by number; clue sets minimised to one
+   solution. Runs in browser and Node. */
 (function (global) {
   "use strict";
 
@@ -23,64 +24,46 @@
     safe: "the safe", till: "the tills", tv: "the TV", bench: "the bench",
   };
 
-  // ---- irregular floor plan (varied room sizes) ----
+  // ---- floor plan (rooms of varied sizes tile the interior; walls are lines) ----
   const W = 12, H = 12, TS = 16;
+  const idx = (x, y) => y * W + x;
   const ROOMS = [
-    { name: "Storage Room", color: "grey", x: 1, y: 1, w: 3, h: 2 },
-    { name: "Promotional Area", color: "green", x: 5, y: 1, w: 3, h: 2 },
-    { name: "Deli Counter", color: "yellow", x: 9, y: 1, w: 2, h: 3 },
-    { name: "Flower Stand", color: "green", x: 1, y: 4, w: 2, h: 3 },
-    { name: "Produce Section", color: "green", x: 4, y: 4, w: 4, h: 2 },
-    { name: "Staff Room", color: "grey", x: 9, y: 5, w: 2, h: 2 },
-    { name: "Bakery", color: "yellow", x: 1, y: 8, w: 3, h: 3 },
-    { name: "Office", color: "grey", x: 5, y: 8, w: 2, h: 3 },
-    { name: "Checkout", color: "yellow", x: 8, y: 8, w: 3, h: 2 },
+    { name: "Storage Room", color: "grey", x: 1, y: 1, w: 3, h: 3 },
+    { name: "Promotional Area", color: "green", x: 4, y: 1, w: 4, h: 2 },
+    { name: "Deli Counter", color: "yellow", x: 8, y: 1, w: 3, h: 4 },
+    { name: "Produce Section", color: "green", x: 4, y: 3, w: 4, h: 3 },
+    { name: "Flower Stand", color: "green", x: 1, y: 4, w: 3, h: 3 },
+    { name: "Office", color: "grey", x: 4, y: 6, w: 3, h: 3 },
+    { name: "Staff Room", color: "grey", x: 1, y: 7, w: 3, h: 2 },
+    { name: "Bakery", color: "yellow", x: 1, y: 9, w: 3, h: 2 },
+    { name: "Loading Bay", color: "grey", x: 4, y: 9, w: 4, h: 2 },
+    { name: "Checkout", color: "yellow", x: 8, y: 6, w: 3, h: 5 },
   ];
   const FURN = [
-    ["crate", 1, 1], ["crate", 3, 1], ["banner", 6, 1], ["tv", 5, 2],
-    ["cheese", 9, 1], ["cheese", 10, 1], ["cheese", 9, 2],
-    ["flowers", 1, 4], ["plant", 2, 6], ["apples", 5, 4], ["apples", 6, 4],
-    ["coffee", 9, 5], ["bread", 1, 8], ["bread", 3, 8], ["desk", 5, 8], ["safe", 6, 10],
-    ["till", 8, 8], ["till", 9, 8], ["till", 10, 8],
+    ["crate", 1, 1], ["crate", 3, 3], ["tv", 4, 1], ["banner", 6, 1],
+    ["cheese", 8, 1], ["cheese", 9, 1], ["cheese", 10, 1],
+    ["apples", 5, 3], ["apples", 6, 3], ["flowers", 1, 4], ["plant", 3, 6],
+    ["desk", 4, 6], ["safe", 6, 8], ["coffee", 1, 7],
+    ["bread", 1, 9], ["bread", 3, 10], ["crate", 5, 9], ["crate", 7, 10],
+    ["till", 8, 6], ["till", 9, 6], ["till", 10, 6],
   ];
-  const BENCH = [[9, 6], [10, 6]]; // 2-tile bench inside Staff Room; occupiable
-  // some perimeter walls are windows (optional per map — here to show the style)
-  const WINDOWS = [[2, 0], [6, 0], [11, 2], [11, 3], [0, 5], [0, 9]];
-  // aisles connect the rooms; footprint = rooms ∪ aisles ⇒ walls hug an irregular outline
-  const inAisle = (x, y) =>
-    (x === 4 && y >= 1 && y <= 10) || (x === 8 && y >= 1 && y <= 10) ||
-    (y === 3 && x >= 1 && x <= 10) || (y === 7 && x >= 1 && x <= 10);
-  const idx = (x, y) => y * W + x;
+  const BENCH = [[2, 8], [3, 8]];                 // 2-tile bench in the Staff Room
+  const VOID = [[8, 5], [9, 5], [10, 5]];         // notch on the right ⇒ non-square outline
+  const WINDOWS = [[5, 1, "T"], [9, 1, "T"], [10, 7, "R"], [10, 9, "R"], [1, 5, "L"], [1, 10, "L"]];
 
   function buildMap() {
     const roomAt = (x, y) => ROOMS.findIndex((r) => x >= r.x && x < r.x + r.w && y >= r.y && y < r.y + r.h);
     const furnAt = {}; FURN.forEach(([k, x, y]) => (furnAt[idx(x, y)] = k));
     const benchSet = new Set(BENCH.map(([x, y]) => idx(x, y)));
-    const foot = (x, y) => (roomAt(x, y) >= 0 || inAisle(x, y));
+    const voidSet = new Set(VOID.map(([x, y]) => idx(x, y)));
     const tiles = new Array(W * H);
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
-      const i = idx(x, y), rm = roomAt(x, y);
-      let type = "void";
-      if (foot(x, y)) {
-        if (furnAt[i]) type = "furn";
-        else if (benchSet.has(i)) type = "bench";
-        else type = "floor";
-      }
-      tiles[i] = { x, y, room: rm, type, fixture: furnAt[i] || null,
-        walkable: (type === "floor" || type === "bench") };
+      const i = idx(x, y);
+      const interior = x >= 1 && x <= W - 2 && y >= 1 && y <= H - 2 && !voidSet.has(i);
+      let type = "void", room = -1;
+      if (interior) { room = roomAt(x, y); type = furnAt[i] ? "furn" : (benchSet.has(i) ? "bench" : "floor"); }
+      tiles[i] = { x, y, room, type, fixture: furnAt[i] || null, walkable: (type === "floor" || type === "bench") };
     }
-    // walls: non-footprint tiles touching the footprint (8-dir) ⇒ irregular shell
-    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
-      const t = tiles[idx(x, y)]; if (t.type !== "void") continue;
-      let near = false;
-      for (let dy = -1; dy <= 1 && !near; dy++) for (let dx = -1; dx <= 1; dx++) {
-        const nx = x + dx, ny = y + dy; if (nx < 0 || ny < 0 || nx >= W || ny >= H) continue;
-        if (tiles[idx(nx, ny)].type !== "void" && tiles[idx(nx, ny)].type !== "wall") { near = true; break; }
-      }
-      if (near) t.type = "wall";
-    }
-    for (const [x, y] of WINDOWS) { const t = tiles[idx(x, y)]; if (t && t.type === "wall") t.type = "window"; }
-    // room label anchors (centre of each room's floor)
     ROOMS.forEach((r) => (r.label = { x: r.x + (r.w - 1) / 2, y: r.y + (r.h - 1) / 2 }));
     return tiles;
   }
@@ -88,7 +71,7 @@
   function context(tiles) {
     const walk = [], roomCells = [];
     for (const t of tiles) if (t.walkable) { walk.push(idx(t.x, t.y)); if (t.room >= 0) roomCells.push(idx(t.x, t.y)); }
-    const beside = {}; // fixture key -> set of adjacent walkable tiles
+    const beside = {};
     for (const t of tiles) if (t.fixture) {
       const s = beside[t.fixture] || (beside[t.fixture] = new Set());
       [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dx, dy]) => {
@@ -99,7 +82,7 @@
     return { tiles, walk, roomCells, beside, benchSet };
   }
 
-  const rowPh = { 2: ["at the back of", "at the front of"], 3: ["at the back of", "in the middle of", "at the front of"], 4: ["at the very back of", "towards the back of", "towards the front of", "at the very front of"] };
+  const rowPh = { 2: ["at the back of", "at the front of"], 3: ["at the back of", "in the middle of", "at the front of"], 4: ["at the very back of", "towards the back of", "towards the front of", "at the very front of"], 5: ["at the very back of", "near the back of", "in the middle of", "near the front of", "at the very front of"] };
   const colPh = { 2: ["on the left of", "on the right of"], 3: ["on the left of", "in the centre of", "on the right of"], 4: ["on the far left of", "left of centre in", "right of centre in", "on the far right of"] };
 
   function holds(c, tile, ctx) {
@@ -113,8 +96,7 @@
     return true;
   }
 
-  // Count solutions (cap 2) of placing suspects on distinct walkable tiles with
-  // NO two sharing a row or column (Sudoku rook rule) and satisfying all clues.
+  // Count solutions (cap 2): distinct walkable tiles, no shared row/column, all clues.
   function count(clues, ctx, N) {
     const cand = [];
     for (let s = 0; s < N; s++) {
@@ -144,7 +126,6 @@
   function mulberry32(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
   const shuffle = (arr, rng) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
-  // pick N room-tiles forming a valid rook placement (distinct rows & columns)
   function pickPositions(ctx, N, rng) {
     for (let attempt = 0; attempt < 60; attempt++) {
       const pool = shuffle(ctx.roomCells, rng);
@@ -185,15 +166,13 @@
     const suspects = shuffle(SUSPECTS, rng).slice(0, N);
     const truth = pickPositions(ctx, N, rng) || ctx.roomCells.slice(0, N);
     const { flavour, pin } = candidateClues(truth, ctx, N);
-    // full set (flavour + pinning) is unique thanks to row+col clues; remove
-    // greedily from the back so verbose pinning clues drop before spatial ones.
     let givens = shuffle(flavour, rng).concat(shuffle(pin, rng));
     for (let i = givens.length - 1; i >= 0; i--) {
       const test = givens.slice(0, i).concat(givens.slice(i + 1));
       if (count(test, ctx, N).n === 1) givens = test;
     }
     return {
-      num, N, W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk,
+      num, N, W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS,
       suspects,
       title: TITLES[num % TITLES.length],
       brief: `Closing time, and ${CRIMES[Math.floor(rng() * CRIMES.length)]}. ${N} people were still inside — and no two were caught on the same aisle row or column. Work out exactly where each of them stood.`,
