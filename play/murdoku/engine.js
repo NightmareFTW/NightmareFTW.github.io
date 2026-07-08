@@ -44,6 +44,8 @@
     ["till", 8, 8], ["till", 9, 8], ["till", 10, 8],
   ];
   const BENCH = [[9, 6], [10, 6]]; // 2-tile bench inside Staff Room; occupiable
+  // some perimeter walls are windows (optional per map — here to show the style)
+  const WINDOWS = [[2, 0], [6, 0], [11, 2], [11, 3], [0, 5], [0, 9]];
   // aisles connect the rooms; footprint = rooms ∪ aisles ⇒ walls hug an irregular outline
   const inAisle = (x, y) =>
     (x === 4 && y >= 1 && y <= 10) || (x === 8 && y >= 1 && y <= 10) ||
@@ -77,6 +79,7 @@
       }
       if (near) t.type = "wall";
     }
+    for (const [x, y] of WINDOWS) { const t = tiles[idx(x, y)]; if (t && t.type === "wall") t.type = "window"; }
     // room label anchors (centre of each room's floor)
     ROOMS.forEach((r) => (r.label = { x: r.x + (r.w - 1) / 2, y: r.y + (r.h - 1) / 2 }));
     return tiles;

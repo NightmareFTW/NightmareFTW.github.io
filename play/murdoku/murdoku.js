@@ -28,7 +28,8 @@
     for (const t of C.tiles) {
       const px = t.x * TS, py = t.y * TS;
       if (t.type === "void") continue;                       // outside the store
-      if (t.type === "wall") { drawShelfWall(r, px, py, t); continue; }
+      if (t.type === "wall") { drawWall(r, px, py); continue; }
+      if (t.type === "window") { drawWall(r, px, py); drawWindow(r, px, py); continue; }
       const base = t.room >= 0 ? ZTINT[C.rooms[t.room].color] : "#e9dcc2"; // room tint / aisle
       r(px, py, TS, TS, base);
       if ((t.x + t.y) % 2 === 0) { g.fillStyle = "rgba(0,0,0,.05)"; g.fillRect(px, py, TS, TS); }
@@ -37,11 +38,19 @@
       else if (t.fixture) drawFixture(r, px, py, t.fixture);
     }
   }
-  function drawShelfWall(r, px, py, t) {
-    r(px, py, 16, 16, "#7a5236");
-    r(px, py + 2, 16, 2, "#5c3d26"); r(px, py + 8, 16, 2, "#5c3d26"); r(px, py + 14, 16, 2, "#4a3020");
-    const pal = ["#d34", "#e83", "#4a3", "#39c", "#dc3", "#c69"];
-    for (let i = 0; i < 3; i++) { r(px + 1 + i * 5, py + 4, 3, 3, pal[(t.x + t.y + i) % pal.length]); r(px + 1 + i * 5, py + 10, 3, 3, pal[(t.x + i + 3) % pal.length]); }
+  // plain interior wall (matches the reference — not stocked shelving)
+  function drawWall(r, px, py) {
+    r(px, py, 16, 16, "#b8a98f");
+    r(px, py, 16, 3, "#d0c2a8");          // top highlight
+    r(px, py + 13, 16, 3, "#8f826a");     // bottom shadow
+    r(px + 5, py, 1, 16, "rgba(0,0,0,.05)"); r(px + 11, py, 1, 16, "rgba(0,0,0,.05)");
+    r(px, py + 7, 16, 1, "rgba(0,0,0,.05)");
+  }
+  function drawWindow(r, px, py) {
+    r(px + 2, py + 2, 12, 12, "#7a6a4c");  // frame
+    r(px + 3, py + 3, 10, 10, "#a9d4e6");  // glass
+    r(px + 3, py + 3, 10, 3, "#c9e7f2");   // sky highlight
+    r(px + 8, py + 3, 1, 10, "#7a6a4c"); r(px + 3, py + 8, 10, 1, "#7a6a4c"); // muntins
   }
   function drawFixture(r, px, py, key) {
     const P = (x, y, w, h, c) => r(px + x, py + y, w, h, c);
