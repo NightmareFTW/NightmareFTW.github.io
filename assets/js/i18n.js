@@ -44,6 +44,16 @@
       "Uma caixa de ferramentas em crescimento — calculadoras, checklists e trackers. Nada é removido; só continua a crescer.",
     "Games": "Jogos",
 
+    // ---- Play / Murdoku ----
+    "Play": "Jogar", "play": "jogar",
+    "Play in the browser.": "Joga no browser.",
+    "Small original games to pass the time — no install, no account needed. Sign in to sync your progress across devices.":
+      "Pequenos jogos originais para passar o tempo — sem instalação, sem conta. Inicia sessão para sincronizar o progresso entre dispositivos.",
+    "A logic puzzle on a store map — part Sudoku, part detective work. Each area covers several tiles; from the spatial clues, work out the exact tile every suspect was standing on. Endless cases — your progress saves on your device and syncs to your account when signed in.":
+      "Um puzzle de lógica num mapa de loja — parte Sudoku, parte investigação. Cada divisão ocupa várias casas; pelas pistas espaciais, descobre a casa exacta onde cada suspeito estava. Casos infinitos — o teu progresso é guardado no dispositivo e sincroniza com a tua conta quando inicias sessão.",
+    "Built by NightmareFTW · Murdoku is an original logic-deduction game. Pixel-art tiles & avatars are original / DiceBear.":
+      "Feito por NightmareFTW · o Murdoku é um jogo de dedução lógica original. Os tiles pixel-art & avatares são originais / DiceBear.",
+
     // ---- Tool names (cards + page titles) ----
     "Ghost Evidence Checker": "Verificador de Evidências",
     "Cursed Possession Reference": "Referência de Objetos Amaldiçoados",

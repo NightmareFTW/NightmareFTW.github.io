@@ -9,8 +9,35 @@
   const lsGet = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } };
   const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
   const SOLVED = "nftw:murdoku:solved", CURKEY = "nftw:murdoku:case", STATE = "nftw:murdoku:state";
-  const avatar = (name) => `https://api.dicebear.com/9.x/adventurer/svg?seed=${encodeURIComponent(name)}&radius=50`;
+  const L = (localStorage.getItem("nftw:lang") === "pt") ? "pt" : "en";
+  // DiceBear "adventurer": bias hair length + facial hair so the avatar reads as the name's gender
+  const F_HAIR = ["long02", "long04", "long07", "long10", "long15", "long20"];
+  const M_HAIR = ["short01", "short03", "short05", "short08", "short11", "short15"];
+  const avatar = (name, g) => {
+    const h = [...name].reduce((a, c) => a + c.charCodeAt(0), 0);
+    const hair = (g === "f" ? F_HAIR : M_HAIR)[h % 6];
+    return `https://api.dicebear.com/9.x/adventurer/svg?seed=${encodeURIComponent(name)}&radius=50&hair=${hair}&hairProbability=100&facialHairProbability=${g === "f" ? 0 : 40}`;
+  };
   const mmss = (s) => `${String((s / 60) | 0).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+  const T = L === "pt" ? {
+    notes: "Notas", crosses: "Cruzes", place: "Colocar", erase: "Apagar", hint: "Dica",
+    clues: "Pistas", investigation: "Investigação", reset: "Repor este caso",
+    help: "Cada divisão tem várias casas. Ao colocar um suspeito, elimina-se toda a <b>linha e coluna</b> — só um por linha e por coluna. Os suspeitos não podem ficar em cima de mobília, mas o banco conta.",
+    placedOf: (n, N) => `${n} / ${N} colocados`,
+    solvedIn: (t) => `🎉 Caso resolvido em ${t}! Todos estão no sítio certo.`,
+    nextCase: "Próximo caso ▸", placeAll: (N) => `Coloca os ${N} suspeitos na casa exacta — um por linha, um por coluna.`,
+    solvedCount: (n) => `${n} resolvidos`, resetConfirm: "Repor o tabuleiro deste caso?",
+    loadErr: "Não foi possível carregar o motor de casos.",
+  } : {
+    notes: "Notes", crosses: "Crosses", place: "Place", erase: "Erase", hint: "Hint",
+    clues: "Clues", investigation: "Investigation", reset: "Reset this case",
+    help: "Each area covers several tiles. Placing a suspect rules out their whole <b>row &amp; column</b> — only one person per row and per column. Suspects can't stand on furniture, but the bench is fair game.",
+    placedOf: (n, N) => `${n} / ${N} placed`,
+    solvedIn: (t) => `🎉 Case solved in ${t}! Everyone is on the right tile.`,
+    nextCase: "Next case ▸", placeAll: (N) => `Place all ${N} suspects on their exact tile — one per row, one per column.`,
+    solvedCount: (n) => `${n} solved`, resetConfirm: "Reset this case's board?",
+    loadErr: "Couldn't load the case engine.",
+  };
 
   const root = document.getElementById("md-root");
   let C = null, caseNum = 0, sel = 0, mode = "place";
@@ -153,7 +180,7 @@
           <span class="md-caseno">#${caseNum + 1} · ${esc(C.title)}</span>
           <button class="mini-btn" id="md-next">›</button>
         </div>
-        <div class="md-bar-r"><span class="md-timer" id="md-timer">${mmss(secs)}</span><button class="mini-btn" id="md-reset" title="Reset this case">↻</button><span class="md-progress">${solvedList().length} solved</span></div>
+        <div class="md-bar-r"><span class="md-timer" id="md-timer">${mmss(secs)}</span><button class="mini-btn" id="md-reset" title="${T.reset}">↻</button><span class="md-progress">${T.solvedCount(solvedList().length)}</span></div>
       </div>
       <p class="md-briefline">${esc(C.brief)}</p>
 
@@ -166,25 +193,25 @@
       </div>
 
       <div class="mdm-toolbar" id="md-toolbar">
-        ${toolBtn("notes", "✎", "Notes")}${toolBtn("cross", "✕", "Crosses")}${toolBtn("place", "✓", "Place")}${toolBtn("erase", "⌫", "Erase")}
-        <button class="mdm-tool mdm-hint" id="md-hint"><span>💡</span>Hint</button>
+        ${toolBtn("notes", "✎", T.notes)}${toolBtn("cross", "✕", T.crosses)}${toolBtn("place", "✓", T.place)}${toolBtn("erase", "⌫", T.erase)}
+        <button class="mdm-tool mdm-hint" id="md-hint"><span>💡</span>${T.hint}</button>
       </div>
       <div class="mdm-tray" id="md-tray"></div>
 
       <div class="md-cols mdm-lower">
-        <section class="panel md-clues"><h2>Clues</h2><ol>${C.clues.map((c) => `<li>${esc(c)}</li>`).join("")}</ol>
-          <p class="md-hint">Rooms are different sizes and hold several tiles. Placing a suspect rules out their whole <b>row &amp; column</b> — only one person per row and per column. Suspects can't stand on furniture, but the bench is fair game.</p></section>
+        <section class="panel md-clues"><h2>${T.clues}</h2><ol>${C.clues.map((c) => `<li>${esc(c)}</li>`).join("")}</ol>
+          <p class="md-hint">${T.help}</p></section>
         <section class="panel mdm-status" id="md-status"></section>
       </div>`;
 
     const lab = document.getElementById("md-labels");
-    lab.innerHTML = C.rooms.map((z) => `<span class="mdm-zlabel" style="left:${(z.label.x + 0.5) / C.W * 100}%;top:${(z.label.y + 0.5) / C.H * 100}%">${esc(z.name)}</span>`).join("");
+    lab.innerHTML = C.rooms.map((z) => `<span class="mdm-zlabel" style="left:${(z.label.x + 0.5) / C.W * 100}%;top:${(z.label.y + 0.5) / C.H * 100}%">${esc(L === "pt" ? z.pt : z.name)}</span>`).join("");
 
     document.getElementById("md-toolbar").querySelectorAll("[data-tool]").forEach((b) => b.onclick = () => { mode = b.dataset.tool; refresh(); });
     document.getElementById("md-hint").onclick = hint;
     document.getElementById("md-prev").onclick = () => load(caseNum - 1);
     document.getElementById("md-next").onclick = () => load(caseNum + 1);
-    document.getElementById("md-reset").onclick = () => { if (confirm("Reset this case's board?")) { placements = {}; crosses = {}; notes = {}; secs = 0; won = false; save(); shell(); drawMap(); refresh(); startTimer(); } };
+    document.getElementById("md-reset").onclick = () => { if (confirm(T.resetConfirm)) { placements = {}; crosses = {}; notes = {}; secs = 0; won = false; save(); shell(); drawMap(); refresh(); startTimer(); } };
   }
 
   function refresh() {
@@ -198,7 +225,7 @@
       const tile = t.y * C.W + t.x, owner = tileOwner(tile);
       const style = `left:${t.x / C.W * 100}%;top:${t.y / C.H * 100}%;width:${100 / C.W}%;height:${100 / C.H}%`;
       let inner = "", cls = "mdm-tile walk";
-      if (owner >= 0) inner = `<img class="mdm-av" src="${avatar(C.suspects[owner].name)}" alt="${esc(C.suspects[owner].name)}" style="border-color:${C.suspects[owner].color}" referrerpolicy="no-referrer">`;
+      if (owner >= 0) inner = `<img class="mdm-av" src="${avatar(C.suspects[owner].name, C.suspects[owner].g)}" alt="${esc(C.suspects[owner].name)}" style="border-color:${C.suspects[owner].color}" referrerpolicy="no-referrer">`;
       else {
         const autoX = eRows.has(t.y) || eCols.has(t.x);
         const userX = crosses[`${sel}:${tile}`];
@@ -216,21 +243,21 @@
     tray.innerHTML = C.suspects.map((s, i) => {
       const placed = placements[i] != null;
       return `<button class="mdm-sus${i === sel ? " on" : ""}${placed ? " placed" : ""}" data-s="${i}" title="${esc(s.name)}" style="--c:${s.color}">
-        <img src="${avatar(s.name)}" alt="${esc(s.name)}" referrerpolicy="no-referrer"><span>${esc(s.name)}</span>${placed ? '<span class="mdm-dot">✓</span>' : ""}</button>`;
+        <img src="${avatar(s.name, s.g)}" alt="${esc(s.name)}" referrerpolicy="no-referrer"><span>${esc(s.name)}</span>${placed ? '<span class="mdm-dot">✓</span>' : ""}</button>`;
     }).join("");
     tray.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { sel = +b.dataset.s; refresh(); });
 
     document.querySelectorAll("#md-toolbar [data-tool]").forEach((b) => b.classList.toggle("on", b.dataset.tool === mode));
 
     const placedN = Object.keys(placements).length;
-    document.getElementById("md-status").innerHTML = `<h2>Investigation</h2>
-      <p class="mdm-count">${placedN} / ${C.N} placed</p>
-      ${won ? `<p class="md-verdict ok">🎉 Case solved in ${mmss(secs)}! Everyone is on the right tile.</p><button class="btn" id="md-nextcase">Next case ▸</button>`
-        : `<p class="mdm-note-line">Place all ${C.N} suspects on their exact tile — one per row, one per column.</p>`}`;
+    document.getElementById("md-status").innerHTML = `<h2>${T.investigation}</h2>
+      <p class="mdm-count">${T.placedOf(placedN, C.N)}</p>
+      ${won ? `<p class="md-verdict ok">${T.solvedIn(mmss(secs))}</p><button class="btn" id="md-nextcase">${T.nextCase}</button>`
+        : `<p class="mdm-note-line">${T.placeAll(C.N)}</p>`}`;
     const nc = document.getElementById("md-nextcase"); if (nc) nc.onclick = () => load(caseNum + 1);
   }
 
   const toolBtn = (id, icon, label) => `<button class="mdm-tool" data-tool="${id}"><span>${icon}</span>${label}</button>`;
 
-  if (window.MURDOKU) load(START); else root.innerHTML = `<p class="tool-note">Couldn't load the case engine.</p>`;
+  if (window.MURDOKU) load(START); else root.innerHTML = `<p class="tool-note">${T.loadErr}</p>`;
 })();

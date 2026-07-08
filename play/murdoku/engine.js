@@ -1,21 +1,21 @@
 /* Murdoku — case engine (pure, no DOM). Murder + Sudoku.
-   The store is a floor plan of rooms of varied sizes. Walls are thin LINES on
-   the edges between rooms (and around the outside) — the whole area is floor.
-   Rules: every suspect stood on exactly one floor tile; no two share a row or a
-   column (placing one rules out its whole row + column). Furniture tiles are
-   blocked, but the bench is occupiable. From spatial clues you deduce each
-   person's exact tile. Cases are seeded by number; clue sets minimised to one
-   solution. Runs in browser and Node. */
+   Floor plan of named rooms (varied sizes). Walls are thin lines on tile edges.
+   Rules: every suspect stood on one floor tile; no two share a row or a column
+   (placing one rules out its row + column). Furniture is blocked; the bench is
+   occupiable. Suspects are shown in alphabetical order; avatars match each name's
+   gender. Text is EN or PT-PT (pre-1990 spelling) via localStorage "nftw:lang".
+   Cases seeded by number; clue sets minimised to one solution. Browser + Node. */
 (function (global) {
   "use strict";
+  const L = (typeof localStorage !== "undefined" && localStorage.getItem("nftw:lang") === "pt") ? "pt" : "en";
 
   const SUSPECTS = [
-    { name: "Benjamin", color: "#e05a4a" }, { name: "Charlotte", color: "#6c8cff" },
-    { name: "Daniel", color: "#e8c84a" }, { name: "Eleanor", color: "#d98cc0" },
-    { name: "Frederick", color: "#5bc8e8" }, { name: "Grace", color: "#5bd6a0" },
-    { name: "Harold", color: "#b18cff" }, { name: "Isabelle", color: "#ff8a3d" },
-    { name: "Marcus", color: "#4db6ac" }, { name: "Priya", color: "#f06292" },
-    { name: "Sofia", color: "#9ccc65" }, { name: "Theodore", color: "#a1887f" },
+    { name: "Benjamin", color: "#e05a4a", g: "m" }, { name: "Charlotte", color: "#6c8cff", g: "f" },
+    { name: "Daniel", color: "#e8c84a", g: "m" }, { name: "Eleanor", color: "#d98cc0", g: "f" },
+    { name: "Frederick", color: "#5bc8e8", g: "m" }, { name: "Grace", color: "#5bd6a0", g: "f" },
+    { name: "Harold", color: "#b18cff", g: "m" }, { name: "Isabelle", color: "#ff8a3d", g: "f" },
+    { name: "Marcus", color: "#4db6ac", g: "m" }, { name: "Priya", color: "#f06292", g: "f" },
+    { name: "Sofia", color: "#9ccc65", g: "f" }, { name: "Theodore", color: "#a1887f", g: "m" },
   ];
   const FIX = {
     crate: "the crates", banner: "the promo stand", cheese: "the deli counter",
@@ -23,21 +23,31 @@
     coffee: "the coffee machine", bread: "the fresh bread", desk: "the desk",
     safe: "the safe", till: "the tills", tv: "the TV", bench: "the bench",
   };
+  const FIXPT = {
+    crate: { art: "os", noun: "caixotes" }, banner: { art: "o", noun: "expositor promocional" },
+    cheese: { art: "o", noun: "balcão da charcutaria" }, flowers: { art: "as", noun: "flores" },
+    plant: { art: "a", noun: "planta em vaso" }, apples: { art: "as", noun: "maçãs" },
+    coffee: { art: "a", noun: "máquina de café" }, bread: { art: "o", noun: "pão fresco" },
+    desk: { art: "a", noun: "secretária" }, safe: { art: "o", noun: "cofre" },
+    till: { art: "as", noun: "caixas registadoras" }, tv: { art: "a", noun: "televisão" }, bench: { art: "o", noun: "banco" },
+  };
+  const DE = { o: "do", a: "da", os: "dos", as: "das" };
+  const EM = { o: "no", a: "na", os: "nos", as: "nas" };
 
-  // ---- floor plan (rooms of varied sizes tile the interior; walls are lines) ----
+  // ---- floor plan (rooms tile the interior; every tile belongs to a named room) ----
   const W = 12, H = 12, TS = 16;
   const idx = (x, y) => y * W + x;
   const ROOMS = [
-    { name: "Storage Room", color: "grey", x: 1, y: 1, w: 3, h: 3 },
-    { name: "Promotional Area", color: "green", x: 4, y: 1, w: 4, h: 2 },
-    { name: "Deli Counter", color: "yellow", x: 8, y: 1, w: 3, h: 4 },
-    { name: "Produce Section", color: "green", x: 4, y: 3, w: 4, h: 3 },
-    { name: "Flower Stand", color: "green", x: 1, y: 4, w: 3, h: 3 },
-    { name: "Office", color: "grey", x: 4, y: 6, w: 3, h: 3 },
-    { name: "Staff Room", color: "grey", x: 1, y: 7, w: 3, h: 2 },
-    { name: "Bakery", color: "yellow", x: 1, y: 9, w: 3, h: 2 },
-    { name: "Loading Bay", color: "grey", x: 4, y: 9, w: 4, h: 2 },
-    { name: "Checkout", color: "yellow", x: 8, y: 6, w: 3, h: 5 },
+    { name: "Storage Room", pt: "Armazém", art: "o", color: "grey", x: 1, y: 1, w: 3, h: 3 },
+    { name: "Promotional Area", pt: "Área Promocional", art: "a", color: "green", x: 4, y: 1, w: 4, h: 2 },
+    { name: "Deli Counter", pt: "Charcutaria", art: "a", color: "yellow", x: 8, y: 1, w: 3, h: 4 },
+    { name: "Produce Section", pt: "Secção de Frescos", art: "a", color: "green", x: 4, y: 3, w: 4, h: 3 },
+    { name: "Flower Stand", pt: "Banca das Flores", art: "a", color: "green", x: 1, y: 4, w: 3, h: 3 },
+    { name: "Office", pt: "Escritório", art: "o", color: "grey", x: 4, y: 6, w: 4, h: 3 },
+    { name: "Staff Room", pt: "Sala do Pessoal", art: "a", color: "grey", x: 1, y: 7, w: 3, h: 2 },
+    { name: "Bakery", pt: "Padaria", art: "a", color: "yellow", x: 1, y: 9, w: 3, h: 2 },
+    { name: "Loading Bay", pt: "Cais de Carga", art: "o", color: "grey", x: 4, y: 9, w: 4, h: 2 },
+    { name: "Checkout", pt: "Caixas", art: "as", color: "yellow", x: 8, y: 6, w: 3, h: 5 },
   ];
   const FURN = [
     ["crate", 1, 1], ["crate", 3, 3], ["tv", 4, 1], ["banner", 6, 1],
@@ -47,8 +57,8 @@
     ["bread", 1, 9], ["bread", 3, 10], ["crate", 5, 9], ["crate", 7, 10],
     ["till", 8, 6], ["till", 9, 6], ["till", 10, 6],
   ];
-  const BENCH = [[2, 8], [3, 8]];                 // 2-tile bench in the Staff Room
-  const VOID = [[8, 5], [9, 5], [10, 5]];         // notch on the right ⇒ non-square outline
+  const BENCH = [[2, 8], [3, 8]];
+  const VOID = [[8, 5], [9, 5], [10, 5]];
   const WINDOWS = [[5, 1, "T"], [9, 1, "T"], [10, 7, "R"], [10, 9, "R"], [1, 5, "L"], [1, 10, "L"]];
 
   function buildMap() {
@@ -84,6 +94,8 @@
 
   const rowPh = { 2: ["at the back of", "at the front of"], 3: ["at the back of", "in the middle of", "at the front of"], 4: ["at the very back of", "towards the back of", "towards the front of", "at the very front of"], 5: ["at the very back of", "near the back of", "in the middle of", "near the front of", "at the very front of"] };
   const colPh = { 2: ["on the left of", "on the right of"], 3: ["on the left of", "in the centre of", "on the right of"], 4: ["on the far left of", "left of centre in", "right of centre in", "on the far right of"] };
+  const rowPt = { 2: ["ao fundo", "à frente"], 3: ["ao fundo", "no meio", "à frente"], 4: ["mesmo ao fundo", "mais atrás", "mais à frente", "mesmo à frente"], 5: ["mesmo ao fundo", "mais atrás", "no meio", "mais à frente", "mesmo à frente"] };
+  const colPt = { 2: ["do lado esquerdo", "do lado direito"], 3: ["do lado esquerdo", "no centro", "do lado direito"], 4: ["na extrema esquerda", "à esquerda", "à direita", "na extrema direita"] };
 
   function holds(c, tile, ctx) {
     const T = ctx.tiles[tile], R = ROOMS[T.room];
@@ -96,7 +108,6 @@
     return true;
   }
 
-  // Count solutions (cap 2): distinct walkable tiles, no shared row/column, all clues.
   function count(clues, ctx, N) {
     const cand = [];
     for (let s = 0; s < N; s++) {
@@ -153,17 +164,17 @@
     return { flavour, pin };
   }
 
-  const TITLES = ["The Purchase No One Made", "A Scandal in Aisle Three", "The Vanishing Trolley",
-    "Whodunit at Closing Time", "The Missing Receipt", "Trouble at the Deli", "The Five O'Clock Alibi", "The Spilled Secret"];
-  const CRIMES = ["a priceless bottle of wine vanished from the shelves", "the till came up short by a small fortune",
-    "a threatening note was left for the manager", "the prize hamper was swapped for a fake", "someone tampered with the freezer"];
+  const TITLES = ["The Purchase No One Made", "A Scandal in Aisle Three", "The Vanishing Trolley", "Whodunit at Closing Time", "The Missing Receipt", "Trouble at the Deli", "The Five O'Clock Alibi", "The Spilled Secret"];
+  const TITLESPT = ["A Compra Que Ninguém Fez", "Um Escândalo no Corredor Três", "O Carrinho Desaparecido", "Mistério à Hora de Fecho", "O Recibo Desaparecido", "Problemas na Charcutaria", "O Álibi das Cinco", "O Segredo Revelado"];
+  const CRIMES = ["a priceless bottle of wine vanished from the shelves", "the till came up short by a small fortune", "a threatening note was left for the manager", "the prize hamper was swapped for a fake", "someone tampered with the freezer"];
+  const CRIMESPT = ["desapareceu uma garrafa de vinho valiosíssima das prateleiras", "a caixa ficou a faltar uma pequena fortuna", "foi deixado um bilhete ameaçador ao gerente", "o cabaz do prémio foi trocado por um falso", "alguém mexeu no congelador"];
 
   function generateCase(num) {
     const rng = mulberry32(((num + 1) * 2654435761) >>> 0);
     const tiles = buildMap();
     const ctx = context(tiles);
     const N = 5;
-    const suspects = shuffle(SUSPECTS, rng).slice(0, N);
+    const suspects = shuffle(SUSPECTS, rng).slice(0, N).sort((a, b) => a.name.localeCompare(b.name)); // alphabetical
     const truth = pickPositions(ctx, N, rng) || ctx.roomCells.slice(0, N);
     const { flavour, pin } = candidateClues(truth, ctx, N);
     let givens = shuffle(flavour, rng).concat(shuffle(pin, rng));
@@ -171,12 +182,16 @@
       const test = givens.slice(0, i).concat(givens.slice(i + 1));
       if (count(test, ctx, N).n === 1) givens = test;
     }
+    const ci = Math.floor(rng() * CRIMES.length);
+    const brief = L === "pt"
+      ? `Hora de fecho, e ${CRIMESPT[ci]}. Ainda estavam ${N} pessoas lá dentro — e não havia duas na mesma linha ou coluna. Descobre exactamente onde cada uma estava.`
+      : `Closing time, and ${CRIMES[ci]}. ${N} people were still inside — and no two were caught on the same aisle row or column. Work out exactly where each of them stood.`;
     return {
-      num, N, W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS,
+      num, N, W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS, lang: L,
       suspects,
-      title: TITLES[num % TITLES.length],
-      brief: `Closing time, and ${CRIMES[Math.floor(rng() * CRIMES.length)]}. ${N} people were still inside — and no two were caught on the same aisle row or column. Work out exactly where each of them stood.`,
-      clues: shuffle(givens, rng).map((c) => clueText(c, suspects)),
+      title: (L === "pt" ? TITLESPT : TITLES)[num % TITLES.length],
+      brief,
+      clues: shuffle(givens, rng).map((c) => (L === "pt" ? clueTextPt : clueText)(c, suspects)),
       solution: truth,
     };
   }
@@ -189,6 +204,16 @@
     if (c.t === "bench") return `${nm(c.s)} was resting on the bench.`;
     if (c.t === "row") return `${nm(c.s)} was ${rowPh[R(c.z).h][c.v]} the ${rn(c.z)}.`;
     if (c.t === "col") return `${nm(c.s)} was ${colPh[R(c.z).w][c.v]} the ${rn(c.z)}.`;
+    return "";
+  }
+  function clueTextPt(c, S) {
+    const nm = (i) => S[i].name, R = (z) => ROOMS[z], rn = (z) => ROOMS[z].pt, de = (z) => DE[ROOMS[z].art], em = (z) => EM[ROOMS[z].art];
+    if (c.t === "inroom") return pick([`${nm(c.s)} estava ${em(c.z)} ${rn(c.z)}.`, `${nm(c.s)} passou o fecho ${em(c.z)} ${rn(c.z)}.`], c);
+    if (c.t === "negroom") return `${nm(c.s)} nunca esteve perto ${de(c.z)} ${rn(c.z)}.`;
+    if (c.t === "beside") { const f = FIXPT[c.k]; return pick([`${nm(c.s)} estava mesmo ao lado ${DE[f.art]} ${f.noun}.`, `${nm(c.s)} quase tocava ${EM[f.art]} ${f.noun}.`], c); }
+    if (c.t === "bench") return `${nm(c.s)} estava sentad${S[c.s].g === "f" ? "a" : "o"} no banco.`;
+    if (c.t === "row") return `${nm(c.s)} estava ${rowPt[R(c.z).h][c.v]} ${de(c.z)} ${rn(c.z)}.`;
+    if (c.t === "col") return `${nm(c.s)} estava ${colPt[R(c.z).w][c.v]} ${de(c.z)} ${rn(c.z)}.`;
     return "";
   }
   const pick = (arr, c) => arr[((c.s || 0) + (c.z || 0) + (c.v || 0) + (c.k ? c.k.length : 0)) % arr.length];
