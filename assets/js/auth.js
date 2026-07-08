@@ -15,7 +15,9 @@
 
   var ls = window.localStorage;
   var tok = function () { try { return ls.getItem(TOKEN); } catch (e) { return null; } };
-  var syncable = function (k) { return k && k.indexOf("nftw:") === 0 && k.indexOf("nftw:auth:") !== 0; };
+  // nftw:lang is a per-device UI preference — never sync it, or a stale gist value
+  // reverts the switcher's choice on the next load (PT flashes then snaps back to EN).
+  var syncable = function (k) { return k && k.indexOf("nftw:") === 0 && k.indexOf("nftw:auth:") !== 0 && k !== "nftw:lang"; };
   var pulling = false, pushTimer = null;
 
   // ---- GitHub gist sync -----------------------------------------------------
