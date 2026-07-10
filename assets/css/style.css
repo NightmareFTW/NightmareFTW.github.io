@@ -2230,4 +2230,19 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .mdm-lower { margin-top: 6px; }
 .mdm-count { font-family: var(--mono); font-size: 1.2rem; font-weight: 800; margin: 0 0 6px; }
 .mdm-note-line { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+/* victim marker + accuse panel */
+.mdm-sus.victim { border-color: #9aa0a8; }
+.mdm-sus.victim img { filter: grayscale(.5) contrast(.95); }
+.mdm-vic { position: absolute; top: 3px; left: 6px; font-size: 0.8rem; filter: drop-shadow(0 1px 1px #000); }
+.mdm-vic-tile { position: absolute; top: 1px; right: 2px; font-size: clamp(8px, 2vw, 13px); filter: drop-shadow(0 1px 1px #000); pointer-events: none; }
+.mdm-av.vic { filter: grayscale(.55) contrast(.95); }
+.mdm-accuse-t { font-weight: 800; margin: 4px 0 2px; color: var(--text); }
+.mdm-accuse { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 4px; }
+.mdm-accuse-b { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 66px; padding: 6px 4px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card); color: var(--muted); cursor: pointer; transition: all .12s; }
+.mdm-accuse-b img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--c); background: var(--bg-soft); }
+.mdm-accuse-b span { font-size: 0.7rem; white-space: nowrap; }
+.mdm-accuse-b:hover { border-color: var(--accent); color: var(--text); transform: translateY(-1px); }
+.mdm-wrong { color: #ff8a82; font-size: 0.9rem; margin: 4px 0 0; }
 @media (max-width: 560px) { .mdm-zlabel { font-size: 8px; padding: 0 3px; } }

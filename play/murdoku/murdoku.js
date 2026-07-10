@@ -22,26 +22,32 @@
   const T = L === "pt" ? {
     notes: "Notas", crosses: "Cruzes", place: "Colocar", erase: "Apagar", hint: "Dica",
     clues: "Pistas", investigation: "Investigação", reset: "Repor este caso",
-    help: "Cada divisão tem várias casas. Ao colocar um suspeito, elimina-se toda a <b>linha e coluna</b> — só um por linha e por coluna. Os suspeitos não podem ficar em cima de mobília, mas o banco conta.",
-    placedOf: (n, N) => `${n} / ${N} colocados`,
-    solvedIn: (t) => `🎉 Caso resolvido em ${t}! Todos estão no sítio certo.`,
-    nextCase: "Próximo caso ▸", placeAll: (N) => `Coloca os ${N} suspeitos na casa exacta — um por linha, um por coluna.`,
+    help: "Coloca as 6 pessoas (5 suspeitos + a vítima) pelas pistas. Ao colocar alguém, elimina-se toda a <b>linha e coluna</b> — só um por linha e por coluna. Ninguém fica em cima de mobília (o banco conta). O culpado é quem ficou sozinho na sala da vítima.",
+    placedOf: (n, N) => `${n} / ${N} colocados`, nextCase: "Próximo caso ▸",
+    placeAll: (N) => `Coloca as ${N} pessoas — ${N - 1} suspeitos e a vítima — uma por linha e por coluna.`,
+    notAllCorrect: "Estão todos colocados, mas as posições ainda não batem certo. Revê as pistas.",
+    accuseTitle: "Todos no sítio! Quem é o culpado?", accuseHelp: "Foi quem ficou sozinho(a) na sala da vítima.",
+    wrongAccuse: (name) => `${name} não estava sozinho(a) com a vítima. Tenta outra vez.`,
+    solvedCulprit: (t, name, g) => `🎉 Resolvido em ${t}! ${name} ficou sozinh${g === "f" ? "a" : "o"} com a vítima — é ${g === "f" ? "a culpada" : "o culpado"}.`,
     solvedCount: (n) => `${n} resolvidos`, resetConfirm: "Repor o tabuleiro deste caso?",
     loadErr: "Não foi possível carregar o motor de casos.",
   } : {
     notes: "Notes", crosses: "Crosses", place: "Place", erase: "Erase", hint: "Hint",
     clues: "Clues", investigation: "Investigation", reset: "Reset this case",
-    help: "Each area covers several tiles. Placing a suspect rules out their whole <b>row &amp; column</b> — only one person per row and per column. Suspects can't stand on furniture, but the bench is fair game.",
-    placedOf: (n, N) => `${n} / ${N} placed`,
-    solvedIn: (t) => `🎉 Case solved in ${t}! Everyone is on the right tile.`,
-    nextCase: "Next case ▸", placeAll: (N) => `Place all ${N} suspects on their exact tile — one per row, one per column.`,
+    help: "Place all 6 people (5 suspects + the victim) from the clues. Placing someone rules out their whole <b>row &amp; column</b> — one per row and per column. Nobody stands on furniture (the bench is fine). The culprit is whoever was alone in the victim's room.",
+    placedOf: (n, N) => `${n} / ${N} placed`, nextCase: "Next case ▸",
+    placeAll: (N) => `Place all ${N} people — ${N - 1} suspects and the victim — one per row and column.`,
+    notAllCorrect: "Everyone's down, but the positions don't all check out yet. Re-read the clues.",
+    accuseTitle: "Everyone's placed! Who's the culprit?", accuseHelp: "It's whoever was alone in the victim's room.",
+    wrongAccuse: (name) => `${name} wasn't alone with the victim. Try again.`,
+    solvedCulprit: (t, name, g) => `🎉 Solved in ${t}! ${name} was alone with the victim — the culprit.`,
     solvedCount: (n) => `${n} solved`, resetConfirm: "Reset this case's board?",
     loadErr: "Couldn't load the case engine.",
   };
 
   const root = document.getElementById("md-root");
   let C = null, caseNum = 0, sel = 0, mode = "place";
-  let placements = {}, crosses = {}, notes = {}, secs = 0, timer = null, won = false;
+  let placements = {}, crosses = {}, notes = {}, secs = 0, timer = null, won = false, accuseMsg = "";
   const START = (new URLSearchParams(location.search).get("case") | 0) || lsGet(CURKEY, 0) || 0;
 
   // ---------- pixel-art tileset ----------
@@ -120,7 +126,7 @@
     const st = lsGet(STATE, {});
     if (st.case === caseNum) { placements = st.placements || {}; crosses = st.crosses || {}; notes = st.notes || {}; secs = st.secs || 0; }
     else { placements = {}; crosses = {}; notes = {}; secs = 0; }
-    sel = 0; mode = "place"; won = isSolved(caseNum);
+    sel = 0; mode = "place"; won = isSolved(caseNum); accuseMsg = "";
     shell(); drawMap(); refresh(); startTimer();
   }
   const save = () => lsSet(STATE, { case: caseNum, placements, crosses, notes, secs });
@@ -153,7 +159,7 @@
       const occ = tileOwner(tile); if (occ >= 0) delete placements[occ];
       for (let s = 0; s < C.N; s++) { delete crosses[`${s}:${tile}`]; delete notes[`${s}:${tile}`]; }
     }
-    save(); checkWin(); refresh();
+    save(); refresh();
   }
   function hint() {
     if (won) return;
@@ -164,11 +170,14 @@
     for (const o in placements) { const P = C.tiles[placements[o]]; if (+o !== s && (placements[o] === cell || P.y === T.y || P.x === T.x)) delete placements[o]; }
     placements[s] = cell; sel = s; save(); checkWin(); refresh();
   }
-  function checkWin() {
-    if (won) return;
-    for (let i = 0; i < C.N; i++) if (placements[i] !== C.solution[i]) return;
-    won = true; clearInterval(timer);
-    const list = solvedList(); if (!list.includes(caseNum)) { list.push(caseNum); lsSet(SOLVED, list); }
+  const allCorrect = () => { for (let i = 0; i < C.N; i++) if (placements[i] !== C.solution[i]) return false; return true; };
+  function accuse(i) {
+    if (won || !allCorrect()) return;
+    if (i === C.culprit) {
+      won = true; accuseMsg = ""; clearInterval(timer);
+      const list = solvedList(); if (!list.includes(caseNum)) { list.push(caseNum); lsSet(SOLVED, list); }
+    } else accuseMsg = T.wrongAccuse(C.suspects[i].name);
+    refresh();
   }
 
   // ---------- render ----------
@@ -225,7 +234,7 @@
       const tile = t.y * C.W + t.x, owner = tileOwner(tile);
       const style = `left:${t.x / C.W * 100}%;top:${t.y / C.H * 100}%;width:${100 / C.W}%;height:${100 / C.H}%`;
       let inner = "", cls = "mdm-tile walk";
-      if (owner >= 0) inner = `<img class="mdm-av" src="${avatar(C.suspects[owner].name, C.suspects[owner].g)}" alt="${esc(C.suspects[owner].name)}" style="border-color:${C.suspects[owner].color}" referrerpolicy="no-referrer">`;
+      if (owner >= 0) inner = `<img class="mdm-av${owner === C.victimIdx ? " vic" : ""}" src="${avatar(C.suspects[owner].name, C.suspects[owner].g)}" alt="${esc(C.suspects[owner].name)}" style="border-color:${C.suspects[owner].color}" referrerpolicy="no-referrer">${owner === C.victimIdx ? '<span class="mdm-vic-tile">☠</span>' : ""}`;
       else {
         const autoX = eRows.has(t.y) || eCols.has(t.x);
         const userX = crosses[`${sel}:${tile}`];
@@ -242,18 +251,29 @@
     const tray = document.getElementById("md-tray");
     tray.innerHTML = C.suspects.map((s, i) => {
       const placed = placements[i] != null;
-      return `<button class="mdm-sus${i === sel ? " on" : ""}${placed ? " placed" : ""}" data-s="${i}" title="${esc(s.name)}" style="--c:${s.color}">
-        <img src="${avatar(s.name, s.g)}" alt="${esc(s.name)}" referrerpolicy="no-referrer"><span>${esc(s.name)}</span>${placed ? '<span class="mdm-dot">✓</span>' : ""}</button>`;
+      return `<button class="mdm-sus${i === sel ? " on" : ""}${placed ? " placed" : ""}${i === C.victimIdx ? " victim" : ""}" data-s="${i}" title="${esc(s.name)}" style="--c:${s.color}">
+        <img src="${avatar(s.name, s.g)}" alt="${esc(s.name)}" referrerpolicy="no-referrer"><span>${esc(s.name)}</span>${i === C.victimIdx ? '<span class="mdm-vic">☠</span>' : ""}${placed ? '<span class="mdm-dot">✓</span>' : ""}</button>`;
     }).join("");
     tray.querySelectorAll("[data-s]").forEach((b) => b.onclick = () => { sel = +b.dataset.s; refresh(); });
 
     document.querySelectorAll("#md-toolbar [data-tool]").forEach((b) => b.classList.toggle("on", b.dataset.tool === mode));
 
     const placedN = Object.keys(placements).length;
-    document.getElementById("md-status").innerHTML = `<h2>${T.investigation}</h2>
-      <p class="mdm-count">${T.placedOf(placedN, C.N)}</p>
-      ${won ? `<p class="md-verdict ok">${T.solvedIn(mmss(secs))}</p><button class="btn" id="md-nextcase">${T.nextCase}</button>`
-        : `<p class="mdm-note-line">${T.placeAll(C.N)}</p>`}`;
+    let sh = `<h2>${T.investigation}</h2><p class="mdm-count">${T.placedOf(placedN, C.N)}</p>`;
+    if (won) {
+      const cul = C.suspects[C.culprit];
+      sh += `<p class="md-verdict ok">${T.solvedCulprit(mmss(secs), cul.name, cul.g)}</p><button class="btn" id="md-nextcase">${T.nextCase}</button>`;
+    } else if (allCorrect()) {
+      sh += `<p class="mdm-accuse-t">${T.accuseTitle}</p><p class="mdm-note-line">${T.accuseHelp}</p>
+        <div class="mdm-accuse">${C.suspects.slice(0, C.suspectCount).map((su, i) => `<button class="mdm-accuse-b" data-acc="${i}" title="${esc(su.name)}" style="--c:${su.color}"><img src="${avatar(su.name, su.g)}" referrerpolicy="no-referrer"><span>${esc(su.name)}</span></button>`).join("")}</div>
+        ${accuseMsg ? `<p class="mdm-wrong">${esc(accuseMsg)}</p>` : ""}`;
+    } else if (placedN === C.N) {
+      sh += `<p class="mdm-note-line">${T.notAllCorrect}</p>`;
+    } else {
+      sh += `<p class="mdm-note-line">${T.placeAll(C.N)}</p>`;
+    }
+    document.getElementById("md-status").innerHTML = sh;
+    document.querySelectorAll(".mdm-accuse-b").forEach((b) => b.onclick = () => accuse(+b.dataset.acc));
     const nc = document.getElementById("md-nextcase"); if (nc) nc.onclick = () => load(caseNum + 1);
   }
 

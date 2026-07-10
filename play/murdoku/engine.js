@@ -9,13 +9,18 @@
   "use strict";
   const L = (typeof localStorage !== "undefined" && localStorage.getItem("nftw:lang") === "pt") ? "pt" : "en";
 
-  const SUSPECTS = [
-    { name: "Benjamin", color: "#e05a4a", g: "m" }, { name: "Charlotte", color: "#6c8cff", g: "f" },
-    { name: "Daniel", color: "#e8c84a", g: "m" }, { name: "Eleanor", color: "#d98cc0", g: "f" },
-    { name: "Frederick", color: "#5bc8e8", g: "m" }, { name: "Grace", color: "#5bd6a0", g: "f" },
-    { name: "Harold", color: "#b18cff", g: "m" }, { name: "Isabelle", color: "#ff8a3d", g: "f" },
-    { name: "Marcus", color: "#4db6ac", g: "m" }, { name: "Priya", color: "#f06292", g: "f" },
-    { name: "Sofia", color: "#9ccc65", g: "f" }, { name: "Theodore", color: "#a1887f", g: "m" },
+  // Suspects are always named A, B, C … in order; the victim's name starts with V.
+  const ALPHA = [
+    { name: "Alice", color: "#e05a4a", g: "f" }, { name: "Benjamin", color: "#6c8cff", g: "m" },
+    { name: "Charlotte", color: "#e8c84a", g: "f" }, { name: "Daniel", color: "#d98cc0", g: "m" },
+    { name: "Eleanor", color: "#5bc8e8", g: "f" }, { name: "Frederick", color: "#5bd6a0", g: "m" },
+    { name: "Grace", color: "#b18cff", g: "f" }, { name: "Harold", color: "#ff8a3d", g: "m" },
+    { name: "Isabelle", color: "#4db6ac", g: "f" }, { name: "Jacob", color: "#f06292", g: "m" },
+    { name: "Katherine", color: "#9ccc65", g: "f" }, { name: "Louis", color: "#a1887f", g: "m" },
+  ];
+  const VICTIMS = [
+    { name: "Victor", g: "m" }, { name: "Vivian", g: "f" }, { name: "Vincent", g: "m" },
+    { name: "Vera", g: "f" }, { name: "Violet", g: "f" },
   ];
   const FIX = {
     crate: "the crates", banner: "the promo stand", cheese: "the deli counter",
@@ -137,17 +142,39 @@
   function mulberry32(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
   const shuffle = (arr, rng) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
-  function pickPositions(ctx, N, rng) {
-    for (let attempt = 0; attempt < 60; attempt++) {
-      const pool = shuffle(ctx.roomCells, rng);
-      const chosen = [], rows = new Set(), cols = new Set();
-      for (const tile of pool) {
-        const T = ctx.tiles[tile];
-        if (rows.has(T.y) || cols.has(T.x)) continue;
-        chosen.push(tile); rows.add(T.y); cols.add(T.x);
-        if (chosen.length === N) return chosen;
-      }
+  // Place the victim + exactly one suspect (the culprit) together in a room, and
+  // the other suspects in OTHER rooms — all on distinct rows & columns (rook rule).
+  function pickCrimePositions(ctx, NS, rng) {
+    const big = [];
+    for (let i = 0; i < ROOMS.length; i++) if (ROOMS[i].w >= 2 && ROOMS[i].h >= 2) big.push(i);
+    const cr = big[Math.floor(rng() * big.length)];
+    const crCells = shuffle(ctx.roomCells.filter((t) => ctx.tiles[t].room === cr), rng);
+    let vc = -1, cc = -1;
+    outer: for (let i = 0; i < crCells.length; i++) for (let j = i + 1; j < crCells.length; j++) {
+      const A = ctx.tiles[crCells[i]], B = ctx.tiles[crCells[j]];
+      if (A.y !== B.y && A.x !== B.x) { vc = crCells[i]; cc = crCells[j]; break outer; }
     }
+    if (cc < 0) return null;
+    const rows = new Set([ctx.tiles[vc].y, ctx.tiles[cc].y]), cols = new Set([ctx.tiles[vc].x, ctx.tiles[cc].x]);
+    const four = [];
+    for (const t of shuffle(ctx.roomCells.filter((t) => ctx.tiles[t].room !== cr), rng)) {
+      const T = ctx.tiles[t];
+      if (rows.has(T.y) || cols.has(T.x)) continue;
+      rows.add(T.y); cols.add(T.x); four.push(t);
+      if (four.length === NS - 1) break;
+    }
+    if (four.length < NS - 1) return null;
+    const culprit = Math.floor(rng() * NS);
+    const positions = new Array(NS + 1);
+    positions[culprit] = cc;
+    let fi = 0;
+    for (let s = 0; s < NS; s++) if (s !== culprit) positions[s] = four[fi++];
+    positions[NS] = vc; // victim is the last entity
+    return { positions, culprit };
+  }
+  function pickAnyRook(ctx, M, rng) {
+    const pool = shuffle(ctx.roomCells, rng), chosen = [], rows = new Set(), cols = new Set();
+    for (const t of pool) { const T = ctx.tiles[t]; if (rows.has(T.y) || cols.has(T.x)) continue; chosen.push(t); rows.add(T.y); cols.add(T.x); if (chosen.length === M) return chosen; }
     return null;
   }
 
@@ -173,25 +200,33 @@
     const rng = mulberry32(((num + 1) * 2654435761) >>> 0);
     const tiles = buildMap();
     const ctx = context(tiles);
-    const N = 5;
-    const suspects = shuffle(SUSPECTS, rng).slice(0, N).sort((a, b) => a.name.localeCompare(b.name)); // alphabetical
-    const truth = pickPositions(ctx, N, rng) || ctx.roomCells.slice(0, N);
-    const { flavour, pin } = candidateClues(truth, ctx, N);
+    const NS = 5; // suspects (alphabetical, always the same A–E roster)
+    const suspects = ALPHA.slice(0, NS).map((s) => ({ name: s.name, color: s.color, g: s.g }));
+    const v = VICTIMS[Math.floor(rng() * VICTIMS.length)];
+    const victim = { name: v.name, color: "#9aa0a8", g: v.g, isVictim: true };
+    const people = suspects.concat([victim]);   // index NS = victim
+    const M = people.length;                     // 6 placeable people
+    let place = null;
+    for (let a = 0; a < 300 && !place; a++) place = pickCrimePositions(ctx, NS, rng);
+    if (!place) place = { positions: pickAnyRook(ctx, M, rng) || ctx.roomCells.slice(0, M), culprit: 0 };
+    const truth = place.positions;
+    const { flavour, pin } = candidateClues(truth, ctx, M);
     let givens = shuffle(flavour, rng).concat(shuffle(pin, rng));
     for (let i = givens.length - 1; i >= 0; i--) {
       const test = givens.slice(0, i).concat(givens.slice(i + 1));
-      if (count(test, ctx, N).n === 1) givens = test;
+      if (count(test, ctx, M).n === 1) givens = test;
     }
     const ci = Math.floor(rng() * CRIMES.length);
     const brief = L === "pt"
-      ? `Hora de fecho, e ${CRIMESPT[ci]}. Ainda estavam ${N} pessoas lá dentro — e não havia duas na mesma linha ou coluna. Descobre exactamente onde cada uma estava.`
-      : `Closing time, and ${CRIMES[ci]}. ${N} people were still inside — and no two were caught on the same aisle row or column. Work out exactly where each of them stood.`;
+      ? `Hora de fecho, e ${CRIMESPT[ci]}. ${victim.name} foi encontrad${victim.g === "f" ? "a" : "o"} sem vida. Estavam ${NS} pessoas lá dentro — e não havia duas na mesma linha ou coluna. Descobre onde estava cada uma; o culpado é quem ficou sozinho com a vítima.`
+      : `Closing time, and ${CRIMES[ci]}. ${victim.name} was found dead. ${NS} people were still inside — and no two shared a row or column. Work out where everyone stood; the culprit is whoever was alone with the victim.`;
     return {
-      num, N, W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS, lang: L,
-      suspects,
+      num, N: M, suspectCount: NS, victimIdx: NS, culprit: place.culprit,
+      W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS, lang: L,
+      suspects: people,
       title: (L === "pt" ? TITLESPT : TITLES)[num % TITLES.length],
       brief,
-      clues: shuffle(givens, rng).map((c) => (L === "pt" ? clueTextPt : clueText)(c, suspects)),
+      clues: shuffle(givens, rng).map((c) => (L === "pt" ? clueTextPt : clueText)(c, people)),
       solution: truth,
     };
   }
@@ -218,7 +253,7 @@
   }
   const pick = (arr, c) => arr[((c.s || 0) + (c.z || 0) + (c.v || 0) + (c.k ? c.k.length : 0)) % arr.length];
 
-  const API = { generateCase, SUSPECTS, FIX, ROOMS, W, H, TS, _count: count, _buildMap: buildMap, _context: context };
+  const API = { generateCase, ALPHA, VICTIMS, FIX, ROOMS, W, H, TS, _count: count, _buildMap: buildMap, _context: context };
   if (typeof module !== "undefined" && module.exports) module.exports = API;
   global.MURDOKU = API;
 })(typeof window !== "undefined" ? window : globalThis);
