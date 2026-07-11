@@ -108,7 +108,13 @@
     desk: ["mdi/desk", "9a6a3a"], tv: ["mdi/television-classic", "333842"],
     bench: ["mdi/seat", "9a6a3a"], rug: ["mdi/rug", "b0433a"],
   };
-  const objSprite = (key) => { const o = OBJICON[key] || OBJICON.crate; return `https://api.iconify.design/${o[0]}.svg?color=%23${o[1]}`; };
+  // Objects with a hand-styled illustrated sprite in the repo (cozy PDF look); the
+  // rest fall back to Iconify until they're generated too.
+  const LOCALOBJ = { crate: 1, till: 1, coffee: 1, apples: 1 };
+  const objSprite = (key) => {
+    if (LOCALOBJ[key]) return `/assets/img/murdoku/${key}.png?v=1`;
+    const o = OBJICON[key] || OBJICON.crate; return `https://api.iconify.design/${o[0]}.svg?color=%23${o[1]}`;
+  };
   function fixtureLayer() {
     const fx = document.getElementById("md-fix"); if (!fx) return;
     let html = "";
@@ -117,7 +123,7 @@
       if (!key) continue;
       const occ = (t.type === "bench" || t.type === "rug");
       const style = `left:${t.x / C.W * 100}%;top:${t.y / C.H * 100}%;width:${100 / C.W}%;height:${100 / C.H}%`;
-      html += `<span class="mdm-fx${occ ? " occ" : ""}" style="${style}"><img src="${objSprite(key)}" alt="" referrerpolicy="no-referrer"></span>`;
+      html += `<span class="mdm-fx${occ ? " occ" : ""}${LOCALOBJ[key] ? " ai" : ""}" style="${style}"><img src="${objSprite(key)}" alt="" referrerpolicy="no-referrer"></span>`;
     }
     fx.innerHTML = html;
   }
