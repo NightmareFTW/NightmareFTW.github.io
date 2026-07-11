@@ -99,13 +99,18 @@
     }
   }
   // ---- object sprites cropped from the reference book, hosted in the repo ----
-  const objSprite = (key) => `/assets/img/murdoku/${key}.png?v=3`;
+  const objSprite = (key) => `/assets/img/murdoku/${key}.png?v=4`;
   function fixtureLayer() {
     const fx = document.getElementById("md-fix"); if (!fx) return;
     let html = "";
+    // beds span two horizontal cells — draw each once, across both tiles
+    for (const [bx, by] of (C.beds || [])) {
+      const style = `left:${bx / C.W * 100}%;top:${by / C.H * 100}%;width:${200 / C.W}%;height:${100 / C.H}%`;
+      html += `<span class="mdm-fx ai occ" style="${style}"><img src="${objSprite("bed")}" alt="" referrerpolicy="no-referrer"></span>`;
+    }
     for (const t of C.tiles) {
       const key = t.occ || t.fixture;
-      if (!key) continue;
+      if (!key || key === "bed") continue;   // bed already drawn as a 2-cell span
       const occ = !!t.occ;
       const style = `left:${t.x / C.W * 100}%;top:${t.y / C.H * 100}%;width:${100 / C.W}%;height:${100 / C.H}%`;
       html += `<span class="mdm-fx ai${occ ? " occ" : ""}" style="${style}"><img src="${objSprite(key)}" alt="" referrerpolicy="no-referrer"></span>`;

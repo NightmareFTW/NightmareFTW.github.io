@@ -2199,10 +2199,12 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .mdm-overlay, .mdm-labels, .mdm-fix { position: absolute; inset: 0; }
 .mdm-labels, .mdm-fix { pointer-events: none; }
 .mdm-fix { z-index: 1; }
-.mdm-fx { position: absolute; display: grid; place-items: center; }
-.mdm-fx img { width: 82%; height: 82%; object-fit: contain; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.35)); }
-.mdm-fx.occ img { width: 90%; height: 90%; }
-.mdm-fx.ai img { width: 96%; height: 96%; filter: drop-shadow(0 1px 2px rgba(0,0,0,.28)); }
+.mdm-fx { position: absolute; }
+/* absolutely positioned inside the cell: % sizes resolve against the cell, so a
+   sprite can NEVER overflow its tile(s) — object-fit letterboxes tall/wide art */
+.mdm-fx img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 92%; height: 92%; object-fit: contain; filter: drop-shadow(0 1px 2px rgba(0,0,0,.28)); }
+.mdm-fx.occ img { width: 95%; height: 95%; }
 .mdm-overlay { z-index: 2; }
 .mdm-labels { z-index: 3; }
 .mdm-tile { position: absolute; margin: 0; padding: 0; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }

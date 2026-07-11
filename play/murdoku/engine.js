@@ -53,8 +53,10 @@
     ["plant", 1, 8], ["table", 2, 9], ["plant", 3, 10], ["plant", 5, 9], ["box", 7, 10],
     ["box", 8, 6], ["box", 9, 6], ["bookshelf", 10, 10], ["tv", 8, 10],
   ];
-  const OCC = [ // occupiable (walkable): a person can be on a chair, rug or bed
-    ["bed", 1, 1], ["chair", 6, 1], ["bed", 5, 3], ["rug", 2, 5],
+  // Beds span TWO horizontal cells (like the book); a person occupies one of them.
+  const BEDS = [[1, 1], [5, 3]]; // each covers (x,y) and (x+1,y)
+  const OCC = [ // other occupiable objects (walkable): chair, rug
+    ["chair", 6, 1], ["rug", 2, 5],
     ["chair", 5, 7], ["rug", 2, 7], ["chair", 1, 9], ["rug", 10, 9], ["chair", 3, 3], ["rug", 9, 8],
   ];
   const VOID = [[8, 5], [9, 5], [10, 5]];
@@ -64,6 +66,7 @@
     const roomAt = (x, y) => ROOMS.findIndex((r) => x >= r.x && x < r.x + r.w && y >= r.y && y < r.y + r.h);
     const furnAt = {}; FURN.forEach(([k, x, y]) => (furnAt[idx(x, y)] = k));
     const occAt = {}; OCC.forEach(([k, x, y]) => (occAt[idx(x, y)] = k));
+    BEDS.forEach(([x, y]) => { occAt[idx(x, y)] = "bed"; occAt[idx(x + 1, y)] = "bed"; });
     const voidSet = new Set(VOID.map(([x, y]) => idx(x, y)));
     const tiles = new Array(W * H);
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
@@ -225,7 +228,7 @@
       : `A crime one night at a house, and ${CRIMES[ci]}. ${victim.name} was found dead. ${NS} people were inside — and no two shared a row or column. Work out where everyone stood; the culprit is whoever was alone with the victim.`;
     return {
       num, N: M, suspectCount: NS, victimIdx: NS, culprit: place.culprit,
-      W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS, lang: L,
+      W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS, beds: BEDS, lang: L,
       suspects: people,
       title: (L === "pt" ? TITLESPT : TITLES)[num % TITLES.length],
       brief,
