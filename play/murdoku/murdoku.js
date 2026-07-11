@@ -66,10 +66,8 @@
       r(px, py, TS, TS, base);
       if ((t.x + t.y) % 2 === 0) { g.fillStyle = "rgba(0,0,0,.04)"; g.fillRect(px, py, TS, TS); }
       g.fillStyle = "rgba(0,0,0,.06)"; g.fillRect(px, py + TS - 1, TS, 1); g.fillRect(px + TS - 1, py, 1, TS); // faint grid
-      if (t.type === "bench") drawFixture(g, px, py, "bench");
-      else if (t.type === "rug") drawFixture(g, px, py, "rug");
-      else if (t.fixture) drawFixture(g, px, py, t.fixture);
     }
+    // objects themselves are <img> sprites in the #md-fix layer (see fixtureLayer())
     // 2) walls = thin lines on the edges where the division changes (+ outer shell)
     const winSet = new Set((C.windows || []).map(([x, y, s]) => x + "," + y + "," + s));
     const reg = (x, y) => { if (x < 0 || y < 0 || x >= W || y >= H) return "V"; const t = C.tiles[y * W + x]; return t.type === "void" ? "V" : t.room; };
@@ -100,64 +98,28 @@
       b(xx, py, th, S, FR); b(xx + 1, py + ins, th - 2, S - 2 * ins, GL); b(xx + 1, py + ins, 1, S - 2 * ins, SK); b(xx, py + (S >> 1) - 1, th, 2, FR);
     }
   }
-  // ---- detailed 32px object icons (smooth shapes, keep the clean illustrated look) ----
-  function rrect(g, x, y, w, h, rad) { const r = Math.min(rad, w / 2, h / 2); g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
-  function drawFixture(g, px, py, key) {
-    const RR = (x, y, w, h, rad, c) => { g.fillStyle = c; rrect(g, px + x, py + y, w, h, rad); g.fill(); };
-    const CI = (cx, cy, rad, c) => { g.fillStyle = c; g.beginPath(); g.arc(px + cx, py + cy, rad, 0, 6.29); g.fill(); };
-    const RE = (x, y, w, h, c) => { g.fillStyle = c; g.fillRect(px + x, py + y, w, h); };
-    switch (key) {
-      case "crate": // wooden box
-        RR(4, 9, 24, 21, 3, "#5f3e1c"); RR(5, 10, 22, 19, 2, "#b07d43");
-        RE(5, 16, 22, 2, "#8a5f30"); RE(5, 23, 22, 2, "#8a5f30"); RE(15, 10, 2, 19, "#8a5f30");
-        RR(11, 12, 10, 8, 1, "#e8d9b0"); RE(13, 15, 6, 2, "#b07d43"); break;
-      case "till": // cash register
-        RR(4, 15, 24, 14, 2, "#8b929c"); RE(4, 21, 24, 2, "#5a616b");
-        RR(7, 4, 18, 12, 2, "#2b3550"); RR(9, 6, 14, 6, 1, "#5bd6a0");
-        RE(8, 24, 3, 2, "#5a616b"); RE(13, 24, 3, 2, "#5a616b"); RE(18, 24, 3, 2, "#5a616b"); break;
-      case "coffee": // coffee machine + cup
-        RR(6, 3, 20, 25, 3, "#5a5f68"); RR(6, 3, 20, 6, 2, "#464b53"); CI(21, 8, 2, "#e14");
-        RE(13, 13, 6, 3, "#2b2f35"); RR(11, 19, 10, 7, 1, "#eef0f2"); RE(12, 20, 8, 2, "#6f4a28");
-        g.strokeStyle = "rgba(255,255,255,.5)"; g.lineWidth = 1; g.beginPath(); g.moveTo(px + 14, py + 12); g.lineTo(px + 13, py + 8); g.moveTo(px + 18, py + 12); g.lineTo(px + 19, py + 8); g.stroke(); break;
-      case "apples": // produce shelf
-        RR(2, 18, 28, 11, 2, "#8a5a30"); RE(2, 16, 28, 3, "#a86e3a");
-        CI(9, 11, 5, "#c0392b"); CI(8, 10, 1.6, "#e86a58"); CI(18, 9, 5, "#d0402e"); CI(17, 8, 1.6, "#f08a7a"); CI(25, 12, 4.3, "#b83228");
-        RE(9, 5, 1, 2, "#3a8a3a"); RE(18, 3, 1, 2, "#3a8a3a"); break;
-      case "bread": // basket of baguettes
-        RR(3, 16, 26, 13, 2, "#9a6a3a"); RR(4, 12, 24, 6, 3, "#d9a24a");
-        CI(10, 13, 3, "#e8bd6c"); CI(16, 12, 3, "#d9a24a"); CI(22, 13, 3, "#e8bd6c");
-        g.strokeStyle = "#a9772f"; g.lineWidth = 1; g.beginPath(); g.moveTo(px + 8, py + 12); g.lineTo(px + 12, py + 14); g.moveTo(px + 20, py + 12); g.lineTo(px + 24, py + 14); g.stroke(); break;
-      case "cheese": // deli counter
-        RR(2, 16, 28, 13, 2, "#cfc0a0"); RR(2, 8, 28, 9, 2, "rgba(150,220,235,.4)");
-        g.fillStyle = "#f2c94c"; g.beginPath(); g.moveTo(px + 6, py + 20); g.lineTo(px + 13, py + 20); g.lineTo(px + 6, py + 13); g.fill();
-        g.fillStyle = "#e0b23a"; g.beginPath(); g.moveTo(px + 16, py + 20); g.lineTo(px + 23, py + 20); g.lineTo(px + 23, py + 13); g.fill(); break;
-      case "flowers": // flower buckets
-        RR(7, 18, 18, 11, 2, "#8a8f98"); RE(7, 18, 18, 2, "#a4a9b2");
-        RE(11, 8, 1.4, 11, "#3a8a3a"); RE(16, 6, 1.4, 13, "#3a8a3a"); RE(21, 9, 1.4, 10, "#3a8a3a");
-        CI(11.5, 7, 3, "#e76fa1"); CI(16.5, 5, 3.2, "#f2c94c"); CI(21.5, 8, 3, "#b18cff"); break;
-      case "plant": // potted plant (not occupiable)
-        RR(10, 19, 12, 10, 2, "#b06a3a"); RE(10, 19, 12, 2, "#c98a54");
-        CI(16, 11, 7, "#3f9a4f"); CI(11, 14, 4.5, "#4fb35f"); CI(21, 14, 4.5, "#358a45"); CI(16, 7, 4, "#4fb35f"); break;
-      case "banner": // promo sign
-        RE(15, 12, 2, 17, "#8a8a8a"); RR(3, 3, 26, 12, 2, "#e0483a");
-        RE(6, 6, 16, 1.6, "#fff"); RE(6, 9, 12, 1.6, "#fff"); CI(24, 6, 1.6, "#ffd24a"); break;
-      case "safe":
-        RR(5, 6, 22, 22, 2, "#4a4f57"); RR(7, 8, 18, 18, 2, "#5a616b");
-        CI(20, 17, 3.6, "#c9a94a"); CI(20, 17, 1.6, "#8a6f2a"); RE(10, 15, 2, 6, "#2b2f35"); break;
-      case "desk": // table (not occupiable)
-        RR(2, 10, 28, 5, 1, "#a06a3a"); RE(4, 15, 3, 13, "#7a4e28"); RE(25, 15, 3, 13, "#7a4e28");
-        RR(18, 15, 11, 11, 1, "#8a5a3c"); RE(21, 19, 5, 1.6, "#5f3e1c"); break;
-      case "tv": // wall TV (not occupiable)
-        RR(3, 4, 26, 17, 2, "#1c1c1c"); RR(5, 6, 22, 13, 1, "#3a6ea5"); RE(7, 8, 7, 3, "#6ea0d8");
-        RE(14, 21, 4, 3, "#333"); RE(10, 24, 12, 2, "#333"); break;
-      case "bench": // occupiable — low seat drawn flat so an avatar sits on it
-        RR(3, 8, 26, 3, 1, "#9a6a3a"); RR(3, 13, 26, 6, 2, "#b07d43"); RE(3, 15, 26, 1.5, "#8a5f30");
-        RE(5, 19, 3, 9, "#6f4a28"); RE(24, 19, 3, 9, "#6f4a28"); break;
-      case "rug": // occupiable — flat patterned mat
-        RR(3, 6, 26, 20, 3, "#b0433a"); RR(6, 9, 20, 14, 2, "#d98a5a"); RR(11, 13, 10, 6, 1, "#8a2f2a");
-        g.strokeStyle = "#e8c39a"; g.lineWidth = 1.4; rrect(g, px + 6, py + 9, 20, 14, 2); g.stroke(); break;
-      default: RR(6, 6, 20, 20, 3, "#888");
+  // ---- object sprites from the Iconify API (hosted SVGs, free/no key — like DiceBear) ----
+  const OBJICON = {
+    crate: ["mdi/package-variant-closed", "a9773f"], till: ["mdi/cash-register", "7c8590"],
+    coffee: ["mdi/coffee-maker", "6b7079"], apples: ["mdi/food-apple", "d0402e"],
+    bread: ["mdi/baguette", "c98f3e"], cheese: ["mdi/cheese", "e0b23a"],
+    flowers: ["mdi/flower", "e05a90"], plant: ["mdi/sprout", "3f9a4f"],
+    banner: ["mdi/sign-text", "e0483a"], safe: ["mdi/safe", "5a616b"],
+    desk: ["mdi/desk", "9a6a3a"], tv: ["mdi/television-classic", "333842"],
+    bench: ["mdi/seat", "9a6a3a"], rug: ["mdi/rug", "b0433a"],
+  };
+  const objSprite = (key) => { const o = OBJICON[key] || OBJICON.crate; return `https://api.iconify.design/${o[0]}.svg?color=%23${o[1]}`; };
+  function fixtureLayer() {
+    const fx = document.getElementById("md-fix"); if (!fx) return;
+    let html = "";
+    for (const t of C.tiles) {
+      const key = t.type === "bench" ? "bench" : (t.type === "rug" ? "rug" : t.fixture);
+      if (!key) continue;
+      const occ = (t.type === "bench" || t.type === "rug");
+      const style = `left:${t.x / C.W * 100}%;top:${t.y / C.H * 100}%;width:${100 / C.W}%;height:${100 / C.H}%`;
+      html += `<span class="mdm-fx${occ ? " occ" : ""}" style="${style}"><img src="${objSprite(key)}" alt="" referrerpolicy="no-referrer"></span>`;
     }
+    fx.innerHTML = html;
   }
 
   // ---------- persistence ----------
@@ -169,7 +131,7 @@
     if (st.case === caseNum) { placements = st.placements || {}; crosses = st.crosses || {}; notes = st.notes || {}; secs = st.secs || 0; }
     else { placements = {}; crosses = {}; notes = {}; secs = 0; }
     sel = 0; mode = "place"; won = isSolved(caseNum); accuseMsg = "";
-    shell(); drawMap(); refresh(); startTimer();
+    shell(); drawMap(); fixtureLayer(); refresh(); startTimer();
   }
   const save = () => lsSet(STATE, { case: caseNum, placements, crosses, notes, secs });
   const solvedList = () => lsGet(SOLVED, []);
@@ -238,6 +200,7 @@
       <div class="mdm-stage">
         <div class="mdm-wrap" id="md-wrap" style="aspect-ratio:${C.W}/${C.H}">
           <canvas class="mdm-canvas" id="md-canvas"></canvas>
+          <div class="mdm-fix" id="md-fix"></div>
           <div class="mdm-overlay" id="md-overlay"></div>
           <div class="mdm-labels" id="md-labels"></div>
         </div>
@@ -262,7 +225,7 @@
     document.getElementById("md-hint").onclick = hint;
     document.getElementById("md-prev").onclick = () => load(caseNum - 1);
     document.getElementById("md-next").onclick = () => load(caseNum + 1);
-    document.getElementById("md-reset").onclick = () => { if (confirm(T.resetConfirm)) { placements = {}; crosses = {}; notes = {}; secs = 0; won = false; save(); shell(); drawMap(); refresh(); startTimer(); } };
+    document.getElementById("md-reset").onclick = () => { if (confirm(T.resetConfirm)) { placements = {}; crosses = {}; notes = {}; secs = 0; won = false; save(); shell(); drawMap(); fixtureLayer(); refresh(); startTimer(); } };
   }
 
   function refresh() {
