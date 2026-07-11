@@ -2201,7 +2201,7 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .mdm-fix { z-index: 1; }
 .mdm-fx { position: absolute; display: grid; place-items: center; }
 .mdm-fx img { width: 82%; height: 82%; object-fit: contain; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.35)); }
-.mdm-fx.occ img { width: 66%; height: 66%; opacity: .9; }
+.mdm-fx.occ img { width: 90%; height: 90%; }
 .mdm-fx.ai img { width: 96%; height: 96%; filter: drop-shadow(0 1px 2px rgba(0,0,0,.28)); }
 .mdm-overlay { z-index: 2; }
 .mdm-labels { z-index: 3; }

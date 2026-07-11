@@ -51,7 +51,7 @@
   const START = (new URLSearchParams(location.search).get("case") | 0) || lsGet(CURKEY, 0) || 0;
 
   // ---------- pixel-art tileset ----------
-  const ZTINT = { green: "#b7e0a5", yellow: "#f2df84", grey: "#d2d2db" };
+  const ZTINT = { green: "#b7e0a5", yellow: "#f2df84", grey: "#d2d2db", blue: "#bcd8e8", tan: "#e6d6b8", pink: "#f0c8d8", purple: "#d3c2e8" };
   function drawMap() {
     const cv = document.getElementById("md-canvas"); if (!cv) return;
     const TS = C.TS, W = C.W, H = C.H;
@@ -98,34 +98,17 @@
       b(xx, py, th, S, FR); b(xx + 1, py + ins, th - 2, S - 2 * ins, GL); b(xx + 1, py + ins, 1, S - 2 * ins, SK); b(xx, py + (S >> 1) - 1, th, 2, FR);
     }
   }
-  // ---- object sprites from the Iconify API (hosted SVGs, free/no key — like DiceBear) ----
-  const OBJICON = {
-    crate: ["mdi/package-variant-closed", "a9773f"], till: ["mdi/cash-register", "7c8590"],
-    coffee: ["mdi/coffee-maker", "6b7079"], apples: ["mdi/food-apple", "d0402e"],
-    bread: ["mdi/baguette", "c98f3e"], cheese: ["mdi/cheese", "e0b23a"],
-    flowers: ["mdi/flower", "e05a90"], plant: ["mdi/sprout", "3f9a4f"],
-    banner: ["mdi/sign-text", "e0483a"], safe: ["mdi/safe", "5a616b"],
-    desk: ["mdi/desk", "9a6a3a"], tv: ["mdi/television-classic", "333842"],
-    bench: ["mdi/seat", "9a6a3a"], rug: ["mdi/rug", "b0433a"],
-  };
-  // Objects with a hand-styled illustrated sprite in the repo (cozy PDF look); the
-  // rest fall back to Iconify until they're generated too.
-  // crate/till/coffee/apples = generated in the book's style; desk/tv/plant/bench/rug
-  // = cropped straight from the reference PDF's object art. The rest fall back to Iconify.
-  const LOCALOBJ = { crate: 1, till: 1, coffee: 1, apples: 1, desk: 1, tv: 1, plant: 1, bench: 1, rug: 1 };
-  const objSprite = (key) => {
-    if (LOCALOBJ[key]) return `/assets/img/murdoku/${key}.png?v=2`;
-    const o = OBJICON[key] || OBJICON.crate; return `https://api.iconify.design/${o[0]}.svg?color=%23${o[1]}`;
-  };
+  // ---- object sprites cropped from the reference book, hosted in the repo ----
+  const objSprite = (key) => `/assets/img/murdoku/${key}.png?v=3`;
   function fixtureLayer() {
     const fx = document.getElementById("md-fix"); if (!fx) return;
     let html = "";
     for (const t of C.tiles) {
-      const key = t.type === "bench" ? "bench" : (t.type === "rug" ? "rug" : t.fixture);
+      const key = t.occ || t.fixture;
       if (!key) continue;
-      const occ = (t.type === "bench" || t.type === "rug");
+      const occ = !!t.occ;
       const style = `left:${t.x / C.W * 100}%;top:${t.y / C.H * 100}%;width:${100 / C.W}%;height:${100 / C.H}%`;
-      html += `<span class="mdm-fx${occ ? " occ" : ""}${LOCALOBJ[key] ? " ai" : ""}" style="${style}"><img src="${objSprite(key)}" alt="" referrerpolicy="no-referrer"></span>`;
+      html += `<span class="mdm-fx ai${occ ? " occ" : ""}" style="${style}"><img src="${objSprite(key)}" alt="" referrerpolicy="no-referrer"></span>`;
     }
     fx.innerHTML = html;
   }
