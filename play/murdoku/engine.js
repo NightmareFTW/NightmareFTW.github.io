@@ -40,7 +40,7 @@
   const EM = { o: "no", a: "na", os: "nos", as: "nas" };
 
   // ---- floor plan (rooms tile the interior; every tile belongs to a named room) ----
-  const W = 12, H = 12, TS = 16;
+  const W = 12, H = 12, TS = 32;   // 32px tiles ⇒ room for detailed, legible object art
   const idx = (x, y) => y * W + x;
   const ROOMS = [
     { name: "Storage Room", pt: "Armazém", art: "o", color: "grey", x: 1, y: 1, w: 3, h: 3 },
@@ -62,7 +62,8 @@
     ["bread", 1, 9], ["bread", 3, 10], ["crate", 5, 9], ["crate", 7, 10],
     ["till", 8, 6], ["till", 9, 6], ["till", 10, 6],
   ];
-  const BENCH = [[2, 8], [3, 8]];
+  const BENCH = [[2, 8], [3, 8]];                 // 2-tile bench in the Staff Room (occupiable)
+  const RUGS = [[5, 7]];                          // rug in the Office (occupiable)
   const VOID = [[8, 5], [9, 5], [10, 5]];
   const WINDOWS = [[5, 1, "T"], [9, 1, "T"], [10, 7, "R"], [10, 9, "R"], [1, 5, "L"], [1, 10, "L"]];
 
@@ -70,31 +71,42 @@
     const roomAt = (x, y) => ROOMS.findIndex((r) => x >= r.x && x < r.x + r.w && y >= r.y && y < r.y + r.h);
     const furnAt = {}; FURN.forEach(([k, x, y]) => (furnAt[idx(x, y)] = k));
     const benchSet = new Set(BENCH.map(([x, y]) => idx(x, y)));
+    const rugSet = new Set(RUGS.map(([x, y]) => idx(x, y)));
     const voidSet = new Set(VOID.map(([x, y]) => idx(x, y)));
     const tiles = new Array(W * H);
     for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
       const i = idx(x, y);
       const interior = x >= 1 && x <= W - 2 && y >= 1 && y <= H - 2 && !voidSet.has(i);
       let type = "void", room = -1;
-      if (interior) { room = roomAt(x, y); type = furnAt[i] ? "furn" : (benchSet.has(i) ? "bench" : "floor"); }
-      tiles[i] = { x, y, room, type, fixture: furnAt[i] || null, walkable: (type === "floor" || type === "bench") };
+      if (interior) { room = roomAt(x, y); type = furnAt[i] ? "furn" : (benchSet.has(i) ? "bench" : (rugSet.has(i) ? "rug" : "floor")); }
+      tiles[i] = { x, y, room, type, fixture: furnAt[i] || null, walkable: (type === "floor" || type === "bench" || type === "rug") };
     }
-    ROOMS.forEach((r) => (r.label = { x: r.x + (r.w - 1) / 2, y: r.y + (r.h - 1) / 2 }));
+    // room label anchored to the bottom-centre of each room so it doesn't cover objects
+    ROOMS.forEach((r) => (r.label = { x: r.x + (r.w - 1) / 2, y: r.y + r.h - 1 }));
     return tiles;
   }
 
   function context(tiles) {
     const walk = [], roomCells = [];
     for (const t of tiles) if (t.walkable) { walk.push(idx(t.x, t.y)); if (t.room >= 0) roomCells.push(idx(t.x, t.y)); }
-    const beside = {};
+    const beside = {};                              // "ao lado" = orthogonally adjacent, SAME division only
     for (const t of tiles) if (t.fixture) {
       const s = beside[t.fixture] || (beside[t.fixture] = new Set());
       [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dx, dy]) => {
-        const nx = t.x + dx, ny = t.y + dy; if (nx >= 0 && ny >= 0 && nx < W && ny < H && tiles[idx(nx, ny)].walkable) s.add(idx(nx, ny));
+        const nx = t.x + dx, ny = t.y + dy; if (nx < 0 || ny < 0 || nx >= W || ny >= H) return;
+        const n = tiles[idx(nx, ny)];
+        if (n.walkable && n.room === t.room) s.add(idx(nx, ny));
       });
     }
     const benchSet = new Set(BENCH.map(([x, y]) => idx(x, y)));
-    return { tiles, walk, roomCells, beside, benchSet };
+    const rugSet = new Set(RUGS.map(([x, y]) => idx(x, y)));
+    const windowFront = new Set();                  // walkable cells that sit against a window
+    for (const w of WINDOWS) { const i = idx(w[0], w[1]); if (tiles[i] && tiles[i].walkable) windowFront.add(i); }
+    // cells describable by an authentic clue (beside object / occupiable / window)
+    const describable = new Set();
+    for (const k in beside) beside[k].forEach((t) => describable.add(t));
+    benchSet.forEach((t) => describable.add(t)); rugSet.forEach((t) => describable.add(t)); windowFront.forEach((t) => describable.add(t));
+    return { tiles, walk, roomCells, beside, benchSet, rugSet, windowFront, describable };
   }
 
   const rowPh = { 2: ["at the back of", "at the front of"], 3: ["at the back of", "in the middle of", "at the front of"], 4: ["at the very back of", "towards the back of", "towards the front of", "at the very front of"], 5: ["at the very back of", "near the back of", "in the middle of", "near the front of", "at the very front of"] };
@@ -108,6 +120,8 @@
     if (c.t === "negroom") return T.room !== c.z;
     if (c.t === "beside") return ctx.beside[c.k] && ctx.beside[c.k].has(tile);
     if (c.t === "bench") return ctx.benchSet.has(tile);
+    if (c.t === "rug") return ctx.rugSet.has(tile);
+    if (c.t === "window") return ctx.windowFront.has(tile);
     if (c.t === "row") return T.room === c.z && (T.y - R.y) === c.v;
     if (c.t === "col") return T.room === c.z && (T.x - R.x) === c.v;
     return true;
@@ -145,10 +159,12 @@
   // Place the victim + exactly one suspect (the culprit) together in a room, and
   // the other suspects in OTHER rooms — all on distinct rows & columns (rook rule).
   function pickCrimePositions(ctx, NS, rng) {
+    // prefer object-describable cells so authentic clues can pin them (position clues stay rare)
+    const descFirst = (arr) => shuffle(arr, rng).sort((a, b) => (ctx.describable.has(b) ? 1 : 0) - (ctx.describable.has(a) ? 1 : 0));
     const big = [];
     for (let i = 0; i < ROOMS.length; i++) if (ROOMS[i].w >= 2 && ROOMS[i].h >= 2) big.push(i);
     const cr = big[Math.floor(rng() * big.length)];
-    const crCells = shuffle(ctx.roomCells.filter((t) => ctx.tiles[t].room === cr), rng);
+    const crCells = descFirst(ctx.roomCells.filter((t) => ctx.tiles[t].room === cr));
     let vc = -1, cc = -1;
     outer: for (let i = 0; i < crCells.length; i++) for (let j = i + 1; j < crCells.length; j++) {
       const A = ctx.tiles[crCells[i]], B = ctx.tiles[crCells[j]];
@@ -157,7 +173,7 @@
     if (cc < 0) return null;
     const rows = new Set([ctx.tiles[vc].y, ctx.tiles[cc].y]), cols = new Set([ctx.tiles[vc].x, ctx.tiles[cc].x]);
     const four = [];
-    for (const t of shuffle(ctx.roomCells.filter((t) => ctx.tiles[t].room !== cr), rng)) {
+    for (const t of descFirst(ctx.roomCells.filter((t) => ctx.tiles[t].room !== cr))) {
       const T = ctx.tiles[t];
       if (rows.has(T.y) || cols.has(T.x)) continue;
       rows.add(T.y); cols.add(T.x); four.push(t);
@@ -178,17 +194,22 @@
     return null;
   }
 
+  // Authentic Murdoku clues (object-relative / occupiable / window / room) are
+  // "flavour" and kept; the position-in-room clues are a last-resort fallback so
+  // they only appear when the object clues can't pin the cell on their own.
   function candidateClues(truth, ctx, N) {
-    const flavour = [], pin = [];
+    const flavour = [], pinRoom = [], pinPos = [];
     for (let s = 0; s < N; s++) {
       const tile = truth[s], T = ctx.tiles[tile], R = ROOMS[T.room];
       for (const k in ctx.beside) if (ctx.beside[k].has(tile)) flavour.push({ t: "beside", s, k });
       if (ctx.benchSet.has(tile)) flavour.push({ t: "bench", s });
-      pin.push({ t: "inroom", s, z: T.room });
-      if (rowPh[R.h]) pin.push({ t: "row", s, z: T.room, v: T.y - R.y });
-      if (colPh[R.w]) pin.push({ t: "col", s, z: T.room, v: T.x - R.x });
+      if (ctx.rugSet.has(tile)) flavour.push({ t: "rug", s });
+      if (ctx.windowFront.has(tile)) flavour.push({ t: "window", s });
+      pinRoom.push({ t: "inroom", s, z: T.room });
+      if (rowPh[R.h]) pinPos.push({ t: "row", s, z: T.room, v: T.y - R.y });
+      if (colPh[R.w]) pinPos.push({ t: "col", s, z: T.room, v: T.x - R.x });
     }
-    return { flavour, pin };
+    return { flavour, pinRoom, pinPos };
   }
 
   const TITLES = ["The Purchase No One Made", "A Scandal in Aisle Three", "The Vanishing Trolley", "Whodunit at Closing Time", "The Missing Receipt", "Trouble at the Deli", "The Five O'Clock Alibi", "The Spilled Secret"];
@@ -210,8 +231,8 @@
     for (let a = 0; a < 300 && !place; a++) place = pickCrimePositions(ctx, NS, rng);
     if (!place) place = { positions: pickAnyRook(ctx, M, rng) || ctx.roomCells.slice(0, M), culprit: 0 };
     const truth = place.positions;
-    const { flavour, pin } = candidateClues(truth, ctx, M);
-    let givens = shuffle(flavour, rng).concat(shuffle(pin, rng));
+    const { flavour, pinRoom, pinPos } = candidateClues(truth, ctx, M);
+    let givens = shuffle(flavour, rng).concat(shuffle(pinRoom, rng)).concat(shuffle(pinPos, rng));
     for (let i = givens.length - 1; i >= 0; i--) {
       const test = givens.slice(0, i).concat(givens.slice(i + 1));
       if (count(test, ctx, M).n === 1) givens = test;
@@ -233,10 +254,12 @@
 
   function clueText(c, S) {
     const nm = (i) => S[i].name, rn = (z) => ROOMS[z].name, R = (z) => ROOMS[z];
-    if (c.t === "inroom") return pick([`${nm(c.s)} was somewhere in the ${rn(c.z)}.`, `${nm(c.s)} spent closing in the ${rn(c.z)}.`], c);
+    if (c.t === "inroom") return pick([`${nm(c.s)} was in the ${rn(c.z)}.`, `${nm(c.s)} spent closing in the ${rn(c.z)}.`], c);
     if (c.t === "negroom") return `${nm(c.s)} was never near the ${rn(c.z)}.`;
-    if (c.t === "beside") return pick([`${nm(c.s)} was right beside ${FIX[c.k]}.`, `${nm(c.s)} could reach out and touch ${FIX[c.k]}.`], c);
-    if (c.t === "bench") return `${nm(c.s)} was resting on the bench.`;
+    if (c.t === "beside") return pick([`${nm(c.s)} was right beside ${FIX[c.k]}.`, `${nm(c.s)} was next to ${FIX[c.k]}.`], c);
+    if (c.t === "bench") return `${nm(c.s)} was sitting on the bench.`;
+    if (c.t === "rug") return `${nm(c.s)} was standing on the rug.`;
+    if (c.t === "window") return `${nm(c.s)} was standing in front of a window.`;
     if (c.t === "row") return `${nm(c.s)} was ${rowPh[R(c.z).h][c.v]} the ${rn(c.z)}.`;
     if (c.t === "col") return `${nm(c.s)} was ${colPh[R(c.z).w][c.v]} the ${rn(c.z)}.`;
     return "";
@@ -245,8 +268,10 @@
     const nm = (i) => S[i].name, R = (z) => ROOMS[z], rn = (z) => ROOMS[z].pt, de = (z) => DE[ROOMS[z].art], em = (z) => EM[ROOMS[z].art];
     if (c.t === "inroom") return pick([`${nm(c.s)} estava ${em(c.z)} ${rn(c.z)}.`, `${nm(c.s)} passou o fecho ${em(c.z)} ${rn(c.z)}.`], c);
     if (c.t === "negroom") return `${nm(c.s)} nunca esteve perto ${de(c.z)} ${rn(c.z)}.`;
-    if (c.t === "beside") { const f = FIXPT[c.k]; return pick([`${nm(c.s)} estava mesmo ao lado ${DE[f.art]} ${f.noun}.`, `${nm(c.s)} quase tocava ${EM[f.art]} ${f.noun}.`], c); }
+    if (c.t === "beside") { const f = FIXPT[c.k]; return `${nm(c.s)} estava ao lado ${DE[f.art]} ${f.noun}.`; }
     if (c.t === "bench") return `${nm(c.s)} estava sentad${S[c.s].g === "f" ? "a" : "o"} no banco.`;
+    if (c.t === "rug") return `${nm(c.s)} estava em cima do tapete.`;
+    if (c.t === "window") return `${nm(c.s)} estava em frente a uma janela.`;
     if (c.t === "row") return `${nm(c.s)} estava ${rowPt[R(c.z).h][c.v]} ${de(c.z)} ${rn(c.z)}.`;
     if (c.t === "col") return `${nm(c.s)} estava ${colPt[R(c.z).w][c.v]} ${de(c.z)} ${rn(c.z)}.`;
     return "";

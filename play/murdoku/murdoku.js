@@ -58,27 +58,28 @@
     cv.width = W * TS; cv.height = H * TS;
     const g = cv.getContext("2d");
     const r = (x, y, w, h, col) => { g.fillStyle = col; g.fillRect(x, y, w, h); };
-    // 1) floors + furniture (the whole plan is floor; walls come next as lines)
+    // 1) floors, then furniture drawn as clean icons on top
     for (const t of C.tiles) {
       const px = t.x * TS, py = t.y * TS;
       if (t.type === "void") continue;
       const base = t.room >= 0 ? ZTINT[C.rooms[t.room].color] : "#e9dcc2";
       r(px, py, TS, TS, base);
-      if ((t.x + t.y) % 2 === 0) { g.fillStyle = "rgba(0,0,0,.045)"; g.fillRect(px, py, TS, TS); }
-      g.fillStyle = "rgba(0,0,0,.07)"; g.fillRect(px, py + TS - 1, TS, 1); g.fillRect(px + TS - 1, py, 1, TS); // faint grid
-      if (t.type === "bench") drawFixture(r, px, py, "bench");
-      else if (t.fixture) drawFixture(r, px, py, t.fixture);
+      if ((t.x + t.y) % 2 === 0) { g.fillStyle = "rgba(0,0,0,.04)"; g.fillRect(px, py, TS, TS); }
+      g.fillStyle = "rgba(0,0,0,.06)"; g.fillRect(px, py + TS - 1, TS, 1); g.fillRect(px + TS - 1, py, 1, TS); // faint grid
+      if (t.type === "bench") drawFixture(g, px, py, "bench");
+      else if (t.type === "rug") drawFixture(g, px, py, "rug");
+      else if (t.fixture) drawFixture(g, px, py, t.fixture);
     }
-    // 2) walls = thin lines on edges where the region changes (rooms + outer shell)
+    // 2) walls = thin lines on the edges where the division changes (+ outer shell)
     const winSet = new Set((C.windows || []).map(([x, y, s]) => x + "," + y + "," + s));
     const reg = (x, y) => { if (x < 0 || y < 0 || x >= W || y >= H) return "V"; const t = C.tiles[y * W + x]; return t.type === "void" ? "V" : t.room; };
     const DIRS = [[0, -1, "T"], [0, 1, "B"], [-1, 0, "L"], [1, 0, "R"]];
     for (const t of C.tiles) {
       if (t.type === "void") continue;
       for (const [dx, dy, side] of DIRS) {
-        if (reg(t.x + dx, t.y + dy) === t.room) continue;   // same room → no wall
+        if (reg(t.x + dx, t.y + dy) === t.room) continue;
         if (winSet.has(t.x + "," + t.y + "," + side)) edgeWindow(g, t.x, t.y, side);
-        else { const outer = reg(t.x + dx, t.y + dy) === "V"; edgeLine(g, t.x, t.y, side, outer ? 2 : 1, outer ? "#463c30" : "#6b5f4c"); }
+        else { const outer = reg(t.x + dx, t.y + dy) === "V"; edgeLine(g, t.x, t.y, side, outer ? 3 : 2, outer ? "#463c30" : "#6b5f4c"); }
       }
     }
   }
@@ -90,31 +91,72 @@
     else g.fillRect(px + TS - lw, py, lw, TS);
   }
   function edgeWindow(g, x, y, side) {
-    const TS = C.TS, px = x * TS, py = y * TS, FR = "#463c30", GL = "#a9d4e6", SK = "#cdeaf5";
+    const S = C.TS, px = x * S, py = y * S, FR = "#463c30", GL = "#a9d4e6", SK = "#cdeaf5";
+    const th = Math.round(S * 0.17), ins = Math.round(S * 0.18);
     const b = (X, Y, w, h, c) => { g.fillStyle = c; g.fillRect(X, Y, w, h); };
-    if (side === "T" || side === "B") { const yy = side === "T" ? py : py + TS - 3;
-      b(px, yy, TS, 3, FR); b(px + 3, yy, TS - 6, 2, GL); b(px + 3, yy, TS - 6, 1, SK); b(px + Math.floor(TS / 2), yy, 1, 3, FR);
-    } else { const xx = side === "L" ? px : px + TS - 3;
-      b(xx, py, 3, TS, FR); b(xx, py + 3, 2, TS - 6, GL); b(xx, py + 3, 1, TS - 6, SK); b(xx, py + Math.floor(TS / 2), 3, 1, FR);
+    if (side === "T" || side === "B") { const yy = side === "T" ? py : py + S - th;
+      b(px, yy, S, th, FR); b(px + ins, yy + 1, S - 2 * ins, th - 2, GL); b(px + ins, yy + 1, S - 2 * ins, 1, SK); b(px + (S >> 1) - 1, yy, 2, th, FR);
+    } else { const xx = side === "L" ? px : px + S - th;
+      b(xx, py, th, S, FR); b(xx + 1, py + ins, th - 2, S - 2 * ins, GL); b(xx + 1, py + ins, 1, S - 2 * ins, SK); b(xx, py + (S >> 1) - 1, th, 2, FR);
     }
   }
-  function drawFixture(r, px, py, key) {
-    const P = (x, y, w, h, c) => r(px + x, py + y, w, h, c);
+  // ---- detailed 32px object icons (smooth shapes, keep the clean illustrated look) ----
+  function rrect(g, x, y, w, h, rad) { const r = Math.min(rad, w / 2, h / 2); g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+  function drawFixture(g, px, py, key) {
+    const RR = (x, y, w, h, rad, c) => { g.fillStyle = c; rrect(g, px + x, py + y, w, h, rad); g.fill(); };
+    const CI = (cx, cy, rad, c) => { g.fillStyle = c; g.beginPath(); g.arc(px + cx, py + cy, rad, 0, 6.29); g.fill(); };
+    const RE = (x, y, w, h, c) => { g.fillStyle = c; g.fillRect(px + x, py + y, w, h); };
     switch (key) {
-      case "apples": P(0, 9, 16, 7, "#7a5030"); P(0, 8, 16, 2, "#946039"); P(2, 3, 4, 4, "#d33"); P(7, 2, 4, 4, "#e14"); P(11, 4, 4, 4, "#c22"); P(4, 2, 1, 2, "#4a3"); P(9, 1, 1, 2, "#4a3"); break;
-      case "bread": P(0, 10, 16, 6, "#8a5a3c"); P(2, 5, 5, 6, "#d9a24a"); P(9, 5, 5, 6, "#c98f3e"); P(2, 5, 5, 2, "#e8bd6c"); break;
-      case "cheese": P(0, 9, 16, 7, "#cfc0a0"); P(0, 6, 16, 3, "rgba(150,220,230,.5)"); P(3, 10, 5, 4, "#f2c94c"); P(9, 10, 4, 4, "#e0b23a"); break;
-      case "flowers": P(4, 10, 8, 6, "#a5673a"); P(6, 4, 1, 6, "#3a8a3a"); P(9, 4, 1, 6, "#3a8a3a"); P(3, 2, 4, 4, "#e76fa1"); P(8, 1, 4, 4, "#f2a0c0"); P(6, 4, 4, 3, "#e05a90"); break;
-      case "plant": P(5, 10, 6, 6, "#b06a3a"); P(3, 2, 10, 9, "#3f9a4f"); P(5, 4, 6, 4, "#2f7a3f"); P(7, 1, 2, 3, "#4fb35f"); break;
-      case "banner": P(7, 6, 2, 10, "#8a8a8a"); P(2, 1, 12, 7, "#e0483a"); P(4, 3, 8, 1, "#fff"); P(4, 5, 6, 1, "#fff"); break;
-      case "till": P(2, 8, 12, 8, "#9aa0a8"); P(4, 2, 8, 6, "#2b3550"); P(5, 3, 6, 2, "#5bd6a0"); P(0, 14, 16, 2, "#555"); break;
-      case "coffee": P(3, 2, 10, 13, "#5a5f68"); P(6, 10, 4, 3, "#222"); P(10, 4, 2, 2, "#e14"); P(5, 4, 4, 3, "#3b4048"); break;
-      case "crate": P(2, 3, 12, 12, "#a06a3a"); P(2, 6, 12, 1, "#7a4e28"); P(2, 10, 12, 1, "#7a4e28"); P(7, 3, 1, 12, "#7a4e28"); break;
-      case "safe": P(3, 3, 10, 11, "#4a4f57"); P(4, 4, 8, 9, "#5a616b"); P(9, 8, 3, 3, "#c9a94a"); P(6, 7, 1, 3, "#2b2f35"); break;
-      case "desk": P(1, 5, 14, 2, "#a06a3a"); P(2, 7, 12, 8, "#8a5a3c"); P(3, 9, 4, 4, "#6f4a28"); P(9, 9, 4, 4, "#6f4a28"); break;
-      case "tv": P(2, 2, 12, 9, "#222"); P(3, 3, 10, 7, "#3a6ea5"); P(4, 4, 4, 2, "#6ea0d8"); P(7, 11, 2, 2, "#444"); P(5, 13, 6, 1, "#333"); break;
-      case "bench": P(2, 4, 12, 2, "#8a5a3c"); P(2, 7, 12, 3, "#a06a3a"); P(3, 10, 2, 3, "#6f4a28"); P(11, 10, 2, 3, "#6f4a28"); break;
-      default: P(4, 4, 8, 8, "#888");
+      case "crate": // wooden box
+        RR(4, 9, 24, 21, 3, "#5f3e1c"); RR(5, 10, 22, 19, 2, "#b07d43");
+        RE(5, 16, 22, 2, "#8a5f30"); RE(5, 23, 22, 2, "#8a5f30"); RE(15, 10, 2, 19, "#8a5f30");
+        RR(11, 12, 10, 8, 1, "#e8d9b0"); RE(13, 15, 6, 2, "#b07d43"); break;
+      case "till": // cash register
+        RR(4, 15, 24, 14, 2, "#8b929c"); RE(4, 21, 24, 2, "#5a616b");
+        RR(7, 4, 18, 12, 2, "#2b3550"); RR(9, 6, 14, 6, 1, "#5bd6a0");
+        RE(8, 24, 3, 2, "#5a616b"); RE(13, 24, 3, 2, "#5a616b"); RE(18, 24, 3, 2, "#5a616b"); break;
+      case "coffee": // coffee machine + cup
+        RR(6, 3, 20, 25, 3, "#5a5f68"); RR(6, 3, 20, 6, 2, "#464b53"); CI(21, 8, 2, "#e14");
+        RE(13, 13, 6, 3, "#2b2f35"); RR(11, 19, 10, 7, 1, "#eef0f2"); RE(12, 20, 8, 2, "#6f4a28");
+        g.strokeStyle = "rgba(255,255,255,.5)"; g.lineWidth = 1; g.beginPath(); g.moveTo(px + 14, py + 12); g.lineTo(px + 13, py + 8); g.moveTo(px + 18, py + 12); g.lineTo(px + 19, py + 8); g.stroke(); break;
+      case "apples": // produce shelf
+        RR(2, 18, 28, 11, 2, "#8a5a30"); RE(2, 16, 28, 3, "#a86e3a");
+        CI(9, 11, 5, "#c0392b"); CI(8, 10, 1.6, "#e86a58"); CI(18, 9, 5, "#d0402e"); CI(17, 8, 1.6, "#f08a7a"); CI(25, 12, 4.3, "#b83228");
+        RE(9, 5, 1, 2, "#3a8a3a"); RE(18, 3, 1, 2, "#3a8a3a"); break;
+      case "bread": // basket of baguettes
+        RR(3, 16, 26, 13, 2, "#9a6a3a"); RR(4, 12, 24, 6, 3, "#d9a24a");
+        CI(10, 13, 3, "#e8bd6c"); CI(16, 12, 3, "#d9a24a"); CI(22, 13, 3, "#e8bd6c");
+        g.strokeStyle = "#a9772f"; g.lineWidth = 1; g.beginPath(); g.moveTo(px + 8, py + 12); g.lineTo(px + 12, py + 14); g.moveTo(px + 20, py + 12); g.lineTo(px + 24, py + 14); g.stroke(); break;
+      case "cheese": // deli counter
+        RR(2, 16, 28, 13, 2, "#cfc0a0"); RR(2, 8, 28, 9, 2, "rgba(150,220,235,.4)");
+        g.fillStyle = "#f2c94c"; g.beginPath(); g.moveTo(px + 6, py + 20); g.lineTo(px + 13, py + 20); g.lineTo(px + 6, py + 13); g.fill();
+        g.fillStyle = "#e0b23a"; g.beginPath(); g.moveTo(px + 16, py + 20); g.lineTo(px + 23, py + 20); g.lineTo(px + 23, py + 13); g.fill(); break;
+      case "flowers": // flower buckets
+        RR(7, 18, 18, 11, 2, "#8a8f98"); RE(7, 18, 18, 2, "#a4a9b2");
+        RE(11, 8, 1.4, 11, "#3a8a3a"); RE(16, 6, 1.4, 13, "#3a8a3a"); RE(21, 9, 1.4, 10, "#3a8a3a");
+        CI(11.5, 7, 3, "#e76fa1"); CI(16.5, 5, 3.2, "#f2c94c"); CI(21.5, 8, 3, "#b18cff"); break;
+      case "plant": // potted plant (not occupiable)
+        RR(10, 19, 12, 10, 2, "#b06a3a"); RE(10, 19, 12, 2, "#c98a54");
+        CI(16, 11, 7, "#3f9a4f"); CI(11, 14, 4.5, "#4fb35f"); CI(21, 14, 4.5, "#358a45"); CI(16, 7, 4, "#4fb35f"); break;
+      case "banner": // promo sign
+        RE(15, 12, 2, 17, "#8a8a8a"); RR(3, 3, 26, 12, 2, "#e0483a");
+        RE(6, 6, 16, 1.6, "#fff"); RE(6, 9, 12, 1.6, "#fff"); CI(24, 6, 1.6, "#ffd24a"); break;
+      case "safe":
+        RR(5, 6, 22, 22, 2, "#4a4f57"); RR(7, 8, 18, 18, 2, "#5a616b");
+        CI(20, 17, 3.6, "#c9a94a"); CI(20, 17, 1.6, "#8a6f2a"); RE(10, 15, 2, 6, "#2b2f35"); break;
+      case "desk": // table (not occupiable)
+        RR(2, 10, 28, 5, 1, "#a06a3a"); RE(4, 15, 3, 13, "#7a4e28"); RE(25, 15, 3, 13, "#7a4e28");
+        RR(18, 15, 11, 11, 1, "#8a5a3c"); RE(21, 19, 5, 1.6, "#5f3e1c"); break;
+      case "tv": // wall TV (not occupiable)
+        RR(3, 4, 26, 17, 2, "#1c1c1c"); RR(5, 6, 22, 13, 1, "#3a6ea5"); RE(7, 8, 7, 3, "#6ea0d8");
+        RE(14, 21, 4, 3, "#333"); RE(10, 24, 12, 2, "#333"); break;
+      case "bench": // occupiable — low seat drawn flat so an avatar sits on it
+        RR(3, 8, 26, 3, 1, "#9a6a3a"); RR(3, 13, 26, 6, 2, "#b07d43"); RE(3, 15, 26, 1.5, "#8a5f30");
+        RE(5, 19, 3, 9, "#6f4a28"); RE(24, 19, 3, 9, "#6f4a28"); break;
+      case "rug": // occupiable — flat patterned mat
+        RR(3, 6, 26, 20, 3, "#b0433a"); RR(6, 9, 20, 14, 2, "#d98a5a"); RR(11, 13, 10, 6, 1, "#8a2f2a");
+        g.strokeStyle = "#e8c39a"; g.lineWidth = 1.4; rrect(g, px + 6, py + 9, 20, 14, 2); g.stroke(); break;
+      default: RR(6, 6, 20, 20, 3, "#888");
     }
   }
 
