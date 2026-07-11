@@ -110,9 +110,11 @@
   };
   // Objects with a hand-styled illustrated sprite in the repo (cozy PDF look); the
   // rest fall back to Iconify until they're generated too.
-  const LOCALOBJ = { crate: 1, till: 1, coffee: 1, apples: 1 };
+  // crate/till/coffee/apples = generated in the book's style; desk/tv/plant/bench/rug
+  // = cropped straight from the reference PDF's object art. The rest fall back to Iconify.
+  const LOCALOBJ = { crate: 1, till: 1, coffee: 1, apples: 1, desk: 1, tv: 1, plant: 1, bench: 1, rug: 1 };
   const objSprite = (key) => {
-    if (LOCALOBJ[key]) return `/assets/img/murdoku/${key}.png?v=1`;
+    if (LOCALOBJ[key]) return `/assets/img/murdoku/${key}.png?v=2`;
     const o = OBJICON[key] || OBJICON.crate; return `https://api.iconify.design/${o[0]}.svg?color=%23${o[1]}`;
   };
   function fixtureLayer() {
