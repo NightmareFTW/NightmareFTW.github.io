@@ -27,9 +27,9 @@
   const T = L === "pt" ? {
     notes: "Notas", crosses: "Cruzes", place: "Colocar", erase: "Apagar", hint: "Dica",
     clues: "Pistas", investigation: "Investigação", reset: "Repor este caso",
-    help: "Coloca as 6 pessoas (5 suspeitos + a vítima) pelas pistas. Ao colocar alguém, elimina-se toda a <b>linha e coluna</b> — só um por linha e por coluna. Ninguém fica em cima de mobília (o banco conta). O culpado é quem ficou sozinho na sala da vítima.",
+    help: "Cada <b>linha</b> e cada <b>coluna</b> têm exactamente uma pessoa — colocar alguém elimina a linha e a coluna inteiras. Ninguém fica em cima de mesas, televisões, plantas, estantes ou caixas; cadeiras, tapetes e camas podem ser ocupados. Coloca os 5 suspeitos pelas pistas, a vítima na <b>última célula restante</b>, e acusa quem ficou sozinho com ela.",
     placedOf: (n, N) => `${n} / ${N} colocados`, nextCase: "Próximo caso ▸",
-    placeAll: (N) => `Coloca as ${N} pessoas — ${N - 1} suspeitos e a vítima — uma por linha e por coluna.`,
+    placeAll: (N) => `Coloca os ${N - 1} suspeitos pelas pistas e a vítima na última célula restante.`,
     notAllCorrect: "Estão todos colocados, mas as posições ainda não batem certo. Revê as pistas.",
     accuseTitle: "Todos no sítio! Quem é o culpado?", accuseHelp: "Foi quem ficou sozinho(a) na sala da vítima.",
     wrongAccuse: (name) => `${name} não estava sozinho(a) com a vítima. Tenta outra vez.`,
@@ -39,9 +39,9 @@
   } : {
     notes: "Notes", crosses: "Crosses", place: "Place", erase: "Erase", hint: "Hint",
     clues: "Clues", investigation: "Investigation", reset: "Reset this case",
-    help: "Place all 6 people (5 suspects + the victim) from the clues. Placing someone rules out their whole <b>row &amp; column</b> — one per row and per column. Nobody stands on furniture (the bench is fine). The culprit is whoever was alone in the victim's room.",
+    help: "Every <b>row</b> and every <b>column</b> holds exactly one person — placing someone rules out their whole row and column. Nobody can stand on tables, TVs, plants, bookcases or boxes; chairs, rugs and beds can be occupied. Place the 5 suspects from the clues, the victim in the <b>last remaining cell</b>, and accuse whoever is alone with them.",
     placedOf: (n, N) => `${n} / ${N} placed`, nextCase: "Next case ▸",
-    placeAll: (N) => `Place all ${N} people — ${N - 1} suspects and the victim — one per row and column.`,
+    placeAll: (N) => `Place the ${N - 1} suspects from the clues, then the victim in the last remaining cell.`,
     notAllCorrect: "Everyone's down, but the positions don't all check out yet. Re-read the clues.",
     accuseTitle: "Everyone's placed! Who's the culprit?", accuseHelp: "It's whoever was alone in the victim's room.",
     wrongAccuse: (name) => `${name} wasn't alone with the victim. Try again.`,

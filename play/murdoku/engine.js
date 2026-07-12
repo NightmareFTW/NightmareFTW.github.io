@@ -29,34 +29,32 @@
   const FIXPT = { table: "de uma mesa", tv: "de uma televisão", plant: "de uma planta", bookshelf: "de uma estante", box: "de uma caixa", chair: "de uma cadeira", rug: "de um tapete", bed: "de uma cama" };
   const EM = { o: "no", a: "na", os: "nos", as: "nas" };
 
-  const W = 12, H = 12, TS = 32;
+  // Like the book: the interior grid is N×N where N = number of people (6), so
+  // every row and every column holds exactly one person — which is what lets the
+  // victim be found in "the last remaining cell" with no clues of their own.
+  const W = 8, H = 8, TS = 32; // 6×6 interior + 1-tile border
   const idx = (x, y) => y * W + x;
   const ROOMS = [
-    { name: "Master Bedroom", pt: "Quarto Principal", art: "o", color: "blue", x: 1, y: 1, w: 3, h: 3 },
-    { name: "Living Room", pt: "Sala de Estar", art: "a", color: "green", x: 4, y: 1, w: 4, h: 2 },
-    { name: "Kitchen", pt: "Cozinha", art: "a", color: "tan", x: 8, y: 1, w: 3, h: 4 },
-    { name: "Guest Room", pt: "Quarto de Hóspedes", art: "o", color: "pink", x: 4, y: 3, w: 4, h: 3 },
-    { name: "Bathroom", pt: "Casa de Banho", art: "a", color: "blue", x: 1, y: 4, w: 3, h: 3 },
-    { name: "Office", pt: "Escritório", art: "o", color: "grey", x: 4, y: 6, w: 4, h: 3 },
-    { name: "Hallway", pt: "Corredor", art: "o", color: "tan", x: 1, y: 7, w: 3, h: 2 },
-    { name: "Dining Room", pt: "Sala de Jantar", art: "a", color: "yellow", x: 1, y: 9, w: 3, h: 2 },
-    { name: "Garden", pt: "Quintal", art: "o", color: "green", x: 4, y: 9, w: 4, h: 2 },
-    { name: "Basement", pt: "Cave", art: "a", color: "grey", x: 8, y: 6, w: 3, h: 5 },
+    { name: "Master Bedroom", pt: "Quarto Principal", art: "o", color: "blue", x: 1, y: 1, w: 2, h: 2 },
+    { name: "Kitchen", pt: "Cozinha", art: "a", color: "tan", x: 3, y: 1, w: 2, h: 2 },
+    { name: "Living Room", pt: "Sala de Estar", art: "a", color: "green", x: 5, y: 1, w: 2, h: 3 },
+    { name: "Bathroom", pt: "Casa de Banho", art: "a", color: "grey", x: 1, y: 3, w: 2, h: 2 },
+    { name: "Guest Room", pt: "Quarto de Hóspedes", art: "o", color: "pink", x: 3, y: 3, w: 2, h: 2 },
+    { name: "Office", pt: "Escritório", art: "o", color: "yellow", x: 5, y: 4, w: 2, h: 3 },
+    { name: "Dining Room", pt: "Sala de Jantar", art: "a", color: "tan", x: 1, y: 5, w: 2, h: 2 },
+    { name: "Garden", pt: "Quintal", art: "o", color: "green", x: 3, y: 5, w: 2, h: 2 },
   ];
-  const FURN = [ // blocked
-    ["plant", 3, 1], ["tv", 4, 1], ["plant", 7, 2], ["box", 8, 1], ["table", 9, 1], ["plant", 10, 3],
-    ["bookshelf", 4, 3], ["plant", 7, 5], ["plant", 1, 4], ["table", 4, 6], ["bookshelf", 7, 6], ["box", 6, 8],
-    ["plant", 1, 8], ["table", 2, 9], ["plant", 3, 10], ["plant", 5, 9], ["box", 7, 10],
-    ["box", 8, 6], ["box", 9, 6], ["bookshelf", 10, 10], ["tv", 8, 10],
+  const FURN = [ // blocked: table, tv, plant, bookshelf, box
+    ["table", 4, 1], ["tv", 6, 1], ["plant", 5, 3], ["plant", 1, 4],
+    ["bookshelf", 6, 4], ["table", 1, 6], ["box", 3, 6], ["plant", 4, 6],
   ];
   // Beds span TWO horizontal cells (like the book); a person occupies one of them.
-  const BEDS = [[1, 1], [5, 3]]; // each covers (x,y) and (x+1,y)
+  const BEDS = [[1, 1], [3, 3]]; // each covers (x,y) and (x+1,y)
   const OCC = [ // other occupiable objects (walkable): chair, rug
-    ["chair", 6, 1], ["rug", 2, 5],
-    ["chair", 5, 7], ["rug", 2, 7], ["chair", 1, 9], ["rug", 10, 9], ["chair", 3, 3], ["rug", 9, 8],
+    ["chair", 6, 2], ["rug", 2, 3], ["rug", 5, 5], ["chair", 2, 5],
   ];
-  const VOID = [[8, 5], [9, 5], [10, 5]];
-  const WINDOWS = [[5, 1, "T"], [9, 1, "T"], [10, 7, "R"], [10, 9, "R"], [1, 5, "L"], [1, 10, "L"]];
+  const VOID = [];
+  const WINDOWS = [[2, 1, "T"], [5, 1, "T"], [1, 3, "L"], [6, 5, "R"]];
 
   function buildMap() {
     const roomAt = (x, y) => ROOMS.findIndex((r) => x >= r.x && x < r.x + r.w && y >= r.y && y < r.y + r.h);
@@ -207,27 +205,33 @@
     for (let a = 0; a < 300 && !place; a++) place = pickCrimePositions(ctx, NS, rng);
     if (!place) place = { positions: pickAnyRook(ctx, M, rng) || ctx.roomCells.slice(0, M), culprit: 0 };
     const truth = place.positions;
-    const { flavour, pinRoom, pinPos } = candidateClues(truth, ctx, M);
+    // Clues are generated for the SUSPECTS only — the victim gets none. Their
+    // position is forced anyway: with 6 people on a 6×6 grid, once the suspects
+    // are placed exactly one row and one column stay free, and their crossing
+    // is the last remaining cell (the book's victim rule).
+    const { flavour, pinRoom, pinPos } = candidateClues(truth, ctx, NS);
     let givens = shuffle(flavour, rng).concat(shuffle(pinRoom, rng)).concat(shuffle(pinPos, rng));
     for (let i = givens.length - 1; i >= 0; i--) {
       const c = givens[i];
       const test = givens.slice(0, i).concat(givens.slice(i + 1));
-      if (!test.some((q) => q.s === c.s)) continue;   // like the book, every person keeps at least one clue
+      if (!test.some((q) => q.s === c.s)) continue;   // like the book, every suspect keeps at least one clue
       if (count(test, ctx, M).n === 1) givens = test;
     }
     // one line per person (book style): "Alice estava ao lado de uma mesa e estava na linha 3."
     const frag = L === "pt" ? cluePt : clueEn;
     const lines = [];
-    for (let s = 0; s < M; s++) {
+    for (let s = 0; s < NS; s++) {
       const fs = givens.filter((c) => c.s === s).map((c) => frag(c, people[s]));
       if (!fs.length) continue;
-      const tag = s === NS ? (L === "pt" ? " (a vítima)" : " (the victim)") : "";
-      lines.push(`${people[s].name}${tag} ${fs.join(L === "pt" ? " e " : " and ")}.`);
+      lines.push(`${people[s].name} ${fs.join(L === "pt" ? " e " : " and ")}.`);
     }
+    lines.push(L === "pt"
+      ? `${victim.name} (a vítima) estava na última célula restante.`
+      : `${victim.name} (the victim) was in the last remaining cell.`);
     const ci = Math.floor(rng() * CRIMES.length);
     const brief = L === "pt"
-      ? `Noite de crime numa casa, e ${CRIMESPT[ci]}. ${victim.name} foi encontrad${victim.g === "f" ? "a" : "o"} sem vida. Estavam ${NS} pessoas lá dentro — e não havia duas na mesma linha ou coluna. Descobre onde estava cada uma; o culpado é quem ficou sozinho com a vítima.`
-      : `A crime one night at a house, and ${CRIMES[ci]}. ${victim.name} was found dead. ${NS} people were inside — and no two shared a row or column. Work out where everyone stood; the culprit is whoever was alone with the victim.`;
+      ? `Noite de crime numa casa, e ${CRIMESPT[ci]}. ${victim.name} foi encontrad${victim.g === "f" ? "a" : "o"} sem vida. Cada linha e cada coluna têm exactamente uma pessoa. Coloca os ${NS} suspeitos pelas pistas; a vítima está na última célula restante, e quem ficou sozinho com ela é o culpado.`
+      : `A crime one night at a house, and ${CRIMES[ci]}. ${victim.name} was found dead. Every row and every column holds exactly one person. Place the ${NS} suspects from the clues; the victim lies in the last remaining cell, and whoever is alone with them is the culprit.`;
     return {
       num, N: M, suspectCount: NS, victimIdx: NS, culprit: place.culprit,
       W, H, TS, tiles, rooms: ROOMS, walkable: ctx.walk, windows: WINDOWS, beds: BEDS, lang: L,
