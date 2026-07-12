@@ -99,7 +99,7 @@
     }
   }
   // ---- object sprites cropped from the reference book, hosted in the repo ----
-  const objSprite = (key) => `/assets/img/murdoku/${key}.png?v=5`;
+  const objSprite = (key) => `/assets/img/murdoku/${key}.png?v=6`;
   function fixtureLayer() {
     const fx = document.getElementById("md-fix"); if (!fx) return;
     let html = "";
