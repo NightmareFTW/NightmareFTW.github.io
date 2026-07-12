@@ -11,26 +11,22 @@
   "use strict";
   const L = (typeof localStorage !== "undefined" && localStorage.getItem("nftw:lang") === "pt") ? "pt" : "en";
 
-  const ALPHA = [
+  const ALPHA = [ // pink/purple rings stay on female suspects so nothing reads ambiguous
     { name: "Alice", color: "#e05a4a", g: "f" }, { name: "Benjamin", color: "#6c8cff", g: "m" },
-    { name: "Charlotte", color: "#e8c84a", g: "f" }, { name: "Daniel", color: "#d98cc0", g: "m" },
+    { name: "Charlotte", color: "#e8c84a", g: "f" }, { name: "Daniel", color: "#4db6ac", g: "m" },
     { name: "Eleanor", color: "#5bc8e8", g: "f" }, { name: "Frederick", color: "#5bd6a0", g: "m" },
-    { name: "Grace", color: "#b18cff", g: "f" }, { name: "Harold", color: "#ff8a3d", g: "m" },
-    { name: "Isabelle", color: "#4db6ac", g: "f" }, { name: "Jacob", color: "#f06292", g: "m" },
-    { name: "Katherine", color: "#9ccc65", g: "f" }, { name: "Louis", color: "#a1887f", g: "m" },
+    { name: "Grace", color: "#d98cc0", g: "f" }, { name: "Harold", color: "#ff8a3d", g: "m" },
+    { name: "Isabelle", color: "#b18cff", g: "f" }, { name: "Jacob", color: "#9ccc65", g: "m" },
+    { name: "Katherine", color: "#f06292", g: "f" }, { name: "Louis", color: "#a1887f", g: "m" },
   ];
   const VICTIMS = [
     { name: "Victor", g: "m" }, { name: "Vivian", g: "f" }, { name: "Vincent", g: "m" },
     { name: "Vera", g: "f" }, { name: "Violet", g: "f" },
   ];
   // objects (match the book). blocked: table/tv/plant/bookshelf/box; occupiable: chair/rug/bed.
-  const FIX = { table: "the table", tv: "the TV", plant: "the potted plant", bookshelf: "the bookcase", box: "the box", chair: "the chair", rug: "the rug", bed: "the bed" };
-  const FIXPT = {
-    table: { art: "a", noun: "mesa" }, tv: { art: "a", noun: "televisão" }, plant: { art: "a", noun: "planta" },
-    bookshelf: { art: "a", noun: "estante" }, box: { art: "a", noun: "caixa" }, chair: { art: "a", noun: "cadeira" },
-    rug: { art: "o", noun: "tapete" }, bed: { art: "a", noun: "cama" },
-  };
-  const DE = { o: "do", a: "da", os: "dos", as: "das" };
+  // Clues use the book's indefinite phrasing: "ao lado de uma televisão" / "next to a TV".
+  const FIX = { table: "a table", tv: "a TV", plant: "a plant", bookshelf: "a bookcase", box: "a box", chair: "a chair", rug: "a rug", bed: "a bed" };
+  const FIXPT = { table: "de uma mesa", tv: "de uma televisão", plant: "de uma planta", bookshelf: "de uma estante", box: "de uma caixa", chair: "de uma cadeira", rug: "de um tapete", bed: "de uma cama" };
   const EM = { o: "no", a: "na", os: "nos", as: "nas" };
 
   const W = 12, H = 12, TS = 32;
@@ -102,20 +98,15 @@
     return { tiles, walk, roomCells, beside, occ, windowFront, describable };
   }
 
-  const rowPh = { 2: ["at the back of", "at the front of"], 3: ["at the back of", "in the middle of", "at the front of"], 4: ["at the very back of", "towards the back of", "towards the front of", "at the very front of"], 5: ["at the very back of", "near the back of", "in the middle of", "near the front of", "at the very front of"] };
-  const colPh = { 2: ["on the left of", "on the right of"], 3: ["on the left of", "in the centre of", "on the right of"], 4: ["on the far left of", "left of centre in", "right of centre in", "on the far right of"] };
-  const rowPt = { 2: ["ao fundo", "à frente"], 3: ["ao fundo", "no meio", "à frente"], 4: ["mesmo ao fundo", "mais atrás", "mais à frente", "mesmo à frente"], 5: ["mesmo ao fundo", "mais atrás", "no meio", "mais à frente", "mesmo à frente"] };
-  const colPt = { 2: ["do lado esquerdo", "do lado direito"], 3: ["do lado esquerdo", "no centro", "do lado direito"], 4: ["na extrema esquerda", "à esquerda", "à direita", "na extrema direita"] };
-
   function holds(c, tile, ctx) {
-    const T = ctx.tiles[tile], R = ROOMS[T.room];
+    const T = ctx.tiles[tile];
     if (c.t === "inroom") return T.room === c.z;
     if (c.t === "negroom") return T.room !== c.z;
     if (c.t === "beside") return ctx.beside[c.k] && ctx.beside[c.k].has(tile);
     if (c.t === "occ") return ctx.occ[c.k] && ctx.occ[c.k].has(tile);
     if (c.t === "window") return ctx.windowFront.has(tile);
-    if (c.t === "row") return T.room === c.z && (T.y - R.y) === c.v;
-    if (c.t === "col") return T.room === c.z && (T.x - R.x) === c.v;
+    if (c.t === "arow") return T.y === c.v;   // absolute grid row (book: "estava na linha 4")
+    if (c.t === "acol") return T.x === c.v;   // absolute grid column
     return true;
   }
 
@@ -191,8 +182,8 @@
       if (T.occ) flavour.push({ t: "occ", s, k: T.occ });
       if (ctx.windowFront.has(tile)) flavour.push({ t: "window", s });
       pinRoom.push({ t: "inroom", s, z: T.room });
-      if (rowPh[R.h]) pinPos.push({ t: "row", s, z: T.room, v: T.y - R.y });
-      if (colPh[R.w]) pinPos.push({ t: "col", s, z: T.room, v: T.x - R.x });
+      pinPos.push({ t: "arow", s, v: T.y });
+      pinPos.push({ t: "acol", s, v: T.x });
     }
     return { flavour, pinRoom, pinPos };
   }
@@ -219,8 +210,19 @@
     const { flavour, pinRoom, pinPos } = candidateClues(truth, ctx, M);
     let givens = shuffle(flavour, rng).concat(shuffle(pinRoom, rng)).concat(shuffle(pinPos, rng));
     for (let i = givens.length - 1; i >= 0; i--) {
+      const c = givens[i];
       const test = givens.slice(0, i).concat(givens.slice(i + 1));
+      if (!test.some((q) => q.s === c.s)) continue;   // like the book, every person keeps at least one clue
       if (count(test, ctx, M).n === 1) givens = test;
+    }
+    // one line per person (book style): "Alice estava ao lado de uma mesa e estava na linha 3."
+    const frag = L === "pt" ? cluePt : clueEn;
+    const lines = [];
+    for (let s = 0; s < M; s++) {
+      const fs = givens.filter((c) => c.s === s).map((c) => frag(c, people[s]));
+      if (!fs.length) continue;
+      const tag = s === NS ? (L === "pt" ? " (a vítima)" : " (the victim)") : "";
+      lines.push(`${people[s].name}${tag} ${fs.join(L === "pt" ? " e " : " and ")}.`);
     }
     const ci = Math.floor(rng() * CRIMES.length);
     const brief = L === "pt"
@@ -232,35 +234,33 @@
       suspects: people,
       title: (L === "pt" ? TITLESPT : TITLES)[num % TITLES.length],
       brief,
-      clues: shuffle(givens, rng).map((c) => (L === "pt" ? clueTextPt : clueText)(c, people)),
+      clues: lines,
       solution: truth,
     };
   }
 
-  const OCCEN = { chair: (n) => `${n} was sitting on a chair.`, rug: (n) => `${n} was standing on the rug.`, bed: (n) => `${n} was on a bed.` };
-  function clueText(c, S) {
-    const nm = (i) => S[i].name, rn = (z) => ROOMS[z].name, R = (z) => ROOMS[z];
-    if (c.t === "inroom") return pick([`${nm(c.s)} was in the ${rn(c.z)}.`, `${nm(c.s)} spent the evening in the ${rn(c.z)}.`], c);
-    if (c.t === "negroom") return `${nm(c.s)} was never in the ${rn(c.z)}.`;
-    if (c.t === "beside") return pick([`${nm(c.s)} was right beside ${FIX[c.k]}.`, `${nm(c.s)} was next to ${FIX[c.k]}.`], c);
-    if (c.t === "occ") return OCCEN[c.k](nm(c.s));
-    if (c.t === "window") return `${nm(c.s)} was standing in front of a window.`;
-    if (c.t === "row") return `${nm(c.s)} was ${rowPh[R(c.z).h][c.v]} the ${rn(c.z)}.`;
-    if (c.t === "col") return `${nm(c.s)} was ${colPh[R(c.z).w][c.v]} the ${rn(c.z)}.`;
+  // clue FRAGMENTS in the book's voice ("estava ao lado de uma televisão"), joined per person
+  function clueEn(c, p) {
+    if (c.t === "inroom") return `was in the ${ROOMS[c.z].name}`;
+    if (c.t === "negroom") return `was not in the ${ROOMS[c.z].name}`;
+    if (c.t === "beside") return `was next to ${FIX[c.k]}`;
+    if (c.t === "occ") return c.k === "chair" ? "was sitting on a chair" : c.k === "bed" ? "was lying on a bed" : "was standing on a rug";
+    if (c.t === "window") return "was in front of a window";
+    if (c.t === "arow") return `was in row ${c.v}`;
+    if (c.t === "acol") return `was in column ${c.v}`;
     return "";
   }
-  function clueTextPt(c, S) {
-    const nm = (i) => S[i].name, gg = (i) => S[i].g === "f" ? "a" : "o", R = (z) => ROOMS[z], rn = (z) => ROOMS[z].pt, de = (z) => DE[ROOMS[z].art], em = (z) => EM[ROOMS[z].art];
-    if (c.t === "inroom") return pick([`${nm(c.s)} estava ${em(c.z)} ${rn(c.z)}.`, `${nm(c.s)} passou a noite ${em(c.z)} ${rn(c.z)}.`], c);
-    if (c.t === "negroom") return `${nm(c.s)} nunca esteve ${em(c.z)} ${rn(c.z)}.`;
-    if (c.t === "beside") { const f = FIXPT[c.k]; return `${nm(c.s)} estava ao lado ${DE[f.art]} ${f.noun}.`; }
-    if (c.t === "occ") { if (c.k === "chair") return `${nm(c.s)} estava sentad${gg(c.s)} numa cadeira.`; if (c.k === "bed") return `${nm(c.s)} estava deitad${gg(c.s)} numa cama.`; return `${nm(c.s)} estava em cima do tapete.`; }
-    if (c.t === "window") return `${nm(c.s)} estava em frente a uma janela.`;
-    if (c.t === "row") return `${nm(c.s)} estava ${rowPt[R(c.z).h][c.v]} ${de(c.z)} ${rn(c.z)}.`;
-    if (c.t === "col") return `${nm(c.s)} estava ${colPt[R(c.z).w][c.v]} ${de(c.z)} ${rn(c.z)}.`;
+  function cluePt(c, p) {
+    const g = p.g === "f" ? "a" : "o";
+    if (c.t === "inroom") return `estava ${EM[ROOMS[c.z].art]} ${ROOMS[c.z].pt}`;
+    if (c.t === "negroom") return `não estava ${EM[ROOMS[c.z].art]} ${ROOMS[c.z].pt}`;
+    if (c.t === "beside") return `estava ao lado ${FIXPT[c.k]}`;
+    if (c.t === "occ") return c.k === "chair" ? `estava sentad${g} numa cadeira` : c.k === "bed" ? `estava deitad${g} numa cama` : "estava em cima de um tapete";
+    if (c.t === "window") return "estava em frente a uma janela";
+    if (c.t === "arow") return `estava na linha ${c.v}`;
+    if (c.t === "acol") return `estava na coluna ${c.v}`;
     return "";
   }
-  const pick = (arr, c) => arr[((c.s || 0) + (c.z || 0) + (c.v || 0) + (c.k ? c.k.length : 0)) % arr.length];
 
   const API = { generateCase, ALPHA, VICTIMS, FIX, ROOMS, W, H, TS, _count: count, _buildMap: buildMap, _context: context };
   if (typeof module !== "undefined" && module.exports) module.exports = API;

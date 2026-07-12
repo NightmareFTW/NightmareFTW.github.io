@@ -13,10 +13,15 @@
   // DiceBear "adventurer": bias hair length + facial hair so the avatar reads as the name's gender
   const F_HAIR = ["long02", "long04", "long07", "long10", "long15", "long20"];
   const M_HAIR = ["short01", "short03", "short05", "short08", "short11", "short15"];
+  // some seeds draw a face that reads as the wrong gender — override the seed, keep the name
+  const SEED = { Daniel: "Daniel-b" };
+  const M_HCOL = ["0e0e0e", "562306", "ac6511", "b9a05f", "cb6820"]; // no pink hair on the men
   const avatar = (name, g) => {
+    const seed = SEED[name] || name;
     const h = [...name].reduce((a, c) => a + c.charCodeAt(0), 0);
     const hair = (g === "f" ? F_HAIR : M_HAIR)[h % 6];
-    return `https://api.dicebear.com/9.x/adventurer/svg?seed=${encodeURIComponent(name)}&radius=50&hair=${hair}&hairProbability=100&facialHairProbability=${g === "f" ? 0 : 40}`;
+    const hcol = g === "f" ? "" : `&hairColor=${M_HCOL[h % 5]}`;
+    return `https://api.dicebear.com/9.x/adventurer/svg?seed=${encodeURIComponent(seed)}&radius=50&hair=${hair}&hairProbability=100${hcol}&facialHairProbability=${g === "f" ? 0 : 50}&earringsProbability=${g === "f" ? 40 : 0}`;
   };
   const mmss = (s) => `${String((s / 60) | 0).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
   const T = L === "pt" ? {
@@ -215,7 +220,10 @@
       </div>`;
 
     const lab = document.getElementById("md-labels");
-    lab.innerHTML = C.rooms.map((z) => `<span class="mdm-zlabel" style="left:${(z.label.x + 0.5) / C.W * 100}%;top:${(z.label.y + 0.5) / C.H * 100}%">${esc(L === "pt" ? z.pt : z.name)}</span>`).join("");
+    let coords = "";
+    for (let x = 1; x <= C.W - 2; x++) coords += `<span class="mdm-coord" style="left:${(x + 0.5) / C.W * 100}%;top:${0.5 / C.H * 100}%">${x}</span>`;
+    for (let y = 1; y <= C.H - 2; y++) coords += `<span class="mdm-coord" style="left:${0.5 / C.W * 100}%;top:${(y + 0.5) / C.H * 100}%">${y}</span>`;
+    lab.innerHTML = coords + C.rooms.map((z) => `<span class="mdm-zlabel" style="left:${(z.label.x + 0.5) / C.W * 100}%;top:${(z.label.y + 0.5) / C.H * 100}%">${esc(L === "pt" ? z.pt : z.name)}</span>`).join("");
 
     document.getElementById("md-toolbar").querySelectorAll("[data-tool]").forEach((b) => b.onclick = () => { mode = b.dataset.tool; refresh(); });
     document.getElementById("md-hint").onclick = hint;
