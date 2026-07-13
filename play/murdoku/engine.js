@@ -24,7 +24,18 @@
   const FIX = { table: "a table", tv: "a TV", plant: "a plant", bookshelf: "a bookcase", box: "a box", chair: "a chair", rug: "a rug", bed: "a bed" };
   const FIXPT = { table: "de uma mesa", tv: "de uma televisão", plant: "de uma planta", bookshelf: "de uma estante", box: "de uma caixa", chair: "de uma cadeira", rug: "de um tapete", bed: "de uma cama" };
   const EM = { o: "no", a: "na", os: "nos", as: "nas" };
-  const BLOCK = ["table", "tv", "plant", "bookshelf", "box"], OCCK = ["chair", "rug"];
+  // Objects that fit each room's function. block = furniture you can't stand on;
+  // occ = things you can (chair/rug); bed = whether a bed may appear (bedrooms only).
+  const CAT = {
+    bed:     { block: ["bookshelf", "plant", "tv"], occ: ["rug", "chair"], bed: true },
+    living:  { block: ["tv", "bookshelf", "plant", "table"], occ: ["chair", "rug"], bed: false },
+    kitchen: { block: ["table", "box", "plant"], occ: ["chair"], bed: false },
+    dining:  { block: ["table", "plant"], occ: ["chair"], bed: false },
+    work:    { block: ["table", "bookshelf", "plant", "tv"], occ: ["chair", "rug"], bed: false },
+    bath:    { block: ["plant"], occ: ["rug"], bed: false },
+    store:   { block: ["box", "bookshelf", "table", "plant"], occ: ["rug"], bed: false },
+    social:  { block: ["tv", "plant", "bookshelf"], occ: ["chair", "rug"], bed: false },
+  };
 
   // ---- chapters ------------------------------------------------------------
   const CPC = 25;                                   // cases per chapter
@@ -32,7 +43,7 @@
   const MASC = ["#6c8cff", "#4db6ac", "#5bd6a0", "#ff8a3d", "#9ccc65", "#a1887f"];
   const FEM = ["#e05a4a", "#e8c84a", "#5bc8e8", "#d98cc0", "#b18cff", "#f06292"];
   const sp = (s) => s.trim().split(/\s+/);
-  const rm = (en, pt, art) => ({ en, pt, art });
+  const rm = (en, pt, art, cat) => ({ en, pt, art, cat });
   const CHAPTERS = [
     {
       key: "house", titleEn: "The House on Ash Lane", titlePt: "A Casa na Rua das Cinzas",
@@ -40,10 +51,10 @@
       male: sp("James John Robert Michael William David Richard Joseph Thomas Charles Daniel Matthew Anthony Donald Mark Paul"),
       female: sp("Mary Patricia Jennifer Linda Barbara Susan Jessica Sarah Karen Nancy Betty Helen Sandra Donna Carol Ruth"),
       rooms: [
-        rm("Master Bedroom", "Quarto Principal", "o"), rm("Kitchen", "Cozinha", "a"), rm("Living Room", "Sala de Estar", "a"),
-        rm("Bathroom", "Casa de Banho", "a"), rm("Guest Room", "Quarto de Hóspedes", "o"), rm("Office", "Escritório", "o"),
-        rm("Dining Room", "Sala de Jantar", "a"), rm("Pantry", "Despensa", "a"), rm("Hallway", "Corredor", "o"),
-        rm("Cellar", "Cave", "a"), rm("Attic", "Sótão", "o"), rm("Laundry", "Lavandaria", "a"),
+        rm("Master Bedroom", "Quarto Principal", "o", "bed"), rm("Kitchen", "Cozinha", "a", "kitchen"), rm("Living Room", "Sala de Estar", "a", "living"),
+        rm("Bathroom", "Casa de Banho", "a", "bath"), rm("Guest Room", "Quarto de Hóspedes", "o", "bed"), rm("Office", "Escritório", "o", "work"),
+        rm("Dining Room", "Sala de Jantar", "a", "dining"), rm("Pantry", "Despensa", "a", "store"), rm("Games Room", "Sala de Jogos", "a", "social"),
+        rm("Cellar", "Cave", "a", "store"), rm("Attic", "Sótão", "o", "store"), rm("Laundry", "Lavandaria", "a", "store"),
       ],
     },
     {
@@ -52,10 +63,10 @@
       male: sp("Reginald Percival Archibald Montgomery Bartholomew Cornelius Humphrey Sebastian Algernon Bertram Cuthbert Horatio Nigel Rupert Cedric Barnaby"),
       female: sp("Beatrice Genevieve Rosalind Cordelia Millicent Arabella Henrietta Josephine Wilhelmina Gwendolyn Prudence Evangeline Ottoline Philippa Cressida Marguerite"),
       rooms: [
-        rm("Ballroom", "Salão de Baile", "o"), rm("Library", "Biblioteca", "a"), rm("Music Room", "Sala de Música", "a"),
-        rm("Gallery", "Galeria", "a"), rm("Study", "Estúdio", "o"), rm("Great Hall", "Salão Nobre", "o"),
-        rm("Chambers", "Aposentos", "os"), rm("Conservatory", "Jardim de Inverno", "o"), rm("Wine Cellar", "Adega", "a"),
-        rm("Smoking Room", "Sala de Fumo", "a"), rm("East Wing", "Ala Este", "a"), rm("West Wing", "Ala Oeste", "a"),
+        rm("Ballroom", "Salão de Baile", "o", "social"), rm("Library", "Biblioteca", "a", "work"), rm("Music Room", "Sala de Música", "a", "social"),
+        rm("Gallery", "Galeria", "a", "work"), rm("Study", "Estúdio", "o", "work"), rm("Great Hall", "Salão Nobre", "o", "social"),
+        rm("Chambers", "Aposentos", "os", "bed"), rm("Conservatory", "Jardim de Inverno", "o", "social"), rm("Wine Cellar", "Adega", "a", "store"),
+        rm("Smoking Room", "Sala de Fumo", "a", "social"), rm("East Wing", "Ala Este", "a", "bed"), rm("West Wing", "Ala Oeste", "a", "bed"),
       ],
     },
     {
@@ -64,10 +75,10 @@
       male: sp("Marco Luca Andre Pierre Hans Klaus Diego Rafael Omar Yusuf Kenji Hiroshi Sven Nikolai Andres Mateo"),
       female: sp("Sofia Elena Chiara Amelie Ingrid Freya Camila Lucia Aisha Leila Yuki Sakura Astrid Nadia Valentina Isabela"),
       rooms: [
-        rm("Reception", "Recepção", "a"), rm("Royal Suite", "Suite Real", "a"), rm("Restaurant", "Restaurante", "o"),
-        rm("Bar", "Bar", "o"), rm("Spa", "Spa", "o"), rm("Gym", "Ginásio", "o"),
-        rm("Kitchen", "Cozinha", "a"), rm("Lounge", "Salão", "o"), rm("Casino", "Casino", "o"),
-        rm("Laundry", "Lavandaria", "a"), rm("Storage", "Arrecadação", "a"), rm("Office", "Escritório", "o"),
+        rm("Reception", "Recepção", "a", "social"), rm("Royal Suite", "Suite Real", "a", "bed"), rm("Restaurant", "Restaurante", "o", "dining"),
+        rm("Bar", "Bar", "o", "dining"), rm("Spa", "Spa", "o", "bath"), rm("Gym", "Ginásio", "o", "social"),
+        rm("Kitchen", "Cozinha", "a", "kitchen"), rm("Lounge", "Salão", "o", "living"), rm("Casino", "Casino", "o", "social"),
+        rm("Laundry", "Lavandaria", "a", "store"), rm("Storage", "Arrecadação", "a", "store"), rm("Office", "Escritório", "o", "work"),
       ],
     },
   ];
@@ -112,7 +123,7 @@
     const target = Math.max(5, Math.min(Math.round(N * 1.1), (N >> 1) * (N >> 1)));
     const rooms = partition(N, rng, target);
     const pool = shuffle(chapter.rooms, rng);
-    rooms.forEach((r, i) => { const nm = pool[i % pool.length]; r.name = nm.en; r.pt = nm.pt; r.art = nm.art; r.label = { x: r.x + (r.w - 1) / 2, y: r.y + r.h - 1 }; });
+    rooms.forEach((r, i) => { const nm = pool[i % pool.length]; r.name = nm.en; r.pt = nm.pt; r.art = nm.art; r.cat = nm.cat; r.label = { x: r.x + (r.w - 1) / 2, y: r.y + r.h - 1 }; });
     const roomAt = (x, y) => { for (let i = 0; i < rooms.length; i++) { const r = rooms[i]; if (x >= r.x && x < r.x + r.w && y >= r.y && y < r.y + r.h) return i; } return -1; };
     // colour rooms greedily so neighbours differ
     const adj = rooms.map(() => new Set());
@@ -120,22 +131,29 @@
     const pal = shuffle(chapter.palette, rng);      // per-chapter floor tints (theme colour)
     rooms.forEach((r, i) => { const used = new Set(); adj[i].forEach((j) => { if (rooms[j].tint) used.add(rooms[j].tint); }); r.tint = pal.find((c) => !used.has(c)) || pal[i % pal.length]; });
 
-    // objects
+    // objects — each one has to fit its room's function (see CAT)
     const cells = []; for (let y = 1; y <= N; y++) for (let x = 1; x <= N; x++) cells.push({ x, y, r: roomAt(x, y) });
+    const cat = (r) => CAT[rooms[r] && rooms[r].cat] || CAT.social;
     const used = new Set(), furnAt = {}, occAt = {};
     const beds = [], bedTarget = N >= 8 ? 2 : 1;
-    for (const c of shuffle(cells, rng)) {
+    for (const c of shuffle(cells, rng)) {                 // beds only in bedrooms
       if (beds.length >= bedTarget) break;
-      if (c.x >= N) continue;
+      if (c.x >= N || !cat(c.r).bed || roomAt(c.x + 1, c.y) !== c.r) continue;
       const a = idx(c.x, c.y), b = idx(c.x + 1, c.y);
-      if (used.has(a) || used.has(b) || roomAt(c.x + 1, c.y) !== c.r) continue;
+      if (used.has(a) || used.has(b)) continue;
       beds.push([c.x, c.y]); used.add(a); used.add(b);
     }
     const rest = shuffle(cells, rng).filter((c) => !used.has(idx(c.x, c.y)));
-    let bi = 0;
-    const nBlocked = Math.round(N * N * 0.30), nOcc = Math.round(N * N * 0.12);
-    for (let k = 0; k < nBlocked && bi < rest.length; k++, bi++) { const c = rest[bi]; furnAt[idx(c.x, c.y)] = BLOCK[Math.floor(rng() * BLOCK.length)]; used.add(idx(c.x, c.y)); }
-    for (let k = 0; k < nOcc && bi < rest.length; k++, bi++) { const c = rest[bi]; occAt[idx(c.x, c.y)] = OCCK[Math.floor(rng() * OCCK.length)]; used.add(idx(c.x, c.y)); }
+    let placed = 0; const nObj = Math.round(N * N * 0.42);
+    for (const c of rest) {
+      if (placed >= nObj) break;
+      const cc = cat(c.r), wantOcc = rng() < 0.32 && cc.occ.length;
+      const pool = wantOcc ? cc.occ : cc.block;
+      if (!pool.length) continue;
+      const k = pool[Math.floor(rng() * pool.length)];
+      if (wantOcc) occAt[idx(c.x, c.y)] = k; else furnAt[idx(c.x, c.y)] = k;
+      used.add(idx(c.x, c.y)); placed++;
+    }
     beds.forEach(([x, y]) => { occAt[idx(x, y)] = "bed"; occAt[idx(x + 1, y)] = "bed"; });
 
     // windows on the outer shell, against a walkable interior cell
