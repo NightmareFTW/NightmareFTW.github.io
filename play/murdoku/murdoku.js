@@ -6,6 +6,7 @@
 (function () {
   "use strict";
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const md = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); // **word** -> bold (clue key words)
   const lsGet = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } };
   const lsSet = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
   const SOLVED = "nftw:murdoku:solved", CURKEY = "nftw:murdoku:case", STATE = "nftw:murdoku:state";
@@ -35,6 +36,7 @@
     wrongAccuse: (name) => `${name} não estava sozinho(a) com a vítima. Tenta outra vez.`,
     solvedCulprit: (t, name, g) => `🎉 Resolvido em ${t}! ${name} ficou sozinh${g === "f" ? "a" : "o"} com a vítima — é ${g === "f" ? "a culpada" : "o culpado"}.`,
     solvedCount: (n) => `${n} resolvidos`, resetConfirm: "Repor o tabuleiro deste caso?",
+    victimLabel: "A Vítima",
     loadErr: "Não foi possível carregar o motor de casos.",
   } : {
     notes: "Notes", crosses: "Crosses", place: "Place", erase: "Erase", hint: "Hint",
@@ -47,6 +49,7 @@
     wrongAccuse: (name) => `${name} wasn't alone with the victim. Try again.`,
     solvedCulprit: (t, name, g) => `🎉 Solved in ${t}! ${name} was alone with the victim — the culprit.`,
     solvedCount: (n) => `${n} solved`, resetConfirm: "Reset this case's board?",
+    victimLabel: "The Victim",
     loadErr: "Couldn't load the case engine.",
   };
 
@@ -214,7 +217,12 @@
       <div class="mdm-tray" id="md-tray"></div>
 
       <div class="md-cols mdm-lower">
-        <section class="panel md-clues"><h2>${T.clues}</h2><ol>${C.clues.map((c) => `<li>${esc(c)}</li>`).join("")}</ol>
+        <section class="panel md-clues"><h2>${T.clues}</h2>
+          <div class="mdm-cards">${C.clues.map((c) => { const p = C.suspects[c.s]; return `
+            <div class="mdm-card${c.victim ? " vic" : ""}">
+              <div class="mdm-polaroid"><img src="${avatar(p.name, p.g)}" alt="${esc(p.name)}" referrerpolicy="no-referrer">${c.victim ? '<span class="mdm-cardx">✕</span>' : ""}<div class="mdm-cardname">${esc(p.name)}</div></div>
+              <div class="mdm-pill">${c.victim ? `<b class="mdm-viclabel">${T.victimLabel}</b><br>` : ""}${md(c.text)}</div>
+            </div>`; }).join("")}</div>
           <p class="md-hint">${T.help}</p></section>
         <section class="panel mdm-status" id="md-status"></section>
       </div>`;

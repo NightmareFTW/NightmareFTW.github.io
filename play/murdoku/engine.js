@@ -103,31 +103,62 @@
     if (c.t === "beside") return ctx.beside[c.k] && ctx.beside[c.k].has(tile);
     if (c.t === "occ") return ctx.occ[c.k] && ctx.occ[c.k].has(tile);
     if (c.t === "window") return ctx.windowFront.has(tile);
-    if (c.t === "arow") return T.y === c.v;   // absolute grid row (book: "estava na linha 4")
-    if (c.t === "acol") return T.x === c.v;   // absolute grid column
+    if (c.t === "arow") return T.y === c.v;   // only ever the top/bottom row ("linha de cima/baixo")
+    if (c.t === "acol") return T.x === c.v;   // only ever the leftmost/rightmost column
     return true;
   }
 
+  // Solver. Clue kinds beyond the unary ones:
+  //  comp  {s,o,dir} — s was north/south/east/west of person o (book: "a leste da Eloise")
+  //  with  {s,o}     — s shared a room with suspect o
+  //  alone {s}       — s was the only person in their room
+  //  only  {s,k}     — s was the only person on that object kind (chair/rug/bed/window)
   function count(clues, ctx, N) {
     const cand = [];
     for (let s = 0; s < N; s++) {
-      const list = ctx.walk.filter((tile) => clues.every((c) => c.s !== s || holds(c, tile, ctx)));
+      const list = ctx.walk.filter((tile) => clues.every((c) => {
+        if (c.s !== s) return true;
+        if (c.t === "comp" || c.t === "with" || c.t === "alone") return true;
+        if (c.t === "only") return c.k === "window" ? ctx.windowFront.has(tile) : !!(ctx.occ[c.k] && ctx.occ[c.k].has(tile));
+        return holds(c, tile, ctx);
+      }));
       if (!list.length) return { n: 0 };
       cand.push(list);
     }
+    const bins = clues.filter((c) => c.t === "comp" || c.t === "with");
+    const posts = clues.filter((c) => c.t === "alone" || c.t === "only");
     const order = Array.from({ length: N }, (_, s) => s).sort((a, b) => cand[a].length - cand[b].length);
     const usedR = new Set(), usedC = new Set(), usedT = new Set();
+    const asg = new Array(N).fill(-1);
+    const T = (t) => ctx.tiles[t];
+    const binOK = (c) => {
+      const a = asg[c.s], b = asg[c.o];
+      if (a < 0 || b < 0) return true;
+      if (c.t === "with") return T(a).room === T(b).room;
+      if (c.dir === "N") return T(a).y < T(b).y;
+      if (c.dir === "S") return T(a).y > T(b).y;
+      if (c.dir === "E") return T(a).x > T(b).x;
+      return T(a).x < T(b).x;
+    };
     let n = 0;
     (function go(k) {
       if (n > 1) return;
-      if (k === N) { n++; return; }
+      if (k === N) {
+        for (const c of posts) {
+          if (c.t === "alone") { const r = T(asg[c.s]).room; for (let i = 0; i < N; i++) if (i !== c.s && T(asg[i]).room === r) return; }
+          else for (let i = 0; i < N; i++) { if (i === c.s) continue; const on = c.k === "window" ? ctx.windowFront.has(asg[i]) : !!(ctx.occ[c.k] && ctx.occ[c.k].has(asg[i])); if (on) return; }
+        }
+        n++; return;
+      }
       const s = order[k];
       for (const tile of cand[s]) {
-        const T = ctx.tiles[tile];
-        if (usedT.has(tile) || usedR.has(T.y) || usedC.has(T.x)) continue;
-        usedT.add(tile); usedR.add(T.y); usedC.add(T.x);
-        go(k + 1);
-        usedT.delete(tile); usedR.delete(T.y); usedC.delete(T.x);
+        const t = T(tile);
+        if (usedT.has(tile) || usedR.has(t.y) || usedC.has(t.x)) continue;
+        asg[s] = tile;
+        let ok = true;
+        for (const c of bins) if ((c.s === s || c.o === s) && !binOK(c)) { ok = false; break; }
+        if (ok) { usedT.add(tile); usedR.add(t.y); usedC.add(t.x); go(k + 1); usedT.delete(tile); usedR.delete(t.y); usedC.delete(t.x); }
+        asg[s] = -1;
         if (n > 1) return;
       }
     })(0);
@@ -172,18 +203,38 @@
     return null;
   }
 
-  function candidateClues(truth, ctx, N) {
-    const flavour = [], pinRoom = [], pinPos = [];
-    for (let s = 0; s < N; s++) {
-      const tile = truth[s], T = ctx.tiles[tile], R = ROOMS[T.room];
+  // Candidate clues in the book's exact vocabulary (from its suspect cards):
+  // beside object / on an occupiable / in front of a window / in a room /
+  // "sozinho(a)" / "a única pessoa ..." / compass of another suspect /
+  // "com X" (shared room) / top-bottom row and left-right column extremes.
+  // Numeric "linha 6"-style clues do NOT exist in the book and are only a
+  // last-resort fallback added by generateCase when nothing else pins a case.
+  function candidateClues(truth, ctx, NS, M, rng) {
+    const flavour = [], pinRoom = [];
+    const P = (i) => ctx.tiles[truth[i]];
+    const roomOcc = {}; for (let i = 0; i < M; i++) (roomOcc[P(i).room] = roomOcc[P(i).room] || []).push(i);
+    const kindCount = {}; for (let i = 0; i < M; i++) { const k = P(i).occ; if (k) kindCount[k] = (kindCount[k] || 0) + 1; if (ctx.windowFront.has(truth[i])) kindCount.window = (kindCount.window || 0) + 1; }
+    for (let s = 0; s < NS; s++) {
+      const tile = truth[s], t = ctx.tiles[tile];
       for (const k in ctx.beside) if (ctx.beside[k].has(tile)) flavour.push({ t: "beside", s, k });
-      if (T.occ) flavour.push({ t: "occ", s, k: T.occ });
-      if (ctx.windowFront.has(tile)) flavour.push({ t: "window", s });
-      pinRoom.push({ t: "inroom", s, z: T.room });
-      pinPos.push({ t: "arow", s, v: T.y });
-      pinPos.push({ t: "acol", s, v: T.x });
+      if (t.occ) { flavour.push({ t: "occ", s, k: t.occ }); if (kindCount[t.occ] === 1) flavour.push({ t: "only", s, k: t.occ }); }
+      if (ctx.windowFront.has(tile)) { flavour.push({ t: "window", s }); if (kindCount.window === 1) flavour.push({ t: "only", s, k: "window" }); }
+      if (roomOcc[t.room].length === 1) flavour.push({ t: "alone", s });
+      const comps = [];
+      for (let o = 0; o < NS; o++) {
+        if (o === s) continue;
+        comps.push({ t: "comp", s, o, dir: t.y < P(o).y ? "N" : "S" });
+        comps.push({ t: "comp", s, o, dir: t.x > P(o).x ? "E" : "W" });
+      }
+      shuffle(comps, rng).slice(0, 3).forEach((c) => flavour.push(c));
+      for (let o = s + 1; o < NS; o++) if (P(o).room === t.room) flavour.push({ t: "with", s, o });
+      if (t.y === 1) flavour.push({ t: "arow", s, v: 1 });
+      if (t.y === H - 2) flavour.push({ t: "arow", s, v: H - 2 });
+      if (t.x === 1) flavour.push({ t: "acol", s, v: 1 });
+      if (t.x === W - 2) flavour.push({ t: "acol", s, v: W - 2 });
+      pinRoom.push({ t: "inroom", s, z: t.room });
     }
-    return { flavour, pinRoom, pinPos };
+    return { flavour, pinRoom };
   }
 
   const TITLES = ["The Purchase No One Made", "A Scandal in the Study", "The Vanishing Heirloom", "Whodunit After Dark", "The Missing Will", "Trouble in the Attic", "The Five O'Clock Alibi", "The Spilled Secret"];
@@ -201,33 +252,49 @@
     const victim = { name: v.name, color: "#9aa0a8", g: v.g, isVictim: true };
     const people = suspects.concat([victim]);
     const M = people.length;
-    let place = null;
-    for (let a = 0; a < 300 && !place; a++) place = pickCrimePositions(ctx, NS, rng);
-    if (!place) place = { positions: pickAnyRook(ctx, M, rng) || ctx.roomCells.slice(0, M), culprit: 0 };
+    // Clues are generated for the SUSPECTS only — the victim gets none (book
+    // rule: with 6 people on a 6×6 grid the victim's cell is the last one left).
+    // Retry placements until the authentic clue vocabulary alone pins a unique
+    // solution; only if that never happens fall back to adding numeric pins.
+    let place = null, pools = null;
+    for (let a = 0; a < 150 && !pools; a++) {
+      const p = pickCrimePositions(ctx, NS, rng);
+      if (!p) continue;
+      const cc = candidateClues(p.positions, ctx, NS, M, rng);
+      if (count(cc.flavour.concat(cc.pinRoom), ctx, M).n === 1) { place = p; pools = cc; }
+    }
+    if (!pools) {
+      place = pickCrimePositions(ctx, NS, rng) || { positions: pickAnyRook(ctx, M, rng) || ctx.roomCells.slice(0, M), culprit: 0 };
+      pools = candidateClues(place.positions, ctx, NS, M, rng);
+      for (let s = 0; s < NS; s++) { const t = ctx.tiles[place.positions[s]]; pools.pinRoom.push({ t: "arow", s, v: t.y }, { t: "acol", s, v: t.x }); }
+    }
     const truth = place.positions;
-    // Clues are generated for the SUSPECTS only — the victim gets none. Their
-    // position is forced anyway: with 6 people on a 6×6 grid, once the suspects
-    // are placed exactly one row and one column stay free, and their crossing
-    // is the last remaining cell (the book's victim rule).
-    const { flavour, pinRoom, pinPos } = candidateClues(truth, ctx, NS);
-    let givens = shuffle(flavour, rng).concat(shuffle(pinRoom, rng)).concat(shuffle(pinPos, rng));
+    let givens = shuffle(pools.flavour, rng).concat(shuffle(pools.pinRoom, rng));
     for (let i = givens.length - 1; i >= 0; i--) {
       const c = givens[i];
       const test = givens.slice(0, i).concat(givens.slice(i + 1));
       if (!test.some((q) => q.s === c.s)) continue;   // like the book, every suspect keeps at least one clue
       if (count(test, ctx, M).n === 1) givens = test;
     }
-    // one line per person (book style): "Alice estava ao lado de uma mesa e estava na linha 3."
+    // suspect CARDS (book style): portrait + clue bubble. Room goes in its own
+    // sentence first, the rest joined with "e" — mirroring the book's cards.
     const frag = L === "pt" ? cluePt : clueEn;
-    const lines = [];
+    const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1) + ".";
+    const cards = [];
     for (let s = 0; s < NS; s++) {
-      const fs = givens.filter((c) => c.s === s).map((c) => frag(c, people[s]));
-      if (!fs.length) continue;
-      lines.push(`${people[s].name} ${fs.join(L === "pt" ? " e " : " and ")}.`);
+      const mine = givens.filter((c) => c.s === s);
+      const roomF = mine.filter((c) => c.t === "inroom").map((c) => frag(c, people[s], people));
+      const restF = mine.filter((c) => c.t !== "inroom").map((c) => frag(c, people[s], people));
+      const sents = [];
+      if (roomF.length) sents.push(cap(roomF.join(L === "pt" ? " e " : " and ")));
+      if (restF.length) sents.push(cap(restF.join(L === "pt" ? " e " : " and ")));
+      cards.push({ s, text: sents.join(" ") });
     }
-    lines.push(L === "pt"
-      ? `${victim.name} (a vítima) estava na última célula restante.`
-      : `${victim.name} (the victim) was in the last remaining cell.`);
+    // the victim's card alternates between the book's two fixed texts
+    const vAlt = rng() < 0.5;
+    cards.push({ s: NS, victim: true, text: L === "pt"
+      ? (vAlt ? "Estava na **última célula restante**." : `Estava sozinh${victim.g === "f" ? "a" : "o"} com o **assassino**.`)
+      : (vAlt ? "Was in the **last remaining cell**." : "Was alone with the **killer**.") });
     const ci = Math.floor(rng() * CRIMES.length);
     const brief = L === "pt"
       ? `Noite de crime numa casa, e ${CRIMESPT[ci]}. ${victim.name} foi encontrad${victim.g === "f" ? "a" : "o"} sem vida. Cada linha e cada coluna têm exactamente uma pessoa. Coloca os ${NS} suspeitos pelas pistas; a vítima está na última célula restante, e quem ficou sozinho com ela é o culpado.`
@@ -238,31 +305,43 @@
       suspects: people,
       title: (L === "pt" ? TITLESPT : TITLES)[num % TITLES.length],
       brief,
-      clues: lines,
+      clues: cards,
       solution: truth,
     };
   }
 
-  // clue FRAGMENTS in the book's voice ("estava ao lado de uma televisão"), joined per person
-  function clueEn(c, p) {
-    if (c.t === "inroom") return `was in the ${ROOMS[c.z].name}`;
-    if (c.t === "negroom") return `was not in the ${ROOMS[c.z].name}`;
-    if (c.t === "beside") return `was next to ${FIX[c.k]}`;
-    if (c.t === "occ") return c.k === "chair" ? "was sitting on a chair" : c.k === "bed" ? "was lying on a bed" : "was standing on a rug";
-    if (c.t === "window") return "was in front of a window";
-    if (c.t === "arow") return `was in row ${c.v}`;
-    if (c.t === "acol") return `was in column ${c.v}`;
+  // clue FRAGMENTS in the book's voice, with the key word bolded like the cards
+  // ("Estava **ao lado** de uma mesa.", "Estava a **leste** da Eloise.")
+  const DIR_EN = { N: "north", S: "south", E: "east", W: "west" };
+  const DIR_PT = { N: "norte", S: "sul", E: "leste", W: "oeste" };
+  function clueEn(c, p, S) {
+    if (c.t === "inroom") return `was in the **${ROOMS[c.z].name}**`;
+    if (c.t === "negroom") return `was not in the **${ROOMS[c.z].name}**`;
+    if (c.t === "beside") return `was **next to** ${FIX[c.k]}`;
+    if (c.t === "occ") return c.k === "chair" ? "was sitting on a **chair**" : c.k === "bed" ? "was on a **bed**" : "was standing on a **rug**";
+    if (c.t === "window") return "was **in front** of a window";
+    if (c.t === "comp") return `was **${DIR_EN[c.dir]}** of ${S[c.o].name}`;
+    if (c.t === "with") return `was **with** ${S[c.o].name}`;
+    if (c.t === "alone") return "was **alone**";
+    if (c.t === "only") return c.k === "window" ? "was the only person **in front** of a window" : c.k === "chair" ? "was the only person sitting on a **chair**" : c.k === "bed" ? "was the only person on a **bed**" : "was the only person standing on a **rug**";
+    if (c.t === "arow") return c.v === 1 ? "was in the **top row**" : "was in the **bottom row**";
+    if (c.t === "acol") return c.v === 1 ? "was in the **leftmost column**" : "was in the **rightmost column**";
     return "";
   }
-  function cluePt(c, p) {
+  function cluePt(c, p, S) {
     const g = p.g === "f" ? "a" : "o";
-    if (c.t === "inroom") return `estava ${EM[ROOMS[c.z].art]} ${ROOMS[c.z].pt}`;
-    if (c.t === "negroom") return `não estava ${EM[ROOMS[c.z].art]} ${ROOMS[c.z].pt}`;
-    if (c.t === "beside") return `estava ao lado ${FIXPT[c.k]}`;
-    if (c.t === "occ") return c.k === "chair" ? `estava sentad${g} numa cadeira` : c.k === "bed" ? `estava deitad${g} numa cama` : "estava em cima de um tapete";
-    if (c.t === "window") return "estava em frente a uma janela";
-    if (c.t === "arow") return `estava na linha ${c.v}`;
-    if (c.t === "acol") return `estava na coluna ${c.v}`;
+    const art = (i) => S[i].g === "f" ? "da" : "do";
+    if (c.t === "inroom") return `estava ${EM[ROOMS[c.z].art]} **${ROOMS[c.z].pt}**`;
+    if (c.t === "negroom") return `não estava ${EM[ROOMS[c.z].art]} **${ROOMS[c.z].pt}**`;
+    if (c.t === "beside") return `estava **ao lado** ${FIXPT[c.k]}`;
+    if (c.t === "occ") return c.k === "chair" ? `estava sentad${g} numa **cadeira**` : c.k === "bed" ? `estava numa **cama**` : "estava em cima de um **tapete**";
+    if (c.t === "window") return "estava **em frente** à janela";
+    if (c.t === "comp") return `estava a **${DIR_PT[c.dir]}** ${art(c.o)} ${S[c.o].name}`;
+    if (c.t === "with") return `estava **com** ${S[c.o].g === "f" ? "a" : "o"} ${S[c.o].name}`;
+    if (c.t === "alone") return `estava **sozinh${g}**`;
+    if (c.t === "only") return c.k === "window" ? "era a única pessoa **em frente** à janela" : c.k === "chair" ? `era a única pessoa sentada numa **cadeira**` : c.k === "bed" ? "era a única pessoa numa **cama**" : "era a única pessoa em cima de um **tapete**";
+    if (c.t === "arow") return c.v === 1 ? "estava na **linha de cima**" : "estava na **linha de baixo**";
+    if (c.t === "acol") return c.v === 1 ? "estava na **coluna mais à esquerda**" : "estava na **coluna mais à direita**";
     return "";
   }
 
