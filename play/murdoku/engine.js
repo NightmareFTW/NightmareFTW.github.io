@@ -365,8 +365,8 @@
 
     const ci = Math.floor(rng() * CRIMES.length);
     const brief = L === "pt"
-      ? `${chapter.titlePt} — ${CRIMESPT[ci]}, e ${victim.name} foi encontrad${victim.g === "f" ? "a" : "o"} sem vida. Cada linha e cada coluna têm exactamente uma pessoa. Coloca os ${NS} suspeitos pelas pistas; a vítima está na última célula restante, e quem ficou sozinho com ela é o culpado.`
-      : `${chapter.titleEn} — ${CRIMES[ci]}, and ${victim.name} was found dead. Every row and every column holds exactly one person. Place the ${NS} suspects from the clues; the victim lies in the last remaining cell, and whoever is alone with them is the culprit.`;
+      ? `${chapter.titlePt}: ${CRIMESPT[ci]}, e ${victim.name} foi encontrad${victim.g === "f" ? "a" : "o"} sem vida. Cada linha e cada coluna têm exactamente uma pessoa. Coloca os ${NS} suspeitos pelas pistas; a vítima está na última célula restante, e quem ficou sozinho com ela é o culpado.`
+      : `${chapter.titleEn}: ${CRIMES[ci]}, and ${victim.name} was found dead. Every row and every column holds exactly one person. Place the ${NS} suspects from the clues; the victim lies in the last remaining cell, and whoever is alone with them is the culprit.`;
 
     return {
       num, chapter: ch, caseInChapter: m, difficulty,
