@@ -3,12 +3,14 @@
 (function () {
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const solved = () => { try { return (JSON.parse(localStorage.getItem("nftw:murdoku:solved")) || []).length; } catch (e) { return 0; } };
+  const PT = localStorage.getItem("nftw:lang") === "pt";
+  const solvedTag = () => { const n = solved(); return PT ? `${n} ${n === 1 ? "caso resolvido" : "casos resolvidos"}` : `${n} ${n === 1 ? "case solved" : "cases solved"}`; };
 
   const GAMES = [
     {
       id: "murdoku", name: "Murdoku", emoji: "🕵️", color: "#e44b4b",
-      blurb: "A murder-mystery logic puzzle. Read the clues, work the deduction grid, name the killer and the weapon. Endless cases.",
-      href: "murdoku/index.html", tag: () => `${solved()} cases solved`, available: true,
+      blurb: "A murder-mystery logic puzzle. Read the clue cards, work the deduction grid and name the culprit. Chapters of endless cases.",
+      href: "murdoku/index.html", tag: solvedTag, available: true,
     },
     // ➕ New games go here.
   ];

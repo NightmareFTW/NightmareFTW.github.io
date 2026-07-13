@@ -84,9 +84,8 @@
   const solvedList = () => lsGet(SOLVED, []);
   const caseSolved = (n) => solvedList().includes(n);
   const solvedInChapter = (ch) => { let c = 0; for (let m = 0; m < CPC; m++) if (caseSolved(ch * CPC + m)) c++; return c; };
-  const chapterSolved = (ch) => solvedInChapter(ch) === CPC;
-  const chapterUnlocked = (ch) => ch === 0 || chapterSolved(ch - 1);
-  const caseUnlocked = (n) => { const ch = Math.floor(n / CPC), m = n % CPC; return chapterUnlocked(ch) && (m === 0 || caseSolved(n - 1)); };
+  // every chapter's FIRST case is always open; the rest unlock as you clear them.
+  const caseUnlocked = (n) => { const m = n % CPC; return m === 0 || caseSolved(n - 1); };
 
   // ---------- board persistence (kept even after solving; syncs to account) ----------
   const allBoards = () => lsGet(BOARDS, {});
@@ -99,18 +98,18 @@
     const last = lsGet(CURKEY, 0) | 0;
     let tabs = "";
     for (let ch = 0; ch < NCH; ch++) {
-      const info = MURDOKU.chapterInfo(ch), unl = chapterUnlocked(ch);
-      tabs += `<button class="mdk-chtab${ch === menuChapter ? " on" : ""}${unl ? "" : " locked"}" data-ch="${ch}" ${unl ? "" : "disabled"} title="${unl ? "" : esc(T.chapterLocked)}">
+      const info = MURDOKU.chapterInfo(ch);
+      tabs += `<button class="mdk-chtab${ch === menuChapter ? " on" : ""}" data-ch="${ch}">
         <span class="mdk-chn">${T.chapter} ${ch + 1}</span>
         <span class="mdk-cht">${esc(L === "pt" ? info.titlePt : info.titleEn)}</span>
-        <span class="mdk-chp">${unl ? T.solvedOf(solvedInChapter(ch), CPC) : "🔒"}</span></button>`;
+        <span class="mdk-chp">${T.solvedOf(solvedInChapter(ch), CPC)}</span></button>`;
     }
     let grid = "";
     for (let m = 0; m < CPC; m++) {
       const num = menuChapter * CPC + m, meta = MURDOKU.caseMeta(num), unl = caseUnlocked(num), done = caseSolved(num);
       grid += `<button class="mdk-case${done ? " done" : ""}${unl ? "" : " locked"}" data-num="${num}" ${unl ? "" : "disabled"}>
-        <span class="mdk-cnum">${m + 1}</span>
-        <span class="mdk-cdiff">${T.diff} ${meta.difficulty.toFixed(1)}</span>
+        <span class="mdk-cnum">${m + 1}.</span>
+        <span class="mdk-cname">${unl ? esc(meta.title) : "&nbsp;"}</span>
         <span class="mdk-cmark">${done ? "✓" : unl ? "" : "🔒"}</span></button>`;
     }
     root.innerHTML = `
@@ -122,13 +121,12 @@
           ${caseUnlocked(last) ? `<button class="btn mdk-continue" data-num="${last}">${T.continue} · #${last + 1}</button>` : ""}</div>
         <div class="mdk-grid">${grid}</div>
       </div>`;
-    root.querySelectorAll(".mdk-chtab:not(.locked)").forEach((b) => b.onclick = () => { menuChapter = +b.dataset.ch; renderMenu(); });
+    root.querySelectorAll(".mdk-chtab").forEach((b) => b.onclick = () => { menuChapter = +b.dataset.ch; renderMenu(); });
     root.querySelectorAll(".mdk-case:not(.locked)").forEach((b) => b.onclick = () => load(+b.dataset.num));
     const cont = root.querySelector(".mdk-continue"); if (cont) cont.onclick = () => load(+cont.dataset.num);
   }
 
-  // ---------- pixel-art tileset ----------
-  const ZTINT = { green: "#b7e0a5", yellow: "#f2df84", grey: "#d2d2db", blue: "#bcd8e8", tan: "#e6d6b8", pink: "#f0c8d8", purple: "#d3c2e8" };
+  // ---------- pixel-art tileset (floor tint comes from the chapter palette) ----------
   function drawMap() {
     const cv = document.getElementById("md-canvas"); if (!cv) return;
     const TS = C.TS, W = C.W, H = C.H;
@@ -138,7 +136,7 @@
     for (const t of C.tiles) {
       const px = t.x * TS, py = t.y * TS;
       if (t.type === "void") continue;
-      const base = t.room >= 0 ? ZTINT[C.rooms[t.room].color] : "#e9dcc2";
+      const base = t.room >= 0 ? (C.rooms[t.room].tint || "#e9dcc2") : "#e9dcc2";
       r(px, py, TS, TS, base);
       if ((t.x + t.y) % 2 === 0) { g.fillStyle = "rgba(0,0,0,.04)"; g.fillRect(px, py, TS, TS); }
       g.fillStyle = "rgba(0,0,0,.06)"; g.fillRect(px, py + TS - 1, TS, 1); g.fillRect(px + TS - 1, py, 1, TS);

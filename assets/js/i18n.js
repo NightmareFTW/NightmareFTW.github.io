@@ -41,16 +41,22 @@
     "// gaming tools hub": "// hub de ferramentas de jogos",
     "Less grind,": "Menos grind,", "more game": "mais jogo",
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
-      "Uma caixa de ferramentas em crescimento — calculadoras, checklists e trackers. Nada é removido; só continua a crescer.",
+      "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
+    "🕵️ New —": "🕵️ Novo em",
+    ": browser games you can jump into. First up:": ": jogos de browser onde podes entrar já. A começar:",
     "Games": "Jogos",
 
     // ---- Play / Murdoku ----
-    "Play": "Jogar", "play": "jogar",
+    "Play": "Jogar", "play": "jogar", "in the browser": "no browser",
     "Play in the browser.": "Joga no browser.",
     "Small original games to pass the time — no install, no account needed. Sign in to sync your progress across devices.":
-      "Pequenos jogos originais para passar o tempo — sem instalação, sem conta. Inicia sessão para sincronizar o progresso entre dispositivos.",
-    "A logic puzzle on a store map — part Sudoku, part detective work. Each area covers several tiles; from the spatial clues, work out the exact tile every suspect was standing on. Endless cases — your progress saves on your device and syncs to your account when signed in.":
-      "Um puzzle de lógica num mapa de loja — parte Sudoku, parte investigação. Cada divisão ocupa várias casas; pelas pistas espaciais, descobre a casa exacta onde cada suspeito estava. Casos infinitos — o teu progresso é guardado no dispositivo e sincroniza com a tua conta quando inicias sessão.",
+      "Pequenos jogos originais para passar o tempo, sem instalação nem conta. Inicia sessão para sincronizar o teu progresso entre dispositivos.",
+    "A murder-mystery logic puzzle. Read the clue cards, work the deduction grid and name the culprit. Chapters of endless cases.":
+      "Um enigma de lógica policial. Lê os cartões de pistas, preenche a grelha de dedução e descobre o culpado. Capítulos de casos infinitos.",
+    "More coming": "Mais a caminho",
+    "New browser games get added here over time.": "Vão sendo adicionados novos jogos de browser ao longo do tempo.",
+    "A logic puzzle on a procedurally-built floor plan: part Sudoku, part detective work. Read the clue cards, work out the exact tile everyone stood on, and name the culprit. Chapters of endless cases; your progress saves on this device and syncs to your account when you sign in.":
+      "Um enigma de lógica numa planta gerada à medida: parte Sudoku, parte investigação. Lê os cartões de pistas, descobre a casa exacta onde cada pessoa estava e aponta o culpado. Capítulos de casos infinitos; o teu progresso é guardado neste dispositivo e sincroniza com a tua conta quando inicias sessão.",
     "Built by NightmareFTW · Murdoku is an original logic-deduction game. Pixel-art tiles & avatars are original / DiceBear.":
       "Feito por NightmareFTW · o Murdoku é um jogo de dedução lógica original. Os tiles pixel-art & avatares são originais / DiceBear.",
 

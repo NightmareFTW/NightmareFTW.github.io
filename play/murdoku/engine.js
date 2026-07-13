@@ -28,7 +28,6 @@
 
   // ---- chapters ------------------------------------------------------------
   const CPC = 25;                                   // cases per chapter
-  const PALETTE = ["blue", "tan", "green", "grey", "pink", "yellow", "purple"];
   // gendered ring colours so a face is never dressed in the "wrong" colour
   const MASC = ["#6c8cff", "#4db6ac", "#5bd6a0", "#ff8a3d", "#9ccc65", "#a1887f"];
   const FEM = ["#e05a4a", "#e8c84a", "#5bc8e8", "#d98cc0", "#b18cff", "#f06292"];
@@ -37,6 +36,7 @@
   const CHAPTERS = [
     {
       key: "house", titleEn: "The House on Ash Lane", titlePt: "A Casa na Rua das Cinzas",
+      palette: ["#bcd8e8", "#e6d6b8", "#b7e0a5", "#d2d2db", "#f0c8d8", "#f2df84", "#d3c2e8"], // warm, homey
       male: sp("James John Robert Michael William David Richard Joseph Thomas Charles Daniel Matthew Anthony Donald Mark Paul"),
       female: sp("Mary Patricia Jennifer Linda Barbara Susan Jessica Sarah Karen Nancy Betty Helen Sandra Donna Carol Ruth"),
       rooms: [
@@ -48,6 +48,7 @@
     },
     {
       key: "manor", titleEn: "A Death at Blackmoor Manor", titlePt: "Uma Morte na Mansão Blackmoor",
+      palette: ["#cdbcd8", "#b3cbac", "#e6cd8b", "#adbfd0", "#dfb5b5", "#c3b6a6", "#a3bfb6"], // moody jewel pastels
       male: sp("Reginald Percival Archibald Montgomery Bartholomew Cornelius Humphrey Sebastian Algernon Bertram Cuthbert Horatio Nigel Rupert Cedric Barnaby"),
       female: sp("Beatrice Genevieve Rosalind Cordelia Millicent Arabella Henrietta Josephine Wilhelmina Gwendolyn Prudence Evangeline Ottoline Philippa Cressida Marguerite"),
       rooms: [
@@ -59,6 +60,7 @@
     },
     {
       key: "hotel", titleEn: "Checkout at the Grand Hotel", titlePt: "Última Noite no Grande Hotel",
+      palette: ["#bfe3d4", "#c3dcef", "#efe6cf", "#f2d2d8", "#cfe8dd", "#ece0b8", "#dcd7cf"], // cool, clean, art-deco
       male: sp("Marco Luca Andre Pierre Hans Klaus Diego Rafael Omar Yusuf Kenji Hiroshi Sven Nikolai Andres Mateo"),
       female: sp("Sofia Elena Chiara Amelie Ingrid Freya Camila Lucia Aisha Leila Yuki Sakura Astrid Nadia Valentina Isabela"),
       rooms: [
@@ -115,8 +117,8 @@
     // colour rooms greedily so neighbours differ
     const adj = rooms.map(() => new Set());
     for (let y = 1; y <= N; y++) for (let x = 1; x <= N; x++) { const a = roomAt(x, y); [[1, 0], [0, 1]].forEach(([dx, dy]) => { const b = roomAt(x + dx, y + dy); if (b >= 0 && b !== a) { adj[a].add(b); adj[b].add(a); } }); }
-    const pal = shuffle(PALETTE, rng);
-    rooms.forEach((r, i) => { const used = new Set(); adj[i].forEach((j) => { if (rooms[j].color) used.add(rooms[j].color); }); r.color = pal.find((c) => !used.has(c)) || pal[i % pal.length]; });
+    const pal = shuffle(chapter.palette, rng);      // per-chapter floor tints (theme colour)
+    rooms.forEach((r, i) => { const used = new Set(); adj[i].forEach((j) => { if (rooms[j].tint) used.add(rooms[j].tint); }); r.tint = pal.find((c) => !used.has(c)) || pal[i % pal.length]; });
 
     // objects
     const cells = []; for (let y = 1; y <= N; y++) for (let x = 1; x <= N; x++) cells.push({ x, y, r: roomAt(x, y) });
@@ -408,7 +410,12 @@
     return "";
   }
 
-  const caseMeta = (num) => { num = Math.max(0, num | 0); const ch = Math.floor(num / CPC), m = num % CPC, tt = CPC > 1 ? m / (CPC - 1) : 0; return { chapter: ch, m, difficulty: (ch + 1) + Math.round(tt * 9) / 10 }; };
+  const caseMeta = (num) => {
+    num = Math.max(0, num | 0);
+    const ch = Math.floor(num / CPC), m = num % CPC, tt = CPC > 1 ? m / (CPC - 1) : 0;
+    const chapter = CHAPTERS[ch % CHAPTERS.length], roster = buildRoster(chapter), victim = roster[m % roster.length];
+    return { chapter: ch, m, difficulty: (ch + 1) + Math.round(tt * 9) / 10, title: (L === "pt" ? TT_PT : TT_EN)[m % 7] + " " + victim.name };
+  };
   const chapterInfo = (ch) => { const c = CHAPTERS[ch % CHAPTERS.length]; return { key: c.key, titleEn: c.titleEn, titlePt: c.titlePt }; };
 
   const API = { generateCase, caseMeta, chapterInfo, CASES_PER_CHAPTER: CPC, CHAPTERS_DEFINED: CHAPTERS.length, lang: L, _count: count };
