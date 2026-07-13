@@ -35,6 +35,7 @@
     bath:    { block: ["plant"], occ: ["rug"], bed: false },
     store:   { block: ["box", "bookshelf", "table", "plant"], occ: ["rug"], bed: false },
     social:  { block: ["tv", "plant", "bookshelf"], occ: ["chair", "rug"], bed: false },
+    hall:    { block: ["plant"], occ: ["rug"], bed: false },   // a narrow passage: kept airy
   };
 
   // ---- chapters ------------------------------------------------------------
@@ -48,6 +49,7 @@
     {
       key: "house", titleEn: "The House on Ash Lane", titlePt: "A Casa na Rua das Cinzas",
       palette: ["#bcd8e8", "#e6d6b8", "#b7e0a5", "#d2d2db", "#f0c8d8", "#f2df84", "#d3c2e8"], // warm, homey
+      corridor: rm("Hallway", "Corredor", "o", "hall"),
       male: sp("James John Robert Michael William David Richard Joseph Thomas Charles Daniel Matthew Anthony Donald Mark Paul"),
       female: sp("Mary Patricia Jennifer Linda Barbara Susan Jessica Sarah Karen Nancy Betty Helen Sandra Donna Carol Ruth"),
       rooms: [
@@ -60,6 +62,7 @@
     {
       key: "manor", titleEn: "A Death at Blackmoor Manor", titlePt: "Uma Morte na Mansão Blackmoor",
       palette: ["#cdbcd8", "#b3cbac", "#e6cd8b", "#adbfd0", "#dfb5b5", "#c3b6a6", "#a3bfb6"], // moody jewel pastels
+      corridor: rm("Passage", "Corredor", "o", "hall"),
       male: sp("Reginald Percival Archibald Montgomery Bartholomew Cornelius Humphrey Sebastian Algernon Bertram Cuthbert Horatio Nigel Rupert Cedric Barnaby"),
       female: sp("Beatrice Genevieve Rosalind Cordelia Millicent Arabella Henrietta Josephine Wilhelmina Gwendolyn Prudence Evangeline Ottoline Philippa Cressida Marguerite"),
       rooms: [
@@ -72,6 +75,7 @@
     {
       key: "hotel", titleEn: "Checkout at the Grand Hotel", titlePt: "Última Noite no Grande Hotel",
       palette: ["#bfe3d4", "#c3dcef", "#efe6cf", "#f2d2d8", "#cfe8dd", "#ece0b8", "#dcd7cf"], // cool, clean, art-deco
+      corridor: rm("Corridor", "Corredor", "o", "hall"),
       male: sp("Marco Luca Andre Pierre Hans Klaus Diego Rafael Omar Yusuf Kenji Hiroshi Sven Nikolai Andres Mateo"),
       female: sp("Sofia Elena Chiara Amelie Ingrid Freya Camila Lucia Aisha Leila Yuki Sakura Astrid Nadia Valentina Isabela"),
       rooms: [
@@ -101,8 +105,8 @@
   // ---- procedural map ------------------------------------------------------
   // Split the N×N interior into rectangular rooms; every room ends up at least
   // 2×2 (both dimensions ≥ 2), which keeps a valid crime room available.
-  function partition(N, rng, target) {
-    let rects = [{ x: 1, y: 1, w: N, h: N }];
+  function partition(region, rng, target) {
+    let rects = [{ x: region.x, y: region.y, w: region.w, h: region.h }];
     const splittable = (r) => Math.max(r.w, r.h) >= 4;
     let guard = 0;
     while (rects.length < target && guard++ < 200) {
@@ -120,10 +124,21 @@
 
   function makeMap(N, rng, chapter) {
     const W = N + 2, H = N + 2, idx = (x, y) => y * W + x;
-    const target = Math.max(5, Math.min(Math.round(N * 1.1), (N >> 1) * (N >> 1)));
-    const rooms = partition(N, rng, target);
-    const pool = shuffle(chapter.rooms, rng);
-    rooms.forEach((r, i) => { const nm = pool[i % pool.length]; r.name = nm.en; r.pt = nm.pt; r.art = nm.art; r.cat = nm.cat; r.label = { x: r.x + (r.w - 1) / 2, y: r.y + r.h - 1 }; });
+    // Sometimes carve a 1-wide corridor along one edge, then partition the rest.
+    // This gives real passages (not just chunky rooms) and more layout variety.
+    const corrs = []; let region = { x: 1, y: 1, w: N, h: N };
+    if (N >= 6 && rng() < 0.5) {
+      const dir = Math.floor(rng() * 4);
+      if (dir === 0) { corrs.push({ x: 1, y: 1, w: N, h: 1, corridor: true }); region = { x: 1, y: 2, w: N, h: N - 1 }; }
+      else if (dir === 1) { corrs.push({ x: 1, y: N, w: N, h: 1, corridor: true }); region = { x: 1, y: 1, w: N, h: N - 1 }; }
+      else if (dir === 2) { corrs.push({ x: 1, y: 1, w: 1, h: N, corridor: true }); region = { x: 2, y: 1, w: N - 1, h: N }; }
+      else { corrs.push({ x: N, y: 1, w: 1, h: N, corridor: true }); region = { x: 1, y: 1, w: N - 1, h: N }; }
+    }
+    const area = region.w * region.h;
+    const target = Math.max(4, Math.min(Math.round(area / 5), 9, (region.w >> 1) * (region.h >> 1)));
+    const rooms = corrs.concat(partition(region, rng, target));
+    const pool = shuffle(chapter.rooms, rng); let pi = 0;
+    rooms.forEach((r) => { const nm = r.corridor ? chapter.corridor : pool[(pi++) % pool.length]; r.name = nm.en; r.pt = nm.pt; r.art = nm.art; r.cat = nm.cat; r.label = { x: r.x + (r.w - 1) / 2, y: r.y + r.h - 1 }; });
     const roomAt = (x, y) => { for (let i = 0; i < rooms.length; i++) { const r = rooms[i]; if (x >= r.x && x < r.x + r.w && y >= r.y && y < r.y + r.h) return i; } return -1; };
     // colour rooms greedily so neighbours differ
     const adj = rooms.map(() => new Set());
@@ -147,6 +162,7 @@
     let placed = 0; const nObj = Math.round(N * N * 0.42);
     for (const c of rest) {
       if (placed >= nObj) break;
+      if (rooms[c.r] && rooms[c.r].corridor && rng() < 0.7) continue;   // passages stay mostly clear
       const cc = cat(c.r), wantOcc = rng() < 0.32 && cc.occ.length;
       const pool = wantOcc ? cc.occ : cc.block;
       if (!pool.length) continue;
