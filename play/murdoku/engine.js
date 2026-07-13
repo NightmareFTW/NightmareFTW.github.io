@@ -42,7 +42,7 @@
       rooms: [
         rm("Master Bedroom", "Quarto Principal", "o"), rm("Kitchen", "Cozinha", "a"), rm("Living Room", "Sala de Estar", "a"),
         rm("Bathroom", "Casa de Banho", "a"), rm("Guest Room", "Quarto de Hóspedes", "o"), rm("Office", "Escritório", "o"),
-        rm("Dining Room", "Sala de Jantar", "a"), rm("Garden", "Quintal", "o"), rm("Hallway", "Corredor", "o"),
+        rm("Dining Room", "Sala de Jantar", "a"), rm("Pantry", "Despensa", "a"), rm("Hallway", "Corredor", "o"),
         rm("Cellar", "Cave", "a"), rm("Attic", "Sótão", "o"), rm("Laundry", "Lavandaria", "a"),
       ],
     },
@@ -66,7 +66,7 @@
       rooms: [
         rm("Reception", "Recepção", "a"), rm("Royal Suite", "Suite Real", "a"), rm("Restaurant", "Restaurante", "o"),
         rm("Bar", "Bar", "o"), rm("Spa", "Spa", "o"), rm("Gym", "Ginásio", "o"),
-        rm("Kitchen", "Cozinha", "a"), rm("Lounge", "Salão", "o"), rm("Terrace", "Terraço", "o"),
+        rm("Kitchen", "Cozinha", "a"), rm("Lounge", "Salão", "o"), rm("Casino", "Casino", "o"),
         rm("Laundry", "Lavandaria", "a"), rm("Storage", "Arrecadação", "a"), rm("Office", "Escritório", "o"),
       ],
     },
@@ -158,7 +158,9 @@
     const walk = [], roomCells = [];
     for (const t of tiles) if (t.walkable) { walk.push(idx(t.x, t.y)); if (t.room >= 0) roomCells.push(idx(t.x, t.y)); }
     const beside = {};
-    for (const t of tiles) { const k = t.fixture || t.occ; if (!k) continue; const s = beside[k] || (beside[k] = new Set()); [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dx, dy]) => { const nx = t.x + dx, ny = t.y + dy; if (nx < 0 || ny < 0 || nx >= W || ny >= map.H) return; const n = tiles[idx(nx, ny)]; if (n.walkable && n.room === t.room) s.add(idx(nx, ny)); }); }
+    // "ao lado de" a thing = adjacent, same room, and NOT standing on that same
+    // kind — otherwise a 2-cell bed makes its own occupant "beside a bed" too.
+    for (const t of tiles) { const k = t.fixture || t.occ; if (!k) continue; const s = beside[k] || (beside[k] = new Set()); [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dx, dy]) => { const nx = t.x + dx, ny = t.y + dy; if (nx < 0 || ny < 0 || nx >= W || ny >= map.H) return; const n = tiles[idx(nx, ny)]; if (n.walkable && n.room === t.room && n.occ !== k) s.add(idx(nx, ny)); }); }
     const occ = {};
     for (const t of tiles) if (t.occ) (occ[t.occ] || (occ[t.occ] = new Set())).add(idx(t.x, t.y));
     const windowFront = new Set();
