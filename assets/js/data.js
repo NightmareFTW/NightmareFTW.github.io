@@ -466,7 +466,7 @@ const GAMES = [
   {
     id: "the-other-side",
     name: "The Other Side",
-    banner: "assets/img/games/the-other-side-header.svg",
+    banner: "assets/img/games/the-other-side-header.jpg",
     color: "#3ba99c",
     glow: "rgba(59, 169, 156, 0.24)",
     blurb: "Co-op ghost hunting — gather evidence and identify the entity.",
