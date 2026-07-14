@@ -1,13 +1,45 @@
 {
   "game": "far-far-west",
-  "updated": "2026-06-28T00:00:00.000Z",
+  "updated": "2026-07-14T12:03:08.260Z",
   "source": "https://farfarwest.wikily.gg/promo-codes",
   "redeem": null,
-  "note": "Community-reported codes (the % is how many players confirmed each one works). Redeem in-game. Far Far West codes are crowd-sourced, so reliability varies — low-confidence ones are left out. Check the source link for the very latest.",
+  "note": "Community-reported codes; the % is how many players confirmed each still works. Enter in the in-game shop / settings.",
   "codes": [
-    { "code": "1MCOWBOYS", "reward": "1,250 Gold · 98% confirmed", "expires": null, "expired": false },
-    { "code": "THISCODEISFAKE", "reward": "250 Souls · 97% confirmed", "expires": null, "expired": false },
-    { "code": "250KCOWBOYS", "reward": "1,000 Gold · 80% confirmed", "expires": null, "expired": false },
-    { "code": "TWERKINGBIRD", "reward": "250 Souls · 72% confirmed", "expires": null, "expired": false }
+    {
+      "code": "WECOOKIN",
+      "reward": "Reward · 100% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "SHERIFFSSAFE",
+      "reward": "1 gold · 3% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "THISCODEISFAKE",
+      "reward": "250 Souls · 78% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "1MCOWBOYS",
+      "reward": "1250 Gold · 79% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "TWERKINGBIRD",
+      "reward": "250 Souls · 59% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "250KCOWBOYS",
+      "reward": "1000 GOLD · 78% confirmed",
+      "expires": null,
+      "expired": false
+    }
   ]
 }

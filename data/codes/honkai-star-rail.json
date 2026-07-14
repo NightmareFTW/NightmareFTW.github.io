@@ -1,43 +1,43 @@
 {
   "game": "honkai-star-rail",
-  "updated": "2026-06-22T00:00:00.000Z",
+  "updated": "2026-07-14T12:03:07.501Z",
   "source": "https://game8.co/games/Honkai-Star-Rail/archives/410296",
   "redeem": "https://hsr.hoyoverse.com/gift",
-  "note": "Active codes as of 2026-06-22 (v4.3). Livestream codes expire within ~24–48h — check the source link for the latest. Redeem in-game (Menu ▸ ⋯ ▸ Redemption Code) or on the official gift page.",
+  "note": "Redeem on the official gift page (button below) or in-game. Livestream codes expire within ~24-48h, so the newest may already be gone.",
   "codes": [
     {
-      "code": "STARRAILGIFT",
-      "reward": "50 Stellar Jade + materials (permanent code)",
+      "code": "BladeFitCheck",
+      "reward": "Traveler's Guide x3 Cold Joke x2",
       "expires": null,
       "expired": false
     },
     {
       "code": "OMEGA",
-      "reward": "Stellar Jade + rewards",
+      "reward": "Stellar Jade x60 Fuel x1",
       "expires": null,
       "expired": false
     },
     {
       "code": "CREATIONNYMPH",
-      "reward": "Stellar Jade + rewards",
+      "reward": "Stellar Jade x60 Fuel x1 Heroic Variable x1",
       "expires": null,
       "expired": false
     },
     {
       "code": "FAREWELL",
-      "reward": "Stellar Jade + rewards",
+      "reward": "Stellar Jade x60 Fuel x1",
       "expires": null,
       "expired": false
     },
     {
       "code": "IFYOUAREREADINGTHIS",
-      "reward": "Stellar Jade + rewards",
+      "reward": "Stellar Jade x60 Fuel x1",
       "expires": null,
       "expired": false
     },
     {
-      "code": "BladeFitCheck",
-      "reward": "Stellar Jade + rewards",
+      "code": "STARRAILGIFT",
+      "reward": "Stellar Jade x100 Traveler's Guide x4 Bottled Soda x5 Credit x50,000",
       "expires": null,
       "expired": false
     }

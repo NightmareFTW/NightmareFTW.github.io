@@ -1,60 +1,42 @@
 {
   "game": "nte",
-  "updated": "2026-06-17T07:46:23.708Z",
+  "updated": "2026-07-14T12:03:08.014Z",
   "source": "https://game8.co/games/Neverness-to-Everness/archives/593718",
-  "note": "Active codes as of 2026-06-04. Codes can expire without notice.",
+  "note": "Enter in-game via the settings / redeem menu. Codes can expire without notice; newest first.",
   "codes": [
     {
-      "code": "NTEELITE",
-      "reward": "30 Annulith, 20,000 Fons",
+      "code": "DRAGONGIRL",
+      "reward": "· Annulith x30 · Fons x20,000 · Puka Chocoa Elli Tour Special x2",
       "expires": null,
       "expired": false
     },
     {
-      "code": "NTECELEBRATE",
-      "reward": "50 Annulith, 5 Rising Hunter Guide, 5 Light Dye",
+      "code": "NTEGIFT",
+      "reward": "· Annulith x50 · Rising Hunter Guide x5 · Light Dye x5",
       "expires": null,
       "expired": false
     },
     {
-      "code": "NTEMILESTONE",
-      "reward": "100 Annulith, 5 Rising Hunter Guide, 5 Light Dye, 4,000 Beetle Coin",
+      "code": "DREAMWALK0603",
+      "reward": "· Annulith x100 · Rising Hunter Guide x5 · Light Dye x5 · Beetle Coin x4000",
       "expires": null,
       "expired": false
     },
     {
-      "code": "NTETHANKFUL",
-      "reward": "100 Annulith, 5 Senior Hunter Guide, 5 Colorless Dye, 6,000 Beetle Coin",
+      "code": "TOMATO100",
+      "reward": "· Annulith x100 · Senior Hunter Guide x5 · Colorless Dye x5 · Beetle Coin x6000",
       "expires": null,
       "expired": false
     },
     {
-      "code": "NTEPREMIUM",
-      "reward": "100 Annulith, 2 Elite Hunter Guide, 2 Chaotic Dye, 12,000 Beetle Coin",
+      "code": "RACENOLIMIT",
+      "reward": "· Annulith x100 · Elite Hunter Guide x2 · Chaotic Dye x2 · Beetle Coin x12000",
       "expires": null,
       "expired": false
     },
     {
-      "code": "NTESPECIAL",
-      "reward": "30,000 Fons",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "NTEFUN",
-      "reward": "20,000 Fons",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "NTEAWARD",
-      "reward": "10,000 Fons",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "NTEGAMEDAY",
-      "reward": "10,000 Fons, 10 DynamiK Zero, 10 Clicky Fries",
+      "code": "NTENENE",
+      "reward": "· Fons x10,000 · DynamiK Zero x10 · Clicky Fries x10",
       "expires": null,
       "expired": false
     }

@@ -138,8 +138,79 @@ async function epic7() {
   console.log(`[epic7] ${codes.length} codes (kept newest ${KEEP_E7}).`);
 }
 
+// ---- Game8 code tables (HSR, NTE) — the code lives in the copy <input value=…> --
+const G8_HSR = "https://game8.co/games/Honkai-Star-Rail/archives/410296";
+const G8_NTE = "https://game8.co/games/Neverness-to-Everness/archives/593718";
+function game8Codes(html) {
+  const tables = html.match(/<table[\s\S]*?<\/table>/g) || [];
+  const table = tables.find((t) => /a-clipboard__textInput/.test(t) && /\bcode/i.test(clean((t.match(/<tr[\s\S]*?<\/tr>/) || [""])[0])));
+  if (!table) throw new Error("no active codes table");
+  const out = [], seen = new Set();
+  for (const r of table.match(/<tr[\s\S]*?<\/tr>/g) || []) {
+    const m = r.match(/a-clipboard__textInput["']\s+value=["']([^"']*)["']/);
+    if (!m) continue;
+    const code = m[1].trim();
+    if (!/^[A-Za-z0-9][A-Za-z0-9_-]{3,29}$/.test(code) || seen.has(code)) continue;
+    seen.add(code);
+    const cells = [...r.matchAll(/<t[hd][\s\S]*?>([\s\S]*?)<\/t[hd]>/g)].map((c) => clean(c[1]));
+    const reward = (cells[cells.length - 1] || "").replace(/・\s*/g, "· ").replace(/\s+/g, " ").trim().slice(0, 120) || "Rewards";
+    out.push({ code, reward, expires: null, expired: false });
+  }
+  return out;
+}
+
+async function hsr() {
+  const codes = game8Codes(await get(G8_HSR));
+  if (!codes.length) throw new Error("no codes parsed — keeping previous file");
+  write("honkai-star-rail", {
+    game: "honkai-star-rail", updated: new Date().toISOString(), source: G8_HSR,
+    redeem: "https://hsr.hoyoverse.com/gift",
+    note: "Redeem on the official gift page (button below) or in-game. Livestream codes expire within ~24-48h, so the newest may already be gone.",
+    codes,
+  });
+  console.log(`[honkai-star-rail] ${codes.length} codes.`);
+}
+
+async function nte() {
+  const codes = game8Codes(await get(G8_NTE));
+  if (!codes.length) throw new Error("no codes parsed — keeping previous file");
+  write("nte", {
+    game: "nte", updated: new Date().toISOString(), source: G8_NTE,
+    note: "Enter in-game via the settings / redeem menu. Codes can expire without notice; newest first.",
+    codes,
+  });
+  console.log(`[nte] ${codes.length} codes.`);
+}
+
+// ---- Far Far West (wikily.gg — JS page, code is in the copy button's aria-label) --
+const SRC_FFW = "https://farfarwest.wikily.gg/promo-codes";
+async function ffw() {
+  const html = await get(SRC_FFW);
+  const out = [], seen = new Set();
+  for (const m of html.matchAll(/aria-label="Copy code ([A-Za-z0-9_-]{3,30})"/g)) {
+    const code = m[1];
+    if (seen.has(code)) continue;
+    seen.add(code);
+    const seg = clean(html.slice(m.index, m.index + 1200));
+    const conf = (seg.match(/(\d{1,3})%\s*works/i) || [])[1];
+    const rew = (seg.match(/([\d,]+\s*(?:Gold|Souls|Cash|Bonds?|Tokens?|Tickets?|Gems?|Coins?)\b)/i) || [])[1];
+    const reward = [rew ? rew.replace(/\s+/g, " ").trim() : "Reward", conf ? `${conf}% confirmed` : ""].filter(Boolean).join(" · ");
+    out.push({ code, reward, expires: null, expired: false });
+  }
+  if (!out.length) throw new Error("no codes parsed — keeping previous file");
+  write("far-far-west", {
+    game: "far-far-west", updated: new Date().toISOString(), source: SRC_FFW,
+    redeem: null,
+    note: "Community-reported codes; the % is how many players confirmed each still works. Enter in the in-game shop / settings.",
+    codes: out,
+  });
+  console.log(`[far-far-west] ${out.length} codes.`);
+}
+
 async function run() {
-  for (const [name, fn] of [["dreamlight-valley", ddv], ["epic7", epic7]]) {
+  // Warframe stays curated in its JSON: its promo/glyph codes are permanent and
+  // there's no clean structured source (pcgamesn mixes in other games' codes).
+  for (const [name, fn] of [["dreamlight-valley", ddv], ["epic7", epic7], ["honkai-star-rail", hsr], ["nte", nte], ["far-far-west", ffw]]) {
     try { await fn(); } catch (e) { console.warn(`[${name}] failed:`, e.message); }
   }
 }
