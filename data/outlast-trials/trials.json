@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-13T18:37:26.664Z",
+  "updated": "2026-07-14T00:34:35.452Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -230,7 +230,7 @@
       "trials": [
         {
           "name": "Grind the Bad Apples",
-          "goal": "Feed The Clowns",
+          "goal": "Grind the Bad Apples is a Trial that takes place at the Fun Park in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Fun Park",
             "Reach the Root Canal Ride",
@@ -861,7 +861,7 @@
       "trials": [
         {
           "name": "Despoil the Auction",
-          "goal": "She could be in here!",
+          "goal": "Despoil the Auction is a Trial that takes place at the Resort in The Outlast Trials.",
           "objectives": [
             "Infiltrate the Resort",
             "Register for the Auction",
