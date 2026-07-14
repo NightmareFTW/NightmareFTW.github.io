@@ -25,7 +25,7 @@ const norm = (n) => FIX[n] || n;
 
 const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
 const get = (url) => {
-  try { return execSync(`curl -sL -A "${UA}" -H "Accept-Language: en-US,en;q=0.9" "${url}"`, { encoding: "utf8", maxBuffer: 24 * 1024 * 1024 }); } catch { return ""; }
+  try { return execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" -H "Accept-Language: en-US,en;q=0.9" "${url}"`, { encoding: "utf8", maxBuffer: 24 * 1024 * 1024 }); } catch { return ""; }
 };
 
 // Drop a redundant character name from a team label ("Daffodil Scorch Team"
@@ -68,7 +68,7 @@ for (const c of CHARS) {
   console.log(`${c}: ${t.length} teams  ${t.map((x) => `${x.label}[${x.team.join(", ")}]`).join("  ")}`);
   sleep(12000);
 }
-if (!total) { console.error("no teams parsed — keeping previous file"); process.exit(1); }
+if (!total) require("./lib/keep")(OUT, new Error("no teams parsed — keeping previous file"));
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(data, null, 0));
 console.log(`\nWrote teams for ${Object.keys(data.teams).length}/${CHARS.length} characters (${total} comps).`);

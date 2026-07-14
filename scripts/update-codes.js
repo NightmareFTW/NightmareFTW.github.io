@@ -6,7 +6,7 @@
      keep the most recent set and link to the official redeem page).
 
    Games without a clean source (NTE, Warframe) stay curated in their JSON.
-   Run by .github/workflows/update-ddv.yml.  Node 18+, no dependencies. */
+   Run by .github/workflows/update-news.yml (every 6h).  Node 18+, no dependencies. */
 
 const fs = require("fs");
 const path = require("path");
@@ -144,4 +144,4 @@ async function run() {
   }
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+run().catch((e) => require("./lib/keep")(DIR, e));

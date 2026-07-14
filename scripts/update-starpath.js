@@ -68,4 +68,4 @@ async function run() {
   console.log(`Wrote ${total} duties across ${weeks.length} weeks -> ${OUT}`);
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+run().catch((e) => require("./lib/keep")(OUT, e));

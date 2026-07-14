@@ -13,7 +13,7 @@ const OUT = path.join(__dirname, "..", "data", "honkai-star-rail", "teams.json")
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 const ELEMENTS = ["Quantum", "Lightning", "Fire", "Ice", "Wind", "Imaginary", "Physical"];
 
-const getHtml = (url) => execSync(`curl -sL -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
+const getHtml = (url) => execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ").trim();
 const cleanName = (alt) => decode(alt).replace(/^.*?[-–]\s*/, "").trim(); // "Star Rail - Archer" -> "Archer"
 const stripTags = (s) => decode(s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " "));
@@ -66,4 +66,4 @@ function run() {
   console.log(`Wrote ${elements.length} elements, ${total} team comps (v${version}).`);
   for (const e of elements) console.log(`  ${e.element}: ${e.teams.map((t) => t.label + " [" + t.members.map((m) => m.name).join(", ") + "]").join("  ")}`);
 }
-try { run(); } catch (e) { console.error(e.message); process.exit(1); }
+try { run(); } catch (e) { require("./lib/keep")(OUT, e); }

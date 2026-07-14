@@ -13,7 +13,7 @@ const URL = "https://farfarwest.wikily.gg/build-planner";
 const OUT = path.join(__dirname, "..", "data", "far-far-west", "builds.json");
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
-const getHtml = (url) => { try { return execSync(`curl -sL -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 }); } catch { return ""; } };
+const getHtml = (url) => { try { return execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 }); } catch { return ""; } };
 const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
 const clean = (s) => (s || "").replace(/\s+/g, " ").trim();
 
@@ -104,4 +104,4 @@ function run() {
   console.log(`Wrote ${builds.length} builds (${enriched} enriched with stats).`);
   Object.entries(weapons).sort((a, b) => b[1] - a[1]).forEach(([w, n]) => console.log(`  ${w}: ${n}`));
 }
-try { run(); } catch (e) { console.error(e.message); process.exit(1); }
+try { run(); } catch (e) { require("./lib/keep")(OUT, e); }

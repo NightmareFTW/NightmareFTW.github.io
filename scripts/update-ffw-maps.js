@@ -13,7 +13,7 @@ const OUT = path.join(__dirname, "..", "data", "far-far-west", "maps.json");
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 const SLUGS = ["far-west", "desert", "canyon", "woodlands", "far-far-north", "jungle", "area-41", "lobby"];
 
-const getHtml = (url) => execSync(`curl -sL -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
+const getHtml = (url) => execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
 const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
 
 function rscOf(html) {
@@ -54,4 +54,4 @@ function run() {
   fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: BASE, maps }));
   console.log(`\nWrote ${maps.length} maps, ${maps.reduce((n, m) => n + m.pois.length, 0)} POIs.`);
 }
-try { run(); } catch (e) { console.error(e.message); process.exit(1); }
+try { run(); } catch (e) { require("./lib/keep")(OUT, e); }

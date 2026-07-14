@@ -132,4 +132,4 @@ async function run() {
   console.log(`Wrote ${maps.length} maps, ${maps.reduce((n, m) => n + m.trials.length, 0)} trials, ${maps.reduce((n, m) => n + m.layouts.length, 0)} layouts.`);
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+run().catch((e) => require("./lib/keep")(OUT, e));

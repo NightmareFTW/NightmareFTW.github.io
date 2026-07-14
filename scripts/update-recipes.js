@@ -125,4 +125,4 @@ async function run() {
   console.log(`Wrote ${unique.length} recipes (${unique.filter((r) => r.dlc).length} DLC, ${unique.filter((r) => r.sell).length} with values, ${unique.filter((r) => r.img).length} with images).`);
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+run().catch((e) => require("./lib/keep")(OUT, e));

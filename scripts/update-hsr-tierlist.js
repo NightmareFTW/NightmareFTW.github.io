@@ -15,7 +15,7 @@ const TIER_ORDER = ["SS", "S", "A", "B", "C", "D"];
 // Game8 blocks plain Node fetch in some environments; curl is reliable and works
 // the same locally and in CI (and avoids a libuv crash from mixing fetch+execSync).
 function getHtml(url) {
-  return execSync(`curl -sL -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
+  return execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
 }
 
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ").trim();
@@ -48,4 +48,4 @@ function run() {
   fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: URL, version, tiers }));
   console.log(`Wrote ${tiers.length} tiers, ${tiers.reduce((n, t) => n + t.chars.length, 0)} characters (v${version}).`);
 }
-try { run(); } catch (e) { console.error(e.message); process.exit(1); }
+try { run(); } catch (e) { require("./lib/keep")(OUT, e); }

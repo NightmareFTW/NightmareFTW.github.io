@@ -14,7 +14,7 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 const ART_BASE = "https://marvelsnapzone.com/wp-content/themes/blocksy-child/assets/media/cards/";
 const TEAM_SUFFIX = /(Champion|XMen|WebSlingers|SpiderVerse|GuardiansOfTheGalaxy|BrotherhoodOfMutants|Thunderbolts|Avengers|FirstSteps|MastersOfEvil)$/;
-const getJson = (url) => JSON.parse(execSync(`curl -sL -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 48 * 1024 * 1024 }));
+const getJson = (url) => JSON.parse(execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 48 * 1024 * 1024 }));
 const decode = (s) => (s || "").replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&#39;|&#039;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;|&#160;/g, " ").replace(/\s+/g, " ").trim();
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -56,4 +56,4 @@ function run() {
   const byPool = {}; for (const c of cards) byPool[c.pool || "?"] = (byPool[c.pool || "?"] || 0) + 1;
   console.log(Object.entries(byPool).map(([p, n]) => `  ${p}: ${n}`).join("\n"));
 }
-try { run(); } catch (e) { console.error(e.message); process.exit(1); }
+try { run(); } catch (e) { require("./lib/keep")(OUT, e); }

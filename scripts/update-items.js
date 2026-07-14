@@ -288,4 +288,4 @@ async function run() {
   console.log(`Wrote ${unique.length} items. By category:`, byCat);
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+run().catch((e) => require("./lib/keep")(OUT, e));

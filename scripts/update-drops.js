@@ -68,4 +68,4 @@ async function run() {
   console.log(`Wrote ${rows.length} drop rows -> ${OUT} (${(fs.statSync(OUT).size / 1024 / 1024).toFixed(2)} MB)`);
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+run().catch((e) => require("./lib/keep")(OUT, e));

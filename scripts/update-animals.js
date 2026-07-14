@@ -160,4 +160,4 @@ async function run() {
   console.log(`Wrote ${species.length} critter species (${withVars.length} with variants, ${species.reduce((n, s) => n + s.variants.length, 0)} variants) + ${companions.length} companions.`);
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+run().catch((e) => require("./lib/keep")(OUT, e));
