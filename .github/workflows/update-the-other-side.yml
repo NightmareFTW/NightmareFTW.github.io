@@ -1,0 +1,31 @@
+name: Update The Other Side data
+
+on:
+  schedule:
+    - cron: "35 7 * * 4"   # weekly, Thursday 07:35 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-the-other-side:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape The Other Side ghosts, evidence & equipment
+        run: node scripts/update-the-other-side.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/the-other-side)" ]; then
+            git add data/the-other-side
+            git commit -m "chore: auto-update The Other Side data"
+            git push
+          else
+            echo "No The Other Side changes."
+          fi

@@ -48,7 +48,7 @@
     const has = lt > 0;
     const href = has ? `games/${game.id}/index.html` : null;
     const tag = has ? `<span class="tool-badge">${lt} tool${lt > 1 ? "s" : ""}</span>` : `<span class="soon-badge">soon</span>`;
-    const banner = `<div class="game-banner" style="background:${game.color}"><img src="${game.banner}" alt="${game.name}" loading="lazy"></div>`;
+    const banner = `<div class="game-banner" style="background:${game.color}"><img src="${game.banner}" alt="${game.name}" loading="lazy" onerror="this.style.display='none'"></div>`;
     const controls =
       `<button class="pin-btn ${isPinned(game.id) ? "pinned" : ""}" data-id="${game.id}" title="${isPinned(game.id) ? "Unpin" : "Pin"}" aria-label="${isPinned(game.id) ? "Unpin game" : "Pin game"}">${PIN_SVG}</button>` +
       (draggable ? `<span class="drag-handle" title="Drag to reorder" aria-hidden="true">⠿</span>` : "");

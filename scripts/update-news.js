@@ -31,6 +31,7 @@ const QUERIES = {
   "elden-ring": "Elden Ring game",
   "honkai-star-rail": "Honkai Star Rail game",
   demonologist: "Demonologist game",
+  "the-other-side": "The Other Side ghost hunting game",
   "far-far-west": "Far Far West game",
   "marvel-snap": "Marvel Snap game",
 };
@@ -49,6 +50,7 @@ const STEAM_APPIDS = {
   "expedition-33": 1903340,
   "elden-ring": 1245620,
   demonologist: 1929610,
+  "the-other-side": 2764750,
   "far-far-west": 3124540,
   "marvel-snap": 1997040,
 };

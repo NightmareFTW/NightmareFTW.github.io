@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghost Reference · The Other Side · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="the-other-side">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">The Other Side</a> / ghost reference</p>
+    <h1>Ghost Reference</h1>
+    <p class="tool-sub">Every ghost and its three-evidence combo. Filter by evidence or search. Data from the <a href="https://theotherside-game.fandom.com/wiki/Ghosts" target="_blank" rel="noopener" style="color:var(--accent)">The Other Side Wiki</a>.</p>
+    <p class="codes-updated" id="gr-updated">Loading…</p>
+
+    <div class="list-controls">
+      <div class="filter-bar" id="gr-evidence"></div>
+      <input type="search" id="gr-search" class="search-input" placeholder="Search ghost…" autocomplete="off">
+    </div>
+    <div id="gr-root"><p style="color:var(--muted)">Loading ghosts…</p></div>
+    <p class="tool-note">Ghost and evidence data are auto-scraped from the The Other Side Wiki. Each ghost has exactly 3 evidence.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · ghost data via the The Other Side Wiki.</span></div></footer>
+  <script src="ghosts.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

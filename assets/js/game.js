@@ -13,7 +13,7 @@
 
   document.getElementById("game-hero").innerHTML = `
     <div class="game-hero-banner" style="background:${game.color}">
-      <img src="../../${game.banner}" alt="${game.name}">
+      <img src="../../${game.banner}" alt="${game.name}" onerror="this.style.display='none'">
     </div>
     <div class="game-hero-text">
       <h1>${game.name}</h1>

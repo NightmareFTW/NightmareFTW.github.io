@@ -391,6 +391,16 @@
     "Cozy life-sim adventure.": "Aventura life-sim acolhedora.",
     "Open-world action RPG.": "RPG de ação de mundo aberto.",
 
+    // ---- The Other Side ----
+    "Co-op ghost hunting — gather evidence and identify the entity.": "Caça aos fantasmas co-op: reúne evidências e identifica a entidade.",
+    "Ghost Reference": "Referência de Fantasmas",
+    "Mark the evidence you've found and narrow the 18 ghosts down live.": "Marca as evidências que encontraste e reduz os 18 fantasmas em tempo real.",
+    "Every ghost and its unique three-evidence combo, searchable and filterable.": "Cada fantasma e a sua combinação única de três evidências, pesquisável e filtrável.",
+    "Every evidence tool and which of the 6 evidence types it detects.": "Cada ferramenta de evidência e qual dos 6 tipos de evidência deteta.",
+    "Search ghost…": "Procurar fantasma…", "No ghosts match.": "Nenhum fantasma corresponde.",
+    "Loading ghosts…": "A carregar fantasmas…", "Loading equipment…": "A carregar equipamento…",
+    "Search tool…": "Procurar ferramenta…",
+
     // ---- Tool descriptions (data.js) ----
     "Select the evidence you've found and instantly narrow down the ghost.":
       "Seleciona as evidências encontradas e descobre o fantasma instantaneamente.",
