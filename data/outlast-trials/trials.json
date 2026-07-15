@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15T00:32:06.161Z",
+  "updated": "2026-07-15T06:50:30.583Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -538,6 +538,19 @@
           ],
           "prime": "Leland Coyle",
           "tips": []
+        },
+        {
+          "name": "Bribe the Judges",
+          "goal": "You are the master, whose property is the purpose of the law. Salary reminds enforcement that their monopoly of violence only exists for your monopoly of capital. Collect the bribes, pay the judges, and we will let you out.",
+          "objectives": [
+            "Deliver the First Bribe",
+            "Bribe The Remaining Corruptible Judges",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Leland Coyle",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -767,6 +780,18 @@
             "Stage lighting creates dark pockets where Pouncers lurk; light them up.",
             "Use prop cover, but don't get cornered on a closed set."
           ]
+        },
+        {
+          "name": "Cancel the Broadcast",
+          "goal": "You are the butcher, who reminds the sheep the ultimate path of all flesh, no matter the bounty of wealth or the wealth of spirit. Sabotage the broadcast, defile the faithful with blood, and we will let you out.",
+          "objectives": [
+            "Find Blacklight Codes",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "Otto and Arora Kress",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
