@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset password · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <h1>Reset your password</h1>
+    <div class="panel" style="max-width:380px">
+      <form id="reset-form" style="display:flex;flex-direction:column;gap:12px">
+        <label style="display:flex;flex-direction:column;gap:5px;font-size:.78rem;color:var(--muted);font-weight:600">New password
+          <input type="password" name="password" minlength="8" autocomplete="new-password" required
+            style="padding:9px 11px;border-radius:9px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.92rem">
+        </label>
+        <p id="reset-msg" style="margin:0;font-size:.82rem;line-height:1.4"></p>
+        <button type="submit" class="btn">Set new password</button>
+      </form>
+    </div>
+    <p class="tool-note">The link is valid for 1 hour. After resetting, sign in from the hub with your new password.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
+  <script>
+    (function () {
+      var WORKER = "https://nftw-auth.nightmareftw.workers.dev";
+      var token = new URLSearchParams(location.search).get("token") || "";
+      var form = document.getElementById("reset-form");
+      var msg = document.getElementById("reset-msg");
+      function say(text, ok) { msg.textContent = text; msg.style.color = ok ? "#5bd6a0" : "#ff8a82"; }
+      if (!token) { say("This reset link is missing its token — request a new one from the sign-in window.", false); form.querySelector("button").disabled = true; }
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var pw = form.password.value;
+        if (pw.length < 8) return say("Password must be at least 8 characters.", false);
+        var btn = form.querySelector("button"); btn.disabled = true;
+        try {
+          var r = await fetch(WORKER + "/auth/reset", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ token: token, password: pw }) });
+          var d = await r.json().catch(function () { return {}; });
+          if (r.ok && d.ok) { say("Password updated. You can now sign in with it from the hub.", true); form.querySelector("input").disabled = true; }
+          else { btn.disabled = false; say(d.error === "invalid_token" ? "This reset link is invalid or has expired — request a new one." : "Couldn't reset the password. Try again.", false); }
+        } catch (err) { btn.disabled = false; say("Network error — please try again.", false); }
+      });
+    })();
+  </script>
+</body>
+</html>

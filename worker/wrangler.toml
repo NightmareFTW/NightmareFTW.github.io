@@ -1,0 +1,25 @@
+# Cloudflare Worker config for the NightmareFTW auth + sync API.
+# Deploy:  cd worker && wrangler deploy
+name = "nftw-auth"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# The D1 database that holds accounts + settings. Create it once with:
+#   wrangler d1 create nftw-accounts
+# then paste the printed database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "nftw-accounts"
+database_id = "PASTE_YOUR_D1_DATABASE_ID_HERE"
+
+# Non-secret vars. Set the origin of the live site so CORS is locked to it.
+[vars]
+ALLOW_ORIGIN = "https://nightmareftw.github.io"
+SITE_URL = "https://nightmareftw.github.io"
+
+# Secrets — set with `wrangler secret put <NAME>` (do NOT put them in this file):
+#   CLIENT_ID        GitHub OAuth app client id (existing GitHub login)
+#   CLIENT_SECRET    GitHub OAuth app client secret (existing GitHub login)
+#   SESSION_SECRET   long random string; signs the account session tokens
+#   RESEND_API_KEY   (optional) enables password-reset emails via Resend
+#   FROM_EMAIL       (optional) verified sender, e.g. "no-reply@yourdomain"

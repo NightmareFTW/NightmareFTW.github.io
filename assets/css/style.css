@@ -85,6 +85,30 @@ body {
 .auth-btn:hover { border-color: var(--accent); color: var(--text); }
 .auth-btn svg { display: block; }
 .auth-dot { width: 7px; height: 7px; border-radius: 50%; background: #5bd6a0; box-shadow: 0 0 6px #5bd6a0; }
+
+/* sign-in modal (email/password + GitHub) */
+.nftw-modal-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(6,7,10,.72); backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center; padding: 20px; }
+.nftw-modal { width: 100%; max-width: 360px; background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 22px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,.55); }
+.nftw-modal-x { position: absolute; top: 10px; right: 12px; background: none; border: 0; color: var(--muted); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.nftw-modal-x:hover { color: var(--text); }
+.nftw-tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+.nftw-tab { flex: 1; padding: 8px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  font-family: var(--sans); font-weight: 700; font-size: 0.86rem; cursor: pointer; transition: all .12s; }
+.nftw-tab.on { border-color: var(--accent); background: rgba(228,75,75,.14); color: #ff8a82; }
+.nftw-form { display: flex; flex-direction: column; gap: 11px; }
+.nftw-form label { display: flex; flex-direction: column; gap: 5px; font-size: 0.76rem; color: var(--muted); font-weight: 600; }
+.nftw-form input { padding: 9px 11px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 0.92rem; }
+.nftw-form input:focus { outline: none; border-color: var(--accent); }
+.nftw-submit { margin-top: 3px; }
+.nftw-err { color: #ff8a82; font-size: 0.8rem; margin: 0; line-height: 1.4; }
+.nftw-hint { color: var(--muted); font-size: 0.74rem; margin: 0; line-height: 1.4; }
+.nftw-forgot { background: none; border: 0; color: var(--accent); font-size: 0.78rem; cursor: pointer; padding: 2px; align-self: flex-start; }
+.nftw-forgot:hover { text-decoration: underline; }
+.nftw-or { display: flex; align-items: center; text-align: center; gap: 10px; margin: 16px 0 12px; color: var(--muted); font-size: 0.74rem; }
+.nftw-or::before, .nftw-or::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.nftw-github { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; }
 .lang-switch { display: inline-flex; gap: 6px; margin-left: 8px; align-items: center; }
 .lang-switch button {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
