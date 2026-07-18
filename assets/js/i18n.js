@@ -7,7 +7,7 @@
   // Load the accounts + settings-sync module on every page (this script is global).
   if (!document.querySelector('script[data-nftw-auth]')) {
     const a = document.createElement("script");
-    a.src = "/assets/js/auth.js?v=4"; a.defer = true; a.setAttribute("data-nftw-auth", "");
+    a.src = "/assets/js/auth.js?v=f8f10742"; a.defer = true; a.setAttribute("data-nftw-auth", "");
     document.head.appendChild(a);
   }
   const LANG = localStorage.getItem("nftw:lang") || "en";
@@ -68,7 +68,7 @@
 
     // ---- Tool names (cards + page titles) ----
     "Ghost Evidence Checker": "Verificador de Evidências",
-    "Cursed Possession Reference": "Referência de Objetos Amaldiçoados",
+    "Cursed Possession Reference": "Referência de Objectos Amaldiçoados",
     "Equipment Guide": "Guia de Equipamento", "Progression Tracker": "Tracker de Progresso",
     "Loadout Builder": "Construtor de Loadout", "Daily / Weekly Checklist": "Checklist Diária / Semanal",
     "Enemies & Counters": "Inimigos & Counters", "Trials & Maps Guide": "Guia de Trials & Mapas",
@@ -76,27 +76,27 @@
     "Every Ex-Pop, Night Hunter and Prime Asset — behaviour and how to deal with each.":
       "Todos os Ex-Pops, Night Hunters e Prime Assets — comportamento e como lidar com cada um.",
     "Every trial's full objective walkthrough plus the map screenshot.":
-      "O walkthrough completo de objetivos de cada trial mais a screenshot do mapa.",
+      "O walkthrough completo de objectivos de cada trial mais a screenshot do mapa.",
     "Meta rig + amp loadouts for each role, with the reasoning behind them.":
       "Loadouts meta de rig + amps para cada função, com a justificação.",
     // ---- DDV Animal Guide ----
     "Animal Guide": "Guia de Animais",
     "Every critter — food, schedule, DLC & how to approach — plus all event/shop companions, with a collection tracker.":
-      "Cada critter — comida, horário, DLC & como aproximar — mais todos os companions de evento/loja, com tracker de coleção.",
+      "Cada critter — comida, horário, DLC & como aproximar — mais todos os companions de evento/loja, com tracker de colecção.",
     "Wild Critters": "Critters Selvagens", "Companions (event / shop)": "Companions (evento / loja)",
-    "Any approach": "Qualquer aproximação", "Collected": "Coletados", "Not collected": "Não coletados",
+    "Any approach": "Qualquer aproximação", "Collected": "Colectados", "Not collected": "Não colectados",
     "All sources": "Todas as fontes", "Search…": "Procurar…",
     "Red Light, Green Light": "Luz Vermelha, Luz Verde", "Tag (chase)": "Apanhada (perseguir)",
-    "Patience (wait)": "Paciência (esperar)", "Just approach": "Aproxima-te direto",
+    "Patience (wait)": "Paciência (esperar)", "Just approach": "Aproxima-te directo",
     "Always around": "Sempre por perto",
     "Event": "Evento", "Premium": "Premium", "Quest Reward": "Recompensa de Quest", "Craftable": "Craftável",
     "Event reward (limited-time — returns in rotations/Star Paths)": "Recompensa de evento (tempo limitado — volta em rotações/Star Paths)",
     "Premium Shop (bought with Moonstones)": "Loja Premium (comprado com Moonstones)",
     "Reward from a quest": "Recompensa de uma quest", "Crafted at a crafting station": "Craftado numa estação de fabrico",
     "Every wild critter — favourite food, when it appears, which DLC, and how to approach it to feed it — plus a section for every collectible companion (event, premium shop, quest & craftable). Tick what you've collected; it dims and you can filter by it.":
-      "Cada critter selvagem — comida favorita, quando aparece, que DLC, e como te aproximares para o alimentar — mais uma secção para cada companion colecionável (evento, loja premium, quest & craftável). Marca o que já coletaste; fica esbatido e podes filtrar por isso.",
+      "Cada critter selvagem — comida favorita, quando aparece, que DLC, e como te aproximares para o alimentar — mais uma secção para cada companion colecionável (evento, loja premium, quest & craftável). Marca o que já colectaste; fica esbatido e podes filtrar por isso.",
     "Critter data, schedules & companion sources from the Dreamlight Valley Wiki; names from the game's official PT-BR data. Your collection is saved on this device.":
-      "Dados de critters, horários & fontes de companions da Dreamlight Valley Wiki; nomes dos dados oficiais PT-BR do jogo. A tua coleção é guardada neste dispositivo.",
+      "Dados de critters, horários & fontes de companions da Dreamlight Valley Wiki; nomes dos dados oficiais PT-BR do jogo. A tua colecção é guardada neste dispositivo.",
     "Favourite:": "Favorita:", "How to approach:": "Como aproximar:", "Liked:": "Gosta:",
     "No critters match.": "Nenhum critter corresponde.", "No companions match.": "Nenhum companion corresponde.",
     "No variants match.": "Nenhuma variante corresponde.", "Couldn't load animal data.": "Não foi possível carregar os dados dos animais.",
@@ -116,9 +116,9 @@
     "Capybaras play no games. Simply approach and be ready to feed them!": "As capivaras não brincam. Aproxima-te simplesmente e prepara-te para as alimentar!",
     "Owls play no games. Simply approach and be ready to feed them!": "As corujas não brincam. Aproxima-te simplesmente e prepara-te para as alimentar!",
     "Every Ex-Pop, Night Hunter and Prime Asset — how it behaves and exactly how to deal with it.":
-      "Todos os Ex-Pops, Night Hunters e Prime Assets — como se comportam e exatamente como lidar com cada um.",
+      "Todos os Ex-Pops, Night Hunters e Prime Assets — como se comportam e exactamente como lidar com cada um.",
     "Every Trial and the map it runs on — the full objective walkthrough plus the map screenshot. Click a map to expand its steps.":
-      "Cada Trial e o mapa onde decorre — o walkthrough completo de objetivos mais a screenshot do mapa. Clica num mapa para expandir os passos.",
+      "Cada Trial e o mapa onde decorre — o walkthrough completo de objectivos mais a screenshot do mapa. Clica num mapa para expandir os passos.",
     "Meta loadouts for different roles — rig + amps that work together, with the reasoning. A loadout is 1 Rig + 1 Tool + 1 Skill + 1 Medicine amp.":
       "Loadouts meta para diferentes funções — rig + amps que combinam, com a justificação. Um loadout é 1 Rig + 1 Tool + 1 Skill + 1 Medicine amp.",
     "How to deal with it:": "Como lidar:",
@@ -126,11 +126,11 @@
     "Low": "Baixo", "Medium": "Médio", "High": "Alto", "Boss": "Boss",
     "Rig": "Rig", "Tool Amp": "Tool Amp", "Skill Amp": "Skill Amp", "Medicine Amp": "Medicine Amp",
     "↗ Recreate in the Loadout Builder": "↗ Recriar no Construtor de Loadout",
-    "Search maps, trials or objectives…": "Procurar mapas, trials ou objetivos…",
-    "Search maps, trials, objectives or tips…": "Procurar mapas, trials, objetivos ou dicas…",
+    "Search maps, trials or objectives…": "Procurar mapas, trials ou objectivos…",
+    "Search maps, trials, objectives or tips…": "Procurar mapas, trials, objectivos ou dicas…",
     "Couldn't load trial data.": "Não foi possível carregar os dados dos trials.",
-    "Elite": "Elite", "Objectives": "Objetivos", "Tips": "Dicas",
-    "Map layouts — find objectives, documents & routes": "Layouts do mapa — encontra objetivos, documentos & rotas",
+    "Elite": "Elite", "Objectives": "Objectivos", "Tips": "Dicas",
+    "Map layouts — find objectives, documents & routes": "Layouts do mapa — encontra objectivos, documentos & rotas",
     "🗺 Open the interactive maps ↗": "🗺 Abrir os mapas interativos ↗",
     "💡 Survival basics (all trials)": "💡 Básicos de sobrevivência (todos os trials)",
     "💡 Survival basics (all missions)": "💡 Básicos de sobrevivência (todas as missões)",
@@ -139,13 +139,13 @@
     "Floor maps — click to open the zoomable viewer": "Plantas dos pisos — clica para abrir o visualizador com zoom",
     "Scroll to zoom · drag to pan · double-click to reset": "Scroll para zoom · arrasta para mover · duplo-clique para repor",
     "Scroll to zoom · drag to pan · double-click to reset · pick a floor above": "Scroll para zoom · arrasta para mover · duplo-clique para repor · escolhe um piso acima",
-    "Map layouts — objectives, documents & routes": "Layouts do mapa — objetivos, documentos & rotas",
+    "Map layouts — objectives, documents & routes": "Layouts do mapa — objectivos, documentos & rotas",
     "This mission's layout": "Layout desta missão", "Prime Asset:": "Prime Asset:",
     "Objective list not on the wiki yet — open the interactive map for the route.":
-      "Lista de objetivos ainda não está na wiki — abre o mapa interativo para a rota.",
-    "Search maps, missions, objectives or tips…": "Procurar mapas, missões, objetivos ou dicas…",
+      "Lista de objectivos ainda não está na wiki — abre o mapa interativo para a rota.",
+    "Search maps, missions, objectives or tips…": "Procurar mapas, missões, objectivos ou dicas…",
     "Every map and all of its missions — pick a mission to see its goal, full objectives, strategy tips and floor-plan layout. Open the community interactive maps full-screen for documents, hidden spots & collectibles.":
-      "Cada mapa e todas as suas missões — escolhe uma missão para ver o objetivo, objetivos completos, dicas de estratégia e a planta do piso. Abre os mapas interativos da comunidade em ecrã inteiro para documentos, hidden spots & colecionáveis.",
+      "Cada mapa e todas as suas missões — escolhe uma missão para ver o objectivo, objectivos completos, dicas de estratégia e a planta do piso. Abre os mapas interativos da comunidade em ecrã inteiro para documentos, hidden spots & colecionáveis.",
     "🗺 Interactive maps — by": "🗺 Mapas interativos — por", "close ✕": "fechar ✕",
     "The Season 3 (Project Relapse) Prime Asset — a relentless hunter (\"Jaeger\") who tracks Reagents across The Suburbs and punishes anyone who holds still too long.":
       "A Prime Asset da Season 3 (Project Relapse) — uma caçadora implacável (\"Jaeger\") que persegue os Reagents por The Suburbs e pune quem fica parado tempo demais.",
@@ -158,23 +158,23 @@
     "The Season 5 (Project Messiah) Prime Asset who stalks the Resort, keeping relentless pressure on the team.":
       "A Prime Asset da Season 5 (Project Messiah) que percorre o Resort, mantendo pressão implacável sobre a equipa.",
     "No top-down layout on the wiki yet — use the interactive maps above for objectives, documents & hidden spots.":
-      "Ainda sem layout de cima na wiki — usa os mapas interativos acima para objetivos, documentos & hidden spots.",
+      "Ainda sem layout de cima na wiki — usa os mapas interativos acima para objectivos, documentos & hidden spots.",
     // ---- Outlast: build roles, tags, names ----
     "Solo": "Solo", "Co-op": "Co-op", "Solo / Co-op": "Solo / Co-op",
     "Awareness": "Perceção", "Support": "Suporte", "Aggro": "Aggro", "Survival": "Sobrevivência", "Speed": "Velocidade", "Control": "Controlo",
     "Solo Stealth Scout": "Batedor Furtivo Solo", "Team Medic": "Médico de Equipa", "Crowd Control Bruiser": "Bruto de Controlo de Multidões",
-    "Escape Artist": "Artista da Fuga", "Objective Rusher": "Rusher de Objetivos", "Lockdown Anchor": "Âncora de Bloqueio",
+    "Escape Artist": "Artista da Fuga", "Objective Rusher": "Rusher de Objectivos", "Lockdown Anchor": "Âncora de Bloqueio",
     // ---- Outlast: build rationale ----
     "X-Ray lets you see enemies through walls so you never round a corner blind. Noise Reduction + Invisible keep you off their radar while you scout and grab objectives; Incognito buys extra time when you do get spotted.":
-      "O X-Ray deixa-te ver inimigos através das paredes para nunca virares uma esquina às cegas. Noise Reduction + Invisible mantêm-te fora do radar deles enquanto exploras e apanhas objetivos; o Incognito dá tempo extra quando és detetado.",
+      "O X-Ray deixa-te ver inimigos através das paredes para nunca virares uma esquina às cegas. Noise Reduction + Invisible mantêm-te fora do radar deles enquanto exploras e apanhas objectivos; o Incognito dá tempo extra quando és detectado.",
     "Heal Rig keeps the squad topped up from range. Battery Charger keeps your rig online, Hide and Heal lets you recover safely in lockers, and Double Doses stretches every medicine pickup — you become the reason the team survives MK runs.":
-      "O Heal Rig mantém a equipa curada à distância. O Battery Charger mantém o teu rig ativo, Hide and Heal deixa-te recuperar em segurança nos cacifos, e Double Doses estica cada medicina apanhada — passas a ser a razão de a equipa sobreviver às MK runs.",
+      "O Heal Rig mantém a equipa curada à distância. O Battery Charger mantém o teu rig activo, Hide and Heal deixa-te recuperar em segurança nos cacifos, e Double Doses estica cada medicina apanhada — passas a ser a razão de a equipa sobreviver às MK runs.",
     "Stun Rig freezes a chasing enemy (or a Big Grunt) so the team can push past. Short Circuit speeds rig cooldown, Strong Arm shoves enemies off teammates, and Boosted keeps your stamina up for the constant repositioning.":
       "O Stun Rig congela um inimigo a perseguir (ou um Big Grunt) para a equipa passar. Short Circuit acelera o cooldown do rig, Strong Arm empurra inimigos para longe dos colegas, e Boosted mantém a tua stamina para o reposicionamento constante.",
     "Blind a hunter to break a chase on demand. Slippers make you near-silent, Quick Escape rips you out of grabs faster, and Last Chance gives a clutch survival window — built to slip away from Night Hunters and Prime Assets.":
       "Cega um caçador para quebrar uma perseguição quando quiseres. Slippers tornam-te quase silencioso, Quick Escape liberta-te de agarrões mais depressa, e Last Chance dá uma janela de sobrevivência decisiva — feito para escapar a Night Hunters e Prime Assets.",
     "Lock Breaker shreds locked doors so you blitz objectives; Blind Rig clears the path when something's in the way. Hide and Breathe resets your sanity/stamina in cover and Surplus keeps resources flowing for a fast clear.":
-      "O Lock Breaker arromba portas trancadas para correres os objetivos; o Blind Rig limpa o caminho quando algo está à frente. Hide and Breathe repõe a sanidade/stamina em cobertura e Surplus mantém os recursos a fluir para um clear rápido.",
+      "O Lock Breaker arromba portas trancadas para correres os objectivos; o Blind Rig limpa o caminho quando algo está à frente. Hide and Breathe repõe a sanidade/stamina em cobertura e Surplus mantém os recursos a fluir para um clear rápido.",
     "Barricade Rig seals doors to control where enemies can reach you. Key Master speeds locks, Door Trap Breaker safely clears rigged doors, and Self Revive means a solo mistake doesn't end the run — a self-sufficient survival kit.":
       "O Barricade Rig sela portas para controlar por onde os inimigos te chegam. Key Master acelera fechaduras, Door Trap Breaker limpa portas armadilhadas em segurança, e Self Revive faz com que um erro a solo não acabe a run — um kit de sobrevivência autossuficiente.",
     // ---- Outlast: enemy behaviour & counters ----
@@ -189,7 +189,7 @@
     "Stands dormant until it spots you or hears noise, then lets out a scream that stuns you and alerts every nearby Ex-Pop to your position.":
       "Fica imóvel até te ver ou ouvir barulho, depois solta um grito que te atordoa e alerta todos os Ex-Pop por perto para a tua posição.",
     "They're stationary — spot them early and sneak past quietly. Never sprint near one. A Blind throwable / rig shuts the scream down if you must pass close.":
-      "São estáticos — deteta-os cedo e passa em silêncio. Nunca corras perto de um. Um Blind (atirável/rig) cala o grito se tiveres de passar perto.",
+      "São estáticos — detecta-os cedo e passa em silêncio. Nunca corras perto de um. Um Blind (atirável/rig) cala o grito se tiveres de passar perto.",
     "Gas-masked Ex-Pop that lobs and sprays psychosis gas, distorting your vision and spawning hallucinations that disorient you.":
       "Ex-Pop com máscara de gás que atira e pulveriza gás de psicose, distorcendo a visão e criando alucinações que te desorientam.",
     "Leave the cloud immediately — don't fight or loot inside it. The hallucinations can't actually hurt you; keep moving to clean air and reorient.":
@@ -201,19 +201,19 @@
     "A relentless elite Ex-Pop that pursues you with high speed and aggression, ignoring most distractions once it locks on.":
       "Um Ex-Pop de elite implacável que te persegue com muita velocidade e agressividade, ignorando a maioria das distrações quando te fixa.",
     "Don't duel it — keep doing objectives and rotate. Use rigs to peel it off, never get cornered, and keep two escape routes open at all times.":
-      "Não o enfrentes — continua os objetivos e roda. Usa rigs para o afastar, nunca fiques encurralado e mantém sempre duas rotas de fuga abertas.",
+      "Não o enfrentes — continua os objectivos e roda. Usa rigs para o afastar, nunca fiques encurralado e mantém sempre duas rotas de fuga abertas.",
     "A flaying killer who stalks the Police Station with a blade, punishing players who linger or loot greedily.":
       "Um assassino esfolador que percorre a Police Station com uma lâmina, punindo quem se demora ou saqueia em excesso.",
     "Keep distance and break line of sight constantly; use the environment to lose him. Grab objectives and move — don't get greedy.":
-      "Mantém distância e corta a linha de visão constantemente; usa o ambiente para o despistar. Apanha os objetivos e segue — não sejas ganancioso.",
+      "Mantém distância e corta a linha de visão constantemente; usa o ambiente para o despistar. Apanha os objectivos e segue — não sejas ganancioso.",
     "A corrupt, taunting cop with an electrified baton who charges and stuns. His baton hit is brutal in the open.":
-      "Um polícia corrupto e provocador com um bastão eletrificado que investe e atordoa. O golpe do bastão é brutal em campo aberto.",
+      "Um polícia corrupto e provocador com um bastão electrificado que investe e atordoa. O golpe do bastão é brutal em campo aberto.",
     "Bait the charge, then dodge around cover or a vault as he commits. Fight near windows/vaults so you can break away — never trade in open rooms.":
       "Provoca a investida, depois esquiva-te à volta de cobertura ou de um salto quando ele se compromete. Joga perto de janelas/saltos para poderes fugir — nunca troques golpes em salas abertas.",
     "A deranged clown with a candy cart who deploys 'Gooseberry juice' gas and toys, and sings to track your location.":
       "Uma palhaça desequilibrada com um carrinho de doces que liberta gás de 'sumo Gooseberry' e brinquedos, e canta para te localizar.",
     "Avoid her gas and don't linger near the cart. Work objectives while she patrols, and keep rigs ready to escape a grab.":
-      "Evita o gás dela e não te demores perto do carrinho. Trata dos objetivos enquanto ela patrulha, e mantém rigs prontos para escapar a um agarrão.",
+      "Evita o gás dela e não te demores perto do carrinho. Trata dos objectivos enquanto ela patrulha, e mantém rigs prontos para escapar a um agarrão.",
     "A hulking mobster Prime Asset with devastating melee that bullies you around the Docks.":
       "Um Prime Asset mafioso e corpulento com corpo-a-corpo devastador que te encurrala pelos Docks.",
     "Use vertical and tight routes to create space; never get cornered against the water. Rigs to break grabs and reset the chase.":
@@ -221,7 +221,7 @@
     "The Season 5 Prime Asset who stalks the Resort, keeping relentless pressure on the team.":
       "A Prime Asset da Season 5 que percorre o Resort, mantendo pressão implacável sobre a equipa.",
     "Keep moving and use cover and rotations; prioritise objectives over hiding in place, and save escape rigs for when she closes in.":
-      "Mantém-te em movimento e usa cobertura e rotações; prioriza os objetivos em vez de te esconderes parado, e guarda rigs de fuga para quando ela se aproximar.",
+      "Mantém-te em movimento e usa cobertura e rotações; prioriza os objectivos em vez de te esconderes parado, e guarda rigs de fuga para quando ela se aproximar.",
     // ---- Outlast: intro overrides ----
     "Rebirth is the final therapy step in The Outlast Trials — the Reagent Release Protocol, where you either become a Reborn agent or attempt to escape.":
       "Rebirth é o passo final da terapia no The Outlast Trials — o Reagent Release Protocol, onde te tornas um agente Reborn ou tentas escapar.",
@@ -234,11 +234,11 @@
     "Start the Generators in the Basement": "Ligar os Geradores na Cave", "Get back to the Snitch": "Voltar ao Snitch",
     "Find the Key": "Encontrar a Chave", "Find the Other Keys": "Encontrar as Outras Chaves",
     "Open the Admin Gate (Introductory difficulty)": "Abrir o Portão da Administração (dificuldade Introdutória)",
-    "Open the Detective Gate (Introductory difficulty)": "Abrir o Portão dos Detetives (dificuldade Introdutória)",
+    "Open the Detective Gate (Introductory difficulty)": "Abrir o Portão dos Detectives (dificuldade Introdutória)",
     "Open the Execution Room Gate (Introductory difficulty)": "Abrir o Portão da Sala de Execução (dificuldade Introdutória)",
-    "Electrocute the Snitch": "Eletrocutar o Snitch", "Enter the Orphanage": "Entrar no Orphanage",
+    "Electrocute the Snitch": "Electrocutar o Snitch", "Enter the Orphanage": "Entrar no Orphanage",
     "Broadcast the Religious Station": "Transmitir a Estação Religiosa", "Tune Radio Receivers in the Dorms": "Sintonizar os Recetores de Rádio nos Dormitórios",
-    "Return to the Reception Desk": "Voltar à Receção", "Swap Film Reels in Classrooms": "Trocar os Rolos de Filme nas Salas de Aula",
+    "Return to the Reception Desk": "Voltar à Recepção", "Swap Film Reels in Classrooms": "Trocar os Rolos de Filme nas Salas de Aula",
     "Stop the Blasphemers in the Chapel": "Parar os Blasfemos na Capela", "Power up Generators": "Ligar os Geradores",
     "Find Saw Handle Keys": "Encontrar as Chaves do Cabo da Serra", "Serve the Body of Christ": "Servir o Corpo de Cristo",
     "Regroup in the Chapel": "Reagrupar na Capela", "Return to the Shuttle": "Voltar à Carrinha",
@@ -264,7 +264,7 @@
     "Get the Remaining Sadist Mannequins": "Obter os Manequins Sádicos Restantes", "Execute The District Attorney": "Executar O Procurador",
     "Reach the Town Hall": "Chegar à Câmara Municipal", "Find the Union Boss In the Mansion": "Encontrar o Chefe do Sindicato na Mansion",
     "Find a way to Open the Panic Room": "Encontrar forma de Abrir a Sala do Pânico", "Escort the Union Boss to the Factory": "Escoltar o Chefe do Sindicato até à Fábrica",
-    "Hit the Correct Safety Sign": "Acertar no Sinal de Segurança Correto", "Drown the Union Boss": "Afogar o Chefe do Sindicato",
+    "Hit the Correct Safety Sign": "Acertar no Sinal de Segurança Correcto", "Drown the Union Boss": "Afogar o Chefe do Sindicato",
     "Infiltrate the Studio": "Infiltrar o Estúdio", "Ruin the conference": "Arruinar a conferência",
     "Follow the Idol to Studio 1": "Seguir o Ídolo até ao Estúdio 1", "Setup the scene on the Studio floor": "Preparar a cena no piso do Estúdio",
     "Reach the Studio control room": "Chegar à sala de controlo do Estúdio", "Find codes and use them on the switchboard": "Encontrar códigos e usá-los no quadro de comando",
@@ -286,11 +286,11 @@
     "Lockers and under-beds reset a chase, but a Pouncer may be hiding in dark spots — shine your light first.":
       "Cacifos e debaixo das camas reiniciam uma perseguição, mas um Pouncer pode estar escondido em cantos escuros — ilumina primeiro.",
     "Loot side rooms for batteries, lockpicks and meds before triggering loud objectives (generators, alarms).":
-      "Saqueia as salas laterais por pilhas, gazuas e medicinas antes de acionar objetivos barulhentos (geradores, alarmes).",
+      "Saqueia as salas laterais por pilhas, gazuas e medicinas antes de accionar objectivos barulhentos (geradores, alarmes).",
     "Save your rig for grab-escapes and Prime Asset encounters, not trash mobs.":
       "Guarda o teu rig para escapar a agarrões e para os Prime Assets, não para inimigos comuns.",
     "In co-op, split roles: one handles the noisy objective while the others scout and peel enemies.":
-      "Em co-op, dividam funções: um trata do objetivo barulhento enquanto os outros exploram e afastam inimigos.",
+      "Em co-op, dividam funções: um trata do objectivo barulhento enquanto os outros exploram e afastam inimigos.",
     // ---- Outlast: per-trial tips ----
     "The Snitch is pushed to his death — protect the slow, exposed push route.":
       "O Snitch é empurrado até à morte — protege a rota de empurrão, lenta e exposta.",
@@ -301,7 +301,7 @@
     "You're defenceless while carrying an orphan — scout and clear the route first.":
       "Estás indefeso enquanto carregas um órfão — explora e limpa a rota primeiro.",
     "Leland Coyle charges with an electrified baton; bait the charge near cover, then break away.":
-      "O Leland Coyle investe com um bastão eletrificado; provoca a investida perto de cobertura e depois foge.",
+      "O Leland Coyle investe com um bastão electrificado; provoca a investida perto de cobertura e depois foge.",
     "Use the chapel basement and second floor to shake chases.":
       "Usa a cave da capela e o segundo piso para despistar perseguições.",
     "The Root Canal boat ride is the hub — power off the barriers, then push the boat together.":
@@ -315,9 +315,9 @@
     "Mother Gooseberry's gas lingers; never fight or loot inside it.":
       "O gás da Mother Gooseberry fica no ar; nunca lutes nem saqueies lá dentro.",
     "Long trial — bank meds and batteries between objectives.":
-      "Trial longo — acumula medicinas e pilhas entre objetivos.",
+      "Trial longo — acumula medicinas e pilhas entre objectivos.",
     "Multi-floor — use the lobby and second-floor layouts to plan routes between objectives.":
-      "Vários pisos — usa os layouts do átrio e do segundo piso para planear rotas entre objetivos.",
+      "Vários pisos — usa os layouts do átrio e do segundo piso para planear rotas entre objectivos.",
     "The scales-of-justice area is a chokepoint; clear it before committing.":
       "A zona da balança da justiça é um ponto de estrangulamento; limpa-a antes de avançar.",
     "Courtrooms echo — move during ambient noise to mask your steps.":
@@ -335,7 +335,7 @@
     "Watch for Pushers funnelling you into the open with gas.":
       "Cuidado com Pushers a empurrar-te para o aberto com gás.",
     "Spread-out houses — clear each before grabbing objectives.":
-      "Casas espalhadas — limpa cada uma antes de apanhar objetivos.",
+      "Casas espalhadas — limpa cada uma antes de apanhar objectivos.",
     "Ambushes happen between yards; cross gaps deliberately, not on a sprint.":
       "Há emboscadas entre os quintais; atravessa as aberturas com cuidado, não a correr.",
     "Keep an escape house in mind for when a hunter locks on.":
@@ -353,17 +353,17 @@
     "Save a rig charge to break his grab and reset the chase.":
       "Guarda uma carga do rig para quebrar o agarrão dele e reiniciar a perseguição.",
     "Season 5 trial — Liliya Bogomolova keeps relentless pressure; prioritise objectives over hiding.":
-      "Trial da Season 5 — a Liliya Bogomolova mantém pressão implacável; prioriza os objetivos em vez de te esconderes.",
+      "Trial da Season 5 — a Liliya Bogomolova mantém pressão implacável; prioriza os objectivos em vez de te esconderes.",
     "Rotate cover constantly and keep two exits open.":
       "Roda de cobertura constantemente e mantém duas saídas abertas.",
     "Bank resources before the auction-floor objectives.":
-      "Acumula recursos antes dos objetivos do piso do leilão.",
+      "Acumula recursos antes dos objectivos do piso do leilão.",
     "Story finale with heavy enemy density — co-ordinate rig usage and don't over-extend.":
       "Final da história com muita densidade de inimigos — coordenem o uso de rigs e não se exponham demais.",
     "Stick together; a downed solo player is hard to revive in the crush.":
       "Fiquem juntos; um jogador caído sozinho é difícil de reviver no meio da confusão.",
     "Clear a fallback route before each objective.":
-      "Limpa uma rota de recuo antes de cada objetivo.",
+      "Limpa uma rota de recuo antes de cada objectivo.",
     "Linear escape — keep moving, don't stop to fight.":
       "Fuga linear — continua em movimento, não pares para lutar.",
     "Use the tunnels' tight turns to shake pursuers.":
@@ -395,14 +395,14 @@
     "Turn-based gacha RPG.": "RPG gacha por turnos.",
     "Sci-fi co-op looter shooter.": "Looter shooter co-op de ficção científica.",
     "Cozy life-sim adventure.": "Aventura life-sim acolhedora.",
-    "Open-world action RPG.": "RPG de ação de mundo aberto.",
+    "Open-world action RPG.": "RPG de acção de mundo aberto.",
 
     // ---- The Other Side ----
     "Co-op ghost hunting — gather evidence and identify the entity.": "Caça aos fantasmas co-op: reúne evidências e identifica a entidade.",
     "Ghost Reference": "Referência de Fantasmas",
     "Mark the evidence you've found and narrow the 18 ghosts down live.": "Marca as evidências que encontraste e reduz os 18 fantasmas em tempo real.",
     "Every ghost and its unique three-evidence combo, searchable and filterable.": "Cada fantasma e a sua combinação única de três evidências, pesquisável e filtrável.",
-    "Every evidence tool and which of the 6 evidence types it detects.": "Cada ferramenta de evidência e qual dos 6 tipos de evidência deteta.",
+    "Every evidence tool and which of the 6 evidence types it detects.": "Cada ferramenta de evidência e qual dos 6 tipos de evidência detecta.",
     "Search ghost…": "Procurar fantasma…", "No ghosts match.": "Nenhum fantasma corresponde.",
     "Loading ghosts…": "A carregar fantasmas…", "Loading equipment…": "A carregar equipamento…",
     "Search tool…": "Procurar ferramenta…",
@@ -444,9 +444,9 @@
 
     // ---- Tool descriptions (data.js) ----
     "Select the evidence you've found and instantly narrow down the ghost.":
-      "Seleciona as evidências encontradas e descobre o fantasma instantaneamente.",
+      "Selecciona as evidências encontradas e descobre o fantasma instantaneamente.",
     "All 7 cursed possessions — usage, risks and tips for each.":
-      "Os 7 objetos amaldiçoados — uso, riscos e dicas de cada um.",
+      "Os 7 objectos amaldiçoados — uso, riscos e dicas de cada um.",
     "Every item with images, tier upgrades, usage and tips.":
       "Cada equipamento com imagens, níveis, uso e dicas.",
     "Track unlocked rigs and your weekly program & challenge runs.":
@@ -464,11 +464,11 @@
     "Simulate opening turn order from each unit's Speed and starting CR.":
       "Simula a ordem de turnos a partir da Speed e CR inicial de cada unidade.",
     "Live Sortie, Fissures, Arbitration and Baro Ki'Teer — straight from the API.":
-      "Sortie, Fissures, Arbitration e Baro Ki'Teer ao vivo — direto da API.",
+      "Sortie, Fissures, Arbitration e Baro Ki'Teer ao vivo — directo da API.",
     "Live day/night & warm/cold timers for Cetus, Vallis, Cambion, Duviri and Earth.":
       "Timers ao vivo de dia/noite e quente/frio para Cetus, Vallis, Cambion, Duviri e Earth.",
     "Searchable relic & mission drops with multi-select filters and sorting.":
-      "Drops de relíquias e missões pesquisáveis, com filtros multi-seleção e ordenação.",
+      "Drops de relíquias e missões pesquisáveis, com filtros multi-selecção e ordenação.",
     "A simple daily/weekly routine tracker that resets on its own.":
       "Um tracker simples de rotina diária/semanal que reseta sozinho.",
     "Character rankings (via Game8) with links to builds and best teams.":
@@ -483,11 +483,11 @@
       "Valores de afinidade & preços compilados do GameWith & ZeroLuck.gg; podem mudar entre patches. Os gifts estão limitados a 3 por personagem por dia (10 no total) — gasta primeiro os slots de +400/+200. As imagens de cada item serão adicionadas quando houver fonte fiável; por agora cada gift mostra o ícone da sua categoria.",
     "Affinity values & prices via GameWith & ZeroLuck.gg · costs in Fons (in-game currency). Max 3 gifts per character/day.":
       "Valores de afinidade & preços via GameWith & ZeroLuck.gg · custos em Fons (currency do jogo). Máx 3 gifts por personagem/dia.",
-    "Flower": "Flor", "Electronics": "Eletrónica", "Figure": "Figura", "Book": "Livro",
+    "Flower": "Flor", "Electronics": "Electrónica", "Figure": "Figura", "Book": "Livro",
     "Record": "Disco", "Gift Shop": "Loja de Presentes", "Vending": "Máquina", "Special": "Especial",
     "Food & Drink": "Comida e Bebida", "not buyable": "não comprável", "close ×": "fechar ×",
     "Current season's duties with detailed how-to for each, tracked on your device.":
-      "As duties da season atual com how-to detalhado, guardadas no teu dispositivo.",
+      "As duties da season actual com how-to detalhado, guardadas no teu dispositivo.",
     "Searchable recipes — ingredients, star rating and value.":
       "Receitas pesquisáveis — ingredientes, estrelas e valor.",
     "Track each villager's friendship level, with tips on levelling up fast.":
@@ -528,13 +528,13 @@
     "Open the Dreamlight Menu (moon icon), complete the listed duties and redeem them — redeeming is what counts.":
       "Abre o Dreamlight Menu (ícone da lua), completa as duties listadas e resgata-as — resgatar é o que conta.",
     "From completing quests and redeeming Dreamlight Duties. First-time activities give big chunks.":
-      "De completar quests e resgatar Dreamlight Duties. Atividades feitas pela 1ª vez dão grandes quantidades.",
+      "De completar quests e resgatar Dreamlight Duties. Actividades feitas pela 1ª vez dão grandes quantidades.",
     "Fish at any ripple in the Valley. Seaweed does NOT count — aim for the white/gold ripple circles.":
       "Pesca em qualquer ondulação no Valley. Algas NÃO contam — aponta aos círculos de ondulação brancos/dourados.",
     "Buy Spinach Seeds from Goofy in the Glade of Trust, plant, water and harvest. WALL-E's garden doesn't count.":
       "Compra Spinach Seeds ao Goofy na Glade of Trust, planta, rega e colhe. O jardim do WALL-E não conta.",
     "Sell harvested Spinach to any stall. Wait until this duty is ACTIVE before selling, or it won't count.":
-      "Vende o Spinach colhido em qualquer banca. Espera que esta duty esteja ATIVA antes de vender, ou não conta.",
+      "Vende o Spinach colhido em qualquer banca. Espera que esta duty esteja ACTIVA antes de vender, ou não conta.",
     "Equip the Royal Camera, stand near Merlin with him in frame, and take the photo.":
       "Equipa a Royal Camera, fica perto do Merlin com ele no enquadramento, e tira a foto.",
 
@@ -613,8 +613,8 @@
     "unavailable": "indisponível", "Inventory loading…": "A carregar inventário…",
 
     // ---- DDV: Friendship activities & item categories ----
-    "Activity": "Atividade", "Base game": "Jogo base", "Unassigned": "Sem atribuição",
-    "— activity —": "— atividade —", "Gardening": "Jardinagem", "Fishing": "Pesca",
+    "Activity": "Actividade", "Base game": "Jogo base", "Unassigned": "Sem atribuição",
+    "— activity —": "— actividade —", "Gardening": "Jardinagem", "Fishing": "Pesca",
     "Mining": "Mineração", "Digging": "Escavação", "Foraging": "Recoleção",
     "Vegetables": "Vegetais", "Fruit": "Fruta", "Grains": "Cereais", "Dairy and Oil": "Laticínios e Óleo",
     "Spices": "Especiarias", "Sweets": "Doces", "Ice": "Gelo", "Seafood": "Marisco",
@@ -628,7 +628,7 @@
     "How to use.": "Como usar.", "How to.": "Como fazer.", "Risk.": "Risco.", "Tip.": "Dica.",
     "How to": "Como usar", "Where:": "Onde:", "From:": "De:",
     "Information": "Informação", "Reveal": "Revelar", "Gamble": "Aposta",
-    "Force evidence": "Forçar evidência", "Tracking": "Localização", "Protection": "Proteção",
+    "Force evidence": "Forçar evidência", "Tracking": "Localização", "Protection": "Protecção",
     "Utility": "Utilitário",
 
     // ---- Phasmophobia: Cursed Possessions ----
@@ -636,7 +636,7 @@
     "found": "encontrada", "rule it out": "excluir", "twice to": ", duas vezes para",
     ". Ghosts narrow down live.": ". Os fantasmas filtram em tempo real.",
     "The 7 cursed possessions — what they do, how to use them, the risk, and tips. Click a card to expand.":
-      "Os 7 objetos amaldiçoados — o que fazem, como usá-los, o risco e dicas. Clica num cartão para expandir.",
+      "Os 7 objectos amaldiçoados — o que fazem, como usá-los, o risco e dicas. Clica num cartão para expandir.",
     "Ask the ghost questions out loud and get answers — room, age, number of ghosts, bone location and more.":
       "Faz perguntas ao fantasma em voz alta e recebe respostas — sala, idade, número de fantasmas, localização do osso e mais.",
     "Place it down, hold Use, and speak a question. Answers appear as text. Common safe questions: \"Where are you?\", \"How old are you?\", \"How many people are in this room?\"":
@@ -648,7 +648,7 @@
     "Lures the ghost into manifesting and walking toward the box, revealing it in the open.":
       "Atrai o fantasma a manifestar-se e a caminhar até à caixa, revelando-o a descoberto.",
     "Pick it up and activate. If the ghost is within range the music plays clearly and it manifests near the box. If it's too far the tune distorts and your sanity drains.":
-      "Pega nela e ativa. Se o fantasma estiver no alcance, a música toca nítida e ele manifesta-se perto da caixa. Se estiver longe, a melodia distorce e gastas sanidade.",
+      "Pega nela e activa. Se o fantasma estiver no alcance, a música toca nítida e ele manifesta-se perto da caixa. Se estiver longe, a melodia distorce e gastas sanidade.",
     "Sanity drains while it plays out of range. The ghost will eventually smash it.":
       "Gastas sanidade enquanto toca fora de alcance. O fantasma acabará por a destruir.",
     "Brilliant for a clear ghost photo. Hold it at arm's length and snap the manifestation before the box breaks.":
@@ -683,7 +683,7 @@
     "Hold Use to look into it — the reflection shows the ghost room. The glass cracks the longer you use it.":
       "Mantém Usar para olhar — o reflexo mostra a sala do fantasma. O vidro racha quanto mais o usares.",
     "Drains sanity while active. Once fully cracked it breaks and is gone.":
-      "Gasta sanidade enquanto ativo. Quando racha por completo, parte e desaparece.",
+      "Gasta sanidade enquanto activo. Quando racha por completo, parte e desaparece.",
     "Fast way to locate the room early on big maps. Use in short bursts and stop when it cracks.":
       "Forma rápida de localizar a sala cedo em mapas grandes. Usa em rajadas curtas e para quando rachar.",
     "Forces ghost interactions on demand by pinning body parts.":
@@ -720,29 +720,29 @@
     "Smudge sticks stop it hunting for 180s (vs 90s normal).": "O smudge impede-o de caçar por 180s (vs 90s normal).",
     "Never steps in salt; can teleport to a player.": "Nunca pisa sal; pode teletransportar-se para um jogador.",
     "Photo makes it vanish; visible less during hunts.": "A foto fá-lo desaparecer; menos visível durante hunts.",
-    "Throws multiple objects at once.": "Atira vários objetos ao mesmo tempo.",
+    "Throws multiple objects at once.": "Atira vários objectos ao mesmo tempo.",
     "Targets one player; sings on the parabolic mic.": "Foca um jogador; canta no micro parabólico.",
     "Faster at distance; can't hunt early if you turn off the breaker.": "Mais rápido à distância; não caça cedo se desligares o quadro elétrico.",
-    "More active in the dark; can turn lights off.": "Mais ativo no escuro; consegue apagar luzes.",
+    "More active in the dark; can turn lights off.": "Mais activo no escuro; consegue apagar luzes.",
     "Very fast when chasing, slow otherwise. Hide!": "Muito rápido a perseguir, lento de resto. Esconde-te!",
     "Shy — won't hunt if players are grouped.": "Tímido — não caça se os jogadores estiverem juntos.",
     "Hunts very often; smudge cooldown shortened.": "Caça muito; reduz o efeito do smudge.",
     "Smudging it traps it in a room for a while.": "Fazer smudge prende-o numa sala durante algum tempo.",
-    "More active with people nearby; no airball events.": "Mais ativo com pessoas por perto; sem eventos de airball.",
+    "More active with people nearby; no airball events.": "Mais activo com pessoas por perto; sem eventos de airball.",
     "Talking near it angers it; only hears nearby speech during hunts.": "Falar perto enfurece-o; só ouve fala próxima durante hunts.",
     "Faster in cold rooms, slower in warm. Freezing always present.": "Mais rápido em salas frias, lento nas quentes. Freezing sempre presente.",
     "Only shows D.O.T.S on a video feed, not in person.": "Só mostra D.O.T.S numa câmara de vídeo, não em pessoa.",
     "Quieter during hunts; more frequent paranormal sounds.": "Mais silencioso durante hunts; sons paranormais mais frequentes.",
     "Flame (candle) blowing out can trigger a hunt.": "Apagar uma chama (vela) pode despoletar um hunt.",
     "Two interaction sources; either twin can hunt.": "Duas fontes de interação; qualquer um dos gémeos pode caçar.",
-    "Faster near active electronics.": "Mais rápido perto de eletrónica ligada.",
+    "Faster near active electronics.": "Mais rápido perto de electrónica ligada.",
     "May leave unusual (6-finger) fingerprints; UV can fade fast.": "Pode deixar impressões invulgares (6 dedos); o UV pode desaparecer rápido.",
     "Mimics other ghosts; ALWAYS shows Ghost Orbs as a 4th fake evidence.": "Imita outros fantasmas; mostra SEMPRE Ghost Orbs como 4ª evidência falsa.",
     "Curses via Spirit Box; faster the lower your sanity.": "Amaldiçoa via Spirit Box; mais rápido quanto menor a tua sanidade.",
     "Always senses you; very fast far away, crawls when close.": "Sente-te sempre; muito rápido ao longe, rasteja quando perto.",
     "Ages over time — starts fast/aggressive, slows down.": "Envelhece com o tempo — começa rápido/agressivo e abranda.",
     "Flickers between calm and aggressive; hunts faster when aggravated.": "Alterna entre calmo e agressivo; caça mais rápido quando irritado.",
-    "Protective equipment provokes it, making gear less effective until it tires.": "Equipamento de proteção provoca-o, tornando o equipamento menos eficaz até ele cansar.",
+    "Protective equipment provokes it, making gear less effective until it tires.": "Equipamento de protecção provoca-o, tornando o equipamento menos eficaz até ele cansar.",
     "Strengthened by players moving nearby; weakened when you stay still.": "Fortalece-se com jogadores a mexer-se por perto; enfraquece quando ficas quieto.",
     "Nearly blind — stay silent and motionless and it may walk right past.": "Quase cego — fica em silêncio e imóvel e ele pode passar ao lado.",
     "Accelerates hard with line of sight; break LoS to lose it.": "Acelera muito com linha de visão; corta a LoS para o despistar.",
@@ -752,12 +752,12 @@
     "Every item — what it's for, what each tier upgrade changes, how to use it to find evidence, and tips.":
       "Cada equipamento — para que serve, o que muda cada tier, como usá-lo para encontrar evidências, e dicas.",
     "Detects electromagnetic activity. A reading of EMF 5 is one of the seven evidences.":
-      "Deteta atividade eletromagnética. Uma leitura de EMF 5 é uma das sete evidências.",
+      "Detecta actividade electromagnética. Uma leitura de EMF 5 é uma das sete evidências.",
     "GheistField Meter — dial display, ~1.7 m range, needle sways with age.": "GheistField Meter — mostrador analógico, alcance ~1,7 m, a agulha oscila com a idade.",
     "K2 Meter — five LED lights, ~2 m range, the classic reader.": "K2 Meter — cinco LEDs, alcance ~2 m, o leitor clássico.",
     "EMF ParaMeter — PDA style, logs the location and value of the last reading.": "EMF ParaMeter — estilo PDA, regista o local e o valor da última leitura.",
     "Carry it near interaction spots (doors, switches, thrown items). Levels 2–4 only confirm activity; a clear flash to 5 is the evidence.":
-      "Leva-o perto de pontos de interação (portas, interruptores, objetos atirados). Os níveis 2–4 só confirmam atividade; um flash claro até 5 é a evidência.",
+      "Leva-o perto de pontos de interação (portas, interruptores, objectos atirados). Os níveis 2–4 só confirmam actividade; um flash claro até 5 é a evidência.",
     "Place it down after an interaction to catch the EMF without holding everything. Raiju can make it malfunction.":
       "Pousa-o após uma interação para apanhar o EMF sem segurar tudo. O Raiju pode fazê-lo avariar.",
     "Lets you talk to the ghost; a spoken response is the evidence.": "Permite falar com o fantasma; uma resposta falada é a evidência.",
@@ -786,7 +786,7 @@
     "Obake can leave a six-finger print and its prints fade faster than normal. Check switches and handles first.":
       "O Obake pode deixar uma impressão de seis dedos e as dele desaparecem mais rápido. Vê primeiro interruptores e maçanetas.",
     "Projects a grid of green dots; a ghost silhouette walking through them is the evidence.":
-      "Projeta uma grelha de pontos verdes; uma silhueta do fantasma a passar por eles é a evidência.",
+      "Projecta uma grelha de pontos verdes; uma silhueta do fantasma a passar por eles é a evidência.",
     "Smaller dot area.": "Área de pontos menor.", "Wider coverage.": "Cobertura maior.", "Widest coverage.": "Cobertura máxima.",
     "Place in the ghost room covering a doorway, ideally with a video camera pointed at it. Watch the feed for a moving silhouette.":
       "Coloca na sala do fantasma a cobrir uma porta, idealmente com uma câmara apontada. Observa o feed à procura de uma silhueta em movimento.",
@@ -805,17 +805,17 @@
     "Spread a few around the room. Myling and Mare write often; some ghosts never will.":
       "Espalha alguns pela sala. O Myling e a Mare escrevem muito; alguns fantasmas nunca o fazem.",
     "Takes photos for money and objectives (ghost, bone, interactions, cursed object, dirty water…).":
-      "Tira fotos por dinheiro e objetivos (fantasma, osso, interações, objeto amaldiçoado, água suja…).",
+      "Tira fotos por dinheiro e objectivos (fantasma, osso, interações, objecto amaldiçoado, água suja…).",
     "Fewer photos, basic quality.": "Menos fotos, qualidade básica.", "More photos and better range.": "Mais fotos e melhor alcance.", "Most photos and best quality.": "Mais fotos e melhor qualidade.",
     "Photograph the ghost, the bone, fingerprints and interactions. Each valid photo pays out.":
       "Fotografa o fantasma, o osso, impressões e interações. Cada foto válida dá dinheiro.",
     "Always grab the Bone (it's an objective) and a clear ghost photo for bonus cash.":
-      "Apanha sempre o osso (é objetivo) e uma foto nítida do fantasma para dinheiro extra.",
+      "Apanha sempre o osso (é objectivo) e uma foto nítida do fantasma para dinheiro extra.",
     "Picks up faint paranormal sounds at distance to help locate the ghost room.":
       "Capta sons paranormais ténues à distância para ajudar a localizar a sala do fantasma.",
-    "Short detection range.": "Alcance de deteção curto.", "Longer range.": "Maior alcance.", "Longest range and clearest spikes.": "Maior alcance e picos mais nítidos.",
+    "Short detection range.": "Alcance de detecção curto.", "Longer range.": "Maior alcance.", "Longest range and clearest spikes.": "Maior alcance e picos mais nítidos.",
     "Point it down hallways and open areas; audio spikes and whispers point you toward the ghost.":
-      "Aponta por corredores e zonas abertas; picos de áudio e sussurros indicam a direção do fantasma.",
+      "Aponta por corredores e zonas abertas; picos de áudio e sussurros indicam a direcção do fantasma.",
     "Invaluable on large maps for narrowing down the room before you commit.":
       "Valiosíssimo em mapas grandes para reduzir a sala antes de te comprometeres.",
     "Monitors sound in an area and reports it on the truck map.": "Monitoriza o som numa área e reporta-o no mapa da carrinha.",
@@ -824,18 +824,18 @@
       "Coloca para cobrir salas que não consegues ver; o mapa da carrinha acende onde há som.",
     "Great for covering big open sections to triangulate the room.": "Ótimo para cobrir grandes zonas abertas e triangular a sala.",
     "Pings when something crosses it — useful for tracking ghost movement.": "Apita quando algo o atravessa — útil para seguir o movimento do fantasma.",
-    "Basic trigger.": "Acionamento básico.", "Clearer indicator.": "Indicador mais claro.", "Best indicator and range.": "Melhor indicador e alcance.",
+    "Basic trigger.": "Accionamento básico.", "Clearer indicator.": "Indicador mais claro.", "Best indicator and range.": "Melhor indicador e alcance.",
     "Mount across a doorway (not on your own path); it lights up and notifies the truck on movement.":
       "Monta a atravessar uma porta (fora do teu caminho); acende e avisa a carrinha quando há movimento.",
     "Place facing across a door away from where you walk to avoid false triggers.":
-      "Coloca a apontar através de uma porta, longe de onde andas, para evitar falsos acionamentos.",
+      "Coloca a apontar através de uma porta, longe de onde andas, para evitar falsos accionamentos.",
     "Prevents a hunt from starting within its radius (it does not stop one already in progress).":
       "Impede que um hunt comece dentro do seu raio (não para um já a decorrer).",
     "~3 m radius, limited uses.": "Raio ~3 m, usos limitados.", "Larger radius.": "Raio maior.", "Largest radius and shows remaining uses.": "Maior raio e mostra os usos restantes.",
     "Place or hold it near the ghost room or during a cursed event. It burns a charge each time it blocks a hunt.":
       "Coloca ou segura perto da sala do fantasma ou durante um evento amaldiçoado. Gasta uma carga sempre que bloqueia um hunt.",
     "Position it where the ghost starts hunts (its room). Useless once a hunt is already active.":
-      "Põe-no onde o fantasma começa os hunts (a sala dele). Inútil quando o hunt já está ativo.",
+      "Põe-no onde o fantasma começa os hunts (a sala dele). Inútil quando o hunt já está activo.",
     "Blinds the ghost and blocks hunts for a short time; can stop the ghost finding you mid-hunt.":
       "Cega o fantasma e bloqueia hunts por pouco tempo; pode impedir que te encontre a meio de um hunt.",
     "Short burn time.": "Tempo de queima curto.", "Longer burn.": "Queima mais longa.", "Longest burn / extra use.": "Queima mais longa / uso extra.",
@@ -843,7 +843,7 @@
       "Acende com um isqueiro. Durante um hunt, faz smudge no local do fantasma para o cegar ~6 s e cortar a linha sobre ti.",
     "Smudging a Spirit stops it hunting for 180 s. Keep one as your emergency escape.":
       "Fazer smudge a um Spirit impede-o de caçar por 180 s. Guarda um como fuga de emergência.",
-    "Ghosts may step in it, leaving UV footprints; also an objective.": "Os fantasmas podem pisá-lo, deixando pegadas UV; também é um objetivo.",
+    "Ghosts may step in it, leaving UV footprints; also an objective.": "Os fantasmas podem pisá-lo, deixando pegadas UV; também é um objectivo.",
     "A couple of piles.": "Algumas pilhas.", "More piles.": "Mais pilhas.", "Most piles.": "Mais pilhas ainda.",
     "Place piles in doorways and the ghost room, then check with UV for glowing footsteps.":
       "Coloca pilhas nas portas e na sala do fantasma, depois verifica com UV à procura de pegadas brilhantes.",
@@ -852,7 +852,7 @@
     "Restores sanity, lowering the chance of a hunt.": "Recupera sanidade, reduzindo a hipótese de um hunt.",
     "Small restore.": "Recuperação pequena.", "Medium restore.": "Recuperação média.", "Large restore.": "Recuperação grande.",
     "Take when your sanity drops low, especially before sanity-dependent objectives.":
-      "Toma quando a tua sanidade baixar muito, sobretudo antes de objetivos dependentes de sanidade.",
+      "Toma quando a tua sanidade baixar muito, sobretudo antes de objectivos dependentes de sanidade.",
     "Don't burn it early — save it for when low sanity actually puts you at risk.":
       "Não a gastes cedo — guarda-a para quando a sanidade baixa te puser mesmo em risco.",
     "Lights incense, candles and firelights — needed for several other items.":
@@ -863,7 +863,7 @@
     "The Tier III igniter never runs out — a quality-of-life upgrade worth buying early.":
       "O isqueiro Tier III nunca acaba — uma melhoria de conforto que vale a pena comprar cedo.",
     "A portable light source that keeps working when electronics are unreliable.":
-      "Uma fonte de luz portátil que continua a funcionar quando a eletrónica falha.",
+      "Uma fonte de luz portátil que continua a funcionar quando a electrónica falha.",
     "Dim, short.": "Fraca, curta.", "Brighter.": "Mais forte.", "Brightest / longest.": "Mais forte / mais duradoura.",
     "Light it for steady ambient light in a room while you work, without relying on the breaker.":
       "Acende-a para luz ambiente estável numa sala enquanto trabalhas, sem depender do quadro elétrico.",
@@ -878,7 +878,7 @@
       "Se todas as lanternas na zona piscarem, está a começar um hunt — põe-te a salvo já.",
     "Mounts a video camera for a stable, aimed view.": "Suporta uma câmara de vídeo para uma vista estável e apontada.",
     "Place it, then put a video camera on top pointing at the room centre or the D.O.T.S projector.":
-      "Coloca-o e põe uma câmara em cima apontada ao centro da sala ou ao projetor D.O.T.S.",
+      "Coloca-o e põe uma câmara em cima apontada ao centro da sala ou ao projector D.O.T.S.",
     "Essential for hands-free orb and D.O.T.S monitoring from the truck.":
       "Essencial para monitorizar orbs e D.O.T.S sem mãos a partir da carrinha.",
     "A worn camera that streams your night-vision view to the truck.": "Uma câmara vestida que transmite a tua visão noturna para a carrinha.",
@@ -892,9 +892,9 @@
     "Track every villager's friendship level (0–10). Saved on this device.":
       "Acompanha o nível de amizade de cada villager (0–10). Guardado neste dispositivo.",
     "Every farmable ingredient and where to get it. Filter by category and biome (multi-select), search and sort.":
-      "Cada ingrediente farmável e onde o obter. Filtra por categoria e bioma (multi-seleção), pesquisa e ordena.",
+      "Cada ingrediente farmável e onde o obter. Filtra por categoria e bioma (multi-selecção), pesquisa e ordena.",
     "A catalogue of the valley's items & resources, laid out by category like the in-game collection. Pick a category, then search, filter and sort.":
-      "Um catálogo dos items & recursos do valley, organizado por categoria como a coleção do jogo. Escolhe uma categoria, depois pesquisa, filtra e ordena.",
+      "Um catálogo dos items & recursos do valley, organizado por categoria como a colecção do jogo. Escolhe uma categoria, depois pesquisa, filtra e ordena.",
     "Names & locations use the game's official PT-BR data; the rest is compiled from the Dreamlight Valley Wiki. The catalogue covers gathered, crafted & cooked resources (not cosmetics like clothing). DLC tags are best-effort.":
       "Os nomes & locations usam os dados oficiais PT-BR do jogo; o resto vem da Dreamlight Valley Wiki. O catálogo cobre recursos apanhados, craftados & cozinhados (não cosméticos como roupas). As tags de DLC são best-effort.",
     "Data compiled from the Dreamlight Valley Wiki. Covers farmable ingredients (fish/gems can be added). DLC tags are inferred from the item's biome (Eternity Isle = A Rift in Time) and are best-effort.":
@@ -904,9 +904,9 @@
     "Full recipe list compiled from Crystal Dreams (incl. DLC recipes), with sell price & energy from Nintendo Life where available. DLC tags are inferred from DLC-only ingredients and are best-effort.":
       "Lista completa de receitas do Crystal Dreams (incl. receitas de DLC), com preço & energia da Nintendo Life onde disponível. As tags de DLC são inferidas por ingredientes exclusivos de DLC e são best-effort.",
     "Duties rotate during the season — every duty is listed with how to clear it. When a new Star Path starts, ask me to refresh the list.":
-      "As duties rodam durante a season — cada uma está listada com how-to. Quando começar um novo Star Path, pede-me para atualizar a lista.",
+      "As duties rodam durante a season — cada uma está listada com how-to. Quando começar um novo Star Path, pede-me para actualizar a lista.",
     "Live day/night and warm/cold cycles. Countdowns update every second; data refreshes from the API every minute.":
-      "Ciclos de dia/noite e quente/frio ao vivo. Os countdowns atualizam a cada segundo; os dados renovam da API a cada minuto.",
+      "Ciclos de dia/noite e quente/frio ao vivo. Os countdowns actualizam a cada segundo; os dados renovam da API a cada minuto.",
     "Live data via the Warframe API (api.warframestat.us).": "Dados ao vivo via API do Warframe (api.warframestat.us).",
     "Live data via the Warframe API (api.warframestat.us), PC platform.": "Dados ao vivo via API do Warframe (api.warframestat.us), plataforma PC.",
     "Compare offensive and defensive gear. Uses Epic Seven's defense formula: damage taken = 300 / (300 + DEF).":
@@ -916,21 +916,21 @@
     "Generic gacha routine — once Neverness to Everness's reset times and content are confirmed, ask me to lock the items and reset schedule to the real ones.":
       "Rotina gacha genérica — quando os reset times e conteúdo do Neverness to Everness forem confirmados, pede-me para fixar os items e o horário reais.",
     "Images & tier data via the Phasmophobia Wiki. Tier effects are summarized; exact values can shift between patches.":
-      "Imagens & dados de tier via Phasmophobia Wiki. Os efeitos por tier estão resumidos; os valores exatos podem mudar entre patches.",
+      "Imagens & dados de tier via Phasmophobia Wiki. Os efeitos por tier estão resumidos; os valores exactos podem mudar entre patches.",
     "Pick a rig and one amp from each group, name it, save and share. A real loadout is 1 rig + 1 Tool + 1 Skill + 1 Medicine amp.":
       "Escolhe um rig e um amp de cada grupo, dá nome, guarda e partilha. Um loadout real é 1 rig + 1 Tool + 1 Skill + 1 Medicine amp.",
     "The live Eorzea clock and up/next countdowns are exact. The node list is a starter set — tell me which nodes you farm and I'll lock in their items, locations and times.":
-      "O relógio de Eorzea e os countdowns up/next são exatos. A lista de nós é um conjunto inicial — diz-me que nós farmas e fixo os items, locais e horas.",
+      "O relógio de Eorzea e os countdowns up/next são exactos. A lista de nós é um conjunto inicial — diz-me que nós farmas e fixo os items, locais e horas.",
     "Enter a piece's substats (and rolled values) to grade its quality. Speed and crit are weighted highest.":
       "Mete os substats de uma peça (e os valores rolados) para avaliar a qualidade. Speed e crit têm o maior peso.",
     "Weighting follows the common community gear-score model (Speed ×2, Crit Chance ×1.6, Crit Dmg ×1.14, % stats ×1, flats much lower). It's a grading heuristic, not an in-game stat.":
       "A ponderação segue o modelo comunitário de gear-score (Speed ×2, Crit Chance ×1.6, Crit Dmg ×1.14, stats % ×1, flats muito menos). É uma heurística de avaliação, não um stat do jogo.",
     "Search relic and mission drops. Filter by source, rarity, relic tier and planet (multi-select), and sort by drop chance.":
-      "Pesquisa drops de relíquias e missões. Filtra por fonte, raridade, tier de relíquia e planeta (multi-seleção), e ordena por hipótese de drop.",
+      "Pesquisa drops de relíquias e missões. Filtra por fonte, raridade, tier de relíquia e planeta (multi-selecção), e ordena por hipótese de drop.",
     "Data from DE's official drop tables, parsed by WFCD (drops.warframestat.us). Relic rewards shown at Intact. Refreshed automatically.":
-      "Dados das drop tables oficiais da DE, parseados pela WFCD (drops.warframestat.us). Recompensas de relíquia em Intact. Atualizado automaticamente.",
+      "Dados das drop tables oficiais da DE, parseados pela WFCD (drops.warframestat.us). Recompensas de relíquia em Intact. Actualizado automaticamente.",
     "Builds & rankings are compiled from Game8 and update as the meta shifts. Want a drag-and-drop personal tier list too? Just ask.":
-      "Builds & rankings são compilados do Game8 e atualizam conforme o meta muda. Queres também uma tier list pessoal arrastável? É só pedires.",
+      "Builds & rankings são compilados do Game8 e actualizam conforme o meta muda. Queres também uma tier list pessoal arrastável? É só pedires.",
     "Enter each unit's Speed and starting CR. The simulator shows the opening turn order — who moves first and how the rotation plays out.":
       "Mete a Speed e o CR inicial de cada unidade. O simulador mostra a ordem de turnos inicial — quem joga primeiro e como roda a rotação.",
     "CR fills proportionally to Speed and overflow carries over after each turn. This models the natural turn order — it doesn't account for CR-push/pull skills or Speed buffs mid-fight.":
@@ -940,7 +940,7 @@
     "All six rigs are listed. Want to track specific amps, perks or MK-Challenges too? Just ask and I'll add them.":
       "Os seis rigs estão listados. Queres também acompanhar amps, perks ou MK-Challenges específicos? É só pedires.",
     "Live Sortie, Arbitration, Baro Ki'Teer and Void Fissures. Refreshes automatically.":
-      "Sortie, Arbitration, Baro Ki'Teer e Void Fissures ao vivo. Atualiza automaticamente.",
+      "Sortie, Arbitration, Baro Ki'Teer e Void Fissures ao vivo. Actualiza automaticamente.",
     "Couldn't load item data.": "Não foi possível carregar os dados dos items.",
     "Loading furniture…": "A carregar mobília…", "Couldn't load furniture data.": "Não foi possível carregar os dados da mobília.",
     "Loading clothing…": "A carregar roupas…", "Couldn't load clothing data.": "Não foi possível carregar os dados das roupas.",
@@ -949,10 +949,10 @@
     "Couldn't load recipe data.": "Não foi possível carregar os dados das receitas.",
     "Couldn't load the drop table data.": "Não foi possível carregar a drop table.",
     "No news data yet — the news updater hasn't published this game's headlines.":
-      "Ainda não há notícias — o atualizador ainda não publicou as deste jogo.",
+      "Ainda não há notícias — o actualizador ainda não publicou as deste jogo.",
     "No codes data yet — the updater hasn't published this game's list.":
-      "Ainda não há códigos — o atualizador ainda não publicou a lista deste jogo.",
-    "Active": "Ativo", "Expired": "Expirado", "No expiry listed": "Sem validade indicada",
+      "Ainda não há códigos — o actualizador ainda não publicou a lista deste jogo.",
+    "Active": "Activo", "Expired": "Expirado", "No expiry listed": "Sem validade indicada",
     "Redeem codes ↗": "Resgatar códigos ↗", "Source": "Fonte",
     "Redeem in Settings → Help → Redemption code. Codes are case-sensitive; rewards arrive in your in-game mailbox. Newest first; retired codes shown as expired.":
       "Resgata em Definições → Ajuda → Código de resgate. Os códigos são sensíveis a maiúsculas; as recompensas chegam ao correio no jogo. Mais recentes no topo; os retirados aparecem como expirados.",
@@ -972,7 +972,7 @@
     // ---- Subtitle / note fragments (with inline tags) ----
     "Progress is saved on this device and resets automatically —": "O progresso é guardado neste dispositivo e reseta automaticamente —",
     "daily at 15:00 UTC": "diariamente às 15:00 UTC", "weekly Tuesday 08:00 UTC": "semanalmente terça às 08:00 UTC",
-    "Live Eorzea clock. Nodes currently": "Relógio de Eorzea ao vivo. Os nós atualmente",
+    "Live Eorzea clock. Nodes currently": "Relógio de Eorzea ao vivo. Os nós actualmente",
     "up": "disponíveis", "are shown first with their real-time countdown.": "aparecem primeiro com o countdown em tempo real.",
     "Rankings & builds compiled from": "Rankings & builds compilados do",
     ". Click a character to see their build & best team.": ". Clica numa personagem para ver a build & melhor equipa.",
@@ -999,11 +999,11 @@
     [/^(\d[\d,]*) results?$/, (m, n) => `${n} resultado${n === "1" ? "" : "s"}`],
     [/^(\d[\d,]*) recipes?$/, (m, n) => `${n} receita${n === "1" ? "" : "s"}`],
     [/^(\d[\d,]*) items?$/, (m, n) => `${n} item${n === "1" ? "" : "s"}`],
-    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · atualizado $2"],
-    [/^(\d+) codes · updated (.+)$/, "$1 códigos · atualizado $2"],
-    [/^(\d+) active · (\d+) total · updated (.+)$/, "$1 ativos · $2 total · atualizado $3"],
+    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · actualizado $2"],
+    [/^(\d+) codes · updated (.+)$/, "$1 códigos · actualizado $2"],
+    [/^(\d+) active · (\d+) total · updated (.+)$/, "$1 activos · $2 total · actualizado $3"],
     [/^Added (.+)$/, "Adicionado $1"],
-    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · atualizado $2"],
+    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · actualizado $2"],
     [/^Read the full article at (.+) ↗$/, "Ler o artigo completo em $1 ↗"],
     [/^← Back to (.+)$/, "← Voltar a $1"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
@@ -1011,7 +1011,7 @@
       "$1 personagens · $2 no máximo · $3/$4 níveis totais"],
     [/^of (\d+) ghosts match\.$/, "de $1 fantasmas correspondem."],
     [/^(\d+) ghosts\. Mark evidence to narrow down\.$/, "$1 fantasmas. Marca evidências para filtrar."],
-    [/^(\d+) drops? · updated (.+)$/, "$1 drops · atualizado $2"],
+    [/^(\d+) drops? · updated (.+)$/, "$1 drops · actualizado $2"],
     [/^Showing (\d+) of ([\d,]+) — refine to narrow down$/, "A mostrar $1 de $2 — refina para reduzir"],
     [/^(\d+) recipe[s]? · sources: (.+)$/, "$1 receitas · fontes: $2"],
     [/^(\d+) farmable items · source: (.+)$/, "$1 items farmáveis · fonte: $2"],
@@ -1021,20 +1021,20 @@
     [/^(\d[\d,]*) items · showing (\d+), pick a theme or search to narrow$/, "$1 items · a mostrar $2, escolhe um tema ou pesquisa para reduzir"],
     [/^(\d[\d,]*) items · showing (\d+), narrow with a filter or search$/, "$1 items · a mostrar $2, refina com um filtro ou pesquisa"],
     [/^All themes \((\d[\d,]*)\)$/, "Todos os temas ($1)"],
-    [/^(\d+) species · (\d+)\/(\d+) critters collected$/, "$1 espécies · $2/$3 critters coletados"],
-    [/^(\d+) of (\d+) companions · (\d+) collected$/, "$1 de $2 companions · $3 coletados"],
-    [/^(\d+) drops · updated (.+)$/, "$1 drops · atualizado $2"],
+    [/^(\d+) species · (\d+)\/(\d+) critters collected$/, "$1 espécies · $2/$3 critters colectados"],
+    [/^(\d+) of (\d+) companions · (\d+) collected$/, "$1 de $2 companions · $3 colectados"],
+    [/^(\d+) drops · updated (.+)$/, "$1 drops · actualizado $2"],
     [/^(\d+)\/(\d+) duties done$/, "$1/$2 duties feitas"],
     [/^Top (\d+) bond gifts · best value first$/, "Top $1 gifts de bond · melhor valor primeiro"],
     [/^(.+) is a Trial that takes place at (?:the )?(.+) in The Outlast Trials\.$/, "$1 é um Trial que decorre em $2 no The Outlast Trials."],
     [/^resets in (.+)$/, "reseta em $1"],
     [/^Week (\d+)$/, "Semana $1"],
     [/^Unlocks (.+)$/, "Desbloqueia: $1"],
-    [/^UP · closes in (.+)$/, "ATIVO · fecha em $1"],
+    [/^UP · closes in (.+)$/, "ACTIVO · fecha em $1"],
     [/^in (\d[\d:hm ]*)$/, "em $1"],
     [/^(\d+)\/(\d+)$/, "$1/$2"],
-    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · atualizado $2"],
-    [/^(\d[\d,]*) drops · updated (.+)$/, "$1 drops · atualizado $2"],
+    [/^(\d+) headlines · updated (.+)$/, "$1 notícias · actualizado $2"],
+    [/^(\d[\d,]*) drops · updated (.+)$/, "$1 drops · actualizado $2"],
   ];
 
   function translateText(raw) {

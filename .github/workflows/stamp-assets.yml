@@ -1,0 +1,41 @@
+name: Stamp asset cache-busters
+
+# Keeps the ?v=<hash> on every local CSS/JS reference in sync with the file's
+# real contents, so a deploy is never served stale from the browser cache.
+# Runs on the deploy branch whenever site code changes; if the stamps are
+# already correct it makes no commit, so it can't loop.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
+      - ".github/workflows/stamp-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stamp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Stamp cache-busters
+        run: node scripts/stamp-assets.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore: stamp asset cache-busters"
+            git push
+          else
+            echo "Cache-busters already up to date."
+          fi

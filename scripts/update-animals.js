@@ -37,7 +37,7 @@ const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
 const PHRASES = {
   "Fish and Seafood": "Peixe e Marisco", "Spices & Herbs": "Especiarias e Ervas",
   "Vegetable-Based": "à base de Vegetais", "Dairy and Oil": "Laticínios e Óleo",
-  "grown from seeds": "cultivada de sementes", "foraged from Bushes and Trees": "coletada de arbustos e árvores",
+  "grown from seeds": "cultivada de sementes", "foraged from Bushes and Trees": "colectada de arbustos e árvores",
   "or higher": "ou superior", "or lower": "ou inferior", "All Other": "Todas as outras",
   "Motif Bag": "Saco de Motif", "Memory Shard": "Fragmento de Memória",
   "Meals": "Refeições", "Meal": "Refeição", "Dessert": "Sobremesa",
@@ -46,7 +46,7 @@ const PHRASES = {
   "Flowers": "Flores", "Flower": "Flor", "Bushes": "arbustos", "Trees": "árvores",
   "Honey": "Mel", "Coral": "Coral", "Magma": "Magma", "Shiny": "Brilhante", "Pure Ice": "Gelo Puro",
   "Any": "Quaisquer", "Other": "Outras", "higher": "superior", "lower": "inferior", "grown": "cultivada",
-  "foraged": "coletada", "seeds": "sementes", "from": "de", "and": "e", "or": "ou", "type": "", "i.e.": "ex.:",
+  "foraged": "colectada", "seeds": "sementes", "from": "de", "and": "e", "or": "ou", "type": "", "i.e.": "ex.:",
   // flower colours (used by Sunbird etc.) — feminine plural to agree with "Flores"
   "Green": "Verdes", "Yellow": "Amarelas", "White": "Brancas", "Red": "Vermelhas", "Blue": "Azuis",
   "Pink": "Cor-de-rosa", "Purple": "Roxas", "Orange": "Laranjas", "Black": "Pretas", "Brown": "Castanhas",
