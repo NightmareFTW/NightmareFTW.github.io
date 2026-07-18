@@ -10,7 +10,7 @@ compatibility_date = "2024-11-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "nftw-accounts"
-database_id = "PASTE_YOUR_D1_DATABASE_ID_HERE"
+database_id = "fdae767c-b697-46ac-b1a1-abec9e260ec1"
 
 # Non-secret vars. Set the origin of the live site so CORS is locked to it.
 [vars]
