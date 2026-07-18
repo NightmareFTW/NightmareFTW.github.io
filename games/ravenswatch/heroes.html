@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Reference · Ravenswatch · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="ravenswatch">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Ravenswatch</a> / hero reference</p>
+    <h1>Hero Reference</h1>
+    <p class="tool-sub">Every hero's full kit. Click a hero for their trait, attack, power, special, defense and both ultimates. Data from the <a href="https://ravenswatch.fandom.com/wiki/Heroes" target="_blank" rel="noopener" style="color:var(--accent)">Ravenswatch Wiki</a>.</p>
+    <p class="codes-updated" id="rw-updated">Loading…</p>
+
+    <div class="list-controls">
+      <input type="search" id="rw-search" class="search-input" placeholder="Search hero…" autocomplete="off">
+    </div>
+    <div id="rw-detail" class="panel" style="display:none"></div>
+    <div id="rw-root" class="char-grid"><p style="color:var(--muted)">Loading heroes…</p></div>
+    <p class="tool-note">Hero kits are auto-scraped from the Ravenswatch Wiki. Ultimate 2 unlocks at hero Rank 6.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · hero data via the Ravenswatch Wiki.</span></div></footer>
+  <script src="heroes.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

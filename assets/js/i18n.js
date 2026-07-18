@@ -407,6 +407,41 @@
     "Loading ghosts…": "A carregar fantasmas…", "Loading equipment…": "A carregar equipamento…",
     "Search tool…": "Procurar ferramenta…",
 
+    // ---- Ravenswatch ----
+    "Dark-fantasy co-op roguelite — fairy-tale heroes against the Nightmares.":
+      "Roguelite co-op de fantasia sombria: heróis de contos de fadas contra os Pesadelos.",
+    "Hero Reference": "Referência de Heróis",
+    "Talent Database": "Base de Dados de Talentos",
+    "Magical Objects": "Objectos Mágicos",
+    "Every hero's full kit — trait, attack, power, special, defense and both ultimates, with all their numbers.":
+      "O kit completo de cada herói: traço, ataque, poder, especial, defesa e os dois ultimates, com todos os números.",
+    "All 26 talents for every hero — filter by hero or upgrade type, search by effect, see what changes per rarity.":
+      "Os 26 talentos de cada herói: filtra por herói ou tipo de melhoria, pesquisa por efeito e vê o que muda por raridade.",
+    "Every magical object by rarity with its attribute and set bonus, so you know what a pickup does before you take it.":
+      "Cada objecto mágico por raridade, com o atributo e o bónus de conjunto, para saberes o que faz antes de o apanhares.",
+    "Every hero's full kit. Click a hero for their trait, attack, power, special, defense and both ultimates. Data from the":
+      "O kit completo de cada herói. Clica num herói para veres o traço, ataque, poder, especial, defesa e os dois ultimates. Dados da",
+    "All 26 talents for every hero, with what each one does and how it scales per rarity. Pick a hero, filter by upgrade type or search any effect. Data from the":
+      "Os 26 talentos de cada herói, com o que faz cada um e como escala por raridade. Escolhe um herói, filtra por tipo de melhoria ou pesquisa qualquer efeito. Dados da",
+    "Every magical object with its effect and set bonus, so you know what a pickup does before you commit to it. Filter by rarity or search. Data from the":
+      "Cada objecto mágico com o seu efeito e bónus de conjunto, para saberes o que faz antes de te comprometeres. Filtra por raridade ou pesquisa. Dados da",
+    "Hero kits are auto-scraped from the Ravenswatch Wiki. Ultimate 2 unlocks at hero Rank 6.":
+      "Os kits dos heróis são recolhidos automaticamente da Ravenswatch Wiki. O Ultimate 2 desbloqueia no Rank 6 do herói.",
+    "Talents are auto-scraped from the Ravenswatch Wiki. \"Changes per rarity\" is the step added at each rarity above Common.":
+      "Os talentos são recolhidos automaticamente da Ravenswatch Wiki. \"Muda por raridade\" é o valor acrescentado em cada raridade acima de Comum.",
+    "Set bonuses need a minimum number of copies: 5 for Common, 4 for Rare, 3 for Epic. Legendary and Cursed objects are unique and have no set bonus.":
+      "Os bónus de conjunto precisam de um número mínimo de cópias: 5 para Comum, 4 para Raro, 3 para Épico. Os objectos Lendários e Amaldiçoados são únicos e não têm bónus de conjunto.",
+    "Search hero…": "Procurar herói…", "Search talent or effect…": "Procurar talento ou efeito…",
+    "Search object or effect…": "Procurar objecto ou efeito…",
+    "No heroes match.": "Nenhum herói corresponde.", "No talents match.": "Nenhum talento corresponde.",
+    "No objects match.": "Nenhum objecto corresponde.",
+    "Loading heroes…": "A carregar heróis…", "Loading talents…": "A carregar talentos…",
+    "Loading objects…": "A carregar objectos…",
+    "Rare": "Raro", "Epic": "Épico", "Legendary": "Lendário", "Cursed": "Amaldiçoado",
+    "Built by NightmareFTW · hero data via the Ravenswatch Wiki.": "Feito por NightmareFTW · dados dos heróis via Ravenswatch Wiki.",
+    "Built by NightmareFTW · talent data via the Ravenswatch Wiki.": "Feito por NightmareFTW · dados dos talentos via Ravenswatch Wiki.",
+    "Built by NightmareFTW · object data via the Ravenswatch Wiki.": "Feito por NightmareFTW · dados dos objectos via Ravenswatch Wiki.",
+
     // ---- Tool descriptions (data.js) ----
     "Select the evidence you've found and instantly narrow down the ghost.":
       "Seleciona as evidências encontradas e descobre o fantasma instantaneamente.",

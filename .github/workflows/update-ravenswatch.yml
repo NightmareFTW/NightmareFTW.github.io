@@ -1,0 +1,31 @@
+name: Update Ravenswatch data
+
+on:
+  schedule:
+    - cron: "50 7 * * 4"   # weekly, Thursday 07:50 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-ravenswatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scrape Ravenswatch heroes, talents & magical objects
+        run: node scripts/update-ravenswatch.js
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/ravenswatch)" ]; then
+            git add data/ravenswatch
+            git commit -m "chore: auto-update Ravenswatch data"
+            git push
+          else
+            echo "No Ravenswatch changes."
+          fi

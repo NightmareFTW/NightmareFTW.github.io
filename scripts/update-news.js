@@ -34,6 +34,7 @@ const QUERIES = {
   "the-other-side": "The Other Side ghost hunting game",
   "far-far-west": "Far Far West game",
   "marvel-snap": "Marvel Snap game",
+  ravenswatch: "Ravenswatch game",
 };
 
 // Steam appids for the games that publish dev news on Steam (Epic Seven is
@@ -51,6 +52,7 @@ const STEAM_APPIDS = {
   "elden-ring": 1245620,
   demonologist: 1929610,
   "the-other-side": 2764750,
+  ravenswatch: 2071280,
   "far-far-west": 3124540,
   "marvel-snap": 1997040,
 };

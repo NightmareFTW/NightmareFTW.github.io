@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talent Database · Ravenswatch · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="ravenswatch">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Ravenswatch</a> / talent database</p>
+    <h1>Talent Database</h1>
+    <p class="tool-sub">All 26 talents for every hero, with what each one does and how it scales per rarity. Pick a hero, filter by upgrade type or search any effect. Data from the <a href="https://ravenswatch.fandom.com/wiki/Heroes" target="_blank" rel="noopener" style="color:var(--accent)">Ravenswatch Wiki</a>.</p>
+    <p class="codes-updated" id="rt-updated">Loading…</p>
+
+    <div class="list-controls">
+      <div class="filter-bar" id="rt-heroes"></div>
+    </div>
+    <div class="list-controls">
+      <div class="filter-bar" id="rt-types"></div>
+      <input type="search" id="rt-search" class="search-input" placeholder="Search talent or effect…" autocomplete="off">
+    </div>
+    <div id="rt-root"><p style="color:var(--muted)">Loading talents…</p></div>
+    <p class="tool-note">Talents are auto-scraped from the Ravenswatch Wiki. "Changes per rarity" is the step added at each rarity above Common.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · talent data via the Ravenswatch Wiki.</span></div></footer>
+  <script src="talents.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

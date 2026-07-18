@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magical Objects · Ravenswatch · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body data-game="ravenswatch">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Ravenswatch</a> / magical objects</p>
+    <h1>Magical Objects</h1>
+    <p class="tool-sub">Every magical object with its effect and set bonus, so you know what a pickup does before you commit to it. Filter by rarity or search. Data from the <a href="https://ravenswatch.fandom.com/wiki/Magical_Objects" target="_blank" rel="noopener" style="color:var(--accent)">Ravenswatch Wiki</a>.</p>
+    <p class="codes-updated" id="ro-updated">Loading…</p>
+
+    <div class="list-controls">
+      <div class="filter-bar" id="ro-rarities"></div>
+      <input type="search" id="ro-search" class="search-input" placeholder="Search object or effect…" autocomplete="off">
+    </div>
+    <div id="ro-root"><p style="color:var(--muted)">Loading objects…</p></div>
+    <p class="tool-note">Set bonuses need a minimum number of copies: 5 for Common, 4 for Rare, 3 for Epic. Legendary and Cursed objects are unique and have no set bonus.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · object data via the Ravenswatch Wiki.</span></div></footer>
+  <script src="objects.js"></script>
+  <script src="/assets/js/i18n.js" defer></script>
+</body>
+</html>

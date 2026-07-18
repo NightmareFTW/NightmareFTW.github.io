@@ -2393,3 +2393,44 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .mdk-cmark { font-size: 0.9rem; color: #5bd6a0; }
 .mdk-continue { white-space: nowrap; }
 @media (max-width: 560px) { .mdm-zlabel { font-size: 8px; padding: 0 3px; } }
+
+/* ---- Ravenswatch: hero kits, talents & magical objects ---- */
+.rw-epithet { color: var(--muted); font-size: 0.95rem; font-style: italic; }
+.rw-group { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--accent); margin: 18px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.rw-ability { border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin-top: 10px; background: var(--bg-soft); }
+/* Merlin's spells are cast by another ability, so they sit indented under it */
+.rw-ability.rw-sub { margin-left: 22px; border-left: 2px solid var(--accent); background: var(--card); }
+.rw-ab-head { display: flex; align-items: center; gap: 11px; }
+.rw-ab-icon { width: 42px; height: 42px; border-radius: 9px; flex-shrink: 0; object-fit: cover; border: 1px solid var(--border); }
+.rw-kind { display: inline-block; font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--accent); margin-right: 8px; }
+.rw-ab-name { font-weight: 800; font-size: 1rem; }
+.rw-unlock { display: inline-block; font-family: var(--mono); font-size: 0.6rem; color: var(--muted); margin-left: 8px; }
+.rw-fx { margin: 9px 0 0; padding-left: 18px; }
+.rw-fx li { font-size: 0.88rem; line-height: 1.55; margin-bottom: 4px; }
+.rw-fx li.rw-fx-sub { color: var(--muted); font-size: 0.83rem; list-style-type: circle; }
+
+.rw-talent .rw-t-head, .rw-object .rw-o-head { display: flex; align-items: center; gap: 11px; }
+.rw-t-icon, .rw-o-icon { width: 44px; height: 44px; border-radius: 9px; flex-shrink: 0; object-fit: contain;
+  background: var(--card); border: 1px solid var(--border); }
+.rw-t-meta, .rw-o-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 5px; }
+.rw-t-effect { margin: 10px 0 0; font-size: 0.88rem; line-height: 1.55; }
+.rw-t-rarity { margin: 8px 0 0; font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+.rw-t-rarity b { font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--accent); margin-right: 6px; }
+
+/* the game's rarity colours, used on both the cards and the filter chips */
+.rw-object { border-left: 3px solid var(--border); }
+.rar-common { --rar: #9fb0bd; }
+.rar-rare { --rar: #4f9de0; }
+.rar-epic { --rar: #b06fe0; }
+.rar-legendary { --rar: #e0a84f; }
+.rar-cursed { --rar: #e0574f; }
+.rw-object.rar-common, .rw-object.rar-rare, .rw-object.rar-epic,
+.rw-object.rar-legendary, .rw-object.rar-cursed { border-left-color: var(--rar); }
+.rw-object .rw-rar { background: color-mix(in srgb, var(--rar) 18%, transparent); color: var(--rar); }
+.filter-btn.rar-common, .filter-btn.rar-rare, .filter-btn.rar-epic,
+.filter-btn.rar-legendary, .filter-btn.rar-cursed { color: var(--rar); }
+.filter-btn.rar-common.active, .filter-btn.rar-rare.active, .filter-btn.rar-epic.active,
+.filter-btn.rar-legendary.active, .filter-btn.rar-cursed.active { border-color: var(--rar); }
