@@ -225,9 +225,11 @@ export default {
         if (!row) return json(env, { error: "bad_recovery" }, 400);
         const { hash, salt } = await hashPassword(String(password));
         await env.DB.prepare("UPDATE users SET pass_hash=?, pass_salt=? WHERE id=?").bind(hash, salt, u.id).run();
-        await env.DB.prepare("UPDATE recovery SET used=1 WHERE rowid=?").bind(row.rid).run();
+        // Issue a fresh set (this wipes the used code and any leftovers), so the
+        // user can always recover again and never runs out of codes.
+        const recovery = await makeRecoveryCodes(env, u.id);
         const token = await signToken({ uid: u.id, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
-        return json(env, { token, email: e });
+        return json(env, { token, email: e, recovery });
       }
 
       // ---- regenerate recovery codes (authenticated) — invalidates old ones ----

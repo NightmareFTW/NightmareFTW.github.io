@@ -7,7 +7,7 @@
   // Load the accounts + settings-sync module on every page (this script is global).
   if (!document.querySelector('script[data-nftw-auth]')) {
     const a = document.createElement("script");
-    a.src = "/assets/js/auth.js?v=3"; a.defer = true; a.setAttribute("data-nftw-auth", "");
+    a.src = "/assets/js/auth.js?v=4"; a.defer = true; a.setAttribute("data-nftw-auth", "");
     document.head.appendChild(a);
   }
   const LANG = localStorage.getItem("nftw:lang") || "en";
@@ -42,6 +42,12 @@
     "Less grind,": "Menos grind,", "more game": "mais jogo",
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
+    // ---- Account / profile ----
+    "Your profile": "O teu perfil", "profile": "perfil",
+    "Reset your password": "Repor a password",
+    "New password": "Nova password", "Set new password": "Definir nova password",
+    "The link is valid for 1 hour. After resetting, sign in from the hub with your new password.":
+      "O link é válido durante 1 hora. Depois de repores, entra no hub com a nova password.",
     "🕵️ New —": "🕵️ Novo em",
     ": browser games you can jump into. First up:": ": jogos de browser onde podes entrar já. A começar:",
     "Games": "Jogos",
