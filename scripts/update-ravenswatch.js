@@ -160,6 +160,59 @@ function parseTalents(w) {
   return out;
 }
 
+// ---- build directions -------------------------------------------------------
+// The wiki's own New Player Guidance says: "Early talent choices will give you a
+// build direction; try to choose later talents that share keywords with what you
+// already have." The game writes those keywords in caps inside talent text, so
+// grouping a hero's 26 talents by shared keyword yields the build paths their
+// pool actually supports. Nothing here is a hand-made meta claim.
+const SLOT_WORDS = new Set([
+  // ability slots and generic words — references, not build themes
+  "TRAIT", "ATTACK", "ATTACKS", "POWER", "POWERS", "SPECIAL", "DEFENSE", "ULTIMATE",
+  "DMG", "HP", "MAX", "AND", "THE", "FOR", "YOU", "WITH", "ALL", "NOT", "CAN", "ARE",
+  "HAS", "PER", "AOE", "NEW", "ONE", "TWO", "OUT", "GET", "USE", "ITS", "WHEN", "EACH",
+]);
+// multi-word keywords have to be matched before their first word is consumed;
+// longest first so "COMBO POINTS" wins over "COMBO POINT".
+const PHRASES = ["ATTACK SPEED", "MOVEMENT SPEED", "COMBO POINTS", "COMBO POINT",
+  "SING STANCE", "CRIT CHANCE", "CRIT DAMAGE"];
+
+// DUMMIES/DUMMY and COMBO POINTS/COMBO POINT are one theme, so fold plurals in.
+const singular = (k) => k.endsWith("IES") ? k.slice(0, -3) + "Y"
+  : /[^AEIOUS]ES$/.test(k) ? k.slice(0, -2)
+    : k.endsWith("S") && !k.endsWith("SS") && k.length > 3 ? k.slice(0, -1) : k;
+
+function themesFor(talents) {
+  const hits = {}; // normalised key -> { forms: {surface: n}, talents: Set }
+  for (const t of talents) {
+    const seen = new Set();
+    let rest = `${t.effect} ${t.perRarity}`;
+    for (const p of PHRASES) {
+      if (rest.includes(p)) { seen.add(p); rest = rest.split(p).join(" "); }
+    }
+    for (const m of rest.matchAll(/\b([A-Z]{3,})\b/g)) {
+      if (!SLOT_WORDS.has(m[1])) seen.add(m[1]);
+    }
+    for (const surface of seen) {
+      const key = singular(surface);
+      const h = hits[key] || (hits[key] = { forms: {}, talents: new Set() });
+      h.forms[surface] = (h.forms[surface] || 0) + 1;
+      h.talents.add(t.name);
+    }
+  }
+  const isStarter = (n) => { const t = talents.find((x) => x.name === n); return !!t && /starting/i.test(t.type); };
+  // a theme needs at least 3 talents to be a real direction rather than a one-off
+  return Object.entries(hits)
+    .filter(([, h]) => h.talents.size >= 3)
+    .sort((a, b) => b[1].talents.size - a[1].talents.size)
+    .map(([, h]) => {
+      // label with whichever spelling the game uses most
+      const keyword = Object.entries(h.forms).sort((a, b) => b[1] - a[1])[0][0];
+      const names = [...h.talents];
+      return { keyword, talents: names, starters: names.filter(isStarter) };
+    });
+}
+
 function parseHero(title) {
   const w = wikitext(title);
   if (!w) return null;
@@ -176,6 +229,7 @@ function parseHero(title) {
     art: (w.match(/\|\s*image\s*=\s*([^\n|}]+)/i) || [])[1] ? (w.match(/\|\s*image\s*=\s*([^\n|}]+)/i)[1]).trim().replace(/_/g, " ") : "",
     abilities,
     talents,
+    themes: themesFor(talents),
   };
 }
 

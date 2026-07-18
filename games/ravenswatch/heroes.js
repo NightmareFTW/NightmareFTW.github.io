@@ -50,7 +50,7 @@ function showHero(name) {
       <button class="mini-btn" id="rw-close">close ×</button>
     </div>
     ${groups.map((g) => `${g.label ? `<h3 class="rw-group">${esc(g.label)}</h3>` : ""}${g.items.map(abilityHTML).join("")}`).join("")}
-    <p class="bd-credit">Kit compiled from the Ravenswatch Wiki · <a href="talents.html" style="color:var(--accent)">see ${esc(h.name)}'s talents</a></p>`;
+    <p class="bd-credit">Kit compiled from the Ravenswatch Wiki · <a href="builds.html?hero=${encodeURIComponent(h.name)}" style="color:var(--accent)">${esc(h.name)}'s build directions</a> · <a href="talents.html" style="color:var(--accent)">all talents</a></p>`;
   detail.querySelector("#rw-close").addEventListener("click", () => { detail.style.display = "none"; });
   detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }

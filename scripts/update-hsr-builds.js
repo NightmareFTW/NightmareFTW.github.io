@@ -24,10 +24,14 @@ const getHtml = (url) => { try { return execSync(`curl -sL --retry 3 --retry-del
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ").trim();
 const cleanName = (alt) => decode(alt).replace(/^.*?[-–]\s*/, "").trim(); // "Star Rail - Archer" -> "Archer"
 
+// Game8 links a character page either by numeric id (archives/447923) or by a
+// slug (archives/Boothill-Best-Builds) — accept both or the slug ones go missing.
+const ARCHIVE = "https:\\/\\/game8\\.co\\/games\\/Honkai-Star-Rail\\/archives\\/[A-Za-z0-9_-]+";
+
 // name -> { url, img } for every character linked from the team-comps page.
 function roster(html) {
   const map = {};
-  const re = /href=['"]?(https:\/\/game8\.co\/games\/Honkai-Star-Rail\/archives\/\d+)['"]?>\s*<img[^>]*alt=['"]([^'"]+)['"][^>]*data-src=['"]([^'"]+)['"]/g;
+  const re = new RegExp(`href=['"]?(${ARCHIVE})['"]?>\\s*<img[^>]*alt=['"]([^'"]+)['"][^>]*data-src=['"]([^'"]+)['"]`, "g");
   for (const m of html.matchAll(re)) {
     const name = cleanName(m[2]);
     if (name && !map[name]) map[name] = { url: m[1], img: m[3] };
@@ -47,7 +51,7 @@ function rosterFromList(html) {
     if (!/character/i.test(head) || !/(path|element)/i.test(head)) continue;
     for (const r of rows.slice(1)) {
       const cell = (r.match(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/) || [])[1] || "";
-      const a = cell.match(/href=['"]?(https:\/\/game8\.co\/games\/Honkai-Star-Rail\/archives\/\d+)['"]?/);
+      const a = cell.match(new RegExp(`href=['"]?(${ARCHIVE})['"]?`));
       if (!a) continue;
       const name = cleanCell(cell);
       if (!name || name.length > 28 || map[name]) continue;

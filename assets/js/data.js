@@ -391,7 +391,7 @@ const GAMES = [
         id: "tier-list",
         name: "Tier List",
         type: "tier list",
-        desc: "Live character rankings with portraits and names, auto-scraped from Game8 so it tracks the live patch.",
+        desc: "Live character rankings, auto-scraped from Game8. Click any character for their builds and every team comp they play in.",
         href: "games/honkai-star-rail/tier-list.html",
         available: true,
       },
@@ -511,6 +511,14 @@ const GAMES = [
         type: "reference",
         desc: "Every hero's full kit — trait, attack, power, special, defense and both ultimates, with all their numbers.",
         href: "games/ravenswatch/heroes.html",
+        available: true,
+      },
+      {
+        id: "builds",
+        name: "Build Directions",
+        type: "guide",
+        desc: "What each hero's talent pool actually builds into — the keyword themes, how many talents feed them and which you can take from the start.",
+        href: "games/ravenswatch/builds.html",
         available: true,
       },
       {

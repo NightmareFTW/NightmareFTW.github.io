@@ -7,7 +7,7 @@
   // Load the accounts + settings-sync module on every page (this script is global).
   if (!document.querySelector('script[data-nftw-auth]')) {
     const a = document.createElement("script");
-    a.src = "/assets/js/auth.js?v=09646644"; a.defer = true; a.setAttribute("data-nftw-auth", "");
+    a.src = "/assets/js/auth.js?v=f8f10742"; a.defer = true; a.setAttribute("data-nftw-auth", "");
     document.head.appendChild(a);
   }
   const LANG = localStorage.getItem("nftw:lang") || "en";
@@ -411,7 +411,19 @@
     "Dark-fantasy co-op roguelite — fairy-tale heroes against the Nightmares.":
       "Roguelite co-op de fantasia sombria: heróis de contos de fadas contra os Pesadelos.",
     "Hero Reference": "Referência de Heróis",
+    "Build Directions": "Direcções de Build",
     "Talent Database": "Base de Dados de Talentos",
+    "/ build directions": "/ direcções de build",
+    "What each hero's talent pool actually builds into — the keyword themes, how many talents feed them and which you can take from the start.":
+      "Aquilo em que o conjunto de talentos de cada herói realmente resulta: os temas por palavra-chave, quantos talentos os alimentam e quais podes escolher logo de início.",
+    "Ravenswatch builds are decided by the talents you pick during a run. This shows, for each hero, which build each one's talent pool actually supports: the keyword themes, how many talents feed them, and which are available from the start. Talent data from the":
+      "As builds do Ravenswatch decidem-se pelos talentos que escolhes durante a run. Isto mostra, para cada herói, que builds o seu conjunto de talentos suporta mesmo: os temas por palavra-chave, quantos talentos os alimentam e quais estão disponíveis de início. Dados dos talentos da",
+    "These are derived from the talent data, not a hand-picked meta list: the game writes its mechanics as keywords in the talent text, and the wiki's own new-player guidance is to keep taking talents that share a keyword with what you already have. A theme is listed when at least 3 of a hero's 26 talents feed it. For full community builds with items, use the official":
+      "Isto é derivado dos dados dos talentos, não é uma lista de meta escolhida à mão: o jogo escreve as suas mecânicas como palavras-chave no texto dos talentos, e o próprio guia da wiki para novos jogadores diz para continuares a escolher talentos que partilhem uma palavra-chave com o que já tens. Um tema aparece quando pelo menos 3 dos 26 talentos do herói o alimentam. Para builds completas da comunidade com itens, usa o oficial",
+    "Loading build directions…": "A carregar direcções de build…",
+    "Openers": "Aberturas", "Talents available from the start": "Talentos disponíveis desde o início",
+    "from the start": "desde o início", "see the full kit →": "ver o kit completo →",
+    "Derived from the Ravenswatch Wiki's talent tables.": "Derivado das tabelas de talentos da Ravenswatch Wiki.",
     "Magical Objects": "Objectos Mágicos",
     "Every hero's full kit — trait, attack, power, special, defense and both ultimates, with all their numbers.":
       "O kit completo de cada herói: traço, ataque, poder, especial, defesa e os dois ultimates, com todos os números.",
@@ -987,6 +999,223 @@
     "while you gather/fish/mine, and completing their": "enquanto colhes/pescas/mineras, e completar as suas",
     "Friendship Quests": "Friendship Quests",
     "(which also unlock new realms, recipes and rewards at levels 2, 4, 7 and 10).": "(que também desbloqueiam novos realms, receitas e recompensas nos níveis 2, 4, 7 e 10).",
+
+    // ---- Tool names still missing a translation ----
+    "Card Database": "Base de Dados de Cartas", "Character Builds": "Builds de Personagens",
+    "Deck Builder": "Construtor de Decks", "Deck Importer": "Importador de Decks",
+    "Demon Reference": "Referência de Demónios", "Demon Evidence Checker": "Verificador de Evidências",
+    "Event Calendar": "Calendário de Eventos", "Warp Calendar": "Calendário de Warps",
+    "Maps & Collectibles": "Mapas & Coleccionáveis", "Meta Builds": "Meta Builds",
+    "Missables Checklist": "Checklist de Missables", "Tier List": "Tier List",
+
+    // ---- Leftovers the audit turned up ----
+    "Search character…": "Procurar personagem…",
+    ", twice to": ", duas vezes para", // evidence checker: "...mark it found, twice to rule it out"
+    "Character rankings compiled from": "Rankings de personagens compilados do",
+    "Asia (UTC+8)": "Ásia (UTC+8)", "America (UTC−5)": "América (UTC−5)", "Europe (UTC+1)": "Europa (UTC+1)",
+
+    // ---- Breadcrumb tool segments ----
+    // Left alone where the PT term is the same word we already use (builds,
+    // missables, loadout, tier list, nodes, star path, gear score...).
+    "/ character builds": "/ builds de personagens",
+    "/ demon reference": "/ referência de demónios",
+    "/ demon evidence": "/ evidências de demónios",
+    "/ ghost reference": "/ referência de fantasmas",
+    "/ ghost evidence": "/ evidências de fantasmas",
+    "/ hero reference": "/ referência de heróis",
+    "/ talent database": "/ base de dados de talentos",
+    "/ magical objects": "/ objectos mágicos",
+    "/ equipment": "/ equipamento", "/ evidence": "/ evidências",
+    "/ animals": "/ animais", "/ friendship": "/ amizade", "/ recipes": "/ receitas",
+    "/ damage": "/ dano", "/ maps": "/ mapas", "/ dailies": "/ diárias",
+    "/ event calendar": "/ calendário de eventos", "/ warp calendar": "/ calendário de warps",
+    "/ cards": "/ cartas", "/ deck builder": "/ construtor de decks", "/ deck importer": "/ importador de decks",
+    "/ bond gifts": "/ presentes de bond", "/ enemies": "/ inimigos",
+    "/ trials & maps": "/ trials & mapas", "/ cursed possessions": "/ possessões amaldiçoadas",
+    "/ cycles": "/ ciclos", "/ drop table": "/ tabela de drops", "/ profile": "/ perfil",
+
+    // ---- Loading states ----
+    "Loading builds…": "A carregar builds…", "Loading demons…": "A carregar demónios…",
+    "Loading animals…": "A carregar animais…", "Loading checklist…": "A carregar checklist…",
+    "Loading maps…": "A carregar mapas…", "Loading events…": "A carregar eventos…",
+    "Loading meta teams…": "A carregar equipas meta…", "Loading tier list…": "A carregar tier list…",
+    "Loading banners…": "A carregar banners…", "Loading cards…": "A carregar cartas…",
+    "Loading trials…": "A carregar trials…", "Dealing the case…": "A distribuir o caso…",
+
+    // ---- Search placeholders ----
+    "Search demon…": "Procurar demónio…", "Search item…": "Procurar item…",
+    "Search recipe or ingredient…": "Procurar receita ou ingrediente…",
+    "Search build or author…": "Procurar build ou autor…", "Search card…": "Procurar carta…",
+    "Search card to add…": "Procurar carta para adicionar…",
+    "Name this deck to save it…": "Dá um nome ao deck para o guardares…",
+    "Search item, relic or node…": "Procurar item, relíquia ou node…",
+    "Paste a deck code here (e.g. eyJDYXJkcyI6W3si…)": "Cola aqui um código de deck (ex.: eyJDYXJkcyI6W3si…)",
+
+    // ---- Buttons, sort options and small labels ----
+    "Hide completed": "Esconder concluídos", "Reset all": "Repor tudo",
+    "Sort: Name A–Z": "Ordenar: Nome A–Z", "Sort: Sell (high→low)": "Ordenar: Venda (maior→menor)",
+    "Sort: Chance (high→low)": "Ordenar: Probabilidade (maior→menor)",
+    "Sell (high→low)": "Venda (maior→menor)", "Sell (low→high)": "Venda (menor→maior)",
+    "Energy (high→low)": "Energia (maior→menor)", "Star level": "Nível de estrela",
+    "Chance (low→high)": "Probabilidade (menor→maior)",
+    "Item A–Z": "Item A–Z", "Item Z–A": "Item Z–A",
+    "Possible Demons": "Demónios Possíveis", "Compile deck": "Compilar deck",
+    "Try a sample": "Experimentar um exemplo", "💾 Save deck": "💾 Guardar deck",
+    "Server": "Servidor", "Pinned": "Fixados", "Pinned games": "Jogos fixados",
+    "Grid": "Grelha", "List": "Lista", "Compact": "Compacto",
+    "(name · SPD · start CR%)": "(nome · SPD · CR% inicial)",
+
+    // ---- Tool subtitles ----
+    "Every meta archetype in detail — attribute spread, key perks, cyberware loadout by slot, weapons and exactly how to play it. Tap a build to expand the full breakdown.":
+      "Cada arquétipo meta ao detalhe: distribuição de atributos, perks principais, cyberware por slot, armas e exactamente como se joga. Toca numa build para abrir tudo.",
+    "Every demon, its three-evidence combo and its key strength & weakness (how to identify and survive it). Filter by evidence or search. Data from the":
+      "Cada demónio, a sua combinação de três evidências e a força e fraqueza principais (como o identificar e sobreviver). Filtra por evidência ou pesquisa. Dados da",
+    "Every tool, what it does and which evidence it finds. Evidence tools are listed first. Data from the":
+      "Cada ferramenta, o que faz e que evidência encontra. As ferramentas de evidência aparecem primeiro. Dados da",
+    ". Demons narrow down live. Evidence data from the": ". Os demónios são reduzidos em tempo real. Dados de evidências da",
+    ". Ghosts narrow down live. Every ghost has exactly 3 evidence. Data from the":
+      ". Os fantasmas são reduzidos em tempo real. Cada fantasma tem exactamente 3 evidências. Dados da",
+    "Every ghost and its three-evidence combo. Filter by evidence or search. Data from the":
+      "Cada fantasma e a sua combinação de três evidências. Filtra por evidência ou pesquisa. Dados da",
+    "Every evidence tool and which of the 6 evidence types it detects, grouped by evidence. Data from the":
+      "Cada ferramenta de evidência e qual dos 6 tipos detecta, agrupadas por evidência. Dados da",
+    "Proven base-game meta builds — full equipment with item icons, the level-150 attribute spread, the weapon's Ash of War, how to play it and where to get the key pieces. Tap a build to expand.":
+      "Builds meta comprovadas do jogo base: equipamento completo com ícones, distribuição de atributos ao nível 150, a Ash of War da arma, como se joga e onde apanhar as peças-chave. Toca numa build para abrir.",
+    "Elden Ring's NPC questlines are genuinely, permanently missable — progress the story too far and they break. Track each questline and the world-state triggers so you don't lose one by accident. Ticks are saved on this device.":
+      "As questlines de NPC do Elden Ring perdem-se mesmo de forma permanente: avança demasiado na história e partem. Acompanha cada questline e os triggers do mundo para não perderes nenhuma por acidente. As marcações ficam guardadas neste dispositivo.",
+    "Five end-game meta team builds. Pick a strategy, then tap each member to see their part of it — weapon & skills, the three Pictos, the Luminas and attributes — laid out like the in-game build screen.":
+      "Cinco builds de equipa meta de fim de jogo. Escolhe uma estratégia e toca em cada membro para veres a sua parte: arma e skills, os três Pictos, as Luminas e atributos, dispostos como no ecrã de build do jogo.",
+    "What's genuinely missable (mostly a handful of Prologue moments), the points of no return to watch, and the content you can safely clean up later — so you can progress the story without losing anything. Ticks are saved on this device.":
+      "O que se perde mesmo (sobretudo alguns momentos do Prólogo), os pontos sem retorno a vigiar e o conteúdo que podes limpar mais tarde sem risco, para avançares na história sem perderes nada. As marcações ficam guardadas neste dispositivo.",
+    "Top-rated community loadouts, grouped by primary weapon — each with the full kit (weapons, grenade, spells, hero & mount) and images. Sourced from":
+      "Os loadouts da comunidade mais bem votados, agrupados por arma principal, cada um com o kit completo (armas, granada, feitiços, herói e montada) e imagens. Fonte:",
+    "and ordered by community votes.": "e ordenados pelos votos da comunidade.",
+    "Every region's interactive map with all collectibles, secrets, objectives, ore, loot and more plotted on it. Toggle a category in the legend to show or hide it. Data & maps from":
+      "O mapa interactivo de cada região com todos os coleccionáveis, segredos, objectivos, minério, loot e mais. Liga ou desliga uma categoria na legenda. Dados e mapas de",
+    "The top armor sets and loadouts in detail — stat spread, set perks, weapons & runic attacks, shield and relic, laid out like the in-game gear screen so a build is easy to recreate. Tap a build to expand.":
+      "Os melhores conjuntos de armadura e loadouts ao detalhe: distribuição de stats, perks de conjunto, armas e ataques rúnicos, escudo e relíquia, dispostos como o ecrã de equipamento do jogo para recriares a build com facilidade. Toca numa build para abrir.",
+    "Exactly what you can and can't miss, the one time-sensitive area to watch, and a full return-friendly tracker for every favor and collectible — so you can play the story without fear of leaving something behind. Ticks are saved on this device.":
+      "Exactamente o que podes e não podes perder, a única zona sensível ao tempo a vigiar e um tracker completo para cada favor e coleccionável, para jogares a história sem receio de deixar algo para trás. As marcações ficam guardadas neste dispositivo.",
+    "Per-character build references — best Light Cone, relic set + planar ornament, main stats and substat priority — compiled from":
+      "Referências de build por personagem: melhor Light Cone, conjunto de relíquias e ornamento planar, stats principais e prioridade de substats, compiladas do",
+    "and refreshed to the live patch. Click a character.": "e actualizadas para o patch actual. Clica numa personagem.",
+    "Trailblaze Power, Daily Training and the weekly endgame, auto-resetting on your server's 04:00 clock. Saved on this device. (The 6-week rotation — Memory of Chaos, Pure Fiction, Apocalyptic Shadow — is noted but not on a weekly reset.)":
+      "Trailblaze Power, Daily Training e o endgame semanal, com reset automático às 04:00 do teu servidor. Guardado neste dispositivo. (A rotação de 6 semanas, Memory of Chaos, Pure Fiction e Apocalyptic Shadow, está indicada mas não tem reset semanal.)",
+    "Current and upcoming in-game events on a timeline, with start/end dates and a live \"today\" marker, compiled from":
+      "Eventos actuais e futuros numa linha temporal, com datas de início e fim e um marcador de \"hoje\" ao vivo, compilados do",
+    "and refreshed to the live patch.": "e actualizados para o patch actual.",
+    "Current best team comps for every DPS, grouped by element and sourced from":
+      "As melhores composições de equipa para cada DPS, agrupadas por elemento e retiradas do",
+    "— each shows the carry plus the support/sustain roles, refreshed to the live patch.":
+      ": cada uma mostra o carry mais os papéis de suporte e sustain, actualizadas para o patch actual.",
+    ", refreshed automatically so it tracks the live patch. Click any character for their builds and every team comp they play in.":
+      ", actualizada automaticamente para acompanhar o patch actual. Clica numa personagem para veres as builds e todas as composições em que entra.",
+    "Character warp banners — what's live now, what's coming next, and recent history — with dates, compiled from":
+      "Banners de warp de personagens: o que está activo, o que vem a seguir e o histórico recente, com datas, compilados do",
+    "Every released card with art — filter by cost, pool or archetype, or search by name. Click a card for its full details. Data & art from":
+      "Cada carta lançada com arte: filtra por custo, pool ou arquétipo, ou pesquisa pelo nome. Clica numa carta para os detalhes completos. Dados e arte de",
+    ", refreshed daily.": ", actualizado diariamente.",
+    "Tap cards to add them to your 12-card deck (no duplicates). See the energy curve, copy the in-game deck code, and your deck is saved on your device (and synced if you're signed in). Cards from":
+      "Toca nas cartas para as juntares ao teu deck de 12 (sem repetidas). Vê a curva de energia, copia o código do deck para o jogo, e o deck fica guardado no teu dispositivo (e sincronizado se tiveres sessão iniciada). Cartas de",
+    "Drag a card onto the deck above, or tap it to add. Search and filter the pool below.":
+      "Arrasta uma carta para o deck acima, ou toca para a adicionares. Pesquisa e filtra a pool em baixo.",
+    "Found a build on": "Encontraste uma build no", "? Hit their": "? Carrega no botão",
+    "button (or the in-game one) and paste the deck code below — it compiles the full deck here: every card, the energy curve and the archetype.":
+      "deles (ou no do jogo) e cola aqui o código do deck: ele compila o deck completo, com todas as cartas, a curva de energia e o arquétipo.",
+    "The most affinity-efficient gifts for each character — how much Bond they give and the cost in Fons (in-game currency, no real money). Tap the ♡ to pin who you're raising; click a card for the full list.":
+      "Os presentes mais eficientes em afinidade para cada personagem: quanto Bond dão e o custo em Fons (moeda do jogo, sem dinheiro real). Toca no ♡ para fixares quem estás a subir; clica num cartão para a lista completa.",
+    "Builds & rankings are compiled from Game8 and update as the meta shifts.":
+      "As builds e rankings são compilados do Game8 e actualizam à medida que o meta muda.",
+    "A starting point, not gospel — swap amps to taste. Want to tweak and save your own? Use the":
+      "Um ponto de partida, não uma regra: troca os amps a teu gosto. Queres afinar e guardar os teus? Usa o",
+
+    // ---- Tool notes ----
+    "A curated starting point for the current patch — swap iconic weapons for what you find and tune attributes to taste. Build data hand-written by NightmareFTW.":
+      "Um ponto de partida escolhido a dedo para o patch actual: troca as armas icónicas pelo que encontrares e afina os atributos a teu gosto. Dados das builds escritos à mão pelo NightmareFTW.",
+    "A curated starting point for the current patch — Pictos, Luminas and weapons are swappable to taste. Build data hand-written by NightmareFTW.":
+      "Um ponto de partida escolhido a dedo para o patch actual: Pictos, Luminas e armas podem ser trocados a teu gosto. Dados das builds escritos à mão pelo NightmareFTW.",
+    "A curated starting point — swap armour to keep a medium roll; the weapon, talismans and stats are what matter. Item icons via the community Elden Ring API. Build data hand-written by NightmareFTW.":
+      "Um ponto de partida escolhido a dedo: troca a armadura para manteres o medium roll; o que importa é a arma, os talismãs e os stats. Ícones dos itens via a API comunitária do Elden Ring. Dados das builds escritos à mão pelo NightmareFTW.",
+    "A curated starting point — the set perk defines each build; weapons, runic attacks, shield and relic are swappable. Build data hand-written by NightmareFTW.":
+      "Um ponto de partida escolhido a dedo: o perk de conjunto define cada build; armas, ataques rúnicos, escudo e relíquia podem ser trocados. Dados das builds escritos à mão pelo NightmareFTW.",
+    "Demon and evidence data are auto-scraped from the Demonologist Wiki. Each demon has exactly 3 evidence; the strength/weakness are the in-game tells for identifying and countering it.":
+      "Os dados de demónios e evidências são recolhidos automaticamente da Demonologist Wiki. Cada demónio tem exactamente 3 evidências; a força e a fraqueza são os sinais no jogo para o identificar e contrariar.",
+    "Tool data is auto-scraped from the Demonologist Wiki. The \"finds\" badge marks which of the 7 evidence types a tool can detect; the rest are utility items.":
+      "Os dados das ferramentas são recolhidos automaticamente da Demonologist Wiki. O crachá \"finds\" marca qual dos 7 tipos de evidência a ferramenta detecta; as restantes são utilitárias.",
+    "Tool data is auto-scraped from the The Other Side Wiki. The \"finds\" badge marks which of the 6 evidence types each tool detects.":
+      "Os dados das ferramentas são recolhidos automaticamente da The Other Side Wiki. O crachá \"finds\" marca qual dos 6 tipos de evidência cada ferramenta detecta.",
+    "Ghost and evidence data are auto-scraped from the The Other Side Wiki. Each ghost has exactly 3 evidence.":
+      "Os dados de fantasmas e evidências são recolhidos automaticamente da The Other Side Wiki. Cada fantasma tem exactamente 3 evidências.",
+    "Questline & trigger info from community guides. This is a planning tracker — order and exact steps can vary, so check a full quest guide for each NPC's details.":
+      "Informação de questlines e triggers vinda de guias da comunidade. Isto é um tracker de planeamento: a ordem e os passos exactos podem variar, por isso consulta um guia completo para os detalhes de cada NPC.",
+    "Missable / point-of-no-return info from community completion guides (Game8, PowerPyx). This is a peace-of-mind tracker — most content is recoverable after the story.":
+      "Informação sobre missables e pontos sem retorno vinda de guias de conclusão da comunidade (Game8, PowerPyx). Isto é um tracker de descanso de consciência: quase todo o conteúdo é recuperável depois da história.",
+    "Favor list & collectible totals from community completion guides (PowerPyx). Nothing here is permanently missable — this is a peace-of-mind tracker.":
+      "Lista de favores e totais de coleccionáveis vindos de guias de conclusão da comunidade (PowerPyx). Nada aqui se perde de forma permanente: isto é um tracker de descanso de consciência.",
+    "Builds are auto-scraped from wikily.gg's community build planner and ordered by net votes (top-rated first). Each weapon type shows its best-voted loadouts. Item, weapon and spell icons are served from wikily's CDN.":
+      "As builds são recolhidas automaticamente do planeador da comunidade do wikily.gg e ordenadas por votos (melhores primeiro). Cada tipo de arma mostra os loadouts mais votados. Os ícones de itens, armas e feitiços vêm do CDN do wikily.",
+    "Maps and point-of-interest data are auto-scraped from wikily.gg's interactive maps. Hover a marker for its name. The bulk pickups (ore, loot, pickups) are hidden by default — toggle them on in the legend. Marker positions are wikily's normalised coordinates.":
+      "Os mapas e pontos de interesse são recolhidos automaticamente dos mapas interactivos do wikily.gg. Passa o rato num marcador para veres o nome. As apanhas em massa (minério, loot, pickups) estão escondidas por defeito: liga-as na legenda. As posições dos marcadores são as coordenadas normalizadas do wikily.",
+    "Builds are auto-scraped from each character's Game8 guide and refresh on a schedule. The relic set is the 4-piece; the ornament is the 2-piece planar set. Head main stat is always HP and Hands is always ATK, so only Body / Feet / Sphere / Rope are shown.":
+      "As builds são recolhidas automaticamente do guia de cada personagem no Game8 e actualizam com regularidade. O conjunto de relíquias é o de 4 peças; o ornamento é o conjunto planar de 2 peças. O stat principal da cabeça é sempre HP e o das mãos é sempre ATK, por isso só se mostram Corpo / Pés / Esfera / Corda.",
+    "Events and dates are auto-scraped from Game8's events schedule and refresh on a schedule. The dotted line marks today; bars are coloured by status (live / upcoming / ended). Events without a fixed end date run \"until end of patch\".":
+      "Os eventos e datas são recolhidos automaticamente do calendário do Game8 e actualizam com regularidade. A linha tracejada marca hoje; as barras têm cor conforme o estado (a decorrer / futuro / terminado). Os eventos sem data de fim fixa correm \"até ao fim do patch\".",
+    "Team comps are auto-scraped from Game8's \"Best Team Comps by Element\" guide and refresh on a schedule, so they track the live meta. Each DPS lists its F2P option first, then premium / specialised variants. The first unit is the carry; the rest are supports and a sustain.":
+      "As composições são recolhidas automaticamente do guia \"Best Team Comps by Element\" do Game8 e actualizam com regularidade, acompanhando o meta actual. Cada DPS mostra primeiro a opção F2P e depois as variantes premium ou especializadas. A primeira unidade é o carry; as restantes são suportes e um sustain.",
+    "Rankings are auto-scraped from Game8's overall character tier list and refresh daily, so they track the live patch as the meta shifts.":
+      "Os rankings são recolhidos automaticamente da tier list geral do Game8 e actualizam diariamente, acompanhando o patch actual à medida que o meta muda.",
+    "Banners and dates are auto-scraped from Game8's banner-history guide and refresh on a schedule. Live and upcoming banners are highlighted; dates shown as \"TBA\" haven't been confirmed by HoYoverse yet. Coverage focuses on recent and upcoming versions.":
+      "Os banners e datas são recolhidos automaticamente do guia de histórico do Game8 e actualizam com regularidade. Os banners activos e futuros estão destacados; as datas \"TBA\" ainda não foram confirmadas pela HoYoverse. A cobertura foca-se nas versões recentes e futuras.",
+    "Card art, stats and abilities are auto-scraped from Marvel Snap Zone's card API and refresh daily, so new cards and balance changes show up automatically.":
+      "A arte, stats e habilidades das cartas são recolhidos automaticamente da API do Marvel Snap Zone e actualizam diariamente, por isso cartas novas e alterações de equilíbrio aparecem sozinhas.",
+    "Works with the standard Marvel Snap deck code (the same one the game and those sites copy). Cards are matched against our daily-updated database; if a brand-new card isn't recognised yet, it'll appear once the database refreshes.":
+      "Funciona com o código de deck padrão do Marvel Snap (o mesmo que o jogo e esses sites copiam). As cartas são cruzadas com a nossa base de dados actualizada diariamente; se uma carta muito recente ainda não for reconhecida, aparece assim que a base de dados actualizar.",
+    "Portraits via the Outlast Wiki. Behaviour & counters are a play guide; exact damage scales with difficulty & MK modifiers.":
+      "Retratos via Outlast Wiki. O comportamento e os contras são um guia de jogo; o dano exacto escala com a dificuldade e os modificadores MK.",
+    "Objectives, layouts & screenshots via the Outlast Wiki; interactive maps by Fex (outlast.fex.dev). Tips are a play guide; steps vary slightly by difficulty (extra generator/door steps on higher tiers).":
+      "Objectivos, layouts e capturas via Outlast Wiki; mapas interactivos do Fex (outlast.fex.dev). As dicas são um guia de jogo; os passos variam ligeiramente com a dificuldade (passos extra de gerador ou porta nos níveis mais altos).",
+    "Evidence data based on Phasmophobia (3 evidence per ghost).": "Dados de evidências baseados no Phasmophobia (3 evidências por fantasma).",
+
+    // ---- Footers ----
+    "Built by NightmareFTW · headlines via Google News; preview & image from the source article.":
+      "Feito por NightmareFTW · notícias via Google News; pré-visualização e imagem do artigo original.",
+    "Built by NightmareFTW · Cyberpunk 2077 meta builds.": "Feito por NightmareFTW · builds meta de Cyberpunk 2077.",
+    "Built by NightmareFTW · demon data via the Demonologist Wiki.": "Feito por NightmareFTW · dados de demónios via Demonologist Wiki.",
+    "Built by NightmareFTW · equipment data via the Demonologist Wiki.": "Feito por NightmareFTW · dados de equipamento via Demonologist Wiki.",
+    "Built by NightmareFTW · demon & evidence data via the Demonologist Wiki (3 evidence per demon).":
+      "Feito por NightmareFTW · dados de demónios e evidências via Demonologist Wiki (3 evidências por demónio).",
+    "Built by NightmareFTW · animal data via Dreamlight Valley Wiki.": "Feito por NightmareFTW · dados de animais via Dreamlight Valley Wiki.",
+    "Built by NightmareFTW · item data via Dreamlight Valley Wiki.": "Feito por NightmareFTW · dados de itens via Dreamlight Valley Wiki.",
+    "Built by NightmareFTW · recipe data via Nintendo Life.": "Feito por NightmareFTW · dados de receitas via Nintendo Life.",
+    "Built by NightmareFTW · Elden Ring meta builds.": "Feito por NightmareFTW · builds meta de Elden Ring.",
+    "Built by NightmareFTW · Elden Ring.": "Feito por NightmareFTW · Elden Ring.",
+    "Built by NightmareFTW · Expedition 33 meta builds.": "Feito por NightmareFTW · builds meta de Expedition 33.",
+    "Built by NightmareFTW · Clair Obscur: Expedition 33.": "Feito por NightmareFTW · Clair Obscur: Expedition 33.",
+    "Built by NightmareFTW · builds & icons via wikily.gg.": "Feito por NightmareFTW · builds e ícones via wikily.gg.",
+    "Built by NightmareFTW · maps & collectibles via wikily.gg.": "Feito por NightmareFTW · mapas e coleccionáveis via wikily.gg.",
+    "Built by NightmareFTW · God of War Ragnarök meta builds.": "Feito por NightmareFTW · builds meta de God of War Ragnarök.",
+    "Built by NightmareFTW · God of War Ragnarök.": "Feito por NightmareFTW · God of War Ragnarök.",
+    "Built by NightmareFTW · builds via Game8.": "Feito por NightmareFTW · builds via Game8.",
+    "Built by NightmareFTW · Honkai: Star Rail.": "Feito por NightmareFTW · Honkai: Star Rail.",
+    "Built by NightmareFTW · event data via Game8.": "Feito por NightmareFTW · dados de eventos via Game8.",
+    "Built by NightmareFTW · team comps via Game8.": "Feito por NightmareFTW · composições via Game8.",
+    "Built by NightmareFTW · rankings via Game8.": "Feito por NightmareFTW · rankings via Game8.",
+    "Built by NightmareFTW · banner data via Game8.": "Feito por NightmareFTW · dados de banners via Game8.",
+    "Built by NightmareFTW · card data & art via Marvel Snap Zone.": "Feito por NightmareFTW · dados e arte das cartas via Marvel Snap Zone.",
+    "Built by NightmareFTW · gift data via GameWith & ZeroLuck.gg.": "Feito por NightmareFTW · dados de presentes via GameWith e ZeroLuck.gg.",
+    "Built by NightmareFTW · enemy art via the Outlast Wiki.": "Feito por NightmareFTW · arte dos inimigos via Outlast Wiki.",
+    "Built by NightmareFTW · amp data via Outlast Wiki.": "Feito por NightmareFTW · dados de amps via Outlast Wiki.",
+    "Built by NightmareFTW · trial data & images via the Outlast Wiki.": "Feito por NightmareFTW · dados e imagens dos trials via Outlast Wiki.",
+    "Built by NightmareFTW · data via Phasmophobia Wiki.": "Feito por NightmareFTW · dados via Phasmophobia Wiki.",
+    "Built by NightmareFTW · ghost data via the The Other Side Wiki.": "Feito por NightmareFTW · dados de fantasmas via The Other Side Wiki.",
+    "Built by NightmareFTW · equipment data via the The Other Side Wiki.": "Feito por NightmareFTW · dados de equipamento via The Other Side Wiki.",
+    "Built by NightmareFTW · ghost & evidence data via the The Other Side Wiki (3 evidence per ghost).":
+      "Feito por NightmareFTW · dados de fantasmas e evidências via The Other Side Wiki (3 evidências por fantasma).",
+    "Built by NightmareFTW · data via warframestat.us.": "Feito por NightmareFTW · dados via warframestat.us.",
+    "Built by NightmareFTW · drop data © Digital Extremes, via WFCD.": "Feito por NightmareFTW · dados de drops © Digital Extremes, via WFCD.",
+    "Built by NightmareFTW · A fan tribute to": "Feito por NightmareFTW · Uma homenagem de fã a",
+    "by Manuel Garand — object art from the book, avatars via DiceBear. Non-commercial; go buy the book!":
+      "de Manuel Garand · arte dos objectos retirada do livro, avatares via DiceBear. Sem fins comerciais; vai comprar o livro!",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
