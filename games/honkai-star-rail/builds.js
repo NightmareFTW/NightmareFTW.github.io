@@ -26,6 +26,7 @@ function buildSection(b) {
       ${slot("Body", ms.body)}${slot("Feet", ms.feet)}${slot("Sphere", ms.sphere)}${slot("Rope", ms.rope)}
     </div></div>` : ""}
     ${b.subStats ? `<div class="hb-stats"><span class="hb-k">Substat Priority</span><span class="hb-subs">${esc(b.subStats)}</span></div>` : ""}
+    ${b.note ? `<p class="hb-note">${esc(b.note)}</p>` : ""}
   </div>`;
 }
 

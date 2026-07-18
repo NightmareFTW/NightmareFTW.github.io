@@ -1980,6 +1980,7 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .hb-slot { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; font-size: 0.86rem; }
 .hb-slot b { display: block; font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase; color: var(--accent); letter-spacing: .05em; margin-bottom: 2px; }
 .hb-subs { display: block; margin-top: 5px; font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+.hb-note { margin: 10px 0 0; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
 
 /* HSR — Warp Calendar */
 .wc-version { margin-bottom: 26px; }
@@ -2321,7 +2322,8 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .mdm-tool:hover { border-color: var(--accent); color: var(--text); }
 .mdm-tool.on { border-color: var(--accent); background: rgba(228,75,75,.16); color: #ff8a82; }
 
-.mdm-tray { display: flex; gap: 8px; overflow-x: auto; padding: 6px 2px 12px; margin-bottom: 6px; }
+/* wrap onto a new line instead of overflowing sideways into the clues column */
+.mdm-tray { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; padding: 6px 2px 12px; margin-bottom: 6px; }
 .mdm-sus { position: relative; flex: 0 0 auto; width: 78px; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 8px 6px;
   border-radius: 12px; border: 1px solid var(--border); background: var(--card); cursor: pointer; transition: all .12s; }
 .mdm-sus img { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--c); background: var(--bg-soft); }

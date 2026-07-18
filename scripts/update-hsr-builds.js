@@ -57,14 +57,46 @@ function rosterFromList(html) {
   return map;
 }
 
-function parseBuilds(html, name) {
+const rxEsc = (s) => String(s || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// Game8 titles alt characters like "Himeko - Nova", while our roster name is just
+// "Nova" — strip the page's own name so roles don't come out as "Himeko -  DPS".
+function pageName(html) {
+  // the <h1> is Game8's site logo, so use the document title:
+  // "Himeko - Nova Best Builds and Teams | Honkai: Star Rail｜Game8" -> "Himeko - Nova"
+  const t = (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || "";
+  return cleanCell(t).split(/[|｜]/)[0].replace(/\s*(?:Best\s+)?(?:Builds?|Teams?|Guide|Kit|Rating|Review)\b.*$/i, "").trim();
+}
+// "All Recommended Light Cones": name + a rating line that states the rarity and
+// often says outright that a cone is "a good 4-star Light Cone" (our F2P pick).
+function recommendedCones(html) {
+  for (const tm of html.matchAll(/<table[\s\S]*?<\/table>/g)) {
+    const rows = tm[0].match(/<tr[\s\S]*?<\/tr>/g) || [];
+    if (!rows.length) continue;
+    const head = cleanCell(rows[0]);
+    if (!/light cone/i.test(head) || !/recommend|why/i.test(head)) continue;
+    const out = [];
+    for (const r of rows.slice(1)) {
+      const cells = [...r.matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((m) => cleanCell(m[1]));
+      const cone = cells[0], why = cells[1] || "";
+      if (!cone || cone.length > 60) continue;
+      out.push({ cone, why, fourStar: /\b4[-\s]?star\b/i.test(why), stars: (why.match(/★+/) || [""])[0].length });
+    }
+    if (out.length) return out;
+  }
+  return [];
+}
+
+function parseBuilds(html, name, pname) {
   const builds = [];
   for (const tm of html.matchAll(/<table[\s\S]*?<\/table>/g)) {
     const t = tm[0];
     if (!/Best Light Cone/i.test(t)) continue; // only the build-summary tables
     const pre = html.slice(Math.max(0, tm.index - 500), tm.index);
     const hd = [...pre.matchAll(/<h[23][^>]*>([\s\S]*?)<\/h[23]>/gi)].pop();
-    const role = hd ? decode(hd[1].replace(/<[^>]+>/g, "")).replace(/'s\b/gi, "").replace(new RegExp(name, "i"), "").replace(/Build/i, "").trim() : "";
+    let role = hd ? decode(hd[1].replace(/<[^>]+>/g, "")).replace(/'s\b/gi, "") : "";
+    // strip the page's own character name first ("Himeko - Nova"), then ours
+    for (const n of [pname, name].filter(Boolean)) role = role.replace(new RegExp(rxEsc(n), "i"), "");
+    role = role.replace(/Build/i, "").replace(/^[\s\-–:]+|[\s\-–:]+$/g, "").trim();
     const lc = (t.match(/alt="(?:Star Rail - )?([^"]+?) Light Cone"/) || [])[1] || "";
     const sets = [...t.matchAll(/<a[^>]*archives\/\d+[^>]*>\s*<img[^>]*alt="([^"]+)"/g)].map((m) => decode(m[1]))
       .filter((a) => !/Light Cone$/.test(a) && !/^Star Rail - /.test(a));
@@ -104,7 +136,25 @@ function run() {
   let n = 0;
   for (const name of names) {
     const html = getHtml(map[name].url);
-    const builds = parseBuilds(html, name);
+    const pname = pageName(html);
+    const builds = parseBuilds(html, name, pname);
+    // Round each character out to ~3 options using Game8's own ranked light-cone
+    // recommendations: the featured build, the best 4★ (F2P) pick, and the next
+    // alternative. Nothing is invented — the cones and wording come from Game8.
+    const cones = recommendedCones(html);
+    const base = builds[0];
+    if (base && cones.length) {
+      const used = new Set(builds.map((b) => b.lightCone).filter(Boolean));
+      const f2p = cones.find((c) => c.fourStar && !used.has(c.cone));
+      if (f2p) { builds.push(Object.assign({}, base, { role: "F2P", lightCone: f2p.cone, note: f2p.why.slice(0, 140) })); used.add(f2p.cone); }
+      if (builds.length < 3) {
+        const alt = cones.find((c) => !used.has(c.cone));
+        if (alt) builds.push(Object.assign({}, base, { role: "Alternative", lightCone: alt.cone, note: alt.why.slice(0, 140) }));
+      }
+    } else if (!base && cones.length) {
+      // no build table on the page — still give the character a usable option
+      builds.push({ role: "Recommended", lightCone: cones[0].cone, relicSet: "", ornament: "", mainStats: null, subStats: "", note: cones[0].why.slice(0, 140) });
+    }
     if (builds.length) { characters[name] = { img: map[name].img, builds }; n++; }
     console.log(`${name}: ${builds.length} build(s)`);
     sleep(250);
