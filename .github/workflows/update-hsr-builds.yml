@@ -2,7 +2,7 @@ name: Update Honkai Star Rail character builds
 
 on:
   schedule:
-    - cron: "50 7 * * 1"   # weekly, Monday 07:50 UTC
+    - cron: "50 7 * * *"   # daily, 07:50 UTC
   workflow_dispatch:
 
 permissions:

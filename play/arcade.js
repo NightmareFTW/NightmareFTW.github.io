@@ -8,7 +8,7 @@
 
   const GAMES = [
     {
-      id: "murdoku", name: "Murdoku", emoji: "🕵️", color: "#e44b4b",
+      id: "murdoku", name: "Murdoku", emoji: "🕵️", icon: "../assets/img/games/murdoku-icon.png", color: "#e44b4b",
       blurb: "A murder-mystery logic puzzle. Read the clue cards, work the deduction grid and name the culprit. Chapters of endless cases.",
       href: "murdoku/index.html", tag: solvedTag, available: true,
     },
@@ -17,7 +17,9 @@
 
   document.getElementById("play-grid").innerHTML = GAMES.map((g) => {
     const inner = `
-      <span class="play-emoji" style="--c:${g.color || "var(--accent)"}">${g.emoji}</span>
+      ${g.icon
+        ? `<span class="play-emoji play-icon" style="--c:${g.color || "var(--accent)"}"><img src="${esc(g.icon)}" alt="${esc(g.name)}"></span>`
+        : `<span class="play-emoji" style="--c:${g.color || "var(--accent)"}">${g.emoji}</span>`}
       <div class="play-meta">
         <span class="play-name">${esc(g.name)}</span>
         <p class="play-blurb">${esc(g.blurb)}</p>

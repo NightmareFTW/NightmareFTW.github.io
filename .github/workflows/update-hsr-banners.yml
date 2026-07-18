@@ -2,7 +2,7 @@ name: Update Honkai Star Rail warp calendar
 
 on:
   schedule:
-    - cron: "55 7 * * 1"   # weekly, Monday 07:55 UTC
+    - cron: "55 7 * * *"   # daily, 07:55 UTC
   workflow_dispatch:
 
 permissions:

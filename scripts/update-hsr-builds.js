@@ -10,6 +10,12 @@ const { execSync } = require("child_process");
 
 const TEAMS_URL = "https://game8.co/games/Honkai-Star-Rail/archives/409824";
 const TIER_URL = "https://game8.co/games/Honkai-Star-Rail/archives/409604";
+// Full roster lives on the rarity list pages — the team-comps page alone misses
+// anyone who isn't in a featured comp (e.g. Luka, Moze).
+const LIST_URLS = [
+  "https://game8.co/games/Honkai-Star-Rail/archives/406579", // 5-star characters
+  "https://game8.co/games/Honkai-Star-Rail/archives/406580", // 4-star characters
+];
 const OUT = path.join(__dirname, "..", "data", "honkai-star-rail", "builds.json");
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
@@ -25,6 +31,28 @@ function roster(html) {
   for (const m of html.matchAll(re)) {
     const name = cleanName(m[2]);
     if (name && !map[name]) map[name] = { url: m[1], img: m[3] };
+  }
+  return map;
+}
+
+// Roster from a "N-Star Characters" list page: tables headed Character|Element|Path.
+// Note Game8 writes these cells with unquoted href= and single-quoted data-src.
+const cleanCell = (s) => decode(String(s || "").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+function rosterFromList(html) {
+  const map = {};
+  for (const tm of html.matchAll(/<table[\s\S]*?<\/table>/g)) {
+    const rows = tm[0].match(/<tr[\s\S]*?<\/tr>/g) || [];
+    if (rows.length < 3) continue;
+    const head = cleanCell(rows[0]);
+    if (!/character/i.test(head) || !/(path|element)/i.test(head)) continue;
+    for (const r of rows.slice(1)) {
+      const cell = (r.match(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/) || [])[1] || "";
+      const a = cell.match(/href=['"]?(https:\/\/game8\.co\/games\/Honkai-Star-Rail\/archives\/\d+)['"]?/);
+      if (!a) continue;
+      const name = cleanCell(cell);
+      if (!name || name.length > 28 || map[name]) continue;
+      map[name] = { url: a[1], img: (cell.match(/data-src=['"]([^'"]+)['"]/) || [])[1] || "" };
+    }
   }
   return map;
 }
@@ -62,8 +90,16 @@ function run() {
   const teamsHtml = getHtml(TEAMS_URL);
   if (!teamsHtml) throw new Error("could not fetch team comps page");
   const version = (getHtml(TIER_URL).match(/(\d\.\d)\s*Tier\s*List/i) || [])[1] || "";
+  // team-comps roster first (it has good portraits), then fill in everyone else
+  // from the full 5★/4★ lists so no character is missed.
   const map = roster(teamsHtml);
+  for (const url of LIST_URLS) {
+    const listed = rosterFromList(getHtml(url));
+    for (const n in listed) if (!map[n]) map[n] = listed[n];
+    sleep(250);
+  }
   const names = Object.keys(map);
+  console.log(`Roster: ${names.length} characters (teams page + 5★/4★ lists).`);
   const characters = {};
   let n = 0;
   for (const name of names) {
