@@ -34,7 +34,9 @@ const b64u = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(
 const unb64u = (s) => { s = s.replace(/-/g, "+").replace(/_/g, "/"); const bin = atob(s); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; };
 
 // ---- password hashing (PBKDF2-HMAC-SHA256) ----
-const ITER = 150000;
+// 100k is the Cloudflare Workers cap for WebCrypto PBKDF2 (higher throws
+// NotSupportedError). Must stay equal for hashing and verifying.
+const ITER = 100000;
 async function pbkdf2(password, salt) {
   const key = await crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveBits"]);
   const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt, iterations: ITER }, key, 256);

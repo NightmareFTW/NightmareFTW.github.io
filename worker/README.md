@@ -52,8 +52,9 @@ you prefer a different provider.
 
 ## Notes / security
 
-- Passwords are hashed with PBKDF2-HMAC-SHA256 (150k iterations, per-user random
-  salt) inside the Worker; the plaintext is never stored or logged.
+- Passwords are hashed with PBKDF2-HMAC-SHA256 (100k iterations — the Workers
+  runtime cap — per-user random salt) inside the Worker; the plaintext is never
+  stored or logged.
 - Sessions are stateless signed JWTs (HS256 with `SESSION_SECRET`), 90-day
   expiry, kept in the browser's `localStorage` (like the GitHub token).
 - CORS is locked to `ALLOW_ORIGIN`.
