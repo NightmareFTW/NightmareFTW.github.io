@@ -74,6 +74,25 @@ const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : randToken());
 const normEmail = (e) => String(e || "").trim().toLowerCase();
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) && e.length <= 254;
 
+// ---- recovery codes (one-time backup codes; no email needed to reset) ----
+// High-entropy random codes (~60 bits) so a fast SHA-256 hash is safe to store.
+const RC_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // no 0/O/1/I/L
+function genRecoveryCode() {
+  const b = crypto.getRandomValues(new Uint8Array(12));
+  let s = "";
+  for (let i = 0; i < 12; i++) { s += RC_ALPHABET[b[i] % RC_ALPHABET.length]; if (i % 4 === 3 && i < 11) s += "-"; }
+  return s; // e.g. ABCD-EFGH-JKMN
+}
+const normCode = (c) => String(c || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+async function sha256hex(s) { const buf = await crypto.subtle.digest("SHA-256", enc.encode(s)); return [...new Uint8Array(buf)].map((x) => x.toString(16).padStart(2, "0")).join(""); }
+async function makeRecoveryCodes(env, userId, n = 10) {
+  await env.DB.prepare("DELETE FROM recovery WHERE user_id=?").bind(userId).run();
+  const codes = [], stmts = [];
+  for (let i = 0; i < n; i++) { const c = genRecoveryCode(); codes.push(c); stmts.push(env.DB.prepare("INSERT INTO recovery (user_id,code_hash,used) VALUES (?,?,0)").bind(userId, await sha256hex(normCode(c)))); }
+  await env.DB.batch(stmts);
+  return codes;
+}
+
 // ---- responses ----
 function corsHeaders(env) {
   return {
@@ -146,8 +165,9 @@ export default {
         const id = uuid();
         await env.DB.prepare("INSERT INTO users (id,email,pass_hash,pass_salt,created) VALUES (?,?,?,?,?)").bind(id, e, hash, salt, now()).run();
         await env.DB.prepare("INSERT INTO settings (user_id,blob,updated) VALUES (?, '{}', ?)").bind(id, now()).run();
+        const recovery = await makeRecoveryCodes(env, id);
         const token = await signToken({ uid: id, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
-        return json(env, { token, email: e });
+        return json(env, { token, email: e, recovery });
       }
 
       // ---- login ----
@@ -192,6 +212,36 @@ export default {
         await env.DB.prepare("UPDATE users SET pass_hash=?, pass_salt=? WHERE id=?").bind(hash, salt, row.user_id).run();
         await env.DB.prepare("DELETE FROM resets WHERE user_id=?").bind(row.user_id).run();
         return json(env, { ok: true });
+      }
+
+      // ---- recover the account with a one-time recovery code ----
+      if (req.method === "POST" && url.pathname === "/auth/recover") {
+        const { email, code, password } = await readJson(req);
+        if (!password || String(password).length < 8) return json(env, { error: "weak_password" }, 400);
+        const e = normEmail(email);
+        const u = await env.DB.prepare("SELECT id FROM users WHERE email=?").bind(e).first();
+        const ch = await sha256hex(normCode(code));
+        const row = u ? await env.DB.prepare("SELECT rowid AS rid FROM recovery WHERE user_id=? AND code_hash=? AND used=0").bind(u.id, ch).first() : null;
+        if (!row) return json(env, { error: "bad_recovery" }, 400);
+        const { hash, salt } = await hashPassword(String(password));
+        await env.DB.prepare("UPDATE users SET pass_hash=?, pass_salt=? WHERE id=?").bind(hash, salt, u.id).run();
+        await env.DB.prepare("UPDATE recovery SET used=1 WHERE rowid=?").bind(row.rid).run();
+        const token = await signToken({ uid: u.id, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
+        return json(env, { token, email: e });
+      }
+
+      // ---- regenerate recovery codes (authenticated) — invalidates old ones ----
+      if (req.method === "POST" && url.pathname === "/auth/recovery-codes") {
+        const s = await auth(req, env); if (!s) return json(env, { error: "unauthorized" }, 401);
+        const recovery = await makeRecoveryCodes(env, s.uid);
+        return json(env, { recovery });
+      }
+
+      // ---- how many unused recovery codes remain (authenticated) ----
+      if (req.method === "GET" && url.pathname === "/auth/recovery-count") {
+        const s = await auth(req, env); if (!s) return json(env, { error: "unauthorized" }, 401);
+        const r = await env.DB.prepare("SELECT COUNT(*) AS c FROM recovery WHERE user_id=? AND used=0").bind(s.uid).first();
+        return json(env, { count: r ? r.c : 0 });
       }
 
       // ---- settings blob: read ----
