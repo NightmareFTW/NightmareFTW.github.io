@@ -23,13 +23,7 @@ jobs:
       - name: Refresh Outlast Trials trials & maps
         run: node scripts/update-outlast.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/news data/codes data/outlast-trials)" ]; then
-            git add data/news data/codes data/outlast-trials
-            git commit -m "chore: auto-update game news, codes & Outlast data"
-            git push
-          else
-            echo "No data changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/news data/codes data/outlast-trials"
+          message: "chore: auto-update game news, codes & Outlast data"

@@ -19,13 +19,7 @@ jobs:
       - name: Scrape HSR meta team comps (Game8)
         run: node scripts/update-hsr-teams.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/honkai-star-rail/teams.json)" ]; then
-            git add data/honkai-star-rail/teams.json
-            git commit -m "chore: auto-update HSR meta team comps"
-            git push
-          else
-            echo "No team changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/honkai-star-rail/teams.json"
+          message: "chore: auto-update HSR meta team comps"

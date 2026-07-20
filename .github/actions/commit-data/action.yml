@@ -1,0 +1,48 @@
+name: Commit data changes
+description: >
+  Commit and push refreshed data, tolerating the push races that happen when
+  several of the update workflows (16 of them, plus the cache-buster stamper)
+  land on master at the same time. Rebases and retries instead of failing red.
+
+inputs:
+  paths:
+    description: Paths to stage, space separated (e.g. "data/dreamlight-valley")
+    required: true
+  message:
+    description: Commit message
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        set -e
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        if [ -z "$(git status --porcelain ${{ inputs.paths }})" ]; then
+          echo "No changes in ${{ inputs.paths }}."
+          exit 0
+        fi
+
+        git add ${{ inputs.paths }}
+        git commit -m "${{ inputs.message }}"
+
+        # Another workflow may push between our fetch and our push, so rebase
+        # onto whatever landed and try again before giving up.
+        for attempt in 1 2 3 4 5; do
+          if git push; then
+            echo "Pushed on attempt $attempt."
+            exit 0
+          fi
+          echo "Push rejected (another workflow got there first) — rebasing, attempt $attempt."
+          sleep $(( (RANDOM % 10) + 5 ))
+          # actions/checkout is shallow by default, so deepen enough to rebase
+          # rather than relying on `git pull --rebase` against a depth-1 clone.
+          git fetch --depth=50 origin "${GITHUB_REF_NAME}"
+          git rebase "origin/${GITHUB_REF_NAME}"
+        done
+
+        echo "::error::Could not push after 5 attempts."
+        exit 1

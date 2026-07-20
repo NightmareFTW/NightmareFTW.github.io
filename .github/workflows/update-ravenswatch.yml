@@ -19,13 +19,7 @@ jobs:
       - name: Scrape Ravenswatch heroes, talents & magical objects
         run: node scripts/update-ravenswatch.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/ravenswatch)" ]; then
-            git add data/ravenswatch
-            git commit -m "chore: auto-update Ravenswatch data"
-            git push
-          else
-            echo "No Ravenswatch changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/ravenswatch"
+          message: "chore: auto-update Ravenswatch data"

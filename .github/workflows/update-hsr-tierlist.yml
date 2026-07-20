@@ -19,13 +19,7 @@ jobs:
       - name: Scrape HSR tier list
         run: node scripts/update-hsr-tierlist.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/honkai-star-rail)" ]; then
-            git add data/honkai-star-rail
-            git commit -m "chore: auto-update Honkai Star Rail tier list"
-            git push
-          else
-            echo "No tier list changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/honkai-star-rail"
+          message: "chore: auto-update Honkai Star Rail tier list"

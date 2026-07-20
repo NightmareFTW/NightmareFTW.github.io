@@ -21,13 +21,7 @@ jobs:
       - name: Scrape Marvel Snap codes (Marvel Snap Zone)
         run: node scripts/update-marvel-snap-codes.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/marvel-snap/cards.json data/codes/marvel-snap.json)" ]; then
-            git add data/marvel-snap/cards.json data/codes/marvel-snap.json
-            git commit -m "chore: auto-update Marvel Snap cards & codes"
-            git push
-          else
-            echo "No changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/marvel-snap/cards.json data/codes/marvel-snap.json"
+          message: "chore: auto-update Marvel Snap cards & codes"

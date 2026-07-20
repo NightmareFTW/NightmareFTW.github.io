@@ -19,13 +19,7 @@ jobs:
       - name: Scrape HSR character builds (Game8)
         run: node scripts/update-hsr-builds.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/honkai-star-rail/builds.json)" ]; then
-            git add data/honkai-star-rail/builds.json
-            git commit -m "chore: auto-update HSR character builds"
-            git push
-          else
-            echo "No build changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/honkai-star-rail/builds.json"
+          message: "chore: auto-update HSR character builds"

@@ -19,13 +19,7 @@ jobs:
       - name: Scrape Demonologist demons, evidence & tools
         run: node scripts/update-demonologist.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/demonologist)" ]; then
-            git add data/demonologist
-            git commit -m "chore: auto-update Demonologist data"
-            git push
-          else
-            echo "No Demonologist changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/demonologist"
+          message: "chore: auto-update Demonologist data"

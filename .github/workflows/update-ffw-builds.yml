@@ -19,13 +19,7 @@ jobs:
       - name: Scrape Far Far West builds (wikily.gg)
         run: node scripts/update-ffw-builds.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/far-far-west/builds.json)" ]; then
-            git add data/far-far-west/builds.json
-            git commit -m "chore: auto-update Far Far West builds"
-            git push
-          else
-            echo "No build changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/far-far-west/builds.json"
+          message: "chore: auto-update Far Far West builds"

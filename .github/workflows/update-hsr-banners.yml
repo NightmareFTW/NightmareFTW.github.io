@@ -19,13 +19,7 @@ jobs:
       - name: Scrape HSR warp banners (Game8)
         run: node scripts/update-hsr-banners.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/honkai-star-rail/banners.json)" ]; then
-            git add data/honkai-star-rail/banners.json
-            git commit -m "chore: auto-update HSR warp calendar"
-            git push
-          else
-            echo "No banner changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/honkai-star-rail/banners.json"
+          message: "chore: auto-update HSR warp calendar"

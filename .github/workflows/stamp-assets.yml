@@ -29,13 +29,7 @@ jobs:
       - name: Stamp cache-busters
         run: node scripts/stamp-assets.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "chore: stamp asset cache-busters"
-            git push
-          else
-            echo "Cache-busters already up to date."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "."
+          message: "chore: stamp asset cache-busters"

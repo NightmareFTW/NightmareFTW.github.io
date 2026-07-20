@@ -19,13 +19,7 @@ jobs:
       - name: Scrape HSR events (Game8)
         run: node scripts/update-hsr-events.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/honkai-star-rail/events.json)" ]; then
-            git add data/honkai-star-rail/events.json
-            git commit -m "chore: auto-update HSR event calendar"
-            git push
-          else
-            echo "No event changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/honkai-star-rail/events.json"
+          message: "chore: auto-update HSR event calendar"

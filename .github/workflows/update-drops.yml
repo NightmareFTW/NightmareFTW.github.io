@@ -19,13 +19,7 @@ jobs:
       - name: Build drop table
         run: node scripts/update-drops.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/warframe)" ]; then
-            git add data/warframe
-            git commit -m "chore: auto-update Warframe drop table"
-            git push
-          else
-            echo "No drop changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/warframe"
+          message: "chore: auto-update Warframe drop table"

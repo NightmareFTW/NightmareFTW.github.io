@@ -19,13 +19,7 @@ jobs:
       - name: Scrape The Other Side ghosts, evidence & equipment
         run: node scripts/update-the-other-side.js
       - name: Commit changes if any
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain data/the-other-side)" ]; then
-            git add data/the-other-side
-            git commit -m "chore: auto-update The Other Side data"
-            git push
-          else
-            echo "No The Other Side changes."
-          fi
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/the-other-side"
+          message: "chore: auto-update The Other Side data"
