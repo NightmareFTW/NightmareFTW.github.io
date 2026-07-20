@@ -12,10 +12,10 @@ jobs:
   update-marvel-snap:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "24"
       - name: Scrape Marvel Snap cards (Marvel Snap Zone)
         run: node scripts/update-marvel-snap.js
       - name: Scrape Marvel Snap codes (Marvel Snap Zone)
