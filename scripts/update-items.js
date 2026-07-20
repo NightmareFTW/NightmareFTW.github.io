@@ -11,6 +11,7 @@ const fs = require("fs");
 const path = require("path");
 const { translateName } = require("./ddv-translate");
 const { officialName } = require("./ddv-official");
+const { getText } = require("./lib/http");
 // Official in-game PT-BR name when the game has one, else the best-effort translator.
 const ptName = (name) => officialName(name) || translateName(name);
 
@@ -104,7 +105,7 @@ const sname = (n) => clean(n).replace(/\[\d+\]/g, "").replace(/\s*[.•·*]+\s*$
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 async function wikiItemImg(name) {
   try {
-    const html = await (await fetch(`${WIKI}/${encodeURIComponent(name.replace(/ /g, "_"))}`, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
+    const html = getText(`${WIKI}/${encodeURIComponent(name.replace(/ /g, "_"))}`);
     const files = [...html.matchAll(/\/images\/(?:thumb\/)?([0-9a-f]\/[0-9a-f]{2}\/[^"\/]+?\.png)/gi)].map((m) => m[0]);
     const hit = files.find((s) => norm(decodeURIComponent(s.split("/").pop().replace(/\.png$/i, ""))) === norm(name));
     return hit ? WIKI + hit.replace(/\/thumb\//, "/").replace(/(\.png).*$/i, "$1") : "";
@@ -134,7 +135,7 @@ const dlcOf = (biomes) => {
 };
 
 async function fetchTables(url) {
-  const html = await (await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
+  const html = getText(url);
   return (html.match(/<table[\s\S]*?<\/table>/g) || []).map((t) =>
     (t.match(/<tr[\s\S]*?<\/tr>/g) || []).map((tr) =>
       [...tr.matchAll(/<t[hd][\s\S]*?>([\s\S]*?)<\/t[hd]>/g)].map((m) => m[1])));
@@ -174,7 +175,7 @@ async function collectFrom(url, category, source, require = []) {
 // Collect from a page where each section <h2/h3> precedes one table; only the
 // sections named in `map` are kept, labelled with map[heading] as the category.
 async function collectByHeading(url, map, source) {
-  const html = await (await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text();
+  const html = getText(url);
   const out = [];
   for (const part of html.split(/(?=<h[23])/)) {
     const hm = part.match(/<h[23][^>]*>(?:<[^>]+>)*([^<]+)/);

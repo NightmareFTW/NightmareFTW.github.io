@@ -11,6 +11,7 @@
 const fs = require("fs");
 const path = require("path");
 const { officialName } = require("./ddv-official");
+const { getText } = require("./lib/http");
 
 const WIKI = "https://dreamlightvalleywiki.com";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
@@ -70,7 +71,7 @@ function translateFood(s) {
   return out.replace(/\s*\*+\s*/g, " ").replace(/\s+([,.;])/g, "$1").replace(/\s+/g, " ").trim();
 }
 
-async function get(url) { return await (await fetch(url, { headers: { "User-Agent": UA } })).text(); }
+async function get(url) { return getText(url, { ua: UA }); }
 const tablesOf = (html) => (html.match(/<table[\s\S]*?<\/table>/g) || []).map((t) =>
   (t.match(/<tr[\s\S]*?<\/tr>/g) || []).map((tr) => [...tr.matchAll(/<t[hd][\s\S]*?>([\s\S]*?)<\/t[hd]>/g)].map((m) => m[1])));
 

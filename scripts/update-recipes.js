@@ -10,6 +10,7 @@ const fs = require("fs");
 const path = require("path");
 const { translateName } = require("./ddv-translate");
 const { officialName } = require("./ddv-official");
+const { getText } = require("./lib/http");
 // Official in-game PT-BR name when the game has one, else the best-effort translator.
 const ptName = (name) => officialName(name) || translateName(name);
 
@@ -59,7 +60,7 @@ const clean = (s) => s.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&")
   .replace(/&#39;|&apos;/g, "'").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 // Accent- & punctuation-insensitive key for matching names across sources.
 const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, "");
-const get = async (url) => (await (await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).text());
+const get = async (url) => getText(url);
 const rowsOf = (html) => {
   // Parse rows from ALL tables on the page (some guides split into several).
   const tables = html.match(/<table[\s\S]*?<\/table>/g) || [];
@@ -120,6 +121,22 @@ async function run() {
 
   const seen = new Set();
   const unique = recipes.filter((r) => (seen.has(r.name) ? false : seen.add(r.name)));
+
+  // Nintendo Life sits behind a Cloudflare interactive challenge, so the sell +
+  // energy pass can come back empty. Those numbers don't change between patches,
+  // so carry forward whatever we already had rather than overwriting it with 0.
+  try {
+    const prev = JSON.parse(fs.readFileSync(OUT, "utf8")).recipes || [];
+    const old = new Map(prev.map((r) => [r.name.toLowerCase(), r]));
+    let kept = 0;
+    for (const r of unique) {
+      if (r.sell || r.energy) continue;
+      const p = old.get(r.name.toLowerCase());
+      if (p && (p.sell || p.energy)) { r.sell = p.sell; r.energy = p.energy; kept++; }
+    }
+    if (kept) console.log(`Kept sell/energy for ${kept} recipes from the previous file (values source unavailable).`);
+  } catch { /* no previous file — nothing to carry over */ }
+
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify({ updated: new Date().toISOString(), source: FULL_LIST, count: unique.length, recipes: unique }));
   console.log(`Wrote ${unique.length} recipes (${unique.filter((r) => r.dlc).length} DLC, ${unique.filter((r) => r.sell).length} with values, ${unique.filter((r) => r.img).length} with images).`);

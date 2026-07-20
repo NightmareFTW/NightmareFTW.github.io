@@ -3,8 +3,10 @@
 const path = require("path");
 const { buildCatalogue } = require("./ddv-catalogue");
 
+const OUT = path.join(__dirname, "..", "data", "dreamlight-valley", "clothing.json");
+
 buildCatalogue({
   src: "https://dreamlightvalleywiki.com/Clothing",
-  out: path.join(__dirname, "..", "data", "dreamlight-valley", "clothing.json"),
+  out: OUT,
   label: "clothing",
-}).catch((e) => { console.error(e); process.exit(1); });
+}).catch((e) => require("./lib/keep")(OUT, e));

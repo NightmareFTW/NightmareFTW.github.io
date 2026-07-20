@@ -7,7 +7,7 @@
   // Load the accounts + settings-sync module on every page (this script is global).
   if (!document.querySelector('script[data-nftw-auth]')) {
     const a = document.createElement("script");
-    a.src = "/assets/js/auth.js?v=09646644"; a.defer = true; a.setAttribute("data-nftw-auth", "");
+    a.src = "/assets/js/auth.js?v=f8f10742"; a.defer = true; a.setAttribute("data-nftw-auth", "");
     document.head.appendChild(a);
   }
   const LANG = localStorage.getItem("nftw:lang") || "en";
@@ -1263,6 +1263,7 @@
     [/^in (\d[\d:hm ]*)$/, "em $1"],
     [/^(\d+)\/(\d+)$/, "$1/$2"],
     [/^(\d+) headlines · updated (.+)$/, "$1 notícias · actualizado $2"],
+    [/^(\d+) wild species · (\d+) companions · source: (.+)$/, "$1 espécies selvagens · $2 companions · fonte: $3"],
     [/^(\d[\d,]*) drops · updated (.+)$/, "$1 drops · actualizado $2"],
   ];
 

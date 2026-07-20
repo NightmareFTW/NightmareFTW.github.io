@@ -7,8 +7,7 @@
 const fs = require("fs");
 const path = require("path");
 const { officialName } = require("./ddv-official");
-
-const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
+const { getText } = require("./lib/http");
 const clean = (s) => s.replace(/<[^>]+>/g, " ").replace(/&#39;|&apos;/g, "'").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#?\w+;/g, " ").replace(/\s+/g, " ").trim();
 const bigImg = (u) => {
   if (!u) return "";
@@ -20,8 +19,26 @@ const bigImg = (u) => {
 // Section headings that aren't a real theme.
 const SKIP = /^(Collecting|Wearing|Placing|Contents|Navigation|Links|Gameplay|References|Trivia|Categories)/i;
 
+// These two pages are 1.5-3 MB each and get fetched back to back, so the wiki
+// occasionally serves one of them short. curl's --retry only covers transport
+// errors, not a 200 with truncated body, so retry on a thin parse as well.
 async function buildCatalogue({ src, out, label }) {
-  const html = await (await fetch(src, { headers: { "User-Agent": UA } })).text();
+  let items = [];
+  for (let attempt = 1; attempt <= 3 && items.length < 100; attempt++) {
+    if (attempt > 1) {
+      console.warn(`${label}: only ${items.length} parsed, retrying (${attempt}/3)…`);
+      await new Promise((r) => setTimeout(r, 3000 * attempt));
+    }
+    items = parseCatalogue(getText(src));
+  }
+  if (items.length < 100) throw new Error(`only ${items.length} ${label} parsed — keeping previous file`);
+  const themes = [...new Set(items.map((i) => i.theme))].sort();
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, JSON.stringify({ updated: new Date().toISOString(), source: src, count: items.length, themes, items }));
+  console.log(`Wrote ${items.length} ${label} across ${themes.length} themes (${items.filter((i) => i.img).length} images, ${items.filter((i) => i.name_pt !== i.name).length} PT names).`);
+}
+
+function parseCatalogue(html) {
   const seen = new Set();
   const items = [];
   for (const part of html.split(/(?=<h[23])/)) {
@@ -38,11 +55,7 @@ async function buildCatalogue({ src, out, label }) {
       items.push({ name, name_pt: officialName(name) || name, img, theme });
     }
   }
-  if (items.length < 100) throw new Error(`only ${items.length} ${label} parsed — keeping previous file`);
-  const themes = [...new Set(items.map((i) => i.theme))].sort();
-  fs.mkdirSync(path.dirname(out), { recursive: true });
-  fs.writeFileSync(out, JSON.stringify({ updated: new Date().toISOString(), source: src, count: items.length, themes, items }));
-  console.log(`Wrote ${items.length} ${label} across ${themes.length} themes (${items.filter((i) => i.img).length} images, ${items.filter((i) => i.name_pt !== i.name).length} PT names).`);
+  return items;
 }
 
 module.exports = { buildCatalogue };

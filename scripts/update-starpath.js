@@ -6,6 +6,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { getJson } = require("./lib/http");
 
 const STAR_PATH_PAGE = "Godly Glamor Star Path";
 const SEASON = { name: "Godly Glamor", number: 23, theme: "Mount Olympus / Greek gods", start: "2026-06-03", end: "2026-07-28" };
@@ -30,7 +31,7 @@ function clean(s) {
 
 async function run() {
   const api = `https://disneydreamlightvalley.fandom.com/api.php?action=parse&page=${encodeURIComponent(STAR_PATH_PAGE)}&prop=wikitext&format=json`;
-  const json = await (await fetch(api, { headers: { "User-Agent": "Mozilla/5.0 NightmareFTW-bot" } })).json();
+  const json = getJson(api);
   const wikitext = json.parse.wikitext["*"];
 
   // Pick the wikitable that contains "Week 1".
