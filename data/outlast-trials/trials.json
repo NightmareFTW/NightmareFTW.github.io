@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07T02:54:10.672Z",
+  "updated": "2026-08-07T07:14:30.151Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -948,7 +948,7 @@
           "name": "Escape",
           "goal": "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.",
           "objectives": [],
-          "prime": "30px",
+          "prime": "link=|Non-Applicable|30px",
           "tips": [
             "Linear escape — keep moving, don't stop to fight.",
             "Use the tunnels' tight turns to shake pursuers.",
