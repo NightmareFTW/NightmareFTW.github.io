@@ -264,6 +264,11 @@
   function render() {
     var nav = document.querySelector(".top-nav"); if (!nav) return;
     var old = nav.querySelector(".auth-btn"); if (old) old.remove();
+    var oldGh = nav.querySelector(".gh-link"); if (oldGh) oldGh.remove();
+    var gh = document.createElement("a"); gh.className = "gh-link";
+    gh.href = "https://github.com/NightmareFTW"; gh.target = "_blank"; gh.rel = "noopener";
+    gh.title = "GitHub"; gh.setAttribute("aria-label", "GitHub"); gh.innerHTML = GH_ICON;
+    nav.appendChild(gh);
     var btn = document.createElement("button"); btn.className = "auth-btn";
     if (signedIn()) {
       var av = avatarUrl();
