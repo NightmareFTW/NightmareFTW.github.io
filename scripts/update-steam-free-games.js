@@ -100,12 +100,19 @@ async function run() {
   try { previous = JSON.parse(fs.readFileSync(OUT_FILE, "utf8")); } catch { /* first run */ }
   const byAppid = new Map((previous.items || []).map((it) => [it.appid, it]));
 
+  // The group re-posts (or edits) an entry with an "[ENDED]"/"[EXPIRED]" title
+  // once a promo is over — that's a much more reliable signal than any time
+  // window, so it both blocks adding an already-ended promo and retracts one
+  // we'd previously listed as active. Posts are newest-first, so the first
+  // time we see a given appid in this run is the one that wins.
   const posts = await fetchGroupPosts();
   const seenAppids = new Set();
   for (const post of posts) {
+    const ended = /\[(ended|expired)\]/i.test(post.title);
     for (const appid of post.appids) {
-      if (seenAppids.has(appid)) continue;   // already resolved this run
+      if (seenAppids.has(appid)) continue;   // a newer post already settled this appid
       seenAppids.add(appid);
+      if (ended) { byAppid.delete(appid); continue; }
       await sleep(APPDETAILS_DELAY_MS);
       const data = await appDetails(appid);
       if (!data || data.is_free) continue;   // not a real game, or already F2P
