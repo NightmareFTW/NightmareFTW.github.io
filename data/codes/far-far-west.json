@@ -1,13 +1,19 @@
 {
   "game": "far-far-west",
-  "updated": "2026-08-13T13:08:09.160Z",
+  "updated": "2026-08-13T19:02:36.793Z",
   "source": "https://farfarwest.wikily.gg/promo-codes",
   "redeem": null,
   "note": "Community-reported codes; the % is how many players confirmed each still works. Enter in the in-game shop / settings.",
   "codes": [
     {
+      "code": "GAMESCOM2026",
+      "reward": "500 Souls · 100% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
       "code": "WECOOKIN",
-      "reward": "Reward · 89% confirmed",
+      "reward": "Reward · 88% confirmed",
       "expires": null,
       "expired": false
     },
@@ -19,13 +25,13 @@
     },
     {
       "code": "THISCODEISFAKE",
-      "reward": "250 Souls · 60% confirmed",
+      "reward": "250 Souls · 59% confirmed",
       "expires": null,
       "expired": false
     },
     {
       "code": "1MCOWBOYS",
-      "reward": "1250 Gold · 66% confirmed",
+      "reward": "1250 Gold · 65% confirmed",
       "expires": null,
       "expired": false
     },
