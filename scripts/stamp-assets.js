@@ -49,14 +49,21 @@ const REF = /(\b(?:src|href)=")([^"]+\.(?:js|css))((?:\?[^"]*)?)(")/gi;
 
 let changed = 0, stamped = 0, missing = new Set();
 
-// i18n.js injects auth.js itself, so that URL needs stamping too — and it has
-// to happen BEFORE the HTML pass, since rewriting i18n.js changes its own hash.
+// i18n.js injects other global scripts itself (auth.js, steam-alerts.js), so
+// those URLs need stamping too — and it has to happen BEFORE the HTML pass,
+// since rewriting i18n.js changes its own hash.
 const i18n = path.join(ROOT, "assets", "js", "i18n.js");
-const auth = path.join(ROOT, "assets", "js", "auth.js");
-if (fs.existsSync(i18n) && fs.existsSync(auth)) {
-  const src = fs.readFileSync(i18n, "utf8");
-  const out = src.replace(/(["'])(\/assets\/js\/auth\.js)(?:\?v=[^"']*)?\1/g, `$1$2?v=${shortHash(auth)}$1`);
-  if (out !== src) { fs.writeFileSync(i18n, out); changed++; console.log("stamped the auth.js injection inside i18n.js"); }
+const SELF_INJECTED = ["auth.js", "steam-alerts.js"];
+{
+  let src = fs.readFileSync(i18n, "utf8");
+  const before = src;
+  for (const name of SELF_INJECTED) {
+    const file = path.join(ROOT, "assets", "js", name);
+    if (!fs.existsSync(file)) continue;
+    const re = new RegExp(`(["'])(/assets/js/${name.replace(".", "\\.")})(?:\\?v=[^"']*)?\\1`, "g");
+    src = src.replace(re, `$1$2?v=${shortHash(file)}$1`);
+  }
+  if (src !== before) { fs.writeFileSync(i18n, src); changed++; console.log("stamped self-injected script refs inside i18n.js"); }
 }
 
 for (const html of walk(ROOT)) {

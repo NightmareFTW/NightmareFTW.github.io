@@ -1,0 +1,25 @@
+name: Update Steam free-game alerts
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # hourly — free-game promos are often short-lived
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-steam-free-games:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: Fetch Steam free-game promos
+        run: node scripts/update-steam-free-games.js
+      - name: Commit changes if any
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/steam-free-games.json"
+          message: "chore: auto-update Steam free-game alerts"
