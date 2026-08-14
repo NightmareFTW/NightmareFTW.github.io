@@ -7,6 +7,7 @@ const starSel = new Set();
 let query = "", sort = "sell-desc";
 const PT = localStorage.getItem("nftw:lang") === "pt";
 const nm = (o) => (PT && o.name_pt) ? o.name_pt : o.name;
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 const els = {
   search: document.getElementById("rc-search"),
@@ -52,10 +53,10 @@ function render() {
   els.list.innerHTML = list.map((r) => `
     <div class="rc-card">
       <div class="rc-top">
-        <span class="rc-name">${r.img ? `<img class="rc-img" src="${r.img}" alt="" loading="lazy">` : ""}${nm(r)}${r.dlc ? ` <span class="fr-dlc ${({ "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" })[r.dlc] || ""}">${r.dlc}</span>` : ""}</span>
+        <span class="rc-name">${r.img ? `<img class="rc-img" src="${esc(r.img)}" alt="" loading="lazy">` : ""}${esc(nm(r))}${r.dlc ? ` <span class="fr-dlc ${({ "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" })[r.dlc] || ""}">${esc(r.dlc)}</span>` : ""}</span>
         <span class="rc-stars">${"⭐".repeat(r.stars)}</span>
       </div>
-      <div class="rc-ing">${r.ingredients.map((i) => `<span class="rc-chip">${i.q > 1 ? i.q + "× " : ""}${nm(i)}</span>`).join("")}</div>
+      <div class="rc-ing">${r.ingredients.map((i) => `<span class="rc-chip">${i.q > 1 ? esc(i.q) + "× " : ""}${esc(nm(i))}</span>`).join("")}</div>
       <div class="rc-meta">
         <span>💰 ${r.sell ? r.sell.toLocaleString() : "—"}</span>
         <span>⚡ ${r.energy ? r.energy.toLocaleString() : "—"}</span>

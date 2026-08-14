@@ -23,6 +23,10 @@ wrangler d1 create nftw-accounts
 
 # 2) Create the tables
 wrangler d1 execute nftw-accounts --file=schema.sql --remote
+# Already have a database from before? schema.sql alone won't add new columns/
+# tables to it — also run every file in migrations/ once, in order:
+wrangler d1 execute nftw-accounts --file=migrations/0002_recovery.sql --remote
+wrangler d1 execute nftw-accounts --file=migrations/0003_hardening.sql --remote
 
 # 3) Set the secrets (you'll be prompted to paste each value)
 wrangler secret put SESSION_SECRET   # any long random string, e.g. `openssl rand -base64 48`
@@ -56,11 +60,22 @@ you prefer a different provider.
   runtime cap — per-user random salt) inside the Worker; the plaintext is never
   stored or logged.
 - Sessions are stateless signed JWTs (HS256 with `SESSION_SECRET`), 90-day
-  expiry, kept in the browser's `localStorage` (like the GitHub token).
-- CORS is locked to `ALLOW_ORIGIN`.
+  expiry, kept in the browser's `localStorage` (like the GitHub token). Each
+  token embeds the account's `token_version`; `/auth/reset` and `/auth/recover`
+  bump it, so any other token issued before that reset (e.g. one an attacker
+  had stolen) is rejected immediately instead of staying valid for 90 days.
+- CORS is locked to `ALLOW_ORIGIN` — no `*` fallback, so a missing/misconfigured
+  `ALLOW_ORIGIN` fails closed (no cross-origin access) rather than open.
+- `/auth/signup`, `/auth/login`, `/auth/recover` and `/auth/reset-request` are
+  rate-limited per client IP (login also per target email), backed by the
+  `rate_limits` table, to blunt brute-forcing and credential stuffing.
 - `/auth/reset-request` always returns `{ok:true}` to avoid email enumeration.
 - The settings blob is capped at ~1 MB per account.
+- Unhandled errors are logged to the Cloudflare dashboard only — the client
+  only ever sees a generic `server_error`, never exception details.
 
 To rotate all sessions, change `SESSION_SECRET` and redeploy (everyone is signed
 out). Old reset tokens can be pruned with
-`wrangler d1 execute nftw-accounts --command "DELETE FROM resets WHERE expires < strftime('%s','now')" --remote`.
+`wrangler d1 execute nftw-accounts --command "DELETE FROM resets WHERE expires < strftime('%s','now')" --remote`,
+and old rate-limit rows with
+`wrangler d1 execute nftw-accounts --command "DELETE FROM rate_limits WHERE window_start < strftime('%s','now') - 86400" --remote`.

@@ -14,6 +14,7 @@ function fmt(ms) {
   return h > 0 ? `${h}:${p(m)}:${p(sec)}` : `${p(m)}:${p(sec)}`;
 }
 const t = (iso) => new Date(iso).getTime();
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 async function load() {
   const get = async (p) => { try { return await (await fetch(`${API}/${p}`)).json(); } catch { return null; } };
@@ -37,15 +38,15 @@ function render() {
   const s = state.sortie;
   if (s && s.variants) {
     out.push(section("Sortie",
-      `<p class="ws-sub">${s.boss || ""} · ${s.faction || ""} <span class="ws-timer">${fmt(t(s.expiry) - now)}</span></p>` +
-      s.variants.map((v) => `<div class="ws-row"><span class="ws-tag">${v.missionType}</span><div class="ws-info"><strong>${v.modifier}</strong><span>${v.node}</span></div></div>`).join("")));
+      `<p class="ws-sub">${esc(s.boss || "")} · ${esc(s.faction || "")} <span class="ws-timer">${fmt(t(s.expiry) - now)}</span></p>` +
+      s.variants.map((v) => `<div class="ws-row"><span class="ws-tag">${esc(v.missionType)}</span><div class="ws-info"><strong>${esc(v.modifier)}</strong><span>${esc(v.node)}</span></div></div>`).join("")));
   }
 
   // Arbitration
   const a = state.arbitration;
   if (a && a.node && !/SolNode/.test(a.node) && a.type !== "Unknown") {
     out.push(section("Arbitration",
-      `<div class="ws-row"><span class="ws-tag">${a.type || ""}</span><div class="ws-info"><strong>${a.node}</strong><span>${a.enemy || ""}</span></div><span class="ws-timer">${fmt(t(a.expiry) - now)}</span></div>`));
+      `<div class="ws-row"><span class="ws-tag">${esc(a.type || "")}</span><div class="ws-info"><strong>${esc(a.node)}</strong><span>${esc(a.enemy || "")}</span></div><span class="ws-timer">${fmt(t(a.expiry) - now)}</span></div>`));
   }
 
   // Baro Ki'Teer
@@ -54,11 +55,11 @@ function render() {
     const arrived = b.active;
     out.push(section("Baro Ki'Teer",
       arrived
-        ? `<p class="ws-sub">At <strong>${b.location}</strong> · leaves in <span class="ws-timer">${fmt(t(b.expiry) - now)}</span></p>` +
+        ? `<p class="ws-sub">At <strong>${esc(b.location)}</strong> · leaves in <span class="ws-timer">${fmt(t(b.expiry) - now)}</span></p>` +
           (b.inventory && b.inventory.length
-            ? `<div class="ws-baro">${b.inventory.slice(0, 30).map((i) => `<span class="ev-chip">${i.item}</span>`).join("")}</div>`
+            ? `<div class="ws-baro">${b.inventory.slice(0, 30).map((i) => `<span class="ev-chip">${esc(i.item)}</span>`).join("")}</div>`
             : `<p class="ws-sub">Inventory loading…</p>`)
-        : `<p class="ws-sub">Away — arrives at <strong>${b.location || "?"}</strong> in <span class="ws-timer">${fmt(t(b.activation) - now)}</span></p>`));
+        : `<p class="ws-sub">Away — arrives at <strong>${esc(b.location || "?")}</strong> in <span class="ws-timer">${fmt(t(b.activation) - now)}</span></p>`));
   }
 
   // Fissures
@@ -68,8 +69,8 @@ function render() {
     const sorted = [...f].sort((x, y) => (order[x.tier] || 9) - (order[y.tier] || 9));
     out.push(section("Void Fissures",
       sorted.map((x) => `<div class="ws-row">
-        <span class="ws-tag tier-${x.tier}">${x.tier}</span>
-        <div class="ws-info"><strong>${x.missionType}${x.isHard ? " · Steel Path" : ""}${x.isStorm ? " · Railjack" : ""}</strong><span>${x.node}</span></div>
+        <span class="ws-tag tier-${esc(x.tier)}">${esc(x.tier)}</span>
+        <div class="ws-info"><strong>${esc(x.missionType)}${x.isHard ? " · Steel Path" : ""}${x.isStorm ? " · Railjack" : ""}</strong><span>${esc(x.node)}</span></div>
         <span class="ws-timer">${fmt(t(x.expiry) - now)}</span>
       </div>`).join("")));
   }

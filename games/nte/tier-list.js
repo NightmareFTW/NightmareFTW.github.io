@@ -51,6 +51,7 @@ const root = document.getElementById("tier-root");
 const detail = document.getElementById("build-detail");
 
 const portrait = (name) => `../../assets/img/nte/${name.toLowerCase().replace(/ /g, "-")}.png`;
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 // Player-tested team comps scraped from each character's Prydwen page
 // (data/nte/teams.json). Populated on load; falls back to the Game8 meta team.
@@ -59,12 +60,13 @@ let PRYDWEN_TEAMS = {};
 // One labelled team line: the current character is highlighted, the other
 // members are clickable chips that jump to their own build.
 function teamBlock(label, members, current) {
+  // members/label come from data/nte/teams.json (scraped from Prydwen) — escape.
   const chips = members.map((t) =>
     t === current
-      ? `<span class="ev-chip team-carry">${t}</span>`
-      : `<span class="ev-chip" data-jump="${t}">${t}</span>`).join("");
+      ? `<span class="ev-chip team-carry">${esc(t)}</span>`
+      : `<span class="ev-chip" data-jump="${esc(t)}">${esc(t)}</span>`).join("");
   return `<div class="team-line">
-    <span class="team-label">${label}</span>
+    <span class="team-label">${esc(label)}</span>
     <div class="bd-team">${chips}</div>
   </div>`;
 }

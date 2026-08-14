@@ -5,6 +5,10 @@
    weapon stats, spells, hero, mount) imported from the site. Vanilla JS. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// esc() only escapes &<>" — it doesn't stop a javascript: scheme from being a
+// clickable link, so any href built from scraped/user-submitted text (like
+// b.video, a free field on wikily.gg's build planner) needs this too.
+const safeUrl = (u) => (/^https?:\/\//i.test(String(u || "").trim())) ? String(u).trim() : "#";
 const root = document.getElementById("fb-root");
 const wBar = document.getElementById("fb-weapons");
 let DATA = null, weapon = "all", query = "", BY_ID = {};
@@ -92,7 +96,7 @@ function openDetail(id) {
       ${b.mount ? `<div class="ffw-wblock"><span class="ffw-wrender" data-init="${esc((b.mount.label[0] || "?"))}">${icon(b.mount.render, b.mount.label, "ffw-wrender")}</span><div class="ffw-wmeta"><span class="ffw-k">Mount</span><b>${esc(b.mount.label)}</b></div></div>` : ""}
     </div></div>` : ""}
     ${tags ? `<div class="ffw-extra">${tags}</div>` : ""}
-    ${b.video ? `<a class="team-source-link" href="${esc(b.video)}" target="_blank" rel="noopener">▶ Watch the author's video</a>` : ""}
+    ${b.video ? `<a class="team-source-link" href="${esc(safeUrl(b.video))}" target="_blank" rel="noopener">▶ Watch the author's video</a>` : ""}
     <p class="bd-credit">Build by ${esc(b.author || "the community")} · imported from wikily.gg.</p>
   </div>`;
   document.body.appendChild(wrap);

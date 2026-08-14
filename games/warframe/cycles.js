@@ -14,6 +14,8 @@ const CYCLES = [
 const root = document.getElementById("cycle-root");
 let data = {}; // key -> {state, expiry}
 
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
 function fmt(ms) {
   if (ms < 0) ms = 0;
   const s = Math.floor(ms / 1000);
@@ -41,7 +43,7 @@ function render() {
     const warm = /day|warm|fass/i.test(d.state);
     return `<div class="cycle-card ${warm ? "warm" : "cool"}">
       <div class="cycle-name">${c.name}</div>
-      <div class="cycle-state">${d.state}</div>
+      <div class="cycle-state">${esc(d.state)}</div>
       <div class="cycle-timer">${fmt(d.expiry - now)}</div>
     </div>`;
   }).join("");

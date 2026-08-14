@@ -127,18 +127,18 @@ function itemCard(it) {
   if (it.theme) return `
     <div class="rc-card furn-card">
       <div class="rc-top">
-        <span class="rc-name">${it.img ? `<img class="rc-img" src="${esc(it.img)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ""}${nm(it)}</span>
+        <span class="rc-name">${it.img ? `<img class="rc-img" src="${esc(it.img)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ""}${esc(nm(it))}</span>
         <span class="ev-chip">${esc(it.theme)}</span>
       </div>
     </div>`;
   return `
     <div class="rc-card">
       <div class="rc-top">
-        <span class="rc-name">${it.img ? `<img class="rc-img" src="${esc(it.img)}" alt="" loading="lazy">` : ""}${nm(it)}</span>
-        <span>${it.limited ? `<span class="fr-dlc dlc-wish">Limited</span> ` : ""}${it.dlc ? `<span class="fr-dlc ${DLC_CLASS[it.dlc] || ""}">${it.dlc}</span> ` : ""}<span class="ev-chip">${esc(it.category)}</span></span>
+        <span class="rc-name">${it.img ? `<img class="rc-img" src="${esc(it.img)}" alt="" loading="lazy">` : ""}${esc(nm(it))}</span>
+        <span>${it.limited ? `<span class="fr-dlc dlc-wish">Limited</span> ` : ""}${it.dlc ? `<span class="fr-dlc ${DLC_CLASS[it.dlc] || ""}">${esc(it.dlc)}</span> ` : ""}<span class="ev-chip">${esc(it.category)}</span></span>
       </div>
-      <p class="it-where"><b>Where:</b> ${where(it)}</p>
-      <p class="it-where"><b>From:</b> ${from(it)}</p>
+      <p class="it-where"><b>Where:</b> ${esc(where(it))}</p>
+      <p class="it-where"><b>From:</b> ${esc(from(it))}</p>
       <div class="rc-meta">
         <span>💰 ${(it.sell || 0).toLocaleString()}</span>
         <span>⚡ ${(it.energy || 0).toLocaleString()}</span>

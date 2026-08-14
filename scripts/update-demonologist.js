@@ -7,13 +7,13 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execFileSync } = require("child_process");
 
 const OUT = path.join(__dirname, "..", "data", "demonologist", "data.json");
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 const WIKI = "https://demonologist.fandom.com/wiki/";
 
-const get = (slug) => { try { return execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${WIKI}${encodeURIComponent(slug)}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 }); } catch { return ""; } };
+const get = (slug) => { try { return execFileSync("curl", ["-sL", "--retry", "3", "--retry-delay", "2", "--retry-all-errors", "--max-time", "40", "-A", UA, `${WIKI}${encodeURIComponent(slug)}`], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 }); } catch { return ""; } };
 const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
 const clean = (s) => (s || "").replace(/<[^>]+>/g, " ").replace(/&#160;|&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&#39;|&#039;/g, "'").replace(/&quot;/g, '"').replace(/\[\d+\]/g, "").replace(/\s+/g, " ").trim();
 const ib = (h, src) => { const m = h.match(new RegExp('data-source="' + src + '"[\\s\\S]{0,120}?pi-data-value[^>]*>([\\s\\S]*?)<\\/div>', "i")); return m ? clean(m[1]) : ""; };

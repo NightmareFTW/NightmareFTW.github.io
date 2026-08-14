@@ -5,7 +5,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execFileSync } = require("child_process");
 
 const URL = "https://game8.co/games/Honkai-Star-Rail/archives/409604";
 const OUT = path.join(__dirname, "..", "data", "honkai-star-rail", "tier-list.json");
@@ -15,7 +15,7 @@ const TIER_ORDER = ["SS", "S", "A", "B", "C", "D"];
 // Game8 blocks plain Node fetch in some environments; curl is reliable and works
 // the same locally and in CI (and avoids a libuv crash from mixing fetch+execSync).
 function getHtml(url) {
-  return execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
+  return execFileSync("curl", ["-sL", "--retry", "3", "--retry-delay", "2", "--retry-all-errors", "--max-time", "40", "-A", UA, url], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
 }
 
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ").trim();

@@ -7,7 +7,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execFileSync } = require("child_process");
 
 const OUT = path.join(__dirname, "..", "data", "nte", "teams.json");
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)";
@@ -25,7 +25,7 @@ const norm = (n) => FIX[n] || n;
 
 const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
 const get = (url) => {
-  try { return execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" -H "Accept-Language: en-US,en;q=0.9" "${url}"`, { encoding: "utf8", maxBuffer: 24 * 1024 * 1024 }); } catch { return ""; }
+  try { return execFileSync("curl", ["-sL", "--retry", "3", "--retry-delay", "2", "--retry-all-errors", "--max-time", "40", "-A", UA, "-H", "Accept-Language: en-US,en;q=0.9", url], { encoding: "utf8", maxBuffer: 24 * 1024 * 1024 }); } catch { return ""; }
 };
 
 // Drop a redundant character name from a team label ("Daffodil Scorch Team"

@@ -24,6 +24,7 @@ const ROUTINE = [
   { name: "Take a selfie with Merlin", how: "Equip the Royal Camera, stand near Merlin with him in frame, and take the photo." },
 ];
 
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const KEY = "nftw:ddv:starpath";
 let checks = {};
 try { checks = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { checks = {}; }
@@ -35,15 +36,15 @@ document.getElementById("season-info").innerHTML =
 const root = document.getElementById("sp-root");
 
 function dutyCard(id, name, how, meta) {
-  return `<div class="cp-card ${checks[id] ? "is-checked" : ""}" data-id="${id}">
+  return `<div class="cp-card ${checks[id] ? "is-checked" : ""}" data-id="${esc(id)}">
     <div class="cp-head">
       <label class="sp-check-wrap">
         <input type="checkbox" class="sp-check" ${checks[id] ? "checked" : ""}>
-        <span class="cp-name">${name}</span>
+        <span class="cp-name">${esc(name)}</span>
       </label>
       <span>${meta || ""}<span class="cp-toggle">▾</span></span>
     </div>
-    <div class="cp-detail"><p><b>How to.</b> ${how}</p></div>
+    <div class="cp-detail"><p><b>How to.</b> ${esc(how)}</p></div>
   </div>`;
 }
 
@@ -74,9 +75,9 @@ async function build() {
     const data = await (await fetch(`../../data/dreamlight-valley/starpath.json?cb=${Date.now()}`)).json();
     for (const w of data.weeks) {
       if (!w.duties.length) continue;
-      html += `<h2 class="sp-section">Week ${w.week} <span class="sp-hint">${w.unlocks || ""}</span></h2>`;
+      html += `<h2 class="sp-section">Week ${esc(w.week)} <span class="sp-hint">${esc(w.unlocks || "")}</span></h2>`;
       html += w.duties.map((d, j) =>
-        dutyCard(`w${w.week}_${j}`, d.name, d.how, `<span class="sp-tokens">${d.qty ? d.qty + "× · " : ""}${d.tokens || ""}🪙</span>`)).join("");
+        dutyCard(`w${w.week}_${j}`, d.name, d.how, `<span class="sp-tokens">${d.qty ? esc(d.qty) + "× · " : ""}${esc(d.tokens || "")}🪙</span>`)).join("");
     }
   } catch (e) { /* weekly data optional */ }
 
