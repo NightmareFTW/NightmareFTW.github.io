@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: "24"
+      - name: TEMP diagnose wiki structure
+        run: node scripts/ddv-diagnose.js
       - name: Build DDV datasets
         run: |
           node scripts/update-furniture.js   # full furniture catalogue (items.js reads its count)
