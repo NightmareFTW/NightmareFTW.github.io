@@ -5,7 +5,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
+const { execFileSync } = require("child_process");
 
 const URL = "https://game8.co/games/Honkai-Star-Rail/archives/409824";
 const TIER_URL = "https://game8.co/games/Honkai-Star-Rail/archives/409604";
@@ -13,10 +13,12 @@ const OUT = path.join(__dirname, "..", "data", "honkai-star-rail", "teams.json")
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 const ELEMENTS = ["Quantum", "Lightning", "Fire", "Ice", "Wind", "Imaginary", "Physical"];
 
-const getHtml = (url) => execSync(`curl -sL --retry 3 --retry-delay 2 --retry-all-errors --max-time 40 -A "${UA}" "${url}"`, { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
+const getHtml = (url) => execFileSync("curl", ["-sL", "--retry", "3", "--retry-delay", "2", "--retry-all-errors", "--max-time", "40", "-A", UA, url], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"').replace(/&nbsp;/g, " ").trim();
 const cleanName = (alt) => decode(alt).replace(/^.*?[-–]\s*/, "").trim(); // "Star Rail - Archer" -> "Archer"
-const stripTags = (s) => decode(s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " "));
+// Decode entities BEFORE stripping tags, so an entity-encoded tag can't
+// survive the stripper and only "activate" once decoded afterwards.
+const stripTags = (s) => decode(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
 // One Game8 table holds several team variants for a DPS, each introduced by a
 // full-width header row (the label: "F2P", "Hypercarry Team", …). Split on those.

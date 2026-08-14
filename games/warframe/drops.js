@@ -21,6 +21,7 @@ const TYPE_LABEL = { R: "Relic", M: "Mission" };
 const TIER_ORDER = ["Lith", "Meso", "Neo", "Axi", "Requiem"];
 
 function uniq(arr) { return [...new Set(arr)].filter(Boolean); }
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 function buildFacets() {
   const planets = uniq(DATA.rows.map((r) => r[5])).sort();
@@ -30,7 +31,7 @@ function buildFacets() {
     <div class="facet-group">
       <div class="facet-title">${title}</div>
       <div class="facet-chips">
-        ${items.map((it) => `<button class="chip-toggle" data-facet="${key}" data-val="${it}">${labelFn(it)}</button>`).join("")}
+        ${items.map((it) => `<button class="chip-toggle" data-facet="${key}" data-val="${esc(it)}">${esc(labelFn(it))}</button>`).join("")}
       </div>
     </div>`;
 
@@ -74,10 +75,10 @@ function render() {
 
   els.results.innerHTML = shown.map((r) => {
     const rar = DATA.rarities[r[1]] || "";
-    const where = r[3] === "M" ? `${r[4]} · ${r[5]}` : r[4];
+    const where = r[3] === "M" ? `${esc(r[4])} · ${esc(r[5])}` : esc(r[4]);
     return `<div class="drop-row">
-      <span class="drop-item">${r[0]}</span>
-      <span class="rar rar-${r[1]}">${rar}</span>
+      <span class="drop-item">${esc(r[0])}</span>
+      <span class="rar rar-${r[1]}">${esc(rar)}</span>
       <span class="drop-src"><span class="src-tag tag-${r[3]}">${TYPE_LABEL[r[3]]}</span>${where}</span>
       <span class="drop-chance">${r[2]}%</span>
     </div>`;

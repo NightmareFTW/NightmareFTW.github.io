@@ -74,6 +74,33 @@ const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : randToken());
 const normEmail = (e) => String(e || "").trim().toLowerCase();
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) && e.length <= 254;
 
+// ---- rate limiting (fixed window, backed by D1) ----
+// Cheap brute-force/credential-stuffing guard for the unauthenticated auth
+// endpoints. Not perfectly race-free under heavy concurrency (D1 doesn't give
+// us a cross-request transaction here), but that only ever makes a window
+// slightly generous, never bypassable outright — good enough for this scale.
+function clientIp(req) {
+  return req.headers.get("CF-Connecting-IP") || (req.headers.get("X-Forwarded-For") || "").split(",")[0].trim() || "unknown";
+}
+async function checkRateLimit(env, key, windowSeconds, limit) {
+  const windowStart = Math.floor(now() / windowSeconds) * windowSeconds;
+  const row = await env.DB.prepare(
+    `INSERT INTO rate_limits (key, count, window_start) VALUES (?, 1, ?)
+     ON CONFLICT(key) DO UPDATE SET
+       count = CASE WHEN rate_limits.window_start = excluded.window_start THEN rate_limits.count + 1 ELSE 1 END,
+       window_start = excluded.window_start
+     RETURNING count, window_start`
+  ).bind(key, windowStart).first();
+  const retryAfter = row.window_start + windowSeconds - now();
+  return { ok: row.count <= limit, retryAfter: Math.max(1, retryAfter) };
+}
+function tooManyRequests(env, retryAfter) {
+  return new Response(JSON.stringify({ error: "rate_limited" }), {
+    status: 429,
+    headers: { "Content-Type": "application/json", "Retry-After": String(retryAfter), ...corsHeaders(env) },
+  });
+}
+
 // ---- recovery codes (one-time backup codes; no email needed to reset) ----
 // High-entropy random codes (~60 bits) so a fast SHA-256 hash is safe to store.
 const RC_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"; // no 0/O/1/I/L
@@ -94,14 +121,22 @@ async function makeRecoveryCodes(env, userId, n = 10) {
 }
 
 // ---- responses ----
+// No "|| *" fallback: if ALLOW_ORIGIN is ever unset, browsers get no
+// Access-Control-Allow-Origin header at all and simply can't read the
+// response cross-origin — a safe default-closed failure, not a wildcard
+// that would silently open the API to every origin on a misconfiguration.
 function corsHeaders(env) {
-  return {
-    "Access-Control-Allow-Origin": env.ALLOW_ORIGIN || "*",
+  const h = {
     "Access-Control-Allow-Methods": "GET,POST,PUT,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type,Authorization",
     "Access-Control-Max-Age": "86400",
     "Vary": "Origin",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "no-referrer",
+    "X-Frame-Options": "DENY",
   };
+  if (env.ALLOW_ORIGIN) h["Access-Control-Allow-Origin"] = env.ALLOW_ORIGIN;
+  return h;
 }
 const json = (env, obj, status = 200) => new Response(JSON.stringify(obj), { status, headers: { "Content-Type": "application/json", ...corsHeaders(env) } });
 
@@ -110,7 +145,14 @@ async function auth(req, env) {
   const m = h.match(/^Bearer\s+(.+)$/i);
   if (!m) return null;
   const payload = await verifyToken(m[1], env.SESSION_SECRET);
-  return payload && payload.uid ? payload : null;
+  if (!payload || !payload.uid) return null;
+  // Reject tokens issued before the account's last password reset/recovery —
+  // closes the window where a stolen token would otherwise keep working for
+  // its full 90-day life even after the legitimate owner "secured" the
+  // account by changing the password.
+  const u = await env.DB.prepare("SELECT token_version FROM users WHERE id=?").bind(payload.uid).first();
+  if (!u || (u.token_version || 0) !== (payload.tv || 0)) return null;
+  return payload;
 }
 async function readJson(req) { try { return await req.json(); } catch { return {}; } }
 
@@ -132,7 +174,6 @@ async function sendResetEmail(env, email, link) {
 
 export default {
   async fetch(req, env) {
-    // Verificação de segurança: verificar se a ligação à base de dados existe
     if (!env.DB) return json(env, { error: "Database binding 'DB' is missing" }, 500);
 
     const url = new URL(req.url);
@@ -155,6 +196,8 @@ export default {
 
       // ---- signup ----
       if (req.method === "POST" && url.pathname === "/auth/signup") {
+        const rl = await checkRateLimit(env, `signup:${clientIp(req)}`, 3600, 8);
+        if (!rl.ok) return tooManyRequests(env, rl.retryAfter);
         const { email, password } = await readJson(req);
         const e = normEmail(email);
         if (!validEmail(e)) return json(env, { error: "invalid_email" }, 400);
@@ -163,10 +206,10 @@ export default {
         if (exists) return json(env, { error: "email_taken" }, 409);
         const { hash, salt } = await hashPassword(String(password));
         const id = uuid();
-        await env.DB.prepare("INSERT INTO users (id,email,pass_hash,pass_salt,created) VALUES (?,?,?,?,?)").bind(id, e, hash, salt, now()).run();
+        await env.DB.prepare("INSERT INTO users (id,email,pass_hash,pass_salt,created,token_version) VALUES (?,?,?,?,?,0)").bind(id, e, hash, salt, now()).run();
         await env.DB.prepare("INSERT INTO settings (user_id,blob,updated) VALUES (?, '{}', ?)").bind(id, now()).run();
         const recovery = await makeRecoveryCodes(env, id);
-        const token = await signToken({ uid: id, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
+        const token = await signToken({ uid: id, tv: 0, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
         return json(env, { token, email: e, recovery });
       }
 
@@ -174,10 +217,19 @@ export default {
       if (req.method === "POST" && url.pathname === "/auth/login") {
         const { email, password } = await readJson(req);
         const e = normEmail(email);
-        const u = await env.DB.prepare("SELECT id,pass_hash,pass_salt FROM users WHERE email=?").bind(e).first();
+        // Two independent limits: per source IP (stops one attacker grinding
+        // through many accounts) and per target email (stops a distributed
+        // attack grinding through many IPs against one account).
+        const rlIp = await checkRateLimit(env, `login:${clientIp(req)}`, 900, 12);
+        if (!rlIp.ok) return tooManyRequests(env, rlIp.retryAfter);
+        if (e) {
+          const rlEmail = await checkRateLimit(env, `login:email:${e}`, 900, 8);
+          if (!rlEmail.ok) return tooManyRequests(env, rlEmail.retryAfter);
+        }
+        const u = await env.DB.prepare("SELECT id,pass_hash,pass_salt,token_version FROM users WHERE email=?").bind(e).first();
         const ok = u && await checkPassword(String(password || ""), u.pass_salt, u.pass_hash);
         if (!ok) return json(env, { error: "bad_credentials" }, 401);
-        const token = await signToken({ uid: u.id, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
+        const token = await signToken({ uid: u.id, tv: u.token_version || 0, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
         return json(env, { token, email: e });
       }
 
@@ -190,6 +242,8 @@ export default {
 
       // ---- password reset: request ----
       if (req.method === "POST" && url.pathname === "/auth/reset-request") {
+        const rl = await checkRateLimit(env, `reset:${clientIp(req)}`, 3600, 8);
+        if (!rl.ok) return tooManyRequests(env, rl.retryAfter);
         const { email } = await readJson(req);
         const e = normEmail(email);
         const u = validEmail(e) ? await env.DB.prepare("SELECT id FROM users WHERE email=?").bind(e).first() : null;
@@ -209,13 +263,18 @@ export default {
         const row = await env.DB.prepare("SELECT user_id,expires FROM resets WHERE token=?").bind(String(token || "")).first();
         if (!row || row.expires < now()) return json(env, { error: "invalid_token" }, 400);
         const { hash, salt } = await hashPassword(String(password));
-        await env.DB.prepare("UPDATE users SET pass_hash=?, pass_salt=? WHERE id=?").bind(hash, salt, row.user_id).run();
+        // Bump token_version so any session token issued before this reset
+        // (e.g. one an attacker stole, which is often *why* the password is
+        // being reset) stops being accepted right away.
+        await env.DB.prepare("UPDATE users SET pass_hash=?, pass_salt=?, token_version=token_version+1 WHERE id=?").bind(hash, salt, row.user_id).run();
         await env.DB.prepare("DELETE FROM resets WHERE user_id=?").bind(row.user_id).run();
         return json(env, { ok: true });
       }
 
       // ---- recover the account with a one-time recovery code ----
       if (req.method === "POST" && url.pathname === "/auth/recover") {
+        const rl = await checkRateLimit(env, `recover:${clientIp(req)}`, 3600, 8);
+        if (!rl.ok) return tooManyRequests(env, rl.retryAfter);
         const { email, code, password } = await readJson(req);
         if (!password || String(password).length < 8) return json(env, { error: "weak_password" }, 400);
         const e = normEmail(email);
@@ -224,11 +283,12 @@ export default {
         const row = u ? await env.DB.prepare("SELECT rowid AS rid FROM recovery WHERE user_id=? AND code_hash=? AND used=0").bind(u.id, ch).first() : null;
         if (!row) return json(env, { error: "bad_recovery" }, 400);
         const { hash, salt } = await hashPassword(String(password));
-        await env.DB.prepare("UPDATE users SET pass_hash=?, pass_salt=? WHERE id=?").bind(hash, salt, u.id).run();
+        const updated = await env.DB.prepare("UPDATE users SET pass_hash=?, pass_salt=?, token_version=token_version+1 WHERE id=? RETURNING token_version")
+          .bind(hash, salt, u.id).first();
         // Issue a fresh set (this wipes the used code and any leftovers), so the
         // user can always recover again and never runs out of codes.
         const recovery = await makeRecoveryCodes(env, u.id);
-        const token = await signToken({ uid: u.id, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
+        const token = await signToken({ uid: u.id, tv: updated.token_version, exp: now() + 60 * 60 * 24 * 90 }, env.SESSION_SECRET);
         return json(env, { token, email: e, recovery });
       }
 
@@ -267,10 +327,12 @@ export default {
       }
 
     } catch (e) {
-      // Log detalhado para o console da Cloudflare
-      console.error("ERRO_DETALHADO:", e);
-      // Resposta detalhada para o navegador (para debug)
-      return json(env, { error: "server_error", detail: String(e && e.message || e) }, 500);
+      // Full detail goes to the Cloudflare dashboard's log only — never to the
+      // client. Returning e.message here would hand out internal error
+      // strings (stack fragments, D1/driver details) to anyone who can
+      // trigger an exception.
+      console.error("worker error:", e);
+      return json(env, { error: "server_error" }, 500);
     }
 
     return json(env, { error: "not_found" }, 404);

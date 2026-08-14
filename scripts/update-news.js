@@ -66,11 +66,22 @@ const decodeEntities = (s = "") => s
   .replace(/&(amp|lt|gt|quot|apos|nbsp|#39);/g, (_, e) => NAMED[e] || "");
 const safeCp = (n) => { try { return String.fromCodePoint(n); } catch { return ""; } };
 const decode = (s = "") => decodeEntities(s).replace(/\s+/g, " ").trim();
-const stripTags = (s = "") => decode(s.replace(/<[^>]+>/g, " "));
+// Decode entities BEFORE stripping tags, not after: a paragraph containing the
+// literal text "&lt;script&gt;alert(1)&lt;/script&gt;" (very common on tech/
+// news pages showing example markup) has no raw "<"/">" for the tag-stripper
+// to catch, so decoding afterwards would "activate" it into a real tag right
+// before it's dropped straight into article.html via innerHTML. Stripping
+// after decoding closes that hole; anything left over is then plain text.
+const stripTags = (s = "") => decodeEntities(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 const tag = (block, name) => {
   const m = block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`));
   return m ? decode(m[1].replace(/<!\[CDATA\[|\]\]>/g, "")) : "";
 };
+// HTML-escape for safe use inside a "..."-quoted attribute we're generating.
+const escAttr = (s = "") => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// Only allow http(s)/relative/scheme-relative URLs in generated href/src —
+// blocks javascript:/vbscript:/data: schemes smuggled through a [url=]/[img].
+const safeUrl = (u = "") => (/^(https?:)?\/\//i.test(u.trim()) || /^[.#/]/.test(u.trim())) ? u.trim() : "#";
 
 // Fetch with a hard timeout so one slow request can't stall the run.
 async function fetchT(url, opts = {}, ms = 12000) {
@@ -84,8 +95,12 @@ async function fetchT(url, opts = {}, ms = 12000) {
 const STEAM_IMG = "https://clan.cloudflare.steamstatic.com/images";
 function bbcodeToHtml(src = "") {
   let s = src.replace(/\{STEAM_CLAN_IMAGE\}/g, STEAM_IMG);
-  s = s.replace(/\[img\][\s]*([^\[\]]+?)[\s]*\[\/img\]/gi, (_, u) => `<img src="${u.trim()}" loading="lazy" alt="">`);
-  s = s.replace(/\[url=([^\]]+)\]([\s\S]*?)\[\/url\]/gi, '<a href="$1" target="_blank" rel="noopener">$2</a>');
+  // [img]/[url=] carry a raw URL straight from the post — escape it for safe
+  // attribute embedding and restrict the scheme, so neither can break out of
+  // the "..." into a new attribute (e.g. `x" onerror="...`) or run script via
+  // a javascript:/data: href.
+  s = s.replace(/\[img\][\s]*([^\[\]]+?)[\s]*\[\/img\]/gi, (_, u) => `<img src="${escAttr(safeUrl(u))}" loading="lazy" alt="">`);
+  s = s.replace(/\[url=([^\]]+)\]([\s\S]*?)\[\/url\]/gi, (_, u, t) => `<a href="${escAttr(safeUrl(u))}" target="_blank" rel="noopener">${t}</a>`);
   s = s.replace(/\[h([1-3])\]([\s\S]*?)\[\/h\1\]/gi, (_, n, t) => `<h${Math.min(4, +n + 1)}>${t}</h${Math.min(4, +n + 1)}>`);
   s = s.replace(/\[b\]([\s\S]*?)\[\/b\]/gi, "<strong>$1</strong>")
        .replace(/\[i\]([\s\S]*?)\[\/i\]/gi, "<em>$1</em>")
@@ -93,8 +108,17 @@ function bbcodeToHtml(src = "") {
   s = s.replace(/\[list[^\]]*\]/gi, "<ul>").replace(/\[\/list\]/gi, "</ul>").replace(/\[\*\]/gi, "<li>");
   s = s.replace(/\[quote[^\]]*\]([\s\S]*?)\[\/quote\]/gi, "<blockquote>$1</blockquote>");
   s = s.replace(/\[p[^\]]*\]([\s\S]*?)\[\/p\]/gi, "<p>$1</p>").replace(/\[p[^\]]*\]/gi, "<p>");
-  s = s.replace(/\[\/?[a-z][^\]]*\]/gi, "");          // drop any remaining tags
+  s = s.replace(/\[\/?[a-z][^\]]*\]/gi, "");          // drop any remaining bbcode tags
   s = s.replace(/&amp;quot;/g, '"').replace(/&amp;/g, "&");
+  // Defense in depth: even though the source is developer-controlled, never
+  // trust it as much as our own markup. Drop entire elements that have no
+  // legitimate use in a game announcement, strip any inline event-handler
+  // attribute, and neutralize any javascript:/vbscript:/data: URI that ended
+  // up in an href/src some other way.
+  s = s.replace(/<(script|iframe|object|embed|style|svg|link|meta|form|base)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, "")
+       .replace(/<(script|iframe|object|embed|style|svg|link|meta|form|base)\b[^>]*\/?>/gi, "")
+       .replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+       .replace(/\b(href|src)\s*=\s*("|')\s*(?:javascript|vbscript|data):[^"']*\2/gi, '$1="#"');
   return s.trim();
 }
 

@@ -55,7 +55,10 @@ const decodeEntities = (s = "") => s
   .replace(/&(amp|lt|gt|quot|apos|nbsp|#39);/g, (_, e) => NAMED[e] || "");
 const safeCp = (n) => { try { return String.fromCodePoint(n); } catch { return ""; } };
 const decode = (s = "") => decodeEntities(s).replace(/\s+/g, " ").trim();
-const stripTags = (s = "") => decode(s.replace(/<[^>]+>/g, " "));
+// Decode entities BEFORE stripping tags — otherwise an entity-encoded tag
+// (e.g. "&lt;script&gt;") has no raw "<"/">" to be caught by the stripper and
+// only turns into a real tag once decoded, right after the filter ran.
+const stripTags = (s = "") => decodeEntities(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 const tag = (block, name) => {
   const m = block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`, "i"));
   return m ? decode(m[1].replace(/<!\[CDATA\[|\]\]>/g, "")) : "";

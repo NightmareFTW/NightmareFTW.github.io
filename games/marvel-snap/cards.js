@@ -4,6 +4,9 @@
    Vanilla JS, no deps. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// esc() doesn't block a javascript: scheme — c.url comes straight from the
+// third-party Marvel Snap Zone API, so validate the scheme before linking it.
+const safeUrl = (u) => (/^https?:\/\//i.test(String(u || "").trim())) ? String(u).trim() : "#";
 const root = document.getElementById("cd-root");
 const detail = document.getElementById("ms-detail");
 let CARDS = [], query = "", cost = "all", tag = "all";
@@ -31,7 +34,7 @@ function openCard(name) {
         ${c.ability ? `<p class="ms-ability">${esc(c.ability)}</p>` : `<p class="ms-ability ms-noability">No ability.</p>`}
         ${tags ? `<div class="bd-team" style="margin:10px 0">${tags}</div>` : ""}
         <p class="ms-meta">${esc(c.pool || "—")}${c.type && c.type !== "Character" ? " · " + esc(c.type) : ""}</p>
-        ${c.url ? `<a class="team-source-link" href="${esc(c.url)}" target="_blank" rel="noopener">View on Marvel Snap Zone ↗</a>` : ""}
+        ${c.url ? `<a class="team-source-link" href="${esc(safeUrl(c.url))}" target="_blank" rel="noopener">View on Marvel Snap Zone ↗</a>` : ""}
       </div>
     </div>
   </div>`;

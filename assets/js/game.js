@@ -213,7 +213,7 @@
         : c.expires
           ? `<span class="code-valid">Expires ${new Date(c.expires).toLocaleDateString()}</span>`
           : `<span class="code-valid ok">Active</span>`;
-      return `<div class="code-row ${expired ? "is-expired" : ""} ${used ? "is-used" : ""}" data-code="${c.code}">
+      return `<div class="code-row ${expired ? "is-expired" : ""} ${used ? "is-used" : ""}" data-code="${esc(c.code)}">
         <input type="checkbox" class="code-check" ${used ? "checked" : ""}>
         <div class="code-main">
           <code class="code-text">${esc(c.code)}</code>
