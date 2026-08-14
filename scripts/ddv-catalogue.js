@@ -1,58 +1,41 @@
-/* Shared scraper for the big per-theme item catalogues (Furniture, Clothing).
-   The wiki lists every piece in galleries grouped by Disney theme (Aladdin,
-   Cinderella, …). We grab name + thumbnail + theme and attach the official
-   PT-BR name (English fallback — these names are proper-noun heavy, so the
-   best-effort translator would mangle them). Node 18+, no deps. */
-
 const fs = require("fs");
 const path = require("path");
 const { officialName } = require("./ddv-official");
-const { getText } = require("./lib/http");
-const clean = (s) => s.replace(/<[^>]+>/g, " ").replace(/&#39;|&apos;/g, "'").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#?\w+;/g, " ").replace(/\s+/g, " ").trim();
-const bigImg = (u) => {
-  if (!u) return "";
-  const t = u.match(/\/images\/thumb\/(.+?\.(?:png|jpe?g))\/\d+px-/i);
-  const s = t ? `/images/${t[1]}` : u;
-  return s.startsWith("http") ? s : "https://dreamlightvalleywiki.com" + s;
-};
+const { wikitext, imageUrls, sections, galleries } = require("./lib/ddv-fandom");
 
-// Section headings that aren't a real theme.
-const SKIP = /^(Collecting|Wearing|Placing|Contents|Navigation|Links|Gameplay|References|Trivia|Categories)/i;
-
-// These two pages are 1.5-3 MB each and get fetched back to back, so the wiki
-// occasionally serves one of them short. curl's --retry only covers transport
-// errors, not a 200 with truncated body, so retry on a thin parse as well.
-async function buildCatalogue({ src, out, label }) {
+async function buildCatalogue({ page, out, label }) {
   let items = [];
   for (let attempt = 1; attempt <= 3 && items.length < 100; attempt++) {
     if (attempt > 1) {
       console.warn(`${label}: only ${items.length} parsed, retrying (${attempt}/3)…`);
       await new Promise((r) => setTimeout(r, 3000 * attempt));
     }
-    items = parseCatalogue(getText(src));
+    items = parseCatalogue(wikitext(page));
   }
   if (items.length < 100) throw new Error(`only ${items.length} ${label} parsed — keeping previous file`);
+
+  const urls = imageUrls(items.map((i) => i.file));
+  for (const i of items) { i.img = urls[i.file] || ""; delete i.file; }
+
   const themes = [...new Set(items.map((i) => i.theme))].sort();
   fs.mkdirSync(path.dirname(out), { recursive: true });
-  fs.writeFileSync(out, JSON.stringify({ updated: new Date().toISOString(), source: src, count: items.length, themes, items }));
+  fs.writeFileSync(out, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: `https://disneydreamlightvalley.fandom.com/wiki/${encodeURIComponent(page)}`,
+    count: items.length, themes, items,
+  }));
   console.log(`Wrote ${items.length} ${label} across ${themes.length} themes (${items.filter((i) => i.img).length} images, ${items.filter((i) => i.name_pt !== i.name).length} PT names).`);
 }
 
-function parseCatalogue(html) {
+function parseCatalogue(wt) {
   const seen = new Set();
   const items = [];
-  for (const part of html.split(/(?=<h[23])/)) {
-    const hm = part.match(/<h[23][^>]*>(?:<[^>]+>)*([^<]+)/);
-    if (!hm) continue;
-    const theme = clean(hm[1]);
-    if (!theme || SKIP.test(theme)) continue;
-    for (const box of part.match(/<li class="gallerybox"[\s\S]*?<\/li>/g) || []) {
-      const badged = box.replace(/<div class="gallerycorner"[\s\S]*?<\/div>\s*<\/div>/g, ""); // drop Premium/DLC corner badge
-      const name = clean((badged.match(/<a[^>]+title="([^"]+)"/) || [])[1] || "");
-      if (!name || name.length < 2 || /\.(png|jpe?g)$|^File:/i.test(name) || seen.has(name)) continue;
+  for (const { heading, body } of sections(wt)) {
+    if (!heading) continue;
+    for (const { file, name } of galleries(body)) {
+      if (!name || name.length < 2 || seen.has(name)) continue;
       seen.add(name);
-      const img = bigImg((badged.match(/<img[^>]+(?:data-src|src)="([^"]+)"/) || [])[1] || "");
-      items.push({ name, name_pt: officialName(name) || name, img, theme });
+      items.push({ name, name_pt: officialName(name) || name, file, theme: heading });
     }
   }
   return items;

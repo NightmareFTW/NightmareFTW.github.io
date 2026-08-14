@@ -14,7 +14,7 @@ const tr = (o, k) => (PT && o[k + "_pt"]) ? o[k + "_pt"] : o[k]; // food/reward 
 const biomeLabel = (v) => v; // biome names already match the wild biomes; PT handled by i18n where mapped
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const DLC_CLASS = { "A Rift in Time": "dlc-rift", "Storybook Vale": "dlc-vale", "Wishblossom Mountains": "dlc-wish" };
-const SRC_CLASS = { Event: "src-event", Premium: "src-premium", "Quest Reward": "src-quest", Craftable: "src-craft" };
+const SRC_CLASS = { Event: "src-event", Premium: "src-premium", "Quest Reward": "src-quest", Critter: "src-craft", "Star Path": "src-quest", "Founder's Pack": "src-premium" };
 
 // In-game Collection order: critters are grouped by biome, in region-unlock order
 // (base valley first, then A Rift in Time, Storybook Vale, Wishblossom Mountains).
@@ -32,9 +32,9 @@ function setOwned(name, v) {
 
 // Short label for the feeding/approach style (used as a filter).
 function approachOf(feeding) {
-  if (/^red light/i.test(feeding)) return "Red Light, Green Light";
-  if (/^tag\b/i.test(feeding)) return "Tag (chase)";
-  if (/^patience/i.test(feeding)) return "Patience (wait)";
+  if (/slowly approach/i.test(feeding)) return "Red Light, Green Light";
+  if (/^chase\b/i.test(feeding)) return "Tag (chase)";
+  if (/wait for it/i.test(feeding)) return "Patience (wait)";
   return "Just approach";
 }
 const DAY3 = { Sunday: "Sun", Monday: "Mon", Tuesday: "Tue", Wednesday: "Wed", Thursday: "Thu", Friday: "Fri", Saturday: "Sat" };
@@ -108,7 +108,7 @@ function buildControls() {
       `<select id="f-approach" class="sort-select">${opt("", "Any approach", fApproach)}${approaches.map((a) => opt(a, a, fApproach)).join("")}</select>` +
       ownedSel;
   } else {
-    const sources = ["Event", "Premium", "Quest Reward", "Craftable"].filter((s) => DATA.companions.some((c) => c.source === s));
+    const sources = uniqSorted(DATA.companions.map((c) => c.source));
     els.controls.innerHTML = search +
       `<select id="f-source" class="sort-select">${opt("", "All sources", fSource)}${sources.map((s) => opt(s, s, fSource)).join("")}</select>` +
       ownedSel;
@@ -145,7 +145,7 @@ function critterCard(c) {
       </div>
       <div class="ac-body">
         <p class="ac-line">🍽 <b>Favourite:</b> ${esc(tr(c, "favoriteFood"))}${c.likedFood ? ` · <span class="ac-muted"><b class="ac-lbl">Liked:</b> ${esc(tr(c, "likedFood"))}</span>` : ""}</p>
-        <p class="ac-line">🤝 <b>How to approach:</b> ${esc(c.feeding)}</p>
+        <p class="ac-line">🤝 <b>How to approach:</b> ${esc(tr(c, "feeding"))}</p>
         ${c.favReward ? `<p class="ac-line ac-muted">🎁 ${esc(tr(c, "favReward"))}</p>` : ""}
         <div class="variant-grid">
           ${variants.map((v) => { const active = isActiveNow(v); return `
