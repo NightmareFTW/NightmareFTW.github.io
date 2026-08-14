@@ -13,9 +13,14 @@
    self-corrects false positives from the regex scan (an unrelated or garbage
    appid just fails validation and gets dropped).
 
-   Filter: only games where is_free === false ("apenas os jogos que contam +1
-   para a conta" — normally-paid games that add value, not permanently-free
-   F2P titles that happen to get mentioned).
+   Filter: trust the group's own curation (it exists specifically to track
+   "normally-paid game, temporarily free" promos) rather than Steam's live
+   is_free flag — during an official "free to keep" giveaway (like Deponia,
+   Aug 2026) Valve flips the app's own is_free to true for the claim window,
+   which is indistinguishable from a permanently-free F2P title in the API
+   response. Relying on it would silently drop exactly the promos we want.
+   "[ENDED]"/"[EXPIRED]" post titles are what retract an entry instead (see
+   below) — that's a much more reliable per-item signal than a price flag.
 
    The RSS window only holds the most recent handful of posts, so results are
    merged with the previous data/steam-free-games.json and pruned by age
@@ -64,6 +69,15 @@ const tag = (block, name) => {
   return m ? decode(m[1].replace(/<!\[CDATA\[|\]\]>/g, "")) : "";
 };
 
+// Best-effort "claim it before this date" extraction from the post's own
+// freeform text (e.g. "Free to keep when you get it before 20 Aug"). Kept as
+// the raw matched phrase rather than a parsed Date — the source has no fixed
+// format/locale/year, and a wrong guess is worse than showing nothing.
+function deadlineHint(text) {
+  const m = String(text || "").match(/\b(?:before|until|by)\s+((?:\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9}|[A-Za-z]{3,9}\s+\d{1,2}(?:st|nd|rd|th)?)(?:,?\s*\d{4})?)/i);
+  return m ? m[1].trim() : "";
+}
+
 // ---- RSS -> candidate appids --------------------------------------------------
 async function fetchGroupPosts() {
   const xml = await (await fetchT(RSS_URL)).text();
@@ -74,13 +88,14 @@ async function fetchGroupPosts() {
     const title = tag(block, "title");
     const link = tag(block, "link");
     const pubDate = tag(block, "pubDate");
+    const description = tag(block, "description");
     const date = new Date(pubDate || Date.now()).toISOString();
     // Any Steam store app link mentioned anywhere in the post (title, link or
     // description) is a candidate — the appdetails check below is what
     // actually validates it, so we can afford to be permissive here.
     const appids = [...new Set([...block.matchAll(/store\.steampowered\.com\/app\/(\d+)/gi)].map((x) => Number(x[1])))].slice(0, 5);
     if (!appids.length) continue;
-    posts.push({ title: stripTags(title), sourceUrl: link, postedAt: date, appids });
+    posts.push({ title: stripTags(title), sourceUrl: link, postedAt: date, appids, deadline: deadlineHint(description) || deadlineHint(title) });
   }
   return posts;
 }
@@ -118,7 +133,7 @@ async function run() {
       if (ended) { byAppid.delete(appid); continue; }
       await sleep(APPDETAILS_DELAY_MS);
       const data = await appDetails(appid);
-      if (!data || data.is_free) continue;   // not a real game, or already F2P
+      if (!data) continue;   // not a real Steam app — bad/garbage appid
       const price = data.price_overview;
       byAppid.set(appid, {
         appid,
@@ -126,6 +141,7 @@ async function run() {
         image: data.header_image || "",
         url: `https://store.steampowered.com/app/${appid}/`,
         normalPrice: price ? price.initial_formatted || price.final_formatted || "" : "",
+        deadline: post.deadline || "",
         postedAt: post.postedAt,
         sourceTitle: post.title,
         sourceUrl: post.sourceUrl,

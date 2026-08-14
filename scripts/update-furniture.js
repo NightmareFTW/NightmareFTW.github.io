@@ -6,7 +6,7 @@ const { buildCatalogue } = require("./ddv-catalogue");
 const OUT = path.join(__dirname, "..", "data", "dreamlight-valley", "furniture.json");
 
 buildCatalogue({
-  src: "https://dreamlightvalleywiki.com/Furniture",
+  page: "Furniture",
   out: OUT,
   label: "furniture",
 }).catch((e) => require("./lib/keep")(OUT, e));
