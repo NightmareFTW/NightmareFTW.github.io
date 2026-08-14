@@ -1,0 +1,407 @@
+{{Stub}}
+
+'''Clothing''' are wearable items can be equipped from the Wardrobe to customise the player’s avatar. They can be bought or rewarded from missions and the [[Star Path]].  
+
+Once obtained, Clothing items are logged in the ''Clothing Sets'' collection in the Collection menu.  
+
+==List of Clothing==
+: {{icon|Star Path| 2}} - Clothing that is obtained from the [[Star Path]].
+: {{icon|Friendship| 2}} - Clothing that is rewarded for levelling up [[Friendship]] with [[characters|villagers]].
+: {{icon|Dreamlight Duties| 2}} - Clothing that is rewarded for completing time-limited [[Dreamlight Duties]].
+: {{icon|Founder's Pack| 2}} - Clothing that is obtained from [[Founder’s Pack]]s.
+
+==={{Icon|Mickey & Friends| 2}} Mickey & Friends===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+2022 Festive Snowflake Ears.png|link=2022 Festive Snowflake Ears|[[2022 Festive Snowflake Ears]]
+Black and Blue Sporty Shorts.png|link=Black and Blue Sporty Sports|[[Black and Blue Sporty Shorts]]
+Black and Red Sporty Shorts.png|link=Black and Red Sporty Sports|[[Black and Red Sporty Shorts]]
+Black and Red Top Hat.png|link=Black and Red Top Hat|{{icon|Friendship| 2}}[[Black and Red Top Hat]]
+Black and Yellow Sporty Shorts.png|link=Black and Yellow Sporty Sports|[[Black and Yellow Sporty Shorts]]
+Black and Yellow Top Hat.png|link=Black and Yellow Top Hat|[[Black and Yellow Top Hat]]
+Black Dress Shoes.png|link=Black Dress Shoes|[[Black Dress Shoes]]
+Black Fitness Watch.png|link=Black Fitness Watch|[[Black Fitness Watch]]
+Black Looking-Sharp Minnie Crop Top.png|link=Black Looking-Sharp Minnie Crop Top|[[Black Looking-Sharp Minnie Crop Top]]
+Black Mickey Ears Headband.png|[[Black Mickey Ears Headband]]
+Black Minnie Backpack.png|link=Black Minnie Backpack|[[Black Minnie Backpack]]
+Black Running Mickey Mouse Tee.png|link=Black Running Mickey Mouse Tee|[[Black Running Mickey Mouse Tee]]
+Blue and Yellow Mickey Sneakers.png|link=Blue and Yellow Mickey Sneakers|[[Blue and Yellow Mickey Sneakers]]
+Blue Athletic Sunglasses.png|link=Black Athletic Sunglasses|[[Blue Athletic Sunglasses]]
+Blue Fishing Waders.png|link=Blue Fishing Waders|[[Blue Fishing Waders]]
+Blue Mickey Ears Headband.png|link=Blue Mickey Ears Headband|[[Blue Mickey Ears Headband]]
+Blue Mickey-and-Minnie-Patch Pants.png|link=Blue Mickey-and-Minnie-Patch Pants|[[Blue Mickey-and-Minnie-Patch Pants]]
+Blue Minnie Backpack.png|link=Blue Minnie Backpack|{{icon|Friendship| 2}}[[Blue Minnie Backpack]]
+Blue Performance Sneakers.png|link=Blue Performance Sneakers|[[Blue Performance Sneakers]]
+Blue Sailor's Cap.png|[[Blue Sailor's Cap]]
+Blue Mickey Zip-Collar Sweater.png|link=Blue Mickey Zip-Collar Sweater|[[Blue Mickey Zip-Collar Sweater]]
+Brown Mickey Zip-Collar Sweater.png|link=Brown Mickey Zip-Collar Sweater|[[Brown Mickey Zip-Collar Sweater]]
+Classic Minnie Ears Headband.png|link=Classic Minnie Ears Headband|{{icon|Friendship| 2}}[[Classic Minnie Ears Headband]]
+Dark Gray Mickey-Mouse-Patch Jean Jacket.png|link=Dark Gray Mickey-Mouse-Patch Jean Jacket|[[Dark Gray Mickey-Mouse-Patch Jean Jacket]]
+Dark Mickey-and-Minnie-Patch Pants.png|link=Dark Mickey-and-Minnie-Patch Pants|[[Dark Mickey-and-Minnie-Patch Pants]]
+Dazzling Mickey Mouse Ear Headband.png|link=Dazzling Mickey Mouse Ear Headband|{{icon|Founder's Pack | 2}}[[Dazzling Mickey Mouse Ear Headband]]
+Diving Helmet.png|link=Diving Helmet|{{icon|Friendship| 2}}[[Diving Helmet]]
+Donald Duck Mask.png|link=Donald Duck Mask|{{icon|Friendship| 2}}[[Donald Duck Mask]]
+Donald's Sailor Coat.png|link=Donald's Sailor Coat|{{icon|Friendship| 2}}[[Donald's Sailor Coat]]
+Festive Candy Ears.png|link=Festive Candy Ears|{{icon|Dreamlight Duties| 2}} [[Festive Candy Ears]]
+Festive Candy Ears with Bow.png|link=Festive Candy Ears with Bow|{{icon|Dreamlight Duties| 2}} [[Festive Candy Ears with Bow]]
+Festive Holiday Dress.png|link=Festive Holiday Dress|{{icon|Star Path| 2}} [[Festive Holiday Dress]]
+Festive Holiday Suit.png|link=Festive Holiday Suit|{{icon|Star Path| 2}} [[Festive Holiday Suit]]
+Festive Holiday Vest.png|link=Festive Holiday Vest|{{icon|Star Path| 2}} [[Festive Holiday Vest]]
+Festive Reindeer Headband.png|link=Festive Reindeer Headband|{{icon|Star Path| 2}} [[Festive Reindeer Headband]]
+Green Fishing Waders.png|link=Green Fishing Waders|[[Green Fishing Waders]]
+Mickey Mouse Donut Headband.png|[[Mickey Mouse Donut Headband]]
+Orange Retro Mickey Mouse Shirt.png|link=Orange Retro Mickey Mouse Shirt|[[Orange Retro Mickey Mouse Shirt]]
+Pale Green Fishing Hat.png|[[Pale Green Fishing Hat]]
+Purple Minnie Ears Headband.png|[[Purple Minnie Ears Headband]]
+Red Fitness Watch.png|link=Red Fitness Watch|[[Red Fitness Watch]]
+Red Mickey Ears Headband.png|[[Red Mickey Ears Headband]]
+Scrooge McDuck's Store Top.png|link=Scrooge McDuck's Store Top|[[Scrooge McDuck's Store Top]]
+Sorcerer Mickey Mouse Ear Headband.png|[[Sorcerer Mickey Mouse Ear Headband]]
+White and Pink Minnie Backpack.png|link=White and Pink Minnie Backpack|[[White and Pink Minnie Backpack]]
+White Running Mickey Mouse Tee.png|link=White Running Mickey Mouse Tee|[[White Running Mickey Mouse Tee]]
+White Sailor’s Cap.png|link=Whire Sailor’s Cap|[[White Sailor’s Cap]]
+Yellow Minnie Backpack.png|link=Yellow Minnie Backpack|[[Yellow Minnie Backpack]]
+Yellow Pearl-Clasp Heels.png|link=Yellow Pearl-Clasp Heels|[[Yellow Pearl-Clasp Heels]]
+Yellow Performance Sneakers.png|link=Yellow Performance Sneakers|[[Yellow Performance Sneakers]]
+</gallery>
+}}
+
+==={{Icon|The Sword in the Stone| 2}} The Sword in the Stone===
+{{Scroll box|height=150px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Merlin's Marvelous Wizard Hat.png|link=Merlin's Marvelous Wizard Hat|{{icon|Friendship| 2}}[[Merlin's Marvelous Wizard Hat]]
+</gallery>
+}}
+
+==={{Icon|WALL•E| 2}} WALL•E===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Black Half-Hand Gloves.png|link=Black Half-Hand Gloves|[[Black Half-Hand Gloves]]
+Blue “Define Dancing” Shirt.png|link=Blue “Define Dancing” Shirt|[[Blue “Define Dancing” Shirt]]
+Blue BnL Cap.png|link=Blue BnL Cap|[[Blue BnL Cap]]
+Blue Eco-Suit.png|link=Blue Eco-Suit|[[Blue Eco-Suit]]
+Blue Flatbottom Sneakers.png|link=Blue Flatbottom Sneakers|[[Blue Flatbottom Sneakers]]
+Blue High-Tech Trainers.png|link=Blue High-Tech Trainers|[[Blue High-Tech Trainers]]
+Blue Holographic Leggings.png|link=Blue Holographic Leggings|[[Blue Holographic Leggings]]
+Blue Safety Gloves.png|link=Blue Safety Gloves|[[Blue Safety Gloves]]
+Blue Visor Glasses.png|link=Blue Visor Glasses|[[Blue Visor Glasses]]
+Blue Work Overalls.png|link=Blue Work Overalls|[[Blue Work Overalls]]
+Blue-Green Flatbottom Sneakers.png|link=Blue-Green Flatbottom Sneakers|[[Blue-Green Flatbottom Sneakers]]
+Brown Safety Gloves.png|link=Brown Safety Gloves|[[Brown Safety Gloves]]
+Classic Aviator Goggles.png|link=Classic Aviator Goggles|[[Classic Aviator Goggles]]
+Dark Blue “Define Dancing” Shirt.png|link=Dark Blue “Define Dancing” Shirt|[[Dark Blue “Define Dancing” Shirt]]
+Futuristic Blue Jumpsuit.png|link=Futuristic Blue Jumpsuit|[[Futuristic Blue Jumpsuit]]
+Futuristic Green Jumpsuit.png|link=Futuristic Green Jumpsuit|[[Futuristic Green Jumpsuit]]
+Futuristic Red Jumpsuit.png|link=Futuristic Red Jumpsuit|[[Futuristic Red Jumpsuit]]
+Green Eco-Suit.png|link=Green Eco-Suit|[[Green Eco-Suit]]
+Green High-Tech Trainers.png|link=Green High-Tech Trainers|[[Green High-Tech Trainers]]
+Green Holographic Leggings.png|link=Green Holographic Leggings|[[Green Holographic Leggings]]
+Green Visor Glasses.png|link=Green Visor Glasses|[[Green Visor Glasses]]
+Orange Eco-Suit.png|link=Orange Eco-Suit|[[Orange Eco-Suit]]
+Orange High-Tech Trainers.png|link=Orange High-Tech Trainers|[[Orange High-Tech Trainers]]
+Orange Holographic Leggings.png|link=Orange Holographic Leggings|[[Orange Holographic Leggings]]
+Orange Visor Glasses.png|link=Orange Visor Glasses|[[Orange Visor Glasses]]
+White BnL Cap.png|link=White BnL Cap|[[White BnL Cap]]
+</gallery>
+}}
+
+==={{Icon|Moana| 2}} Moana===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Blue Woven Top.png|link=Blue Woven Top|[[Blue Woven Top]]
+Green Woven Top.png|link=Green Woven Top|[[Green Woven Top]]
+Orange “Heart of Te Fiti” Shirt.png|link=Orange “Heart of Te Fiti” Shirt|[[Orange “Heart of Te Fiti” Shirt]]
+Tan Woven Top.png|link=Tan Woven Top|{{icon|Friendship| 2}}[[Tan Woven Top]]
+</gallery>
+}}
+==={{Icon|Ratatouille| 2}} Ratatouille===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Off-Shoulder Bag.png|link=Off-Shoulder Bag|[[Off-Shoulder Bag]]
+Remy’s Black Chef Hat.png|link=Remy’s Black Chef Hat|[[Remy’s Black Chef Hat]]
+Remy’s White Chef Hat.png|link=Remy’s Black Chef Hat|[[Remy’s White Chef Hat]]
+</gallery>
+}}
+==={{Icon|Beauty and the Beast| 2}} Beauty and the Beast===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Blue 'Be Our Guest' Top.png|link=Blue 'Be Our Guest' Top|[[Blue 'Be Our Guest' Top]]
+Elegant Floral Semi-Updo.png|link=Elegant Floral Semi-Updo|[[Elegant Floral Semi-Updo]]
+Gray Pleated Slacks.png|link=Gray Pleated Slacks|[[Gray Pleated Slacks]]
+Intricate Golden Floral Heels.png|link=Intricate Golden Floral Heels|[[Intricate Golden Floral Heels]]
+Loose Blue Button-Up Shirt.png|link=Loose Blue Button-Up Shirt|[[Loose Blue Button-Up Shirt]]
+Loose White Button-Up Shirt.png|link=Loose White Button-Up Shirt|[[Loose White Button-Up Shirt]]
+Ornate Brown Wristwatch.png|link=Ornate Brown Wristwatch|[[Ornate Brown Wristwatch]]
+Red Rose Necklace Set.png|link=Red Rose Necklace Set|[[Red Rose Necklace Set]]
+Tan Pleated Slacks.png|link=Tan Pleated Slacks|[[Tan Pleated Slacks]]
+White and Pink Floral Gown.png|link=White and Pink Floral Gown|[[White and Pink Floral Gown]]
+White Pleated Slacks.png|link=White Pleated Slacks|[[White Pleated Slacks]]
+</gallery>
+}}
+==={{Icon|Wreck-It Ralph| 2}} Wreck-It Ralph===
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Amazing Algorithm Pompadour.png|link=Amazing Algorithm Pompadour|[[Amazing Algorithm Pompadour]]
+Black BFF T-Shirt.png|link=Black BFF T-Shirt|[[Black BFF T-Shirt]]
+Black Lace-Up Combat Boots.png|link=Black Lace-Up Combat Boots|[[Black Lace-Up Combat Boots]]
+Blue and Gold Tech Bracelets.png|link=Blue and Gold Tech Bracelets|[[Blue and Gold Tech Bracelets]]
+Candy Racer Helmet.png|link=Candy Racer Helmet|[[Candy Racer Helmet]]
+Candy-Encrusted Pigtails.png|link=Candy-Encrusted Pigtails|[[Candy-Encrusted Pigtails]]
+Dark Green Cropped Camo Hoodie.png|link=Dark Green Cropped Camo Hoodie|[[Dark Green Cropped Camo Hoodie]]
+Dark Green Pixel Camo Pants.png|link=Dark Green Pixel Camo Pants|[[Dark Green Pixel Camo Pants]]
+Green "What's the Glitch" Shirt.png|link=Green "What's the Glitch" Shirt|[[Green "What's the Glitch" Shirt]]
+Green Cropped Camo Hoodie.png|link=Green Cropped Camo Hoodie|[[Green Cropped Camo Hoodie]]
+Green Dog Tags.png|link=Green Dog Tags|[[Green Dog Tags]]
+Green Lace-Up Combat Boots.png|link=Green Lace-Up Combat Boots|[[Green Lace-Up Combat Boots]]
+Green Pixel Camo Pants.png|link=Green Pixel Camo Pants|[[Green Pixel Camo Pants]]
+Orange Dog Tags.png|link=Orange Dog Tags|[[Orange Dog Tags]]
+Pink "What's the Glitch" Shirt .png|link=Pink "What's the Glitch" Shirt|[[Pink "What's the Glitch" Shirt]]
+Pink Candy-Laden Skirt.png|link=Pink Candy-Laden Skirt|[[Pink Candy-Laden Skirt]]
+Pink Ita Bag.png|link=Pink Ita Bag|[[Pink Ita Bag]]
+Purple Candy-Laden Skirt.png|link=Purple Candy-Laden Skirt|[[Purple Candy-Laden Skirt]]
+Purple Ita Bag.png|link=Purple Ita Bag|[[Purple Ita Bag]]
+Ralph's Sturdy Overalls.png|link=Ralph's Sturdy Overalls|[[Ralph's Sturdy Overalls]]
+Shank's Squad Jacket.png|link=Shank's Squad Jacket|[[Shank's Squad Jacket]]
+Silver and Gold Tech Bracelets.png|link=Silver and Gold Tech Bracelets|[[Silver and Gold Tech Bracelets]]
+Teal Cargo Shorts.png|link=Teal Cargo Shorts|[[Teal Cargo Shorts]]
+Turquoise Candy-Laden Skirt.png|link=Turquoise Candy-Laden Skirt|[[Turquoise Candy-Laden Skirt]]
+Turquoise Ita Bag.png|link=Turquoise Ita Bag|[[Turquoise Ita Bag]]
+White BFF T-Shirt.png|link=White BFF T-Shirt|[[White BFF T-Shirt]]
+Yesss's "Run the Net" Dress.png|link=Yesss's "Run the Net" Dress|[[Yesss's "Run the Net" Dress]]
+</gallery>
+}}
+==={{Icon|Cinderella| 2}} Cinderella===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Burgundy Gold Lock Skirt.png|link=Burgundy Gold Lock Skirt|[[Burgundy Gold Lock Skirt]]
+GreenPearlsofFreedomNecklace2.png|Green Pearls of Freedom Necklace |[[Green Pearls of Freedom Necklace]]
+Once Upon a Ball Gown.png|link=Once Upon a Ball Gown|[[Once Upon a Ball Gown]]
+Till the Stroke of Midnight Ensemble.png|link=Till the Stroke of Midnight Ensemble|[[Till the Stroke of Midnight Ensemble]]
+</gallery>
+}}
+==={{Icon|The Lion King| 2}} The Lion King===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Classy Purple Dress Shoes.png|link=Classy Purple Dress Shoes|[[Classy Purple Dress Shoes]]
+Gray Claw Top.png|Gray Claw Top |[[Gray Claw Top]]
+Orange 'Time Flies' Shirt.png|link=Orange 'Time Flies' Shirt|[[Orange 'Time Flies' Shirt]]
+Tan Sunny Slacks.png|link=Tan Sunny Slacks|[[Tan Sunny Slacks]]
+Yellow 'Time Flies' Shirt.png|link=Yellow 'Time Flies' Shirt|[[Yellow 'Time Flies' Shirt]]
+</gallery>
+}}
+==={{Icon|The Little Mermaid| 2}} The Little Mermaid===
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Ariel's Seafoam Gown.png|link=Ariel's Seafoam Gown|{{icon|Friendship| 2}}[[Ariel's Seafoam Gown]]
+Ariel's Seafoam Suit.png|link=Ariel's Seafoam Suit|{{icon|Friendship| 2}}[[Ariel's Seafoam Suit]]
+Blue Button-Up Vest.png|link=Blue Button-Up Vest|[[Blue Button-Up Vest]]
+Blue Cummerbund Pants.png|link=Blue Cummerbund Pants|[[Blue Cummerbund Pants]]
+Buttoned Boots.png|link=Buttoned Boots|[[Buttoned Boots]]
+Cream Silk Gloves.png|link=Cream Silk Gloves|[[Cream Silk Gloves]]
+Dark Blue Button-Up Vest.png|link=Dark Blue Button-Up Vest|{{icon|Friendship| 2}}[[Dark Blue Button-Up Vest]]
+Gold Mariner's Watch.png|link=Gold Mariner's Watch|[[Gold Mariner's Watch]]
+Gray Button-Up Vest.png|link=Gray Button-Up Vest|[[Gray Button-Up Vest]]
+Green Off-the-Shoulder Shell Shirt.png|link=Green Off-the-Shoulder Shell Shirt|{{icon|Friendship| 2}}[[Green Off-the-Shoulder Shell Shirt]]
+Pink Off-the-Shoulder Shell Shirt.png|link=Pink Off-the-Shoulder Shell Shirt|[[Pink Off-the-Shoulder Shell Shirt]]
+Purple and Blue Seashell Satchel.png|link=Purple and Blue Seashell Satchel|[[Purple and Blue Seashell Satchel]]
+Purple and Tan Seashell Satchel.png|link=Purple and Tan Seashell Satchel|[[Purple and Tan Seashell Satchel]]
+Purple Scaled Stilettos.png|link=Purple Scaled Stilettos|[[Purple Scaled Stilettos]]
+Red Cummerbund Pants.png|link=Red Cummerbund Pants|[[Red Cummerbund Pants]]
+Sea Witch's Gown.png|link=Sea Witch's Gown|{{icon|Friendship| 2}}[[Sea Witch's Gown]]
+Seaside Prince Side Part.png|link=Seaside Prince Side Part|[[Seaside Prince Side Part]]
+Sea-Swept Pearl-Pinned Hairdo.png|link=Sea-Swept Pearl-Pinned Hairdo|[[Sea-Swept Pearl-Pinned Hairdo]]
+Shimmering Green Scaled Pants.png|link=Shimmering Green Scaled Pants|[[Shimmering Green Scaled Pants]]
+Shimmering Pink Scaled Pants.png|link=Shimmering Pink Scaled Pants|[[Shimmering Pink Scaled Pants]]
+Silver Mariner's Watch.png|link=Silver Mariner's Watch|[[Silver Mariner's Watch]]
+White and Blue Officer Jacket.png|link=White and Blue Officer Jacket|[[White and Blue Officer Jacket]]
+White and Red Officer Jacket.png|link=White and Red Officer Jacket|[[White and Red Officer Jacket]]
+White Silk Gloves.png|link=White Silk Gloves|[[White Silk Gloves]]
+</gallery>
+}}
+
+==={{Icon|Frozen| 2}} Frozen===
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Fireproof Gloves.png|link=Fireproof Gloves|[[Fireproof Gloves]]
+</gallery>
+}}
+==={{Icon|Tangled| 2}} Tangled===
+:''This section is missing items''
+:
+
+==={{Icon|Monsters, Inc.| 2}} Monsters, Inc.===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+“Scarer Sulley” Slippers.png|link=“Scarer Sulley” Slippers|[[“Scarer Sulley” Slippers]]
+Black Rain Jacket.png|link=Black Rain Jacket|[[Black Rain Jacket]]
+Blue Mike Bag.png|link=Blue Mike Bag|[[Blue Mike Bag]]
+Blue Rain Jacket.png|link=Blue Rain Jacket|[[Blue Rain Jacket]]
+Decontamination Pack.png|link=Decontamination Pack|[[Decontamination Pack]]
+Green Mike Bag.png|link=Green Mike Bag|[[Green Mike Bag]]
+Green Tufted Horns.png|link=Green Tufted Horns|[[Green Tufted Horns]]
+Purple Tufted Horns.png|link=Purple Tufted Horns|[[Purple Tufted Horns]]
+Red Mike Bag.png|link=Red Mike Bag|[[Red Mike Bag]]
+White Rain Jacket.png|link=White Rain Jacket|[[White Rain Jacket]]
+Yellow Rain Jacket.png|link=Yellow Rain Jacket|[[Yellow Rain Jacket]]
+</gallery>
+}}
+
+==={{Icon|Toy Story| 2}} Toy Story===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Black Dolly Shoes.png|link=Black Dolly Shoes|[[Black Dolly Shoes]]
+Blue Dolly Shoes.png|link=Blue Dolly Shoes|[[Blue Dolly Shoes]]
+Bo Peep’s Shepherd’s Crook.png|link=Bo Peep’s Shepherd’s Crook|[[Bo Peep’s Shepherd’s Crook]]
+Cowboy Hat.png|link=Cowboy Hat|[[Cowboy Hat]]
+Dark Brown Sheriff’s Jacket.png|link=Dark Brown Sheriff’s Jacket|[[Dark Brown Sheriff’s Jacket]]
+Frilly Blue Pants.png|link=Frilly Blue Pants|[[Frilly Blue Pants]]
+Frilly Pink Pants.png|link=Frilly Pink Pants|[[Frilly Pink Pants]]
+Frilly Purple Pants.png|link=Frilly Purple Pants|[[Frilly Purple Pants]]
+Green Star Command Turtleneck.png|link=Green Star Command Turtleneck|[[Green Star Command Turtleneck]]
+Lacy Blue Coat.png|link=Lacy Blue Coat|[[Lacy Blue Coat]]
+Lacy Pink Coat.png|link=Lacy Pink Coat|[[Lacy Pink Coat]]
+Lacy Purple Coat.png|link=Lacy Purple Coat|[[Lacy Purple Coat]]
+Pink Dolly Shoes.png|link=Pink Dolly Shoes|[[Pink Dolly Shoes]]
+Purple Space Jacket.png|link=Purple Space Jacket|[[Purple Space Jacket]]
+Space Helmet.png|link=Space Helmet|[[Space Helmet]]
+Space Pants.png|link=Space Pants|[[Space Pants]]
+Space Shoes.png|link=Space Shoes|[[Space Shoes]]
+White Star Command Turtleneck.png|link=White Star Command Turtleneck|[[White Star Command Turtleneck]]
+White Space Gloves.png|link=White Space Gloves|[[White Space Gloves]]*
+White Space Jacket.png|link=White Space Jacket|[[White Space Jacket]]
+</gallery>
+}}
+
+==={{Icon|Lilo & Stitch| 2}} Lilo & Stitch===
+{{Scroll box|height=150px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Stitch Hat.png|link=Stitch Hat|{{icon|Friendship| 2}} [[Stitch Hat]]
+</gallery>
+}}
+
+==={{Icon|The Incredibles| 2}} The Incredibles===
+{{Scroll box|height=150px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+High-Boot Incredibles Suit.png|link=High-Boot Incredibles Suit|{{icon|Star Path| 2}} [[High-Boot Incredibles Suit]]
+Incredibles Super-Mask.png|link=Incredibles Super-Mask|{{icon|Star Path| 2}} [[Incredibles Super-Mask]]
+Low-Boot Incredibles Suit.png|link=Low-Boot Incredibles Suit|{{icon|Star Path| 2}} [[Low-Boot Incredibles Suit]]
+</gallery>
+}}
+
+==={{Icon|Coco| 2}} Coco===
+{{Scroll box|height=150px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+"Live the Music" Shirt.png|link="Live the Music" Shirt|{{icon|Star Path| 2}} [["Live the Music" Shirt]]
+Skeleton Onesie.png|link=Skeleton Onesie|{{icon|Star Path| 2}} [[Skeleton Onesie]]
+</gallery>
+}}
+==={{Icon|Cars| 2}} Cars===
+{{Scroll box|height=150px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Lightning McQueen Racing Jacket.png|link=Lightning McQueen Racing Jacket|{{icon|Star Path| 2}} [[Lightning McQueen Racing Jacket]]
+</gallery>
+}}
+==={{Icon|Non-Disney| 2}} General===
+:''This section is missing items''
+{{Scroll box|height=500px|text=
+<gallery widths="100" heights="100" position="center" orientation="none" bordersize="none" hideaddbutton="true" bordercolor="transparent" captionalign="center" navigation="true">
+Activewear Headscarf.png|link=Activewear Headscarf|{{icon|Touch of Magic| 2}} [[Activewear Headscarf]]
+Assorted Gold Rings.png|link=Assorted Gold Rings|[[Assorted Gold Rings]]
+Assorted Golden Orange Rings.png|link=Assorted Golden Orange Rings|[[Assorted Golden Orange Rings]]
+Assorted Silver Rings.png|link=Assorted Silver Rings|[[Assorted Silver Rings]]
+Astral Boots.png|link=Astral Boots|[[Astral Boots]]
+Backpack.png|link=Backpack|{{icon|Touch of Magic| 2}} [[Backpack]]
+Bald.png|link=Bald|[[Bald]]
+Basic Baseball Cap.png|link=Basic Baseball Cap|{{icon|Touch of Magic| 2}} [[Basic Baseball Cap]]
+Basic Hoodie.png|link=Basic Hoodie|{{icon|Touch of Magic| 2}} [[Basic Hoodie]]
+Beige Moccasins.png|link=Beige Moccasins|[[Beige Moccasins]]
+Black Activewear Headscarf.png|link=Black Activewear Headscarf|[[Black Activewear Headscarf]]
+Black and Gray Flannel Jacket.png|link=Black and Gray Flannel Jacket|[[Black and Gray Flannel Jacket]]
+Black and Red Long-Sleeved Gown.png|link=Black and Red Long-Sleeved Gown|[[Black and Red Long-Sleeved Gown]]
+Black and Red Sweetheart Strapless Gown.png|link=Black and Red Sweetheart Strapless Gown|[[Black and Red Sweetheart Strapless Gown]]
+Black Baseball Cap.png|link=Black Baseball Cap|[[Black Baseball Cap]]
+Black Cat Ears.png|link=Black Cat Ears|{{icon|Star Path| 2}} [[Black Cat Ears]]
+Black Cropped Cardigan.png|link=Black Cropped Cardigan|[[Black Cropped Cardigan]]
+Black Evening Gloves.png|link=Black Evening Gloves|[[Black Evening Gloves]]
+Black Headband.png|link=Black Headband|[[Black Headband]]
+Black Headscarf.png|link=Black Headscarf|[[Black Headscarf]]
+Black High-Waisted Jean Shorts.png|link=Black High-Waisted Jean Shorts|[[Black High-Waisted Jean Shorts]]
+Black Holographic Choker.png|link=Black Holographic Choker|[[Black Holographic Choker]]
+Black Jean Overalls.png|link=Black Jean Overalls|[[Black Jean Overalls]]
+Black Jean Shorts.png|link=Black Jean Shorts|[[Black Jean Shorts]]
+Black Jean Skirt.png|link=Black Jean Skirt|[[Black Jean Skirt]]
+Black Knee-High Boots.png|link=Black Knee-High Boots|[[Black Knee-High Boots]]
+Black Lace-Up Boots.png|link=Black Lace-Up Boots|[[Black Lace-Up Boots]]
+Black Long-Sleeved Gown.png|link=Black Long-Sleeved Gown|[[Black Long-Sleeved Gown]]
+Black Moccasins.png|link=Black Moccasins|[[Black Moccasins]]
+Black Oversized Glasses.png|link=Black Oversized Glasses|[[Black Oversized Glasses]]
+Black Pleated Skirt.png|link=Black Pleated Skirt|[[Black Pleated Skirt]]
+Black Polo Shirt.png|link=Black Polo Shirt|[[Black Polo Shirt]]
+Black Rectangular Glasses.png|link=Black Rectangular Glasses|[[Black Rectangular Glasses]]
+Black Silk Gloves.png|link=Black Silk Gloves|[[Black Silk Gloves]]
+Black Slip-On Boots.png|link=Black Slip-On Boots|[[Black Slip-On Boots]]
+Black Sweetheart Strapless Gown.png|link=Black Sweetheart Strapless Gown|[[Black Sweetheart Strapless Gown]]
+Black T-Shirt Dress.png|link=Black T-Shirt Dress|[[Black T-Shirt Dress]]
+Black Turban.png|link=Black Turban|[[Black Turban]]
+Black Varsity Jacket.png|link=Black Varsity Jacket|[[Black Varsity Jacket]]
+Black Wide-Brimmed Fedora.png|link=Black Wide-Brimmed Fedora|[[Black Wide-Brimmed Fedora]]
+Blue-Green T-Shirt Dress.png|link=Blue-Green T-Shirt Dress|[[Blue-Green T-Shirt Dress]]
+Blue Backpack.png|link=Blue Backpack|[[Blue Backpack]]
+Blue Bootcut Jeans.png|link=Blue Bootcut Jeans|[[Blue Bootcut Jeans]]
+Blue High-Waisted Jean Shorts.png|link=Blue High-Waisted Jean Shorts|[[Blue High-Waisted Jean Shorts]]
+Blue Jean Overalls.png|link=Blue Jean Overalls|[[Blue Jean Overalls]]
+Blue Jean Shorts.png|link=Blue Jean Shorts|[[Blue Jean Shorts]]
+Blue Jean Skirt.png|link=Blue Jean Skirt|[[Blue Jean Skirt]]
+Blue Wide-Brimmed Fedora.png|link=Blue Wide-Brimmed Fedora|[[Blue Wide-Brimmed Fedora]]
+Brown Knee-High Boots.png|link=Brown Knee-High Boots|[[Brown Knee-High Boots]]
+Gray Backpack.png|link=Gray Backpack|[[Gray Backpack]]
+Gray Baseball Cap.png|link=Gray Baseball Cap|[[Gray Baseball Cap]]
+Gray Watch.png|link=Gray Watch|[[Gray Watch]]
+Headscarf.png|link=Headscarf|{{icon|Touch of Magic| 2}} [[Headscarf]]
+Knot Wrap.png|link=Knot Wrap|{{icon|Touch of Magic| 2}} [[Knot Wrap]]
+Navy Blue Activewear Headscarf.png|link=Navy Blue Activewear Headscarf|[[Navy Blue Activewear Headscarf]]
+Navy Blue Headscarf.png|link=Navy Blue Headscarf|[[Navy Blue Headscarf]]
+Navy Blue Turban.png|link=Navy Blue Turban|[[Navy Blue Turban]]
+Pink and Purple Long-Sleeved Gown.png|link=Pink and Purple Long-Sleeved Gown|[[Pink and Purple Long-Sleeved Gown]]
+Pink and Purple Sweetheart Strapless Gown.png|link=Pink and Purple Sweetheart Strapless Gown|[[Pink and Purple Sweetheart Strapless Gown]]
+Pink Baseball Cap.png|link=Pink Baseball Cap|[[Pink Baseball Cap]]
+Pink Cropped Cardigan.png|link=Pink Cropped Cardigan|[[Pink Cropped Cardigan]]
+Pink Headscarf.png|link=Pink Headscarf|[[Pink Headscarf]]
+Pink Pleated Skirt.png|link=Pink Pleated Skirt|[[Pink Pleated Skirt]]
+Pink Varsity Jacket.png|link=Pink Varsity Jacket|[[Pink Varsity Jacket]]
+Pixar Ball Ear Headband.png|link=Pixar Ball Ear Headband|[[Pixar Ball Ear Headband]]
+Polo Shirt.png|link=Polo Shirt|{{icon|Touch of Magic| 2}} [[Polo Shirt]]
+Red Activewear Headscarf.png|link=Red Activewear Headscarf|[[Red Activewear Headscarf]]
+Red Backpack.png|link=Red Backpack|[[Red Backpack]]
+Red Headband.png|link=Red Headband|[[Red Headband]]
+Red Headscarf.png|link=Red Headscarf|[[Red Headscarf]]
+Red Jean Skirt.png|link=Red Jean Skirt|[[Red Jean Skirt]]
+Red Jean Shorts.png|link=Red Jean Shorts|[[Red Jean Shorts]]
+Red Long-Sleeved Gown.png|link=Red Long-Sleeved Gown|[[Red Long-Sleeved Gown]]
+Red Polo Shirt.png|link=Red Polo Shirt|[[Red Polo Shirt]]
+Red Skinny Jeans.png|link=Red Skinny Jeans|[[Red Skinny Jeans]]
+Red Sweetheart Strapless Gown.png|link=Red Sweetheart Strapless Gown|[[Red Sweetheart Strapless Gown]]
+Red Winter Hat.png|link=Red Winter Hat|[[Red Winter Hat]]
+Santa Hat.png|link=Santa Hat|{{icon|Dreamlight Duties| 2}} [[Santa Hat]]
+Thorny Wings.png|link=Thorny Wings|[[Thorny Wings]]
+White Headband.png|link=White Headband|[[White Headband]]
+White Mickey Ears.png|link=White Mickey Ears|{{icon|Touch of Magic| 2}} [[White Mickey Ears]]
+White Minnie Ears.png|link=White Minnie Ears|{{icon|Touch of Magic| 2}} [[White Minnie Ears]]
+White Oversized Glasses.png|link=White Oversized Glasses|[[White Oversized Glasses]]
+White Rectangular Glasses.png|link=White Rectangular Glasses|[[White Rectangular Glasses]]
+Yellow Top Knot.png|link=Yellow Top Knot|[[Yellow Top Knot]]
+Yellow Plaid Shirt.png|link=Yellow Plaid Shirt|[[Yellow Plaid Shirt]]
+</gallery>
+}}
+
+[[Category:Clothing]]
+[[Category:Collections]]

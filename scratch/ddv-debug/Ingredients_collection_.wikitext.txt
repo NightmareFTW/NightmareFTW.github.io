@@ -1,0 +1,665 @@
+{{Islands}}
+
+{{otheruses|the Ingredients <u>collection</u>|a list of all cooking ingredients|Cooking}}
+
+
+'''Ingredients''' is a collection. It contains food items that can be obtained from foraging, gardening, or purchased from various locations. The items listed in these subcategories may not be all inclusive for those item types.
+<!-- 
+|-  Patern
+|{{il|}}
+|{{Gardening}}, {{Goofy's Stall|}}
+|{{energy}} 
+|{{starcoin}} 
+-->
+== [[File:Vegetables Icon 2.png|x30px]] Vegetables ==
+
+{| class="wikitable sortable" style="width:95%; margin:auto;"
+!style="width:35%;"|Ingredient
+!style="width:35%;"|Acquisition
+!Energy
+!Sell Price
+|-
+|{{il|Asparagus}}
+|{{Gardening}}, {{Goofy's Stall|Frosted Heights}}
+|{{energy}} 42
+|{{starcoin}} 133
+|-
+|{{il|Bamboo}}
+|{{Foraging}}
+|{{energy}} 155
+|{{starcoin}} 80
+|-
+|{{il|Beans}}
+|{{Foraging}}
+|{{energy}} 41
+|{{starcoin}} 49
+|-
+|{{il|Beetroot}}
+|
+|{{energy}} 56
+|{{starcoin}} 21
+|-
+|{{il|Bell Pepper}}
+|{{Gardening}}, {{Goofy's Stall|Forest of Valor}}
+|{{energy}} 79
+|{{starcoin}} 33
+|-
+|{{il|Broccoli}}
+|{{Gardening}}
+|{{energy}} 73
+|{{starcoin}} 152
+|-
+|{{il|Brussels Sprout}}
+|{{Foraging}}
+|{{energy}} 400
+|{{starcoin}} 30
+|-
+|{{il|Cabbage}}
+|{{Gardening}}
+|{{energy}} 142
+|{{starcoin}} 256
+|-
+|{{il|Carrot}}
+|{{Gardening}}, {{Goofy's Stall|Peaceful Meadow}}
+|{{energy}} 57
+|{{starcoin}} 44
+|-
+|{{il|Cauliflower}}
+|{{Gardening}}
+|{{energy}} 72
+|{{starcoin}} 25
+|-
+|{{il|Celery}}
+|{{Gardening}}
+|{{energy}} 60
+|{{starcoin}} 65
+|-
+|{{il|Chili Pepper}}
+|{{Gardening}}, {{Goofy's Stall|Sunlit Plateau}} 
+|{{energy}} 140
+|{{starcoin}} 78
+|-
+|{{il|Cucumber}}
+|{{Gardening}}, {{Goofy's Stall|Frosted Heights}}
+|{{energy}} 145
+|{{starcoin}} 159
+|-
+|{{il|Eggplant}}
+|{{Gardening}}, {{Goofy's Stall|Frosted Heights}}
+|{{energy}} 451
+|{{starcoin}} 308
+|-
+|{{il|Flute Root}}
+|{{Gardening}}
+|{{energy}} 46
+|{{starcoin}} 112
+|-
+|{{il|Green Beans}}
+|{{Gardening}}
+|{{energy}} 59
+|{{starcoin}} 209
+|-
+|{{il|Leek}}
+|{{Gardening}}, {{Goofy's Stall|Forgotten Lands}}
+|{{energy}} 228
+|{{starcoin}} 309
+|-
+|{{il|Lettuce}}
+|{{Gardening}}, {{Goofy's Stall|Peaceful Meadow}}
+|{{energy}} 56
+|{{starcoin}} 8
+|-
+|{{il|Okra}}
+|{{Gardening}}, {{Goofy's Stall|Glade of Trust}}
+|{{energy}} 31
+|{{starcoin}} 114
+|-
+|{{il|Onion}}
+|{{Gardening}}, {{Goofy's Stall|Forest of Valor}}
+|{{energy}} 146
+|{{starcoin}} 170
+|-
+|{{il|Porcini Mushrooms}}
+|{{Foraging}},
+|{{energy}} 130
+|{{starcoin}} 55
+|-
+|{{il|Potato}}
+|{{Gardening}}, {{Goofy's Stall|Forgotten Lands}}
+|{{energy}} 113
+|{{starcoin}} 126
+|-
+|{{il|Pumpkin}}
+|{{Gardening}}, {{Goofy's Stall|Forgotten Lands}}
+|{{energy}} 187
+|{{starcoin}} 664
+|-
+|{{il|Radicchio}}
+|Gardening
+|{{energy}} 186
+|{{starcoin}} 127
+|-
+|{{il|Radish}}
+|Gardening
+|{{energy}} 97
+|{{starcoin}} 133
+|-
+|{{il|Ring Squash}}
+|{{Gardening}}
+|{{energy}} 32
+|{{starcoin}} 41
+|-
+|{{il|Ruby Lentils}}
+|
+|{{energy}} 37
+|{{starcoin}} 156
+|-
+|{{il|Scarlet Kale}}
+|
+|{{energy}} 69
+|{{starcoin}} 29
+|-
+|{{il|Spinach}}
+|{{Gardening}}, {{Goofy's Stall|Glade of Trust}}
+|{{energy}} 60
+|{{starcoin}} 41
+|-
+|{{il|Tomato}}
+|{{Gardening}}, {{Goofy's Stall|Dazzle Beach}} 
+|{{energy}} 21
+|{{starcoin}} 22
+|-
+|{{il|Turnip}}
+|Gardening
+|{{energy}} 263
+|{{starcoin}} 187
+|-
+|{{il|Yam}}
+|Gardening
+|{{energy}} 83
+|{{starcoin}} 36
+|-
+|{{il|Zucchini}}
+|{{Gardening}}, {{Goofy's Stall|Sunlit Plateau}}
+|{{energy}} 40
+|{{starcoin}} 52
+|}
+
+== [[File:Fruit Icon 2.png|x30px]] Fruit ==
+{| class="wikitable sortable" style="width:95%; margin:auto;"
+!style="width:35%;"|Ingredient
+!style="width:35%;"|Acquisition
+!Energy
+!Sell Price
+|-
+|{{il|Almonds}}
+|
+|{{energy}} 500
+|{{starcoin}} 42
+|-
+|{{il|Apple}}
+|{{Foraging}}, {{Goofy's Stall|Peaceful Meadow}} 
+|{{energy}} 300 
+|{{starcoin}} 25
+|-
+|{{il|Banana}}
+|{{Foraging}}, {{Goofy's Stall|Dazzle Beach}}
+|{{energy}} 350
+|{{starcoin}} 29
+|-
+|{{il|Blueberry}}
+|{{Foraging}}, {{Goofy's Stall|Forest of Valor}}
+|{{energy}} 350
+|{{starcoin}} 29
+|-
+|{{il|Bonsai Star Fruit}}
+|
+|{{energy}} 450
+|{{starcoin}} 40
+|-
+|{{il|Cactoberries}}
+|
+|{{energy}} 400
+|{{starcoin}} 34
+|-
+|{{il|Cape Gooseberry}}
+|{{Foraging}}
+|{{energy}} 130
+|{{starcoin}} 55
+|-
+|{{il|Cherry}}
+|{{Foraging}}, {{Goofy's Stall|Frosted Heights}}
+|{{energy}} 500
+|{{starcoin}} 42
+|-
+|{{il|Cocoa Bean}}
+|
+|{{energy}} 450
+|{{starcoin}} 38
+|-
+|{{il|Coconut}}
+|{{Foraging}}, {{Goofy's Stall|Dazzle Beach}}
+|{{energy}} 500
+|{{starcoin}} 42
+|-
+|{{il|Coffee Bean}}
+|
+|{{energy}} 425
+|{{starcoin}} 36
+|-
+|{{il|Cosmic Figs}}
+|
+|{{energy}} 52
+|{{starcoin}} 22
+|-
+|{{il|Dark Chocolate Coffee Beans}}
+|
+|{{energy}} 33
+|{{starcoin}} 66
+|-
+|{{il|Dates}}
+|
+|{{energy}} 350
+|{{starcoin}} 29
+|-
+|{{il|Dreamango}}
+|
+|{{energy}} 600
+|{{starcoin}} 50
+|-
+|{{il|Dreamlight Fruit}}
+|
+|{{energy}} 500
+|{{starcoin}} 40
+|-
+|{{il|Golden Apple}}
+|
+|{{energy}} 250
+|{{starcoin}} 110
+|-
+|{{il|Gooseberry}}
+|{{Foraging}}, {{Goofy's Stall|Forgotten Lands}}
+|{{energy}} 600
+|{{starcoin}} 50
+|-
+|{{il|Grapes}}
+|
+|{{energy}} 21
+|{{starcoin}} 9
+|-
+|{{il|Honeydew Melon}}
+|Gardening
+|{{energy}} 123
+|{{starcoin}} 125
+|-
+|{{il|Lemon}}
+|{{Foraging}}, {{Goofy's Stall|Glade of Trust}}
+|{{energy}} 400 
+|{{starcoin}} 33
+|-
+|{{il|Lollipop Fruit}}
+|
+|{{energy}} 73
+|{{starcoin}} 115
+|-
+|{{il|Melon}}
+|
+|{{energy}} 88
+|{{starcoin}} 93
+|-
+|{{il|Nestling Pear}}
+|
+|{{energy}} 300
+|{{starcoin}} 25
+|-
+|{{il|Persimmon}}
+|{{Foraging}}
+|{{energy}} 300
+|{{starcoin}} 25
+|-
+|{{il|Pincushion Peach}}
+|
+|{{energy}} 400
+|{{starcoin}} 38
+|-
+|{{il|Pineapple}}
+|{{Gardening}}, {{Goofy's Stall|The Grassland}}
+|{{energy}} 168
+|{{starcoin}} 532
+|-
+|{{il|Raspberry}}
+|{{Foraging}}, {{Goofy's Stall|Peaceful Meadow}} 
+|{{energy}} 250
+|{{starcoin}} 21
+|-
+|{{il|Red Currants}}
+|
+|{{energy}} 350
+|{{starcoin}} 33
+|-
+|{{il|Rhubarb}}
+|Gardening
+|{{energy}} 145
+|{{starcoin}} 229
+|-
+|{{il|Sea Grapes}}
+|{{Fishing}}
+|{{energy}} 25
+|{{starcoin}} 20
+|-
+|{{il|Sour Berries}}
+|{{Foraging}}
+|{{energy}} 400
+|{{starcoin}} 40
+|-
+|{{il|Spiral Strawberries}}
+|
+|{{energy}} 500
+|{{starcoin}} 50
+|-
+|{{il|Strawberry}}
+|
+|{{energy}} 275
+|{{starcoin}} 23
+|}
+
+== [[File:Protein Icon 2.png|x30px]] Protein ==
+{| class="wikitable sortable" style="width:95%; margin:auto;"
+!style="width:35%;"|Ingredient
+!style="width:35%;"|Acquisition
+!Energy
+!Sell Price
+|-
+|{{il|Chia Seeds}}
+|{{Gardening}}
+|{{energy}} 19
+|{{starcoin}} 6
+|-
+|{{il|Flyleaf Feta}}
+|{{Goofy's Stall|The Bind}}
+|{{energy}} 100
+|{{starcoin}} 75
+|-
+|{{il|Olives}}
+|
+|{{energy}} 350
+|{{starcoin}} 35
+|-
+|{{il|Plain Yogurt}}
+|
+|{{energy}} 300
+|{{starcoin}} 120
+|-
+|{{il|Pork}}
+|Gaston's Stall
+|{{energy}} 250
+|{{starcoin}} 250
+|-
+|{{il|Poultry}}
+|Gaston's Stall
+|{{energy}} 250
+|{{starcoin}} 500
+|-
+|{{il|Shovel Bird Eggs}}
+|{{Goofy's Stall|The Bind}}
+|{{energy}} 200
+|{{starcoin}} 80
+|-
+|{{il|Venison}}
+|Gaston's Stall
+|{{energy}} 250
+|{{starcoin}} 1000
+|}
+
+== [[File:Grains Icon 2.png|x30px]] Grains ==
+{| class="wikitable sortable" style="width:95%; margin:auto;"
+!style="width:35%;"|Ingredient
+!style="width:35%;"|Acquisition
+!Energy
+!Sell Price
+|-
+|{{il|Barley}}
+|{{Gardening}}
+|{{energy}} 19
+|{{starcoin}} 15
+|-
+|{{il|Canola}}
+|{{Gardening}}, {{Goofy's Stall|Forest of Valor}}, {{Goofy's Stall|The Docks}}, {{Goofy's Stall|The Courtyard}}, {{Goofy's Stall|The Overlook}}, {{Goofy's Stall|The Ruins}}
+|{{energy}} 59
+|{{starcoin}} 109
+|-
+|{{il|Corn}}
+|{{Gardening}}, {{Goofy's Stall|The Plains}}, {{Goofy's Stall|The Wasted}}, {{Goofy's Stall|The Oasis}}, {{Goofy's Stall|The Borderlands}}
+|{{energy}} 30
+|{{starcoin}} 16
+|-
+|{{il|Elysian Grain}}
+|Gardening 
+|{{energy}} 50
+|{{starcoin}} 130
+|-
+|{{il|Faerie Rye}}
+|Gardening
+|{{energy}} 48
+|{{starcoin}} 62
+|-
+|{{il|Fairy Kamut}}
+|
+|{{energy}} 28
+|{{starcoin}} 107
+|-
+|{{il|Oats}}
+|Gardening
+|{{energy}} 100
+|{{starcoin}} 99
+|-
+|{{il|Pearly Barley}}
+|
+|{{energy}} 39
+|{{starcoin}} 45
+|-
+|{{il|Rice}}
+|{{Gardening}}, {{Goofy's Stall|Glade of Trust}}
+|{{energy}} 59
+|{{starcoin}} 61
+|-
+|{{il|Soya}}
+|{{Gardening}}, {{Goofy's Stall|Sunlit Plateau}}
+|{{energy}} 58
+|{{starcoin}} 69
+|-
+|{{il|Sugarcane}}
+|{{Gardening}}, {{Goofy's Stall|Dazzle Beach}}
+|{{energy}} 46
+|{{starcoin}} 19
+|-
+|{{il|Wheat}}
+|{{Gardening}}, {{Goofy's Stall|Peaceful Meadow}}, {{Goofy's Stall|The Docks}}, {{Goofy's Stall|The Courtyard}}, {{Goofy's Stall|The Overlook}}, {{Goofy's Stall|The Ruins}}
+|{{energy}} 19
+|{{starcoin}} 2
+|}
+
+== [[File:CR Pantry icon 2.png|x30px]] Chez Remy's Pantry ==
+{| class="wikitable sortable" style="width:95%; margin:auto;"
+!style="width:35%;"|Ingredient
+!Energy
+!Sell Price
+|-
+|{{il|Butter}}
+|{{energy}} 285
+|{{starcoin}} 190
+|-
+|{{il|Cheese}}
+|{{energy}} 270
+|{{starcoin}} 180
+|-
+|{{il|Egg}}
+|{{energy}} 330
+|{{starcoin}} 220
+|-
+|{{il|Milk}}
+|{{energy}} 345
+|{{starcoin}} 230
+|-
+|{{il|Peanut}}
+|{{energy}} 300
+|{{starcoin}} 200
+|-
+|{{il|Slush Ice}}
+|{{energy}} 225
+|{{starcoin}} 150
+|}
+
+== [[File:Spices & Herbs Icon 2.png|x30px]] Spices & Herbs ==
+{| class="wikitable sortable" style="width:95%; margin:auto;"
+!style="width:35%;"|Ingredient
+!style="width:35%;"|Acquisition
+!Energy
+!Sell Price
+|-
+|{{il|Agave}}
+|
+|{{energy}} 100
+|{{starcoin}} 25
+|-
+|{{il|Ambrosia}}
+|
+|{{energy}} 350
+|{{starcoin}} 70
+|-
+|{{il|Basil}}
+|Forgaging
+|{{energy}} 100
+|{{starcoin}} 50
+|-
+|{{il|Black Pepper}}
+|
+|{{energy}} 33
+|{{starcoin}} 83
+|-
+|{{il|Button Mushroom}}
+|
+|{{energy}} 135
+|{{starcoin}} 60
+|-
+|{{il|Chrysanthemum Tea Leaves}}
+|Mulan's Stall
+|{{energy}} 25
+|{{starcoin}} 25
+|-
+|{{il|Cinnamon}}
+|Foraging
+|{{energy}} 155
+|{{starcoin}} 30
+|-
+|{{il|Cumin}}
+|
+|{{energy}} 90
+|{{starcoin}} 15
+|-
+|{{il|Dill}}
+|
+|{{energy}} 115
+|{{starcoin}} 40
+|-
+|{{il|Fairy Sprinkles}}
+|
+|{{energy}} 155
+|{{starcoin}} 80
+|-
+|{{il|Garlic}}
+|Foraging
+|{{energy}} 133
+|{{starcoin}} 50
+|-
+|{{il|Ginger}}
+|Foraging
+|{{energy}} 175
+|{{starcoin}} 50
+|-
+|{{il|Jasmine Tea Leaves}}
+|Mulan's Stall
+|{{energy}} 25
+|{{starcoin}} 25
+|-
+|{{il|Lightning Spice}}
+|Foraging
+|{{energy}} 140
+|{{starcoin}} 65
+|-
+|{{il|Majestea}}
+|Foraging
+|{{energy}} 105
+|{{starcoin}} 30
+|-
+|{{il|Mint}}
+|Foraging
+|{{energy}} 155
+|{{starcoin}} 50
+|-
+|{{il|Mushroom}}
+|Foraging
+|{{energy}} 105
+|{{starcoin}} 30
+|-
+|{{il|Nutmeg}}
+|
+|{{energy}} 450
+|{{starcoin}} 45
+|-
+|{{il|Oolong Tea Leaves}}
+|Mulan's Stall
+|{{energy}} 25
+|{{starcoin}} 25
+|-
+|{{il|Oregano}}
+|Foraging
+|{{energy}} 95
+|{{starcoin}} 50
+|-
+|{{il|Paprika}}
+|
+|{{energy}} 125
+|{{starcoin}} 50
+|-
+|{{il|Salt Crystal}}
+|Fishing
+|{{energy}} 25
+|{{starcoin}} 20
+|-
+|{{il|Trumpet Snail}}
+|{{Foraging}}
+|{{energy}} 25
+|{{starcoin}} 20
+|-
+|{{il|Vanilla}}
+|Foraging
+|{{energy}} 135
+|{{starcoin}} 50
+|}
+
+== [[File:Seafood Icon 2.png|30x30px]] Seafood ==
+
+{| class="wikitable sortable" style="width:95%; margin:auto;"
+!style="width:35%;"|Ingredient
+!style="width:35%;"|Acquisition
+!Energy
+!Sell Price
+|-
+|{{il|Clam}}
+|
+|{{energy}} 120
+|{{starcoin}} 50
+|-
+|{{il|Oyster}}
+|
+|{{energy}} 250
+|{{starcoin}} 50
+|-
+|{{il|Scallop}}
+|
+|{{energy}} 125
+|{{starcoin}} 50
+|}
+
+[[Category:Collections]]

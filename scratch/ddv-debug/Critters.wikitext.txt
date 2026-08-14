@@ -1,0 +1,795 @@
+{{Islands}}
+'''Critters''' in [[Dreamlight Valley]] are animals that can interacted with and obtained as [[:Category:Companions|companions]]. Each biome has a unique Critter species to feed and befriend in different color variations. Critters is also a collection, interacting with and obtaining critters logs them in the Critters collection.
+
+==Interacting==
+Critters can be interacted with when close to them, each critter require a unique method of approaching and interacting. Feeding a Critter a food that it likes multiple times will recruit the Critter as companion, although the exact number of times for any critter has yet to be determined. Feeding Critters only counts once a day, as seen by the grey symbol with a tick. Critters will drop items when fed food they like. 
+
+{| class="wikitable sortable" style="background-color:#95A5E2;width:100%; margin:auto; text-align: center;"
+|- style="background-color:#6065c6;” "
+! rowspan="2" style="background-color:#6065c6"|Species
+! rowspan="2" style="background-color:#6065c6"|Biome
+! rowspan="2" style="background-color:#6065c6"|Favorite Food
+! colspan="7" style="background-color:#6065c6"|Interacting
+|-
+|[[File:Emerald Sunbird.png|x50px]]<br>'''Sunbirds'''
+|{{Sunlit Plateau}}
+|style="margin:auto; text-align: Left;"|
+{{il|Emerald Sunbird}}: Green and Yellow flowers. For example: {{il|Green Passion Lily}}<br><br>
+{{il|Golden Sunbird}}: Yellow and Orange flowers. For example: {{il|Sunflower}}<br><br>
+{{il|Orchid Sunbird}}: Pink and Purple flowers. For example: {{il|Pink Bromeliad}}<br><br>
+{{il|Red Sunbird}}: Blue and Red flowers. For example: {{il|Red Bromeliad}}<br><br>
+{{il|Turquoise Sunbird}}:  Green and Pink flowers. For example: {{il|Pink Houseleek}}<br>
+|''No special approaching method.''
+|-
+|[[File:Classic Squirrel.png|x50px]]<br>'''Squirrels'''
+|{{Plaza}}
+|{{il|Peanut}}
+|''No special approaching method.''
+|-
+|[[File:Classic Crocodile.png|x50px]]<br>'''Crocodiles'''
+|{{Glade of Trust}}
+|{{il|Lobster}}
+|Slowly approach the Crocodile while it has its head down, stay still when it lifts its head up. [https://disneydreamlightvalley.fandom.com/wiki/File:How_to_feed_a_Crocodile_and_a_Raccoon_(Critters)_-_Disney_Dreamlight_Valley Video.]
+|-
+|[[File:Classic Rabbit.png|x50px]]<br>'''Rabbits'''
+|{{Peaceful Meadow}}
+|{{il|Carrot}}
+|Chase the Rabbit until it stops running.
+|-
+|[[File:Classic Raven.png|x50px]]<br>'''Ravens'''
+|{{Forgotten Lands}}
+|5-Star [[Meals|meal]]. For example: {{il|Large Seafood Platter}}
+|Allow the Raven to circle you before it comes down to be approached.
+|-
+|[[File:Classic Sea Turtle.png|x50px]]<br>'''Sea Turtles'''
+|{{Dazzle Beach}}
+|{{il|Seaweed}}
+|Approach the Sea Turtle and wait for it to come out of its shell.
+|-
+|[[File:Classic Fox.png|x50px]]<br>'''Foxes'''
+|{{Frosted Heights}}
+|{{il|White Sturgeon}}
+|Chase the Fox until it stops running.
+|-
+|[[File:Classic Raccoon.png|x50px]]<br>'''Raccoons'''
+|{{Forest of Valor}}
+|{{il|Blueberry}}
+|Slowly approach the Raccoon while it is low, stay still when it lifts its head up. [https://disneydreamlightvalley.fandom.com/wiki/File:How_to_feed_a_Crocodile_and_a_Raccoon_(Critters)_-_Disney_Dreamlight_Valley Video.]
+|-
+|[[File:Classic Monkey.png|x50px]]<br>'''Monkeys'''
+|style="margin:auto; text-align: Left;"|
+{{il|Beige Monkey}} lives in {{The Ruins}}<br><br>
+{{il|Black and Brown Monkey}} lives in {{The Courtyard}}<br><br>
+{{il|Black and Gray Monkey}} lives in {{The Ruins}}<br><br>
+{{il|Classic Monkey}} lives in {{The Docks}}<br><br>
+{{il|Red and Beige Monkey}} lives in {{The Overlook}}<br>
+|5-Star [[Meals#Desserts|Desserts]]. For example: {{il|Pastry Cream and Fruits}}.
+|Chase the Monkey until it stops running.
+|-
+|[[File:Classic Capybara.png|x50px]]<br>'''Capybaras'''
+|style="margin:auto; text-align: Left;"|
+{{il|Black and White Capybara}} lives in {{The Promenade}}<br><br>
+{{il|Blue Striped Capybara}} lives in {{The Grove}}<br><br>
+{{il|Classic Capybara}} lives in {{The Grasslands}}<br><br>
+{{il|Gray Spotted Capybara}} lives in {{The Lagoon}}<br><br>
+{{il|Red and White Striped Capybara}} lives in {{The Lagoon}}<br>
+|{{il|Cabbage}}
+|''No special approaching method.''
+|-
+|[[File:Classic Cobra.png|x50px]]<br>'''Cobras'''
+|style="margin:auto; text-align: Left;"|
+{{il|Blue and Red Striped Cobra}} lives in {{The Wastes}}<br><br>
+{{il|Classic Cobra}} lives in {{The Plains}}<br><br>
+{{il|Green and White Striped Cobra}} lives in {{The Borderlands}}<br><br>
+{{il|Pink Spotted Cobra}} lives in {{The Oasis}}<br><br>
+{{il|Yellow and Purple Striped Cobra}} lives in {{The Borderlands}}<br>
+|{{il|Egg}}
+|Slowly approach the Cobra while it is low, stay still when it lifts its head up. [https://disneydreamlightvalley.fandom.com/wiki/File:How_to_feed_a_Crocodile_and_a_Raccoon_(Critters)_-_Disney_Dreamlight_Valley Video.]
+|-
+|[[File:Brown Owl.png|x50px]]<br>'''Owls'''
+|{{il|Brown Owl}} and {{il|Dark Owl}} lives in {{The Library of Lore}}<br><br>
+{{il|Light Owl}} and {{il|Purple Owl}} lives in {{The Bind}}
+|{{il|Barley}}
+|''No special approaching method.''
+|-
+|[[File:Pink Pegasus.png|x50px]]<br>'''Pegasi'''
+|{{il|Blue Pegasus}} lives in {{The Fiery Plains}}<br><br>
+{{il|Peach Pegasus}} lives in {{Mount Olympus}}<br><br>
+{{il|Pink Pegasus}} lives in {{The Elysian Fields}}<br><br>
+{{il|Yellow Pegasus}} lives in {{The Statue's Shadow}}<br><br>
+|5-Star [[Meals|meal]] prepared using [[File:Vegetables Icon 2.png|x23px]]<br>[[Cooking#Vegetables|Vegetable]]. For example: {{il|Bulgur Salad}} or {{il|Fish Creole}}
+|Chase the Pegasus until it stops running. 
+|-
+|[[File:Blue Baby Dragon.png|x50px]]<br>'''Baby Dragons'''
+|{{il|Blue Baby Dragon}} lives in {{The Wild Woods}}<br><br>
+{{il|Green Baby Dragon}} lives in {{The Fallen Fortress}}<br><br>
+{{il|Purple Baby Dragon}} lives in {{The Beanstalk Marshes}}<br><br>
+{{il|Red Baby Dragon}} lives in {{Teapot Falls}}<br><br>
+|{{il|Pure Ice}}, {{il|Shiny Pure Ice}}, {{il|Magma}} or {{il|Shiny Magma}}
+|Approach the Baby Dragon and wait for it to get used to you and stop hiding under its wing.
+|}
+<!-- Patern
+|-
+|[[File:.png|x50px]]<br>''''''
+|{{}}
+|
+| 
+-->
+==Schedules==
+To tame all the сritters, you sometimes have to look for them on a certain day and time.
+
+{| class="wikitable sortable" style="background-color:#95A5E2;width:100%; margin:auto; text-align: center;"
+|- style="background-color:#6065c6;” "
+! style="background-color:#6065c6" |Critter
+! style="background-color:#6065c6" |Biome
+! style="background-color:#6065c6" |Mon
+! style="background-color:#6065c6" |Tue
+! style="background-color:#6065c6" |Wed
+! style="background-color:#6065c6" |Thu
+! style="background-color:#6065c6" |Fri
+! style="background-color:#6065c6" |Sat
+! style="background-color:#6065c6" |Sun
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Emerald Sunbird}}
+|rowspan="5" style="background-color:#95A5E2;"|{{Sunlit Plateau}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Golden Sunbird}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Orchid Sunbird}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->'''9 AM to 3 PM'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Red Sunbird}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Turquoise Sunbird}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Black Squirrel}}
+|rowspan="5" style="background-color:#8296DD;"|{{Plaza}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Classic Squirrel}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Gray Squirrel}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Red Squirrel}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|White Squirrel}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''10 AM to 4 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Blue Crocodile}}
+|rowspan="6" style="background-color:#95A5E2;"|{{Glade of Trust}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Classic Crocodile}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Golden Crocodile}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Pink Crocodile}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''6 AM to 12 PM'''
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Red Crocodile}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|White Crocodile}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''6 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Black Rabbit}}
+|rowspan="5" style="background-color:#8296DD;"|{{Peaceful Meadow}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Brown Rabbit}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Calico Rabbit}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''8 AM to 2 PM'''
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->[[File:Empty.png|20px]]
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Classic Rabbit}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|White Rabbit}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Blue Raven}}
+|rowspan="5" style="background-color:#95A5E2;"|{{Forgotten Lands}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Brown Raven}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''6 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Classic Raven}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Red Raven}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|White Raven}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Black Sea Turtle}}
+|rowspan="5" style="background-color:#8296DD;"|{{Dazzle Beach}}
+|style="background-color:#8296DD;"|<!--Mon-->'''10 AM to 4 PM'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->[[File:Empty.png|20px]]
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Brown Sea Turtle}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Classic Sea Turtle}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Purple Sea Turtle}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|White Sea Turtle}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Black Fox}}
+|rowspan="5" style="background-color:#95A5E2;"|{{Frosted Heights}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Blue Fox}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Classic Fox}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|Red Fox}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''4 PM to 10 PM'''
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|-
+|style="text-align: left; background-color:#95A5E2;"|{{il|White Fox}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Black Raccoon}}
+|rowspan="5" style="background-color:#8296DD;" |{{Forest of Valor}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Blue Raccoon}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->'''4 PM to 10 PM'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->[[File:Empty.png|20px]]
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Classic Raccoon}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|Red Raccoon}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|-
+|style="text-align: left; background-color:#8296DD;"|{{il|White Raccoon}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Beige Monkey}}
+|style="background-color:#95A5E2;"|{{The Ruins}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Black and Brown Monkey}}
+|style="background-color:#95A5E2;"|{{The Courtyard}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Black and Gray Monkey}}
+|style="background-color:#95A5E2;"|{{The Ruins}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''6 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Classic Monkey}}
+|style="background-color:#95A5E2;"|{{The Docks}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Red and Beige Monkey}}
+|style="background-color:#95A5E2;"|{{The Overlook}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''12 AM to 12 PM'''
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''12 AM to 12 PM'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->'''12 AM to 12 PM'''
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Black and White Capybara}}
+|style="background-color:#8296DD;"|{{The Promenade}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''12 PM to 12 AM'''
+|style="background-color:#8296DD;"|<!--Sat-->'''12 PM to 12 AM'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 PM to 12 AM'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Blue Striped Capybara}}
+|style="background-color:#8296DD;"|{{The Grove}}
+|style="background-color:#8296DD;"|<!--Mon-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Tue-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Wed-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Classic Capybara}}
+|style="background-color:#8296DD;"|{{The Grasslands}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Gray Spotted Capybara}}
+|style="background-color:#8296DD;"|{{The Lagoon}}
+|style="background-color:#8296DD;"|<!--Mon-->'''12 PM to 12 AM'''
+|style="background-color:#8296DD;"|<!--Tue-->'''12 PM to 12 AM'''
+|style="background-color:#8296DD;"|<!--Wed-->'''12 PM to 12 AM'''
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Red and White Striped Capybara}}
+|style="background-color:#8296DD;"|{{The Lagoon}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''12 PM to 6 PM'''
+|style="background-color:#8296DD;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Blue and Red Striped Cobra}}
+|style="background-color:#95A5E2;"|{{The Wastes}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Tue-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Classic Cobra}}
+|style="background-color:#95A5E2;"|{{The Plains}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Green and White Striped Cobra}}
+|style="background-color:#95A5E2;"|{{The Borderlands}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''6 AM to 12 PM'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Pink Spotted Cobra}}
+|style="background-color:#95A5E2;"|{{The Oasis}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->'''12 AM to 12 PM'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''12 AM to 12 PM'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 AM to 12 PM'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Yellow and Purple Striped Cobra}}
+|style="background-color:#95A5E2;"|{{The Borderlands}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''12 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''12 PM to 12 AM'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Brown Owl}}
+|style="background-color:#8296DD;"|{{The Library of Lore}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Dark Owl}}
+|style="background-color:#8296DD;"|{{The Library of Lore}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Light Owl}}
+|style="background-color:#8296DD;"|{{The Bind}}
+|style="background-color:#8296DD;"|<!--Mon-->'''3 PM to 8 PM'''
+|style="background-color:#8296DD;"|<!--Tue-->'''3 PM to 8 PM'''
+|style="background-color:#8296DD;"|<!--Wed-->'''3 PM to 8 PM'''
+|style="background-color:#8296DD;"|<!--Thu-->'''3 PM to 8 PM'''
+|style="background-color:#8296DD;"|<!--Fri-->'''3 PM to 8 PM'''
+|style="background-color:#8296DD;"|<!--Sat-->'''3 PM to 8 PM'''
+|style="background-color:#8296DD;"|<!--Sun-->'''3 PM to 8 PM'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Purple Owl}}
+|style="background-color:#8296DD;"|{{The Bind}}
+|style="background-color:#8296DD;"|<!--Mon-->'''12 AM to 9 AM'''
+|style="background-color:#8296DD;"|<!--Tue-->'''12 AM to 9 AM'''
+|style="background-color:#8296DD;"|<!--Wed-->'''12 AM to 9 AM'''
+|style="background-color:#8296DD;"|<!--Thu-->'''12 AM to 9 AM'''
+|style="background-color:#8296DD;"|<!--Fri-->'''12 AM to 9 AM'''
+|style="background-color:#8296DD;"|<!--Sat-->'''12 AM to 9 AM'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 9 AM'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Blue Pegasus}}
+|style="background-color:#95A5E2;"|{{The Fiery Plains}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Tue-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Peach Pegasus}}
+|style="background-color:#95A5E2;"|{{Mount Olympus}}
+|style="background-color:#95A5E2;"|<!--Mon-->'''6 AM to 2 PM'''
+|style="background-color:#95A5E2;"|<!--Tue-->'''6 AM to 2 PM'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''6 AM to 2 PM'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''6 AM to 2 PM'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''6 AM to 2 PM'''
+|style="background-color:#95A5E2;"|<!--Sat-->'''6 AM to 2 PM'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''6 AM to 2 PM'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Pink Pegasus}}
+|style="background-color:#95A5E2;"|{{The Elysian Fields}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Thu-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sat-->'''All day'''
+|style="background-color:#95A5E2;"|<!--Sun-->'''All day'''
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|Yellow Pegasus}}
+|style="background-color:#95A5E2;"|{{The Statue's Shadow}}
+|style="background-color:#95A5E2;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|<!--Tue-->'''6 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Wed-->'''6 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Thu-->'''6 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Fri-->'''6 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Sat-->'''6 PM to 12 AM'''
+|style="background-color:#95A5E2;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Blue Baby Dragon}}
+|style="background-color:#8296DD;"|{{The Wild Woods}}
+|style="background-color:#8296DD;"|<!--Mon-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Tue-->'''All day'''
+|style="background-color:#8296DD;"|<!--Wed-->'''All day'''
+|style="background-color:#8296DD;"|<!--Thu-->'''All day'''
+|style="background-color:#8296DD;"|<!--Fri-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->[[File:Empty.png|20px]]
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Green Baby Dragon}}
+|style="background-color:#8296DD;"|{{The Fallen Fortress}}
+|style="background-color:#8296DD;"|<!--Mon-->'''10 AM to 6 PM'''
+|style="background-color:#8296DD;"|<!--Tue-->'''10 AM to 6 PM'''
+|style="background-color:#8296DD;"|<!--Wed-->'''10 AM to 6 PM'''
+|style="background-color:#8296DD;"|<!--Thu-->'''10 AM to 6 PM'''
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sun-->'''10 AM to 6 PM'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Purple Baby Dragon}}
+|style="background-color:#8296DD;"|{{The Beanstalk Marshes}}
+|style="background-color:#8296DD;"|<!--Mon-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Tue-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Wed-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Thu-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Fri-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Sat-->'''12 AM to 12 PM'''
+|style="background-color:#8296DD;"|<!--Sun-->'''12 AM to 12 PM'''
+|- 
+|style="text-align: left; background-color:#8296DD;"|{{il|Red Baby Dragon}}
+|style="background-color:#8296DD;"|{{Teapot Falls}}
+|style="background-color:#8296DD;"|<!--Mon-->'''All day'''
+|style="background-color:#8296DD;"|<!--Tue-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Wed-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Thu-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Fri-->[[File:Empty.png|20px]]
+|style="background-color:#8296DD;"|<!--Sat-->'''All day'''
+|style="background-color:#8296DD;"|<!--Sun-->'''All day'''
+|}
+<br>
+<!-- Patern
+|- 
+|style="text-align: left; background-color:#95A5E2;"|{{il|}}
+|style="background-color:#95A5E2;"|{{}}
+|style="background-color:#95A5E2;"|[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|[[File:Empty.png|20px]]
+|style="background-color:#95A5E2;"|[[File:Empty.png|20px]]
+-->
+{{navbox collection}}
+
+[[Category:Collections]]
