@@ -152,11 +152,11 @@ async function run() {
   for (const r of rowsFromPage("Fish (collection)", { category: "Fish", source: "Fishing" })) {
     rows.push(mk(r.name, r.category, r.sell, r.location, { source: r.source, energy: r.energy, file: r.file }));
   }
-  for (const r of rowsFromPage("Foraging (collection)", { category: "Flower", source: "Foraging" })) {
+  for (const r of rowsFromPage("Foraging (collection)", { source: "Foraging" })) {
     rows.push(mk(r.name, r.category, r.sell, r.location, { source: r.source, file: r.file }));
   }
-  for (const r of rowsFromPage("Crafting", { source: "Crafting" })) {
-    rows.push(mk(r.name, r.category === "Crafting" ? "Crafting Material" : r.category, r.sell, r.location, { source: r.source, file: r.file }));
+  for (const r of rowsFromPage("Crafting", { category: "Crafting Material", source: "Crafting" })) {
+    rows.push(mk(r.name, r.category, r.sell, r.location, { source: r.source, file: r.file }));
   }
 
   // Fallback curated materials (ensures core woods/ores exist even if scrape misses them).

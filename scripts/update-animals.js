@@ -154,7 +154,11 @@ async function run() {
     ...companions.map((c) => c.img),
   ];
   const urls = imageUrls(allFiles);
-  for (const s of species) { s.img = urls[s.img] || ""; for (const v of s.variants) v.img = urls[v.img] || ""; }
+  for (const s of species) {
+    s.img = urls[s.img] || "";
+    for (const v of s.variants) v.img = urls[v.img] || "";
+    if (!s.img && s.variants[0]) s.img = s.variants[0].img; // group icon fallback (species itself has no wiki image)
+  }
   for (const c of companions) c.img = urls[c.img] || "";
 
   const withVars = species.filter((s) => s.variants.length);
