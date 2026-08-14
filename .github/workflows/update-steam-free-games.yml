@@ -16,8 +16,6 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: "24"
-      - name: TEMP diagnose Deponia miss
-        run: node scripts/steam-diagnose.js
       - name: Fetch Steam free-game promos
         run: node scripts/update-steam-free-games.js
       - name: Commit changes if any

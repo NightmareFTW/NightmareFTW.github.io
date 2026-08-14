@@ -22,6 +22,7 @@
     title: "Jogos grátis na Steam",
     empty: "Sem promoções de jogos grátis neste momento.",
     normally: function (p) { return "Normalmente " + p; },
+    until: function (d) { return "grátis até " + d; },
     claim: "Resgatar na Steam →",
     notify: "Avisar-me quando aparecer um novo",
     note: "Algumas promoções são por tempo limitado — confirma na página da loja antes que acabe.",
@@ -30,6 +31,7 @@
     title: "Free Steam games",
     empty: "No free-game promos right now.",
     normally: function (p) { return "Normally " + p; },
+    until: function (d) { return "free until " + d; },
     claim: "Claim on Steam →",
     notify: "Notify me when a new one shows up",
     note: "Some giveaways are time-limited — confirm on the store page before it's gone.",
@@ -70,7 +72,7 @@
           (it.image ? '<img src="' + esc(it.image) + '" alt="" loading="lazy">' : '') +
           '<span class="steam-panel-item-body">' +
             '<span class="steam-panel-item-name">' + esc(it.name) + '</span>' +
-            '<span class="steam-panel-item-meta">' + (it.normalPrice ? esc(T.normally(it.normalPrice)) + " · " : "") + esc(fmtDate(it.postedAt)) + '</span>' +
+            '<span class="steam-panel-item-meta">' + (it.normalPrice ? esc(T.normally(it.normalPrice)) + " · " : "") + esc(fmtDate(it.postedAt)) + (it.deadline ? " · " + esc(T.until(it.deadline)) : "") + '</span>' +
           '</span>' +
           '<span class="steam-panel-item-cta">' + esc(T.claim) + '</span>' +
         '</a>';
@@ -146,7 +148,8 @@
     if (!fresh.length) return;
     fresh.forEach(function (it) {
       try {
-        var n = new Notification(it.name, { body: T.normally(it.normalPrice || "") + " — " + T.claim, icon: it.image || undefined });
+        var body = T.normally(it.normalPrice || "") + (it.deadline ? " · " + T.until(it.deadline) : "") + " — " + T.claim;
+        var n = new Notification(it.name, { body: body, icon: it.image || undefined });
         n.onclick = function () { window.open(it.url, "_blank"); };
       } catch (e) {}
     });
