@@ -28,10 +28,14 @@ const ALLOW = {
   // files it references come from gstatic.
   style: ["https://fonts.googleapis.com"],
   font: ["https://fonts.gstatic.com"],
-  // The accounts/sync Worker, GitHub's API + OAuth (login + gist sync), and
+  // The Cloudflare Web Analytics beacon (privacy-friendly, cookieless site
+  // analytics — see scripts/add-analytics.js), loaded on every page.
+  script: ["https://static.cloudflareinsights.com"],
+  // The accounts/sync Worker, GitHub's API + OAuth (login + gist sync),
   // Warframe's public worldstate API (fetched client-side, live, on the
-  // Warframe tool pages).
-  connect: ["https://nftw-auth.nightmareftw.workers.dev", "https://api.github.com", "https://github.com", "https://api.warframestat.us"],
+  // Warframe tool pages), and the Cloudflare Web Analytics beacon's own
+  // reporting endpoint.
+  connect: ["https://nftw-auth.nightmareftw.workers.dev", "https://api.github.com", "https://github.com", "https://api.warframestat.us", "https://cloudflareinsights.com"],
   // The one embedded third-party iframe (Outlast Trials interactive maps).
   frame: ["https://outlast.fex.dev"],
 };
@@ -43,7 +47,7 @@ const ALLOW = {
 // this one directive; every other directive stays a tight, explicit list.
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline' ${ALLOW.script.join(" ")}`,
   `style-src 'self' 'unsafe-inline' ${ALLOW.style.join(" ")}`,
   `font-src 'self' ${ALLOW.font.join(" ")}`,
   "img-src 'self' data: https:",

@@ -2,10 +2,10 @@ name: Stamp asset cache-busters
 
 # Keeps the ?v=<hash> on every local CSS/JS reference in sync with the file's
 # real contents, so a deploy is never served stale from the browser cache.
-# Also (re)applies the Content-Security-Policy <meta> tag to every page, so a
-# newly-added HTML file always gets it without a manual step. Runs on the
-# deploy branch whenever site code changes; if nothing needs updating it
-# makes no commit, so it can't loop.
+# Also (re)applies the Content-Security-Policy <meta> tag and the Cloudflare
+# Web Analytics beacon to every page, so a newly-added HTML file always gets
+# both without a manual step. Runs on the deploy branch whenever site code
+# changes; if nothing needs updating it makes no commit, so it can't loop.
 
 on:
   push:
@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: "24"
+      - name: Apply Cloudflare Web Analytics tag
+        run: node scripts/add-analytics.js
       - name: Apply Content-Security-Policy tag
         run: node scripts/add-csp.js
       - name: Stamp cache-busters
