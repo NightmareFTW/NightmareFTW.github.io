@@ -1,10 +1,17 @@
 {
   "game": "epic7",
-  "updated": "2026-08-19T12:10:22.876Z",
+  "updated": "2026-08-19T18:09:17.409Z",
   "source": "https://ucngame.com/codes/epic-seven-codes/",
   "redeem": "https://epic7.onstove.com/en/coupon",
   "note": "Redeem on the official Stove coupon page (button below). Epic Seven codes expire fast — newest at the top; some may already be gone.",
   "codes": [
+    {
+      "code": "8TH_ANN",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
     {
       "code": "E7SUMMERGIFT26",
       "reward": "Coupon rewards (event / livestream)",
@@ -203,13 +210,6 @@
     },
     {
       "code": "E7WC25_EMOJI_FIN",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "MAIN_3RD_E7WC2025",
       "reward": "Coupon rewards (event / livestream)",
       "added": "",
       "expires": null,
