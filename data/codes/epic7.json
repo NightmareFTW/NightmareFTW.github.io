@@ -1,10 +1,17 @@
 {
   "game": "epic7",
-  "updated": "2026-08-21T12:10:45.261Z",
+  "updated": "2026-08-21T18:10:54.753Z",
   "source": "https://ucngame.com/codes/epic-seven-codes/",
   "redeem": "https://epic7.onstove.com/en/coupon",
   "note": "Redeem on the official Stove coupon page (button below). Epic Seven codes expire fast — newest at the top; some may already be gone.",
   "codes": [
+    {
+      "code": "OUR8TH_EPIC",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
     {
       "code": "TOGETHER_8Y",
       "reward": "Coupon rewards (event / livestream)",
@@ -203,13 +210,6 @@
     },
     {
       "code": "E7WC2025RECAP",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "SY_ORBIS_RWDBOX",
       "reward": "Coupon rewards (event / livestream)",
       "added": "",
       "expires": null,
