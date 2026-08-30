@@ -62,7 +62,9 @@ Sign in with **GitHub** or a plain **email + password** account (backed by a
 Cloudflare Worker + D1 — see [`worker/`](worker/)) to sync pins, checklists,
 tracked progress and Murdoku saves across every device instead of losing them
 to a cleared browser. Signing in is entirely optional — everything also works
-fully offline via `localStorage` for anyone who'd rather not create an account.
+with local-only `localStorage` for anyone who'd rather not create an account
+(the site itself still needs a connection to load pages and data; there's no
+offline/service-worker cache).
 
 ### Play
 
@@ -79,8 +81,10 @@ the culprit. Endless procedurally-generated chapters.
 A notification bell in the header (visible on every page) tracks normally-paid
 Steam games that go temporarily free to claim — sourced from the community
 [Free Games Info!!!](https://steamcommunity.com/groups/freegamesinfoo) group,
-cross-checked against Steam's own store API so only real, currently-live
-promos show up. Opt in to native OS notifications for new ones; refreshed
+with each candidate verified against Steam's own store API to filter out bad
+or garbage links (not to confirm it's still live — that's the group's own
+"[ENDED]"/"[EXPIRED]" tags, backed by a 14-day rolling window as a fallback).
+Opt in to native OS notifications for new ones; refreshed
 hourly by [`update-steam-free-games.yml`](.github/workflows/update-steam-free-games.yml).
 
 ![Steam free-game alerts](assets/screenshots/steam-alerts.png)
@@ -160,8 +164,8 @@ without manual edits:
   runs hourly (see "Steam free-game alerts" above).
 - **Honkai: Star Rail** — five scrapers keep HSR current to the live patch: the
   [tier list](.github/workflows/update-hsr-tierlist.yml), [meta team comps](.github/workflows/update-hsr-teams.yml),
-  [per-character builds](.github/workflows/update-hsr-builds.yml) and [warp calendar](.github/workflows/update-hsr-banners.yml)
-  (weekly, from Game8), plus the [event calendar](.github/workflows/update-hsr-events.yml) (daily, since events rotate fast).
+  [per-character builds](.github/workflows/update-hsr-builds.yml), [warp calendar](.github/workflows/update-hsr-banners.yml)
+  and [event calendar](.github/workflows/update-hsr-events.yml) all run daily from Game8, since HSR patches and events move fast.
 - **Neverness to Everness** — [`update-nte-teams.yml`](.github/workflows/update-nte-teams.yml)
   pulls each character's player-tested team comps from Prydwen weekly.
 - **Far Far West** — [`update-ffw-builds.yml`](.github/workflows/update-ffw-builds.yml) (daily) refreshes the
