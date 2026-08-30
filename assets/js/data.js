@@ -599,4 +599,38 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "farever",
+    name: "Farever",
+    banner: "assets/img/games/farever-header.jpg",
+    color: "#7c5cff",
+    glow: "rgba(124, 92, 255, 0.22)",
+    blurb: "Co-op action RPG by Shiro Games — four classes, over a hundred weapons, and dungeons to clear with friends.",
+    tools: [
+      {
+        id: "builds",
+        name: "Class Builds",
+        type: "guide",
+        desc: "3 weapon-based build ideas per class — role, playstyle, pros & cons.",
+        href: "games/farever/builds.html",
+        available: true,
+      },
+      {
+        id: "weapons",
+        name: "Weapons Guide",
+        type: "reference",
+        desc: "Every weapon type in the game and which classes make the most of it.",
+        href: "games/farever/weapons.html",
+        available: true,
+      },
+      {
+        id: "dungeons",
+        name: "Dungeons Checklist",
+        type: "checklist",
+        desc: "Track which of the game's dungeons you've cleared. Ticks persist on this device.",
+        href: "games/farever/dungeons.html",
+        available: true,
+      },
+    ],
+  },
 ];
