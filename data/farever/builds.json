@@ -1,0 +1,228 @@
+{
+  "updated": "2026-08-30T00:00:00.000Z",
+  "note": "Starting-point weapon builds, not min-maxed meta — Farever's class gives you the resource system and passives, but the weapon you carry decides most of your combat rhythm and skill access, and any class can equip any weapon. Pick the archetype that matches how you like to play, then tune gear as you go.",
+  "builds": [
+    {
+      "id": "warrior-sword-shield",
+      "class": "Warrior",
+      "name": "Sword & Shield Guardian",
+      "role": "Tank",
+      "difficulty": "beginnerfriendly",
+      "summary": "The default front-line pick — hold aggro, block the hits meant for your party, and chip away with reliable sword damage.",
+      "weapons": [
+        { "name": "Sword", "role": "Main hand", "why": "Fast, reliable single-target damage with no real downside — easy to learn." },
+        { "name": "Shield", "role": "Off hand", "why": "Block/parry to mitigate incoming damage and keep enemy attention off squishier allies." }
+      ],
+      "howto": [
+        "Open fights by closing distance and applying pressure so enemies target you first.",
+        "Block incoming hits rather than dodging when you're anchoring a group fight.",
+        "Peel for your Mage/Priest if something slips past you — your job is damage prevention first."
+      ],
+      "pros": ["Very forgiving — hard to make a fatal mistake.", "Keeps the party alive by eating hits meant for others.", "Cheap, early-available gear."],
+      "cons": ["Lower damage output than dedicated DPS builds.", "Less useful when soloing — nothing to tank for."]
+    },
+    {
+      "id": "warrior-dual-axe",
+      "class": "Warrior",
+      "name": "Dual Axe Berserker",
+      "role": "Melee DPS",
+      "difficulty": "medium",
+      "summary": "Trades the shield for a second axe — higher risk, much higher sustained melee damage.",
+      "weapons": [
+        { "name": "Axe", "role": "Main hand", "why": "Strong per-hit damage with cleave, good against groups of smaller enemies." },
+        { "name": "Axe", "role": "Off hand", "why": "Dual-wielding trades the Shield's mitigation for a big jump in damage-per-second." }
+      ],
+      "howto": [
+        "Commit to fights rather than trading — no shield means you want fights over fast.",
+        "Use your mobility to reposition between enemy telegraphs instead of blocking.",
+        "Group trash mobs together and cleave rather than single-targeting."
+      ],
+      "pros": ["Highest sustained melee damage on the class.", "Great against packs thanks to cleave."],
+      "cons": ["No block — punishing against attacks you can't dodge.", "Needs more positioning awareness than the shield build."]
+    },
+    {
+      "id": "warrior-spear-vanguard",
+      "class": "Warrior",
+      "name": "Spear Vanguard",
+      "role": "Hybrid Tank-DPS",
+      "difficulty": "medium",
+      "summary": "A reach-focused middle ground between the pure tank and pure damage builds — poke from range, still block when it matters.",
+      "weapons": [
+        { "name": "Spear", "role": "Main hand", "why": "Longer reach than sword/axe lets you hit and interrupt without eating every retaliation." },
+        { "name": "Shield", "role": "Off hand", "why": "Keeps the option to hold a line when a fight demands it." }
+      ],
+      "howto": [
+        "Use the spear's reach to poke and interrupt casts from just outside melee range.",
+        "Swap to blocking stance during heavy telegraphed attacks, then resume poking.",
+        "Good pick if your party lacks a dedicated tank but still needs frontline presence."
+      ],
+      "pros": ["Flexible — covers for a missing tank without fully giving up damage.", "Good interrupt uptime thanks to reach."],
+      "cons": ["Doesn't excel at either tanking or DPS compared to the dedicated builds."]
+    },
+    {
+      "id": "rogue-dagger-assassin",
+      "class": "Rogue",
+      "name": "Dagger Assassin",
+      "role": "Burst DPS",
+      "difficulty": "hard",
+      "summary": "Get in, dump every combo point into a finisher, get out — the highest single-target burst in the kit, if you can survive being in melee range.",
+      "weapons": [
+        { "name": "Daggers", "role": "Main hand", "why": "Fastest attack speed in the game, builds resources quickly for big finishing hits." }
+      ],
+      "howto": [
+        "Build up your combo resource on a safe target before committing to the kill target.",
+        "Save your finisher for openings — don't waste it on a target that's about to die anyway.",
+        "Disengage immediately after the burst window; daggers have no defensive tools of their own."
+      ],
+      "pros": ["Best single-target burst damage available to the class.", "Rewards good positioning and timing."],
+      "cons": ["Very punishing if caught out of position — no self-sustain.", "Steep learning curve to use the resource system well."]
+    },
+    {
+      "id": "rogue-bow-skirmisher",
+      "class": "Rogue",
+      "name": "Bow Skirmisher",
+      "role": "Ranged DPS",
+      "difficulty": "beginnerfriendly",
+      "summary": "The safer Rogue build — kite, poke and reposition instead of committing to melee range.",
+      "weapons": [
+        { "name": "Bow", "role": "Main hand", "why": "Ranged damage with good mobility uptime — shoot while moving, avoid most retaliation entirely." }
+      ],
+      "howto": [
+        "Keep distance and circle-strafe rather than standing still to shoot.",
+        "Use terrain and enemy pathing to your advantage when kiting tougher targets.",
+        "Great for solo play since you rarely take damage you didn't choose to."
+      ],
+      "pros": ["Much more forgiving than the melee builds — mistakes are recoverable.", "Strong solo pick."],
+      "cons": ["Lower burst than the dagger build.", "Less effective in tight dungeon corridors with no room to kite."]
+    },
+    {
+      "id": "rogue-fist-brawler",
+      "class": "Rogue",
+      "name": "Fist Brawler",
+      "role": "Sustained Melee DPS",
+      "difficulty": "medium",
+      "summary": "Fast, low-commitment strikes plus a thrown weapon for whenever the fight goes ranged — a jack-of-all-trades combo build.",
+      "weapons": [
+        { "name": "Fists", "role": "Main hand", "why": "Very fast attack speed for steady, low-risk combo generation." },
+        { "name": "Thrown", "role": "Utility", "why": "Lets you punish a fleeing target or soften something before it closes the distance." }
+      ],
+      "howto": [
+        "Keep attacking to maintain your combo chain — fists reward uptime over big single hits.",
+        "Swap to thrown weapons briefly when a target disengages, then close back in.",
+        "Weave in dodges between strikes rather than tanking hits."
+      ],
+      "pros": ["More consistent than the dagger burst build.", "Flexible against both melee and fleeing targets."],
+      "cons": ["Lower peak burst than daggers.", "Needs active dodging — passive play gets punished."]
+    },
+    {
+      "id": "mage-staff-blaster",
+      "class": "Mage",
+      "name": "Staff Blaster",
+      "role": "Burst Caster",
+      "difficulty": "medium",
+      "summary": "Single-target elemental burst from range — the highest damage ceiling of any class, at the cost of a very fragile body.",
+      "weapons": [
+        { "name": "Staff", "role": "Main hand", "why": "The Mage's core damage weapon — high per-cast damage with the longest effective range." }
+      ],
+      "howto": [
+        "Cast from maximum range and reposition after every big spell — you will not survive being caught.",
+        "Save your strongest spell for burst windows rather than spreading damage evenly.",
+        "Let your tank or a Priest's shield absorb aggro; you have almost no way to mitigate hits yourself."
+      ],
+      "pros": ["Highest damage ceiling in the game.", "Excellent range keeps you out of most melee threats."],
+      "cons": ["Squishiest class in the game — a couple of hits can end the fight for you.", "Fully dependent on a party to hold aggro in group content."]
+    },
+    {
+      "id": "mage-book-controller",
+      "class": "Mage",
+      "name": "Grimoire Controller",
+      "role": "AoE / Crowd Control",
+      "difficulty": "medium",
+      "summary": "Trades some single-target burst for area spells that control packs of enemies — the pick for dungeon trash and objective defense.",
+      "weapons": [
+        { "name": "Book", "role": "Main hand", "why": "Book spells lean toward area-of-effect and control rather than single-target burst." }
+      ],
+      "howto": [
+        "Pull groups of weaker enemies together before opening with an area spell.",
+        "Use control effects to buy your melee allies time to reposition or reset a fight.",
+        "Kite around the edge of a pack rather than standing in the middle of it."
+      ],
+      "pros": ["Excellent at clearing trash and holding chokepoints.", "Strong support value for the whole party."],
+      "cons": ["Weaker single-target damage than the staff build.", "Less impactful against solo boss fights."]
+    },
+    {
+      "id": "mage-halo-hybrid",
+      "class": "Mage",
+      "name": "Halo Battlemage",
+      "role": "Hybrid Solo",
+      "difficulty": "beginnerfriendly",
+      "summary": "A more self-sufficient Mage build for solo play — gives up some raw damage for survivability tools.",
+      "weapons": [
+        { "name": "Halos", "role": "Main hand", "why": "A more balanced magic weapon with utility on top of damage, good for players without a dedicated healer nearby." },
+        { "name": "Shield", "role": "Off hand", "why": "Unusual on a caster, but gives the Mage a rare way to block instead of relying purely on distance." }
+      ],
+      "howto": [
+        "Play more like a mid-range fighter than a backline caster — the shield lets you take a few hits.",
+        "Block big telegraphed attacks instead of always retreating.",
+        "Best used when you're playing without a consistent group to protect you."
+      ],
+      "pros": ["Much more forgiving solo than the pure staff build.", "Still deals respectable magic damage."],
+      "cons": ["Noticeably lower burst than the dedicated staff build.", "Less useful in an organized group that already covers your survivability."]
+    },
+    {
+      "id": "priest-scepter-healer",
+      "class": "Priest",
+      "name": "Scepter Healer",
+      "role": "Support",
+      "difficulty": "beginnerfriendly",
+      "summary": "The class-defining build — dedicated healing and utility for a group, with almost no personal damage output.",
+      "weapons": [
+        { "name": "Scepter", "role": "Main hand", "why": "The Priest's exclusive weapon, built entirely around efficient group healing and buffs." }
+      ],
+      "howto": [
+        "Watch party health bars, not the enemy — your job is keeping everyone standing.",
+        "Pre-heal before a telegraphed group-damage attack lands rather than reacting after.",
+        "Stay at range and let your Warrior/Rogue keep enemies away from you."
+      ],
+      "pros": ["The reason hard group content is clearable at all.", "Very high value in any co-op party."],
+      "cons": ["Almost no damage of your own.", "Weak when playing solo with nobody else to heal."]
+    },
+    {
+      "id": "priest-book-hybrid",
+      "class": "Priest",
+      "name": "Holy Book Support",
+      "role": "Heal / Damage Hybrid",
+      "difficulty": "medium",
+      "summary": "Keeps enough healing to be useful in a group while contributing real area damage — a good pick when your party already has healing covered.",
+      "weapons": [
+        { "name": "Book", "role": "Main hand", "why": "Blends holy damage spells with support utility, instead of committing fully to either." }
+      ],
+      "howto": [
+        "Default to offense when the party is topped up, and swap to support the moment someone drops low.",
+        "Use area holy damage on grouped enemies rather than single targets.",
+        "Communicate with your group so nobody assumes you're their dedicated healer."
+      ],
+      "pros": ["Contributes real damage instead of being pure support.", "Flexible between roles mid-fight."],
+      "cons": ["Doesn't heal as reliably as the Scepter build.", "Can leave a group under-healed if you misjudge the split."]
+    },
+    {
+      "id": "priest-mace-battlepriest",
+      "class": "Priest",
+      "name": "Mace Battle-Priest",
+      "role": "Melee Support",
+      "difficulty": "hard",
+      "summary": "An unconventional melee-range Priest — close-quarters support with a shield, for players who don't want to sit at the back of the fight.",
+      "weapons": [
+        { "name": "Mace", "role": "Main hand", "why": "A support-friendly melee weapon that lets you stay useful in healing kit while fighting up close." },
+        { "name": "Shield", "role": "Off hand", "why": "Necessary survivability since this build gives up the safety of range." }
+      ],
+      "howto": [
+        "Position like an off-tank — close enough to block hits, close enough to top allies up between swings.",
+        "Lean on block/parry timing since you no longer have the range buffer of the other builds.",
+        "Best in small groups where you can realistically keep track of everyone's health from melee range."
+      ],
+      "pros": ["Lets you play a support role without sitting at the back.", "Solid personal survivability from the shield."],
+      "cons": ["Hardest Priest build to execute well — you're managing melee positioning and healing at once.", "Loses reach compared to Scepter/Book."]
+    }
+  ]
+}

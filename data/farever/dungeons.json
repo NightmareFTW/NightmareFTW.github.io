@@ -1,0 +1,24 @@
+{
+  "updated": "2026-08-30T00:00:00.000Z",
+  "intro": {
+    "headline": "Farever is in Early Access — this list covers the dungeons confirmed so far and will grow as Shiro Games adds more.",
+    "points": [
+      "Tick a dungeon once you've cleared it at least once — ticks are saved on this device only.",
+      "Dungeons are co-op, up to a party of 4."
+    ]
+  },
+  "sections": [
+    {
+      "title": "Public Dungeons",
+      "note": "Confirmed dungeon names from the Early Access launch content.",
+      "items": [
+        { "label": "Mine Estrone" },
+        { "label": "Nost Mire" },
+        { "label": "Reblochonk" },
+        { "label": "King Ratsar" },
+        { "label": "Crabbgantua" },
+        { "label": "Clawdius" }
+      ]
+    }
+  ]
+}

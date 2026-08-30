@@ -1,0 +1,21 @@
+{
+  "updated": "2026-08-30T00:00:00.000Z",
+  "note": "Your class gives you a resource system and passives, but any class can equip any weapon — the weapon is what actually decides your range, mobility and skill access. This is a starting reference, not an exhaustive list; Farever is in Early Access and keeps adding weapon types.",
+  "weapons": [
+    { "name": "Sword", "classes": ["Warrior", "Priest"], "tell": "The most balanced melee weapon — reliable single-target damage with no real weaknesses. Great sword and dual-wielded variants push it further into pure damage territory." },
+    { "name": "Axe", "classes": ["Warrior"], "tell": "Heavier hits with cleave against grouped enemies. The dual-axe and great-axe variants trade defense for even more damage." },
+    { "name": "Mace", "classes": ["Warrior", "Priest"], "tell": "A support-friendly melee option — enough damage to hold your own while still being able to carry healing/buff kit alongside it." },
+    { "name": "Spear", "classes": ["Warrior", "Rogue", "Mage", "Priest"], "tell": "The one weapon every class can make good use of, thanks to its reach — poke and interrupt from just outside melee range." },
+    { "name": "Shield", "classes": ["Warrior", "Mage"], "tell": "An off-hand block/parry tool. Mostly a Warrior staple, but a Mage carrying one gives up some magic damage for real survivability." },
+    { "name": "Daggers", "classes": ["Rogue"], "tell": "The fastest attack speed in the game — builds combo resources quickly for a big finishing hit, at the cost of almost no defense." },
+    { "name": "Bow", "classes": ["Rogue"], "tell": "Ranged damage with strong mobility uptime — shoot while repositioning instead of committing to melee range." },
+    { "name": "Fists", "classes": ["Rogue"], "tell": "Fast, low-commitment strikes for steady combo generation — more consistent than daggers, less peak burst." },
+    { "name": "Thrown", "classes": ["Rogue", "Mage"], "tell": "A utility option for punishing targets at range or softening something before it closes the distance." },
+    { "name": "Staff", "classes": ["Mage"], "tell": "The Mage's core damage weapon — the highest per-cast damage and longest range of any weapon, paired with the lowest survivability." },
+    { "name": "Book", "classes": ["Mage", "Priest"], "tell": "Leans toward area-of-effect and control on a Mage, or a heal/damage hybrid on a Priest — a flexible middle-ground caster weapon." },
+    { "name": "Halos", "classes": ["Mage", "Priest"], "tell": "A more balanced magic weapon blending damage with utility — a common pick for solo casters who can't rely on a healer nearby." },
+    { "name": "Scepter", "classes": ["Priest"], "tell": "The Priest's exclusive weapon, built entirely around efficient group healing and buffs." },
+    { "name": "Crescent", "classes": [], "tell": "A support-leaning utility weapon; details are still thin this early into Early Access — treat it as a situational pick until more is confirmed." },
+    { "name": "Capture Net", "classes": [], "tell": "A utility weapon tied to Farever's taming/pet systems rather than raw combat output." }
+  ]
+}

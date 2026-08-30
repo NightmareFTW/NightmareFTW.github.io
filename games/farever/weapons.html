@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nftw-auth.nightmareftw.workers.dev https://api.github.com https://github.com https://api.warframestat.us https://cloudflareinsights.com; frame-src https://outlast.fex.dev; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Missables Checklist · Elden Ring · NightmareFTW</title>
+  <title>Weapons Guide · Farever · NightmareFTW</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/style.css?v=11076644">
 </head>
-<body data-game="elden-ring">
+<body data-game="farever">
   <div class="bg-grid" aria-hidden="true"></div>
   <header class="site-header">
     <div class="container">
@@ -19,21 +19,22 @@
     </div>
   </header>
   <main class="container tool-page">
-    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Elden Ring</a> / missables</p>
-    <h1>Missables Checklist</h1>
-    <p class="tool-sub">Elden Ring's NPC questlines are genuinely, permanently missable — progress the story too far and they break. Track each questline and the world-state triggers so you don't lose one by accident. Ticks are saved on this device.</p>
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Farever</a> / weapons</p>
+    <h1>Weapons Guide</h1>
+    <p class="tool-sub">Every weapon type and which classes make the most of it. Weapons aren't locked to a class — pick whichever fits how you want to play.</p>
+    <p class="codes-updated" id="fv-updated">Loading…</p>
 
-    <div id="ms-intro"></div>
-    <div class="ms-controls">
-      <span class="ms-progress" id="ms-progress"></span>
-      <label class="ms-hidecomplete"><input type="checkbox" id="ms-hide"> Hide completed</label>
-      <button class="mini-btn" id="ms-reset">Reset all</button>
+    <div class="list-controls">
+      <input type="search" id="fv-search" class="search-input" placeholder="Search weapons…" autocomplete="off">
     </div>
-    <div id="ms-root"><p style="color:var(--muted)">Loading checklist…</p></div>
-    <p class="tool-note">Questline &amp; trigger info from community guides. This is a planning tracker — order and exact steps can vary, so check a full quest guide for each NPC's details.</p>
+    <div class="filter-bar" id="fv-filters"></div>
+
+    <div class="dr-grid" id="fv-grid"><p style="color:var(--muted)">Loading weapons…</p></div>
+    <p id="fv-empty" class="no-results" style="display:none">No weapons match.</p>
+    <p class="tool-note">Farever is in Early Access — weapon types and class pairings will keep expanding.</p>
   </main>
-  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · Elden Ring.</span></div></footer>
-  <script src="missables.js?v=3b356a79"></script>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · Farever weapons guide.</span></div></footer>
+  <script src="weapons.js?v=cd1cfe58"></script>
   <script src="/assets/js/i18n.js?v=f664af3b" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

@@ -1800,6 +1800,16 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 [data-game="elden-ring"] .cb-attrnote { border-left-color: #c7a062; }
 [data-game="elden-ring"] .cb-name { font-size: 1.3rem; }
 
+/* Farever */
+[data-game="farever"] .cb-build.open { border-color: #7c5cff;
+  box-shadow: 0 0 0 1px rgba(124,92,255,.14), 0 10px 40px -20px rgba(124,92,255,.5); }
+[data-game="farever"] .cb-build.open .cb-caret { color: #a68bff; }
+[data-game="farever"] .cb-fchip.on { background: rgba(124,92,255,.16); border-color: #7c5cff; color: #c3b3ff; }
+.role-chip.role-Warrior { background: rgba(255,100,70,.2); color: #ff8a5b; }
+.role-chip.role-Rogue { background: rgba(210,170,60,.16); color: #d8b65a; }
+.role-chip.role-Mage { background: rgba(80,160,255,.16); color: #6cb0ff; }
+.role-chip.role-Priest { background: rgba(91,214,160,.16); color: #5bd6a0; }
+
 /* =========================================
    DDV Animal Guide - Styled for NightmareFTW
    ========================================= */
