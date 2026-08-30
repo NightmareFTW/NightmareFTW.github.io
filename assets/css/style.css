@@ -1805,6 +1805,7 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
   box-shadow: 0 0 0 1px rgba(124,92,255,.14), 0 10px 40px -20px rgba(124,92,255,.5); }
 [data-game="farever"] .cb-build.open .cb-caret { color: #a68bff; }
 [data-game="farever"] .cb-fchip.on { background: rgba(124,92,255,.16); border-color: #7c5cff; color: #c3b3ff; }
+[data-game="farever"] .cb-weapon-ico { background: rgba(124,92,255,.12); border-color: rgba(124,92,255,.35); color: #a68bff; }
 .role-chip.role-Warrior { background: rgba(255,100,70,.2); color: #ff8a5b; }
 .role-chip.role-Rogue { background: rgba(210,170,60,.16); color: #d8b65a; }
 .role-chip.role-Mage { background: rgba(80,160,255,.16); color: #6cb0ff; }
@@ -2158,6 +2159,7 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .dr-card, .eq-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
 .dr-head, .eq-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
 .dr-name, .eq-name { font-weight: 800; font-size: 1.02rem; }
+.dr-head-ico { display: flex; align-items: center; gap: 10px; }
 .dr-card .ghost-evidence { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 9px; }
 .dr-tell { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin: 5px 0 0; }
 .dr-str, .dr-wk { font-family: var(--mono); font-size: 0.58rem; text-transform: uppercase; letter-spacing: .04em; padding: 1px 6px; border-radius: 5px; margin-right: 6px; }
