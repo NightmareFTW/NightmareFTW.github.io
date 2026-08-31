@@ -13,7 +13,7 @@
   "use strict";
 
   var DATA_URL = "/data/steam-free-games.json";
-  var SEEN = "nftw:notify:steamSeen", NOTIFIED = "nftw:notify:steamNotified", ENABLED = "nftw:notify:steamEnabled";
+  var SEEN = "nftw:notify:steamSeen", NOTIFIED = "nftw:notify:steamNotified", ENABLED = "nftw:notify:steamEnabled", DISMISSED = "nftw:notify:steamDismissed";
   var MAX_TRACKED = 200;
   var ls = window.localStorage;
 
@@ -25,6 +25,7 @@
     until: function (d) { return "grátis até " + d; },
     claim: "Resgatar na Steam →",
     notify: "Avisar-me quando aparecer um novo",
+    dismiss: "Dispensar",
     note: "Algumas promoções são por tempo limitado — confirma na página da loja antes que acabe.",
     source: "Fonte: grupo Steam Free Games Info!!!",
   } : {
@@ -34,6 +35,7 @@
     until: function (d) { return "free until " + d; },
     claim: "Claim on Steam →",
     notify: "Notify me when a new one shows up",
+    dismiss: "Dismiss",
     note: "Some giveaways are time-limited — confirm on the store page before it's gone.",
     source: "Source: the Free Games Info!!! Steam group",
   };
@@ -49,9 +51,14 @@
   var items = [];
   var panelOpen = false;
 
+  function visibleItems() {
+    var dismissed = readSet(DISMISSED);
+    return items.filter(function (it) { return dismissed.indexOf(it.appid) < 0; });
+  }
+
   function unseenCount() {
     var seen = readSet(SEEN);
-    return items.filter(function (it) { return seen.indexOf(it.appid) < 0; }).length;
+    return visibleItems().filter(function (it) { return seen.indexOf(it.appid) < 0; }).length;
   }
 
   function fmtDate(iso) {
@@ -59,7 +66,8 @@
   }
 
   function renderPanel(panel) {
-    if (!items.length) {
+    var list = visibleItems();
+    if (!list.length) {
       panel.innerHTML = '<div class="steam-panel-head"><b>' + esc(T.title) + '</b></div><p class="steam-panel-empty">' + esc(T.empty) + '</p>' + footer(panel);
       wireFooter(panel);
       return;
@@ -67,18 +75,33 @@
     panel.innerHTML =
       '<div class="steam-panel-head"><b>' + esc(T.title) + '</b></div>' +
       '<div class="steam-panel-list">' +
-      items.map(function (it) {
-        return '<a class="steam-panel-item" href="' + esc(it.url) + '" target="_blank" rel="noopener">' +
-          (it.image ? '<img src="' + esc(it.image) + '" alt="" loading="lazy">' : '') +
-          '<span class="steam-panel-item-body">' +
-            '<span class="steam-panel-item-name">' + esc(it.name) + '</span>' +
-            '<span class="steam-panel-item-meta">' + (it.normalPrice ? esc(T.normally(it.normalPrice)) + " · " : "") + esc(fmtDate(it.postedAt)) + (it.deadline ? " · " + esc(T.until(it.deadline)) : "") + '</span>' +
-          '</span>' +
-          '<span class="steam-panel-item-cta">' + esc(T.claim) + '</span>' +
-        '</a>';
+      list.map(function (it) {
+        return '<div class="steam-panel-item">' +
+          '<a class="steam-panel-item-link" href="' + esc(it.url) + '" target="_blank" rel="noopener">' +
+            (it.image ? '<img src="' + esc(it.image) + '" alt="" loading="lazy">' : '') +
+            '<span class="steam-panel-item-body">' +
+              '<span class="steam-panel-item-name">' + esc(it.name) + '</span>' +
+              '<span class="steam-panel-item-meta">' + (it.normalPrice ? esc(T.normally(it.normalPrice)) + " · " : "") + esc(fmtDate(it.postedAt)) + (it.deadline ? " · " + esc(T.until(it.deadline)) : "") + '</span>' +
+            '</span>' +
+            '<span class="steam-panel-item-cta">' + esc(T.claim) + '</span>' +
+          '</a>' +
+          '<button type="button" class="steam-panel-dismiss" data-appid="' + it.appid + '" title="' + esc(T.dismiss) + '" aria-label="' + esc(T.dismiss) + '">✕</button>' +
+        '</div>';
       }).join("") +
       '</div>' + footer(panel);
     wireFooter(panel);
+    wireDismiss(panel);
+  }
+
+  function wireDismiss(panel) {
+    panel.querySelectorAll(".steam-panel-dismiss").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        addAll(DISMISSED, [Number(btn.dataset.appid)]);
+        renderPanel(panel);
+        var wrap = panel.closest(".bell-wrap");
+        if (wrap) updateBadge(wrap);
+      });
+    });
   }
 
   function footer(panel) {
@@ -114,7 +137,7 @@
     var panel = wrap.querySelector(".steam-panel");
     renderPanel(panel);
     panel.hidden = false;
-    addAll(SEEN, items.map(function (it) { return it.appid; }));
+    addAll(SEEN, visibleItems().map(function (it) { return it.appid; }));
     updateBadge(wrap);
   }
   function closePanel(wrap) {
@@ -144,7 +167,7 @@
   function maybeNotify() {
     if (!notifyEnabled() || !("Notification" in window) || Notification.permission !== "granted") return;
     var notified = readSet(NOTIFIED);
-    var fresh = items.filter(function (it) { return notified.indexOf(it.appid) < 0; }).slice(0, 3);
+    var fresh = visibleItems().filter(function (it) { return notified.indexOf(it.appid) < 0; }).slice(0, 3);
     if (!fresh.length) return;
     fresh.forEach(function (it) {
       try {

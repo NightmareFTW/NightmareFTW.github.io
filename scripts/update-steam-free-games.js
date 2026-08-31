@@ -149,6 +149,23 @@ async function run() {
     }
   }
 
+  // The RSS window only holds a handful of posts, so a promo can outlive the
+  // "[ENDED]" repost we'd otherwise rely on to retract it (it can scroll out
+  // before we ever see it). Re-check every carried-over item this run didn't
+  // already touch — if Steam's own price for it is no longer 0, the discount
+  // lapsed and it's back to normal price, which is unambiguous proof the
+  // promo ended (unlike is_free, this can't be confused with the app having
+  // been free all along, since a real F2P title has no price_overview at all).
+  for (const [appid, it] of [...byAppid]) {
+    if (seenAppids.has(appid)) continue;
+    await sleep(APPDETAILS_DELAY_MS);
+    const data = await appDetails(appid);
+    if (!data) continue;   // couldn't verify (network/region) — leave it, KEEP_DAYS is the fallback
+    const price = data.price_overview;
+    if (price && price.final > 0) { byAppid.delete(appid); continue; }
+    if (price) byAppid.set(appid, { ...it, name: data.name || it.name, image: data.header_image || it.image, normalPrice: price.initial_formatted || price.final_formatted || it.normalPrice });
+  }
+
   const cutoff = Date.now() - KEEP_DAYS * 24 * 60 * 60 * 1000;
   const items = [...byAppid.values()]
     .filter((it) => new Date(it.postedAt).getTime() >= cutoff)

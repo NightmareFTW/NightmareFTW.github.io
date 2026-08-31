@@ -26,6 +26,21 @@ function renderIntro() {
     </div>`;
 }
 
+function itemMeta(it) {
+  const parts = [];
+  if (it.level) parts.push(`Lv ${it.level}`);
+  if (it.boss) parts.push(`Boss: ${esc(it.boss)}`);
+  return parts.length ? `<span class="ms-item-meta">${parts.join(" · ")}</span>` : "";
+}
+
+function itemImg(it) {
+  const init = esc((it.label || "?").charAt(0));
+  const pic = it.image
+    ? `<img src="${esc(it.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.ms-item-img').classList.add('no-img');this.remove()">`
+    : "";
+  return `<span class="ms-item-img${it.image ? "" : " no-img"}" data-init="${init}">${pic}</span>`;
+}
+
 function sectionHtml(sec) {
   const total = sec.items.length;
   const have = sec.items.filter((it) => done.has(itemId(sec, it))).length;
@@ -34,7 +49,11 @@ function sectionHtml(sec) {
     const isDone = done.has(id);
     return `<label class="ms-item ${isDone ? "done" : ""}" data-id="${id}">
       <input type="checkbox" class="ms-check" ${isDone ? "checked" : ""}>
-      <span class="ms-item-text">${esc(it.label)}</span>
+      ${itemImg(it)}
+      <span class="ms-item-body">
+        <span class="ms-item-text">${esc(it.label)}</span>
+        ${itemMeta(it)}
+      </span>
     </label>`;
   }).join("");
   return `<section class="ms-section">
