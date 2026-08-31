@@ -41,11 +41,118 @@ function buildLinkifier(characters, achievements) {
   };
 }
 
-function stepId(c, i) { return `${c.slug}::${i}`; }
+function stepId(c, suffix) { return `${c.slug}::${suffix}`; }
+
+// A curated guide (see scripts/data/vs-curated-guides.js) organizes a long
+// unlock chain into phases, each split into groups of checkable leaf items
+// that may carry nested, non-checkable explanatory bullets (children). This
+// walks that tree and returns every leaf item with a stable id built from
+// its phase/group/item position — matches how the scraper merges the guide
+// in, so ids stay stable across re-scrapes as long as the curated file's
+// item order doesn't change.
+function collectLeafItems(guide) {
+  const out = [];
+  guide.phases.forEach((phase, pIdx) => {
+    const groups = phase.groups || [{ items: phase.items || [] }];
+    groups.forEach((group, gIdx) => {
+      (group.items || []).forEach((item, iIdx) => out.push({ id: `g${pIdx}-${gIdx}-${iIdx}`, item }));
+    });
+  });
+  return out;
+}
+
+function allStepIds(c) {
+  if (c.guide && c.guide.phases) return collectLeafItems(c.guide).map((l) => l.id);
+  if (c.steps) return c.steps.map((_, i) => i);
+  return [];
+}
 
 function applyUnlockedFrom(c) {
-  if (c.isDefault || !c.steps || !c.steps.length) return;
-  if (c.steps.every((_, i) => stepsDone.has(stepId(c, i))) && !unlocked.has(c.slug)) { unlocked.add(c.slug); saveUnlocked(); }
+  if (c.isDefault) return;
+  const ids = allStepIds(c);
+  if (!ids.length) return;
+  if (ids.every((id) => stepsDone.has(stepId(c, id))) && !unlocked.has(c.slug)) { unlocked.add(c.slug); saveUnlocked(); }
+}
+
+// Refresh progress counters in place instead of a full re-render, so ticking
+// a box in a 90-item guide doesn't reset scroll position.
+function refreshCounts(c) {
+  const totalEl = document.getElementById("vs-total-count");
+  if (c.guide && c.guide.phases) {
+    const leaves = collectLeafItems(c.guide);
+    const done = leaves.filter((l) => stepsDone.has(stepId(c, l.id))).length;
+    if (totalEl) totalEl.textContent = `${done}/${leaves.length} passos concluídos no total.`;
+    c.guide.phases.forEach((phase, pIdx) => {
+      const groups = phase.groups || [{ items: phase.items || [] }];
+      const ids = [];
+      groups.forEach((g, gIdx) => (g.items || []).forEach((_, iIdx) => ids.push(`g${pIdx}-${gIdx}-${iIdx}`)));
+      const phaseDone = ids.filter((id) => stepsDone.has(stepId(c, id))).length;
+      const el = document.getElementById(`vs-phase-count-${pIdx}`);
+      if (el) el.textContent = `${phaseDone}/${ids.length}`;
+    });
+  } else if (totalEl && c.steps) {
+    const done = c.steps.filter((_, i) => stepsDone.has(stepId(c, i))).length;
+    totalEl.textContent = `${done}/${c.steps.length} steps done. Named characters and achievements link to their own page.`;
+  }
+}
+
+// Renders a nested, non-checkable explanatory bullet (a guide item's
+// `children`) — either a plain string or a {text, children} node that can
+// nest further, e.g. Shanoa's "Evoluir: Iron Ball + Armor / Alucard Spear +
+// Wings" pair of options.
+function renderNodes(nodes, linkify, excludeName) {
+  if (!nodes || !nodes.length) return "";
+  return `<ul class="vs-sub-list">${nodes.map((n) => {
+    if (typeof n === "string") return `<li>${linkify(n, excludeName)}</li>`;
+    return `<li>${linkify(n.text, excludeName)}${renderNodes(n.children, linkify, excludeName)}</li>`;
+  }).join("")}</ul>`;
+}
+
+function renderGuideItem(c, item, id, linkify) {
+  const checked = stepsDone.has(stepId(c, id));
+  return `<label class="ms-item vs-guide-item ${checked ? "done" : ""}" data-sid="${esc(id)}">
+    <input type="checkbox" class="vs-step-check" data-sid="${esc(id)}" ${checked ? "checked" : ""}>
+    <span class="ms-item-body">
+      <span class="ms-item-text">${item.kind === "progression" ? '<span class="vs-kind-tag">relic</span> ' : ""}${linkify(item.text, c.name)}</span>
+      ${renderNodes(item.children, linkify, c.name)}
+    </span>
+  </label>`;
+}
+
+function renderPhase(c, phase, pIdx, linkify) {
+  const groups = phase.groups || [{ items: phase.items || [] }];
+  const total = groups.reduce((n, g) => n + (g.items || []).length, 0);
+  const done = groups.reduce((n, g, gIdx) => n + (g.items || []).filter((_, iIdx) => stepsDone.has(stepId(c, `g${pIdx}-${gIdx}-${iIdx}`))).length, 0);
+  return `
+    <section class="ms-section vs-phase">
+      <div class="ms-sec-head">
+        <h3>${phase.icon ? `<span class="vs-phase-icon">${esc(phase.icon)}</span> ` : ""}${esc(phase.title)}</h3>
+        <span class="ms-sec-count" id="vs-phase-count-${pIdx}">${done}/${total}</span>
+      </div>
+      ${phase.intro ? `<p class="tool-note">${linkify(phase.intro, c.name)}</p>` : ""}
+      ${groups.map((g, gIdx) => `
+        ${g.title ? `<h4 class="vs-group-title">${esc(g.title)}</h4>` : ""}
+        <div class="ms-items">${(g.items || []).map((item, iIdx) => renderGuideItem(c, item, `g${pIdx}-${gIdx}-${iIdx}`, linkify)).join("")}</div>
+      `).join("")}
+      ${phase.note ? `<p class="pw-build-note">${linkify(phase.note, c.name)}</p>` : ""}
+    </section>`;
+}
+
+function renderPhasedGuide(c, linkify) {
+  const guide = c.guide;
+  const leaves = collectLeafItems(guide);
+  const doneTotal = leaves.filter((l) => stepsDone.has(stepId(c, l.id))).length;
+  const isUnlocked = unlocked.has(c.slug);
+  return `
+    <label class="vs-mark vs-mark-main"><input type="checkbox" id="mark-unlocked" ${isUnlocked ? "checked" : ""}> Mark as unlocked</label>
+    <p class="pw-build-note">
+      ${guide.dlc ? `<b>DLC:</b> ${esc(guide.dlc)}. ` : ""}
+      ${guide.rule ? `<b>Regra:</b> ${linkify(guide.rule, c.name)}` : ""}
+    </p>
+    ${c.unlockShort ? `<p class="tool-note" style="font-style:italic">"${linkify(c.unlockShort, c.name)}"</p>` : ""}
+    <p class="tool-note" id="vs-total-count" style="margin:6px 0 14px">${doneTotal}/${leaves.length} passos concluídos no total.</p>
+    ${guide.phases.map((phase, pIdx) => renderPhase(c, phase, pIdx, linkify)).join("")}
+  `;
 }
 
 function render(c, linkify) {
@@ -77,15 +184,17 @@ function render(c, linkify) {
       <h2>How to Unlock</h2>
       ${c.isDefault
         ? `<p class="tool-note">Available from the very start — no unlock needed.</p>`
-        : `<label class="vs-mark vs-mark-main"><input type="checkbox" id="mark-unlocked" ${isUnlocked ? "checked" : ""}> Mark as unlocked</label>
-           ${c.unlockShort ? `<p class="pw-build-note"><b>Summary:</b> ${linkify(c.unlockShort, c.name)}</p>` : ""}
-           ${haveSteps ? `
-             <p class="tool-note" style="margin-top:14px">${stepsHave}/${c.steps.length} steps done. Named characters and achievements link to their own page.</p>
-             <div class="ms-items">${c.steps.map((s, i) => `
-               <label class="ms-item ${stepsDone.has(stepId(c, i)) ? "done" : ""}" data-i="${i}">
-                 <input type="checkbox" class="vs-step-check" data-i="${i}" ${stepsDone.has(stepId(c, i)) ? "checked" : ""}>
-                 <span class="ms-item-body"><span class="ms-item-text">${linkify(s, c.name)}</span></span>
-               </label>`).join("")}</div>` : ""}`}
+        : c.guide && c.guide.phases
+          ? renderPhasedGuide(c, linkify)
+          : `<label class="vs-mark vs-mark-main"><input type="checkbox" id="mark-unlocked" ${isUnlocked ? "checked" : ""}> Mark as unlocked</label>
+             ${c.unlockShort ? `<p class="pw-build-note"><b>Summary:</b> ${linkify(c.unlockShort, c.name)}</p>` : ""}
+             ${haveSteps ? `
+               <p class="tool-note" id="vs-total-count" style="margin-top:14px">${stepsHave}/${c.steps.length} steps done. Named characters and achievements link to their own page.</p>
+               <div class="ms-items">${c.steps.map((s, i) => `
+                 <label class="ms-item ${stepsDone.has(stepId(c, i)) ? "done" : ""}" data-sid="${i}">
+                   <input type="checkbox" class="vs-step-check" data-sid="${i}" ${stepsDone.has(stepId(c, i)) ? "checked" : ""}>
+                   <span class="ms-item-body"><span class="ms-item-text">${linkify(s, c.name)}</span></span>
+                 </label>`).join("")}</div>` : ""}`}
     </section>
 
     <p class="tool-note"><a class="mini-btn" href="characters.html">← Back to the database</a> <a class="mini-btn" href="achievements.html">Achievements checklist →</a></p>
@@ -97,10 +206,11 @@ function render(c, linkify) {
     saveUnlocked();
   });
   root.querySelectorAll(".vs-step-check").forEach((cb) => cb.addEventListener("change", () => {
-    const id = stepId(c, +cb.dataset.i);
+    const id = stepId(c, cb.dataset.sid);
     if (cb.checked) stepsDone.add(id); else stepsDone.delete(id);
     saveSteps();
     cb.closest(".ms-item").classList.toggle("done", cb.checked);
+    refreshCounts(c);
     applyUnlockedFrom(c);
     if (markCb) markCb.checked = c.isDefault || unlocked.has(c.slug);
   }));

@@ -2625,3 +2625,15 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .vs-mark-main { margin: 0 0 10px; font-weight: 700; color: var(--text); }
 .vs-flash { animation: vs-flash-kf 2.2s ease-out; border-radius: 8px; }
 @keyframes vs-flash-kf { 0%, 40% { background: rgba(255, 159, 67, .22); } 100% { background: transparent; } }
+
+/* Curated multi-phase unlock guides (e.g. Chaos) */
+.vs-phase { scroll-margin-top: 70px; }
+.vs-phase-icon { font-size: 0.95em; }
+.vs-group-title { margin: 12px 0 2px; font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+.vs-guide-item { align-items: flex-start; }
+.vs-guide-item input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; }
+.vs-sub-list { list-style: none; margin: 3px 0 0; padding: 0 0 0 16px; display: flex; flex-direction: column; gap: 2px; }
+.vs-sub-list li { position: relative; font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+.vs-sub-list li::before { content: "–"; position: absolute; left: -13px; }
+.vs-kind-tag { display: inline-block; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  color: var(--accent-2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 4px; margin-right: 4px; vertical-align: middle; }
