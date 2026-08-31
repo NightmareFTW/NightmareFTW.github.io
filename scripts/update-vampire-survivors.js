@@ -22,6 +22,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const curatedGuides = require("./data/vs-curated-guides");
 
 const API = "https://vampire.survivors.wiki/api.php";
 const OUT_DIR = path.join(__dirname, "..", "data", "vampire-survivors");
@@ -184,9 +185,27 @@ function parseInfobox(wt) {
   }
   return fields;
 }
+// A handful of Unlocking sections (e.g. Fake Trio's) embed a MediaWiki
+// table of parallel objectives instead of a bullet list — stripWiki doesn't
+// touch `{|...|}` syntax, so left alone it leaks raw wikitable markup
+// ("|Valmanway||Thousand Edge||Million Cut") straight into the mechanical
+// step split. Turn each data row into one readable "A → B → C" bullet
+// before the rest of the pipeline ever sees it.
+function tablesToBullets(s) {
+  return s.replace(/\{\|[\s\S]*?\n\|\}/g, (block) => {
+    const rows = [];
+    for (const line of block.split("\n")) {
+      const t = line.trim();
+      if (!/^\|[^|}-]/.test(t)) continue;
+      const cells = t.slice(1).split("||").map((c) => c.trim()).filter(Boolean);
+      if (cells.length > 1) rows.push(cells.join(" → "));
+    }
+    return rows.map((r) => `* ${r}`).join("\n");
+  });
+}
 function unlockingSection(wt) {
   const m = wt.match(/\n==\s*Unlocking\s*==\n([\s\S]*?)(?=\n==[^=]|\n\[\[Category|$)/);
-  return m ? stripWiki(m[1]) : "";
+  return m ? stripWiki(tablesToBullets(m[1])) : "";
 }
 function toSteps(guideText, shortUnlock) {
   const text = guideText || shortUnlock || "";
@@ -205,9 +224,22 @@ function toSteps(guideText, shortUnlock) {
     lines.push(line);
     collecting = !isBullet && line.endsWith(":");
   }
+  // A folded list of plain cardinal directions (e.g. Torino's turn-by-turn
+  // maze route) reads as a path, not a set of alternatives — an arrow chain
+  // is much clearer than the comma list the fold above produces.
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^(.*:)\s*((?:(?:North|South|East|West)\s*,\s*)*(?:North|South|East|West))$/i);
+    if (m) lines[i] = `${m[1]} ${m[2].split(/\s*,\s*/).join(" → ")}`;
+  }
   const steps = [];
   for (const line of lines) {
     const sentences = line.split(/(?<=[.!?])\s+(?=[A-Z0-9])/).map((s) => s.trim()).filter((s) => s.length > 3 && !/^(alternatively|note:|tip:)/i.test(s));
+    // A line that's entirely a filtered aside (e.g. just "Alternatively, X
+    // can also be unlocked by casting spell Y") has nothing left after the
+    // filter above — don't fall back to the raw line in that case, or the
+    // filter is defeated. The fallback still applies when the split simply
+    // found no sentence boundary in an otherwise-fine short line.
+    if (!sentences.length && /^(alternatively|note:|tip:)/i.test(line)) continue;
     steps.push(...(sentences.length ? sentences : [line]));
   }
   return steps.length ? steps : [text];
@@ -313,6 +345,11 @@ function run() {
     c.icon = c.images.map((f) => imgMap[f]).find(Boolean) || null;
     delete c.images;
     c.dlcName = c.dlcCode ? dlcMap[c.dlcCode] || c.dlcCode : "Base Game";
+    // A handful of characters (e.g. Chaos) have a real unlock condition too
+    // long/interlinked for the mechanical `steps` split above to read
+    // sensibly — those get a hand-curated phased guide instead, merged in
+    // by slug so it survives this scraper's own re-runs.
+    if (curatedGuides[c.slug]) c.guide = curatedGuides[c.slug];
   }
   characters.sort((a, b) => (a.dlcName === b.dlcName ? a.name.localeCompare(b.name) : (a.dlcName === "Base Game" ? -1 : b.dlcName === "Base Game" ? 1 : a.dlcName.localeCompare(b.dlcName))));
 

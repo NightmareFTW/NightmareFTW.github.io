@@ -49,9 +49,23 @@ function lockedCard(c) {
   </div>`;
 }
 
+// A curated phased guide (see scripts/data/vs-curated-guides.js) replaces
+// the mechanical `steps` list for a handful of characters (e.g. Chaos) whose
+// real unlock condition is far longer — count its leaf items instead of
+// falling back to the much smaller `steps.length`.
+function guideStepCount(guide) {
+  let n = 0;
+  for (const p of guide.phases) {
+    const groups = p.groups || [{ items: p.items || [] }];
+    for (const g of groups) n += (g.items || []).length;
+  }
+  return n;
+}
+
 function revealedCard(c) {
   const isUnlocked = c.isDefault || unlocked.has(c.slug);
   const haveSteps = c.steps && c.steps.length && !c.isDefault;
+  const stepsChip = c.guide ? `${guideStepCount(c.guide)}-step guide` : haveSteps ? `${c.steps.length} steps` : null;
   return `<a class="vs-card${isUnlocked ? " vs-unlocked" : ""}" href="character.html?slug=${encodeURIComponent(c.slug)}">
     <span class="pw-card-img"><img src="${esc(c.icon || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.pw-card-img').classList.add('no-img')"></span>
     <span class="pw-card-body">
@@ -60,7 +74,7 @@ function revealedCard(c) {
         <span class="ev-chip">${esc(c.dlcName)}</span>
         ${c.secret ? '<span class="ev-chip confirmed">Secret</span>' : ""}
         ${c.isDefault ? '<span class="ev-chip">Default</span>' : c.cost ? `<span class="ev-chip">${esc(c.cost)}g</span>` : ""}
-        ${isUnlocked ? '<span class="ev-chip confirmed">Unlocked</span>' : haveSteps ? `<span class="ev-chip">${c.steps.length} steps</span>` : ""}
+        ${isUnlocked ? '<span class="ev-chip confirmed">Unlocked</span>' : stepsChip ? `<span class="ev-chip">${esc(stepsChip)}</span>` : ""}
       </span>
     </span>
   </a>`;
