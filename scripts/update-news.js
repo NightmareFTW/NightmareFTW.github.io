@@ -35,6 +35,9 @@ const QUERIES = {
   "far-far-west": "Far Far West game",
   "marvel-snap": "Marvel Snap game",
   ravenswatch: "Ravenswatch game",
+  farever: "Farever game Shiro Games",
+  palworld: "Palworld game",
+  "vampire-survivors": "Vampire Survivors game",
 };
 
 // Steam appids for the games that publish dev news on Steam (Epic Seven is
@@ -55,6 +58,9 @@ const STEAM_APPIDS = {
   ravenswatch: 2071280,
   "far-far-west": 3124540,
   "marvel-snap": 1997040,
+  farever: 3672400,
+  palworld: 1623730,
+  "vampire-survivors": 1794680,
 };
 
 // ---- text helpers -----------------------------------------------------------
