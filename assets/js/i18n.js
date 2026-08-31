@@ -1582,6 +1582,7 @@
     "Mark as unlocked": "Marcar como desbloqueada", "Summary:": "Resumo:", "Rule:": "Regra:",
     "Character not found.": "Personagem não encontrada.",
     "← Back to the database": "← Voltar à base de dados", "Achievements checklist →": "Checklist de conquistas →",
+    "Unlock all": "Desbloquear tudo", "Unlock": "Desbloquear",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
