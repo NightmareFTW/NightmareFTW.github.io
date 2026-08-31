@@ -75,15 +75,24 @@ function stripWiki(s) {
 }
 
 // ---- MediaWiki plumbing ----------------------------------------------------
-function fetchWikitextBatch(titles) {
+function fetchWikitextBatch(titles, { redirects = false } = {}) {
   const out = {};
   for (const group of chunk(titles, 50)) {
-    const url = `${API}?action=query&titles=${encodeURIComponent(group.join("|"))}&prop=revisions&rvprop=content&rvslots=main&format=json`;
+    const url = `${API}?action=query&titles=${encodeURIComponent(group.join("|"))}${redirects ? "&redirects=1" : ""}&prop=revisions&rvprop=content&rvslots=main&format=json`;
     const data = getJson(url);
     const pages = (data && data.query && data.query.pages) || {};
+    // With redirects=1, a redirect's *source* title only appears in
+    // data.query.redirects (mapping from->to) — map it back onto the
+    // resolved page's content so callers can still look it up by the
+    // original title they asked for.
+    const byTitle = {};
     for (const p of Object.values(pages)) {
       const wt = p.revisions && p.revisions[0] && p.revisions[0].slots.main["*"];
-      if (wt) out[p.title] = wt;
+      if (wt) byTitle[p.title] = wt;
+    }
+    for (const [title, wt] of Object.entries(byTitle)) out[title] = wt;
+    for (const r of (data && data.query && data.query.redirects) || []) {
+      if (byTitle[r.to]) out[r.from] = byTitle[r.to];
     }
     sleep(300);
   }
@@ -105,7 +114,16 @@ function fetchImageUrls(filenames) {
   }
   return out;
 }
-const fileOf = (s) => (s && (s.match(/File:([^|\]]+)/) || [])[1]) || null;
+// Older infobox revisions wrap the filename as [[File:X.png]]; several of the
+// newest (Ante Chamber-era) character pages just write the bare filename —
+// handle both, or icons for those characters silently come up empty.
+function fileOf(s) {
+  if (!s) return null;
+  const m = s.match(/File:([^|\]]+)/);
+  if (m) return m[1].trim();
+  const bare = s.trim();
+  return /\.(png|jpe?g|gif|webp)$/i.test(bare) ? bare : null;
+}
 
 // ---- DLC code -> name, straight from the wiki's own Lua data --------------
 function fetchDlcMap() {
@@ -173,7 +191,20 @@ function unlockingSection(wt) {
 function toSteps(guideText, shortUnlock) {
   const text = guideText || shortUnlock || "";
   if (!text) return [];
-  const lines = text.split("\n").map((l) => l.replace(/^[*-]\s*/, "").trim()).filter(Boolean);
+  const rawLines = text.split("\n").map((l) => l.trim()).filter(Boolean);
+  // A line ending in ":" introduces the bullet lines under it (e.g. "The
+  // following do NOT need to be unlocked:") — that's context for a single
+  // step, not a separate list of requirements, so fold it (and every bullet
+  // under it) back into one line instead of offering each as its own step.
+  const lines = [];
+  let collecting = false;
+  for (const raw of rawLines) {
+    const isBullet = /^[*-]\s*/.test(raw);
+    const line = raw.replace(/^[*-]\s*/, "").trim();
+    if (collecting && isBullet) { lines[lines.length - 1] += (lines[lines.length - 1].endsWith(":") ? " " : ", ") + line; continue; }
+    lines.push(line);
+    collecting = !isBullet && line.endsWith(":");
+  }
   const steps = [];
   for (const line of lines) {
     const sentences = line.split(/(?<=[.!?])\s+(?=[A-Z0-9])/).map((s) => s.trim()).filter((s) => s.length > 3 && !/^(alternatively|note:|tip:)/i.test(s));
@@ -182,16 +213,35 @@ function toSteps(guideText, shortUnlock) {
   return steps.length ? steps : [text];
 }
 
+// Multi-skin characters (version1/version2/…) don't consistently put the
+// modern default skin first — e.g. Concetta/Pugnala/Christine have
+// version1=Legacy, version2=Default, so name1 is the "(Legacy)" variant.
+// Find whichever numbered version is actually tagged Default; fall back to
+// the plain `name` field, then name1, then the page title.
+function pickName(info, title) {
+  for (let i = 1; i <= 8; i++) {
+    if ((info[`version${i}`] || "").trim().toLowerCase() === "default" && info[`name${i}`]) return info[`name${i}`].trim();
+  }
+  return (info.name || info.name1 || title).trim();
+}
+
 function parseCharacter(title, wt) {
   const info = parseInfobox(wt);
   if (!info) return null;
-  const images = [info.image1, info.image2, info.image].map(fileOf).filter(Boolean);
+  // Same Default-version preference as the name: put the Default skin's
+  // image first so it wins the icon pick, then fall back to any other art.
+  let defaultImage = null;
+  for (let i = 1; i <= 8; i++) {
+    if ((info[`version${i}`] || "").trim().toLowerCase() === "default" && info[`image${i}`]) { defaultImage = info[`image${i}`]; break; }
+  }
+  const images = [defaultImage, info.image1, info.image2, info.image].map(fileOf).filter(Boolean);
   const secret = /^y/i.test(info.secret || "");
   const isDefault = /^default$/i.test((info.unlock || "").trim());
   const guide = unlockingSection(wt);
+  const name = pickName(info, title);
   return {
-    name: info.name || info.name1 || title,
-    slug: (info.name || info.name1 || title).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    name,
+    slug: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
     dlcCode: (info.dlc || "").trim().toLowerCase(),
     weapon: info.weapon || info.weapon1 || "",
     hiddenWeapon: info["hidden weapon"] || "",
@@ -235,7 +285,20 @@ function run() {
     .filter((t) => t !== "Characters" && !t.includes("/"));
   console.log(`character pages to fetch: ${titles.length}`);
 
-  const wikitexts = fetchWikitextBatch(titles);
+  const wikitexts = fetchWikitextBatch(titles, { redirects: true });
+  // A handful of titles reliably don't come back from a 50-wide batch query
+  // (MediaWiki title-normalization quirk with punctuation like periods or
+  // quotes) even though the page exists — retry those individually rather
+  // than silently dropping real characters.
+  const missing = titles.filter((t) => !wikitexts[t]);
+  if (missing.length) {
+    console.log(`retrying ${missing.length} titles individually: ${missing.join(", ")}`);
+    for (const t of missing) {
+      const single = fetchWikitextBatch([t], { redirects: true });
+      if (single[t]) wikitexts[t] = single[t];
+      sleep(200);
+    }
+  }
   const characters = [];
   for (const title of titles) {
     const wt = wikitexts[title];

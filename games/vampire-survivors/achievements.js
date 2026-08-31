@@ -83,6 +83,20 @@ function updateProgress() {
   els.progress.innerHTML = `<b>${have}/${DATA.count}</b> unlocked · ${Math.round((have / DATA.count) * 100)}%`;
 }
 
+// Deep-link from a character's unlock guide (achievements.html?highlight=Name)
+// — scroll to and flash the matching row instead of filtering the list down,
+// so it still reads as "here it is" rather than hiding everything else.
+function highlightFromQuery() {
+  const want = new URLSearchParams(location.search).get("highlight");
+  if (!want) return;
+  const a = DATA.achievements.find((x) => x.name.toLowerCase() === want.toLowerCase());
+  if (!a) return;
+  hideDone = false;
+  render();
+  const row = els.list.querySelector(`.ms-item[data-id="${CSS.escape(idOf(a))}"]`);
+  if (row) { row.scrollIntoView({ behavior: "smooth", block: "center" }); row.classList.add("vs-flash"); setTimeout(() => row.classList.remove("vs-flash"), 2200); }
+}
+
 (async function init() {
   try {
     DATA = await (await fetch(`../../data/vampire-survivors/achievements.json?cb=${Date.now()}`)).json();
@@ -90,6 +104,7 @@ function updateProgress() {
     document.getElementById("va-updated").textContent = `${DATA.count} achievements · ${DATA.groups.length} groups · updated ${upd}`;
     buildControls();
     render();
+    highlightFromQuery();
   } catch (e) {
     els.list.innerHTML = `<p class="tool-note">Couldn't load achievement data.</p>`;
   }
