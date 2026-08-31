@@ -68,7 +68,7 @@ function buildCard(b) {
     <p class="cb-summary">${esc(b.summary)}</p>
     <div class="cb-detail" ${isOpen ? "" : "hidden"}>
       <div class="cb-sec"><h4 class="cb-sec-h">Equipment</h4>${grid}</div>
-      <div class="cb-sec"><h4 class="cb-sec-h">Stats · Level ${esc(b.level)}</h4>
+      <div class="cb-sec"><h4 class="cb-sec-h">Stats · Level <b>${esc(b.level)}</b></h4>
         ${statBars(b)}
         <p class="cb-attrnote">${esc(b.statNote)}</p></div>
       <div class="cb-setperk"><span class="cb-setperk-h">Weapon skill</span>${esc(b.skill)}</div>
