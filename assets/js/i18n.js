@@ -1253,7 +1253,49 @@
     "Built by NightmareFTW · Farever dungeons.": "Feito por NightmareFTW · dungeons do Farever.",
     "No builds match.": "Nenhuma build corresponde.", "Couldn't load build data.": "Não foi possível carregar os dados das builds.",
     "All classes": "Todas as classes", "Any class": "Qualquer classe",
-    "Weapons": "Armas", "How to play it": "Como jogar", "Pros": "Prós", "Cons": "Contras",
+    "Weapons": "Armas", "How to play it": "Como jogar", "How to play": "Como jogar", "Pros": "Prós", "Cons": "Contras",
+
+    // ---- Shared .cb-* build-shell headers (Elden Ring / Cyberpunk / GoW / Expedition 33) ----
+    "Equipment": "Equipamento", "Stats · Level": "Stats · Nível", "Where to get it": "Onde conseguir",
+    "Weapon skill": "Skill da arma", "Skill tree — key perks": "Árvore de talentos — perks-chave",
+    "Cyberware loadout": "Loadout de Cyberware", "Leveling order": "Ordem de subida de nível",
+    "Gear screen — armor & loadout": "Ecrã de equipamento — armadura & loadout",
+    "Key skills to prioritise": "Skills-chave a priorizar", "How to get it": "Como conseguir",
+    "Run these passive effects; numbers are their Lumina point cost.":
+      "Usa estes efeitos passivos; os números são o custo em pontos de Lumina.",
+    "Attributes": "Atributos", "Stats focus": "Foco de stats", "Synergy —": "Sinergia —",
+
+    // ---- Missables intro banners (Elden Ring / Expedition 33 / GoW Ragnarök) ----
+    "Unlike most games here, Elden Ring's NPC quests ARE permanently missable.":
+      "Ao contrário da maioria dos jogos aqui, as quests de NPCs do Elden Ring PODEM mesmo perder-se para sempre.",
+    "Quests advance when you defeat bosses / change the world state — progress too far and an NPC vanishes or dies mid-quest, with no way back that run.":
+      "As quests avançam quando derrotas bosses / mudas o estado do mundo — progride demasiado e um NPC desaparece ou morre a meio da quest, sem forma de voltar atrás nessa run.",
+    "The big lock is defeating Maliketh (Crumbling Farum Azula), which turns Leyndell into the Ashen Capital and ends many quests. Finish what you can before it.":
+      "O grande bloqueio é derrotar Maliketh (Crumbling Farum Azula), que transforma Leyndell na Ashen Capital e termina muitas quests. Termina o que puderes antes disso.",
+    "Most quests also need you to talk to the NPC again after each major step (often after resting or beating an area boss) — skip a step and the quest stalls.":
+      "A maioria das quests também exige que voltes a falar com o NPC depois de cada passo importante (normalmente depois de descansares ou derrotares um boss de área) — salta um passo e a quest fica parada.",
+    "Use this as a per-quest tracker. Tick a questline once you've finished it (or consciously skipped it).":
+      "Usa isto como um tracker por quest. Marca uma questline assim que a terminares (ou a saltares conscientemente).",
+    "Almost nothing is permanently missable — but the Prologue has a few one-shot moments.":
+      "Quase nada se perde para sempre — mas o Prólogo tem alguns momentos de única oportunidade.",
+    "After the story you can free-roam and clean up the vast majority of side content, so don't stress about exploring later.":
+      "Depois da história podes explorar livremente e limpar a grande maioria do conteúdo secundário, por isso não te preocupes em explorar mais tarde.",
+    "The real missables are concentrated in the Prologue in Lumière, before the Harbor point-of-no-return.":
+      "Os verdadeiros perdíveis concentram-se no Prólogo em Lumière, antes do ponto sem retorno do Harbor.",
+    "When you approach the Harbor as Sophie you get a selectable prompt — pick \"No\" if you still have things to grab.":
+      "Quando te aproximas do Harbor como Sophie recebes uma escolha — selecciona \"No\" se ainda tiveres coisas para apanhar.",
+    "This list focuses on the genuinely time-sensitive things so you can progress confidently.":
+      "Esta lista foca-se nas coisas genuinamente sensíveis ao tempo para poderes progredir com confiança.",
+    "Good news — nothing required for 100% is permanently missable.":
+      "Boas notícias — nada do que é necessário para 100% se perde permanentemente.",
+    "You can finish every favor and collectible in free roam after the credits. Many collectibles don't even spawn until the story is done.":
+      "Podes terminar todos os favores e coleccionáveis em modo livre depois dos créditos. Muitos coleccionáveis nem sequer aparecem antes de a história terminar.",
+    "Story-only areas that lock behind you (like Asgard) contain nothing needed for 100% or trophies.":
+      "As áreas exclusivas da história que ficam bloqueadas atrás de ti (como Asgard) não contêm nada necessário para 100% ou troféus.",
+    "The game flags major points of no return before you cross them.":
+      "O jogo assinala os principais pontos sem retorno antes de os atravessares.",
+    "So play the story without fear and mop everything up at your own pace — this checklist is just so nothing slips your mind.":
+      "Por isso joga a história sem medo e limpa tudo ao teu próprio ritmo — esta checklist existe só para nada te escapar.",
     "Couldn't load weapon data.": "Não foi possível carregar os dados das armas.",
     "Clear every tick on this checklist?": "Limpar todas as marcações desta checklist?",
     "Couldn't load the checklist data.": "Não foi possível carregar os dados da checklist.",

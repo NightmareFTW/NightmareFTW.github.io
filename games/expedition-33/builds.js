@@ -81,7 +81,7 @@ function characterScreen(c, job) {
         <p class="ex-stats">${esc(c.statsFocus || "")}</p>
       </section>
     </div>
-    <div class="cb-sec ex-sec"><h4 class="cb-sec-h">How to play ${esc(c.name)}</h4>
+    <div class="cb-sec ex-sec"><h4 class="cb-sec-h">How to play <b>${esc(c.name)}</b></h4>
       <ol class="cb-play">${(c.playstyle || []).map((p) => `<li>${esc(p)}</li>`).join("")}</ol></div>
     <div class="cb-procon ex-procon">
       <div class="cb-pros"><span class="cb-pc-h">Pros</span><ul>${(c.pros || []).map((p) => `<li>${esc(p)}</li>`).join("")}</ul></div>
