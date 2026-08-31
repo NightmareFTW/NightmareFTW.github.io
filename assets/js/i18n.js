@@ -13,7 +13,7 @@
   // Load the Steam free-game alerts bell on every page (also global).
   if (!document.querySelector('script[data-nftw-steam]')) {
     const s = document.createElement("script");
-    s.src = "/assets/js/steam-alerts.js?v=322260ce"; s.defer = true; s.setAttribute("data-nftw-steam", "");
+    s.src = "/assets/js/steam-alerts.js?v=ae25f75d"; s.defer = true; s.setAttribute("data-nftw-steam", "");
     document.head.appendChild(s);
   }
   const LANG = localStorage.getItem("nftw:lang") || "en";
