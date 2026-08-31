@@ -667,4 +667,30 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "vampire-survivors",
+    name: "Vampire Survivors",
+    banner: "assets/img/games/vampire-survivors-header.jpg",
+    color: "#c0392b",
+    glow: "rgba(192, 57, 43, 0.22)",
+    blurb: "Every achievement across all DLCs, and a spoiler-safe character database with step-by-step unlock guides.",
+    tools: [
+      {
+        id: "achievements",
+        name: "Achievements Checklist",
+        type: "checklist",
+        desc: "Every achievement, base game and all DLCs — including the ones Steam hides the description of.",
+        href: "games/vampire-survivors/achievements.html",
+        available: true,
+      },
+      {
+        id: "characters",
+        name: "Characters Database",
+        type: "database",
+        desc: "Every character, hidden until you've found it — with a step-by-step unlock guide you can check off.",
+        href: "games/vampire-survivors/characters.html",
+        available: true,
+      },
+    ],
+  },
 ];
