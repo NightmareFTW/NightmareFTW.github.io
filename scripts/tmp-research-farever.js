@@ -1,46 +1,44 @@
 const { chromium } = require("playwright");
 
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto("https://www.fareverdb.com/items?type=Sword", { waitUntil: "networkidle", timeout: 30000 }).catch((e) => console.log("goto err", e.message));
-  await page.waitForTimeout(1500);
+const TYPES = ["Sword", "Axe", "Mace", "Spear", "Shield", "Daggers", "Bow", "Fists", "Thrown", "Staff", "Book", "Halos", "Scepter", "Crescent", "CaptureNet"];
 
-  const bgImgs = await page.evaluate(() => {
+async function bgUrls(page) {
+  return page.evaluate(() => {
     const out = [];
     document.querySelectorAll("*").forEach((el) => {
       const bg = getComputedStyle(el).backgroundImage;
-      if (bg && bg !== "none") out.push(bg);
+      const m = bg && bg.match(/url\("([^"]+)"\)/);
+      if (m) out.push(m[1]);
     });
     return [...new Set(out)];
   });
-  console.log("=== BG IMAGES ===");
-  console.log(JSON.stringify(bgImgs, null, 2));
+}
 
-  const svgUses = await page.evaluate(() => [...document.querySelectorAll("svg use")].map((u) => u.getAttribute("href") || u.getAttribute("xlink:href")));
-  console.log("=== SVG USE HREFS ===", JSON.stringify(svgUses));
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  const result = {};
 
-  // click into a specific item's detail page to check there too
-  const link = await page.$('a[href*="/items/"]');
-  if (link) {
-    const href = await link.getAttribute("href");
-    console.log("detail href:", href);
-    await page.goto("https://www.fareverdb.com" + href, { waitUntil: "networkidle", timeout: 30000 }).catch((e) => console.log("goto2 err", e.message));
-    await page.waitForTimeout(1500);
-    const imgs2 = await page.evaluate(() => [...document.querySelectorAll("img")].map((i) => i.src));
-    console.log("=== DETAIL PAGE IMG SRCS ===", JSON.stringify(imgs2));
-    const bg2 = await page.evaluate(() => {
-      const out = [];
-      document.querySelectorAll("*").forEach((el) => {
-        const bg = getComputedStyle(el).backgroundImage;
-        if (bg && bg !== "none") out.push(bg);
-      });
-      return [...new Set(out)];
-    });
-    console.log("=== DETAIL PAGE BG IMAGES ===", JSON.stringify(bg2));
-  } else {
-    console.log("no item detail link found");
+  for (const type of TYPES) {
+    try {
+      await page.goto(`https://www.fareverdb.com/items?type=${type}`, { waitUntil: "networkidle", timeout: 30000 });
+      await page.waitForTimeout(800);
+      const link = await page.$('a[href*="/items/"]');
+      if (!link) { console.log(type, "-> no item found"); continue; }
+      const href = await link.getAttribute("href");
+      await page.goto("https://www.fareverdb.com" + href, { waitUntil: "networkidle", timeout: 30000 });
+      await page.waitForTimeout(800);
+      const bgs = await bgUrls(page);
+      const atlas = bgs.find((u) => /atlas_weapon/i.test(u)) || bgs.find((u) => /cdn\.fareverdb\.com\/UI\/icons/i.test(u));
+      result[type] = { detail: href, atlas: atlas || null, allCdnBgs: bgs.filter((u) => u.includes("cdn.fareverdb.com")) };
+      console.log(type, "->", JSON.stringify(result[type]));
+    } catch (e) {
+      console.log(type, "-> ERROR", e.message);
+    }
   }
+
+  console.log("=== FULL RESULT ===");
+  console.log(JSON.stringify(result, null, 2));
 
   await browser.close();
 })();
