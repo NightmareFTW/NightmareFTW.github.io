@@ -111,6 +111,20 @@ async function appDetails(appid) {
   } catch { return null; }
 }
 
+// A "free to keep" grant doesn't always zero out price_overview.final the way
+// a normal sale does — a Steam quirk seen live on real promos (e.g. Microsoft
+// Flight Simulator's "Themes Reimagined": final stayed at the full 999 cents
+// while discount_percent read 100 and final_formatted read "Free"). Checking
+// final alone would misclassify that as ended, so treat any of these three as
+// "still free": zero final, a 100% discount, or an explicit "Free" label. No
+// price_overview at all means a genuine always-free F2P title, which never
+// "ends" via this check (KEEP_DAYS/an [ENDED] repost handle that instead).
+function isCurrentlyFree(data) {
+  const price = data.price_overview;
+  if (!price) return true;
+  return price.final === 0 || price.discount_percent === 100 || price.final_formatted === "Free";
+}
+
 async function run() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -134,6 +148,10 @@ async function run() {
       await sleep(APPDETAILS_DELAY_MS);
       const data = await appDetails(appid);
       if (!data) continue;   // not a real Steam app — bad/garbage appid
+      // The group doesn't reliably repost an "[ENDED]" retraction, and its
+      // RSS window can hold a post for well over a week — re-validate the
+      // promo is still actually free every time we see it, not just once.
+      if (!isCurrentlyFree(data)) { byAppid.delete(appid); continue; }
       const price = data.price_overview;
       byAppid.set(appid, {
         appid,
@@ -152,8 +170,7 @@ async function run() {
   // The RSS window only holds a handful of posts, so a promo can outlive the
   // "[ENDED]" repost we'd otherwise rely on to retract it (it can scroll out
   // before we ever see it). Re-check every carried-over item this run didn't
-  // already touch — if Steam's own price for it is no longer 0, the discount
-  // lapsed and it's back to normal price, which is unambiguous proof the
+  // already touch — isCurrentlyFree going false is unambiguous proof the
   // promo ended (unlike is_free, this can't be confused with the app having
   // been free all along, since a real F2P title has no price_overview at all).
   for (const [appid, it] of [...byAppid]) {
@@ -161,8 +178,8 @@ async function run() {
     await sleep(APPDETAILS_DELAY_MS);
     const data = await appDetails(appid);
     if (!data) continue;   // couldn't verify (network/region) — leave it, KEEP_DAYS is the fallback
+    if (!isCurrentlyFree(data)) { byAppid.delete(appid); continue; }
     const price = data.price_overview;
-    if (price && price.final > 0) { byAppid.delete(appid); continue; }
     if (price) byAppid.set(appid, { ...it, name: data.name || it.name, image: data.header_image || it.image, normalPrice: price.initial_formatted || price.final_formatted || it.normalPrice });
   }
 
