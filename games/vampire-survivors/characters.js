@@ -52,10 +52,12 @@ function lockedCard(c) {
 // A curated phased guide (see scripts/data/vs-curated-guides.js) replaces
 // the mechanical `steps` list for a handful of characters (e.g. Chaos) whose
 // real unlock condition is far longer — count its leaf items instead of
-// falling back to the much smaller `steps.length`.
+// falling back to the much smaller `steps.length`. Guides carry an {en, pt}
+// pair with identical item counts on each side (see that file's notes), so
+// either one gives the same number — no need to pick a language here.
 function guideStepCount(guide) {
   let n = 0;
-  for (const p of guide.phases) {
+  for (const p of (guide.en || guide).phases) {
     const groups = p.groups || [{ items: p.items || [] }];
     for (const g of groups) n += (g.items || []).length;
   }
