@@ -1,0 +1,25 @@
+name: Update Palworld Pal database
+
+on:
+  schedule:
+    - cron: "20 6 * * *"   # daily, 06:20 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-palworld:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: Scrape Pal database & passive skills (wikily.gg)
+        run: node scripts/update-palworld.js
+      - name: Commit changes if any
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/palworld"
+          message: "chore: auto-update Palworld Pal database"
