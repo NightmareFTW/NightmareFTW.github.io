@@ -2611,3 +2611,18 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .pw-bd-result { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 10px 0 16px; }
 .pw-bd-plus { font-size: 1.6rem; color: var(--muted); }
 .pw-bd-child { max-width: 320px; }
+
+/* ---- Vampire Survivors ---- */
+.vs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; margin-top: 10px; }
+.vs-card { border: 1px solid var(--border); border-radius: 12px; background: var(--card); overflow: hidden; }
+.vs-card.vs-unlocked { border-color: rgba(91, 214, 160, .35); }
+.vs-card-head { display: flex; align-items: center; gap: 10px; width: 100%; background: none; border: 0; padding: 10px;
+  cursor: pointer; color: inherit; text-align: left; font: inherit; }
+.vs-card-head .pw-card-img { width: 48px; height: 48px; }
+.vs-card-head .cb-caret { margin-top: 0; }
+.vs-card-detail { padding: 0 14px 14px; border-top: 1px solid var(--border); margin-top: 2px; padding-top: 12px; }
+.vs-card-detail[hidden] { display: none; }
+.vs-locked { display: flex; gap: 10px; align-items: center; padding: 10px; opacity: .72; }
+.pw-lock-q { display: grid; place-items: center; width: 100%; height: 100%; font-weight: 800; font-size: 1.3rem; color: var(--muted); }
+.vs-mark { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; color: var(--muted); cursor: pointer; }
+.vs-mark-main { margin: 0 0 10px; font-weight: 700; color: var(--text); }

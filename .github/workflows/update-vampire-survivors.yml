@@ -1,0 +1,25 @@
+name: Update Vampire Survivors characters & achievements
+
+on:
+  schedule:
+    - cron: "35 6 * * *"   # daily, 06:35 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-vampire-survivors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: Scrape characters & achievements (vampire.survivors.wiki)
+        run: node scripts/update-vampire-survivors.js
+      - name: Commit changes if any
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/vampire-survivors"
+          message: "chore: auto-update Vampire Survivors characters & achievements"
