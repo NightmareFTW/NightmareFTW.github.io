@@ -8,6 +8,13 @@
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const KEY = "nftw:vs:achievements";
 
+// Native confirm() dialogs aren't part of the DOM, so assets/js/i18n.js's
+// text-node translator can't reach them — check the language directly here,
+// same as steam-alerts.js does for its own native Notification popups.
+const PT = localStorage.getItem("nftw:lang") === "pt";
+const confirmUnlockAll = (n) => confirm(PT ? `Marcar todas as ${n} conquistas como desbloqueadas?` : `Mark all ${n} achievements as unlocked?`);
+const confirmUnlockGroup = (n, group) => confirm(PT ? `Marcar as ${n} conquistas de "${group}" como desbloqueadas?` : `Mark all ${n} achievements in "${group}" as unlocked?`);
+
 let DATA = null, query = "", fGroup = "", hideDone = false;
 let done = new Set(JSON.parse(localStorage.getItem(KEY) || "[]"));
 const save = () => localStorage.setItem(KEY, JSON.stringify([...done]));
@@ -24,10 +31,31 @@ function buildControls() {
   els.controls.innerHTML = `
     <input type="search" id="f-search" class="search-input" placeholder="Search achievements…" autocomplete="off" value="${esc(query)}">
     <select id="f-group" class="sort-select">${opt("", "All groups", fGroup)}${DATA.groups.map((g) => opt(g, g, fGroup)).join("")}</select>
-    <label class="pw-boss-toggle"><input type="checkbox" id="f-hide" ${hideDone ? "checked" : ""}> Hide completed</label>`;
+    <label class="pw-boss-toggle"><input type="checkbox" id="f-hide" ${hideDone ? "checked" : ""}> Hide completed</label>
+    <button type="button" class="mini-btn" id="f-unlock-dlc" ${fGroup ? "" : "hidden"}>Unlock <b>${esc(fGroup)}</b></button>
+    <button type="button" class="mini-btn" id="f-unlock-all">Unlock all</button>`;
   document.getElementById("f-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); render(); });
-  document.getElementById("f-group").addEventListener("change", (e) => { fGroup = e.target.value; render(); });
+  document.getElementById("f-group").addEventListener("change", (e) => {
+    fGroup = e.target.value;
+    const btn = document.getElementById("f-unlock-dlc");
+    if (btn) { btn.hidden = !fGroup; btn.innerHTML = `Unlock <b>${esc(fGroup)}</b>`; }
+    render();
+  });
   document.getElementById("f-hide").addEventListener("change", (e) => { hideDone = e.target.checked; render(); });
+  document.getElementById("f-unlock-all").addEventListener("click", () => {
+    if (!confirmUnlockAll(DATA.count)) return;
+    DATA.achievements.forEach((a) => done.add(idOf(a)));
+    save();
+    render();
+  });
+  document.getElementById("f-unlock-dlc").addEventListener("click", () => {
+    if (!fGroup) return;
+    const list = DATA.achievements.filter((a) => a.group === fGroup);
+    if (!confirmUnlockGroup(list.length, fGroup)) return;
+    list.forEach((a) => done.add(idOf(a)));
+    save();
+    render();
+  });
 }
 
 function itemImg(a) {
