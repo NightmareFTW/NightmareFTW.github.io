@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nftw-auth.nightmareftw.workers.dev https://api.github.com https://github.com https://api.warframestat.us https://cloudflareinsights.com; frame-src https://outlast.fex.dev; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breeding Calculator · Palworld · NightmareFTW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=5a1469dc">
+</head>
+<body data-game="palworld">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark">▲</span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Palworld</a> / breeding calculator</p>
+    <h1>Breeding Calculator</h1>
+    <p class="tool-sub">Pick two parents to see what pairing them produces — exclusive combos are checked first, otherwise it's the standard rank-average formula.</p>
+    <p class="codes-updated" id="bd-updated">Loading…</p>
+
+    <div class="pw-bd-parents">
+      <div class="pw-bd-slot">
+        <span class="pw-bd-label">Parent 1</span>
+        <div id="p1-picked"></div>
+        <input type="search" id="p1-search" class="search-input" placeholder="Search Pal…" autocomplete="off">
+        <div class="pw-pick-results" id="p1-results" hidden></div>
+      </div>
+      <div class="pw-bd-slot">
+        <span class="pw-bd-label">Parent 2</span>
+        <div id="p2-picked"></div>
+        <input type="search" id="p2-search" class="search-input" placeholder="Search Pal…" autocomplete="off">
+        <div class="pw-pick-results" id="p2-results" hidden></div>
+      </div>
+    </div>
+
+    <div id="bd-result"></div>
+    <p class="tool-note">Formula: floor((parent1 rank + parent2 rank + 1) / 2), then the closest-ranked Pal on the whole roster (ties favor the lower rank) — unless this exact pair has an exclusive combo, which always wins.</p>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · Palworld breeding calculator.</span></div></footer>
+  <script src="breeding.js?v=1"></script>
+  <script src="/assets/js/i18n.js?v=f664af3b" defer></script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

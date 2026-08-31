@@ -633,4 +633,38 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "palworld",
+    name: "Palworld",
+    banner: "assets/img/games/palworld-header.jpg",
+    color: "#ff9f43",
+    glow: "rgba(255, 159, 67, 0.22)",
+    blurb: "Every Pal, its stats and a recommended build, plus a passive-skill reference and a breeding calculator.",
+    tools: [
+      {
+        id: "pals",
+        name: "Pal Database",
+        type: "database",
+        desc: "Every Pal with stats, work suitability, drops, skills and a recommended combat/work build.",
+        href: "games/palworld/pals.html",
+        available: true,
+      },
+      {
+        id: "passives",
+        name: "Passive Skills",
+        type: "reference",
+        desc: "The full shared passive-skill pool — ranks, effects, and which Pals carry one as a signature skill.",
+        href: "games/palworld/passives.html",
+        available: true,
+      },
+      {
+        id: "breeding",
+        name: "Breeding Calculator",
+        type: "calculator",
+        desc: "Pick two parents to see what pairing them produces, exclusive combos included.",
+        href: "games/palworld/breeding.html",
+        available: true,
+      },
+    ],
+  },
 ];
