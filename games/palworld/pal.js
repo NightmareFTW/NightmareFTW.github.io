@@ -90,7 +90,7 @@ function render(pal, skills) {
       </section>
 
       <section class="panel">
-        <h2>Work Suitability${pal.bestWork ? ` <span class="ev-chip">Best: ${esc(WORK_LABEL[pal.bestWork] || pal.bestWork)}</span>` : ""}</h2>
+        <h2>Work Suitability${pal.bestWork ? ` <span class="ev-chip">Best: <b>${esc(WORK_LABEL[pal.bestWork] || pal.bestWork)}</b></span>` : ""}</h2>
         ${workEntries.length
           ? `<div class="pw-work-grid">${workEntries.map(([k, v]) => `<span class="pw-work"><span>${esc(WORK_LABEL[k] || k)}</span><span class="pw-work-lv">${"●".repeat(v)}${"○".repeat(Math.max(0, 4 - v))}</span></span>`).join("")}</div>`
           : `<p class="tool-note">No base-management work suitability.</p>`}
