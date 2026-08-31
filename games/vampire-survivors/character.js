@@ -41,6 +41,19 @@ function buildLinkifier(characters, achievements) {
   };
 }
 
+// A curated guide (unlike every other character's plain scraped `steps`) is
+// small and hand-authored, so it carries its own {en, pt} copies instead of
+// going through assets/js/i18n.js's generic text-node translator — that
+// translator can't reliably handle text pieced together from linkify()'s
+// injected <a> tags. Pick the copy matching the site's current language
+// before anything else touches c.guide, so the rest of this file can keep
+// treating it as one flat guide object.
+function pickGuideLang(guide) {
+  if (!guide || !guide.en) return guide; // already a flat, single-language guide
+  const lang = localStorage.getItem("nftw:lang") || "en";
+  return guide[lang] || guide.en;
+}
+
 function stepId(c, suffix) { return `${c.slug}::${suffix}`; }
 
 // A curated guide (see scripts/data/vs-curated-guides.js) organizes a long
@@ -225,6 +238,7 @@ function render(c, linkify) {
     ]);
     const c = charsData.characters.find((x) => x.slug === slug);
     if (!c) { root.innerHTML = `<p class="tool-note">Character not found. <a href="characters.html">Back to the database →</a></p>`; return; }
+    c.guide = pickGuideLang(c.guide);
     const linkify = buildLinkifier(charsData.characters, achData.achievements);
     render(c, linkify);
   } catch (e) {
