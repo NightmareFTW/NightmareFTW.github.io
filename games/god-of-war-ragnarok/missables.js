@@ -28,7 +28,7 @@ function renderIntro() {
   const intro = DATA.intro || {};
   document.getElementById("ms-intro").innerHTML = `
     <div class="ms-intro-card">
-      <p class="ms-intro-head">✓ ${esc(intro.headline || "")}</p>
+      <p class="ms-intro-head"><span aria-hidden="true">✓</span> ${esc(intro.headline || "")}</p>
       <ul class="ms-intro-list">${(intro.points || []).map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
     </div>`;
 }

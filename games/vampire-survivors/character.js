@@ -81,7 +81,7 @@ function refreshCounts(c) {
   if (c.guide && c.guide.phases) {
     const leaves = collectLeafItems(c.guide);
     const done = leaves.filter((l) => stepsDone.has(stepId(c, l.id))).length;
-    if (totalEl) totalEl.textContent = `${done}/${leaves.length} passos concluídos no total.`;
+    if (totalEl) totalEl.textContent = `${done}/${leaves.length} steps done in total.`;
     c.guide.phases.forEach((phase, pIdx) => {
       const groups = phase.groups || [{ items: phase.items || [] }];
       const ids = [];
@@ -147,10 +147,10 @@ function renderPhasedGuide(c, linkify) {
     <label class="vs-mark vs-mark-main"><input type="checkbox" id="mark-unlocked" ${isUnlocked ? "checked" : ""}> Mark as unlocked</label>
     <p class="pw-build-note">
       ${guide.dlc ? `<b>DLC:</b> ${esc(guide.dlc)}. ` : ""}
-      ${guide.rule ? `<b>Regra:</b> ${linkify(guide.rule, c.name)}` : ""}
+      ${guide.rule ? `<b>Rule:</b> ${linkify(guide.rule, c.name)}` : ""}
     </p>
     ${c.unlockShort ? `<p class="tool-note" style="font-style:italic">"${linkify(c.unlockShort, c.name)}"</p>` : ""}
-    <p class="tool-note" id="vs-total-count" style="margin:6px 0 14px">${doneTotal}/${leaves.length} passos concluídos no total.</p>
+    <p class="tool-note" id="vs-total-count" style="margin:6px 0 14px">${doneTotal}/${leaves.length} steps done in total.</p>
     ${guide.phases.map((phase, pIdx) => renderPhase(c, phase, pIdx, linkify)).join("")}
   `;
 }

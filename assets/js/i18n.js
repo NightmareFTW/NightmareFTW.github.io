@@ -1222,6 +1222,366 @@
     "Built by NightmareFTW · A fan tribute to": "Feito por NightmareFTW · Uma homenagem de fã a",
     "by Manuel Garand — object art from the book, avatars via DiceBear. Non-commercial; go buy the book!":
       "de Manuel Garand · arte dos objectos retirada do livro, avatares via DiceBear. Sem fins comerciais; vai comprar o livro!",
+
+    // ---- Farever: chrome ----
+    "Co-op action RPG by Shiro Games — four classes, over a hundred weapons, and dungeons to clear with friends.":
+      "RPG de acção co-op da Shiro Games — quatro classes, mais de cem armas, e dungeons para limpar com amigos.",
+    "Class Builds": "Builds de Classe",
+    "3 weapon-based build ideas per class — role, playstyle, pros & cons.":
+      "3 ideias de build por arma para cada classe — função, estilo de jogo, prós & contras.",
+    "Weapons Guide": "Guia de Armas",
+    "Every weapon type in the game and which classes make the most of it.":
+      "Cada tipo de arma do jogo e que classes tiram mais proveito dela.",
+    "Dungeons Checklist": "Checklist de Dungeons",
+    "Track which of the game's dungeons you've cleared. Ticks persist on this device.":
+      "Acompanha que dungeons do jogo já limpaste. As marcações ficam guardadas neste dispositivo.",
+    "3 weapon-based build ideas for each of Farever's 4 classes — role, how to play it, and the trade-offs. Any class can equip any weapon, so these are starting points to adapt, not the only way to play. Tap a build to expand.":
+      "3 ideias de build por arma para cada uma das 4 classes do Farever — função, como jogar e os trade-offs. Qualquer classe pode equipar qualquer arma, por isso estas são pontos de partida para adaptares, não a única forma de jogar. Toca numa build para expandir.",
+    "Builds hand-written by NightmareFTW — Farever is in Early Access, so this will keep changing.":
+      "Builds escritas à mão pelo NightmareFTW — o Farever está em Early Access, por isso isto vai continuar a mudar.",
+    "Built by NightmareFTW · Farever class builds.": "Feito por NightmareFTW · builds de classe do Farever.",
+    "Every weapon type and which classes make the most of it. Weapons aren't locked to a class — pick whichever fits how you want to play.":
+      "Cada tipo de arma e que classes tiram mais proveito dela. As armas não estão presas a uma classe — escolhe a que encaixa no teu estilo de jogo.",
+    "Search weapons…": "Procurar armas…", "No weapons match.": "Nenhuma arma corresponde.",
+    "Farever is in Early Access — weapon types and class pairings will keep expanding.":
+      "O Farever está em Early Access — os tipos de arma e os pares de classes vão continuar a expandir-se.",
+    "Built by NightmareFTW · Farever weapons guide.": "Feito por NightmareFTW · guia de armas do Farever.",
+    "Track which of Farever's co-op dungeons you've cleared. Ticks are saved on this device.":
+      "Acompanha que dungeons co-op do Farever já limpaste. As marcações ficam guardadas neste dispositivo.",
+    "Farever is in Early Access — this list only covers dungeons confirmed at launch and will grow over time.":
+      "O Farever está em Early Access — esta lista cobre apenas as dungeons confirmadas no lançamento e vai crescer com o tempo.",
+    "Built by NightmareFTW · Farever dungeons.": "Feito por NightmareFTW · dungeons do Farever.",
+    "No builds match.": "Nenhuma build corresponde.", "Couldn't load build data.": "Não foi possível carregar os dados das builds.",
+    "All classes": "Todas as classes", "Any class": "Qualquer classe",
+    "Weapons": "Armas", "How to play it": "Como jogar", "Pros": "Prós", "Cons": "Contras",
+    "Couldn't load weapon data.": "Não foi possível carregar os dados das armas.",
+    "Clear every tick on this checklist?": "Limpar todas as marcações desta checklist?",
+    "Couldn't load the checklist data.": "Não foi possível carregar os dados da checklist.",
+    "Public Dungeons": "Dungeons Públicas",
+    "Names, levels and bosses verified against FareverDB's own game-file extraction (not a fan guide guess).":
+      "Nomes, níveis e bosses verificados a partir da extracção de ficheiros do próprio jogo pela FareverDB (não é um palpite de guia de fã).",
+    "Farever is in Early Access — this list covers the dungeons confirmed so far and will grow as Shiro Games adds more.":
+      "O Farever está em Early Access — esta lista cobre as dungeons confirmadas até agora e vai crescer à medida que a Shiro Games adicionar mais.",
+    "Tick a dungeon once you've cleared it at least once — ticks are saved on this device only.":
+      "Marca uma dungeon assim que a limpares pelo menos uma vez — as marcações só ficam guardadas neste dispositivo.",
+    "Dungeons are co-op, up to a party of 4.": "As dungeons são co-op, até um grupo de 4.",
+    "Ordered by recommended level. Three deeper dungeons have no revealed boss yet — FareverDB (game-file extraction) hides late-game content to avoid spoilers.":
+      "Ordenadas pelo nível recomendado. Três dungeons mais avançadas ainda não têm boss revelado — a FareverDB (extracção de ficheiros do jogo) esconde conteúdo end-game para evitar spoilers.",
+    "Beginner Friendly": "Iniciante", "Hard": "Difícil",
+    "Melee DPS": "DPS Corpo-a-Corpo", "Ranged DPS": "DPS à Distância", "Burst DPS": "DPS de Burst",
+    "Hybrid Tank-DPS": "Híbrido Tank-DPS", "Sustained Melee DPS": "DPS Corpo-a-Corpo Sustentado",
+    "Burst Caster": "Caster de Burst", "AoE / Crowd Control": "AoE / Controlo de Multidões",
+    "Hybrid Solo": "Híbrido Solo", "Heal / Damage Hybrid": "Híbrido Cura/Dano", "Melee Support": "Suporte Corpo-a-Corpo",
+
+    // ---- Farever: build content (data/farever/builds.json) ----
+    "The default front-line pick — hold aggro, block the hits meant for your party, and chip away with reliable sword damage.":
+      "A escolha padrão para a linha da frente — segura o aggro, bloqueia os golpes destinados ao teu grupo, e desgasta os inimigos com dano fiável de espada.",
+    "Fast, reliable single-target damage with no real downside — easy to learn.":
+      "Dano rápido e fiável contra um único alvo, sem desvantagens reais — fácil de aprender.",
+    "Block/parry to mitigate incoming damage and keep enemy attention off squishier allies.":
+      "Bloqueia/apara para mitigar o dano recebido e manter a atenção dos inimigos longe dos aliados mais frágeis.",
+    "Open fights by closing distance and applying pressure so enemies target you first.":
+      "Começa os combates a aproximares-te e a pressionar para os inimigos te visarem primeiro.",
+    "Block incoming hits rather than dodging when you're anchoring a group fight.":
+      "Bloqueia os golpes recebidos em vez de esquivar quando estás a segurar um combate em grupo.",
+    "Peel for your Mage/Priest if something slips past you — your job is damage prevention first.":
+      "Afasta os inimigos do teu Mage/Priest se algo te escapar — o teu trabalho é prevenir dano primeiro.",
+    "Very forgiving — hard to make a fatal mistake.": "Muito tolerante a erros — é difícil cometer um erro fatal.",
+    "Keeps the party alive by eating hits meant for others.": "Mantém o grupo vivo ao levar golpes destinados a outros.",
+    "Cheap, early-available gear.": "Equipamento barato e disponível desde cedo.",
+    "Lower damage output than dedicated DPS builds.": "Menor dano do que builds dedicadas a DPS.",
+    "Less useful when soloing — nothing to tank for.": "Menos útil a solo — não há nada para fazer tank.",
+    "Trades the shield for a second axe — higher risk, much higher sustained melee damage.":
+      "Troca o escudo por um segundo machado — mais risco, muito mais dano de corpo-a-corpo sustentado.",
+    "Strong per-hit damage with cleave, good against groups of smaller enemies.":
+      "Dano forte por golpe com cleave, bom contra grupos de inimigos mais pequenos.",
+    "Dual-wielding trades the Shield's mitigation for a big jump in damage-per-second.":
+      "Empunhar duas armas troca a mitigação do Shield por um grande salto no dano por segundo.",
+    "Commit to fights rather than trading — no shield means you want fights over fast.":
+      "Compromete-te com os combates em vez de trocares golpes — sem escudo, queres que os combates acabem depressa.",
+    "Use your mobility to reposition between enemy telegraphs instead of blocking.":
+      "Usa a tua mobilidade para te reposicionares entre os avisos de ataque dos inimigos em vez de bloquear.",
+    "Group trash mobs together and cleave rather than single-targeting.":
+      "Junta os inimigos fracos e usa cleave em vez de atacares um de cada vez.",
+    "Highest sustained melee damage on the class.": "O maior dano de corpo-a-corpo sustentado da classe.",
+    "Great against packs thanks to cleave.": "Óptimo contra grupos graças ao cleave.",
+    "No block — punishing against attacks you can't dodge.": "Sem bloqueio — penalizador contra ataques que não consegues esquivar.",
+    "Needs more positioning awareness than the shield build.": "Exige mais atenção ao posicionamento do que a build com escudo.",
+    "A reach-focused middle ground between the pure tank and pure damage builds — poke from range, still block when it matters.":
+      "Um meio-termo focado em alcance entre as builds de tank puro e dano puro — ataca à distância, mas ainda bloqueia quando importa.",
+    "Longer reach than sword/axe lets you hit and interrupt without eating every retaliation.":
+      "Mais alcance do que a espada/machado permite atacar e interromper sem levares com todas as retaliações.",
+    "Keeps the option to hold a line when a fight demands it.": "Mantém a opção de segurar uma linha quando um combate o exige.",
+    "Use the spear's reach to poke and interrupt casts from just outside melee range.":
+      "Usa o alcance da lança para atacar e interromper feitiços mesmo fora do alcance corpo-a-corpo.",
+    "Swap to blocking stance during heavy telegraphed attacks, then resume poking.":
+      "Muda para postura de bloqueio durante ataques fortes e avisados, depois volta a atacar à distância.",
+    "Good pick if your party lacks a dedicated tank but still needs frontline presence.":
+      "Boa escolha se o teu grupo não tem um tank dedicado mas ainda precisa de presença na linha da frente.",
+    "Flexible — covers for a missing tank without fully giving up damage.":
+      "Flexível — cobre a falta de um tank sem abdicar totalmente do dano.",
+    "Good interrupt uptime thanks to reach.": "Boa frequência de interrupções graças ao alcance.",
+    "Doesn't excel at either tanking or DPS compared to the dedicated builds.":
+      "Não se destaca nem a fazer tank nem em DPS comparado com as builds dedicadas.",
+    "Get in, dump every combo point into a finisher, get out — the highest single-target burst in the kit, if you can survive being in melee range.":
+      "Entra, gasta todos os pontos de combo num finisher, sai — o maior burst num só alvo do kit, se conseguires sobreviver a estar em alcance corpo-a-corpo.",
+    "Fastest attack speed in the game, builds resources quickly for big finishing hits.":
+      "A velocidade de ataque mais rápida do jogo, gera recursos depressa para grandes golpes finais.",
+    "Build up your combo resource on a safe target before committing to the kill target.":
+      "Acumula o teu recurso de combo num alvo seguro antes de te comprometeres com o alvo a abater.",
+    "Save your finisher for openings — don't waste it on a target that's about to die anyway.":
+      "Guarda o teu finisher para aberturas — não o gastes num alvo que já está prestes a morrer.",
+    "Disengage immediately after the burst window; daggers have no defensive tools of their own.":
+      "Desliga-te imediatamente depois da janela de burst; as adagas não têm ferramentas defensivas próprias.",
+    "Best single-target burst damage available to the class.": "O melhor dano de burst num só alvo disponível para a classe.",
+    "Rewards good positioning and timing.": "Recompensa bom posicionamento e timing.",
+    "Very punishing if caught out of position — no self-sustain.": "Muito penalizador se apanhado fora de posição — sem sustentação própria.",
+    "Steep learning curve to use the resource system well.": "Curva de aprendizagem acentuada para usar bem o sistema de recursos.",
+    "The safer Rogue build — kite, poke and reposition instead of committing to melee range.":
+      "A build de Rogue mais segura — kita, ataca à distância e reposiciona-te em vez de te comprometeres ao alcance corpo-a-corpo.",
+    "Ranged damage with good mobility uptime — shoot while moving, avoid most retaliation entirely.":
+      "Dano à distância com boa mobilidade — dispara enquanto te moves, evitando quase toda a retaliação.",
+    "Keep distance and circle-strafe rather than standing still to shoot.":
+      "Mantém distância e circula em vez de ficares parado a disparar.",
+    "Use terrain and enemy pathing to your advantage when kiting tougher targets.":
+      "Usa o terreno e o percurso dos inimigos a teu favor quando estiveres a kitar alvos mais resistentes.",
+    "Great for solo play since you rarely take damage you didn't choose to.":
+      "Óptimo para jogar a solo, já que raramente levas dano que não escolheste levar.",
+    "Much more forgiving than the melee builds — mistakes are recoverable.":
+      "Muito mais tolerante a erros do que as builds de corpo-a-corpo — os erros são recuperáveis.",
+    "Strong solo pick.": "Excelente escolha para jogar a solo.",
+    "Lower burst than the dagger build.": "Menos burst do que a build de adagas.",
+    "Less effective in tight dungeon corridors with no room to kite.": "Menos eficaz em corredores apertados de dungeon sem espaço para kitar.",
+    "Fast, low-commitment strikes plus a thrown weapon for whenever the fight goes ranged — a jack-of-all-trades combo build.":
+      "Golpes rápidos e de baixo compromisso mais uma arma de arremesso para quando o combate passa a ser à distância — uma build de combo versátil.",
+    "Very fast attack speed for steady, low-risk combo generation.":
+      "Velocidade de ataque muito rápida para gerar combo de forma constante e com pouco risco.",
+    "Lets you punish a fleeing target or soften something before it closes the distance.":
+      "Permite castigar um alvo em fuga ou amolecer algo antes de fechar a distância.",
+    "Keep attacking to maintain your combo chain — fists reward uptime over big single hits.":
+      "Continua a atacar para manter a cadeia de combo — os punhos recompensam a constância em vez de grandes golpes únicos.",
+    "Swap to thrown weapons briefly when a target disengages, then close back in.":
+      "Muda brevemente para armas de arremesso quando um alvo se afasta, depois volta a aproximar-te.",
+    "Weave in dodges between strikes rather than tanking hits.": "Intercala esquivas entre golpes em vez de levares com os ataques.",
+    "More consistent than the dagger burst build.": "Mais consistente do que a build de burst com adagas.",
+    "Flexible against both melee and fleeing targets.": "Flexível tanto contra alvos corpo-a-corpo como em fuga.",
+    "Lower peak burst than daggers.": "Burst máximo menor do que as adagas.",
+    "Needs active dodging — passive play gets punished.": "Exige esquiva activa — jogo passivo é penalizado.",
+    "Single-target elemental burst from range — the highest damage ceiling of any class, at the cost of a very fragile body.":
+      "Burst elemental num só alvo à distância — o maior tecto de dano de qualquer classe, ao custo de um corpo muito frágil.",
+    "The Mage's core damage weapon — high per-cast damage with the longest effective range.":
+      "A arma de dano principal do Mage — dano elevado por feitiço com o maior alcance efectivo.",
+    "Cast from maximum range and reposition after every big spell — you will not survive being caught.":
+      "Lança à distância máxima e reposiciona-te depois de cada feitiço grande — não vais sobreviver se fores apanhado.",
+    "Save your strongest spell for burst windows rather than spreading damage evenly.":
+      "Guarda o teu feitiço mais forte para janelas de burst em vez de espalhares o dano de forma uniforme.",
+    "Let your tank or a Priest's shield absorb aggro; you have almost no way to mitigate hits yourself.":
+      "Deixa o teu tank ou o shield de um Priest absorver o aggro; tu próprio quase não tens forma de mitigar golpes.",
+    "Highest damage ceiling in the game.": "O maior tecto de dano do jogo.",
+    "Excellent range keeps you out of most melee threats.": "O excelente alcance mantém-te fora da maioria das ameaças corpo-a-corpo.",
+    "Squishiest class in the game — a couple of hits can end the fight for you.":
+      "A classe mais frágil do jogo — uns quantos golpes podem acabar o combate para ti.",
+    "Fully dependent on a party to hold aggro in group content.": "Totalmente dependente de um grupo para segurar o aggro em conteúdo de grupo.",
+    "Trades some single-target burst for area spells that control packs of enemies — the pick for dungeon trash and objective defense.":
+      "Troca algum burst num só alvo por feitiços de área que controlam grupos de inimigos — a escolha para limpar dungeons e defender objectivos.",
+    "Book spells lean toward area-of-effect and control rather than single-target burst.":
+      "Os feitiços de Book inclinam-se para área de efeito e controlo em vez de burst num só alvo.",
+    "Pull groups of weaker enemies together before opening with an area spell.":
+      "Junta grupos de inimigos mais fracos antes de abrires com um feitiço de área.",
+    "Use control effects to buy your melee allies time to reposition or reset a fight.":
+      "Usa efeitos de controlo para dar tempo aos teus aliados corpo-a-corpo de se reposicionarem ou reiniciarem um combate.",
+    "Kite around the edge of a pack rather than standing in the middle of it.":
+      "Kita à volta da borda de um grupo em vez de ficares no meio dele.",
+    "Excellent at clearing trash and holding chokepoints.": "Excelente a limpar inimigos fracos e a segurar pontos de estrangulamento.",
+    "Strong support value for the whole party.": "Grande valor de suporte para todo o grupo.",
+    "Weaker single-target damage than the staff build.": "Dano num só alvo mais fraco do que a build de Staff.",
+    "Less impactful against solo boss fights.": "Menos impactante contra combates a solo contra bosses.",
+    "A more self-sufficient Mage build for solo play — gives up some raw damage for survivability tools.":
+      "Uma build de Mage mais autossuficiente para jogar a solo — abdica de algum dano bruto por ferramentas de sobrevivência.",
+    "A more balanced magic weapon with utility on top of damage, good for players without a dedicated healer nearby.":
+      "Uma arma mágica mais equilibrada, com utilidade além do dano, boa para jogadores sem um healer dedicado por perto.",
+    "Unusual on a caster, but gives the Mage a rare way to block instead of relying purely on distance.":
+      "Invulgar num caster, mas dá ao Mage uma forma rara de bloquear em vez de depender só da distância.",
+    "Play more like a mid-range fighter than a backline caster — the shield lets you take a few hits.":
+      "Joga mais como um lutador de meia-distância do que um caster de retaguarda — o shield permite levares alguns golpes.",
+    "Block big telegraphed attacks instead of always retreating.": "Bloqueia ataques grandes e avisados em vez de recuares sempre.",
+    "Best used when you're playing without a consistent group to protect you.":
+      "Melhor usado quando estás a jogar sem um grupo consistente a proteger-te.",
+    "Much more forgiving solo than the pure staff build.": "Muito mais tolerante a solo do que a build pura de Staff.",
+    "Still deals respectable magic damage.": "Ainda causa um dano mágico respeitável.",
+    "Noticeably lower burst than the dedicated staff build.": "Burst visivelmente menor do que a build dedicada de Staff.",
+    "Less useful in an organized group that already covers your survivability.":
+      "Menos útil num grupo organizado que já cobre a tua sobrevivência.",
+    "The class-defining build — dedicated healing and utility for a group, with almost no personal damage output.":
+      "A build que define a classe — cura e utilidade dedicadas para um grupo, com quase nenhum dano pessoal.",
+    "The Priest's exclusive weapon, built entirely around efficient group healing and buffs.":
+      "A arma exclusiva do Priest, construída inteiramente à volta de cura de grupo eficiente e buffs.",
+    "Watch party health bars, not the enemy — your job is keeping everyone standing.":
+      "Observa as barras de vida do grupo, não o inimigo — o teu trabalho é manter todos de pé.",
+    "Pre-heal before a telegraphed group-damage attack lands rather than reacting after.":
+      "Cura antecipadamente antes de um ataque avisado de dano em grupo acontecer, em vez de reagires depois.",
+    "Stay at range and let your Warrior/Rogue keep enemies away from you.":
+      "Fica à distância e deixa o teu Warrior/Rogue manter os inimigos longe de ti.",
+    "The reason hard group content is clearable at all.": "A razão pela qual o conteúdo de grupo difícil é sequer possível de completar.",
+    "Very high value in any co-op party.": "Valor muito elevado em qualquer grupo co-op.",
+    "Almost no damage of your own.": "Quase nenhum dano próprio.",
+    "Weak when playing solo with nobody else to heal.": "Fraco quando jogado a solo, sem mais ninguém para curar.",
+    "Keeps enough healing to be useful in a group while contributing real area damage — a good pick when your party already has healing covered.":
+      "Mantém cura suficiente para ser útil num grupo enquanto contribui com dano de área real — boa escolha quando o teu grupo já tem a cura coberta.",
+    "Blends holy damage spells with support utility, instead of committing fully to either.":
+      "Combina feitiços de dano sagrado com utilidade de suporte, em vez de se comprometer totalmente com um dos dois.",
+    "Default to offense when the party is topped up, and swap to support the moment someone drops low.":
+      "Por defeito, foca-te em ofensiva quando o grupo está com a vida cheia, e muda para suporte assim que alguém fique com pouca vida.",
+    "Use area holy damage on grouped enemies rather than single targets.":
+      "Usa dano sagrado de área em inimigos agrupados em vez de alvos únicos.",
+    "Communicate with your group so nobody assumes you're their dedicated healer.":
+      "Comunica com o teu grupo para que ninguém assuma que és o healer dedicado deles.",
+    "Contributes real damage instead of being pure support.": "Contribui com dano real em vez de ser suporte puro.",
+    "Flexible between roles mid-fight.": "Flexível entre funções a meio do combate.",
+    "Doesn't heal as reliably as the Scepter build.": "Não cura de forma tão fiável como a build de Scepter.",
+    "Can leave a group under-healed if you misjudge the split.": "Pode deixar um grupo mal curado se calculares mal a divisão.",
+    "An unconventional melee-range Priest — close-quarters support with a shield, for players who don't want to sit at the back of the fight.":
+      "Um Priest pouco convencional a alcance corpo-a-corpo — suporte de curta distância com escudo, para jogadores que não querem ficar atrás no combate.",
+    "A support-friendly melee weapon that lets you stay useful in healing kit while fighting up close.":
+      "Uma arma corpo-a-corpo amiga do suporte que te deixa continuar útil no kit de cura enquanto lutas de perto.",
+    "Necessary survivability since this build gives up the safety of range.":
+      "Sobrevivência necessária, já que esta build abdica da segurança da distância.",
+    "Position like an off-tank — close enough to block hits, close enough to top allies up between swings.":
+      "Posiciona-te como um off-tank — perto o suficiente para bloquear golpes, perto o suficiente para curar aliados entre ataques.",
+    "Lean on block/parry timing since you no longer have the range buffer of the other builds.":
+      "Confia no timing de bloqueio/apara, já que deixaste de ter a margem de distância das outras builds.",
+    "Best in small groups where you can realistically keep track of everyone's health from melee range.":
+      "Melhor em grupos pequenos onde consegues realmente acompanhar a vida de todos a partir do alcance corpo-a-corpo.",
+    "Lets you play a support role without sitting at the back.": "Permite jogar uma função de suporte sem ficares atrás.",
+    "Solid personal survivability from the shield.": "Boa sobrevivência pessoal graças ao escudo.",
+    "Hardest Priest build to execute well — you're managing melee positioning and healing at once.":
+      "A build de Priest mais difícil de executar bem — estás a gerir posicionamento corpo-a-corpo e cura ao mesmo tempo.",
+    "Loses reach compared to Scepter/Book.": "Perde alcance comparado com Scepter/Book.",
+
+    // ---- Farever: weapon guide content (data/farever/weapons.json) ----
+    "The most balanced melee weapon — reliable single-target damage with no real weaknesses. Great sword and dual-wielded variants push it further into pure damage territory.":
+      "A arma corpo-a-corpo mais equilibrada — dano fiável num só alvo sem fraquezas reais. As variantes de espada grande e empunhada a dois avançam ainda mais para dano puro.",
+    "Heavier hits with cleave against grouped enemies. The dual-axe and great-axe variants trade defense for even more damage.":
+      "Golpes mais pesados com cleave contra inimigos agrupados. As variantes de machado duplo e machado grande trocam defesa por ainda mais dano.",
+    "A support-friendly melee option — enough damage to hold your own while still being able to carry healing/buff kit alongside it.":
+      "Uma opção corpo-a-corpo amiga do suporte — dano suficiente para te aguentares sozinho, ao mesmo tempo que consegues levar kit de cura/buff junto.",
+    "The one weapon every class can make good use of, thanks to its reach — poke and interrupt from just outside melee range.":
+      "A única arma que todas as classes conseguem aproveitar bem, graças ao seu alcance — ataca e interrompe mesmo fora do alcance corpo-a-corpo.",
+    "An off-hand block/parry tool. Mostly a Warrior staple, but a Mage carrying one gives up some magic damage for real survivability.":
+      "Uma ferramenta de bloqueio/apara para a mão secundária. É sobretudo um pilar do Warrior, mas um Mage que a leve abdica de algum dano mágico por sobrevivência real.",
+    "The fastest attack speed in the game — builds combo resources quickly for a big finishing hit, at the cost of almost no defense.":
+      "A velocidade de ataque mais rápida do jogo — gera recursos de combo depressa para um grande golpe final, ao custo de quase nenhuma defesa.",
+    "Ranged damage with strong mobility uptime — shoot while repositioning instead of committing to melee range.":
+      "Dano à distância com forte mobilidade — dispara enquanto te reposicionas em vez de te comprometeres ao alcance corpo-a-corpo.",
+    "Fast, low-commitment strikes for steady combo generation — more consistent than daggers, less peak burst.":
+      "Golpes rápidos e de baixo compromisso para gerar combo de forma constante — mais consistente do que as adagas, com menos burst máximo.",
+    "A utility option for punishing targets at range or softening something before it closes the distance.":
+      "Uma opção de utilidade para castigar alvos à distância ou amolecer algo antes de fechar a distância.",
+    "The Mage's core damage weapon — the highest per-cast damage and longest range of any weapon, paired with the lowest survivability.":
+      "A arma de dano principal do Mage — o maior dano por feitiço e o maior alcance de qualquer arma, combinado com a menor sobrevivência.",
+    "Leans toward area-of-effect and control on a Mage, or a heal/damage hybrid on a Priest — a flexible middle-ground caster weapon.":
+      "Inclina-se para área de efeito e controlo num Mage, ou um híbrido de cura/dano num Priest — uma arma de caster flexível e intermédia.",
+    "A more balanced magic weapon blending damage with utility — a common pick for solo casters who can't rely on a healer nearby.":
+      "Uma arma mágica mais equilibrada que combina dano com utilidade — uma escolha comum para casters a solo que não podem contar com um healer por perto.",
+    "A support-leaning utility weapon; details are still thin this early into Early Access — treat it as a situational pick until more is confirmed.":
+      "Uma arma de utilidade com tendência para suporte; os detalhes ainda são escassos nesta fase inicial do Early Access — trata-a como uma escolha situacional até haver mais confirmações.",
+    "A utility weapon tied to Farever's taming/pet systems rather than raw combat output.":
+      "Uma arma de utilidade ligada aos sistemas de domesticação/pets do Farever, em vez de dano de combate puro.",
+
+    // ---- Palworld ----
+    "Every Pal, its stats and a recommended build, plus a passive-skill reference and a breeding calculator.":
+      "Todos os Pals, as suas stats e uma build recomendada, mais uma referência de skills passivas e uma calculadora de reprodução.",
+    "Pal Database": "Base de Dados de Pals",
+    "Every Pal with stats, work suitability, drops, skills and a recommended combat/work build.":
+      "Cada Pal com stats, aptidões de trabalho, drops, skills e uma build recomendada de combate/trabalho.",
+    "Passive Skills": "Skills Passivas",
+    "The full shared passive-skill pool — ranks, effects, and which Pals carry one as a signature skill.":
+      "Todo o conjunto partilhado de skills passivas — ranks, efeitos, e que Pals têm uma como skill de assinatura.",
+    "Breeding Calculator": "Calculadora de Reprodução",
+    "Pick two parents to see what pairing them produces, exclusive combos included.":
+      "Escolhe dois pais para ver o que o cruzamento produz, incluindo combinações exclusivas.",
+    "Every Pal, with stats, work suitability, drops, skills and a recommended combat/work passive-skill build — pick one to see its full page.":
+      "Todos os Pals, com stats, aptidões de trabalho, drops, skills e uma build recomendada de skills passivas de combate/trabalho — escolhe um para veres a página completa.",
+    "Data mined directly from the game's own files by wikily.gg — recommended builds are computed from the shared passive-skill pool (passives aren't Pal-specific in Palworld), not an official per-Pal loadout.":
+      "Dados extraídos directamente dos ficheiros do próprio jogo pela wikily.gg — as builds recomendadas são calculadas a partir do conjunto partilhado de skills passivas (as passivas não são específicas de cada Pal no Palworld), não é um loadout oficial por Pal.",
+    "Built by NightmareFTW · Palworld Pal database.": "Feito por NightmareFTW · base de dados de Pals do Palworld.",
+    "Passive Skills Reference": "Referência de Skills Passivas",
+    "The full shared passive-skill pool — any Pal can inherit any non-exclusive passive through breeding. This is what powers the \"Recommended Builds\" on each Pal's page.":
+      "Todo o conjunto partilhado de skills passivas — qualquer Pal pode herdar qualquer passiva não exclusiva através da reprodução. É isto que alimenta as \"Builds Recomendadas\" na página de cada Pal.",
+    "Bad traits": "Traços Negativos",
+    "Search passive skills…": "Procurar skills passivas…",
+    "Built by NightmareFTW · Palworld passive skills.": "Feito por NightmareFTW · skills passivas do Palworld.",
+    "Pick two parents to see what pairing them produces — exclusive combos are checked first, otherwise it's the standard rank-average formula.":
+      "Escolhe dois pais para ver o que o cruzamento produz — as combinações exclusivas são verificadas primeiro, caso contrário aplica-se a fórmula padrão da média de ranks.",
+    "Parent 1": "Progenitor 1", "Parent 2": "Progenitor 2", "Search Pal…": "Procurar Pal…",
+    "Formula: floor((parent1 rank + parent2 rank + 1) / 2), then the closest-ranked Pal on the whole roster (ties favor the lower rank) — unless this exact pair has an exclusive combo, which always wins.":
+      "Fórmula: floor((rank do progenitor1 + rank do progenitor2 + 1) / 2), depois o Pal com o rank mais próximo em todo o roster (empates favorecem o rank mais baixo) — a não ser que este par exacto tenha uma combinação exclusiva, que ganha sempre.",
+    "Built by NightmareFTW · Palworld breeding calculator.": "Feito por NightmareFTW · calculadora de reprodução do Palworld.",
+    "Kindling": "Ignição", "Watering": "Rega", "Planting": "Plantação", "Electricity": "Electricidade",
+    "Handiwork": "Mão-de-obra", "Gathering": "Recolha", "Lumbering": "Corte de Madeira",
+    "Oil Extraction": "Extracção de Petróleo", "Medicine": "Medicina", "Medicine Production": "Produção de Medicina",
+    "Cooling": "Refrigeração", "Transporting": "Transporte", "Farming": "Criação",
+    "All elements": "Todos os elementos", "Any work suitability": "Qualquer aptidão de trabalho",
+    "Bosses only": "Apenas bosses", "No Pals match.": "Nenhum Pal corresponde.",
+    "Couldn't load the Pal database.": "Não foi possível carregar a base de dados de Pals.",
+    "Move Speed": "Velocidade de Movimento", "Work Speed": "Velocidade de Trabalho",
+    "Swim Speed": "Velocidade de Nado", "Aerial Dash": "Dash Aéreo", "SAN Decay Rate": "Taxa de Decaimento de SAN",
+    "HP Regen": "Regeneração de HP", "Capture Power": "Poder de Captura", "Pal EXP Gain": "Ganho de EXP de Pal",
+    "Breeding Speed": "Velocidade de Reprodução", "Lifesteal": "Roubo de Vida", "Food Consumption": "Consumo de Comida",
+    "Reload Speed": "Velocidade de Recarga", "Jump Power": "Poder de Salto",
+    "Base Stats": "Stats Base", "Work Suitability": "Aptidão de Trabalho", "Partner Skill": "Skill de Parceiro",
+    "Combat Build": "Build de Combate", "Work Build": "Build de Trabalho",
+    "Innate Passive Skills": "Skills Passivas Inatas", "Active Skills": "Skills Activas",
+    "Ranged Attack": "Ataque à Distância",
+    "Tower Boss": "Boss de Torre", "Raid Boss": "Boss de Raid", "Signature": "Assinatura", "Best:": "Melhor:",
+    "No base-management work suitability.": "Sem aptidão de trabalho de gestão de base.",
+    "No strong combat passives found for this Pal.": "Não foram encontradas passivas de combate fortes para este Pal.",
+    "No strong work passives found for this Pal.": "Não foram encontradas passivas de trabalho fortes para este Pal.",
+    "Passives are a shared, breedable pool in Palworld — any Pal can carry any non-exclusive passive. These are the highest-scoring picks available to this Pal specifically (its own signature passives included where it has any), not an official loadout.":
+      "As passivas são um conjunto partilhado e reprodutível no Palworld — qualquer Pal pode ter qualquer passiva não exclusiva. Estas são as escolhas com maior pontuação disponíveis especificamente para este Pal (incluindo as suas próprias passivas de assinatura, se tiver alguma), não é um loadout oficial.",
+    "Best available Attack / Defense / Move Speed passives.": "Melhores passivas disponíveis de Ataque / Defesa / Velocidade de Movimento.",
+    "Best available Work Speed / Move Speed passives for base duty.":
+      "Melhores passivas disponíveis de Velocidade de Trabalho / Velocidade de Movimento para tarefas de base.",
+    "Pal not found.": "Pal não encontrado.", "Back to the database →": "Voltar à base de dados →",
+    "Couldn't load this Pal's data.": "Não foi possível carregar os dados deste Pal.",
+    "Use in Breeding Calculator →": "Usar na Calculadora de Reprodução →",
+    "Bad (worst)": "Mau (pior)", "Bad": "Mau", "Bad (mild)": "Mau (leve)", "Rank 5 (unique)": "Rank 5 (único)",
+    "Not obtainable by normal breeding — Rare-spawn / World Tree / mutation Pal only.":
+      "Não obtido através de reprodução normal — apenas Pals de Rare-spawn / World Tree / mutação.",
+    "No passive skills match.": "Nenhuma skill passiva corresponde.",
+    "Couldn't load passive skill data.": "Não foi possível carregar os dados das skills passivas.",
+    "No Pal matches.": "Nenhum Pal corresponde.", "exclusive combo": "combinação exclusiva",
+    "Couldn't determine a result for this pair.": "Não foi possível determinar um resultado para este par.",
+    "Couldn't load Pal data.": "Não foi possível carregar os dados dos Pals.",
+
+    // ---- Vampire Survivors ----
+    "Every achievement across all DLCs, and a spoiler-safe character database with step-by-step unlock guides.":
+      "Todas as conquistas de todas as DLCs, e uma base de dados de personagens sem spoilers com guias de desbloqueio passo-a-passo.",
+    "Achievements Checklist": "Checklist de Conquistas",
+    "Every achievement, base game and all DLCs — including the ones Steam hides the description of.":
+      "Todas as conquistas, jogo base e todas as DLCs — incluindo as que a Steam esconde a descrição até serem desbloqueadas.",
+    "Characters Database": "Base de Dados de Personagens",
+    "Every character, hidden until you've found it — with a step-by-step unlock guide you can check off.":
+      "Todas as personagens, escondidas até as encontrares — com um guia de desbloqueio passo-a-passo que podes marcar.",
+    "Every achievement across the base game and all DLCs — including the ones Steam hides the description of until you earn them. Ticks are saved on this device only.":
+      "Todas as conquistas do jogo base e de todas as DLCs — incluindo as que a Steam esconde a descrição até as ganhares. As marcações só ficam guardadas neste dispositivo.",
+    "Built by NightmareFTW · Vampire Survivors achievements.": "Feito por NightmareFTW · conquistas de Vampire Survivors.",
+    "All characters, but hidden until you say you've found them — only the starting characters show up right away. Tick off a character's unlock steps (or just mark it unlocked directly) to reveal it here for good, or flip \"Show all\" if you don't mind spoilers.":
+      "Todas as personagens, mas escondidas até dizeres que as encontraste — só as personagens iniciais aparecem logo. Marca os passos de desbloqueio de uma personagem (ou marca-a directamente como desbloqueada) para a revelares aqui para sempre, ou activa \"Mostrar tudo\" se não te importares com spoilers.",
+    "Built by NightmareFTW · Vampire Survivors characters.": "Feito por NightmareFTW · personagens de Vampire Survivors.",
+    "Search achievements…": "Procurar conquistas…", "All groups": "Todos os grupos",
+    "Couldn't load achievement data.": "Não foi possível carregar os dados das conquistas.",
+    "Show all (spoilers)": "Mostrar tudo (spoilers)", "Search characters…": "Procurar personagens…",
+    "All DLCs": "Todas as DLCs", "Sort: DLC": "Ordenar: DLC", "Sort: Name": "Ordenar: Nome", "Sort: Cost": "Ordenar: Custo",
+    "I already have this one": "Já tenho esta", "Secret": "Secreta", "Default": "Inicial", "Unlocked": "Desbloqueada",
+    "No characters match.": "Nenhuma personagem corresponde.",
+    "Couldn't load character data.": "Não foi possível carregar os dados das personagens.",
+    "Base Game": "Jogo Base",
+    "How to Unlock": "Como Desbloquear",
+    "Available from the very start — no unlock needed.": "Disponível desde o início — não precisa de desbloqueio.",
+    "Mark as unlocked": "Marcar como desbloqueada", "Summary:": "Resumo:", "Rule:": "Regra:",
+    "Character not found.": "Personagem não encontrada.",
+    "← Back to the database": "← Voltar à base de dados", "Achievements checklist →": "Checklist de conquistas →",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -1271,6 +1631,37 @@
     [/^(\d+) headlines · updated (.+)$/, "$1 notícias · actualizado $2"],
     [/^(\d+) wild species · (\d+) companions · source: (.+)$/, "$1 espécies selvagens · $2 companions · fonte: $3"],
     [/^(\d[\d,]*) drops · updated (.+)$/, "$1 drops · actualizado $2"],
+
+    // ---- Farever ----
+    [/^(\d+) builds across (\d+) classes$/, "$1 builds em $2 classes"],
+    [/^(\d+) weapon types$/, "$1 tipos de arma"],
+    [/^Lv (\d+) · Boss: (.+)$/, "Nv $1 · Boss: $2"],
+    [/^Lv (\d+)$/, "Nv $1"],
+    [/^cleared · (\d+)%$/, "limpo · $1%"],
+
+    // ---- Palworld ----
+    [/^(\d+) of (\d+) Pals$/, "$1 de $2 Pals"],
+    [/^(\d+) Pals · updated (.+) · source: wikily\.gg$/, "$1 Pals · actualizado $2 · fonte: wikily.gg"],
+    [/^(\d+) of (\d+) passive skills$/, "$1 de $2 skills passivas"],
+    [/^(\d+) passive skills · updated (.+) · source: wikily\.gg$/, "$1 skills passivas · actualizado $2 · fonte: wikily.gg"],
+    [/^(\d+) Pals · (\d+) exclusive combos · updated (.+)$/, "$1 Pals · $2 combinações exclusivas · actualizado $3"],
+    [/^formula → target rank (\d+)$/, "fórmula → rank alvo $1"],
+    [/^Rarity (\d+)$/, "Raridade $1"],
+    [/^(\d[\d,]*)𝝨 catch price$/, "$1𝝨 preço de captura"],
+    [/^Best: (.+)$/, "Melhor: $1"],
+    [/^Exclusive to: (.+)$/, "Exclusivo a: $1"],
+
+    // ---- Vampire Survivors ----
+    [/^(\d+) achievements · (\d+) groups · updated (.+)$/, "$1 conquistas · $2 grupos · actualizado $3"],
+    [/^unlocked · (\d+)%$/, "desbloqueadas · $1%"],
+    [/^(\d+) characters · (\d+) DLCs · updated (.+)$/, "$1 personagens · $2 DLCs · actualizado $3"],
+    [/^revealed · showing all \(spoilers on\)$/, "reveladas · a mostrar tudo (spoilers activados)"],
+    [/^revealed$/, "reveladas"],
+    [/^(\d+) steps$/, "$1 passos"],
+    [/^(\d+)-step guide$/, "guia de $1 passos"],
+    [/^(\d+)\/(\d+) steps done\. Named characters and achievements link to their own page\.$/,
+      "$1/$2 passos concluídos. Personagens e conquistas mencionadas têm link para a própria página."],
+    [/^(\d+)\/(\d+) steps done in total\.$/, "$1/$2 passos concluídos no total."],
   ];
 
   function translateText(raw) {
