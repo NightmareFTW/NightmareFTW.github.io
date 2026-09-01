@@ -234,6 +234,7 @@ module.exports = {
     steps: [
       "Desbloqueia-se ao subir o Descent Into Misery até ao nível 9.",
       "Custa 3000 moedas — valor que sobe consoante o número de personagens já compradas.",
+      "Morrer um total de 7 vezes jogando como Nameless Fool desbloqueia o Congregation como personagem jogável.",
     ],
   },
   "nameless-saint": {
@@ -259,7 +260,10 @@ module.exports = {
   },
   gekkojin: {
     unlockShort: "Une o LunarMight, o LunarBight e o LunarSight.",
-    steps: ["Desbloqueia-se ao unir o LunarMight, o LunarSight e o LunarBight em LunarFlight."],
+    steps: [
+      "Desbloqueia-se ao unir o LunarMight, o LunarSight e o LunarBight em LunarFlight.",
+      "Chegar ao nível 80 jogando como Gekkojin desbloqueia a Spiritosa como personagem jogável.",
+    ],
   },
   "mccoy-oni": {
     unlockShort: "Evolui o Mirage Robe.",

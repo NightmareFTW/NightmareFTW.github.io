@@ -696,29 +696,34 @@ const GAMES = [
 ];
 
 /* What's New carousel on the home page (assets/js/updates-carousel.js).
-   Newest first. `image` reuses a game's own banner — add a new entry here
-   whenever a game or a big feature ships; date is when it actually shipped
-   (check `git log`), not today's date. */
+   Newest first. Add a new entry here whenever a game or a big feature
+   ships; date is when it actually shipped (check `git log`), not today's
+   date. `image` should show the feature itself (a real screenshot of the
+   actual page/section it's about) — a game's own banner is only right for
+   a "such-and-such joins the hub" entry, i.e. when the update IS the game
+   launching, not for a feature shipped afterwards. See scripts in this
+   repo's history for how the assets/img/updates/*.jpg screenshots were
+   captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
     date: "2026-09-01",
     title: "Farever dungeons now update automatically",
     desc: "A daily scraper keeps the dungeon checklist in sync with FareverDB.",
-    image: "assets/img/games/farever-header.jpg",
+    image: "assets/img/updates/farever-dungeons.jpg",
     href: "games/farever/dungeons.html",
   },
   {
     date: "2026-09-01",
     title: "Bulk-unlock Vampire Survivors achievements",
     desc: "Unlock everything at once, or just one DLC at a time.",
-    image: "assets/img/games/vampire-survivors-header.jpg",
+    image: "assets/img/updates/vs-bulk-unlock.jpg",
     href: "games/vampire-survivors/achievements.html",
   },
   {
     date: "2026-08-31",
     title: "A full walkthrough for Chaos",
     desc: "Every Secret needed to unlock Vampire Survivors' final character, phase by phase.",
-    image: "assets/img/games/vampire-survivors-header.jpg",
+    image: "assets/img/updates/vs-chaos-guide.jpg",
     href: "games/vampire-survivors/character.html?slug=chaos",
   },
   {
