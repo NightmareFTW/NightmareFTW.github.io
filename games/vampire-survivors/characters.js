@@ -51,7 +51,7 @@ function lockedCard(c) {
     <span class="pw-card-body">
       <span class="pw-card-top"><span class="pw-card-name">???</span></span>
       <span class="pw-card-chips"><span class="ev-chip">${esc(c.dlcName)}</span>${c.cost ? `<span class="ev-chip">${esc(c.cost)}g</span>` : ""}</span>
-      <label class="vs-mark"><input type="checkbox" class="vs-mark-check" data-slug="${esc(c.slug)}"> I already have this one</label>
+      <label class="vs-mark"><input type="checkbox" class="vs-mark-check" data-slug="${esc(c.slug)}"> Mark as unlocked</label>
     </span>
   </div>`;
 }
@@ -92,7 +92,7 @@ function revealedCard(c) {
       </span>
       <label class="vs-mark">
         <input type="checkbox" class="vs-mark-check" data-slug="${esc(c.slug)}" ${isUnlocked ? "checked" : ""} ${c.isDefault ? "disabled" : ""}>
-        ${c.isDefault ? "Always unlocked" : "I already have this one"}
+        ${c.isDefault ? "Always unlocked" : "Mark as unlocked"}
       </label>
     </span>
   </a>`;
