@@ -54,6 +54,20 @@ function pickGuideLang(guide) {
   return guide[lang] || guide.en;
 }
 
+// Every other character's `unlockShort`/`steps` are the wiki's own scraped
+// (English) text; scripts/data/vs-steps-pt.js carries a hand-translated PT-PT
+// copy, merged onto the character record as unlockShortPt/stepsPt by
+// update-vampire-survivors.js. Swap them in before render() so the rest of
+// this file can keep treating c.unlockShort/c.steps as the only copy — same
+// trick as pickGuideLang above. stepsPt is only ever set when it already has
+// the same length as steps, so checkbox ids (positional on the steps array
+// index) stay stable across a language switch.
+function pickStepsLang(c) {
+  if ((localStorage.getItem("nftw:lang") || "en") !== "pt") return;
+  if (c.unlockShortPt) c.unlockShort = c.unlockShortPt;
+  if (c.stepsPt) c.steps = c.stepsPt;
+}
+
 function stepId(c, suffix) { return `${c.slug}::${suffix}`; }
 
 // A curated guide (see scripts/data/vs-curated-guides.js) organizes a long
@@ -184,8 +198,8 @@ function render(c, linkify) {
           <span class="ev-chip">${esc(c.dlcName)}</span>
           ${c.secret ? '<span class="ev-chip confirmed">Secret</span>' : ""}
           ${c.isDefault ? '<span class="ev-chip">Default</span>' : c.cost ? `<span class="ev-chip">${esc(c.cost)}g</span>` : ""}
-          ${c.weapon && c.weapon !== "No" ? `<span class="ev-chip">Weapon: ${esc(c.weapon)}</span>` : ""}
-          ${c.hiddenWeapon ? `<span class="ev-chip">Hidden weapon: ${esc(c.hiddenWeapon)}</span>` : ""}
+          ${c.weapon && c.weapon !== "No" ? `<span class="ev-chip">Weapon: <b>${esc(c.weapon)}</b></span>` : ""}
+          ${c.hiddenWeapon ? `<span class="ev-chip">Hidden weapon: <b>${esc(c.hiddenWeapon)}</b></span>` : ""}
           ${isUnlocked ? '<span class="ev-chip confirmed">Unlocked</span>' : ""}
         </div>
       </div>
@@ -239,6 +253,7 @@ function render(c, linkify) {
     const c = charsData.characters.find((x) => x.slug === slug);
     if (!c) { root.innerHTML = `<p class="tool-note">Character not found. <a href="characters.html">Back to the database →</a></p>`; return; }
     c.guide = pickGuideLang(c.guide);
+    pickStepsLang(c);
     const linkify = buildLinkifier(charsData.characters, achData.achievements);
     render(c, linkify);
   } catch (e) {

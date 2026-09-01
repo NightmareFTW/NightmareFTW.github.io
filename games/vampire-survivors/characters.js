@@ -12,12 +12,17 @@ const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": 
 const KEY_UNLOCKED = "nftw:vs:unlocked";
 const KEY_SHOWALL = "nftw:vs:showAll";
 
-let DATA = null, query = "", fDlc = "", sortBy = "dlc";
+let DATA = null, query = "", fDlc = "", fUnlock = "", sortBy = "dlc";
 let unlocked = new Set(JSON.parse(localStorage.getItem(KEY_UNLOCKED) || "[]"));
 let showAll = localStorage.getItem(KEY_SHOWALL) === "1";
 
 const saveUnlocked = () => localStorage.setItem(KEY_UNLOCKED, JSON.stringify([...unlocked]));
-const isRevealed = (c) => c.isDefault || unlocked.has(c.slug) || showAll;
+// Default characters are always unlocked, even before this device's
+// unlocked-set ever gets touched — this is the single source of truth for
+// "does the player have this one", used by the progress count, the filter,
+// and the card's own unlock badge/checkbox alike.
+const isUnlockedC = (c) => c.isDefault || unlocked.has(c.slug);
+const isRevealed = (c) => isUnlockedC(c) || showAll;
 
 const els = {
   controls: document.getElementById("vc-controls"),
@@ -30,10 +35,12 @@ function buildControls() {
   els.controls.innerHTML = `
     <input type="search" id="f-search" class="search-input" placeholder="Search characters…" autocomplete="off" value="${esc(query)}">
     <select id="f-dlc" class="sort-select">${opt("", "All DLCs", fDlc)}${DATA.dlcs.map((d) => opt(d, d, fDlc)).join("")}</select>
+    <select id="f-unlock" class="sort-select">${opt("", "All characters", fUnlock)}${opt("unlocked", "Unlocked only", fUnlock)}${opt("locked", "Locked only", fUnlock)}</select>
     <select id="f-sort" class="sort-select">${opt("dlc", "Sort: DLC", sortBy)}${opt("name", "Sort: Name", sortBy)}${opt("cost", "Sort: Cost", sortBy)}</select>
     <label class="pw-boss-toggle"><input type="checkbox" id="f-showall" ${showAll ? "checked" : ""}> Show all (spoilers)</label>`;
   document.getElementById("f-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); render(); });
   document.getElementById("f-dlc").addEventListener("change", (e) => { fDlc = e.target.value; render(); });
+  document.getElementById("f-unlock").addEventListener("change", (e) => { fUnlock = e.target.value; render(); });
   document.getElementById("f-sort").addEventListener("change", (e) => { sortBy = e.target.value; render(); });
   document.getElementById("f-showall").addEventListener("change", (e) => { showAll = e.target.checked; localStorage.setItem(KEY_SHOWALL, showAll ? "1" : "0"); render(); });
 }
@@ -65,42 +72,59 @@ function guideStepCount(guide) {
 }
 
 function revealedCard(c) {
-  const isUnlocked = c.isDefault || unlocked.has(c.slug);
+  const isUnlocked = isUnlockedC(c);
   const haveSteps = c.steps && c.steps.length && !c.isDefault;
   const stepsChip = c.guide ? `${guideStepCount(c.guide)}-step guide` : haveSteps ? `${c.steps.length} steps` : null;
+  const weapons = [c.weapon && c.weapon !== "No" ? c.weapon : null, c.hiddenWeapon || null].filter(Boolean);
   return `<a class="vs-card${isUnlocked ? " vs-unlocked" : ""}" href="character.html?slug=${encodeURIComponent(c.slug)}">
-    <span class="pw-card-img"><img src="${esc(c.icon || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.pw-card-img').classList.add('no-img')"></span>
+    <span class="pw-card-img">
+      <img src="${esc(c.icon || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.pw-card-img').classList.add('no-img')">
+      ${isUnlocked ? '<span class="vs-unlock-badge" title="Unlocked">✓</span>' : ""}
+    </span>
     <span class="pw-card-body">
-      <span class="pw-card-top"><span class="pw-card-name" title="${esc(c.name)}">${esc(c.name)}</span>${c.weapon && c.weapon !== "No" ? `<span class="pw-dex">${esc(c.weapon)}</span>` : ""}</span>
+      <span class="pw-card-top"><span class="pw-card-name" title="${esc(c.name)}">${esc(c.name)}</span></span>
+      ${weapons.length ? `<span class="vs-card-weapon">${weapons.map(esc).join(" · ")}</span>` : ""}
       <span class="pw-card-chips">
         <span class="ev-chip">${esc(c.dlcName)}</span>
         ${c.secret ? '<span class="ev-chip confirmed">Secret</span>' : ""}
         ${c.isDefault ? '<span class="ev-chip">Default</span>' : c.cost ? `<span class="ev-chip">${esc(c.cost)}g</span>` : ""}
         ${isUnlocked ? '<span class="ev-chip confirmed">Unlocked</span>' : stepsChip ? `<span class="ev-chip">${esc(stepsChip)}</span>` : ""}
       </span>
+      <label class="vs-mark">
+        <input type="checkbox" class="vs-mark-check" data-slug="${esc(c.slug)}" ${isUnlocked ? "checked" : ""} ${c.isDefault ? "disabled" : ""}>
+        ${c.isDefault ? "Always unlocked" : "I already have this one"}
+      </label>
     </span>
   </a>`;
 }
 
 function render() {
   let list = DATA.characters.filter((c) => !fDlc || c.dlcName === fDlc);
+  if (fUnlock === "unlocked") list = list.filter(isUnlockedC);
+  else if (fUnlock === "locked") list = list.filter((c) => !isUnlockedC(c));
   if (query) list = list.filter((c) => isRevealed(c) && c.name.toLowerCase().includes(query));
 
   if (sortBy === "name") list = [...list].sort((a, b) => a.name.localeCompare(b.name));
   else if (sortBy === "cost") list = [...list].sort((a, b) => a.cost - b.cost || a.name.localeCompare(b.name));
   // "dlc" sort order already comes pre-sorted from the data file
 
-  const haveCount = DATA.characters.filter((c) => c.isDefault || unlocked.has(c.slug)).length;
+  const haveCount = DATA.characters.filter(isUnlockedC).length;
   els.progress.innerHTML = `<b>${haveCount}/${DATA.count}</b> revealed${showAll ? " · showing all (spoilers on)" : ""}`;
 
   if (sortBy === "dlc" && !query) {
     const byDlc = {};
     list.forEach((c) => (byDlc[c.dlcName] = byDlc[c.dlcName] || []).push(c));
-    els.list.innerHTML = DATA.dlcs.filter((d) => byDlc[d] && byDlc[d].length).map((d) => `
+    els.list.innerHTML = DATA.dlcs.filter((d) => byDlc[d] && byDlc[d].length).map((d) => {
+      // Count against every character in the DLC, not just the ones the
+      // current unlock filter left in `list` — otherwise "Unlocked only"
+      // would always show N/N and "Locked only" would always show 0/N.
+      const allInDlc = DATA.characters.filter((c) => c.dlcName === d);
+      return `
       <section class="ms-section">
-        <div class="ms-sec-head"><h3>${esc(d)}</h3><span class="ms-sec-count">${byDlc[d].filter((c) => c.isDefault || unlocked.has(c.slug)).length}/${byDlc[d].length}</span></div>
+        <div class="ms-sec-head"><h3>${esc(d)}</h3><span class="ms-sec-count">${allInDlc.filter(isUnlockedC).length}/${allInDlc.length}</span></div>
         <div class="vs-grid">${byDlc[d].map((c) => isRevealed(c) ? revealedCard(c) : lockedCard(c)).join("")}</div>
-      </section>`).join("") || `<p class="no-results">No characters match.</p>`;
+      </section>`;
+    }).join("") || `<p class="no-results">No characters match.</p>`;
   } else {
     els.list.innerHTML = `<div class="vs-grid">${list.map((c) => isRevealed(c) ? revealedCard(c) : lockedCard(c)).join("")}</div>` || `<p class="no-results">No characters match.</p>`;
   }
@@ -108,8 +132,11 @@ function render() {
 }
 
 function wire() {
+  // revealedCard's mark-as-unlocked checkbox lives inside the card's own <a>
+  // (same trick lockedCard already used) — stop the click at the label so it
+  // never bubbles up to the anchor and navigates away mid-click.
+  els.list.querySelectorAll(".vs-mark").forEach((label) => label.addEventListener("click", (e) => e.stopPropagation()));
   els.list.querySelectorAll(".vs-mark-check").forEach((cb) => {
-    cb.addEventListener("click", (e) => e.stopPropagation());
     cb.addEventListener("change", () => {
       const slug = cb.dataset.slug;
       if (cb.checked) unlocked.add(slug); else unlocked.delete(slug);

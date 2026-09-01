@@ -1625,6 +1625,8 @@
     "Character not found.": "Personagem não encontrada.",
     "← Back to the database": "← Voltar à base de dados", "Achievements checklist →": "Checklist de conquistas →",
     "Unlock all": "Desbloquear tudo", "Unlock": "Desbloquear",
+    "All characters": "Todas as personagens", "Unlocked only": "Só desbloqueadas", "Locked only": "Só por desbloquear",
+    "Always unlocked": "Sempre desbloqueada", "Weapon:": "Arma:", "Hidden weapon:": "Arma escondida:",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
