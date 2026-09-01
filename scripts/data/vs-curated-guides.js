@@ -1137,8 +1137,157 @@ const oSoleMeeoPt = {
   ],
 };
 
+// ---- Mask of the Red Death (Base Game) ----------------------------------------
+// The scraped wiki text just points at "The Reaper § Strategies" instead of
+// actually explaining how — pulled the real, current top strategy from that
+// section (https://vampire.survivors.wiki/w/The_Reaper) so the guide is
+// self-contained instead of sending the reader off-site.
+const maskOfTheRedDeathEn = {
+  objective: "Unlock Mask of the Red Death",
+  dlc: "Base Game",
+  rule: "Defeat The Reaper using the Crimson Shroud + Infinite Corridor combo.",
+  phases: [
+    {
+      icon: "🟢", title: "Phase 0 — Unlock Holy Forbidden",
+      intro: "Before you can even find the items for this, you need access to the Holy Forbidden stage:",
+      items: [
+        { text: "Unlock Hyper Mode on 4 normal stages", children: ["This is what unlocks access to Moongolow."] },
+        { text: "In Moongolow, defeat its special boss without using any secret character", children: ["Doing this unlocks the Holy Forbidden stage."] },
+      ],
+    },
+    {
+      icon: "🟡", title: "Phase 1 — Get the Yellow Sign",
+      items: [{ text: "Start a run in Holy Forbidden and collect the Yellow Sign at the 15-minute mark", children: ["This makes Metaglio Left, Metaglio Right, Silver Ring and Gold Ring always spawn as pickups for the rest of the run."] }],
+    },
+    {
+      icon: "🩸", title: "Phase 2 — Evolve Crimson Shroud and Infinite Corridor",
+      intro: "Level up the following, then open 2 Treasure Chests — that's what triggers both evolutions once every requirement below is met:",
+      items: [
+        { text: "Crimson Shroud", children: ["Needs a level 7 Laurel, a level 9 Metaglio Left and a level 9 Metaglio Right.", "Caps all incoming damage to 10 at a time."] },
+        { text: "Infinite Corridor", children: ["Needs a level 7 Clock Lancet, a level 9 Silver Ring and a level 9 Gold Ring.", "Halves the health of every enemy it hits — The Reaper included."] },
+      ],
+    },
+    {
+      icon: "💀", title: "Phase 3 — Defeat The Reaper",
+      items: [
+        { text: "Let The Reaper find you", children: ["With Crimson Shroud capping the damage you take and Infinite Corridor repeatedly halving its health, it goes down in a fairly short amount of time."] },
+        { text: "Defeat it", children: ["Doing so unlocks Mask of the Red Death as a playable character."] },
+      ],
+      note: "Once unlocked, Mask of the Red Death can be purchased for 666, which scales with other characters purchased.",
+    },
+  ],
+};
+const maskOfTheRedDeathPt = {
+  objective: "Desbloquear Mask of the Red Death",
+  dlc: "Base Game",
+  rule: "Derrota o Reaper com a combinação Crimson Shroud + Infinite Corridor.",
+  phases: [
+    {
+      icon: "🟢", title: "Fase 0 — Desbloqueia o Holy Forbidden",
+      intro: "Antes de conseguires sequer procurar os itens para isto, precisas de acesso à fase Holy Forbidden:",
+      items: [
+        { text: "Desbloqueia o Modo Hyper em 4 fases normais", children: ["É isto que desbloqueia o acesso a Moongolow."] },
+        { text: "Em Moongolow, derrota o boss especial sem usar nenhuma personagem secreta", children: ["Fazer isto desbloqueia a fase Holy Forbidden."] },
+      ],
+    },
+    {
+      icon: "🟡", title: "Fase 1 — Obtém o Yellow Sign",
+      items: [{ text: "Começa uma run em Holy Forbidden e apanha o Yellow Sign aos 15 minutos", children: ["Isto faz com que o Metaglio Left, o Metaglio Right, o Silver Ring e o Gold Ring passem a aparecer sempre como itens de fase, no resto da run."] }],
+    },
+    {
+      icon: "🩸", title: "Fase 2 — Evolui o Crimson Shroud e o Infinite Corridor",
+      intro: "Sobe o nível dos seguintes, e depois abre 2 Treasure Chests — é isso que desencadeia ambas as evoluções, uma vez cumpridos todos os requisitos abaixo:",
+      items: [
+        { text: "Crimson Shroud", children: ["Precisa de um Laurel no nível 7, um Metaglio Left no nível 9 e um Metaglio Right no nível 9.", "Limita todo o dano recebido a 10 de cada vez."] },
+        { text: "Infinite Corridor", children: ["Precisa de um Clock Lancet no nível 7, um Silver Ring no nível 9 e um Gold Ring no nível 9.", "Corta a vida a meio de qualquer inimigo que acerte — incluindo o Reaper."] },
+      ],
+    },
+    {
+      icon: "💀", title: "Fase 3 — Derrota o Reaper",
+      items: [
+        { text: "Deixa o Reaper encontrar-te", children: ["Com o Crimson Shroud a limitar o dano que levas e o Infinite Corridor a cortar-lhe a vida a meio repetidamente, ele cai num período de tempo razoavelmente curto."] },
+        { text: "Derrota-o", children: ["Fazer isto desbloqueia o Mask of the Red Death como personagem jogável."] },
+      ],
+      note: "Depois de desbloqueado, custa 666 moedas — valor que sobe consoante o número de personagens já compradas.",
+    },
+  ],
+};
+
+// ---- Stone Skull (Ode to Castlevania) ------------------------------------------
+// Same fix as above — the scraped text just says "See Guide:Defeating the
+// Sketamari for tips" instead of explaining anything; pulled the real
+// strategy from that page (https://vampire.survivors.wiki/w/Guide:Defeating_the_Sketamari).
+const stoneSkullEn = {
+  objective: "Unlock Stone Skull",
+  dlc: "Ode to Castlevania",
+  rule: "Defeat the Sketamari in The Bone Zone, in Inverse Mode, playing as Shanoa.",
+  phases: [
+    {
+      icon: "🟢", title: "Phase 0 — Preparation",
+      intro: "Before starting, make sure you have:",
+      items: [
+        { text: "Pile of Secrets", kind: "progression" },
+        { text: "Heart of Fire (XIX) and Divine Bloodline (IX) Arcana", children: ["One of the best Arcana combos in the game for this fight — with proper scaling it can drop the Sketamari almost immediately upon encountering it."] },
+      ],
+      note: "Also disable Curse for this run — remove any Curse PowerUp, and avoid a maxed Torrona's Box or a Skull O'Maniac, since every bit of Curse makes the fight harder. Enable Hyper Mode for the extra XP, but skip Hurry Mode — it speeds up how fast the Sketamari scales.",
+    },
+    {
+      icon: "🦴", title: "Phase 1 — Find it without feeding it",
+      intro: "Start a run in The Bone Zone with Inverse Mode enabled, playing as Shanoa:",
+      items: [{ text: "Keep your distance from the Sketamari until you're ready to fight", children: ["It grows stronger by absorbing monsters it touches, so getting close too early only makes it harder.", "Roughly 60,000 units of distance is safe — about 1 tileset on the pause-menu map."] }],
+    },
+    {
+      icon: "⚔️", title: "Phase 2 — Defeat it",
+      intro: "Bring one of its strongest counters:",
+      items: [
+        { text: "Infinite Corridor", children: ["Deals damage equal to half of the Sketamari's current health."] },
+        { text: "Embrace of Gaea", children: ["One of the most powerful options against it."] },
+        { text: "La Borra", children: ["Exploits its low knockback resistance."] },
+        { text: "Seraphic Cry", children: ["Combines a large area with high single-target damage."] },
+        { text: "Defeat the Sketamari", children: ["Doing so unlocks Stone Skull as a playable character."] },
+      ],
+      note: "Once unlocked, Stone Skull can be purchased for 16,650, which scales with other characters purchased.",
+    },
+  ],
+};
+const stoneSkullPt = {
+  objective: "Desbloquear Stone Skull",
+  dlc: "Ode to Castlevania",
+  rule: "Derrota o Sketamari em The Bone Zone, no Modo Inverso, jogando como Shanoa.",
+  phases: [
+    {
+      icon: "🟢", title: "Fase 0 — Preparação",
+      intro: "Antes de começares, garante que tens:",
+      items: [
+        { text: "Pile of Secrets", kind: "progression" },
+        { text: "As Arcanas Heart of Fire (XIX) e Divine Bloodline (IX)", children: ["Uma das melhores combinações de Arcanas do jogo para este combate — com o scaling certo, pode derrubar o Sketamari quase de imediato."] },
+      ],
+      note: "Desactiva também o Curse nesta run — remove qualquer PowerUp de Curse, e evita um Torrona's Box no nível máximo ou um Skull O'Maniac, já que qualquer Curse torna o combate mais difícil. Activa o Modo Hyper pela experiência extra, mas evita o Modo Hurry — acelera a velocidade a que o Sketamari sobe de nível.",
+    },
+    {
+      icon: "🦴", title: "Fase 1 — Encontra-o sem o alimentar",
+      intro: "Começa uma run em The Bone Zone com o Modo Inverso activado, jogando como Shanoa:",
+      items: [{ text: "Mantém a distância do Sketamari até estares pronto para o combate", children: ["Ele fica mais forte ao absorver monstros que toca, por isso aproximares-te demasiado cedo só torna as coisas mais difíceis.", "Cerca de 60 000 unidades de distância é seguro — aproximadamente 1 tile no mapa do menu de pausa."] }],
+    },
+    {
+      icon: "⚔️", title: "Fase 2 — Derrota-o",
+      intro: "Leva um dos seus contadores mais fortes:",
+      items: [
+        { text: "Infinite Corridor", children: ["Causa dano igual a metade da vida actual do Sketamari."] },
+        { text: "Embrace of Gaea", children: ["Uma das opções mais poderosas contra ele."] },
+        { text: "La Borra", children: ["Explora a sua baixa resistência a knockback."] },
+        { text: "Seraphic Cry", children: ["Combina uma área grande com alto dano num só alvo."] },
+        { text: "Derrotar o Sketamari", children: ["Fazer isto desbloqueia o Stone Skull como personagem jogável."] },
+      ],
+      note: "Depois de desbloqueado, custa 16 650 moedas — valor que sobe consoante o número de personagens já compradas.",
+    },
+  ],
+};
+
 module.exports = {
   chaos: { en: chaosEn, pt: chaosPt },
+  "mask-of-the-red-death": { en: maskOfTheRedDeathEn, pt: maskOfTheRedDeathPt },
+  "stone-skull": { en: stoneSkullEn, pt: stoneSkullPt },
   "fake-trio": { en: fakeTrioEn, pt: fakeTrioPt },
   "avatar-infernas": { en: avatarInfernasEn, pt: avatarInfernasPt },
   torino: { en: torinoEn, pt: torinoPt },
