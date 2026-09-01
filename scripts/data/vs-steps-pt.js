@@ -183,7 +183,10 @@ module.exports = {
   },
   "baal-thamut": {
     unlockShort: "Com o Velvet Dodecahedron equipado, obtém o Damnation com o Baal'Thasar.",
-    steps: ["Desbloqueia-se ao ter o Velvet Dodecahedron equipado e obter o Damnation jogando como Baal'Thasar."],
+    steps: [
+      "Desbloqueia-se ao ter o Velvet Dodecahedron equipado e obter o Damnation jogando como Baal'Thasar.",
+      "Depois, tem de ser comprado por 100 000 moedas — valor que sobe consoante o número de personagens já compradas.",
+    ],
   },
   "baal-thasar": {
     unlockShort: "Derrota o Baal'Thasar em Red Moon Manor.",
@@ -202,7 +205,10 @@ module.exports = {
   },
   "in-kujata": {
     unlockShort: "Parte a estátua de Kujata com 108 Bocce ou 108 Responsive Prayers.",
-    steps: ["Desbloqueia-se ao partir a estátua de Kujata no cemitério de Red Moon Manor com 108 Bocce ou 108 Responsive Prayers."],
+    steps: [
+      "Desbloqueia-se ao partir a estátua de Kujata no cemitério (normalmente situado a sudoeste) de Red Moon Manor, com 108 Bocce ou 108 Responsive Prayers.",
+      "Depois, tem de ser comprado por 5000 moedas — valor que sobe consoante o número de personagens já compradas.",
+    ],
   },
   "jaman-jato": {
     unlockShort: "Derrota um total de 6000 Jaman Jatos.",
@@ -218,7 +224,10 @@ module.exports = {
   },
   "megalo-sargon": {
     unlockShort: "Com o Velvet Dodecahedron equipado, obtém o FireStall com o Sargon.",
-    steps: ["Desbloqueia-se ao evoluir o FireFall, o FireBall e o FireWall em FireStall, e apanhar o Velvet Dodecahedron."],
+    steps: [
+      "Desbloqueia-se ao evoluir o FireFall, o FireBall e o FireWall em FireStall, e apanhar o Velvet Dodecahedron.",
+      "Depois, tem de ser comprado por 100 000 moedas — valor que sobe consoante o número de personagens já compradas.",
+    ],
   },
   "nameless-fool": {
     unlockShort: "Sobe o Descent Into Misery até ao nível 9.",

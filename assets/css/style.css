@@ -784,12 +784,15 @@ body {
   padding: 3px 9px;
   border-radius: 7px;
   border: 1px solid var(--border);
-  background: transparent;
+  background: var(--card);
   color: var(--muted);
   cursor: pointer;
   margin-left: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color .15s, color .15s, background .15s;
 }
-.mini-btn:hover { border-color: var(--accent); color: var(--text); }
+.mini-btn:hover { border-color: var(--accent); color: var(--text); background: var(--card-hover); }
 .mini-btn.del:hover { border-color: var(--danger); color: var(--danger); }
 
 /* ---- Node timer ---- */
@@ -2263,12 +2266,34 @@ button.layout-item { font: inherit; text-align: left; cursor: pointer; }
 .di-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); margin-bottom: 4px; }
 
 /* =========================================
+   Home — "What's New" carousel
+   ========================================= */
+.updates-carousel { margin-bottom: 32px; }
+.uc-head { margin-bottom: 10px; }
+.uc-head h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.uc-viewport { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+.uc-track { display: flex; transition: transform .4s ease; }
+.uc-slide { position: relative; flex: 0 0 100%; height: 220px; display: block; text-decoration: none; color: var(--text);
+  background: var(--card); }
+.uc-slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.uc-slide-fade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,7,8,.92) 0%, rgba(10,7,8,.55) 45%, rgba(10,7,8,.1) 75%); }
+.uc-slide-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 56px; display: flex; flex-direction: column; gap: 4px; }
+.uc-slide-date { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent-2); }
+.uc-slide-title { font-size: 1.25rem; font-weight: 800; }
+.uc-slide-desc { font-size: 0.86rem; color: var(--text); opacity: .85; max-width: 60ch; }
+.uc-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--border); background: rgba(10,7,8,.55); color: var(--text); font-size: 1.2rem; line-height: 1;
+  cursor: pointer; display: grid; place-items: center; transition: border-color .15s, background .15s; }
+.uc-arrow:hover { border-color: var(--accent); background: rgba(10,7,8,.8); }
+.uc-prev { left: 10px; }
+.uc-next { right: 10px; }
+.uc-dots { display: flex; justify-content: center; gap: 7px; margin-top: 10px; }
+.uc-dot { width: 7px; height: 7px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; }
+.uc-dot.on { background: var(--accent); }
+
+/* =========================================
    Play / Arcade
    ========================================= */
-.play-cta { display: inline-block; margin-top: 18px; font-size: 0.92rem; color: var(--text); text-decoration: none;
-  background: color-mix(in srgb, var(--accent) 10%, var(--card)); border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--border));
-  border-radius: 999px; padding: 8px 16px; transition: border-color .15s, transform .12s; }
-.play-cta:hover { border-color: var(--accent); transform: translateY(-1px); }
 .play-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 8px; }
 .play-card { display: flex; gap: 14px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; text-decoration: none; color: inherit; transition: transform .12s, border-color .12s; }
 a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }

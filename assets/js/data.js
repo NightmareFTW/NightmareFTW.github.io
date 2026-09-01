@@ -694,3 +694,52 @@ const GAMES = [
     ],
   },
 ];
+
+/* What's New carousel on the home page (assets/js/updates-carousel.js).
+   Newest first. `image` reuses a game's own banner — add a new entry here
+   whenever a game or a big feature ships; date is when it actually shipped
+   (check `git log`), not today's date. */
+const SITE_UPDATES = [
+  {
+    date: "2026-09-01",
+    title: "Farever dungeons now update automatically",
+    desc: "A daily scraper keeps the dungeon checklist in sync with FareverDB.",
+    image: "assets/img/games/farever-header.jpg",
+    href: "games/farever/dungeons.html",
+  },
+  {
+    date: "2026-09-01",
+    title: "Bulk-unlock Vampire Survivors achievements",
+    desc: "Unlock everything at once, or just one DLC at a time.",
+    image: "assets/img/games/vampire-survivors-header.jpg",
+    href: "games/vampire-survivors/achievements.html",
+  },
+  {
+    date: "2026-08-31",
+    title: "A full walkthrough for Chaos",
+    desc: "Every Secret needed to unlock Vampire Survivors' final character, phase by phase.",
+    image: "assets/img/games/vampire-survivors-header.jpg",
+    href: "games/vampire-survivors/character.html?slug=chaos",
+  },
+  {
+    date: "2026-08-31",
+    title: "Vampire Survivors joins the hub",
+    desc: "A spoiler-safe character database plus a full achievements checklist.",
+    image: "assets/img/games/vampire-survivors-header.jpg",
+    href: "games/vampire-survivors/index.html",
+  },
+  {
+    date: "2026-08-31",
+    title: "Palworld joins the hub",
+    desc: "Every Pal, its passive skills, and a breeding calculator.",
+    image: "assets/img/games/palworld-header.jpg",
+    href: "games/palworld/index.html",
+  },
+  {
+    date: "2026-08-30",
+    title: "Farever joins the hub",
+    desc: "Class builds, a weapons guide and a dungeons checklist.",
+    image: "assets/img/games/farever-header.jpg",
+    href: "games/farever/index.html",
+  },
+];

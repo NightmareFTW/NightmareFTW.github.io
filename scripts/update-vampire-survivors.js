@@ -25,6 +25,31 @@ const { execFileSync } = require("child_process");
 const curatedGuides = require("./data/vs-curated-guides");
 const stepsPt = require("./data/vs-steps-pt");
 
+// Every non-default character without its own hand-curated guide gets the
+// same single-phase presentation instead of the old flat checklist — a
+// "How to Unlock" phase built from the (already translated) steps, with the
+// trailing purchase-price sentence ("Once unlocked, X can be purchased for
+// N...") pulled out into a note instead of sitting in the checklist as a
+// non-actionable "step" next to genuine actions. Needs the EN/PT step arrays
+// to already line up (see the stepsPt merge in run()) — if a re-scrape ever
+// drifts out of sync with the hand-translated file, this returns null and
+// the character falls back to the old flat English checklist rather than
+// risk a broken or English-only guide.
+function autoGuide(c) {
+  if (!c.stepsPt || typeof c.unlockShortPt !== "string" || !c.steps.length) return null;
+  const isPriceLine = (s) => /purchas/i.test(s);
+  const lastIsPrice = c.steps.length > 1 && isPriceLine(c.steps[c.steps.length - 1]);
+  const bodyEn = lastIsPrice ? c.steps.slice(0, -1) : c.steps;
+  const bodyPt = lastIsPrice ? c.stepsPt.slice(0, -1) : c.stepsPt;
+  if (!bodyEn.length) return null; // the whole thing was one fused action+price sentence — nothing left to check off
+  const noteEn = lastIsPrice ? c.steps[c.steps.length - 1] : undefined;
+  const notePt = lastIsPrice ? c.stepsPt[c.stepsPt.length - 1] : undefined;
+  return {
+    en: { objective: `Unlock ${c.name}`, dlc: c.dlcName, phases: [{ icon: "🔓", title: "How to Unlock", items: bodyEn.map((text) => ({ text })), note: noteEn }] },
+    pt: { objective: `Desbloquear ${c.name}`, dlc: c.dlcName, phases: [{ icon: "🔓", title: "Como Desbloquear", items: bodyPt.map((text) => ({ text })), note: notePt }] },
+  };
+}
+
 const API = "https://vampire.survivors.wiki/api.php";
 const OUT_DIR = path.join(__dirname, "..", "data", "vampire-survivors");
 const OUT_CHARS = path.join(OUT_DIR, "characters.json");
@@ -361,6 +386,13 @@ function run() {
     if (pt) {
       if (typeof pt.unlockShort === "string") c.unlockShortPt = pt.unlockShort;
       if (Array.isArray(pt.steps) && pt.steps.length === c.steps.length) c.stepsPt = pt.steps;
+    }
+    // Everyone else without a hand-curated guide (i.e. not Chaos-tier
+    // complex) still gets the same phased-guide presentation instead of the
+    // old flat checklist — see autoGuide's own comment above.
+    if (!c.isDefault && !c.guide) {
+      const auto = autoGuide(c);
+      if (auto) c.guide = auto;
     }
   }
   characters.sort((a, b) => (a.dlcName === b.dlcName ? a.name.localeCompare(b.name) : (a.dlcName === "Base Game" ? -1 : b.dlcName === "Base Game" ? 1 : a.dlcName.localeCompare(b.dlcName))));
