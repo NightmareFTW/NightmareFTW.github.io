@@ -13,7 +13,7 @@
   "use strict";
 
   var DATA_URL = "/data/steam-free-games.json";
-  var SEEN = "nftw:notify:steamSeen", NOTIFIED = "nftw:notify:steamNotified", ENABLED = "nftw:notify:steamEnabled", DISMISSED = "nftw:notify:steamDismissed";
+  var SEEN = "nftw:notify:steamSeen", NOTIFIED = "nftw:notify:steamNotified", ENABLED = "nftw:notify:steamEnabled", DISMISSED = "nftw:notify:steamDismissed", CLAIMED = "nftw:notify:steamClaimed";
   var MAX_TRACKED = 200;
   var ls = window.localStorage;
 
@@ -25,6 +25,7 @@
     until: function (d) { return "grátis até " + d; },
     claim: "Resgatar na Steam →",
     notify: "Avisar-me quando aparecer um novo",
+    claimed: "Já resgatei — não mostrar mais",
     dismiss: "Dispensar",
     note: "Algumas promoções são por tempo limitado — confirma na página da loja antes que acabe.",
     source: "Fonte: grupo Steam Free Games Info!!!",
@@ -35,6 +36,7 @@
     until: function (d) { return "free until " + d; },
     claim: "Claim on Steam →",
     notify: "Notify me when a new one shows up",
+    claimed: "Already claimed — don't show again",
     dismiss: "Dismiss",
     note: "Some giveaways are time-limited — confirm on the store page before it's gone.",
     source: "Source: the Free Games Info!!! Steam group",
@@ -52,8 +54,8 @@
   var panelOpen = false;
 
   function visibleItems() {
-    var dismissed = readSet(DISMISSED);
-    return items.filter(function (it) { return dismissed.indexOf(it.appid) < 0; });
+    var hidden = readSet(DISMISSED).concat(readSet(CLAIMED));
+    return items.filter(function (it) { return hidden.indexOf(it.appid) < 0; });
   }
 
   function unseenCount() {
@@ -82,21 +84,26 @@
             '<span class="steam-panel-item-body">' +
               '<span class="steam-panel-item-name">' + esc(it.name) + '</span>' +
               '<span class="steam-panel-item-meta">' + (it.normalPrice ? esc(T.normally(it.normalPrice)) + " · " : "") + esc(fmtDate(it.postedAt)) + (it.deadline ? " · " + esc(T.until(it.deadline)) : "") + '</span>' +
+              '<span class="steam-panel-item-cta">' + esc(T.claim) + '</span>' +
             '</span>' +
-            '<span class="steam-panel-item-cta">' + esc(T.claim) + '</span>' +
           '</a>' +
-          '<button type="button" class="steam-panel-dismiss" data-appid="' + it.appid + '" title="' + esc(T.dismiss) + '" aria-label="' + esc(T.dismiss) + '">✕</button>' +
+          '<span class="steam-panel-item-actions">' +
+            '<button type="button" class="steam-panel-claim" data-appid="' + it.appid + '" title="' + esc(T.claimed) + '" aria-label="' + esc(T.claimed) + '">✓</button>' +
+            '<button type="button" class="steam-panel-dismiss" data-appid="' + it.appid + '" title="' + esc(T.dismiss) + '" aria-label="' + esc(T.dismiss) + '">✕</button>' +
+          '</span>' +
         '</div>';
       }).join("") +
       '</div>' + footer(panel);
     wireFooter(panel);
-    wireDismiss(panel);
+    wireHideButtons(panel, ".steam-panel-dismiss", DISMISSED);
+    wireHideButtons(panel, ".steam-panel-claim", CLAIMED);
   }
 
-  function wireDismiss(panel) {
-    panel.querySelectorAll(".steam-panel-dismiss").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        addAll(DISMISSED, [Number(btn.dataset.appid)]);
+  function wireHideButtons(panel, selector, key) {
+    panel.querySelectorAll(selector).forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        addAll(key, [Number(btn.dataset.appid)]);
         renderPanel(panel);
         var wrap = panel.closest(".bell-wrap");
         if (wrap) updateBadge(wrap);

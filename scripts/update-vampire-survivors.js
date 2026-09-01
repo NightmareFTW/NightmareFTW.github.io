@@ -23,6 +23,7 @@ const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
 const curatedGuides = require("./data/vs-curated-guides");
+const stepsPt = require("./data/vs-steps-pt");
 
 const API = "https://vampire.survivors.wiki/api.php";
 const OUT_DIR = path.join(__dirname, "..", "data", "vampire-survivors");
@@ -350,6 +351,17 @@ function run() {
     // sensibly — those get a hand-curated phased guide instead, merged in
     // by slug so it survives this scraper's own re-runs.
     if (curatedGuides[c.slug]) c.guide = curatedGuides[c.slug];
+    // Hand-translated PT-PT copy of the wiki's own (English) unlockShort/steps
+    // text — see scripts/data/vs-steps-pt.js. Only applied when the steps
+    // count still matches what we just scraped, since checklist IDs are
+    // positional: if the wiki's own text changes shape on a re-scrape, keep
+    // showing the (still-correct) English original rather than risk a
+    // mismatched translation scrambling a viewer's saved progress.
+    const pt = stepsPt[c.slug];
+    if (pt) {
+      if (typeof pt.unlockShort === "string") c.unlockShortPt = pt.unlockShort;
+      if (Array.isArray(pt.steps) && pt.steps.length === c.steps.length) c.stepsPt = pt.steps;
+    }
   }
   characters.sort((a, b) => (a.dlcName === b.dlcName ? a.name.localeCompare(b.name) : (a.dlcName === "Base Game" ? -1 : b.dlcName === "Base Game" ? 1 : a.dlcName.localeCompare(b.dlcName))));
 

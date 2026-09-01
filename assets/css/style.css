@@ -109,11 +109,15 @@ body {
 .steam-panel-item img { width: 64px; height: 30px; object-fit: cover; border-radius: 6px; flex: 0 0 auto; background: var(--bg-soft); }
 .steam-panel-item-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
 .steam-panel-item-name { font-size: 0.82rem; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.steam-panel-item-meta { font-size: 0.72rem; color: var(--muted); }
-.steam-panel-item-cta { font-size: 0.7rem; color: var(--accent); font-weight: 700; white-space: nowrap; }
-.steam-panel-dismiss { flex: 0 0 auto; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
+.steam-panel-item-meta { font-size: 0.72rem; color: var(--muted); overflow-wrap: break-word; }
+/* Own line below the name/price so long PT strings never fight the meta text
+   for horizontal room (that's what caused the wrapped/overlapping layout). */
+.steam-panel-item-cta { display: block; margin-top: 1px; font-size: 0.7rem; color: var(--accent); font-weight: 700; }
+.steam-panel-item-actions { display: flex; flex-direction: column; gap: 2px; flex: 0 0 auto; }
+.steam-panel-claim, .steam-panel-dismiss { flex: 0 0 auto; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
   color: var(--muted); background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer; font-size: 0.8rem; line-height: 1;
   transition: color .15s, border-color .15s, background .15s; }
+.steam-panel-claim:hover { color: #5bd6a0; border-color: var(--border); background: var(--card); }
 .steam-panel-dismiss:hover { color: var(--text); border-color: var(--border); background: var(--card); }
 .steam-panel-notify { display: flex; align-items: center; gap: 7px; font-size: 0.78rem; color: var(--muted); font-weight: 600;
   padding-top: 10px; border-top: 1px solid var(--border); cursor: pointer; }
@@ -2618,9 +2622,13 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
   background: var(--card); text-decoration: none; color: inherit; transition: border-color .15s; }
 .vs-card:not(.vs-locked):hover { border-color: var(--accent); }
 .vs-card.vs-unlocked { border-color: rgba(91, 214, 160, .35); }
-.vs-card .pw-card-img { width: 48px; height: 48px; }
+.vs-card .pw-card-img { width: 48px; height: 48px; position: relative; }
 .vs-locked { opacity: .72; }
 .pw-lock-q { display: grid; place-items: center; width: 100%; height: 100%; font-weight: 800; font-size: 1.3rem; color: var(--muted); }
+.vs-unlock-badge { position: absolute; bottom: -3px; right: -3px; width: 16px; height: 16px; border-radius: 50%;
+  background: #5bd6a0; color: #06281c; font-size: 0.62rem; font-weight: 800; line-height: 1;
+  display: grid; place-items: center; box-shadow: 0 0 0 2px var(--card); }
+.vs-card-weapon { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .vs-mark { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; color: var(--muted); cursor: pointer; }
 .vs-mark-main { margin: 0 0 10px; font-weight: 700; color: var(--text); }
 .vs-flash { animation: vs-flash-kf 2.2s ease-out; border-radius: 8px; }
