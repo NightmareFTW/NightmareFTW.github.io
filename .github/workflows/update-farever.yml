@@ -1,0 +1,25 @@
+name: Update Farever dungeons
+
+on:
+  schedule:
+    - cron: "50 6 * * *"   # daily, 06:50 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-farever:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: Scrape dungeons list (FareverDB)
+        run: node scripts/update-farever.js
+      - name: Commit changes if any
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/farever/dungeons.json"
+          message: "chore: auto-update Farever dungeons"
