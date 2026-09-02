@@ -1,25 +1,37 @@
 {
   "game": "far-far-west",
-  "updated": "2026-09-01T20:37:44.548Z",
+  "updated": "2026-09-02T03:03:21.345Z",
   "source": "https://farfarwest.wikily.gg/promo-codes",
   "redeem": null,
   "note": "Community-reported codes; the % is how many players confirmed each still works. Enter in the in-game shop / settings.",
   "codes": [
     {
       "code": "THESADLYLOSTBLUEPRINTS",
-      "reward": "Reward",
+      "reward": "Reward · 100% confirmed",
       "expires": null,
       "expired": false
     },
     {
       "code": "GAMESCOM2026",
-      "reward": "500 Souls",
+      "reward": "500 Souls · 100% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "WECOOKIN",
+      "reward": "Reward · 92% confirmed",
       "expires": null,
       "expired": false
     },
     {
       "code": "250KCOWBOYS",
       "reward": "1000 GOLD · 76% confirmed",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "TWERKINGBIRD",
+      "reward": "250 Souls · 54% confirmed",
       "expires": null,
       "expired": false
     },
@@ -32,18 +44,6 @@
     {
       "code": "THISCODEISFAKE",
       "reward": "250 Souls · 66% confirmed",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "TWERKINGBIRD",
-      "reward": "250 Souls · 54% confirmed",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "WECOOKIN",
-      "reward": "Reward · 97% confirmed",
       "expires": null,
       "expired": false
     },
