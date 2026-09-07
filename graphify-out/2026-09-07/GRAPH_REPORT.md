@@ -1,16 +1,16 @@
-# Graph Report - NightmareFTW.github.io  (2026-09-07)
+# Graph Report - NightmareFTW.github.io  (2026-09-02)
 
 ## Corpus Check
-- 190 files · ~1,509,329 words
+- 179 files · ~1,437,397 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1607 nodes · 2520 edges · 230 communities (115 shown, 115 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 156 edges (avg confidence: 0.67)
+- 1534 nodes · 2371 edges · 223 communities (108 shown, 115 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 150 edges (avg confidence: 0.67)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `14e35aaf`
+- Built from commit: `d75c0f63`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -237,25 +237,18 @@
 - Update Warframe Drop Table
 - Update Neverness to Everness Teams
 - Update Dreamlight Valley Data
-- tier-list.js
-- weapon.js
-- enemies.js
-- vs-xref.js
-- arcana.js
-- passive.js
-- enemy.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `t()` - 37 edges
+1. `t()` - 36 edges
 2. `fetch()` - 20 edges
-3. `run()` - 17 edges
-4. `clean()` - 12 edges
-5. `officialName()` - 11 edges
-6. `rowsFromPage()` - 11 edges
-7. `detailFor()` - 11 edges
-8. `clean()` - 10 edges
-9. `stripWiki()` - 10 edges
-10. `buildCard()` - 9 edges
+3. `clean()` - 12 edges
+4. `officialName()` - 11 edges
+5. `rowsFromPage()` - 11 edges
+6. `detailFor()` - 11 edges
+7. `clean()` - 10 edges
+8. `run()` - 10 edges
+9. `buildCard()` - 9 edges
+10. `critterCard()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `parseCompanions()` --indirect_call--> `t()`  [INFERRED]
@@ -286,7 +279,7 @@
 - **Phasmophobia equipment set** — assets_img_phasmo_firelight_firelight, assets_img_phasmo_flashlight_flashlight, assets_img_phasmo_headgear_headgear, assets_img_phasmo_igniter_igniter, assets_img_phasmo_incense_incense, assets_img_phasmo_medication_medication, assets_img_phasmo_motionsensor_motion_sensor, assets_img_phasmo_parabolic_parabolic_microphone [INFERRED 0.75]
 - **Phasmophobia equipment set** — assets_img_phasmo_photocamera_photo_camera, assets_img_phasmo_salt_salt, assets_img_phasmo_soundsensor_sound_sensor, assets_img_phasmo_spiritbox_spirit_box, assets_img_phasmo_thermometer_thermometer, assets_img_phasmo_tripod_tripod, assets_img_phasmo_uv_uv_flashlight, assets_img_phasmo_videocamera_video_camera [INFERRED 0.75]
 
-## Communities (230 total, 115 thin omitted)
+## Communities (223 total, 115 thin omitted)
 
 ### Community 0 - "update-items.js"
 Cohesion: 0.14
@@ -446,7 +439,7 @@ Nodes (8): closeModal(), esc(), mapCard(), matches(), missionPanel(), openMap(),
 
 ### Community 39 - "t"
 Cohesion: 0.06
-Nodes (52): eorzea(), etEl, fmt(), JOB_LABEL, listEl, NODES, nodeState(), render() (+44 more)
+Nodes (55): buildSection(), compsFor(), detail, esc(), member(), portrait(), render(), roleClass() (+47 more)
 
 ### Community 40 - "update-hsr-banners.js"
 Cohesion: 0.27
@@ -461,8 +454,8 @@ Cohesion: 0.33
 Nodes (8): active, catOf(), CATS, esc(), renderRegion(), renderTabs(), root, tabsEl
 
 ### Community 43 - "nodes.js"
-Cohesion: 0.29
-Nodes (15): arcanaCard(), buildControls(), buildTabs(), cardFor(), els, esc(), hrefFor(), itemsFor() (+7 more)
+Cohesion: 0.31
+Nodes (8): eorzea(), etEl, fmt(), JOB_LABEL, listEl, NODES, nodeState(), render()
 
 ### Community 44 - "builds.js"
 Cohesion: 0.53
@@ -589,8 +582,8 @@ Cohesion: 0.51
 Nodes (9): api(), loadRecoveryCount(), openEditor(), refreshHeader(), render(), showCodes(), syncNow(), toast() (+1 more)
 
 ### Community 189 - "update-vampire-survivors.js"
-Cohesion: 0.10
-Nodes (42): autoGuide(), balancedTemplate(), buildWeaponGraph(), chunk(), cleanEnemyName(), curatedGuides, enemyIntro(), { execFileSync } (+34 more)
+Cohesion: 0.13
+Nodes (28): autoGuide(), balancedTemplate(), chunk(), curatedGuides, { execFileSync }, fetchDlcMap(), fetchImageUrls(), fetchWikitextBatch() (+20 more)
 
 ### Community 190 - "heroes.js"
 Cohesion: 0.54
@@ -621,8 +614,8 @@ Cohesion: 0.23
 Nodes (19): addCard(), artCard(), BY, CARDS, chips(), deck, deckEl, esc() (+11 more)
 
 ### Community 198 - "character.js"
-Cohesion: 0.21
-Nodes (17): allStepIds(), applyUnlockedFrom(), collectLeafItems(), esc(), refreshCounts(), render(), renderGuideItem(), renderNodes() (+9 more)
+Cohesion: 0.23
+Nodes (17): allStepIds(), applyUnlockedFrom(), buildLinkifier(), collectLeafItems(), esc(), refreshCounts(), render(), renderGuideItem() (+9 more)
 
 ### Community 199 - "update-steam-free-games.js"
 Cohesion: 0.20
@@ -716,53 +709,25 @@ Nodes (3): Update Warframe Drop Table, WFCD Warframe Drop Tables, Warframe
 Cohesion: 0.67
 Nodes (3): Prydwen, Update Neverness to Everness Teams, Neverness to Everness
 
-### Community 223 - "tier-list.js"
-Cohesion: 0.42
-Nodes (11): buildSection(), compsFor(), detail, esc(), member(), portrait(), render(), roleClass() (+3 more)
-
-### Community 224 - "weapon.js"
-Cohesion: 0.36
-Nodes (11): affectingArcanas(), effectsList(), esc(), evolutionSection(), recipeGroups(), render(), root, startingWeaponOf() (+3 more)
-
-### Community 225 - "enemies.js"
-Cohesion: 0.62
-Nodes (6): buildControls(), card(), els, esc(), opt(), render()
-
-### Community 226 - "vs-xref.js"
-Cohesion: 0.53
-Nodes (3): closePopup(), initXrefPopup(), openPopup()
-
-### Community 227 - "arcana.js"
-Cohesion: 0.53
-Nodes (5): affectsHtml(), esc(), KIND_LABEL, render(), root
-
-### Community 228 - "passive.js"
-Cohesion: 0.67
-Nodes (5): esc(), render(), root, statsTable(), usedByArcanas()
-
-### Community 229 - "enemy.js"
-Cohesion: 0.70
-Nodes (4): esc(), render(), root, statsTable()
-
 ## Knowledge Gaps
-- **584 isolated node(s):** `GAMES`, `SITE_UPDATES`, `ATTRS`, `SLOT_LAYOUT`, `I` (+579 more)
+- **568 isolated node(s):** `GAMES`, `SITE_UPDATES`, `ATTRS`, `SLOT_LAYOUT`, `I` (+563 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **115 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `t()` connect `t` to `update-hsr-tierlist.js`, `update-recipes.js`, `items.js`, `update-news.js`, `update-outlast.js`, `builds.js`, `builds.js`, `update-codes.js`, `builds.js`, `builds.js`, `tier-list.js`, `meta-builds.js`, `trials.js`, `update-animals.js`, `update-starpath.js`, `talents.js`, `update-vampire-survivors.js`, `update-ravenswatch.js`, `deck-builder.js`, `tier-list.js`?**
-  _High betweenness centrality (0.100) - this node is a cross-community bridge._
+- **Why does `t()` connect `t` to `update-hsr-tierlist.js`, `update-recipes.js`, `items.js`, `update-news.js`, `update-outlast.js`, `builds.js`, `builds.js`, `update-codes.js`, `builds.js`, `builds.js`, `tier-list.js`, `meta-builds.js`, `trials.js`, `nodes.js`, `update-animals.js`, `update-starpath.js`, `talents.js`, `update-vampire-survivors.js`, `update-ravenswatch.js`, `deck-builder.js`?**
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
+- **Why does `viewCard()` connect `deck-builder.js` to `t`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **Why does `run()` connect `update-vampire-survivors.js` to `t`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `rowsFromPage()` connect `update-animals.js` to `update-items.js`, `t`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Are the 35 inferred relationships involving `t()` (e.g. with `buildCard()` and `selectTab()`) actually correct?**
-  _`t()` has 35 INFERRED edges - model-reasoned connections that need verification._
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Are the 34 inferred relationships involving `t()` (e.g. with `buildCard()` and `selectTab()`) actually correct?**
+  _`t()` has 34 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `clean()` (e.g. with `ddv-fandom.js` and `parseCompanions()`) actually correct?**
   _`clean()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `GAMES`, `SITE_UPDATES`, `ATTRS` to the rest of the system?**
-  _584 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _568 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `update-items.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1368421052631579 - nodes in this community are weakly interconnected._
