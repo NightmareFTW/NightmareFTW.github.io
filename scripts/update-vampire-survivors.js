@@ -16,6 +16,15 @@
    - data/vampire-survivors/achievements.json — every achievement (in-game
      "Unlocks"), grouped by DLC/version, with the wiki's own full
      description even for achievements Steam itself hides until earned.
+   - data/vampire-survivors/weapons.json — every weapon (~385: base,
+     evolved, and union), with its stats and the full evolution graph
+     (evolvesFrom/evolvesInto, each edge carrying whatever else the step
+     also needs — a passive item, or a second weapon for a union). The
+     graph is built by inverting each evolution/union page's own
+     `requires1..N` infobox fields (the authoritative recipe, always on the
+     resulting weapon's page) rather than trusting the source weapon's
+     forward-pointing `evolution`/`union` fields, which are only consulted
+     as a fallback for the rare page that never got its `requires` filled in.
 
    Run by .github/workflows/update-vampire-survivors.yml (daily). Node 18+,
    curl. */
@@ -54,6 +63,7 @@ const API = "https://vampire.survivors.wiki/api.php";
 const OUT_DIR = path.join(__dirname, "..", "data", "vampire-survivors");
 const OUT_CHARS = path.join(OUT_DIR, "characters.json");
 const OUT_ACH = path.join(OUT_DIR, "achievements.json");
+const OUT_WEAPONS = path.join(OUT_DIR, "weapons.json");
 const IMG_BASE = "https://vampire.survivors.wiki/images";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
@@ -199,10 +209,10 @@ function balancedTemplate(s, fromKey) {
   }
   return null;
 }
-function parseInfobox(wt) {
-  const block = balancedTemplate(wt, "{{Infobox Character");
+function parseInfobox(wt, key = "{{Infobox Character") {
+  const block = balancedTemplate(wt, key);
   if (!block) return null;
-  const inner = block.slice("{{Infobox Character".length, -2);
+  const inner = block.slice(key.length, -2);
   const fields = {};
   for (const part of inner.split(/\n\|/).slice(1)) {
     const eq = part.indexOf("=");
@@ -315,6 +325,114 @@ function parseCharacter(title, wt) {
   };
 }
 
+// ---- Weapons ----------------------------------------------------------------
+// Stats worth surfacing, in display order. Infobox keys are already
+// lowercased by parseInfobox; a stat's "at max level" figure (when the wiki
+// tracks one) lives under the same key prefixed "max-".
+const WEAPON_STAT_KEYS = [
+  ["damage", "Damage"], ["area", "Area"], ["speed", "Speed"], ["duration", "Duration"],
+  ["amount", "Amount"], ["pierce", "Pierce"], ["cooldown", "Cooldown"], ["interval", "Interval"],
+  ["delay", "Delay"], ["knockback", "Knockback"], ["pool", "Pool Limit"], ["chance", "Chance"],
+  ["critmul", "Crit Multiplier"], ["hit-wall", "Hits Walls"],
+];
+
+function parseWeapon(title, wt) {
+  const info = parseInfobox(wt, "{{Infobox Weapon");
+  if (!info) return null;
+  const type = (info.type || "Normal").trim();
+  const tier = /^evolution$/i.test(type) ? "evolution" : /^union$/i.test(type) ? "union" : "base";
+  // The authoritative recipe: every requirement (weapon or item) needed to
+  // produce THIS weapon, always declared on the resulting weapon's own page
+  // — see buildWeaponGraph for why this direction is trusted over the
+  // source weapon's forward-pointing `evolution`/`union` fields.
+  const requires = [1, 2, 3, 4].map((i) => info[`requires${i}`]).filter(Boolean).map((s) => stripWiki(s).trim()).filter(Boolean);
+  const evoName = info.evolution ? stripWiki(info.evolution).trim() : null;
+  const evoItem = info["evolution-item"] ? stripWiki(info["evolution-item"]).trim() : null;
+  const unionName = info.union ? stripWiki(info.union).trim() : null;
+  const unionItem = info["union-item"] ? stripWiki(info["union-item"]).trim() : null;
+
+  const block = balancedTemplate(wt, "{{Infobox Weapon");
+  const afterInfobox = block ? wt.slice(wt.indexOf(block) + block.length) : wt;
+  const introMatch = afterInfobox.match(/^([\s\S]*?)(?=\n==[^=]|\n\{\{WeaponNav|\n\[\[Category|$)/);
+  const description = stripWiki(introMatch ? introMatch[1] : afterInfobox);
+
+  const stats = WEAPON_STAT_KEYS
+    .map(([key, label]) => ({ key, label, raw: info[key] != null ? stripWiki(info[key]).trim() : null, rawMax: info[`max-${key}`] ? stripWiki(info[`max-${key}`]).trim() : null }))
+    .filter((s) => s.raw && s.raw !== "-" && s.raw !== "N/A")
+    .map((s) => ({ key: s.key, label: s.label, base: s.raw, max: s.rawMax || null }));
+  const effects = info.effects ? stripWiki(info.effects).trim() : "";
+  // Older pages don't declare `sprite`/`icon` filenames explicitly, but the
+  // wiki's own image-naming convention (confirmed via the pageimages API)
+  // is reliable enough to guess and then just try resolving — same
+  // fallback-by-guessing approach the character scraper already relies on.
+  const images = [info.sprite, `Sprite-${title}.png`, info.icon, `Icon-${title}.png`].map(fileOf).filter(Boolean);
+  const name = title.trim();
+  return {
+    name,
+    slug: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    dlcCode: (info.dlc || "").trim().toLowerCase(),
+    type,
+    tier,
+    caption: info.caption ? stripWiki(info.caption).trim() : "",
+    description,
+    stats,
+    effects,
+    images,
+    icon: null,
+    _requires: requires,
+    _evolution: evoName ? { name: evoName, item: evoItem } : null,
+    _union: unionName ? { name: unionName, item: unionItem } : null,
+  };
+}
+
+// Builds the evolution graph by inverting each page's own `requires1..N` —
+// the resulting weapon's page always lists everything needed to make it
+// (one base weapon + a passive item for a normal evolution, or two weapons
+// for a union), so that's the authoritative recipe. A `requires` entry that
+// matches another known weapon becomes a real evolvesFrom/evolvesInto edge;
+// one that doesn't (a passive item — those live on the wiki under a
+// separate infobox and never appear here) is kept only as plain-text
+// "extras" context alongside the edge, since items don't get their own page.
+// The source weapon's forward `evolution`/`union` fields are only consulted
+// afterwards, to fill in the rare edge whose target page never got its own
+// `requires` filled in — most weapons already have the edge from the first
+// pass, so this second pass is a no-op for them.
+function buildWeaponGraph(weapons) {
+  const byName = new Map(weapons.map((w) => [w.name, w]));
+  for (const w of weapons) { w.evolvesFrom = []; w.evolvesInto = []; }
+  // Every edge carries a `recipeId` so a page with several parents can tell
+  // a real multi-part recipe (all of them needed at once — a union, or an
+  // evolution needing several items) from a handful of unrelated
+  // alternative paths that all just happen to lead to the same weapon (e.g.
+  // Penshin Fatcha's six interchangeable starting tuna forms, each of which
+  // independently "evolves into" it with nothing to do with the others).
+  // requires1..N entries share one recipeId because they always come from
+  // the very same array; a page discovered only via the forward-pointing
+  // fallback below gets a recipeId unique to that single edge instead.
+  const addEdge = (parent, child, extras, recipeId) => {
+    if (!parent.evolvesInto.some((e) => e.slug === child.slug)) parent.evolvesInto.push({ name: child.name, slug: child.slug, extras, recipeId });
+    if (!child.evolvesFrom.some((e) => e.slug === parent.slug)) child.evolvesFrom.push({ name: parent.name, slug: parent.slug, extras, recipeId });
+  };
+  for (const w of weapons) {
+    const resolved = w._requires.map((name) => ({ name, weapon: byName.get(name) || null }));
+    resolved.forEach((r, i) => {
+      if (!r.weapon) return;
+      const extras = resolved.filter((_, j) => j !== i).map((x) => ({ name: x.name, slug: x.weapon ? x.weapon.slug : null }));
+      addEdge(r.weapon, w, extras, `req:${w.slug}`);
+    });
+  }
+  for (const w of weapons) {
+    for (const fwd of [w._evolution, w._union]) {
+      if (!fwd) continue;
+      const target = byName.get(fwd.name);
+      if (!target || w.evolvesInto.some((e) => e.slug === target.slug)) continue;
+      const itemWeapon = fwd.item ? byName.get(fwd.item) : null;
+      addEdge(w, target, fwd.item ? [{ name: fwd.item, slug: itemWeapon ? itemWeapon.slug : null }] : [], `fwd:${w.slug}>${target.slug}`);
+    }
+  }
+  for (const w of weapons) { delete w._requires; delete w._evolution; delete w._union; }
+}
+
 function run() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const dlcMap = fetchDlcMap();
@@ -334,6 +452,48 @@ function run() {
     achievements,
   }));
   console.log(`vampire-survivors achievements: ${achievements.length}.`);
+
+  // ---- Weapons ----------------------------------------------------------------
+  const wCat = getJson(`${API}?action=query&list=categorymembers&cmtitle=Category:Weapons&cmlimit=500&format=json`);
+  const wTitles = ((wCat && wCat.query && wCat.query.categorymembers) || [])
+    .map((m) => m.title)
+    .filter((t) => t !== "Weapons" && !t.includes("/"));
+  console.log(`weapon pages to fetch: ${wTitles.length}`);
+
+  const wWikitexts = fetchWikitextBatch(wTitles, { redirects: true });
+  const wMissing = wTitles.filter((t) => !wWikitexts[t]);
+  if (wMissing.length) {
+    console.log(`retrying ${wMissing.length} weapon titles individually: ${wMissing.join(", ")}`);
+    for (const t of wMissing) {
+      const single = fetchWikitextBatch([t], { redirects: true });
+      if (single[t]) wWikitexts[t] = single[t];
+      sleep(200);
+    }
+  }
+  const weapons = [];
+  for (const title of wTitles) {
+    const wt = wWikitexts[title];
+    if (!wt) continue;
+    const w = parseWeapon(title, wt);
+    if (w) weapons.push(w);
+  }
+  const wImgMap = fetchImageUrls(weapons.flatMap((w) => w.images));
+  for (const w of weapons) {
+    w.icon = w.images.map((f) => wImgMap[f]).find(Boolean) || null;
+    delete w.images;
+    w.dlcName = w.dlcCode ? dlcMap[w.dlcCode] || w.dlcCode : "Base Game";
+  }
+  buildWeaponGraph(weapons);
+  weapons.sort((a, b) => (a.dlcName === b.dlcName ? a.name.localeCompare(b.name) : (a.dlcName === "Base Game" ? -1 : b.dlcName === "Base Game" ? 1 : a.dlcName.localeCompare(b.dlcName))));
+
+  fs.writeFileSync(OUT_WEAPONS, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: "https://vampire.survivors.wiki/w/Weapons",
+    count: weapons.length,
+    dlcs: [...new Set(weapons.map((w) => w.dlcName))],
+    weapons,
+  }));
+  console.log(`vampire-survivors weapons: ${weapons.length} (${weapons.filter((w) => w.tier === "evolution").length} evolutions, ${weapons.filter((w) => w.tier === "union").length} unions).`);
 
   // ---- Characters -------------------------------------------------------------
   const catUrl = `${API}?action=query&list=categorymembers&cmtitle=Category:Characters&cmlimit=500&format=json`;
@@ -407,4 +567,4 @@ function run() {
   console.log(`vampire-survivors characters: ${characters.length} (${characters.filter((c) => c.secret).length} secret, ${characters.filter((c) => c.isDefault).length} default).`);
 }
 
-try { run(); } catch (e) { require("./lib/keep")([OUT_CHARS, OUT_ACH], e); }
+try { run(); } catch (e) { require("./lib/keep")([OUT_CHARS, OUT_ACH, OUT_WEAPONS], e); }

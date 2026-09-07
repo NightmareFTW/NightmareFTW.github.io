@@ -2680,3 +2680,10 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
    confirmation, not as the resting style. */
 .vs-xref, .vs-xref:visited { color: var(--accent-2); text-decoration: none; font-weight: 600; }
 .vs-xref:hover, .vs-xref:focus-visible { color: var(--accent); text-decoration: underline; }
+
+/* Weapons database — stat table on a weapon's own page */
+.vs-stat-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 4px; }
+.vs-stat-table th, .vs-stat-table td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); }
+.vs-stat-table th { color: var(--muted); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: .03em; }
+.vs-stat-table td:first-child { color: var(--muted); }
+.vs-stat-table tr:last-child td { border-bottom: none; }

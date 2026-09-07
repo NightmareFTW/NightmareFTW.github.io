@@ -16,13 +16,14 @@ const saveSteps = () => localStorage.setItem(KEY_STEPS, JSON.stringify([...steps
 
 const root = document.getElementById("vs-root");
 
-// Any other character/achievement name mentioned in a guide becomes a link —
-// longest names first, so "Zi'Appunta Belpaese" wins over any shorter name
-// that happens to be a substring of it at the same position.
-function buildLinkifier(characters, achievements) {
+// Any other character/achievement/weapon name mentioned in a guide becomes
+// a link — longest names first, so "Zi'Appunta Belpaese" wins over any
+// shorter name that happens to be a substring of it at the same position.
+function buildLinkifier(characters, achievements, weapons) {
   const entries = [];
   for (const c of characters) entries.push({ name: c.name, href: `character.html?slug=${encodeURIComponent(c.slug)}` });
   for (const a of achievements) entries.push({ name: a.name, href: `achievements.html?highlight=${encodeURIComponent(a.name)}` });
+  for (const w of weapons) entries.push({ name: w.name, href: `weapon.html?slug=${encodeURIComponent(w.slug)}` });
   entries.sort((a, b) => b.name.length - a.name.length);
   const map = new Map(entries.map((e) => [e.name, e.href]));
   const escaped = entries.map((e) => e.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
@@ -66,6 +67,20 @@ function pickStepsLang(c) {
   if ((localStorage.getItem("nftw:lang") || "en") !== "pt") return;
   if (c.unlockShortPt) c.unlockShort = c.unlockShortPt;
   if (c.stepsPt) c.steps = c.stepsPt;
+}
+
+// A character's weapon field is usually one name, but a few dual-wielding
+// characters list several separated by "; " (e.g. "Peachone; Ebony
+// Wings") — link whichever of them resolve to a real weapon page, and
+// leave the rest (or the whole thing, for a character with none matched)
+// as plain text rather than risk a dead link.
+function weaponChipHtml(label, value, weaponMap) {
+  if (!value || value === "No") return "";
+  const linked = value.split(/;\s*/).map((s) => s.trim()).filter(Boolean).map((name) => {
+    const slug = weaponMap.get(name);
+    return slug ? `<a class="vs-xref" href="weapon.html?slug=${encodeURIComponent(slug)}">${esc(name)}</a>` : esc(name);
+  }).join(", ");
+  return `<span class="ev-chip">${esc(label)}: <b>${linked}</b></span>`;
 }
 
 function stepId(c, suffix) { return `${c.slug}::${suffix}`; }
@@ -182,7 +197,7 @@ function renderPhasedGuide(c, linkify) {
   `;
 }
 
-function render(c, linkify) {
+function render(c, linkify, weaponMap) {
   document.title = `${c.name} · Vampire Survivors · NightmareFTW`;
   document.getElementById("bc-char").textContent = c.name;
   const isUnlocked = c.isDefault || unlocked.has(c.slug);
@@ -198,8 +213,8 @@ function render(c, linkify) {
           <span class="ev-chip">${esc(c.dlcName)}</span>
           ${c.secret ? '<span class="ev-chip confirmed">Secret</span>' : ""}
           ${c.isDefault ? '<span class="ev-chip">Default</span>' : c.cost ? `<span class="ev-chip">${esc(c.cost)}g</span>` : ""}
-          ${c.weapon && c.weapon !== "No" ? `<span class="ev-chip">Weapon: <b>${esc(c.weapon)}</b></span>` : ""}
-          ${c.hiddenWeapon ? `<span class="ev-chip">Hidden weapon: <b>${esc(c.hiddenWeapon)}</b></span>` : ""}
+          ${weaponChipHtml("Weapon", c.weapon, weaponMap)}
+          ${weaponChipHtml("Hidden weapon", c.hiddenWeapon, weaponMap)}
           ${isUnlocked ? '<span class="ev-chip confirmed">Unlocked</span>' : ""}
         </div>
       </div>
@@ -246,16 +261,18 @@ function render(c, linkify) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const [charsData, achData] = await Promise.all([
+    const [charsData, achData, weaponsData] = await Promise.all([
       fetch(`../../data/vampire-survivors/characters.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/achievements.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/weapons.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const c = charsData.characters.find((x) => x.slug === slug);
     if (!c) { root.innerHTML = `<p class="tool-note">Character not found. <a class="mini-btn" href="characters.html">Back to the database →</a></p>`; return; }
     c.guide = pickGuideLang(c.guide);
     pickStepsLang(c);
-    const linkify = buildLinkifier(charsData.characters, achData.achievements);
-    render(c, linkify);
+    const weaponMap = new Map(weaponsData.weapons.map((w) => [w.name, w.slug]));
+    const linkify = buildLinkifier(charsData.characters, achData.achievements, weaponsData.weapons);
+    render(c, linkify, weaponMap);
   } catch (e) {
     root.innerHTML = `<p class="tool-note">Couldn't load character data.</p>`;
   }

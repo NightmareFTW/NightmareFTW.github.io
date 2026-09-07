@@ -691,6 +691,14 @@ const GAMES = [
         href: "games/vampire-survivors/characters.html",
         available: true,
       },
+      {
+        id: "weapons",
+        name: "Weapons Database",
+        type: "database",
+        desc: "Every weapon, evolved form and union — filter and sort by DLC, with the full evolution chain on each weapon's page.",
+        href: "games/vampire-survivors/weapons.html",
+        available: true,
+      },
     ],
   },
 ];
