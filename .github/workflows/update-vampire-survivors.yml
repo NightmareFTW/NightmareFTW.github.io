@@ -1,4 +1,4 @@
-name: Update Vampire Survivors characters, achievements & weapons
+name: Update Vampire Survivors game data
 
 on:
   schedule:
@@ -16,10 +16,10 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: "24"
-      - name: Scrape characters, achievements & weapons (vampire.survivors.wiki)
+      - name: Scrape characters, achievements, weapons, arcanas, passives & enemies (vampire.survivors.wiki)
         run: node scripts/update-vampire-survivors.js
       - name: Commit changes if any
         uses: ./.github/actions/commit-data
         with:
           paths: "data/vampire-survivors"
-          message: "chore: auto-update Vampire Survivors characters, achievements & weapons"
+          message: "chore: auto-update Vampire Survivors game data"

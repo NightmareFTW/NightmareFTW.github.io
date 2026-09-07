@@ -16,15 +16,27 @@
    - data/vampire-survivors/achievements.json — every achievement (in-game
      "Unlocks"), grouped by DLC/version, with the wiki's own full
      description even for achievements Steam itself hides until earned.
-   - data/vampire-survivors/weapons.json — every weapon (~385: base,
-     evolved, and union), with its stats and the full evolution graph
-     (evolvesFrom/evolvesInto, each edge carrying whatever else the step
-     also needs — a passive item, or a second weapon for a union). The
+   - data/vampire-survivors/weapons.json — every real equip-and-level
+     weapon (~375: base, evolved, and union — NOT Arcanas/Darkanas, which
+     the wiki also tags Category:Weapons because their page embeds an
+     internal weapon infobox, but which get their own file below), with
+     its stats and the full evolution graph (evolvesFrom/evolvesInto, each
+     edge carrying whatever else the step also needs — a passive item, or
+     a second weapon for a union, and a `recipeId` so a weapon fused from
+     several inputs at once can be told apart from several unrelated
+     weapons that each just happen to evolve into the same target). The
      graph is built by inverting each evolution/union page's own
      `requires1..N` infobox fields (the authoritative recipe, always on the
      resulting weapon's page) rather than trusting the source weapon's
      forward-pointing `evolution`/`union` fields, which are only consulted
      as a fallback for the rare page that never got its `requires` filled in.
+   - data/vampire-survivors/arcanas.json — every Arcana and Darkana (a
+     game-rule modifier, not a weapon), tagged `kind: "arcana"|"darkana"`.
+   - data/vampire-survivors/passives.json — every passive item (accessory).
+   - data/vampire-survivors/enemies.json — every enemy. A page's title
+     sometimes carries a wiki-added disambiguator ("Avatar Infernas
+     (enemy)") when the plain name collides with a character or another
+     enemy — see cleanEnemyName's comment.
 
    Run by .github/workflows/update-vampire-survivors.yml (daily). Node 18+,
    curl. */
@@ -64,6 +76,9 @@ const OUT_DIR = path.join(__dirname, "..", "data", "vampire-survivors");
 const OUT_CHARS = path.join(OUT_DIR, "characters.json");
 const OUT_ACH = path.join(OUT_DIR, "achievements.json");
 const OUT_WEAPONS = path.join(OUT_DIR, "weapons.json");
+const OUT_ARCANAS = path.join(OUT_DIR, "arcanas.json");
+const OUT_PASSIVES = path.join(OUT_DIR, "passives.json");
+const OUT_ENEMIES = path.join(OUT_DIR, "enemies.json");
 const IMG_BASE = "https://vampire.survivors.wiki/images";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
@@ -75,6 +90,33 @@ function getJson(url) {
 }
 const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
 const chunk = (arr, n) => { const out = []; for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n)); return out; };
+
+// A category listing always includes the category's own root page (same
+// name as the category) and sometimes a nested subcategory ("Category:X")
+// alongside the real member pages — filter both out, plus any subpage
+// ("Page/something").
+function fetchCategoryTitles(categoryName) {
+  const data = getJson(`${API}?action=query&list=categorymembers&cmtitle=Category:${encodeURIComponent(categoryName)}&cmlimit=500&format=json`);
+  return ((data && data.query && data.query.categorymembers) || [])
+    .map((m) => m.title)
+    .filter((t) => t !== categoryName && !t.startsWith("Category:") && !t.includes("/"));
+}
+// Fetches every title's wikitext, batched, then retries whatever a 50-wide
+// batch query dropped (a MediaWiki title-normalization quirk with
+// punctuation) one at a time so a real page is never silently missing.
+function fetchWikitextsWithRetry(titles, label) {
+  const wikitexts = fetchWikitextBatch(titles, { redirects: true });
+  const missing = titles.filter((t) => !wikitexts[t]);
+  if (missing.length) {
+    console.log(`retrying ${missing.length} ${label} titles individually: ${missing.join(", ")}`);
+    for (const t of missing) {
+      const single = fetchWikitextBatch([t], { redirects: true });
+      if (single[t]) wikitexts[t] = single[t];
+      sleep(200);
+    }
+  }
+  return wikitexts;
+}
 
 // ---- wikitext -> plain text -------------------------------------------------
 const STRUCTURAL_TEMPLATES = new Set(["unlocktop", "unlockbottom", "uh", "ul", "external", "hascalculator", "reflist", "references"]);
@@ -433,6 +475,93 @@ function buildWeaponGraph(weapons) {
   for (const w of weapons) { delete w._requires; delete w._evolution; delete w._union; }
 }
 
+// ---- Arcanas & Darkanas -------------------------------------------------
+// Both use the same {{Infobox Arcana}} template (a Darkana just sets
+// |type=Darkana instead of |type=Arcana) — often nested inside a
+// {{Multi infobox}} alongside a *second*, internal {{Infobox Weapon}} that
+// represents the arcana's attack under the hood. That nested weapon
+// infobox is exactly why these pages used to leak into Category:Weapons'
+// scrape (see the exclusion in the weapons block below) — an arcana is a
+// game-rule modifier, not something you equip and level up.
+function parseArcanaLike(title, wt, kind) {
+  const info = parseInfobox(wt, "{{Infobox Arcana");
+  if (!info) return null;
+  const name = title.trim();
+  const affects = [...(info.affects || "").matchAll(/\{\{(?:Sprite|slink)\|([^|}]+)/g)].map((m) => stripWiki(m[1]).trim()).filter(Boolean);
+  return {
+    name,
+    slug: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    kind,
+    dlcCode: (info.dlc || "").trim().toLowerCase(),
+    description: info.description ? stripWiki(info.description).trim() : "",
+    unlock: info.unlock ? stripWiki(info.unlock).trim() : "",
+    notes: info.notes ? stripWiki(info.notes).trim() : "",
+    affects,
+    images: [info.icon, info.image, `Icon-${title}.png`, `Sprite-${title}.png`].map(fileOf).filter(Boolean),
+    icon: null,
+  };
+}
+
+// ---- Passive items --------------------------------------------------------
+function parsePassive(title, wt) {
+  const info = parseInfobox(wt, "{{Infobox Passive item");
+  if (!info) return null;
+  const name = title.trim();
+  return {
+    name,
+    slug: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    dlcCode: (info.dlc || "").trim().toLowerCase(),
+    description: info.description ? stripWiki(info.description).trim() : "",
+    stat: info.stat ? stripWiki(info.stat).trim() : "",
+    rarity: info.rarity ? stripWiki(info.rarity).trim() : "",
+    maxLevel: info["max-level"] ? stripWiki(info["max-level"]).trim() : "",
+    perLevel: info["per-level"] ? stripWiki(info["per-level"]).trim() : "",
+    stacking: info.stacking ? stripWiki(info.stacking).trim() : "",
+    maxEffect: info["max-effect"] ? stripWiki(info["max-effect"]).trim() : "",
+    images: [info.icon, info.sprite, `Icon-${title}.png`, `Sprite-${title}.png`].map(fileOf).filter(Boolean),
+    icon: null,
+  };
+}
+
+// ---- Enemies ----------------------------------------------------------------
+// A page's title occasionally carries a disambiguator the wiki itself added
+// because the plain name collides with something else — "Avatar Infernas
+// (enemy)" vs the playable character "Avatar Infernas", or "Death (boss)".
+// Strip only that exact, meaningless-on-its-own suffix for the display
+// name; a more descriptive disambiguator (e.g. "Succubus (Ode to
+// Castlevania enemy)", used when two *enemies* share a name) is left
+// alone since it's carrying real information. The slug is always derived
+// from the full raw title regardless, so it stays unique either way.
+function cleanEnemyName(title) {
+  return /\((?:enemy|boss)\)$/i.test(title) ? title.replace(/\s*\((?:enemy|boss)\)\s*$/i, "").trim() : title.trim();
+}
+function enemyIntro(wt) {
+  const block = balancedTemplate(wt, "{{Infobox Bestiary");
+  const after = block ? wt.slice(wt.indexOf(block) + block.length) : wt;
+  const m = after.match(/^([\s\S]*?)(?=\n==[^=]|\n\[\[Category|$)/);
+  return stripWiki(m ? m[1] : after).trim();
+}
+function parseEnemy(title, wt) {
+  const info = parseInfobox(wt, "{{Infobox Bestiary");
+  if (!info) return null;
+  return {
+    name: cleanEnemyName(title),
+    slug: title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    dlcCode: (info.dlc || "").trim().toLowerCase(),
+    theme: info.theme ? stripWiki(info.theme).trim() : "",
+    stages: info.stages ? stripWiki(info.stages).trim() : "",
+    skills: info.skills ? stripWiki(info.skills).trim() : "",
+    resistances: info.resistances ? stripWiki(info.resistances).trim() : "",
+    notes: info.notes ? stripWiki(info.notes).trim() : "",
+    health: info.health ? stripWiki(info.health).trim() : "",
+    damage: info.damage ? stripWiki(info.damage).trim() : "",
+    movespeed: info.movespeed ? stripWiki(info.movespeed).trim() : "",
+    description: enemyIntro(wt),
+    images: [info.image, `Sprite-${title}.png`].map(fileOf).filter(Boolean),
+    icon: null,
+  };
+}
+
 function run() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const dlcMap = fetchDlcMap();
@@ -453,23 +582,78 @@ function run() {
   }));
   console.log(`vampire-survivors achievements: ${achievements.length}.`);
 
+  // ---- Arcanas & Darkanas -----------------------------------------------------
+  // Fetched before Weapons so their titles can be excluded from that
+  // category's scrape below — see parseArcanaLike's comment for why they'd
+  // otherwise leak in as fake weapons.
+  const arcanaTitles = fetchCategoryTitles("Arcanas");
+  const darkanaTitles = fetchCategoryTitles("Darkanas");
+  const arcanaWikitexts = fetchWikitextsWithRetry([...arcanaTitles, ...darkanaTitles], "arcana");
+  const arcanas = [];
+  for (const title of arcanaTitles) { const wt = arcanaWikitexts[title]; const a = wt && parseArcanaLike(title, wt, "arcana"); if (a) arcanas.push(a); }
+  for (const title of darkanaTitles) { const wt = arcanaWikitexts[title]; const a = wt && parseArcanaLike(title, wt, "darkana"); if (a) arcanas.push(a); }
+  const arcanaImgMap = fetchImageUrls(arcanas.flatMap((a) => a.images));
+  for (const a of arcanas) {
+    a.icon = a.images.map((f) => arcanaImgMap[f]).find(Boolean) || null;
+    delete a.images;
+    a.dlcName = a.dlcCode ? dlcMap[a.dlcCode] || a.dlcCode : "Base Game";
+  }
+  arcanas.sort((a, b) => (a.kind === b.kind ? a.name.localeCompare(b.name) : a.kind.localeCompare(b.kind)));
+  fs.writeFileSync(OUT_ARCANAS, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: "https://vampire.survivors.wiki/w/Arcanas",
+    count: arcanas.length,
+    arcanas,
+  }));
+  console.log(`vampire-survivors arcanas: ${arcanas.filter((a) => a.kind === "arcana").length} arcanas, ${arcanas.filter((a) => a.kind === "darkana").length} darkanas.`);
+
+  // ---- Passive items ----------------------------------------------------------
+  const passiveTitles = fetchCategoryTitles("Passive items");
+  const passiveWikitexts = fetchWikitextsWithRetry(passiveTitles, "passive item");
+  const passives = [];
+  for (const title of passiveTitles) { const wt = passiveWikitexts[title]; const p = wt && parsePassive(title, wt); if (p) passives.push(p); }
+  const passiveImgMap = fetchImageUrls(passives.flatMap((p) => p.images));
+  for (const p of passives) {
+    p.icon = p.images.map((f) => passiveImgMap[f]).find(Boolean) || null;
+    delete p.images;
+    p.dlcName = p.dlcCode ? dlcMap[p.dlcCode] || p.dlcCode : "Base Game";
+  }
+  passives.sort((a, b) => a.name.localeCompare(b.name));
+  fs.writeFileSync(OUT_PASSIVES, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: "https://vampire.survivors.wiki/w/Passive_items",
+    count: passives.length,
+    passives,
+  }));
+  console.log(`vampire-survivors passive items: ${passives.length}.`);
+
+  // ---- Enemies ------------------------------------------------------------
+  const enemyTitles = fetchCategoryTitles("Enemies");
+  const enemyWikitexts = fetchWikitextsWithRetry(enemyTitles, "enemy");
+  const enemies = [];
+  for (const title of enemyTitles) { const wt = enemyWikitexts[title]; const e = wt && parseEnemy(title, wt); if (e) enemies.push(e); }
+  const enemyImgMap = fetchImageUrls(enemies.flatMap((e) => e.images));
+  for (const e of enemies) {
+    e.icon = e.images.map((f) => enemyImgMap[f]).find(Boolean) || null;
+    delete e.images;
+    e.dlcName = e.dlcCode ? dlcMap[e.dlcCode] || e.dlcCode : "Base Game";
+  }
+  enemies.sort((a, b) => (a.dlcName === b.dlcName ? a.name.localeCompare(b.name) : (a.dlcName === "Base Game" ? -1 : b.dlcName === "Base Game" ? 1 : a.dlcName.localeCompare(b.dlcName))));
+  fs.writeFileSync(OUT_ENEMIES, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: "https://vampire.survivors.wiki/w/Enemies",
+    count: enemies.length,
+    dlcs: [...new Set(enemies.map((e) => e.dlcName))],
+    enemies,
+  }));
+  console.log(`vampire-survivors enemies: ${enemies.length}.`);
+
   // ---- Weapons ----------------------------------------------------------------
-  const wCat = getJson(`${API}?action=query&list=categorymembers&cmtitle=Category:Weapons&cmlimit=500&format=json`);
-  const wTitles = ((wCat && wCat.query && wCat.query.categorymembers) || [])
-    .map((m) => m.title)
-    .filter((t) => t !== "Weapons" && !t.includes("/"));
+  const excludeFromWeapons = new Set([...arcanaTitles, ...darkanaTitles]);
+  const wTitles = fetchCategoryTitles("Weapons").filter((t) => !excludeFromWeapons.has(t));
   console.log(`weapon pages to fetch: ${wTitles.length}`);
 
-  const wWikitexts = fetchWikitextBatch(wTitles, { redirects: true });
-  const wMissing = wTitles.filter((t) => !wWikitexts[t]);
-  if (wMissing.length) {
-    console.log(`retrying ${wMissing.length} weapon titles individually: ${wMissing.join(", ")}`);
-    for (const t of wMissing) {
-      const single = fetchWikitextBatch([t], { redirects: true });
-      if (single[t]) wWikitexts[t] = single[t];
-      sleep(200);
-    }
-  }
+  const wWikitexts = fetchWikitextsWithRetry(wTitles, "weapon");
   const weapons = [];
   for (const title of wTitles) {
     const wt = wWikitexts[title];
@@ -567,4 +751,4 @@ function run() {
   console.log(`vampire-survivors characters: ${characters.length} (${characters.filter((c) => c.secret).length} secret, ${characters.filter((c) => c.isDefault).length} default).`);
 }
 
-try { run(); } catch (e) { require("./lib/keep")([OUT_CHARS, OUT_ACH, OUT_WEAPONS], e); }
+try { run(); } catch (e) { require("./lib/keep")([OUT_CHARS, OUT_ACH, OUT_WEAPONS, OUT_ARCANAS, OUT_PASSIVES, OUT_ENEMIES], e); }
