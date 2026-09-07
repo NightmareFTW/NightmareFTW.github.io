@@ -2670,3 +2670,13 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .vs-sub-list li::before { content: "–"; position: absolute; left: -13px; }
 .vs-kind-tag { display: inline-block; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
   color: var(--accent-2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 4px; margin-right: 4px; vertical-align: middle; }
+/* Cross-referenced character/achievement names inside guide text (linkify()
+   in character.js) — a bare, unclassed <a> falls back to the browser's own
+   link/visited colors and underline, which is both hard to read against a
+   dark background and looks like a stray classic hyperlink. Give it its own
+   look instead: a warm, on-brand color that never changes after visiting,
+   no underline at rest — the color plus bolder weight is enough to read as
+   clickable — with the underline only appearing on hover/focus as
+   confirmation, not as the resting style. */
+.vs-xref, .vs-xref:visited { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+.vs-xref:hover, .vs-xref:focus-visible { color: var(--accent); text-decoration: underline; }
