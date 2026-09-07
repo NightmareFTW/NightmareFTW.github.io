@@ -34,7 +34,7 @@ function buildLinkifier(characters, achievements) {
     let out = "", last = 0, m;
     while ((m = re.exec(text))) {
       if (m[1] === excludeName) continue;
-      out += esc(text.slice(last, m.index)) + `<a href="${map.get(m[1])}">${esc(m[1])}</a>`;
+      out += esc(text.slice(last, m.index)) + `<a class="vs-xref" href="${map.get(m[1])}">${esc(m[1])}</a>`;
       last = m.index + m[1].length;
     }
     return out + esc(text.slice(last));
@@ -251,7 +251,7 @@ function render(c, linkify) {
       fetch(`../../data/vampire-survivors/achievements.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const c = charsData.characters.find((x) => x.slug === slug);
-    if (!c) { root.innerHTML = `<p class="tool-note">Character not found. <a href="characters.html">Back to the database →</a></p>`; return; }
+    if (!c) { root.innerHTML = `<p class="tool-note">Character not found. <a class="mini-btn" href="characters.html">Back to the database →</a></p>`; return; }
     c.guide = pickGuideLang(c.guide);
     pickStepsLang(c);
     const linkify = buildLinkifier(charsData.characters, achData.achievements);
