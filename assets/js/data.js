@@ -722,6 +722,20 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
+    date: "2026-09-07",
+    title: "Vampire Survivors gets an Enemies database",
+    desc: "Every enemy in the game, filterable by DLC — with a picker for the few that share a name with a character.",
+    image: "assets/img/updates/vs-enemies-database.jpg",
+    href: "games/vampire-survivors/enemies.html",
+  },
+  {
+    date: "2026-09-07",
+    title: "Every Vampire Survivors weapon, with its full evolution chain",
+    desc: "Base weapons, evolutions and unions — plus Arcanas, Darkanas and passive items, filterable by DLC.",
+    image: "assets/img/updates/vs-weapon-evolutions.jpg",
+    href: "games/vampire-survivors/weapons.html",
+  },
+  {
     date: "2026-09-01",
     title: "Farever dungeons now update automatically",
     desc: "A daily scraper keeps the dungeon checklist in sync with FareverDB.",
