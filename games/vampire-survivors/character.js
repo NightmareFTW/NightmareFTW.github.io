@@ -16,30 +16,26 @@ const saveSteps = () => localStorage.setItem(KEY_STEPS, JSON.stringify([...steps
 
 const root = document.getElementById("vs-root");
 
-// Any other character/achievement/weapon name mentioned in a guide becomes
-// a link — longest names first, so "Zi'Appunta Belpaese" wins over any
-// shorter name that happens to be a substring of it at the same position.
-function buildLinkifier(characters, achievements, weapons) {
-  const entries = [];
-  for (const c of characters) entries.push({ name: c.name, href: `character.html?slug=${encodeURIComponent(c.slug)}` });
-  for (const a of achievements) entries.push({ name: a.name, href: `achievements.html?highlight=${encodeURIComponent(a.name)}` });
-  for (const w of weapons) entries.push({ name: w.name, href: `weapon.html?slug=${encodeURIComponent(w.slug)}` });
-  entries.sort((a, b) => b.name.length - a.name.length);
-  const map = new Map(entries.map((e) => [e.name, e.href]));
-  const escaped = entries.map((e) => e.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-  const re = escaped.length ? new RegExp(`\\b(${escaped.join("|")})\\b`, "g") : null;
-  return function linkify(text, excludeName) {
-    if (!text) return "";
-    if (!re) return esc(text);
-    re.lastIndex = 0;
-    let out = "", last = 0, m;
-    while ((m = re.exec(text))) {
-      if (m[1] === excludeName) continue;
-      out += esc(text.slice(last, m.index)) + `<a class="vs-xref" href="${map.get(m[1])}">${esc(m[1])}</a>`;
-      last = m.index + m[1].length;
-    }
-    return out + esc(text.slice(last));
-  };
+// Any other character/achievement/weapon/enemy name mentioned in a guide
+// becomes a link — or, when the same name belongs to more than one of
+// them (e.g. the enemy "Avatar Infernas" and the character of the same
+// name), a small popup letting the reader pick which page they meant. See
+// assets/js/vs-xref.js for the shared index/popup this builds on.
+//
+// Characters, weapons and enemies are added unconditionally, but an
+// achievement is only added when nothing else already claims its name —
+// most achievements are simply named after the character/weapon they
+// unlock, so that pairing is the expected 1:1 norm, not a real ambiguity
+// worth interrupting the reader over. Without this, almost every name in
+// a long guide (e.g. Chaos's) would wrongly pop up a picker.
+function buildXrefEntities(characters, achievements, weapons, enemies) {
+  const entities = [];
+  for (const c of characters) entities.push({ name: c.name, type: "character", href: `character.html?slug=${encodeURIComponent(c.slug)}` });
+  for (const w of weapons) entities.push({ name: w.name, type: "weapon", href: `weapon.html?slug=${encodeURIComponent(w.slug)}` });
+  for (const e of enemies) entities.push({ name: e.name, type: "enemy", href: `enemy.html?slug=${encodeURIComponent(e.slug)}` });
+  const claimed = new Set(entities.map((e) => e.name));
+  for (const a of achievements) if (!claimed.has(a.name)) entities.push({ name: a.name, type: "achievement", href: `achievements.html?highlight=${encodeURIComponent(a.name)}` });
+  return entities;
 }
 
 // A curated guide (unlike every other character's plain scraped `steps`) is
@@ -261,17 +257,20 @@ function render(c, linkify, weaponMap) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const [charsData, achData, weaponsData] = await Promise.all([
+    const [charsData, achData, weaponsData, enemiesData] = await Promise.all([
       fetch(`../../data/vampire-survivors/characters.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/achievements.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/weapons.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/enemies.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const c = charsData.characters.find((x) => x.slug === slug);
     if (!c) { root.innerHTML = `<p class="tool-note">Character not found. <a class="mini-btn" href="characters.html">Back to the database →</a></p>`; return; }
     c.guide = pickGuideLang(c.guide);
     pickStepsLang(c);
     const weaponMap = new Map(weaponsData.weapons.map((w) => [w.name, w.slug]));
-    const linkify = buildLinkifier(charsData.characters, achData.achievements, weaponsData.weapons);
+    const xrefIndex = VSXref.buildXrefIndex(buildXrefEntities(charsData.characters, achData.achievements, weaponsData.weapons, enemiesData.enemies));
+    VSXref.initXrefPopup(xrefIndex);
+    const linkify = (text, excludeName) => VSXref.linkify(text, xrefIndex, excludeName);
     render(c, linkify, weaponMap);
   } catch (e) {
     root.innerHTML = `<p class="tool-note">Couldn't load character data.</p>`;

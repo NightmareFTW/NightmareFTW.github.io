@@ -69,13 +69,21 @@ function evolutionSection(w) {
 }
 
 function startingWeaponOf(w, characters) {
-  const names = new Set([w.name]);
   const owners = characters.filter((c) => [c.weapon, c.hiddenWeapon].some((f) => (f || "").split(/;\s*/).map((s) => s.trim()).includes(w.name)));
   if (!owners.length) return "";
   return `<p class="pw-build-note"><b>Starting weapon of:</b> ${owners.map((c) => `<a class="vs-xref" href="character.html?slug=${encodeURIComponent(c.slug)}">${esc(c.name)}</a>`).join(", ")}</p>`;
 }
 
-function render(w, weapons, characters) {
+// The wiki's own weapon pages list which Arcanas interact with them — the
+// reverse of arcanas.json's own `affects` list, so no extra scraping is
+// needed, just looking for this weapon's name in every arcana's list.
+function affectingArcanas(w, arcanas) {
+  const matches = arcanas.filter((a) => a.affects.includes(w.name));
+  if (!matches.length) return "";
+  return `<section class="panel"><h2>Arcanas</h2><p class="pw-build-note">${matches.map((a) => `<a class="vs-xref" href="arcana.html?slug=${encodeURIComponent(a.slug)}">${esc(a.name)}</a>`).join(", ")}</p></section>`;
+}
+
+function render(w, weapons, characters, arcanas, xrefIndex) {
   document.title = `${w.name} · Vampire Survivors · NightmareFTW`;
   document.getElementById("bc-weapon").textContent = w.name;
 
@@ -92,7 +100,7 @@ function render(w, weapons, characters) {
     </div>
 
     ${w.caption ? `<p class="pw-desc"><i>${esc(w.caption)}</i></p>` : ""}
-    ${w.description ? w.description.split("\n").filter(Boolean).map((p) => `<p class="pw-desc">${esc(p)}</p>`).join("") : ""}
+    ${w.description ? w.description.split("\n").filter(Boolean).map((p) => `<p class="pw-desc">${VSXref.linkify(p, xrefIndex, w.name)}</p>`).join("") : ""}
 
     <section class="panel">
       <h2>Evolution</h2>
@@ -102,6 +110,7 @@ function render(w, weapons, characters) {
 
     ${w.stats.length ? `<section class="panel"><h2>Stats</h2>${statsTable(w)}</section>` : ""}
     ${w.effects ? `<section class="panel"><h2>Effects</h2>${effectsList(w.effects)}</section>` : ""}
+    ${affectingArcanas(w, arcanas)}
 
     <p class="tool-note"><a class="mini-btn" href="weapons.html">← Back to the database</a></p>
   `;
@@ -110,13 +119,22 @@ function render(w, weapons, characters) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const [weaponsData, charsData] = await Promise.all([
+    const [weaponsData, charsData, enemiesData, arcanasData] = await Promise.all([
       fetch(`../../data/vampire-survivors/weapons.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/characters.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/enemies.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/arcanas.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const w = weaponsData.weapons.find((x) => x.slug === slug);
     if (!w) { root.innerHTML = `<p class="tool-note">Weapon not found. <a class="mini-btn" href="weapons.html">Back to the database →</a></p>`; return; }
-    render(w, weaponsData.weapons, charsData.characters);
+    const entities = [
+      ...weaponsData.weapons.map((x) => ({ name: x.name, type: "weapon", href: `weapon.html?slug=${encodeURIComponent(x.slug)}` })),
+      ...charsData.characters.map((x) => ({ name: x.name, type: "character", href: `character.html?slug=${encodeURIComponent(x.slug)}` })),
+      ...enemiesData.enemies.map((x) => ({ name: x.name, type: "enemy", href: `enemy.html?slug=${encodeURIComponent(x.slug)}` })),
+    ];
+    const xrefIndex = VSXref.buildXrefIndex(entities);
+    VSXref.initXrefPopup(xrefIndex);
+    render(w, weaponsData.weapons, charsData.characters, arcanasData.arcanas, xrefIndex);
   } catch (e) {
     root.innerHTML = `<p class="tool-note">Couldn't load weapon data.</p>`;
   }

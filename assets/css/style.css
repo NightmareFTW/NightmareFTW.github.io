@@ -2680,6 +2680,25 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
    confirmation, not as the resting style. */
 .vs-xref, .vs-xref:visited { color: var(--accent-2); text-decoration: none; font-weight: 600; }
 .vs-xref:hover, .vs-xref:focus-visible { color: var(--accent); text-decoration: underline; }
+/* An ambiguous cross-reference (same name shared by e.g. an enemy and a
+   character) renders as a <button> instead of an <a> — strip the button
+   chrome so it still just reads as a same-styled clickable name. */
+button.vs-xref-ambiguous { background: none; border: none; padding: 0; margin: 0; font: inherit; }
+
+/* Disambiguation popup opened by an ambiguous cross-reference */
+.vs-xref-modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, .6); display: grid; place-items: center; z-index: 200; padding: 20px; }
+.vs-xref-modal { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; max-width: 320px; width: 100%; text-align: center; }
+.vs-xref-modal-title { margin: 0 0 14px; font-weight: 700; }
+.vs-xref-modal-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.vs-xref-modal-opt { display: block; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; color: var(--text); text-decoration: none; font-weight: 600; transition: border-color .12s, color .12s; }
+.vs-xref-modal-opt:hover, .vs-xref-modal-opt:focus-visible { border-color: var(--accent); color: var(--accent-2); }
+
+/* Category tabs (Weapons/Arcanas/Darkanas/Passives) */
+.vs-cat-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+.vs-cat-tab { background: var(--card); border: 1px solid var(--border); border-radius: 999px; color: var(--muted);
+  padding: 7px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: var(--sans); }
+.vs-cat-tab:hover { border-color: var(--accent-2); color: var(--text); }
+.vs-cat-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 /* Weapons database — stat table on a weapon's own page */
 .vs-stat-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 4px; }
