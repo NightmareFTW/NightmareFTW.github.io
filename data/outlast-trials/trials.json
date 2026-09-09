@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T20:46:51.164Z",
+  "updated": "2026-09-09T03:16:14.816Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -613,6 +613,18 @@
           ],
           "prime": "30px|link=Otto and Arora Kress",
           "tips": []
+        },
+        {
+          "name": "Fund the Campaign",
+          "goal": "You are the hammer in the hands of a child, to shatter the fragile swine who would separate success from the government it created. Money is the future of speech. Fund the campaign and we will let you out.",
+          "objectives": [
+            "Deposit the First Pledge Ticket",
+            "Deposit Pledge Tickets before Time Runs Out",
+            "Regroup at the Politician",
+            "Exit the Trial"
+          ],
+          "prime": "30px|link=Otto and Arora Kress",
+          "tips": []
         }
       ],
       "fex": "https://outlast.fex.dev/maps"
@@ -786,6 +798,19 @@
           "goal": "You are the butcher, who reminds the sheep the ultimate path of all flesh, no matter the bounty of wealth or the wealth of spirit. Sabotage the broadcast, defile the faithful with blood, and we will let you out.",
           "objectives": [
             "Find Blacklight Codes",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "30px|link=Otto and Arora Kress",
+          "tips": []
+        },
+        {
+          "name": "Change the Program",
+          "goal": "You are the crier, who knows that news does not have to be journalism, it only has to be new. Spread our truth, change the program, and we will let you out.",
+          "objectives": [
+            "Hack and overwrite the broadcast",
+            "Take over the TV broadcast",
             "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
