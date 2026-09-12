@@ -1,21 +1,25 @@
 /* Epic Seven — single Artifact page.
-   Deep-link: artifact.html?slug=barthez-s-orbuculum. Recommended heroes
-   link to their own page in turn (hero.html), when Game8 lists one this
-   scraper also found on the hero list pages. */
+   Deep-link: artifact.html?slug=alencinoxs-wrath. Data comes from
+   epic7db.com via scripts/update-epic7.js. Recommended heroes link to
+   their own page in turn (hero.html), where each hero's own
+   "Recommended Artifacts" section also shows real usage % for this item
+   (aggregated from the Fribbels gear optimizer). */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 const root = document.getElementById("ea-root");
 
-function statsTable(stats) {
-  const entries = Object.entries(stats || {});
-  if (!entries.length) return "";
-  return `<table class="vs-stat-table"><tbody>${entries.map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</tbody></table>`;
+function levelBlock(label, level) {
+  if (!level || (!level.effect && level.attack == null && level.health == null)) return "";
+  const stats = [];
+  if (level.attack != null) stats.push(`Attack ${level.attack}`);
+  if (level.health != null) stats.push(`Health ${level.health}`);
+  return `<p class="pw-build-note"><b>${esc(label)}:</b> ${esc(level.effect)}${stats.length ? ` <span class="pw-card-chips">${stats.map((s) => `<span class="ev-chip">${esc(s)}</span>`).join("")}</span>` : ""}</p>`;
 }
 
 function heroesHtml(recs) {
   if (!recs.length) return `<p class="tool-note">No recommended heroes listed.</p>`;
-  return `<p class="pw-build-note">${recs.map((h) => h.slug ? `<a class="vs-xref" href="hero.html?slug=${encodeURIComponent(h.slug)}">${esc(h.name)}</a>` : esc(h.name)).join(", ")}</p>`;
+  return `<ul class="vs-sub-list">${recs.map((h) => `<li>${h.slug ? `<a class="vs-xref" href="hero.html?slug=${encodeURIComponent(h.slug)}">${esc(h.name)}</a>` : `<b>${esc(h.name)}</b>`}${h.element || h.class ? ` — ${esc([h.element, h.class].filter(Boolean).join(" "))}` : ""}</li>`).join("")}</ul>`;
 }
 
 function render(a) {
@@ -29,18 +33,19 @@ function render(a) {
         <h1>${esc(a.name)}</h1>
         <div class="pw-detail-chips">
           <span class="ev-chip">${esc(a.category)}</span>
-          ${a.rating ? `<span class="ev-chip confirmed">${esc(a.rating)}</span>` : ""}
+          ${a.grade ? `<span class="ev-chip">${esc(a.grade)}★</span>` : ""}
         </div>
+        ${a.description ? `<p class="tool-note">${esc(a.description)}</p>` : ""}
       </div>
     </div>
 
-    ${a.skillEffectBase || a.skillEffectMax ? `<section class="panel">
+    <section class="panel">
       <h2>Skill Effect</h2>
-      ${a.skillEffectBase ? `<p class="pw-build-note"><b>Base:</b> ${esc(a.skillEffectBase)}</p>` : ""}
-      ${a.skillEffectMax ? `<p class="pw-build-note"><b>Max:</b> ${esc(a.skillEffectMax)}</p>` : ""}
-    </section>` : ""}
+      ${levelBlock("Base", a.base) || `<p class="tool-note">No base-level effect listed.</p>`}
+      ${levelBlock("Max", a.max)}
+    </section>
 
-    ${Object.keys(a.stats || {}).length ? `<section class="panel"><h2>Stats</h2>${statsTable(a.stats)}</section>` : ""}
+    ${a.howToAcquire ? `<section class="panel"><h2>How to Acquire</h2><p class="pw-build-note">${esc(a.howToAcquire)}</p></section>` : ""}
 
     <section class="panel">
       <h2>Recommended Heroes</h2>
