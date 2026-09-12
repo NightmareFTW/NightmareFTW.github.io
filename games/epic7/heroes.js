@@ -8,6 +8,7 @@
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const TIER_RANK = { SSS: 8, SS: 7, S: 6, A: 5, B: 4, C: 3, D: 2, F: 1 };
 const ELEMENT_COLOR = { Fire: "#f2543d", Ice: "#38b6e0", Earth: "#8bb33a", Light: "#e0c23a", Dark: "#a866e0" };
+const elementIcon = (el) => `https://epic7db.com/images/elements/${encodeURIComponent(el)}.png`;
 
 let DATA = null, query = "", fGrade = "", fElement = "", fClass = "", sortBy = "grade";
 
@@ -36,9 +37,11 @@ function tierNum(h) { return TIER_RANK[h.pvpTier] || 0; }
 
 function card(h) {
   const elemColor = ELEMENT_COLOR[h.element] || null;
-  return `<a class="vs-card" href="hero.html?slug=${encodeURIComponent(h.slug)}">
-    <span class="pw-card-img" ${elemColor ? `style="border-color:${elemColor}"` : ""}><img src="${esc(h.icon || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.pw-card-img').classList.add('no-img')"></span>
-    <span class="pw-card-body">
+  const cardStyle = `position:relative;overflow:hidden;${elemColor ? `background:linear-gradient(120deg, ${elemColor}29, ${elemColor}0d 55%, transparent 78%);border-color:${elemColor}4d;` : ""}`;
+  return `<a class="vs-card" href="hero.html?slug=${encodeURIComponent(h.slug)}" style="${cardStyle}">
+    ${h.element ? `<img src="${elementIcon(h.element)}" alt="" aria-hidden="true" style="position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:58px;height:58px;object-fit:contain;opacity:.18;z-index:0;pointer-events:none" onerror="this.remove()">` : ""}
+    <span class="pw-card-img" style="position:relative;z-index:1;${elemColor ? `border-color:${elemColor}` : ""}"><img src="${esc(h.icon || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.pw-card-img').classList.add('no-img')"></span>
+    <span class="pw-card-body" style="position:relative;z-index:1">
       <span class="pw-card-top"><span class="pw-card-name" title="${esc(h.name)}">${esc(h.name)}</span></span>
       <span class="vs-card-weapon" ${elemColor ? `style="color:${elemColor}"` : ""}>${esc(h.class)} · ${esc(h.element)}</span>
       <span class="pw-card-chips">
