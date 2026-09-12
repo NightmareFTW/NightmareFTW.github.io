@@ -161,13 +161,14 @@ function parseSkills(html) {
   return splitBlocks(sec, /<div class="skill accordion[^"]*">/g).map((block) => {
     const name = cleanCell((block.match(/<h3>([\s\S]*?)<\/h3>/) || [])[1]);
     if (!name) return null;
+    const icon = (block.match(/<div class="icon">\s*<img src="([^"]+)"/) || [])[1];
     const cooldown = cleanCell((block.match(/<div class="cooldown">([\s\S]*?)<\/div>/) || [])[1]) || null;
     const soulGain = cleanCell((block.match(/<div class="soul-gain">([\s\S]*?)<\/div>/) || [])[1]) || null;
     const statusEffects = [...block.matchAll(/<img[^>]*alt="([^"]+)"[^>]*title="([^"]+)"/g)].map((m) => decode(m[2]));
     const bottom = (block.match(/<div class="bottom">([\s\S]*?)<\/div>\s*<\/div>/) || [])[1];
     const effect = cleanCell(bottom);
     const soulburn = cleanCell((block.match(/<div class="soulburn">([\s\S]*?)<\/div>/) || [])[1]) || null;
-    return { name, cooldown, soulGain, statusEffects, effect, soulburn };
+    return { name, icon: icon ? `${BASE}${icon}` : null, cooldown, soulGain, statusEffects, effect, soulburn };
   }).filter(Boolean);
 }
 function parseFribbelsMain(html) {
@@ -196,7 +197,8 @@ function parseRecommendedArtifacts(html) {
   return [...sec.matchAll(/<a href="([^"]*\/artifacts\/[^"]+)" class="artifact">([\s\S]*?)<\/a>/g)].map((m) => {
     const name = cleanCell((m[2].match(/<h3>([\s\S]*?)<\/h3>/) || [])[1]);
     const rate = (m[2].match(/Used by ([\d.]+)% of players/) || [])[1];
-    return { name, slug: slugFromUrl(m[1]), usageRate: rate ? Number(rate) : null };
+    const icon = (m[2].match(/<img src="([^"]+)"/) || [])[1];
+    return { name, slug: slugFromUrl(m[1]), icon: icon ? `${BASE}${icon}` : null, usageRate: rate ? Number(rate) : null };
   }).filter((a) => a.name);
 }
 function parseRta(html) {
@@ -233,6 +235,9 @@ function parseExclusiveEquipment(html) {
   return splitBlocks(sec, /<div class="equipment">/g).map((block) => {
     const name = cleanCell((block.match(/<h3>([\s\S]*?)<\/h3>/) || [])[1]);
     if (!name) return null;
+    // The equipment's own icon is the block's first <img> — it sits in
+    // .title > .icon, ahead of the per-skill-improvement icons further down.
+    const icon = (block.match(/<img[^>]*src="([^"]+)"/) || [])[1];
     const stat = cleanCell((block.match(/<h4>([\s\S]*?)<\/h4>/) || [])[1]);
     const minRoll = (block.match(/Min Roll:\s*([\d.]+%)/) || [])[1] || null;
     const maxRoll = (block.match(/Max Roll:\s*([\d.]+%)/) || [])[1] || null;
@@ -247,7 +252,7 @@ function parseExclusiveEquipment(html) {
         effect: cleanCell((content.match(/<p>([\s\S]*?)<\/p>/) || [])[1]),
       };
     }).filter((s) => s.skill);
-    return { name, stat, minRoll, maxRoll, skillImprovements };
+    return { name, icon: icon ? `${BASE}${icon}` : null, stat, minRoll, maxRoll, skillImprovements };
   }).filter(Boolean);
 }
 function parseAwakenings(html) {
@@ -316,6 +321,33 @@ function parseArtifact(html, base) {
   };
 }
 
+// ---- suggested teams --------------------------------------------------------
+// epic7db.com has no dedicated "team builder" feature (checked — no /teams
+// page, no "Team" section on hero pages), so there is no curated per-hero
+// team list to scrape. Instead, this groups the hero's own real RTA
+// synergy data (the teammates most often shown as the top win-rate picks
+// alongside this hero, across all 5 ranks) into team-sized sets, most
+// frequent pairing first — real aggregated data, just assembled here
+// rather than pulled from an authoritative "recommended teams" source.
+function buildSuggestedTeams(hero, heroBySlug) {
+  const freq = new Map();
+  for (const r of hero.rta) {
+    for (const s of r.synergies) {
+      if (!s.slug || s.slug === hero.slug) continue;
+      const cur = freq.get(s.slug) || { name: s.name, slug: s.slug, count: 0 };
+      cur.count++;
+      freq.set(s.slug, cur);
+    }
+  }
+  const ranked = [...freq.values()].sort((a, b) => b.count - a.count);
+  const teams = [];
+  for (let i = 0; i < ranked.length && teams.length < 3; i += 2) {
+    const teammates = ranked.slice(i, i + 2).map((p) => ({ name: p.name, slug: p.slug, icon: (heroBySlug.get(p.slug) || {}).icon || null }));
+    if (teammates.length) teams.push({ teammates });
+  }
+  return teams;
+}
+
 function run() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -356,6 +388,9 @@ function run() {
     for (const b of h.fribbels.topBuilds) if (b.artifact && !b.artifact.slug) b.artifact.slug = artifactSlugByName.get(b.artifact.name) || null;
   }
   for (const a of artifacts) for (const h of a.recommendedHeroes) if (!h.slug) h.slug = heroSlugByName.get(h.name) || null;
+
+  const heroBySlug = new Map(heroes.map((h) => [h.slug, h]));
+  for (const h of heroes) h.suggestedTeams = buildSuggestedTeams(h, heroBySlug);
 
   heroes.sort((a, b) => (b.grade - a.grade) || a.name.localeCompare(b.name));
   artifacts.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
