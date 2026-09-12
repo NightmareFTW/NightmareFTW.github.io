@@ -1,0 +1,25 @@
+name: Update Epic Seven heroes & artifacts
+
+on:
+  schedule:
+    - cron: "15 6 * * 0"   # weekly, Sundays 06:15 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-epic7:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: Scrape heroes & artifacts (game8.co)
+        run: node scripts/update-epic7.js
+      - name: Commit changes if any
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/epic7"
+          message: "chore: auto-update Epic Seven heroes & artifacts"
