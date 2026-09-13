@@ -714,6 +714,13 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
+    date: "2026-09-12",
+    title: "Epic Seven gets Heroes and Artifacts databases",
+    desc: "Every hero and artifact with real images: stats, skills, Fribbels builds, RTA data, suggested teams and an overall 0-100 rating.",
+    image: "assets/img/updates/epic7-heroes-artifacts.jpg",
+    href: "games/epic7/heroes.html",
+  },
+  {
     date: "2026-09-07",
     title: "Vampire Survivors gets an Enemies database",
     desc: "Every enemy in the game, filterable by DLC — with a picker for the few that share a name with a character.",
