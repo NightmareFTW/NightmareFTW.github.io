@@ -4,11 +4,17 @@
    element (background gradient + a low-opacity element-symbol watermark,
    both from ELEMENT_COLOR/elementIcon), carry a small class-symbol badge
    (classIcon), and show a 0-100 overall rating circle (color-ramped
-   red to green: see ratingScore/ratingColor). epic7db.com has no single
-   numeric score of its own — this averages its PvP/PvE letter tiers. A
-   missing tier counts as a modest D-equivalent rather than being dropped
-   from the average, so a hero rated in only one mode can't sit level
-   with (or above) one genuinely rated well in both — see ratingScore.
+   red to green: see rawRatingScore/ratingScore/ratingColor).
+   epic7db.com has no single numeric score of its own — this averages its
+   PvP/PvE letter tiers (rawRatingScore), with a missing tier scored as a
+   modest D-equivalent rather than dropped from the average, so a hero
+   rated in only one mode can't sit level with one genuinely rated well
+   in both. On this roster the highest real tier either mode ever
+   reaches is SS (no hero currently has SS in *both*, and epic7db.com
+   never assigns SSS/F at all), so that raw score tops out around 84 —
+   ratingScore() then stretches the whole roster's actual raw range to
+   fill 0-100, so the strongest heroes still read as ~100 without
+   changing anyone's relative ranking (a pure monotonic rescale).
    A card links to hero.html for base stats, skills, Fribbels builds, RTA
    data, exclusive equipment, awakenings and memory imprints.
    Data: data/epic7/heroes.json (source: epic7db.com). */
@@ -37,12 +43,31 @@ const realTier = (t) => (t && t !== "Unknown" ? t : null);
 // average outright: a PvP=SS/PvE=Unknown hero lands at (90+18)/2 = 54,
 // well below a genuine PvP=A/PvE=S hero at (64+78)/2 = 71, instead of
 // the single known tier standing in for the whole score unpenalized.
-function ratingScore(h) {
+function rawRatingScore(h) {
   const pvp = TIER_SCORE[realTier(h.pvpTier)];
   const pve = TIER_SCORE[realTier(h.pveTier)];
   if (pvp == null && pve == null) return null;
   const FALLBACK = TIER_SCORE.D;
   return Math.round(((pvp ?? FALLBACK) + (pve ?? FALLBACK)) / 2);
+}
+// The letter-tier combo that actually occurs across the roster rarely
+// reaches the top of TIER_SCORE's own range (no hero has SS in both
+// modes at once, and SSS/F are never assigned by epic7db.com at all) —
+// so the raw average above tops out well short of 100. This stretches
+// whatever range the roster actually achieves to fill 0-100, so the
+// genuinely best hero(es) read close to 100 and the worst read close to
+// 0, without changing anyone's rank relative to anyone else (a strictly
+// increasing rescale can't reorder two scores).
+let RATING_RANGE = null;
+function computeRatingRange(heroes) {
+  const raws = heroes.map(rawRatingScore).filter((s) => s != null);
+  return raws.length ? { min: Math.min(...raws), max: Math.max(...raws) } : null;
+}
+function ratingScore(h) {
+  const raw = rawRatingScore(h);
+  if (raw == null) return null;
+  if (!RATING_RANGE || RATING_RANGE.max === RATING_RANGE.min) return raw;
+  return Math.round(((raw - RATING_RANGE.min) / (RATING_RANGE.max - RATING_RANGE.min)) * 100);
 }
 // Red below 20, then a smooth red -> orange -> yellow -> green ramp up to 100.
 function ratingColor(score) {
@@ -130,6 +155,7 @@ function render() {
 (async function init() {
   try {
     DATA = await (await fetch(`../../data/epic7/heroes.json?cb=${Date.now()}`)).json();
+    RATING_RANGE = computeRatingRange(DATA.heroes);
     const upd = DATA.updated ? new Date(DATA.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
     document.getElementById("eh-updated").textContent = `${DATA.count} heroes · updated ${upd}`;
     buildControls();
