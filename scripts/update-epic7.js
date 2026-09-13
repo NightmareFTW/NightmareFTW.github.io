@@ -324,26 +324,30 @@ function parseArtifact(html, base) {
 // ---- suggested teams --------------------------------------------------------
 // epic7db.com has no dedicated "team builder" feature (checked — no /teams
 // page, no "Team" section on hero pages), so there is no curated per-hero
-// team list to scrape. Instead, this groups the hero's own real RTA
-// synergy data (the teammates most often shown as the top win-rate picks
-// alongside this hero, across all 5 ranks) into team-sized sets, most
-// frequent pairing first — real aggregated data, just assembled here
-// rather than pulled from an authoritative "recommended teams" source.
+// team list to scrape. Instead, this uses the hero's own real RTA synergy
+// data: each rank already lists exactly the top-3 teammates most often
+// seen winning alongside this hero, which — Epic Seven RTA teams being
+// 4 heroes (this hero + 3) — is itself one complete team suggestion.
+// Up to 3 suggestions are taken from the most reliable, highest win-rate
+// ranks, skipping any rank whose teammate set duplicates one already
+// picked from a better rank.
 function buildSuggestedTeams(hero, heroBySlug) {
-  const freq = new Map();
-  for (const r of hero.rta) {
-    for (const s of r.synergies) {
-      if (!s.slug || s.slug === hero.slug) continue;
-      const cur = freq.get(s.slug) || { name: s.name, slug: s.slug, count: 0 };
-      cur.count++;
-      freq.set(s.slug, cur);
-    }
-  }
-  const ranked = [...freq.values()].sort((a, b) => b.count - a.count);
+  const seen = new Set();
   const teams = [];
-  for (let i = 0; i < ranked.length && teams.length < 3; i += 2) {
-    const teammates = ranked.slice(i, i + 2).map((p) => ({ name: p.name, slug: p.slug, icon: (heroBySlug.get(p.slug) || {}).icon || null }));
-    if (teammates.length) teams.push({ teammates });
+  const ranked = [...hero.rta]
+    .filter((r) => r.synergies.filter((s) => s.slug).length >= 3)
+    .sort((a, b) => (a.lowSample !== b.lowSample ? (a.lowSample ? 1 : -1) : b.winRate - a.winRate));
+  for (const r of ranked) {
+    const picks = r.synergies.filter((s) => s.slug).slice(0, 3);
+    const key = picks.map((p) => p.slug).sort().join(",");
+    if (seen.has(key)) continue;
+    seen.add(key);
+    teams.push({
+      fromRank: r.rank,
+      winRate: r.winRate,
+      teammates: picks.map((p) => ({ name: p.name, slug: p.slug, icon: (heroBySlug.get(p.slug) || {}).icon || null })),
+    });
+    if (teams.length >= 3) break;
   }
   return teams;
 }
@@ -417,5 +421,5 @@ function run() {
 if (require.main === module) {
   try { run(); } catch (e) { require("./lib/keep")([OUT_HEROES, OUT_ARTIFACTS], e); }
 } else {
-  module.exports = { heroRoster, artifactRoster, parseHero, parseArtifact };
+  module.exports = { heroRoster, artifactRoster, parseHero, parseArtifact, buildSuggestedTeams };
 }

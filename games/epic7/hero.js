@@ -4,8 +4,8 @@
    aggregate builds (real gear-optimizer usage %), recommended artifacts
    (with icons + real usage %), suggested teams (built server-side from
    this hero's own RTA synergy data — epic7db.com has no dedicated team
-   list, so this groups the most frequent synergy picks into team-sized
-   sets rather than presenting a curated list), RTA data per rank (win
+   list, so each 4-hero team is this hero plus one rank's top-3 synergy
+   picks, rather than a curated list), RTA data per rank (win
    rate/stat priority/synergies/counters), exclusive equipment (with
    icon) and awakenings/memory imprints. Recommended artifacts/synergy
    heroes link to their own page in turn, when this scraper resolved a
@@ -30,10 +30,13 @@ function kvTable(pairs) {
 }
 function statsTable(stats) { return kvTable(Object.entries(stats || {})); }
 
+// epic7db.com uses the literal value "Unknown" when it hasn't assigned a
+// tier yet — treat that the same as no tier at all.
+const realTier = (t) => (t && t !== "Unknown" ? t : null);
 function tierChips(h) {
   const chips = [];
-  if (h.pvpTier) chips.push(`<span class="ev-chip confirmed">PvP ${esc(h.pvpTier)}</span>`);
-  if (h.pveTier) chips.push(`<span class="ev-chip confirmed">PvE ${esc(h.pveTier)}</span>`);
+  if (realTier(h.pvpTier)) chips.push(`<span class="ev-chip confirmed">PvP ${esc(h.pvpTier)}</span>`);
+  if (realTier(h.pveTier)) chips.push(`<span class="ev-chip confirmed">PvE ${esc(h.pveTier)}</span>`);
   return chips.join("");
 }
 function gwMetaNote(gwMeta) {
@@ -100,11 +103,11 @@ function heroChipList(list) {
 
 function suggestedTeamsHtml(hero, teams) {
   if (!teams || !teams.length) return `<p class="tool-note">Not enough RTA synergy data to suggest teams for this hero.</p>`;
-  return `<p class="tool-note">Built from this hero's own RTA synergy data — the teammates most often shown as top win-rate picks alongside them, across ranks (not an official curated list).</p>
+  return `<p class="tool-note">Built from this hero's own RTA synergy data — each team is this hero plus the top-3 teammates most often seen winning alongside them at a given rank (not an official curated list).</p>
     <div class="ms-items">${teams.map((t, i) => `
     <div class="ms-item" style="cursor:default">
       <span class="ms-item-body" style="flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px">
-        <span class="ev-chip">Team ${i + 1}</span>
+        <span class="ev-chip">Team ${i + 1}${t.fromRank ? ` · ${t.fromRank[0].toUpperCase() + t.fromRank.slice(1)} ${t.winRate}% WR` : ""}</span>
         <span style="display:flex;align-items:center;gap:6px">${itemIcon(hero.icon, hero.name)}<b>${esc(hero.name)}</b></span>
         ${t.teammates.map((m) => `<span style="display:flex;align-items:center;gap:6px">+ ${itemIcon(m.icon, m.name)}${m.slug ? `<a class="vs-xref" href="hero.html?slug=${encodeURIComponent(m.slug)}">${esc(m.name)}</a>` : esc(m.name)}</span>`).join("")}
       </span>
