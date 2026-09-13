@@ -19,7 +19,7 @@ function levelBlock(label, level) {
 
 function heroesHtml(recs) {
   if (!recs.length) return `<p class="tool-note">No recommended heroes listed.</p>`;
-  return `<ul class="vs-sub-list">${recs.map((h) => `<li>${h.slug ? `<a class="vs-xref" href="hero.html?slug=${encodeURIComponent(h.slug)}">${esc(h.name)}</a>` : `<b>${esc(h.name)}</b>`}${h.element || h.class ? ` — ${esc([h.element, h.class].filter(Boolean).join(" "))}` : ""}</li>`).join("")}</ul>`;
+  return `<ul class="vs-sub-list">${recs.map((h) => `<li>${h.slug ? `<a class="vs-xref" href="hero.html?slug=${encodeURIComponent(h.slug)}">${esc(h.name)}</a>` : `<b>${esc(h.name)}</b>`}${h.element || h.class ? ` (${esc([h.element, h.class].filter(Boolean).join(" "))})` : ""}</li>`).join("")}</ul>`;
 }
 
 function render(a) {
