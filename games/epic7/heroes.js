@@ -1,34 +1,45 @@
 /* Epic Seven — Heroes Database.
-   Every hero, filterable/sortable by grade, element and class — not
+   Every hero, filterable/sortable by grade, element and class. Not
    spoiler-sensitive, so nothing is hidden by default. Cards are tinted by
    element (background gradient + a low-opacity element-symbol watermark,
-   both from ELEMENT_COLOR/elementIcon) and show a 0-100 overall rating
-   circle (color-ramped red->green — see ratingScore/ratingColor, a simple
-   average of the PvP/PvE letter tiers since epic7db.com has no single
-   numeric score of its own). A card links to hero.html for base stats,
-   skills, Fribbels builds, RTA data, exclusive equipment, awakenings and
-   memory imprints.
+   both from ELEMENT_COLOR/elementIcon), carry a small class-symbol badge
+   (classIcon), and show a 0-100 overall rating circle (color-ramped
+   red to green: see ratingScore/ratingColor). epic7db.com has no single
+   numeric score of its own — this averages its PvP/PvE letter tiers, with
+   a discount when only one of the two is known so a hero rated in just
+   one mode can't outscore an equally-strong hero rated in both (see
+   ratingScore for the exact rule).
+   A card links to hero.html for base stats, skills, Fribbels builds, RTA
+   data, exclusive equipment, awakenings and memory imprints.
    Data: data/epic7/heroes.json (source: epic7db.com). */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const TIER_RANK = { SSS: 8, SS: 7, S: 6, A: 5, B: 4, C: 3, D: 2, F: 1 };
 // Rough 0-100 scale for each letter tier, used only to build a single
-// at-a-glance overall score (epic7db.com itself has no such number —
-// this just averages the PvP/PvE tiers it does give us).
+// at-a-glance overall score (epic7db.com itself has no such number: this
+// just converts the PvP/PvE tiers it does give us).
 const TIER_SCORE = { SSS: 100, SS: 90, S: 78, A: 64, B: 48, C: 32, D: 18, F: 5 };
 const ELEMENT_COLOR = { Fire: "#f2543d", Ice: "#38b6e0", Earth: "#8bb33a", Light: "#e0c23a", Dark: "#a866e0" };
 const elementIcon = (el) => `https://epic7db.com/images/elements/${encodeURIComponent(el)}.png`;
+// epic7db.com's class-icon filenames don't all follow the same slug rule
+// as the class name itself (Soul Weaver -> "soulweaver", no hyphen).
+const CLASS_ICON_SLUG = { Knight: "knight", Mage: "mage", Ranger: "ranger", "Soul Weaver": "soulweaver", Thief: "thief", Warrior: "warrior" };
+const classIcon = (cls) => `https://epic7db.com/images/classes/${CLASS_ICON_SLUG[cls] || cls.toLowerCase()}.png`;
 
 // epic7db.com uses the literal value "Unknown" when it hasn't assigned a
 // tier yet — treat that the same as no tier at all.
 const realTier = (t) => (t && t !== "Unknown" ? t : null);
 
+// Averages the two tiers when both are known. When only one is known, that
+// side is discounted 20% rather than used at face value — otherwise a
+// hero rated only in PvP (say SS, 90) would outscore one genuinely rated
+// SS in both PvP and PvE-adjacent modes, purely for lacking data.
 function ratingScore(h) {
   const pvp = TIER_SCORE[realTier(h.pvpTier)];
   const pve = TIER_SCORE[realTier(h.pveTier)];
   if (pvp == null && pve == null) return null;
-  if (pvp == null) return pve;
-  if (pve == null) return pvp;
+  if (pvp == null) return Math.round(pve * 0.8);
+  if (pve == null) return Math.round(pvp * 0.8);
   return Math.round((pvp + pve) / 2);
 }
 // Red below 20, then a smooth red -> orange -> yellow -> green ramp up to 100.
@@ -72,6 +83,7 @@ function card(h) {
   const cardStyle = `position:relative;overflow:hidden;${elemColor ? `background:linear-gradient(120deg, ${elemColor}29, ${elemColor}0d 55%, transparent 78%);border-color:${elemColor}4d;` : ""}`;
   return `<a class="vs-card" href="hero.html?slug=${encodeURIComponent(h.slug)}" style="${cardStyle}">
     ${h.element ? `<img src="${elementIcon(h.element)}" alt="" aria-hidden="true" style="position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:58px;height:58px;object-fit:contain;opacity:.18;z-index:0;pointer-events:none" onerror="this.remove()">` : ""}
+    ${h.class ? `<img src="${classIcon(h.class)}" alt="" aria-hidden="true" style="position:absolute;right:62px;top:50%;transform:translateY(-50%);width:46px;height:46px;object-fit:contain;opacity:.14;z-index:0;pointer-events:none" onerror="this.remove()">` : ""}
     <span class="pw-card-img" style="position:relative;z-index:1;width:72px;height:72px;border-radius:50%;overflow:hidden;background:none;${elemColor ? `border-color:${elemColor}` : ""}"><img src="${esc(h.icon || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.pw-card-img').classList.add('no-img')"></span>
     <span class="pw-card-body" style="position:relative;z-index:1">
       <span class="pw-card-top"><span class="pw-card-name" title="${esc(h.name)}">${esc(h.name)}</span></span>
@@ -79,7 +91,7 @@ function card(h) {
       <span class="pw-card-chips">
         <span class="ev-chip">${esc(h.grade)}★</span>
         ${realTier(h.pvpTier) ? `<span class="ev-chip confirmed">PvP ${esc(h.pvpTier)}</span>` : ""}
-        ${realTier(h.pveTier) ? `<span class="ev-chip confirmed">PvE ${esc(h.pveTier)}</span>` : ""}
+        ${realTier(h.pveTier) ? `<span class="ev-chip" style="background:rgba(52,211,153,.18);color:#34d399">PvE ${esc(h.pveTier)}</span>` : ""}
       </span>
     </span>
     ${ratingCircle(ratingScore(h))}

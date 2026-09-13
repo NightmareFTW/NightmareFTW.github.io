@@ -65,7 +65,7 @@ function skillsHtml(skills) {
 }
 
 function gearSetLine(g, rateLabel) {
-  return `<li>${esc(g.sets.join(" + "))} — <b>${g.rate}%</b> ${rateLabel}</li>`;
+  return `<li>${esc(g.sets.join(" + "))}: <b>${g.rate}%</b> ${rateLabel}</li>`;
 }
 
 function fribbelsHtml(f) {
@@ -103,7 +103,7 @@ function heroChipList(list) {
 
 function suggestedTeamsHtml(hero, teams) {
   if (!teams || !teams.length) return `<p class="tool-note">Not enough RTA synergy data to suggest teams for this hero.</p>`;
-  return `<p class="tool-note">Built from this hero's own RTA synergy data — each team is this hero plus the top-3 teammates most often seen winning alongside them at a given rank (not an official curated list).</p>
+  return `<p class="tool-note">Built from this hero's own RTA synergy data: each team is this hero plus the top-3 teammates most often seen winning alongside them at a given rank (not an official curated list).</p>
     <div class="ms-items">${teams.map((t, i) => `
     <div class="ms-item" style="cursor:default">
       <span class="ms-item-body" style="flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px">
@@ -119,7 +119,7 @@ function rtaHtml(rta) {
   const opts = rta.map((r, i) => `<option value="${i}">${esc(r.rank[0].toUpperCase() + r.rank.slice(1))} (${r.winRate}% WR)</option>`).join("");
   const panels = rta.map((r, i) => `
     <div class="rta-rank-panel" data-idx="${i}" ${i === 0 ? "" : "hidden"}>
-      ${r.lowSample ? `<p class="tool-note">⚠ Low pick rate at this rank — data may be inaccurate.</p>` : ""}
+      ${r.lowSample ? `<p class="tool-note">⚠ Low pick rate at this rank: data may be inaccurate.</p>` : ""}
       ${Object.keys(r.statPriority).length ? `<p class="pw-build-note"><b>Stat Priority</b>:</p>${statsTable(r.statPriority)}` : ""}
       ${r.gearSets.length ? `<p class="pw-build-note" style="margin-top:8px"><b>Gear Sets</b>:</p><ul class="vs-sub-list">${r.gearSets.map((g) => gearSetLine(g, "Win Rate")).join("")}</ul>` : ""}
       ${r.synergies.length ? `<p class="pw-build-note" style="margin-top:8px"><b>Synergies</b>:</p><p class="pw-card-chips">${heroChipList(r.synergies)}</p>` : ""}
@@ -138,7 +138,7 @@ function exclusiveEquipmentHtml(list) {
         <span class="ms-item-meta">${esc(eq.stat)} (${esc(eq.minRoll || "?")} – ${esc(eq.maxRoll || "?")})</span>
       </span>
     </div>
-    <ul class="vs-sub-list">${eq.skillImprovements.map((s) => `<li>${s.recommended ? "<b>★ Recommended</b> — " : ""}<b>${esc(s.skill)}:</b> ${esc(s.effect)}</li>`).join("")}</ul>`).join("");
+    <ul class="vs-sub-list">${eq.skillImprovements.map((s) => `<li>${s.recommended ? "<b>(★ Recommended)</b> " : ""}<b>${esc(s.skill)}:</b> ${esc(s.effect)}</li>`).join("")}</ul>`).join("");
 }
 
 function awakeningTable(awakenings) {
@@ -153,7 +153,7 @@ function memoryImprintsHtml(list) {
   if (!list.length) return `<p class="tool-note">No memory imprint data listed.</p>`;
   return list.map((m) => `
     <p class="pw-build-note"><b>${esc(m.type)}</b>:</p>
-    <ul class="vs-sub-list">${m.tiers.map((t) => `<li>${esc(t.grade)} — ${esc(t.value)}</li>`).join("")}</ul>`).join("");
+    <ul class="vs-sub-list">${m.tiers.map((t) => `<li>${esc(t.grade)}: ${esc(t.value)}</li>`).join("")}</ul>`).join("");
 }
 
 function render(h) {
