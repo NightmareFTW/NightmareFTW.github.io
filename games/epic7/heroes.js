@@ -56,7 +56,7 @@ function buildControls() {
     <select id="f-grade" class="sort-select">${opt("", "All grades", fGrade)}${DATA.grades.map((g) => opt(g, `${g}★`, fGrade)).join("")}</select>
     <select id="f-element" class="sort-select">${opt("", "All elements", fElement)}${DATA.elements.map((e) => opt(e, e, fElement)).join("")}</select>
     <select id="f-class" class="sort-select">${opt("", "All classes", fClass)}${DATA.classes.map((c) => opt(c, c, fClass)).join("")}</select>
-    <select id="f-sort" class="sort-select">${opt("grade", "Sort: Grade", sortBy)}${opt("name", "Sort: Name", sortBy)}${opt("pvp", "Sort: PvP Tier", sortBy)}${opt("rating", "Sort: Rating", sortBy)}</select>`;
+    <select id="f-sort" class="sort-select">${opt("grade", "Sort: Grade", sortBy)}${opt("name", "Sort: Name", sortBy)}${opt("pvp", "Sort: PvP Tier", sortBy)}${opt("pve", "Sort: PvE Tier", sortBy)}${opt("rating", "Sort: Rating", sortBy)}</select>`;
   document.getElementById("f-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); render(); });
   document.getElementById("f-grade").addEventListener("change", (e) => { fGrade = e.target.value; render(); });
   document.getElementById("f-element").addEventListener("change", (e) => { fElement = e.target.value; render(); });
@@ -65,6 +65,7 @@ function buildControls() {
 }
 
 function tierNum(h) { return TIER_RANK[realTier(h.pvpTier)] || 0; }
+function tierNumPve(h) { return TIER_RANK[realTier(h.pveTier)] || 0; }
 
 function card(h) {
   const elemColor = ELEMENT_COLOR[h.element] || null;
@@ -91,6 +92,7 @@ function render() {
 
   if (sortBy === "name") list = [...list].sort((a, b) => a.name.localeCompare(b.name));
   else if (sortBy === "pvp") list = [...list].sort((a, b) => tierNum(b) - tierNum(a));
+  else if (sortBy === "pve") list = [...list].sort((a, b) => tierNumPve(b) - tierNumPve(a));
   else if (sortBy === "rating") list = [...list].sort((a, b) => (ratingScore(b) || 0) - (ratingScore(a) || 0));
   // "grade" sort order already comes pre-sorted from the data file
 
