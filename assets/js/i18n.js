@@ -49,6 +49,15 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Epic Seven gets Heroes and Artifacts databases": "Epic Seven ganha bases de dados de Heróis e Artefactos",
+    "Every hero and artifact with real images: stats, skills, Fribbels builds, RTA data, suggested teams and an overall 0-100 rating.":
+      "Todos os heróis e artefactos com imagens reais: stats, skills, builds Fribbels, dados de RTA, equipas sugeridas e uma classificação geral de 0 a 100.",
+    "Vampire Survivors gets an Enemies database": "Vampire Survivors ganha uma base de dados de Inimigos",
+    "Every enemy in the game, filterable by DLC — with a picker for the few that share a name with a character.":
+      "Todos os inimigos do jogo, filtráveis por DLC, com um selector para os poucos que partilham o nome com uma personagem.",
+    "Every Vampire Survivors weapon, with its full evolution chain": "Todas as armas do Vampire Survivors, com a cadeia de evolução completa",
+    "Base weapons, evolutions and unions — plus Arcanas, Darkanas and passive items, filterable by DLC.":
+      "Armas base, evoluções e uniões, mais Arcanas, Darkanas e passive items, filtráveis por DLC.",
     "Farever dungeons now update automatically": "As dungeons do Farever já se actualizam sozinhas",
     "A daily scraper keeps the dungeon checklist in sync with FareverDB.": "Um scraper diário mantém a checklist de dungeons sincronizada com a FareverDB.",
     "Bulk-unlock Vampire Survivors achievements": "Desbloqueia conquistas do Vampire Survivors em massa",
@@ -1640,6 +1649,63 @@
     "Unlock all": "Desbloquear tudo", "Unlock": "Desbloquear",
     "All characters": "Todas as personagens", "Unlocked only": "Só desbloqueadas", "Locked only": "Só por desbloquear",
     "Always unlocked": "Sempre desbloqueada", "Weapon:": "Arma:", "Hidden weapon:": "Arma escondida:",
+    "Enemies Database": "Base de Dados de Inimigos",
+    "Every enemy in the game — filter and sort by DLC. A few enemies share a name with a playable character; opening one of those from a guide asks which page you meant.":
+      "Todos os inimigos do jogo — filtra e ordena por DLC. Alguns inimigos partilham o nome com uma personagem jogável; abrir um desses a partir de um guia pergunta a que página te referes.",
+    "Built by NightmareFTW · Vampire Survivors enemies.": "Feito por NightmareFTW · inimigos de Vampire Survivors.",
+    "Loading enemies…": "A carregar inimigos…", "Search enemies…": "Procurar inimigos…",
+    "No enemies match.": "Nenhum inimigo corresponde.",
+    "Couldn't load enemy data.": "Não foi possível carregar os dados dos inimigos.",
+    "Enemy not found.": "Inimigo não encontrado.",
+    "Damage": "Dano", "Move speed": "Velocidade de movimento", "Stages": "Fases", "Resistances": "Resistências",
+
+    // ---- Epic Seven ----
+    "Heroes Database": "Base de Dados de Heróis", "Artifacts Database": "Base de Dados de Artefactos",
+    "Every hero with images: stats, skills, Fribbels builds, RTA data, exclusive equipment and awakenings.":
+      "Todos os heróis com imagens: stats, skills, builds Fribbels, dados de RTA, equipamento exclusivo e awakenings.",
+    "Every artifact with images: class restriction, skill effect, stats and recommended heroes.":
+      "Todos os artefactos com imagens: restrição de classe, efeito da skill, stats e heróis recomendados.",
+    "Every hero. Filter by grade, element or class, then open one to see its base stats, skills, Fribbels builds (real gear usage %), RTA data by rank, exclusive equipment, awakenings and memory imprints.":
+      "Todos os heróis. Filtra por grau, elemento ou classe, depois abre um para ver os stats base, skills, builds Fribbels (% de uso real de gear), dados de RTA por rank, equipamento exclusivo, awakenings e memory imprints.",
+    "Every artifact. Filter by class restriction, then open one to see its skill effect, stats, how to acquire and recommended heroes.":
+      "Todos os artefactos. Filtra por restrição de classe, depois abre um para ver o efeito da skill, stats, como obter e heróis recomendados.",
+    "Built by NightmareFTW · Epic Seven heroes.": "Feito por NightmareFTW · heróis de Epic Seven.",
+    "Built by NightmareFTW · Epic Seven artifacts.": "Feito por NightmareFTW · artefactos de Epic Seven.",
+    "Search heroes…": "Procurar heróis…", "Search artifacts…": "Procurar artefactos…",
+    "All grades": "Todos os graus",
+    "Sort: Grade": "Ordenar: Grau", "Sort: PvP Tier": "Ordenar: Tier de PvP", "Sort: PvE Tier": "Ordenar: Tier de PvE",
+    "Sort: Rating": "Ordenar: Classificação", "Sort: Class": "Ordenar: Classe",
+    "Couldn't load hero data.": "Não foi possível carregar os dados dos heróis.",
+    "Couldn't load artifact data.": "Não foi possível carregar os dados dos artefactos.",
+    "Loading artifacts…": "A carregar artefactos…",
+    "Hero not found.": "Herói não encontrado.", "Artifact not found.": "Artefacto não encontrado.",
+    "No artifacts match.": "Nenhum artefacto corresponde.",
+    "Builds (Fribbels)": "Builds (Fribbels)", "Recommended Artifacts": "Artefactos Recomendados",
+    "Suggested Teams": "Equipas Sugeridas", "RTA Data": "Dados de RTA", "Exclusive Equipment": "Equipamento Exclusivo",
+    "Skill Effect": "Efeito da Skill", "How to Acquire": "Como Obter", "Recommended Heroes": "Heróis Recomendados",
+    "No skills listed.": "Nenhuma skill listada.", "Soulburn:": "Soulburn:",
+    "No Fribbels build data listed.": "Nenhum dado de build Fribbels listado.",
+    "Average Stats": "Stats Médios", "(Fribbels gear optimizer users):": "(utilizadores do optimizador de gear Fribbels):",
+    "Gear Sets Used": "Gear Sets Usados", "Top Builds": "Melhores Builds",
+    "Use Rate": "Taxa de Uso", "Win Rate": "Taxa de Vitória",
+    "No recommended artifacts listed.": "Nenhum artefacto recomendado listado.", "of players": "dos jogadores",
+    "Not enough RTA synergy data to suggest teams for this hero.":
+      "Não há dados de sinergia de RTA suficientes para sugerir equipas para este herói.",
+    "Built from this hero's own RTA synergy data: each team is this hero plus the top-3 teammates most often seen winning alongside them at a given rank (not an official curated list).":
+      "Construído a partir dos dados de sinergia de RTA deste herói: cada equipa é este herói mais os 3 melhores companheiros mais vistos a vencer ao lado dele num determinado rank (não é uma lista oficial curada).",
+    "⚠ Low pick rate at this rank: data may be inaccurate.": "⚠ Taxa de escolha baixa neste rank: os dados podem ser imprecisos.",
+    "Stat Priority": "Prioridade de Stats", "Gear Sets": "Gear Sets", "Synergies": "Sinergias", "Counters": "Counters",
+    "No RTA data listed.": "Nenhum dado de RTA listado.",
+    "No exclusive equipment listed.": "Nenhum equipamento exclusivo listado.",
+    "(★ Recommended)": "(★ Recomendado)",
+    "No awakening data listed.": "Nenhum dado de awakening listado.",
+    "Level": "Nível", "Cost": "Custo",
+    "Crit Chance": "Chance Crítica", "Crit Damage": "Dano Crítico",
+    "Effectiveness": "Efetividade", "Effect Resistance": "Resistência a Efeitos",
+    "No memory imprint data listed.": "Nenhum dado de memory imprint listado.",
+    "No recommended heroes listed.": "Nenhum herói recomendado listado.",
+    "No base-level effect listed.": "Nenhum efeito de nível base listado.",
+    "Currently meta for": "Actualmente meta para", "in Guild Wars.": "no Guild Wars.",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -1720,6 +1786,17 @@
     [/^(\d+)\/(\d+) steps done\. Named characters and achievements link to their own page\.$/,
       "$1/$2 passos concluídos. Personagens e conquistas mencionadas têm link para a própria página."],
     [/^(\d+)\/(\d+) steps done in total\.$/, "$1/$2 passos concluídos no total."],
+
+    // ---- Epic Seven ----
+    [/^of (\d+) heroes$/, "de $1 heróis"], [/^of (\d+) artifacts$/, "de $1 artefactos"],
+    [/^(\d+) heroes · updated (.+)$/, "$1 heróis · actualizado $2"],
+    [/^(\d+) artifacts · updated (.+)$/, "$1 artefactos · actualizado $2"],
+    [/^of (\d+) enemies$/, "de $1 inimigos"],
+    [/^(\d+) enemies · (\d+) DLCs · updated (.+)$/, "$1 inimigos · $2 DLCs · actualizado $3"],
+    [/^(\d+)★ Heroes$/, "$1★ Heróis"],
+    [/^Team (\d+)$/, "Equipa $1"],
+    [/^Team (\d+) · (\w+) ([\d.]+)% WR$/, "Equipa $1 · $2 $3% WR"],
+    [/^Attack ([\d.]+)$/, "Ataque $1"], [/^Health ([\d.]+)$/, "Vida $1"],
   ];
 
   function translateText(raw) {
