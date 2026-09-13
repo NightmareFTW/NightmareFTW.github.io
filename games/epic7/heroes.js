@@ -5,10 +5,10 @@
    both from ELEMENT_COLOR/elementIcon), carry a small class-symbol badge
    (classIcon), and show a 0-100 overall rating circle (color-ramped
    red to green: see ratingScore/ratingColor). epic7db.com has no single
-   numeric score of its own — this averages its PvP/PvE letter tiers, with
-   a discount when only one of the two is known so a hero rated in just
-   one mode can't outscore an equally-strong hero rated in both (see
-   ratingScore for the exact rule).
+   numeric score of its own — this averages its PvP/PvE letter tiers. A
+   missing tier counts as a modest D-equivalent rather than being dropped
+   from the average, so a hero rated in only one mode can't sit level
+   with (or above) one genuinely rated well in both — see ratingScore.
    A card links to hero.html for base stats, skills, Fribbels builds, RTA
    data, exclusive equipment, awakenings and memory imprints.
    Data: data/epic7/heroes.json (source: epic7db.com). */
@@ -30,26 +30,30 @@ const classIcon = (cls) => `https://epic7db.com/images/classes/${CLASS_ICON_SLUG
 // tier yet — treat that the same as no tier at all.
 const realTier = (t) => (t && t !== "Unknown" ? t : null);
 
-// Averages the two tiers when both are known. When only one is known, that
-// side is discounted 20% rather than used at face value — otherwise a
-// hero rated only in PvP (say SS, 90) would outscore one genuinely rated
-// SS in both PvP and PvE-adjacent modes, purely for lacking data.
+// A hero with no RTA/arena pick data in a mode isn't a wildcard that
+// might secretly be great there — in practice "Unknown" tracks with
+// heroes nobody bothers running in that mode, i.e. below-average. So a
+// missing tier is scored as a flat D (18) rather than dropped from the
+// average outright: a PvP=SS/PvE=Unknown hero lands at (90+18)/2 = 54,
+// well below a genuine PvP=A/PvE=S hero at (64+78)/2 = 71, instead of
+// the single known tier standing in for the whole score unpenalized.
 function ratingScore(h) {
   const pvp = TIER_SCORE[realTier(h.pvpTier)];
   const pve = TIER_SCORE[realTier(h.pveTier)];
   if (pvp == null && pve == null) return null;
-  if (pvp == null) return Math.round(pve * 0.8);
-  if (pve == null) return Math.round(pvp * 0.8);
-  return Math.round((pvp + pve) / 2);
+  const FALLBACK = TIER_SCORE.D;
+  return Math.round(((pvp ?? FALLBACK) + (pve ?? FALLBACK)) / 2);
 }
 // Red below 20, then a smooth red -> orange -> yellow -> green ramp up to 100.
 function ratingColor(score) {
   const t = Math.max(0, Math.min(1, (score - 20) / 80));
   return `hsl(${Math.round(t * 120)}, 70%, 48%)`;
 }
-function ratingCircle(score) {
+function ratingCircle(score, h) {
   if (score == null) return "";
-  return `<span title="Overall rating (PvP/PvE tier average)" style="flex:0 0 auto;position:relative;z-index:1;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:800;font-size:0.76rem;color:#0b0b0f;background:${ratingColor(score)};border:2px solid rgba(0,0,0,.28)">${score}</span>`;
+  const partial = !realTier(h.pvpTier) || !realTier(h.pveTier);
+  const title = partial ? "Overall rating (PvP/PvE tier average; missing tier scored as a modest default)" : "Overall rating (PvP/PvE tier average)";
+  return `<span title="${esc(title)}" style="flex:0 0 auto;position:relative;z-index:1;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-weight:800;font-size:0.76rem;color:#0b0b0f;background:${ratingColor(score)};border:2px solid rgba(0,0,0,.28)">${score}</span>`;
 }
 
 let DATA = null, query = "", fGrade = "", fElement = "", fClass = "", sortBy = "grade";
@@ -94,7 +98,7 @@ function card(h) {
         ${realTier(h.pveTier) ? `<span class="ev-chip" style="background:rgba(52,211,153,.18);color:#34d399">PvE ${esc(h.pveTier)}</span>` : ""}
       </span>
     </span>
-    ${ratingCircle(ratingScore(h))}
+    ${ratingCircle(ratingScore(h), h)}
   </a>`;
 }
 
