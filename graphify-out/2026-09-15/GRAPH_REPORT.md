@@ -1,16 +1,16 @@
-# Graph Report - NightmareFTW.github.io  (2026-09-15)
+# Graph Report - NightmareFTW.github.io  (2026-09-07)
 
 ## Corpus Check
-- 194 files · ~1,645,691 words
+- 190 files · ~1,509,329 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1675 nodes · 2710 edges · 232 communities (117 shown, 115 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 162 edges (avg confidence: 0.66)
+- 1607 nodes · 2520 edges · 230 communities (115 shown, 115 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 156 edges (avg confidence: 0.67)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6cd7417b`
+- Built from commit: `14e35aaf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -244,20 +244,18 @@
 - arcana.js
 - passive.js
 - enemy.js
-- artifacts.js
-- artifact.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `t()` - 37 edges
 2. `fetch()` - 20 edges
 3. `run()` - 17 edges
-4. `esc()` - 16 edges
-5. `render()` - 13 edges
-6. `clean()` - 12 edges
-7. `cleanCell()` - 12 edges
-8. `parseHero()` - 12 edges
-9. `officialName()` - 11 edges
-10. `sectionById()` - 11 edges
+4. `clean()` - 12 edges
+5. `officialName()` - 11 edges
+6. `rowsFromPage()` - 11 edges
+7. `detailFor()` - 11 edges
+8. `clean()` - 10 edges
+9. `stripWiki()` - 10 edges
+10. `buildCard()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `parseCompanions()` --indirect_call--> `t()`  [INFERRED]
@@ -288,7 +286,7 @@
 - **Phasmophobia equipment set** — assets_img_phasmo_firelight_firelight, assets_img_phasmo_flashlight_flashlight, assets_img_phasmo_headgear_headgear, assets_img_phasmo_igniter_igniter, assets_img_phasmo_incense_incense, assets_img_phasmo_medication_medication, assets_img_phasmo_motionsensor_motion_sensor, assets_img_phasmo_parabolic_parabolic_microphone [INFERRED 0.75]
 - **Phasmophobia equipment set** — assets_img_phasmo_photocamera_photo_camera, assets_img_phasmo_salt_salt, assets_img_phasmo_soundsensor_sound_sensor, assets_img_phasmo_spiritbox_spirit_box, assets_img_phasmo_thermometer_thermometer, assets_img_phasmo_tripod_tripod, assets_img_phasmo_uv_uv_flashlight, assets_img_phasmo_videocamera_video_camera [INFERRED 0.75]
 
-## Communities (232 total, 115 thin omitted)
+## Communities (230 total, 115 thin omitted)
 
 ### Community 0 - "update-items.js"
 Cohesion: 0.14
@@ -435,8 +433,8 @@ Cohesion: 0.31
 Nodes (10): build(), checks, dutyCard(), esc(), progress(), root, ROUTINE, save() (+2 more)
 
 ### Community 36 - "gear-score.js"
-Cohesion: 0.16
-Nodes (34): artifactRoster(), buildSuggestedTeams(), cleanCell(), costList(), decode(), { execFileSync }, fs, gearSets() (+26 more)
+Cohesion: 0.27
+Nodes (9): addRow(), breakdownEl, calc(), optionsHtml, rowsEl, scoreEl, SUBSTATS, tierEl (+1 more)
 
 ### Community 37 - "meta-builds.js"
 Cohesion: 0.42
@@ -448,7 +446,7 @@ Nodes (8): closeModal(), esc(), mapCard(), matches(), missionPanel(), openMap(),
 
 ### Community 39 - "t"
 Cohesion: 0.06
-Nodes (55): buildSection(), compsFor(), detail, esc(), member(), portrait(), render(), roleClass() (+47 more)
+Nodes (52): eorzea(), etEl, fmt(), JOB_LABEL, listEl, NODES, nodeState(), render() (+44 more)
 
 ### Community 40 - "update-hsr-banners.js"
 Cohesion: 0.27
@@ -487,8 +485,8 @@ Cohesion: 0.43
 Nodes (7): card(), esc(), evBar, labelOf(), render(), renderTabs(), root
 
 ### Community 49 - "speed-tuning.js"
-Cohesion: 0.25
-Nodes (21): awakeningTable(), ELEMENT_COLOR, esc(), exclusiveEquipmentHtml(), fribbelsHtml(), gearSetLine(), gwMetaNote(), heroChipList() (+13 more)
+Cohesion: 0.39
+Nodes (7): colorFor(), renderRows(), renderSeq(), rowsEl, seqEl, simulate(), units
 
 ### Community 50 - "event-calendar.js"
 Cohesion: 0.43
@@ -535,8 +533,8 @@ Cohesion: 0.33
 Nodes (4): CATS, EQUIPMENT, filtersEl, root
 
 ### Community 62 - "damage.js"
-Cohesion: 0.20
-Nodes (20): buildControls(), card(), CLASS_ICON_SLUG, classIcon(), computeRatingRange(), ELEMENT_COLOR, elementIcon(), els (+12 more)
+Cohesion: 0.80
+Nodes (4): $(), calc(), fmt(), num()
 
 ### Community 63 - "builds.js"
 Cohesion: 0.40
@@ -719,8 +717,8 @@ Cohesion: 0.67
 Nodes (3): Prydwen, Update Neverness to Everness Teams, Neverness to Everness
 
 ### Community 223 - "tier-list.js"
-Cohesion: 0.31
-Nodes (8): eorzea(), etEl, fmt(), JOB_LABEL, listEl, NODES, nodeState(), render()
+Cohesion: 0.42
+Nodes (11): buildSection(), compsFor(), detail, esc(), member(), portrait(), render(), roleClass() (+3 more)
 
 ### Community 224 - "weapon.js"
 Cohesion: 0.36
@@ -746,16 +744,8 @@ Nodes (5): esc(), render(), root, statsTable(), usedByArcanas()
 Cohesion: 0.70
 Nodes (4): esc(), render(), root, statsTable()
 
-### Community 230 - "artifacts.js"
-Cohesion: 0.62
-Nodes (6): buildControls(), card(), els, esc(), opt(), render()
-
-### Community 231 - "artifact.js"
-Cohesion: 0.67
-Nodes (5): esc(), heroesHtml(), levelBlock(), render(), root
-
 ## Knowledge Gaps
-- **593 isolated node(s):** `GAMES`, `SITE_UPDATES`, `ATTRS`, `SLOT_LAYOUT`, `I` (+588 more)
+- **584 isolated node(s):** `GAMES`, `SITE_UPDATES`, `ATTRS`, `SLOT_LAYOUT`, `I` (+579 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **115 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -763,16 +753,16 @@ Nodes (5): esc(), heroesHtml(), levelBlock(), render(), root
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `t()` connect `t` to `update-hsr-tierlist.js`, `update-recipes.js`, `items.js`, `update-news.js`, `update-outlast.js`, `builds.js`, `builds.js`, `update-codes.js`, `builds.js`, `builds.js`, `tier-list.js`, `meta-builds.js`, `trials.js`, `update-animals.js`, `update-starpath.js`, `talents.js`, `update-vampire-survivors.js`, `update-ravenswatch.js`, `deck-builder.js`, `tier-list.js`?**
-  _High betweenness centrality (0.086) - this node is a cross-community bridge._
-- **Why does `run()` connect `update-ravenswatch.js` to `t`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
-- **Why does `mealMeta()` connect `update-recipes.js` to `t`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+  _High betweenness centrality (0.100) - this node is a cross-community bridge._
+- **Why does `run()` connect `update-vampire-survivors.js` to `t`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `rowsFromPage()` connect `update-animals.js` to `update-items.js`, `t`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Are the 35 inferred relationships involving `t()` (e.g. with `buildCard()` and `selectTab()`) actually correct?**
   _`t()` has 35 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `clean()` (e.g. with `ddv-fandom.js` and `parseCompanions()`) actually correct?**
+  _`clean()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `GAMES`, `SITE_UPDATES`, `ATTRS` to the rest of the system?**
-  _593 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _584 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `update-items.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1368421052631579 - nodes in this community are weakly interconnected._
-- **Should `animals.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.13793103448275862 - nodes in this community are weakly interconnected._
