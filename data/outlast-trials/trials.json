@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T12:19:01.040Z",
+  "updated": "2026-09-17T18:16:06.297Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -990,7 +990,7 @@
             "Escape",
             "Exit the Trial"
           ],
-          "prime": "30px|link=Prime Time",
+          "prime": "30px|link=|All Prime Assets can appear",
           "tips": []
         }
       ],
