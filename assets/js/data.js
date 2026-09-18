@@ -721,7 +721,7 @@ const GAMES = [
         id: "map",
         name: "Aniimo Map",
         type: "database",
-        desc: "Browse the world of Idyll region by region: which Aniimo live there, and the notable locations and mechanics of each.",
+        desc: "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha Aniimo encounters, pinned where they actually are.",
         href: "games/aniimo/map.html",
         available: true,
       },
@@ -745,7 +745,7 @@ const SITE_UPDATES = [
   {
     date: "2026-09-18",
     title: "Aniimo joins the hub",
-    desc: "A creature database with all 86 Aniimo, plus an interactive region map.",
+    desc: "A creature database with all 86 Aniimo, plus a real interactive world map.",
     image: "assets/img/games/aniimo-header.jpg",
     href: "games/aniimo/index.html",
   },

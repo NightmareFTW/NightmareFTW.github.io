@@ -30,12 +30,41 @@
    - data/aniimo/creatures.json — every Aniimo (basic form only; this does
      not attempt to also scrape every regional/morphology variant):
      elements, role, stage, base stats, mobility, traits, skills (grouped by
-     tab), evolution line, habitats (region names only — no map coordinates;
-     see games/aniimo/map.js for why), and Resonance Training.
+     tab), evolution line, habitats (region names), and Resonance Training.
    - data/aniimo/regions.json — every region name referenced in the
      creatures' own habitats, merged with the official site's own
      name/description/art for the regions it currently showcases (most
      don't have official art yet), plus which Aniimo live in each.
+   - data/aniimo/map.json — real map markers (chests, resources, eggs,
+     Pathfinder Challenges, quest waypoints, landmarks, and named Alpha
+     Aniimo boss encounters) with actual pixel-position coordinates on the
+     game's real world map image, plus that image's own URL. Source:
+     gmtreks.com's Aniimo interactive map — an official-adjacent guide site
+     (Lighthouse Studio Inc. / GameTrek) with a fully open robots.txt and a
+     Terms of Use that only restricts account registration/"the Service"
+     (Japan residents) and reverse-engineering their software; it has no
+     notice against reusing the map data itself, which ships unauthenticated
+     in the plain server-rendered page (no private API call involved) and is
+     served from a wildcard-CORS, hotlink-friendly image CDN. Every marker
+     that names an actual Aniimo (the 5 named Alpha encounters) is cross-
+     referenced against creatures.json by name so the map and database can
+     link to each other; regular (non-Alpha) Aniimo aren't pinned anywhere
+     in-game, so those still rely on the habitat/region data above. See the
+     technical note below for how this payload is decoded, and
+     games/aniimo/map.js for how it's rendered — always credit GameTrek
+     (gmtreks.com) wherever this data is shown, per their Terms of Use.
+
+   Technical note: gmtreks.com is a React Router 7 (Remix) app, which streams
+   its loader data to the client as a single-line "turbo-stream" payload (a
+   flat array-of-refs format, structurally similar to but not the same as
+   devalue's) via `window.__reactRouterContext.streamController.enqueue(...)`
+   in the initial HTML. Adding the `turbo-stream` npm package isn't an option
+   (this repo has zero dependencies), so `unflattenTurboStream()` below is a
+   small, dependency-free reimplementation of its unflatten algorithm —
+   verified byte-for-byte identical output against the real
+   `turbo-stream` package's own decoder on this site's own payload. It only
+   supports what this payload actually uses (plain objects/arrays/primitives
+   plus Date/Set/Map/RegExp/BigInt/URL/null-prototype objects).
 
    Run by .github/workflows/update-aniimo.yml (daily, while the game and
    its wiki are still actively filling in). Node 18+, curl, no dependencies. */
@@ -48,6 +77,9 @@ const SITE = "https://www.aniimo.com";
 const OUT_DIR = path.join(__dirname, "..", "data", "aniimo");
 const OUT_FILE = path.join(OUT_DIR, "creatures.json");
 const OUT_REGIONS = path.join(OUT_DIR, "regions.json");
+const OUT_MAP = path.join(OUT_DIR, "map.json");
+const GMTREKS_MAP_URL = "https://gmtreks.com/aniimo/map/idyll";
+const GMTREKS_ATTRIBUTION = "Map imagery and marker data courtesy of GameTrek (gmtreks.com).";
 
 // A small, hand-checked set of named environmental mechanics tied to a
 // specific region, from Game8's Aniimo interactive-map guide (not a scrape
@@ -61,15 +93,6 @@ const REGION_MECHANICS = {
     { name: "Dandelion Tree", description: "Use the dandelions to reach the peak, which may hide a treasure." },
   ],
 };
-// The map's own marker categories (label only — Game8's legend doesn't give
-// a description for most of these, so this is presented as a plain list of
-// known point-of-interest types, not per-location coordinates).
-const MAP_POI_TYPES = [
-  "Bloom", "Branch", "RV Park", "Sanctum", "Nurture", "Morphling's Memory", "Outpost",
-  "Pathfinder Challenge", "Elite Pathfinder Challenge", "Lumin Amber", "Lumin Marking",
-  "Lumin Collection", "Vein Abundance", "Vein Crevice", "Alpha Aniimo", "Chests",
-];
-
 // ---- minimal devalue unflatten (see file header) ---------------------------
 const UNDEFINED = -1, HOLE = -2, NAN = -3, POS_INF = -4, NEG_INF = -5, NEG_ZERO = -6, SPARSE = -7;
 function unflattenDevalue(values, revivers = {}) {
@@ -138,6 +161,74 @@ function parseNuxtPayload(html) {
   const m = html.match(/<script[^>]*id="__NUXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
   if (!m) return null;
   try { return unflattenDevalue(JSON.parse(m[1]), NUXT_REVIVERS); } catch { return null; }
+}
+
+// ---- minimal turbo-stream unflatten (see file header) ----------------------
+const TS_HOLE = -1, TS_NAN = -2, TS_NEG_INF = -3, TS_NEG_ZERO = -4, TS_NULL = -5, TS_POS_INF = -6, TS_UNDEFINED = -7;
+function unflattenTurboStream(line) {
+  const values = JSON.parse(line);
+  if (!Array.isArray(values) || !values.length) throw new Error("unflattenTurboStream: expected a non-empty array");
+  const hydrated = Array(values.length);
+  function hydrate(index) {
+    switch (index) {
+      case TS_UNDEFINED: return undefined;
+      case TS_NULL: return null;
+      case TS_NAN: return NaN;
+      case TS_POS_INF: return Infinity;
+      case TS_NEG_INF: return -Infinity;
+      case TS_NEG_ZERO: return -0;
+    }
+    if (index in hydrated) return hydrated[index];
+
+    const value = values[index];
+    if (!value || typeof value !== "object") { hydrated[index] = value; return value; }
+
+    if (Array.isArray(value)) {
+      if (typeof value[0] === "string") {
+        const [type, b, c] = value;
+        switch (type) {
+          case "D": { const d = new Date(b); hydrated[index] = d; return d; }
+          case "U": { const u = new URL(b); hydrated[index] = u; return u; }
+          case "B": { const n = BigInt(b); hydrated[index] = n; return n; }
+          case "R": { const r = new RegExp(b, c); hydrated[index] = r; return r; }
+          case "S": { const set = new Set(); hydrated[index] = set; for (let i = 1; i < value.length; i++) set.add(hydrate(value[i])); return set; }
+          case "M": {
+            const map = new Map(); hydrated[index] = map;
+            for (let i = 1; i < value.length; i += 2) map.set(hydrate(value[i]), hydrate(value[i + 1]));
+            return map;
+          }
+          case "N": {
+            const obj = Object.create(null); hydrated[index] = obj;
+            for (const key of Object.keys(b)) obj[hydrate(Number(key.slice(1)))] = hydrate(b[key]);
+            return obj;
+          }
+          case "Z": { const r = hydrate(b); hydrated[index] = r; return r; }
+          default:
+            throw new Error(`unflattenTurboStream: unsupported type "${type}"`);
+        }
+      }
+      const arr = new Array(value.length);
+      hydrated[index] = arr;
+      for (let i = 0; i < value.length; i++) { if (value[i] !== TS_HOLE) arr[i] = hydrate(value[i]); }
+      return arr;
+    }
+
+    const obj = {};
+    hydrated[index] = obj;
+    for (const key of Object.keys(value)) obj[hydrate(Number(key.slice(1)))] = hydrate(value[key]);
+    return obj;
+  }
+  return hydrate(0);
+}
+
+function parseTurboStreamPayload(html) {
+  const m = html.match(/streamController\.enqueue\((".*?")\)/s);
+  if (!m) return null;
+  let raw;
+  try { raw = JSON.parse(m[1]); } catch { return null; }
+  const line = raw.split("\n")[0];
+  if (!line) return null;
+  try { return unflattenTurboStream(line); } catch { return null; }
 }
 
 // ---- helpers ----------------------------------------------------------------
@@ -296,11 +387,71 @@ function buildRegions(creatures) {
     updated: new Date().toISOString(),
     source: `${SITE}/main`,
     mechanicsSource: GAME8_MAP_URL,
-    poiTypes: MAP_POI_TYPES,
     count: regions.length,
     regions,
   }, null, 2));
   console.log(`Wrote ${regions.length} regions to ${OUT_REGIONS} (${official.length} with official art).`);
+}
+
+// The real interactive map (see file header for sourcing/ethics notes).
+// Named Alpha Aniimo boss-encounter markers are cross-referenced against the
+// creature database by name so the map can link straight to that Aniimo's
+// page; every other marker (chests, resources, eggs, challenges, quest
+// waypoints, landmarks) is kept as-is since it isn't a creature encounter.
+function buildMap(creatures) {
+  const html = getText(GMTREKS_MAP_URL, { timeout: 30 });
+  if (!html) { console.warn("gmtreks.com fetch failed, skipping map rebuild"); return; }
+
+  const payload = parseTurboStreamPayload(html);
+  const mapData = payload && payload.loaderData && payload.loaderData.map;
+  if (!mapData || !Array.isArray(mapData.mapMarkers) || !mapData.mapMarkers.length) {
+    console.warn("could not parse gmtreks.com map payload, skipping map rebuild");
+    return;
+  }
+
+  const byName = new Map(creatures.map((c) => [c.name.toLowerCase(), c]));
+  const decodeCategoryId = (id) => { try { return Buffer.from(id, "base64").toString("utf8"); } catch { return id; } };
+  const categories = mapData.markerCategories.map((c) => {
+    const decoded = decodeCategoryId(c.id);
+    const group = decoded.includes("---") ? decoded.split("---")[0] : null;
+    return { id: c.id, name: c.name, group, icon: c.iconUrl || "" };
+  });
+  const groupById = new Map(categories.map((c) => [c.id, c.group]));
+
+  const { mapWidth, mapHeight } = mapData.mapMeta || {};
+  const markers = mapData.mapMarkers
+    .filter((m) => mapWidth && mapHeight)
+    .map((m) => {
+      const bareName = m.name.replace(/^Alpha\s+/, "");
+      const creature = byName.get(m.name.toLowerCase()) || byName.get(bareName.toLowerCase());
+      return {
+        id: m.id,
+        name: m.name,
+        categoryId: m.categoryId,
+        group: groupById.get(m.categoryId) || null,
+        x: m.posX / mapWidth,
+        y: m.posY / mapHeight,
+        creatureSlug: creature ? creature.slug : null,
+      };
+    });
+
+  const bgImage = mapData.mapStyleSpecification && mapData.mapStyleSpecification.sources
+    && mapData.mapStyleSpecification.sources["background-image"];
+  if (!bgImage || !bgImage.url) { console.warn("gmtreks.com map has no background image, skipping map rebuild"); return; }
+
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+  fs.writeFileSync(OUT_MAP, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: GMTREKS_MAP_URL,
+    attribution: GMTREKS_ATTRIBUTION,
+    mapImage: bgImage.url,
+    mapWidth,
+    mapHeight,
+    categories,
+    count: markers.length,
+    markers,
+  }, null, 2));
+  console.log(`Wrote ${markers.length} map markers to ${OUT_MAP}`);
 }
 
 function run() {
@@ -340,10 +491,14 @@ function run() {
   console.log(`Wrote ${creatures.length} creatures to ${OUT_FILE}`);
 
   buildRegions(creatures);
+  buildMap(creatures);
 }
 
 if (require.main === module) {
-  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS], e); }
+  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP], e); }
 } else {
-  module.exports = { unflattenDevalue, parseNuxtPayload, parseCreature, buildRegions, slugify };
+  module.exports = {
+    unflattenDevalue, parseNuxtPayload, parseCreature, buildRegions, slugify,
+    unflattenTurboStream, parseTurboStreamPayload, buildMap,
+  };
 }

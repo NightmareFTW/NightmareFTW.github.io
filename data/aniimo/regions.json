@@ -1,25 +1,7 @@
 {
-  "updated": "2026-09-18T05:30:32.098Z",
+  "updated": "2026-09-18T07:46:51.469Z",
   "source": "https://www.aniimo.com/main",
   "mechanicsSource": "https://game8.co/games/Aniimo/archives/618730",
-  "poiTypes": [
-    "Bloom",
-    "Branch",
-    "RV Park",
-    "Sanctum",
-    "Nurture",
-    "Morphling's Memory",
-    "Outpost",
-    "Pathfinder Challenge",
-    "Elite Pathfinder Challenge",
-    "Lumin Amber",
-    "Lumin Marking",
-    "Lumin Collection",
-    "Vein Abundance",
-    "Vein Crevice",
-    "Alpha Aniimo",
-    "Chests"
-  ],
   "count": 16,
   "regions": [
     {

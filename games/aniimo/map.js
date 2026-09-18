@@ -1,46 +1,196 @@
 /* Aniimo — Map.
-   Not a pixel-accurate world map: the only sources that publish real spawn
-   coordinates for Aniimo gate that dataset behind their own private map
-   tools and/or explicitly disallow bulk reproduction of it, so this is a
-   region browser instead — genuinely interactive (pick an Aniimo to see
-   its regions light up, or open a region to see who lives there), built
-   from data we can actually use: the official site's own region art/lore
-   (for the regions it currently showcases) plus every region name in the
-   Aniimo database's own habitats, cross-referenced against it.
-   Data: data/aniimo/regions.json + data/aniimo/creatures.json. */
+   A real interactive map: actual pixel positions for chests, resources,
+   eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha
+   Aniimo encounters, pinned on the game's own world map image. Sourced from
+   gmtreks.com (GameTrek) — see scripts/update-aniimo.js for how and why.
+   Regular (non-Alpha) Aniimo aren't pinned anywhere in-game, so the region
+   browser below the map (built from the official site's own region art plus
+   the Aniimo database's habitats) still covers "where does X live".
+   Data: data/aniimo/map.json + data/aniimo/regions.json + data/aniimo/creatures.json. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const ELEMENT_COLOR = {
   Fire: "#f2543d", Water: "#3d9bf2", Grass: "#6bbf3f", Electric: "#e0c23a", Ice: "#38b6e0",
   Wind: "#7fd9c4", Dark: "#a866e0", Holy: "#f2e6a3", Rock: "#a9835a",
 };
+const MIN_ZOOM_STEP = 0.15, MAX_SCALE = 2.5;
 
-let REGIONS = null, CREATURES = null, activeAniimoSlug = "", query = "";
+let MAP = null, REGIONS = null, CREATURES = null;
+let activeAniimoSlug = "", query = "", regionQuery = "";
+let scale = 0.2, fitScale = 0.2;
+let hiddenCategories = new Set();
+let openPopupMarkerId = null;
 
 const els = {
+  toolbar: document.getElementById("am-toolbar"),
+  legend: document.getElementById("am-legend"),
+  mapContainer: document.getElementById("am-map-container"),
+  attribution: document.getElementById("am-attribution"),
   controls: document.getElementById("am-controls"),
   grid: document.getElementById("am-grid"),
   detail: document.getElementById("am-detail"),
 };
 const opt = (v, label, sel) => `<option value="${esc(v)}" ${v === sel ? "selected" : ""}>${esc(label)}</option>`;
 
-function buildControls() {
+// ---- toolbar + legend -------------------------------------------------------
+function buildToolbar() {
   const aniimoOpts = [...CREATURES].sort((a, b) => a.name.localeCompare(b.name))
     .map((c) => opt(c.slug, c.name, activeAniimoSlug)).join("");
-  els.controls.innerHTML = `
-    <input type="search" id="f-search" class="search-input" placeholder="Search regions…" autocomplete="off" value="${esc(query)}">
-    <select id="f-aniimo" class="sort-select"><option value="">Jump to an Aniimo…</option>${aniimoOpts}</select>`;
-  document.getElementById("f-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); renderGrid(); });
-  document.getElementById("f-aniimo").addEventListener("change", (e) => {
-    activeAniimoSlug = e.target.value;
-    renderGrid();
-    if (activeAniimoSlug) {
-      const first = REGIONS.regions.find((r) => r.creatures.some((c) => c.slug === activeAniimoSlug));
-      if (first) openRegion(first.name);
-    } else {
-      els.detail.innerHTML = "";
-    }
+  els.toolbar.innerHTML = `
+    <input type="search" id="am-search" class="search-input" placeholder="Search the map…" autocomplete="off" value="${esc(query)}">
+    <select id="am-jump" class="sort-select"><option value="">Jump to an Aniimo…</option>${aniimoOpts}</select>
+    <button type="button" class="am-zoom-btn" id="am-zoom-out" title="Zoom out" aria-label="Zoom out">−</button>
+    <button type="button" class="am-zoom-btn" id="am-zoom-reset" title="Fit to width" aria-label="Fit to width">⤢</button>
+    <button type="button" class="am-zoom-btn" id="am-zoom-in" title="Zoom in" aria-label="Zoom in">+</button>`;
+  document.getElementById("am-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); renderPins(); });
+  document.getElementById("am-jump").addEventListener("change", (e) => jumpToAniimo(e.target.value));
+  document.getElementById("am-zoom-out").addEventListener("click", () => setScale(scale - MIN_ZOOM_STEP));
+  document.getElementById("am-zoom-in").addEventListener("click", () => setScale(scale + MIN_ZOOM_STEP));
+  document.getElementById("am-zoom-reset").addEventListener("click", () => setScale(fitScale));
+}
+
+function buildLegend() {
+  els.legend.innerHTML = MAP.categories.map((c) => {
+    const count = MAP.markers.filter((m) => m.categoryId === c.id).length;
+    const off = hiddenCategories.has(c.id);
+    return `<span class="am-legend-item${off ? " am-off" : ""}" data-cat="${esc(c.id)}" role="button" tabindex="0">
+      <img src="${esc(c.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer">${esc(c.name)} (${count})</span>`;
+  }).join("");
+  els.legend.querySelectorAll("[data-cat]").forEach((el) => {
+    const toggle = () => {
+      const id = el.dataset.cat;
+      if (hiddenCategories.has(id)) hiddenCategories.delete(id); else hiddenCategories.add(id);
+      el.classList.toggle("am-off");
+      renderPins();
+    };
+    el.addEventListener("click", toggle);
+    el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
   });
+}
+
+// ---- the map itself ---------------------------------------------------------
+function buildMapStage() {
+  const wrapWidth = els.mapContainer.clientWidth || 900;
+  fitScale = Math.min(1, wrapWidth / MAP.mapWidth);
+  scale = fitScale;
+  els.mapContainer.innerHTML = `
+    <div class="am-map-wrap" id="am-map-wrap">
+      <div class="am-map-stage" id="am-map-stage">
+        <img src="${esc(MAP.mapImage)}" alt="Aniimo world map" referrerpolicy="no-referrer">
+      </div>
+    </div>`;
+  applyScale();
+  renderPins();
+}
+
+function applyScale() {
+  const stage = document.getElementById("am-map-stage");
+  if (!stage) return;
+  stage.style.width = `${MAP.mapWidth * scale}px`;
+  stage.style.height = `${MAP.mapHeight * scale}px`;
+}
+
+function setScale(next) {
+  const wrap = document.getElementById("am-map-wrap");
+  const stage = document.getElementById("am-map-stage");
+  if (!wrap || !stage) return;
+  const cx = (wrap.scrollLeft + wrap.clientWidth / 2) / scale;
+  const cy = (wrap.scrollTop + wrap.clientHeight / 2) / scale;
+  scale = Math.max(fitScale, Math.min(MAX_SCALE, next));
+  applyScale();
+  wrap.scrollLeft = cx * scale - wrap.clientWidth / 2;
+  wrap.scrollTop = cy * scale - wrap.clientHeight / 2;
+}
+
+function pinMatchesQuery(m) {
+  return !query || m.name.toLowerCase().includes(query);
+}
+
+function renderPins() {
+  const stage = document.getElementById("am-map-stage");
+  if (!stage) return;
+  stage.querySelectorAll(".am-pin").forEach((p) => p.remove());
+  const frag = document.createDocumentFragment();
+  for (const m of MAP.markers) {
+    const cat = MAP.categories.find((c) => c.id === m.categoryId);
+    const pin = document.createElement("button");
+    pin.type = "button";
+    pin.className = "am-pin" + (m.creatureSlug ? " am-pin-creature" : "");
+    if (hiddenCategories.has(m.categoryId) || !pinMatchesQuery(m)) pin.classList.add("am-hidden");
+    pin.style.left = `${m.x * 100}%`;
+    pin.style.top = `${m.y * 100}%`;
+    pin.title = m.name;
+    pin.dataset.markerId = m.id;
+    pin.innerHTML = cat && cat.icon ? `<img src="${esc(cat.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : "";
+    pin.addEventListener("click", (e) => { e.stopPropagation(); openPopup(m, pin); });
+    frag.appendChild(pin);
+  }
+  stage.appendChild(frag);
+}
+
+function openPopup(marker, pinEl) {
+  closePopup();
+  openPopupMarkerId = marker.id;
+  const cat = MAP.categories.find((c) => c.id === marker.categoryId);
+  const rect = pinEl.getBoundingClientRect();
+  const popup = document.createElement("div");
+  popup.className = "am-popup";
+  popup.id = "am-popup";
+  popup.innerHTML = `
+    <button type="button" class="am-popup-close" aria-label="Close">✕</button>
+    <div class="am-popup-title">${cat && cat.icon ? `<img src="${esc(cat.icon)}" alt="" referrerpolicy="no-referrer">` : ""}${esc(marker.name)}</div>
+    <div class="am-popup-group">${esc(marker.group || "")}</div>
+    ${marker.creatureSlug ? `<a class="am-popup-link" href="aniimo.html?slug=${encodeURIComponent(marker.creatureSlug)}">View in database →</a>` : ""}`;
+  document.body.appendChild(popup);
+  const pw = popup.offsetWidth, ph = popup.offsetHeight;
+  let top = rect.top - ph - 10;
+  if (top < 8) top = rect.bottom + 10;
+  let left = Math.min(Math.max(8, rect.left - pw / 2), window.innerWidth - pw - 8);
+  popup.style.top = `${top}px`;
+  popup.style.left = `${left}px`;
+  popup.querySelector(".am-popup-close").addEventListener("click", closePopup);
+}
+function closePopup() {
+  const p = document.getElementById("am-popup");
+  if (p) p.remove();
+  openPopupMarkerId = null;
+}
+document.addEventListener("click", (e) => { if (openPopupMarkerId && !e.target.closest("#am-popup")) closePopup(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePopup(); });
+window.addEventListener("resize", () => { if (document.getElementById("am-map-stage")) buildMapStage(); });
+
+function jumpToAniimo(slug) {
+  activeAniimoSlug = slug;
+  if (!slug) { renderGrid(); return; }
+  const marker = MAP.markers.find((m) => m.creatureSlug === slug);
+  if (marker) {
+    els.mapContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+    hiddenCategories.forEach((id) => hiddenCategories.delete(id));
+    buildLegend();
+    query = "";
+    document.getElementById("am-search").value = "";
+    renderPins();
+    requestAnimationFrame(() => {
+      const wrap = document.getElementById("am-map-wrap");
+      const stage = document.getElementById("am-map-stage");
+      if (!wrap || !stage) return;
+      wrap.scrollLeft = marker.x * stage.clientWidth - wrap.clientWidth / 2;
+      wrap.scrollTop = marker.y * stage.clientHeight - wrap.clientHeight / 2;
+      const pin = stage.querySelector(`[data-marker-id="${CSS.escape(marker.id)}"]`);
+      if (pin) { pin.classList.add("am-target"); openPopup(marker, pin); setTimeout(() => pin.classList.remove("am-target"), 4200); }
+    });
+  } else {
+    closePopup();
+    const first = REGIONS.regions.find((r) => r.creatures.some((c) => c.slug === slug));
+    if (first) openRegion(first.name); else els.grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  renderGrid();
+}
+
+// ---- regions section (habitats, not pinned individually in-game) -----------
+function buildControls() {
+  els.controls.innerHTML = `<input type="search" id="f-search" class="search-input" placeholder="Search regions…" autocomplete="off" value="${esc(regionQuery)}">`;
+  document.getElementById("f-search").addEventListener("input", (e) => { regionQuery = e.target.value.trim().toLowerCase(); renderGrid(); });
 }
 
 function regionHasAniimo(region) {
@@ -63,7 +213,7 @@ function tile(region) {
 
 function renderGrid() {
   let list = REGIONS.regions;
-  if (query) list = list.filter((r) => r.name.toLowerCase().includes(query));
+  if (regionQuery) list = list.filter((r) => r.name.toLowerCase().includes(regionQuery));
   els.grid.innerHTML = list.length ? `<div class="tool-grid">${list.map(tile).join("")}</div>` : `<p class="no-results">No regions match.</p>`;
   els.grid.querySelectorAll("[data-region]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); openRegion(a.dataset.region); }));
 }
@@ -93,19 +243,23 @@ function openRegion(name) {
 
 (async function init() {
   try {
-    [REGIONS, CREATURES] = await Promise.all([
+    [MAP, REGIONS, CREATURES] = await Promise.all([
+      fetch(`../../data/aniimo/map.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/regions.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()).then((d) => d.creatures),
     ]);
-    const upd = REGIONS.updated ? new Date(REGIONS.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
-    document.getElementById("am-updated").textContent = `${REGIONS.count} regions · updated ${upd}`;
+    const upd = MAP.updated ? new Date(MAP.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
+    document.getElementById("am-updated").textContent = `${MAP.count} map markers · updated ${upd}`;
+    els.attribution.innerHTML = `Map imagery and marker data courtesy of <a href="${esc(MAP.source)}" target="_blank" rel="noopener">GameTrek</a>.`;
+
+    buildToolbar();
+    buildLegend();
+    buildMapStage();
+
     buildControls();
     renderGrid();
-    if (REGIONS.poiTypes && REGIONS.poiTypes.length) {
-      document.getElementById("am-legend-list").innerHTML = REGIONS.poiTypes.map((t) => `<span class="ev-chip">${esc(t)}</span>`).join("");
-      document.getElementById("am-legend").hidden = false;
-    }
   } catch (e) {
-    els.grid.innerHTML = `<p class="tool-note">Couldn't load Aniimo map data.</p>`;
+    els.mapContainer.innerHTML = `<p class="tool-note">Couldn't load Aniimo map data.</p>`;
+    els.grid.innerHTML = `<p class="tool-note">Couldn't load Aniimo region data.</p>`;
   }
 })();
