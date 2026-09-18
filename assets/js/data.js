@@ -733,6 +733,14 @@ const GAMES = [
         href: "games/aniimo/map.html",
         available: true,
       },
+      {
+        id: "talents",
+        name: "Talent Build Route",
+        type: "builder",
+        desc: "The Pathfinder's own talent tree, plus Game8's recommended pick order: which to unlock first, and why.",
+        href: "games/aniimo/talents.html",
+        available: true,
+      },
     ],
   },
 ];
@@ -750,6 +758,13 @@ const GAMES = [
    repo's history for how the assets/img/updates/*.jpg screenshots were
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
+  {
+    date: "2026-09-18",
+    title: "Aniimo gets a Talent Build Route",
+    desc: "The Pathfinder's own talent tree, plus a recommended pick order for which to unlock first.",
+    image: "assets/img/updates/aniimo-talent-route.jpg",
+    href: "games/aniimo/talents.html",
+  },
   {
     date: "2026-09-18",
     title: "Ravenswatch gets a Build Route Planner",
@@ -798,12 +813,5 @@ const SITE_UPDATES = [
     desc: "Unlock everything at once, or just one DLC at a time.",
     image: "assets/img/updates/vs-bulk-unlock.jpg",
     href: "games/vampire-survivors/achievements.html",
-  },
-  {
-    date: "2026-08-31",
-    title: "A full walkthrough for Chaos",
-    desc: "Every Secret needed to unlock Vampire Survivors' final character, phase by phase.",
-    image: "assets/img/updates/vs-chaos-guide.jpg",
-    href: "games/vampire-survivors/character.html?slug=chaos",
   },
 ];

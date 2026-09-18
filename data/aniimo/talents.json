@@ -1,0 +1,355 @@
+{
+  "updated": "2026-09-18T09:07:33.106Z",
+  "source": "https://game8.co/games/Aniimo/archives/621195",
+  "recommendedSource": "https://game8.co/games/Aniimo/archives/619809",
+  "titles": [
+    "Student",
+    "Wayfarer",
+    "Trailblazer"
+  ],
+  "levelNames": {
+    "1": "Beginner",
+    "2": "Intermediate",
+    "3": "Veteran"
+  },
+  "resetCost": "2000 Credits",
+  "count": 28,
+  "talents": [
+    {
+      "name": "Aeroboard",
+      "icon": "https://img.game8.co/4619293/b3dd739f0454cd44c34feb64561705b7.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622702",
+      "type": "Active",
+      "cd": "20s",
+      "title": "Student",
+      "level": 1,
+      "desc": "A hover board that helps you travel faster and does not cost stamina. Can be used in Astra.",
+      "recommended": null
+    },
+    {
+      "name": "Elemental Boost",
+      "icon": "https://img.game8.co/4619298/c43a3e7b137c3687c942f6e534fdbe57.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622736",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 1,
+      "desc": "Increases elemental counter effect by 3/6/9/12%.",
+      "recommended": null
+    },
+    {
+      "name": "Enhanced Twining",
+      "icon": "https://img.game8.co/4619296/32ad298a74fe52c2ccc5f4e2c7ba000c.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622700",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 1,
+      "desc": "Increases Aniimo damage after twining by 10/13/16/20/25%.",
+      "recommended": {
+        "group": "Passive",
+        "rank": 2,
+        "reason": "Enhanced Twining increases aniimo damage after twining by a certain percentage. You will likely use Twining in most scenarios such as enemy encounters and boss fights, so having increased damage allows you to defeat enemies faster."
+      }
+    },
+    {
+      "name": "Heal",
+      "icon": "https://img.game8.co/4619295/3e5b621145b6c3f7830b458cd9d3c12e.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622701",
+      "type": "Active",
+      "cd": "15s",
+      "title": "Student",
+      "level": 1,
+      "desc": "You sprinkle healing dust on the engaged Aniimo to restore its HP.",
+      "recommended": {
+        "group": "Active",
+        "rank": 3,
+        "reason": "Heal is an active skill that lets you restore the HP of the Aniimo. It is one of the first skills you can unlock and comes in handy when using Command Mode in combat."
+      }
+    },
+    {
+      "name": "Master Trainer",
+      "icon": "https://img.game8.co/4619297/e67ddef31c0a194836b62de5d624aa96.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622735",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 1,
+      "desc": "Aniimo EXP gained from catching and defeating targets or using EXP items increases by 10/15/20/30%.",
+      "recommended": {
+        "group": "Passive",
+        "rank": 3,
+        "reason": "Master Trainer is a passive skill that increases the amount of experience you gained from catching aniimo, defeating enemies, and using experience gems by a certain percentage. Unlocking this skill is recommended to level up faster and unlock now skills."
+      }
+    },
+    {
+      "name": "Mode Switch",
+      "icon": "https://img.game8.co/4619294/7a700fc41ff62d9aaaa0af8e88fc8507.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622734",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 1,
+      "desc": "Enables switching between Catch Mode, Attack Mode, and Defensive Mode.",
+      "recommended": null
+    },
+    {
+      "name": "Pro Catcher",
+      "icon": "https://img.game8.co/4619337/fb18668e84f4030ba441fe6b0109ee00.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622733",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 1,
+      "desc": "Unlocks Aniipod Pro in the shop.",
+      "recommended": null
+    },
+    {
+      "name": "Swoleshroom",
+      "icon": "https://img.game8.co/4619422/84e20be1fc7be764fd44349fe39f46e0.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622711",
+      "type": "Active",
+      "cd": "20s",
+      "title": "Student",
+      "level": 1,
+      "desc": "A newly developed energy mushroom. Feed it to the active Aniimo to increase its size and attack range, and increase damage taken by enemies by 20%.",
+      "recommended": null
+    },
+    {
+      "name": "Boss Breaker",
+      "icon": "https://img.game8.co/4619343/ba79888832e50a4c8d4b7a11454b0b70.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622732",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 2,
+      "desc": "Increases damage to Alpha and Omega by 5%.",
+      "recommended": null
+    },
+    {
+      "name": "Dreamsong",
+      "icon": "https://img.game8.co/4619342/e38ec0e61d6a355f7fbe8fb75689aa48.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622731",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 2,
+      "desc": "Dreaple’s exceptional evolution unlocked.",
+      "recommended": null
+    },
+    {
+      "name": "Gravity Pull",
+      "icon": "https://img.game8.co/4619339/2d169c34f7b8ce34be6ea26dff827be6.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622703",
+      "type": "Active",
+      "cd": "0s",
+      "title": "Student",
+      "level": 2,
+      "desc": "Activates the target’s energy field to create a gravity link. Move objects with ancient energy patterns from a distance. Essential for solving puzzles in ancient ruins.",
+      "recommended": null
+    },
+    {
+      "name": "Mega Mallet",
+      "icon": "https://img.game8.co/4619338/bcc56a94cb758797aa224182b9f52ccb.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622704",
+      "type": "Active",
+      "cd": "15s",
+      "title": "Student",
+      "level": 2,
+      "desc": "Smash the targets within a circular area in front with a huge energy hammer, dealing a large amount of BREAK damage. It can also smash solid objects.",
+      "recommended": {
+        "group": "Active",
+        "rank": 1,
+        "reason": "Mega Mallet allows your Pathfinder to smash solid objects and deal a large amount of Break damage within a circular target. This is one of the most recommended skill as it allows your player character to deal damage to enemies while also commanding your aniimo to fight in combat."
+      }
+    },
+    {
+      "name": "Elemental Ward",
+      "icon": "https://img.game8.co/4619381/da77491c5994ea1c001cee857bcfe4f3.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622729",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 3,
+      "desc": "Increases element resistance effect by 3/6/9/12%.",
+      "recommended": null
+    },
+    {
+      "name": "Magical Horn",
+      "icon": "https://img.game8.co/4619385/bd32c1e95e9921d4387564f942825a2c.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622718",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 3,
+      "desc": "Unlocks Tromber’s exceptional evolution.",
+      "recommended": null
+    },
+    {
+      "name": "Master Catcher",
+      "icon": "https://img.game8.co/4619386/186b60abe06cfec4356a855e08613172.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622728",
+      "type": "Passive",
+      "cd": null,
+      "title": "Student",
+      "level": 3,
+      "desc": "Unlocks purchasing Aniipod Megas, Aniipod Hypers, Aniipod Traces, and Tumblers at shops.",
+      "recommended": null
+    },
+    {
+      "name": "Plushie Pummel",
+      "icon": "https://img.game8.co/4619341/b0cfa1ed5818412896293626c3ed5b36.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622706",
+      "type": "Active",
+      "cd": "20s",
+      "title": "Student",
+      "level": 3,
+      "desc": "You spin around and wave the doll like crazy, dealing BREAK damage to targets in your path and smashing hard objects.",
+      "recommended": null
+    },
+    {
+      "name": "Tweetin' Target",
+      "icon": "https://img.game8.co/4619336/867e8d1d0d2b93a920b1ff4ebc86cadb.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622705",
+      "type": "Active",
+      "cd": "20s",
+      "title": "Student",
+      "level": 3,
+      "desc": "Consumes 1 rubber duck and throw it at the target area to draw the attention of all Aniimo in a non-combat state in range for 10s.",
+      "recommended": {
+        "group": "Active",
+        "rank": 4,
+        "reason": "Tweetin' Target lets you throw a yellow rubber duck on the ground to attract an aniimo when not in combat. If you prefer a stealth approach when catching aniimo, unlocking this skill is recommended as it lets you obtain stealth catch bonuses easier."
+      }
+    },
+    {
+      "name": "Bubble Gun",
+      "icon": "https://img.game8.co/4619382/be72eb745b423c287239c1e9446820a7.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622707",
+      "type": "Active",
+      "cd": "2s",
+      "title": "Wayfarer",
+      "level": 1,
+      "desc": "Prevents the target Aniimo from being Fainted. While the effect is active, its HP cannot drop below 1, allowing it to be caught multiple times in battle.",
+      "recommended": {
+        "group": "Active",
+        "rank": 2,
+        "reason": "Bubble Gun lets you use a bottle of vigor bubbles towards a targeted aniimo to prevent them from fainting. The HP of the targeted aniimo will remain above 1, allowing you to make multiple catch attempts."
+      }
+    },
+    {
+      "name": "Nimble Dodge",
+      "icon": "https://img.game8.co/4619383/af18b930f33dc36337823d741853004e.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622726",
+      "type": "Passive",
+      "cd": null,
+      "title": "Wayfarer",
+      "level": 1,
+      "desc": "Reduces stamina cost for dodging by 10%.",
+      "recommended": null
+    },
+    {
+      "name": "Research Expert",
+      "icon": "https://img.game8.co/4619380/36496b7d1f7c7e2b60af0516fb08802f.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622725",
+      "type": "Passive",
+      "cd": null,
+      "title": "Wayfarer",
+      "level": 1,
+      "desc": "Reporting grants 10/15/20/30% more Credits.",
+      "recommended": null
+    },
+    {
+      "name": "Revive",
+      "icon": "https://img.game8.co/4619387/7127ac089a6dfcd0555d09948c9c9fb3.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622708",
+      "type": "Active",
+      "cd": "180s",
+      "title": "Wayfarer",
+      "level": 1,
+      "desc": "Allows you to revive Aniimo in your roster.",
+      "recommended": null
+    },
+    {
+      "name": "Peculiar Rock Ball",
+      "icon": "https://img.game8.co/4619379/d8cba1386572f66d79ffb220217badd4.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622723",
+      "type": "Passive",
+      "cd": null,
+      "title": "Wayfarer",
+      "level": 2,
+      "desc": "Unlocks Bouldus’s exceptional evolution.",
+      "recommended": null
+    },
+    {
+      "name": "Quick Twine",
+      "icon": "https://img.game8.co/4619340/0865b2c496e4af8040af7a96b5f6b723.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622724",
+      "type": "Passive",
+      "cd": null,
+      "title": "Wayfarer",
+      "level": 2,
+      "desc": "Amplifies your mind power and reduces the time needed to twine with an Aniimo to a mere instant.",
+      "recommended": {
+        "group": "Passive",
+        "rank": 1,
+        "reason": "Quick Twine is a combat skill that lets you instantly twine with an aniimo. By default, it takes a few seconds to switch from Pathfinder to Aniimo. Unlocking this skill makes the switch instant, allowing you to do this while in the middle of combat."
+      }
+    },
+    {
+      "name": "Go! Rubber Duck!",
+      "icon": "https://img.game8.co/4619384/27c7fba25821b9163b8dbdad6b4e4901.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622710",
+      "type": "Active",
+      "cd": "60s",
+      "title": "Wayfarer",
+      "level": 3,
+      "desc": "Consumes 1 Giant Rubber Duck and throw it at the target area, drawing the attention of all out-of-combat Aniimo within a large area for 20s.",
+      "recommended": null
+    },
+    {
+      "name": "Measured Strike",
+      "icon": "https://img.game8.co/4619426/a08b8436e7523549838cfe1ede1a69a9.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622722",
+      "type": "Passive",
+      "cd": null,
+      "title": "Wayfarer",
+      "level": 3,
+      "desc": "Aniimo deals 10% increased damage to targets in BREAK state.",
+      "recommended": null
+    },
+    {
+      "name": "Sure Shot",
+      "icon": "https://img.game8.co/4619424/26e37fca2b3d9b1a5fc23fdb54b82cfd.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622721",
+      "type": "Passive",
+      "cd": null,
+      "title": "Wayfarer",
+      "level": 3,
+      "desc": "Greatly increases Aniipod's targeting range.",
+      "recommended": null
+    },
+    {
+      "name": "Fast Charge",
+      "icon": "https://img.game8.co/4619425/eae39024800247d2f7fe9537495c6702.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622720",
+      "type": "Passive",
+      "cd": null,
+      "title": "Trailblazer",
+      "level": 1,
+      "desc": "Increases the charging speed of Aniimo ultimates by 10%.",
+      "recommended": null
+    },
+    {
+      "name": "Unwavering Rampart",
+      "icon": "https://img.game8.co/4619423/1c944aa08a3d61559725463c71279e7f.png/show",
+      "url": "https://game8.co/games/Aniimo/archives/622719",
+      "type": "Passive",
+      "cd": null,
+      "title": "Trailblazer",
+      "level": 1,
+      "desc": "Unlocks Rookey’s exceptional evolution.",
+      "recommended": null
+    }
+  ]
+}

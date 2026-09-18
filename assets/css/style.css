@@ -2766,3 +2766,20 @@ button.vs-xref-ambiguous { background: none; border: none; padding: 0; margin: 0
 .am-attribution a { color: var(--accent-2); }
 .am-fallback { margin-top: 8px; }
 .am-section-title { margin: 30px 0 4px; font-size: 1.1rem; }
+
+/* ---- Aniimo — Talent Build Route (the Pathfinder's own talents) ---- */
+.at-route-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 14px; }
+.at-route-group h3 { font-size: 0.95rem; margin-bottom: 4px; }
+.at-route-item { display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--border); }
+.at-route-item:first-of-type { border-top: none; }
+.at-route-rank { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px;
+  border-radius: 50%; background: var(--accent); color: #fff; font-family: var(--mono); font-size: 0.78rem; font-weight: 800; flex-shrink: 0; }
+.at-route-icon { width: 36px; height: 36px; border-radius: 8px; object-fit: contain; background: var(--bg-soft);
+  border: 1px solid var(--border); flex-shrink: 0; }
+.at-route-name { font-weight: 700; }
+.at-route-unlock { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-left: 7px; }
+.at-route-reason { font-size: 0.85rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+.at-tier { margin-top: 24px; }
+.at-tier-head { font-size: 1rem; margin: 0 0 4px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.at-level-head { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 14px 0 6px; }
+.at-recommended-badge { background: rgba(255, 36, 53, .18); color: var(--accent-2); }
