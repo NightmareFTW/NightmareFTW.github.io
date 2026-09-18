@@ -1725,7 +1725,7 @@
       "A maioria dos Aniimo não está marcada individualmente no jogo; aqui está o que se sabe que vive em cada região.",
     "Loading map…": "A carregar o mapa…", "Loading regions…": "A carregar regiões…",
     "Search the map…": "Procurar no mapa…",
-    "Zoom out": "Afastar", "Fit to width": "Ajustar à largura", "Zoom in": "Aproximar",
+    "Zoom out": "Afastar", "Reset zoom": "Repor zoom", "Zoom in": "Aproximar",
     "Aniimo world map": "Mapa do mundo de Aniimo",
     "View in database →": "Ver na base de dados →",
     "Couldn't load Aniimo region data.": "Não foi possível carregar os dados das regiões de Aniimo.",
