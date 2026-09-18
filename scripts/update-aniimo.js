@@ -53,6 +53,13 @@
      technical note below for how this payload is decoded, and
      games/aniimo/map.js for how it's rendered — always credit GameTrek
      (gmtreks.com) wherever this data is shown, per their Terms of Use.
+   - data/aniimo/talents.json — the Pathfinder's (the player character, not
+     an Aniimo) full talent tree: all 28 Active/Passive talents, which
+     trainer title (Student/Wayfarer/Trailblazer) and level within it each
+     unlocks at, plus Game8's own "Best Talents and Passives" priority order
+     (attributed, not a claim of our own) for a genuine build route rather
+     than an arbitrary one. Source: game8.co, already used elsewhere in this
+     scraper for the map's mechanics text — see GAME8_MAP_URL above.
 
    Technical note: gmtreks.com is a React Router 7 (Remix) app, which streams
    its loader data to the client as a single-line "turbo-stream" payload (a
@@ -78,8 +85,12 @@ const OUT_DIR = path.join(__dirname, "..", "data", "aniimo");
 const OUT_FILE = path.join(OUT_DIR, "creatures.json");
 const OUT_REGIONS = path.join(OUT_DIR, "regions.json");
 const OUT_MAP = path.join(OUT_DIR, "map.json");
+const OUT_TALENTS = path.join(OUT_DIR, "talents.json");
 const GMTREKS_MAP_URL = "https://gmtreks.com/aniimo/map/idyll";
 const GMTREKS_ATTRIBUTION = "Map imagery and marker data courtesy of GameTrek (gmtreks.com).";
+const GAME8_TALENTS_URL = "https://game8.co/games/Aniimo/archives/621195";
+const GAME8_BEST_TALENTS_URL = "https://game8.co/games/Aniimo/archives/619809";
+const TALENT_LEVEL_NAMES = { 1: "Beginner", 2: "Intermediate", 3: "Veteran" };
 
 // A small, hand-checked set of named environmental mechanics tied to a
 // specific region, from Game8's Aniimo interactive-map guide (not a scrape
@@ -454,6 +465,93 @@ function buildMap(creatures) {
   console.log(`Wrote ${markers.length} map markers to ${OUT_MAP}`);
 }
 
+// ---- Pathfinder talents (the player character, not an Aniimo) -------------
+const cleanText = (s) => String(s || "")
+  .replace(/<[^>]+>/g, "")
+  .replace(/&#39;/g, "'").replace(/&amp;/g, "&").replace(/&quot;/g, '"')
+  .replace(/\s+/g, " ").trim();
+
+// Each talent renders as two <tr>s sharing a data-group-id: one with the
+// name/type/cooldown/unlock cell (icon alt text isn't reliable — e.g.
+// "Tweetin' Target"'s own apostrophe breaks out of its single-quoted alt
+// attribute in Game8's markup — so the visible link text is used instead),
+// the other with the description underneath.
+function parseTalentTree(html) {
+  const mainRowRe = /<tr\s+data-group-id="(\d+)" data-Level="(\d+)" data-Title="([^"]+)">\s*<td class="center" rowspan="2">\s*<a class='a-link' href=([^>]+)>\s*<img[^>]*data-src='([^']+)'[^>]*\/>([^<]*)<\/a>\s*<\/td>\s*<td class="center">([^<]*)<\/td>\s*<td class="center">([^<]*)<\/td>\s*<td\s*class="center">([^<]*)<\/td>\s*<\/tr>/g;
+  const descRowRe = /<tr\s+data-group-id="(\d+)" data-Level="\d+" data-Title="[^"]+">\s*<td\s*colspan="3">([\s\S]*?)<\/td>\s*<\/tr>/g;
+
+  const descByGroup = {};
+  for (const m of html.matchAll(descRowRe)) descByGroup[m[1]] = cleanText(m[2]);
+
+  const talents = [];
+  for (const m of html.matchAll(mainRowRe)) {
+    talents.push({
+      name: cleanText(m[6]),
+      icon: m[5],
+      url: m[4].replace(/^'|'$/g, ""),
+      type: cleanText(m[7]),
+      cd: cleanText(m[8]) === "-" ? null : cleanText(m[8]),
+      title: m[3],
+      level: Number(m[2]),
+      desc: descByGroup[m[1]] || "",
+    });
+  }
+  return talents;
+}
+
+// Game8's own "Best Talents and Passives" guide, split into an "Active"
+// group ("Best Talents") and a "Passive" group ("Best Passive Skills"),
+// each a numbered list with a short reason per pick — the actual build-route
+// priority, attributed to Game8 rather than invented here.
+function parseBestTalents(html) {
+  const parseGroup = (label) => {
+    const start = html.match(new RegExp(`<h2 class='a-header--2' id='[^']*'>${label}</h2>`));
+    if (!start) return [];
+    const rest = html.slice(start.index + start[0].length);
+    const nextH2 = rest.search(/<h2 class='a-header--2'/);
+    const section = nextH2 >= 0 ? rest.slice(0, nextH2) : rest;
+    const items = [];
+    let rank = 0;
+    for (const m of section.matchAll(/<h3 class='a-header--3' id='[^']*'>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3 class='a-header--3'|$)/g)) {
+      rank++;
+      const firstP = (m[2].match(/<p class='a-paragraph'>([\s\S]*?)<\/p>/) || [])[1] || "";
+      items.push({ name: cleanText(m[1]), rank, reason: cleanText(firstP) });
+    }
+    return items;
+  };
+  return { active: parseGroup("Best Talents"), passive: parseGroup("Best Passive Skills") };
+}
+
+function buildTalents() {
+  const treeHtml = getText(GAME8_TALENTS_URL, { timeout: 30 });
+  if (!treeHtml) { console.warn("game8.co talents fetch failed, skipping talents rebuild"); return; }
+  const talents = parseTalentTree(treeHtml);
+  if (talents.length < 20) { console.warn("parsed too few talents, skipping talents rebuild"); return; }
+
+  const bestHtml = getText(GAME8_BEST_TALENTS_URL, { timeout: 30 });
+  const best = bestHtml ? parseBestTalents(bestHtml) : { active: [], passive: [] };
+  const recommendedByName = new Map();
+  for (const t of best.active) recommendedByName.set(t.name, { group: "Active", rank: t.rank, reason: t.reason });
+  for (const t of best.passive) recommendedByName.set(t.name, { group: "Passive", rank: t.rank, reason: t.reason });
+
+  for (const t of talents) t.recommended = recommendedByName.get(t.name) || null;
+  talents.sort((a, b) => a.title === b.title
+    ? a.level - b.level || a.name.localeCompare(b.name)
+    : ["Student", "Wayfarer", "Trailblazer"].indexOf(a.title) - ["Student", "Wayfarer", "Trailblazer"].indexOf(b.title));
+
+  fs.writeFileSync(OUT_TALENTS, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: GAME8_TALENTS_URL,
+    recommendedSource: GAME8_BEST_TALENTS_URL,
+    titles: ["Student", "Wayfarer", "Trailblazer"],
+    levelNames: TALENT_LEVEL_NAMES,
+    resetCost: "2000 Credits",
+    count: talents.length,
+    talents,
+  }, null, 2));
+  console.log(`Wrote ${talents.length} talents to ${OUT_TALENTS} (${recommendedByName.size} with a recommended pick order).`);
+}
+
 function run() {
   const homeHtml = getText(`${BASE}/`, { timeout: 30 });
   if (!homeHtml) throw new Error("could not fetch wiki.aniimo.com homepage");
@@ -492,13 +590,15 @@ function run() {
 
   buildRegions(creatures);
   buildMap(creatures);
+  buildTalents();
 }
 
 if (require.main === module) {
-  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP], e); }
+  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP, OUT_TALENTS], e); }
 } else {
   module.exports = {
     unflattenDevalue, parseNuxtPayload, parseCreature, buildRegions, slugify,
     unflattenTurboStream, parseTurboStreamPayload, buildMap,
+    parseTalentTree, parseBestTalents, buildTalents,
   };
 }

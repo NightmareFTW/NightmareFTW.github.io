@@ -49,6 +49,9 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Aniimo gets a Talent Build Route": "Aniimo ganha uma Rota de Build de Talentos",
+    "The Pathfinder's own talent tree, plus a recommended pick order for which to unlock first.":
+      "A árvore de talentos do próprio Pathfinder, mais uma ordem de escolha recomendada para saber o que desbloquear primeiro.",
     "Ravenswatch gets a Build Route Planner": "Ravenswatch ganha um Planeador de Rota de Build",
     "Pick a hero and a build direction and get a step-by-step draft priority, from openers to the finisher.":
       "Escolhe um herói e uma direcção de build e recebe uma prioridade de escolha passo a passo, das aberturas ao finalizador.",
@@ -1751,6 +1754,28 @@
     "View in database →": "Ver na base de dados →",
     "Couldn't load Aniimo region data.": "Não foi possível carregar os dados das regiões de Aniimo.",
     "Map imagery and marker data courtesy of": "Imagens e dados de marcadores do mapa cedidos por",
+    "Talent Build Route": "Rota de Build de Talentos", "/ talent build route": "/ rota de build de talentos",
+    "Not an Aniimo's own skills — this is the Pathfinder's (your own player character's) talent tree: which to unlock first, in what order, and why. Talent tree from the":
+      "Não são skills de um Aniimo — esta é a árvore de talentos do Pathfinder (a tua própria personagem jogável): quais desbloquear primeiro, em que ordem, e porquê. Árvore de talentos da",
+    "; recommended order from Game8's own": "; ordem recomendada segundo o próprio guia da Game8",
+    "guide.": "guia.",
+    "Recommended Build Route": "Rota de Build Recomendada",
+    "Talents unlock by reaching a trainer title (Student → Wayfarer → Trailblazer) and a level within it (Beginner/Intermediate/Veteran), then cost skill points to actually learn — so this is a priority list for spending those points, not a fixed unlock order. Respeccing costs 2000 Credits and refunds every point spent.":
+      "Os talentos desbloqueiam-se ao atingir um título de treinador (Student → Wayfarer → Trailblazer) e um nível dentro dele (Beginner/Intermediate/Veteran), depois custam pontos de talento para realmente aprender — por isso isto é uma lista de prioridades para gastar esses pontos, não uma ordem de desbloqueio fixa. Repor custa 2000 Credits e devolve todos os pontos gastos.",
+    "Loading recommended route…": "A carregar rota recomendada…",
+    "No recommended order published yet.": "Ainda não há uma ordem recomendada publicada.",
+    "Active Skills": "Skills Activas", "Passive Skills": "Skills Passivas",
+    "Full Talent Tree": "Árvore de Talentos Completa",
+    "Every Pathfinder talent, grouped by the title and level that unlocks it.":
+      "Todos os talentos do Pathfinder, agrupados pelo título e nível que os desbloqueia.",
+    "Search talents…": "Procurar talentos…", "All types": "Todos os tipos", "All titles": "Todos os títulos",
+    "Loading talents…": "A carregar talentos…",
+    "No talents match.": "Nenhum talento corresponde.",
+    "Couldn't load Aniimo talent data.": "Não foi possível carregar os dados dos talentos de Aniimo.",
+    "Passive": "Passivo",
+    "The Pathfinder's own talent tree, plus Game8's recommended pick order: which to unlock first, and why.":
+      "A árvore de talentos do próprio Pathfinder, mais a ordem de escolha recomendada pela Game8: o que desbloquear primeiro, e porquê.",
+    "Built by NightmareFTW · talent data via Game8.": "Feito por NightmareFTW · dados dos talentos via Game8.",
     "Every Aniimo. Filter by element, role or stage, then open one to see its base stats, mobility, traits, skills, evolution line, habitats and Resonance Training.":
       "Todos os Aniimo. Filtra por elemento, papel ou estágio, depois abre um para ver os stats base, mobilidade, traços, skills, linha de evolução, habitats e Treino de Ressonância.",
     "Built by NightmareFTW · Aniimo database.": "Feito por NightmareFTW · base de dados de Aniimo.",
@@ -1825,7 +1850,11 @@
     [/^(.+) is a Trial that takes place at (?:the )?(.+) in The Outlast Trials\.$/, "$1 é um Trial que decorre em $2 no The Outlast Trials."],
     [/^resets in (.+)$/, "reseta em $1"],
     [/^Week (\d+)$/, "Semana $1"],
-    [/^Unlocks (.+)$/, "Desbloqueia: $1"],
+    // Dreamlight Valley Star Path's own short "Unlocks <Month> <Day>, <Year>"
+    // label — scoped to that exact shape so it doesn't also catch unrelated
+    // scraped sentences that happen to start with "Unlocks " (e.g. Aniimo's
+    // talent descriptions, which are game data and stay untranslated).
+    [/^Unlocks ([A-Z][a-z]+ \d{1,2}, \d{4})$/, "Desbloqueia: $1"],
     [/^UP · closes in (.+)$/, "ACTIVO · fecha em $1"],
     [/^in (\d[\d:hm ]*)$/, "em $1"],
     [/^(\d+)\/(\d+)$/, "$1/$2"],
@@ -1891,6 +1920,8 @@
     [/^(\d+) map markers · updated (.+)$/, "$1 marcadores no mapa · actualizado $2"],
     [/^(\d+) Aniimo · (\d+) known mechanics?$/,
       (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],
+    [/^(\d+) talents · updated (.+)$/, "$1 talentos · actualizado $2"],
+    [/^Recommended #(\d+)$/, "Recomendado #$1"],
   ];
 
   function translateText(raw) {
