@@ -50,8 +50,8 @@
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
     "Aniimo joins the hub": "Aniimo chega ao hub",
-    "A creature database with all 86 Aniimo, plus an interactive region map.":
-      "Uma base de dados de criaturas com todos os 86 Aniimo, mais um mapa interactivo de regiões.",
+    "A creature database with all 86 Aniimo, plus a real interactive world map.":
+      "Uma base de dados de criaturas com todos os 86 Aniimo, mais um mapa interactivo real do mundo do jogo.",
     "Epic Seven gets Heroes and Artifacts databases": "Epic Seven ganha bases de dados de Heróis e Artefactos",
     "Every hero and artifact with real images: stats, skills, Fribbels builds, RTA data, suggested teams and an overall 0-100 rating.":
       "Todos os heróis e artefactos com imagens reais: stats, skills, builds Fribbels, dados de RTA, equipas sugeridas e uma classificação geral de 0 a 100.",
@@ -1716,8 +1716,20 @@
     "Every Aniimo with images: base stats, mobility, traits, skills, evolution line and habitats.":
       "Todos os Aniimo com imagens: stats base, mobilidade, traços, skills, linha de evolução e habitats.",
     "Aniimo Map": "Mapa de Aniimo",
-    "Browse the world of Idyll region by region: which Aniimo live there, and the notable locations and mechanics of each.":
-      "Explora o mundo de Idyll região a região: que Aniimo vivem lá, e os locais e mecanismos notáveis de cada uma.",
+    "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha Aniimo encounters, pinned where they actually are.":
+      "Um mapa interactivo real de Idyll: baús, recursos, Desafios Pathfinder, marcos e encontros com Aniimo Alpha nomeados, marcados onde realmente estão.",
+    "The real world of Idyll. Chests, resources, eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha Aniimo encounters, pinned where they actually are.":
+      "O mundo real de Idyll. Baús, recursos, ovos, Desafios Pathfinder, pontos de missão, marcos e encontros com Aniimo Alpha nomeados, marcados onde realmente estão.",
+    "Regions": "Regiões",
+    "Most Aniimo aren't pinned individually in-game; here's what's known to live in each region.":
+      "A maioria dos Aniimo não está marcada individualmente no jogo; aqui está o que se sabe que vive em cada região.",
+    "Loading map…": "A carregar o mapa…", "Loading regions…": "A carregar regiões…",
+    "Search the map…": "Procurar no mapa…",
+    "Zoom out": "Afastar", "Fit to width": "Ajustar à largura", "Zoom in": "Aproximar",
+    "Aniimo world map": "Mapa do mundo de Aniimo",
+    "View in database →": "Ver na base de dados →",
+    "Couldn't load Aniimo region data.": "Não foi possível carregar os dados das regiões de Aniimo.",
+    "Map imagery and marker data courtesy of": "Imagens e dados de marcadores do mapa cedidos por",
     "Every Aniimo. Filter by element, role or stage, then open one to see its base stats, mobility, traits, skills, evolution line, habitats and Resonance Training.":
       "Todos os Aniimo. Filtra por elemento, papel ou estágio, depois abre um para ver os stats base, mobilidade, traços, skills, linha de evolução, habitats e Treino de Ressonância.",
     "Built by NightmareFTW · Aniimo database.": "Feito por NightmareFTW · base de dados de Aniimo.",
@@ -1747,9 +1759,6 @@
     "See these regions on the": "Vê estas regiões no", "None listed yet.": "Nenhum listado ainda.",
     "Jump to an Aniimo…": "Ir para um Aniimo…",
     "no art yet": "ainda sem imagem",
-    "Known Map Marker Types": "Tipos de Marcadores Conhecidos do Mapa",
-    "The in-game map uses these marker categories (names only: exact locations aren't published anywhere we can use; see the region cards above for what actually lives where).":
-      "O mapa do jogo usa estas categorias de marcadores (só os nomes: as localizações exactas não estão publicadas em lado nenhum que possamos usar; vê os cartões de região acima para saberes o que vive onde).",
     "No official description published yet for this region.": "Ainda não há descrição oficial publicada para esta região.",
     "Known mechanics": "Mecanismos conhecidos", "Aniimo found here": "Aniimo encontrados aqui",
     "Male / Female": "Macho / Fêmea",
@@ -1848,7 +1857,7 @@
     // ---- Aniimo ----
     [/^of (\d+) Aniimo$/, "de $1 Aniimo"],
     [/^(\d+) Aniimo · updated (.+)$/, "$1 Aniimo · actualizado $2"],
-    [/^(\d+) regions · updated (.+)$/, "$1 regiões · actualizado $2"],
+    [/^(\d+) map markers · updated (.+)$/, "$1 marcadores no mapa · actualizado $2"],
     [/^(\d+) Aniimo · (\d+) known mechanics?$/,
       (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],
   ];

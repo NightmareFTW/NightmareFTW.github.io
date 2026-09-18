@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=ebe4a175">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1c899041">
 </head>
 <body data-game="aniimo">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -21,21 +21,23 @@
   <main class="container tool-page">
     <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Aniimo</a> / map</p>
     <h1>Aniimo Map</h1>
-    <p class="tool-sub">The world of Idyll, region by region. Pick an Aniimo to see where it lives, or open a region to see who lives there and its known mechanics.</p>
+    <p class="tool-sub">The real world of Idyll. Chests, resources, eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha Aniimo encounters, pinned where they actually are.</p>
     <p class="codes-updated" id="am-updated">Loading…</p>
 
+    <div class="am-toolbar" id="am-toolbar"></div>
+    <div class="am-legend" id="am-legend"></div>
+    <div id="am-map-container"><p style="color:var(--muted)">Loading map…</p></div>
+    <p class="am-attribution" id="am-attribution"></p>
+
+    <h2 class="am-section-title">Regions</h2>
+    <p class="tool-sub">Most Aniimo aren't pinned individually in-game; here's what's known to live in each region.</p>
     <div class="pw-controls" id="am-controls"></div>
     <div id="am-detail"></div>
     <div id="am-grid"><p style="color:var(--muted)">Loading regions…</p></div>
-    <section class="panel" id="am-legend" hidden>
-      <h2>Known Map Marker Types</h2>
-      <p class="tool-note">The in-game map uses these marker categories (names only: exact locations aren't published anywhere we can use; see the region cards above for what actually lives where).</p>
-      <p class="pw-card-chips" id="am-legend-list"></p>
-    </section>
   </main>
   <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · Aniimo map.</span></div></footer>
-  <script src="map.js?v=b22396df"></script>
-  <script src="/assets/js/i18n.js?v=b0ea5508" defer></script>
+  <script src="map.js?v=d59a12af"></script>
+  <script src="/assets/js/i18n.js?v=48858f6a" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

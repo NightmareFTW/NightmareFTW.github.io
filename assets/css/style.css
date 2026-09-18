@@ -2706,3 +2706,41 @@ button.vs-xref-ambiguous { background: none; border: none; padding: 0; margin: 0
 .vs-stat-table th { color: var(--muted); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: .03em; }
 .vs-stat-table td:first-child { color: var(--muted); }
 .vs-stat-table tr:last-child td { border-bottom: none; }
+
+/* Aniimo — real interactive world map (pins over the actual game map image,
+   sourced from gmtreks.com; see scripts/update-aniimo.js). */
+.am-toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0 10px; }
+.am-toolbar .search-input { flex: 1 1 220px; }
+.am-zoom-btn { background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text);
+  width: 34px; height: 34px; font-size: 1.1rem; font-weight: 700; cursor: pointer; font-family: var(--mono); }
+.am-zoom-btn:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.am-legend { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.am-legend-item { display: inline-flex; align-items: center; gap: 6px; background: var(--card); border: 1px solid var(--border);
+  border-radius: 999px; padding: 5px 12px 5px 6px; font-size: 0.78rem; color: var(--muted); cursor: pointer; user-select: none; }
+.am-legend-item img { width: 18px; height: 18px; border-radius: 4px; object-fit: contain; background: var(--bg-soft); }
+.am-legend-item.am-off { opacity: 0.4; }
+.am-map-wrap { position: relative; overflow: auto; max-height: 72vh; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-soft); }
+.am-map-stage { position: relative; transform-origin: top left; }
+.am-map-stage > img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+.am-pin { position: absolute; transform: translate(-50%, -50%); cursor: pointer; width: 24px; height: 24px;
+  border-radius: 50%; background: var(--card); border: 2px solid var(--accent-2); display: grid; place-items: center;
+  transition: transform .1s; padding: 0; }
+.am-pin:hover, .am-pin:focus-visible { transform: translate(-50%, -50%) scale(1.3); z-index: 3; }
+.am-pin img { width: 14px; height: 14px; object-fit: contain; }
+.am-pin.am-pin-creature { border-color: #5bd6a0; }
+.am-pin.am-hidden { display: none; }
+.am-pin.am-target { animation: am-pulse-kf 1.4s ease-out 3; z-index: 4; }
+@keyframes am-pulse-kf { 0% { box-shadow: 0 0 0 0 rgba(255, 106, 94, .7); } 100% { box-shadow: 0 0 0 18px rgba(255, 106, 94, 0); } }
+.am-popup { position: fixed; z-index: 50; background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 12px 14px; max-width: 240px; box-shadow: 0 12px 30px rgba(0,0,0,.5); }
+.am-popup-title { font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.am-popup-title img { width: 20px; height: 20px; object-fit: contain; }
+.am-popup-group { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.am-popup-link { display: inline-block; margin-top: 8px; color: var(--accent-2); font-weight: 600; text-decoration: none; }
+.am-popup-link:hover { text-decoration: underline; }
+.am-popup-close { position: absolute; top: 6px; right: 8px; background: none; border: none; color: var(--muted); font-size: 1rem; cursor: pointer; }
+.am-attribution { font-size: 0.72rem; color: var(--muted); margin: 8px 0 26px; }
+.am-attribution a { color: var(--accent-2); }
+.am-fallback { margin-top: 8px; }
+.am-section-title { margin: 30px 0 4px; font-size: 1.1rem; }
