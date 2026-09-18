@@ -522,6 +522,14 @@ const GAMES = [
         available: true,
       },
       {
+        id: "build-route",
+        name: "Build Route Planner",
+        type: "builder",
+        desc: "Pick a hero and a build direction and get a step-by-step draft priority: what's active from the start, what to prioritize, and the finisher.",
+        href: "games/ravenswatch/build-route.html",
+        available: true,
+      },
+      {
         id: "objects",
         name: "Magical Objects",
         type: "database",
@@ -744,6 +752,13 @@ const GAMES = [
 const SITE_UPDATES = [
   {
     date: "2026-09-18",
+    title: "Ravenswatch gets a Build Route Planner",
+    desc: "Pick a hero and a build direction and get a step-by-step draft priority, from openers to the finisher.",
+    image: "assets/img/updates/ravenswatch-build-route.jpg",
+    href: "games/ravenswatch/build-route.html",
+  },
+  {
+    date: "2026-09-18",
     title: "Aniimo joins the hub",
     desc: "A creature database with all 86 Aniimo, plus a real interactive world map.",
     image: "assets/img/games/aniimo-header.jpg",
@@ -790,12 +805,5 @@ const SITE_UPDATES = [
     desc: "Every Secret needed to unlock Vampire Survivors' final character, phase by phase.",
     image: "assets/img/updates/vs-chaos-guide.jpg",
     href: "games/vampire-survivors/character.html?slug=chaos",
-  },
-  {
-    date: "2026-08-31",
-    title: "Vampire Survivors joins the hub",
-    desc: "A spoiler-safe character database plus a full achievements checklist.",
-    image: "assets/img/games/vampire-survivors-header.jpg",
-    href: "games/vampire-survivors/index.html",
   },
 ];

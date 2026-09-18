@@ -2544,6 +2544,18 @@ a.play-card:hover { transform: translateY(-3px); border-color: var(--accent); }
 .rw-b-tname { font-weight: 700; font-size: 0.93rem; margin-right: 7px; }
 .rw-starter { background: rgba(200, 160, 74, .18); color: #d9b45e; }
 
+/* ---- Ravenswatch: build route planner ---- */
+.rr-summary { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 4px 0 6px; }
+.rr-step { margin-top: 22px; }
+.rr-step-head { display: flex; align-items: center; gap: 10px; margin: 0 0 5px; font-size: 1rem; }
+.rr-step-num { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px;
+  border-radius: 50%; background: var(--accent); color: #fff; font-family: var(--mono); font-size: 0.78rem; font-weight: 800; flex-shrink: 0; }
+.rr-step-note { color: var(--muted); font-size: 0.85rem; line-height: 1.5; margin: 0 0 10px; }
+.rr-backup { margin-top: 20px; color: var(--muted); font-size: 0.9rem; }
+.rr-backup-btn { background: none; border: none; padding: 0; font: inherit; font-weight: 700; color: var(--accent-2);
+  cursor: pointer; text-decoration: underline; }
+.rr-backup-btn:hover, .rr-backup-btn:focus-visible { color: var(--accent); }
+
 /* ---- Palworld ---- */
 .pw-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 10px; }
 .pw-controls .search-input { flex: 1 1 220px; }
