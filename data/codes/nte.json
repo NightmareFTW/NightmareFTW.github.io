@@ -1,12 +1,48 @@
 {
   "game": "nte",
-  "updated": "2026-07-15T06:49:59.388Z",
+  "updated": "2026-09-18T01:06:20.171Z",
   "source": "https://game8.co/games/Neverness-to-Everness/archives/593718",
   "note": "Enter in-game via the settings / redeem menu. Codes can expire without notice; newest first.",
   "codes": [
     {
-      "code": "DRAGONGIRL",
-      "reward": "· Annulith x30 · Fons x20,000 · Puka Chocoa Elli Tour Special x2",
+      "code": "WITCHHOUSE",
+      "reward": "· Annulith x100 · Senior Hunter Guide x5 · Light Dye x5 · Beetle Coin x4,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "THEWHOOTS",
+      "reward": "· Annulith x100 · Rising Hunter Guide x5 · Colorless Dye x5 · Beetle Coin x8,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "PUKALANDGOGO",
+      "reward": "· Annulith x100 · Elite Hunter Guide x2 · Chaotic Dye x5 · Beetle Coin x12,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "COMEBACK",
+      "reward": "· Fabricated Dice x1",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "ZANKOU0819",
+      "reward": "· Annulith x30 · Fons x50,000 · Beetle Coin x30,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "NTEMusou",
+      "reward": "· Fons x10,000 · Beetle Coin x10,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "NTEKokushi",
+      "reward": "· Fons x30,000 · Beetle Coin x30,000",
       "expires": null,
       "expired": false
     },

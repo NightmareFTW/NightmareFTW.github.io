@@ -1,0 +1,1009 @@
+{
+  "updated": "2026-09-18T01:02:43.714Z",
+  "source": "https://www.aniimo.com/main",
+  "mechanicsSource": "https://game8.co/games/Aniimo/archives/618730",
+  "poiTypes": [
+    "Bloom",
+    "Branch",
+    "RV Park",
+    "Sanctum",
+    "Nurture",
+    "Morphling's Memory",
+    "Outpost",
+    "Pathfinder Challenge",
+    "Elite Pathfinder Challenge",
+    "Lumin Amber",
+    "Lumin Marking",
+    "Lumin Collection",
+    "Vein Abundance",
+    "Vein Crevice",
+    "Alpha Aniimo",
+    "Chests"
+  ],
+  "count": 16,
+  "regions": [
+    {
+      "name": "Beast Fang Ridge",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "bonesky",
+          "name": "Bonesky",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10131.png",
+          "elements": [
+            "Ice"
+          ]
+        },
+        {
+          "slug": "budclaw",
+          "name": "Budclaw",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10161.png",
+          "elements": [
+            "Rock",
+            "Grass"
+          ]
+        },
+        {
+          "slug": "chirpi",
+          "name": "Chirpi",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10181.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "emberpup",
+          "name": "Emberpup",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10051.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "fenrier",
+          "name": "Fenrier",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10132.png",
+          "elements": [
+            "Ice"
+          ]
+        },
+        {
+          "slug": "flamerion",
+          "name": "Flamerion",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10333.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "flameruff",
+          "name": "Flameruff",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10052.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "glynsera",
+          "name": "Glynsera",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10133.png",
+          "elements": [
+            "Ice"
+          ]
+        },
+        {
+          "slug": "scorchhowl",
+          "name": "Scorchhowl",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10053.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "sparki",
+          "name": "Sparki",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10331.png",
+          "elements": [
+            "Fire"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Berylline Causeway",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "baleetle",
+          "name": "Baleetle",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10451.png",
+          "elements": [
+            "Rock"
+          ]
+        },
+        {
+          "slug": "bouldus",
+          "name": "Bouldus",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10454.png",
+          "elements": [
+            "Rock"
+          ]
+        },
+        {
+          "slug": "budclaw",
+          "name": "Budclaw",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10161.png",
+          "elements": [
+            "Rock",
+            "Grass"
+          ]
+        },
+        {
+          "slug": "ignitis",
+          "name": "Ignitis",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10032.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "shrubclaw",
+          "name": "Shrubclaw",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10162.png",
+          "elements": [
+            "Rock",
+            "Grass"
+          ]
+        },
+        {
+          "slug": "waleetle",
+          "name": "Waleetle",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10453.png",
+          "elements": [
+            "Rock"
+          ]
+        },
+        {
+          "slug": "wisptis",
+          "name": "Wisptis",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10031.png",
+          "elements": [
+            "Dark"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Blitzwood",
+      "description": "Drawn by Bolties, thunder carves furrows into the earth, digging gray scorched soil out of a grassy slope while flickering electric sparks crackle in the thunder-struck wood.",
+      "image": "https://worldx-website-cdn.aniimo.com/official-website/worldx/office_global/image_4_eb8cee68062aa4ed.jpg",
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "blazen",
+          "name": "Blazen",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10222.png",
+          "elements": [
+            "Electric"
+          ]
+        },
+        {
+          "slug": "bolty",
+          "name": "Bolty",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10221.png",
+          "elements": [
+            "Electric"
+          ]
+        },
+        {
+          "slug": "chirpi",
+          "name": "Chirpi",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10181.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "flutternym",
+          "name": "Flutternym",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10231.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "hummin",
+          "name": "Hummin",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10201.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "sparki",
+          "name": "Sparki",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10331.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "squarrel",
+          "name": "Squarrel",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10511.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "squashel",
+          "name": "Squashel",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10512.png",
+          "elements": [
+            "Fire"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Driftwise Meadow",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "bonesky",
+          "name": "Bonesky",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10131.png",
+          "elements": [
+            "Ice"
+          ]
+        },
+        {
+          "slug": "fenmane",
+          "name": "Fenmane",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10293.png",
+          "elements": [
+            "Electric"
+          ]
+        },
+        {
+          "slug": "fenrier",
+          "name": "Fenrier",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10132.png",
+          "elements": [
+            "Ice"
+          ]
+        },
+        {
+          "slug": "fentuft",
+          "name": "Fentuft",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10291.png",
+          "elements": [
+            "Electric"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Echoback Landing",
+      "description": "Why was this enormous aniimo stranded and kept away from the embrace to the sea? The answer may be hidden in the enchanting Echoback singing.",
+      "image": "https://worldx-website-cdn.aniimo.com/official-website/worldx/office_global/image_5_2ac8355005a3efee.jpg",
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "celestis",
+          "name": "Celestis",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10011.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "emberpup",
+          "name": "Emberpup",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10051.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "flameruff",
+          "name": "Flameruff",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10052.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "panpanta",
+          "name": "Panpanta",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10174.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "popota",
+          "name": "Popota",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10172.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "sheldon",
+          "name": "Sheldon",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10192.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "shelly",
+          "name": "Shelly",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10191.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "susuta",
+          "name": "Susuta",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10171.png",
+          "elements": [
+            "Water"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Forest of Falling Stars",
+      "description": "Following the forest upstream towards a dense purple forest, Celestises glide among the starine trees like tiny shooting stars.",
+      "image": "https://worldx-website-cdn.aniimo.com/official-website/worldx/office_global/image_1_6594aa20ac9ee9a7.jpg",
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "celestis",
+          "name": "Celestis",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10011.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "eklue",
+          "name": "Eklue",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10443.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "eko",
+          "name": "Eko",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10441.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "hummin",
+          "name": "Hummin",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10201.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "pranky",
+          "name": "Pranky",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10042.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "skippy",
+          "name": "Skippy",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10041.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "stellarys",
+          "name": "Stellarys",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10012.png",
+          "elements": [
+            "Dark"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nimbus Fields",
+      "description": "Soft clouds gently caress the vast, thick grassland. Nimbis bounce across the field, and the scent of fresh grass spreads as the green waves ripple",
+      "image": "https://worldx-website-cdn.aniimo.com/official-website/worldx/office_global/image_6_cb033aa2330d7966.jpg",
+      "mechanics": [
+        {
+          "name": "Peculiar Clouds",
+          "description": "Enter these to find treasure: your jumps are higher while inside."
+        },
+        {
+          "name": "Dandelion Tree",
+          "description": "Use the dandelions to reach the peak, which may hide a treasure."
+        }
+      ],
+      "creatures": [
+        {
+          "slug": "budclaw",
+          "name": "Budclaw",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10161.png",
+          "elements": [
+            "Rock",
+            "Grass"
+          ]
+        },
+        {
+          "slug": "celestis",
+          "name": "Celestis",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10011.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "chirpi",
+          "name": "Chirpi",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10181.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "emberpup",
+          "name": "Emberpup",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10051.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "flameruff",
+          "name": "Flameruff",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10052.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "flutternym",
+          "name": "Flutternym",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10231.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "hummin",
+          "name": "Hummin",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10201.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "nimbi",
+          "name": "Nimbi",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10261.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "pranky",
+          "name": "Pranky",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10042.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "skippy",
+          "name": "Skippy",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10041.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "sparki",
+          "name": "Sparki",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10331.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "turbo",
+          "name": "Turbo",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10262.png",
+          "elements": [
+            "Wind"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rosetower Woods",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "budsquire",
+          "name": "Budsquire",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10321.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "cubbo",
+          "name": "Cubbo",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10501.png",
+          "elements": [
+            "Rock"
+          ]
+        },
+        {
+          "slug": "dewy",
+          "name": "Dewy",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10351.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "grizbo",
+          "name": "Grizbo",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10503.png",
+          "elements": [
+            "Rock"
+          ]
+        },
+        {
+          "slug": "melloblum",
+          "name": "Melloblum",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10324.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "pomawk",
+          "name": "Pomawk",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10475.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "pomegg",
+          "name": "Pomegg",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10471.png",
+          "elements": [
+            "Grass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Russet Highlands",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "helgon",
+          "name": "Helgon",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10023.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "helmut",
+          "name": "Helmut",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10021.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "helmwhelp",
+          "name": "Helmwhelp",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10022.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "jawling",
+          "name": "Jawling",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10024.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "rookey",
+          "name": "Rookey",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10027.png",
+          "elements": [
+            "Dark"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sea of Flowers",
+      "description": "The endless sea of flowers paints a romantic landscape and fills the air with a rich fragrance. A small village known for its fragrant perfumes nestles among a field of purple flowers and has been a neighbor to aniimo for generations.",
+      "image": "https://worldx-website-cdn.aniimo.com/official-website/worldx/office_global/image_3_b135fd16c7b4d73c.jpg",
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "budsquire",
+          "name": "Budsquire",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10321.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "dewy",
+          "name": "Dewy",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10351.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "flutternym",
+          "name": "Flutternym",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10231.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "fragrancier",
+          "name": "Fragrancier",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10352.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "iris",
+          "name": "Iris",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10211.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "irisal",
+          "name": "Irisal",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10212.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "thornblade",
+          "name": "Thornblade",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10323.png",
+          "elements": [
+            "Grass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Argent Strait",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "celestis",
+          "name": "Celestis",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10011.png",
+          "elements": [
+            "Dark"
+          ]
+        },
+        {
+          "slug": "chirpi",
+          "name": "Chirpi",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10181.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "cornet",
+          "name": "Cornet",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10185.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "emberpup",
+          "name": "Emberpup",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10051.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "flameruff",
+          "name": "Flameruff",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10052.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "hummin",
+          "name": "Hummin",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10201.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "nimbi",
+          "name": "Nimbi",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10261.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "tromber",
+          "name": "Tromber",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10184.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "tubster",
+          "name": "Tubster",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10187.png",
+          "elements": [
+            "Wind"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Mistwoods",
+      "description": "An off-key singing echoes among the withered twigs, while the swamp in the depths of the mist belches out bubbles and poisonous miasma. Fortunately, the glimmer fruits still shine like glass lamps to guide lost travelers",
+      "image": "https://worldx-website-cdn.aniimo.com/official-website/worldx/office_global/image_2_206c06b6df507fd6.jpg",
+      "mechanics": [
+        {
+          "name": "Glimmer Tree",
+          "description": "Activating one lights up the path in the area."
+        }
+      ],
+      "creatures": [
+        {
+          "slug": "emberpup",
+          "name": "Emberpup",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10051.png",
+          "elements": [
+            "Fire"
+          ]
+        },
+        {
+          "slug": "flutternym",
+          "name": "Flutternym",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10231.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "hummin",
+          "name": "Hummin",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10201.png",
+          "elements": [
+            "Grass"
+          ]
+        },
+        {
+          "slug": "leafy",
+          "name": "Leafy",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10045.png",
+          "elements": [
+            "Grass",
+            "Water"
+          ]
+        },
+        {
+          "slug": "pranky",
+          "name": "Pranky",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10042.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "skippy",
+          "name": "Skippy",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10041.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "witchin",
+          "name": "Witchin",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10203.png",
+          "elements": [
+            "Dark",
+            "Grass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tideblossom Coast",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "bulbly",
+          "name": "Bulbly",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10141.png",
+          "elements": [
+            "Electric"
+          ]
+        },
+        {
+          "slug": "erlath",
+          "name": "Erlath",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10483.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "fahloo",
+          "name": "Fahloo",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10481.png",
+          "elements": [
+            "Water"
+          ]
+        },
+        {
+          "slug": "luminelle",
+          "name": "Luminelle",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10143.png",
+          "elements": [
+            "Electric"
+          ]
+        },
+        {
+          "slug": "veilfloat",
+          "name": "Veilfloat",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10142.png",
+          "elements": [
+            "Electric"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Zephyrus Landbridge",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "bailite",
+          "name": "Bailite",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10433.png",
+          "elements": [
+            "Rock"
+          ]
+        },
+        {
+          "slug": "budclaw",
+          "name": "Budclaw",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10161.png",
+          "elements": [
+            "Rock",
+            "Grass"
+          ]
+        },
+        {
+          "slug": "cozite",
+          "name": "Cozite",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10431.png",
+          "elements": [
+            "Rock"
+          ]
+        },
+        {
+          "slug": "lavazar",
+          "name": "Lavazar",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10282.png",
+          "elements": [
+            "Fire",
+            "Rock"
+          ]
+        },
+        {
+          "slug": "magmarex",
+          "name": "Magmarex",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10283.png",
+          "elements": [
+            "Fire",
+            "Rock"
+          ]
+        },
+        {
+          "slug": "pebbling",
+          "name": "Pebbling",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10281.png",
+          "elements": [
+            "Rock"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "夕阳海原",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "shelly",
+          "name": "Shelly",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10191.png",
+          "elements": [
+            "Water"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "新月海湾",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "shelly",
+          "name": "Shelly",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10191.png",
+          "elements": [
+            "Water"
+          ]
+        }
+      ]
+    }
+  ]
+}
