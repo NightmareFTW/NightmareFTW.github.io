@@ -49,6 +49,9 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Ravenswatch gets a Build Route Planner": "Ravenswatch ganha um Planeador de Rota de Build",
+    "Pick a hero and a build direction and get a step-by-step draft priority, from openers to the finisher.":
+      "Escolhe um herói e uma direcção de build e recebe uma prioridade de escolha passo a passo, das aberturas ao finalizador.",
     "Aniimo joins the hub": "Aniimo chega ao hub",
     "A creature database with all 86 Aniimo, plus a real interactive world map.":
       "Uma base de dados de criaturas com todos os 86 Aniimo, mais um mapa interactivo real do mundo do jogo.",
@@ -455,6 +458,24 @@
     "Openers": "Aberturas", "Talents available from the start": "Talentos disponíveis desde o início",
     "from the start": "desde o início", "see the full kit →": "ver o kit completo →",
     "Derived from the Ravenswatch Wiki's talent tables.": "Derivado das tabelas de talentos da Ravenswatch Wiki.",
+    "Build Route Planner": "Planeador de Rota de Build", "/ build route": "/ rota de build",
+    "Pick a hero and a build direction, and get a step-by-step draft priority: which talents are already active from the start, which to prioritize when you're offered a choice, and which finisher to grab at the end. Talent data from the":
+      "Escolhe um herói e uma direcção de build, e recebe uma prioridade de escolha passo a passo: que talentos já estão activos desde o início, quais priorizar quando te oferecem uma escolha, e qual o finalizador para o fim. Dados dos talentos da",
+    "Draft offers are random, so this isn't a guaranteed sequence — it's a priority list built from the same talent data as Build Directions: take a listed talent whenever it's offered, in roughly this order, and fall back to any other talent sharing the theme's keyword if none of these come up. For full community builds with items, use the official":
+      "As ofertas de escolha são aleatórias, por isso isto não é uma sequência garantida: é uma lista de prioridades construída a partir dos mesmos dados de talentos das Direcções de Build. Escolhe um talento listado sempre que for oferecido, mais ou menos por esta ordem, e recorre a qualquer outro talento que partilhe a palavra-chave do tema se nenhum destes aparecer. Para builds completas da comunidade com itens, usa o oficial",
+    "Loading build routes…": "A carregar rotas de build…",
+    "see all build directions →": "ver todas as direcções de build →",
+    "Already active": "Já activo", "Priority picks": "Escolhas prioritárias", "Finisher": "Finalizador",
+    "Auto-equipped from the start, no draft needed — this is what makes the theme worth opening into.":
+      "Equipado automaticamente desde o início, sem precisar de escolha: é isto que torna o tema valer a pena abrir.",
+    "Take whichever of these you're offered, roughly top to bottom — talents earlier here need a lower account Rank, so they can show up for more runs.":
+      "Escolhe qualquer um destes que te seja oferecido, mais ou menos de cima para baixo: os talentos mais acima aqui precisam de um Rank de conta mais baixo, por isso podem aparecer em mais runs.",
+    "This theme reaches one of the hero's Final-tier talents — grab it at the run's last pick if it's on offer.":
+      "Este tema chega a um dos talentos de nível Final do herói: apanha-o na última escolha da run se estiver disponível.",
+    "This theme doesn't reach a Final-tier talent — finish the run with whichever Final talent you're offered.":
+      "Este tema não chega a um talento de nível Final: termina a run com qualquer talento Final que te seja oferecido.",
+    "Pick a hero and a build direction and get a step-by-step draft priority: what's active from the start, what to prioritize, and the finisher.":
+      "Escolhe um herói e uma direcção de build e recebe uma prioridade de escolha passo a passo: o que está activo desde o início, o que priorizar, e o finalizador.",
     "Magical Objects": "Objectos Mágicos",
     "Every hero's full kit — trait, attack, power, special, defense and both ultimates, with all their numbers.":
       "O kit completo de cada herói: traço, ataque, poder, especial, defesa e os dois ultimates, com todos os números.",
@@ -1853,6 +1874,16 @@
     [/^Team (\d+)$/, "Equipa $1"],
     [/^Team (\d+) · (\w+) ([\d.]+)% WR$/, "Equipa $1 · $2 $3% WR"],
     [/^Attack ([\d.]+)$/, "Ataque $1"], [/^Health ([\d.]+)$/, "Vida $1"],
+
+    // ---- Ravenswatch ----
+    [/^(.+)'s talents don't converge on one keyword — their pool is generalist, so there's no single route to plan around\. Pick whatever synergizes with your first few picks instead\.$/,
+      (m, name) => `Os talentos de ${name} não convergem numa palavra-chave: o conjunto é generalista, por isso não há uma rota única a planear. Escolhe o que sinergizar com as tuas primeiras escolhas.`],
+    [/^(.+)'s talents don't converge on one keyword — their pool is generalist, so build around whichever starting talent you open with\.$/,
+      (m, name) => `Os talentos de ${name} não convergem numa palavra-chave: o conjunto é generalista, por isso constrói à volta de qualquer talento inicial com que abras.`],
+    [/^Not seeing these\? (.+)'s next-strongest direction is$/,
+      (m, name) => `Não aparece nenhum destes? A direcção mais forte a seguir de ${name} é`],
+    [/^(\d+) of (\d+) talents$/, "$1 de $2 talentos"],
+    [/^(\d+) of (\d+) talents · (\d+) from the start$/, "$1 de $2 talentos · $3 desde o início"],
 
     // ---- Aniimo ----
     [/^of (\d+) Aniimo$/, "de $1 Aniimo"],
