@@ -730,7 +730,10 @@ const GAMES = [
 ];
 
 /* What's New carousel on the home page (assets/js/updates-carousel.js).
-   Newest first. Add a new entry here whenever a game or a big feature
+   Newest first, capped at 8 entries: when adding a new one, also delete
+   the oldest (last) entry so the list never grows past 8 — this is a
+   manually-curated array, not auto-generated, so there's no code-level
+   cap to rely on. Add a new entry here whenever a game or a big feature
    ships; date is when it actually shipped (check `git log`), not today's
    date. `image` should show the feature itself (a real screenshot of the
    actual page/section it's about) — a game's own banner is only right for
@@ -739,6 +742,13 @@ const GAMES = [
    repo's history for how the assets/img/updates/*.jpg screenshots were
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
+  {
+    date: "2026-09-18",
+    title: "Aniimo joins the hub",
+    desc: "A creature database with all 86 Aniimo, plus an interactive region map.",
+    image: "assets/img/games/aniimo-header.jpg",
+    href: "games/aniimo/index.html",
+  },
   {
     date: "2026-09-12",
     title: "Epic Seven gets Heroes and Artifacts databases",
@@ -787,19 +797,5 @@ const SITE_UPDATES = [
     desc: "A spoiler-safe character database plus a full achievements checklist.",
     image: "assets/img/games/vampire-survivors-header.jpg",
     href: "games/vampire-survivors/index.html",
-  },
-  {
-    date: "2026-08-31",
-    title: "Palworld joins the hub",
-    desc: "Every Pal, its passive skills, and a breeding calculator.",
-    image: "assets/img/games/palworld-header.jpg",
-    href: "games/palworld/index.html",
-  },
-  {
-    date: "2026-08-30",
-    title: "Farever joins the hub",
-    desc: "Class builds, a weapons guide and a dungeons checklist.",
-    image: "assets/img/games/farever-header.jpg",
-    href: "games/farever/index.html",
   },
 ];

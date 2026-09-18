@@ -49,6 +49,9 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Aniimo joins the hub": "Aniimo chega ao hub",
+    "A creature database with all 86 Aniimo, plus an interactive region map.":
+      "Uma base de dados de criaturas com todos os 86 Aniimo, mais um mapa interactivo de regiões.",
     "Epic Seven gets Heroes and Artifacts databases": "Epic Seven ganha bases de dados de Heróis e Artefactos",
     "Every hero and artifact with real images: stats, skills, Fribbels builds, RTA data, suggested teams and an overall 0-100 rating.":
       "Todos os heróis e artefactos com imagens reais: stats, skills, builds Fribbels, dados de RTA, equipas sugeridas e uma classificação geral de 0 a 100.",
