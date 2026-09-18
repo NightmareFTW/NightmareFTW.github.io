@@ -1706,6 +1706,50 @@
     "No recommended heroes listed.": "Nenhum herói recomendado listado.",
     "No base-level effect listed.": "Nenhum efeito de nível base listado.",
     "Currently meta for": "Actualmente meta para", "in Guild Wars.": "no Guild Wars.",
+
+    // ---- Aniimo ----
+    "Free-to-play creature-collecting open-world RPG.": "RPG de mundo aberto free-to-play de captura de criaturas.",
+    "Aniimo Database": "Base de Dados de Aniimo",
+    "Every Aniimo with images: base stats, mobility, traits, skills, evolution line and habitats.":
+      "Todos os Aniimo com imagens: stats base, mobilidade, traços, skills, linha de evolução e habitats.",
+    "Aniimo Map": "Mapa de Aniimo",
+    "Browse the world of Idyll region by region: which Aniimo live there, and the notable locations and mechanics of each.":
+      "Explora o mundo de Idyll região a região: que Aniimo vivem lá, e os locais e mecanismos notáveis de cada uma.",
+    "Every Aniimo. Filter by element, role or stage, then open one to see its base stats, mobility, traits, skills, evolution line, habitats and Resonance Training.":
+      "Todos os Aniimo. Filtra por elemento, papel ou estágio, depois abre um para ver os stats base, mobilidade, traços, skills, linha de evolução, habitats e Treino de Ressonância.",
+    "Built by NightmareFTW · Aniimo database.": "Feito por NightmareFTW · base de dados de Aniimo.",
+    "Built by NightmareFTW · Aniimo map.": "Feito por NightmareFTW · mapa de Aniimo.",
+    "Search Aniimo…": "Procurar Aniimo…", "Search regions…": "Procurar regiões…",
+    "All stages": "Todos os estágios",
+    "Sort: Number": "Ordenar: Número", "Sort: Total Stats": "Ordenar: Stats Totais",
+    "No Aniimo match.": "Nenhum Aniimo corresponde.", "No regions match.": "Nenhuma região corresponde.",
+    "Loading Aniimo…": "A carregar Aniimo…",
+    "Couldn't load Aniimo data.": "Não foi possível carregar os dados dos Aniimo.",
+    "Couldn't load Aniimo map data.": "Não foi possível carregar os dados do mapa de Aniimo.",
+    "Mobility": "Mobilidade", "Traits": "Traços", "Evolution Line": "Linha de Evolução",
+    "Resonance Training": "Treino de Ressonância",
+    "Physical Attack": "Ataque Físico", "Magic Attack": "Ataque Mágico",
+    "Physical Defense": "Defesa Física", "Magic Defense": "Defesa Mágica",
+    "Physical": "Físico", "Magic": "Mágico",
+    "No Mobility ability listed yet.": "Nenhuma habilidade de Mobilidade listada ainda.",
+    "No traits listed yet.": "Nenhum traço listado ainda.",
+    "No skills listed yet.": "Nenhuma skill listada ainda.",
+    "Might": "Poder",
+    "No evolution data listed yet.": "Nenhum dado de evolução listado ainda.",
+    "No known habitats listed yet: check back once the wiki fills this in.":
+      "Nenhum habitat conhecido listado ainda: volta a verificar quando a wiki actualizar isto.",
+    "No Resonance Training data listed yet.": "Nenhum dado de Treino de Ressonância listado ainda.",
+    "Condition": "Condição",
+    "Aniimo not found.": "Aniimo não encontrado.",
+    "See these regions on the": "Vê estas regiões no", "None listed yet.": "Nenhum listado ainda.",
+    "Jump to an Aniimo…": "Ir para um Aniimo…",
+    "no art yet": "ainda sem imagem",
+    "Known Map Marker Types": "Tipos de Marcadores Conhecidos do Mapa",
+    "The in-game map uses these marker categories (names only: exact locations aren't published anywhere we can use; see the region cards above for what actually lives where).":
+      "O mapa do jogo usa estas categorias de marcadores (só os nomes: as localizações exactas não estão publicadas em lado nenhum que possamos usar; vê os cartões de região acima para saberes o que vive onde).",
+    "No official description published yet for this region.": "Ainda não há descrição oficial publicada para esta região.",
+    "Known mechanics": "Mecanismos conhecidos", "Aniimo found here": "Aniimo encontrados aqui",
+    "Male / Female": "Macho / Fêmea",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -1797,6 +1841,13 @@
     [/^Team (\d+)$/, "Equipa $1"],
     [/^Team (\d+) · (\w+) ([\d.]+)% WR$/, "Equipa $1 · $2 $3% WR"],
     [/^Attack ([\d.]+)$/, "Ataque $1"], [/^Health ([\d.]+)$/, "Vida $1"],
+
+    // ---- Aniimo ----
+    [/^of (\d+) Aniimo$/, "de $1 Aniimo"],
+    [/^(\d+) Aniimo · updated (.+)$/, "$1 Aniimo · actualizado $2"],
+    [/^(\d+) regions · updated (.+)$/, "$1 regiões · actualizado $2"],
+    [/^(\d+) Aniimo · (\d+) known mechanics?$/,
+      (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],
   ];
 
   function translateText(raw) {

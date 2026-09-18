@@ -138,9 +138,10 @@ async function epic7() {
   console.log(`[epic7] ${codes.length} codes (kept newest ${KEEP_E7}).`);
 }
 
-// ---- Game8 code tables (HSR, NTE) — the code lives in the copy <input value=…> --
+// ---- Game8 code tables (HSR, NTE, Aniimo) — the code lives in the copy <input value=…> --
 const G8_HSR = "https://game8.co/games/Honkai-Star-Rail/archives/410296";
 const G8_NTE = "https://game8.co/games/Neverness-to-Everness/archives/593718";
+const G8_ANIIMO = "https://game8.co/games/Aniimo/archives/619365";
 function game8Codes(html) {
   const tables = html.match(/<table[\s\S]*?<\/table>/g) || [];
   const table = tables.find((t) => /a-clipboard__textInput/.test(t) && /\bcode/i.test(clean((t.match(/<tr[\s\S]*?<\/tr>/) || [""])[0])));
@@ -182,6 +183,17 @@ async function nte() {
   console.log(`[nte] ${codes.length} codes.`);
 }
 
+async function aniimo() {
+  const codes = game8Codes(await get(G8_ANIIMO));
+  if (!codes.length) throw new Error("no codes parsed — keeping previous file");
+  write("aniimo", {
+    game: "aniimo", updated: new Date().toISOString(), source: G8_ANIIMO,
+    note: "Enter via the gear icon → Account → Gift Code Redemption in-game. Aniimo just launched, so codes here may still be thin.",
+    codes,
+  });
+  console.log(`[aniimo] ${codes.length} codes.`);
+}
+
 // ---- Far Far West (wikily.gg — JS page, code is in the copy button's aria-label) --
 const SRC_FFW = "https://farfarwest.wikily.gg/promo-codes";
 async function ffw() {
@@ -210,7 +222,7 @@ async function ffw() {
 async function run() {
   // Warframe stays curated in its JSON: its promo/glyph codes are permanent and
   // there's no clean structured source (pcgamesn mixes in other games' codes).
-  for (const [name, fn] of [["dreamlight-valley", ddv], ["epic7", epic7], ["honkai-star-rail", hsr], ["nte", nte], ["far-far-west", ffw]]) {
+  for (const [name, fn] of [["dreamlight-valley", ddv], ["epic7", epic7], ["honkai-star-rail", hsr], ["nte", nte], ["far-far-west", ffw], ["aniimo", aniimo]]) {
     try { await fn(); } catch (e) { console.warn(`[${name}] failed:`, e.message); }
   }
 }

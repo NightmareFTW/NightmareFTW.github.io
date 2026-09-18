@@ -38,6 +38,7 @@ const QUERIES = {
   farever: "Farever game Shiro Games",
   palworld: "Palworld game",
   "vampire-survivors": "Vampire Survivors game",
+  aniimo: "Aniimo game Pawprint Studio",
 };
 
 // Steam appids for the games that publish dev news on Steam (Epic Seven is
@@ -61,6 +62,7 @@ const STEAM_APPIDS = {
   farever: 3672400,
   palworld: 1623730,
   "vampire-survivors": 1794680,
+  aniimo: 4126040,
 };
 
 // ---- text helpers -----------------------------------------------------------

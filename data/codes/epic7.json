@@ -1,10 +1,17 @@
 {
   "game": "epic7",
-  "updated": "2026-09-12T20:14:02.604Z",
+  "updated": "2026-09-18T01:06:19.576Z",
   "source": "https://ucngame.com/codes/epic-seven-codes/",
   "redeem": "https://epic7.onstove.com/en/coupon",
   "note": "Redeem on the official Stove coupon page (button below). Epic Seven codes expire fast — newest at the top; some may already be gone.",
   "codes": [
+    {
+      "code": "EPICWITHCZN",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
     {
       "code": "TY_E8_INFINITY",
       "reward": "Coupon rewards (event / livestream)",
@@ -203,13 +210,6 @@
     },
     {
       "code": "RLY_E7_16_SPRING",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "DIENE_GIFT0219",
       "reward": "Coupon rewards (event / livestream)",
       "added": "",
       "expires": null,

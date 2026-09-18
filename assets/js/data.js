@@ -701,6 +701,32 @@ const GAMES = [
       },
     ],
   },
+  {
+    id: "aniimo",
+    name: "Aniimo",
+    banner: "assets/img/games/aniimo-header.jpg",
+    color: "#4fbf8f",
+    glow: "rgba(79, 191, 143, 0.22)",
+    blurb: "Free-to-play creature-collecting open-world RPG.",
+    tools: [
+      {
+        id: "aniimos",
+        name: "Aniimo Database",
+        type: "database",
+        desc: "Every Aniimo with images: base stats, mobility, traits, skills, evolution line and habitats.",
+        href: "games/aniimo/aniimos.html",
+        available: true,
+      },
+      {
+        id: "map",
+        name: "Aniimo Map",
+        type: "database",
+        desc: "Browse the world of Idyll region by region: which Aniimo live there, and the notable locations and mechanics of each.",
+        href: "games/aniimo/map.html",
+        available: true,
+      },
+    ],
+  },
 ];
 
 /* What's New carousel on the home page (assets/js/updates-carousel.js).

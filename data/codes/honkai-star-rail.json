@@ -1,13 +1,19 @@
 {
   "game": "honkai-star-rail",
-  "updated": "2026-07-15T06:49:59.284Z",
+  "updated": "2026-09-18T01:06:20.009Z",
   "source": "https://game8.co/games/Honkai-Star-Rail/archives/410296",
   "redeem": "https://hsr.hoyoverse.com/gift",
   "note": "Redeem on the official gift page (button below) or in-game. Livestream codes expire within ~24-48h, so the newest may already be gone.",
   "codes": [
     {
-      "code": "BladeFitCheck",
-      "reward": "Traveler's Guide x3 Cold Joke x2",
+      "code": "8SMSVJWJM7ZT",
+      "reward": "Stellar Jade x50 Credit x10,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "SunsweptRobin",
+      "reward": "Traveler's Guide x3 Classic SoulGlad x2",
       "expires": null,
       "expired": false
     },
