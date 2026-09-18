@@ -13,13 +13,29 @@ const ELEMENT_COLOR = {
   Fire: "#f2543d", Water: "#3d9bf2", Grass: "#6bbf3f", Electric: "#e0c23a", Ice: "#38b6e0",
   Wind: "#7fd9c4", Dark: "#a866e0", Holy: "#f2e6a3", Rock: "#a9835a",
 };
-const MIN_ZOOM_STEP = 0.15, MAX_SCALE = 2.5;
+const MIN_ZOOM_STEP = 0.15, WHEEL_ZOOM_STEP = 0.08, MAX_SCALE = 2.5;
+const isDesktopPointer = () => window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
 let MAP = null, REGIONS = null, CREATURES = null;
 let activeAniimoSlug = "", query = "", regionQuery = "";
 let scale = 0.2, fitScale = 0.2;
 let hiddenCategories = new Set();
 let openPopupMarkerId = null;
+// Click-drag panning on desktop (wheel is reserved for zoom there — see
+// bindMapInteractions()); a single set of window-level listeners tracks it
+// so buildMapStage() can freely recreate the wrap element on resize without
+// piling up duplicate listeners.
+const drag = { active: false, startX: 0, startY: 0, startLeft: 0, startTop: 0, wrap: null };
+document.addEventListener("mousemove", (e) => {
+  if (!drag.active) return;
+  drag.wrap.scrollLeft = drag.startLeft - (e.clientX - drag.startX);
+  drag.wrap.scrollTop = drag.startTop - (e.clientY - drag.startY);
+});
+document.addEventListener("mouseup", () => {
+  if (!drag.active) return;
+  drag.active = false;
+  drag.wrap.classList.remove("am-dragging");
+});
 
 const els = {
   toolbar: document.getElementById("am-toolbar"),
@@ -40,7 +56,7 @@ function buildToolbar() {
     <input type="search" id="am-search" class="search-input" placeholder="Search the map…" autocomplete="off" value="${esc(query)}">
     <select id="am-jump" class="sort-select"><option value="">Jump to an Aniimo…</option>${aniimoOpts}</select>
     <button type="button" class="am-zoom-btn" id="am-zoom-out" title="Zoom out" aria-label="Zoom out">−</button>
-    <button type="button" class="am-zoom-btn" id="am-zoom-reset" title="Fit to width" aria-label="Fit to width">⤢</button>
+    <button type="button" class="am-zoom-btn" id="am-zoom-reset" title="Reset zoom" aria-label="Reset zoom">⤢</button>
     <button type="button" class="am-zoom-btn" id="am-zoom-in" title="Zoom in" aria-label="Zoom in">+</button>`;
   document.getElementById("am-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); renderPins(); });
   document.getElementById("am-jump").addEventListener("change", (e) => jumpToAniimo(e.target.value));
@@ -70,17 +86,25 @@ function buildLegend() {
 
 // ---- the map itself ---------------------------------------------------------
 function buildMapStage() {
-  const wrapWidth = els.mapContainer.clientWidth || 900;
-  fitScale = Math.min(1, wrapWidth / MAP.mapWidth);
-  scale = fitScale;
   els.mapContainer.innerHTML = `
     <div class="am-map-wrap" id="am-map-wrap">
       <div class="am-map-stage" id="am-map-stage">
         <img src="${esc(MAP.mapImage)}" alt="Aniimo world map" referrerpolicy="no-referrer">
       </div>
     </div>`;
+  const wrap = document.getElementById("am-map-wrap");
+  const wrapWidth = wrap.clientWidth || 900;
+  // Desktop gets a fixed-height viewport (see the CSS) with no scrollbar —
+  // panning is by click-drag and zooming by wheel — so it can fit the whole
+  // map on both axes with nothing cut off. Touch devices keep the plain
+  // scrollable box, fit to width only, since they still pan by finger-swipe.
+  fitScale = isDesktopPointer()
+    ? Math.min(wrapWidth / MAP.mapWidth, (wrap.clientHeight || 600) / MAP.mapHeight)
+    : Math.min(1, wrapWidth / MAP.mapWidth);
+  scale = fitScale;
   applyScale();
   renderPins();
+  bindMapInteractions(wrap);
 }
 
 function applyScale() {
@@ -90,16 +114,46 @@ function applyScale() {
   stage.style.height = `${MAP.mapHeight * scale}px`;
 }
 
-function setScale(next) {
+// Zoom while keeping the map point under (px, py) — viewport-relative
+// coordinates within `wrap` — fixed on screen, so zooming toward the cursor
+// (wheel) or the viewport center (the +/- buttons) both feel anchored.
+function zoomAtPoint(next, px, py) {
   const wrap = document.getElementById("am-map-wrap");
-  const stage = document.getElementById("am-map-stage");
-  if (!wrap || !stage) return;
-  const cx = (wrap.scrollLeft + wrap.clientWidth / 2) / scale;
-  const cy = (wrap.scrollTop + wrap.clientHeight / 2) / scale;
+  if (!wrap) return;
+  const worldX = (wrap.scrollLeft + px) / scale;
+  const worldY = (wrap.scrollTop + py) / scale;
   scale = Math.max(fitScale, Math.min(MAX_SCALE, next));
   applyScale();
-  wrap.scrollLeft = cx * scale - wrap.clientWidth / 2;
-  wrap.scrollTop = cy * scale - wrap.clientHeight / 2;
+  wrap.scrollLeft = worldX * scale - px;
+  wrap.scrollTop = worldY * scale - py;
+}
+
+function setScale(next) {
+  const wrap = document.getElementById("am-map-wrap");
+  if (!wrap) return;
+  zoomAtPoint(next, wrap.clientWidth / 2, wrap.clientHeight / 2);
+}
+
+// Desktop-only: mouse wheel zooms (toward the cursor) instead of scrolling,
+// and dragging the map (anywhere but a pin) pans it — see the shared `drag`
+// state above, which persists across buildMapStage() rebuilding this wrap.
+function bindMapInteractions(wrap) {
+  wrap.addEventListener("wheel", (e) => {
+    if (!isDesktopPointer()) return;
+    e.preventDefault();
+    const rect = wrap.getBoundingClientRect();
+    zoomAtPoint(scale + (e.deltaY < 0 ? 1 : -1) * WHEEL_ZOOM_STEP, e.clientX - rect.left, e.clientY - rect.top);
+  }, { passive: false });
+  wrap.addEventListener("mousedown", (e) => {
+    if (!isDesktopPointer() || e.target.closest(".am-pin")) return;
+    drag.active = true;
+    drag.wrap = wrap;
+    drag.startX = e.clientX;
+    drag.startY = e.clientY;
+    drag.startLeft = wrap.scrollLeft;
+    drag.startTop = wrap.scrollTop;
+    wrap.classList.add("am-dragging");
+  });
 }
 
 function pinMatchesQuery(m) {
