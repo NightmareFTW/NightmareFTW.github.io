@@ -23,7 +23,7 @@
   var ctok = function () { try { return ls.getItem(CTOKEN); } catch (e) { return null; } };
   var signedIn = function () { return !!(gtok() || ctok()); };
   var syncable = function (k) { return k && k.indexOf("nftw:") === 0 && k.indexOf("nftw:auth:") !== 0 && k !== "nftw:lang"; };
-  var pulling = false, pushTimer = null;
+  var pulling = false, pushTimer = null, pushPending = false;
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]); }); };
   var displayName = function () { return ls.getItem(PNICK) || ls.getItem(CEMAIL) || ls.getItem(USER) || "Account"; };
   var avatarUrl = function () { return ls.getItem(PAVATAR) || ""; };
@@ -74,7 +74,21 @@
   };
 
   function collect() { var blob = {}; for (var i = 0; i < ls.length; i++) { var k = ls.key(i); if (syncable(k)) blob[k] = ls.getItem(k); } return blob; }
-  function applyBlob(blob) { var changed = false; for (var k in blob) if (syncable(k) && ls.getItem(k) !== blob[k]) { ls.setItem(k, blob[k]); changed = true; } return changed; }
+  // `before` is a snapshot of collect() taken right when the pull request went out. A key the
+  // user edited locally while that request was in flight is fresher than what the pull just
+  // fetched, so it's left alone here instead of being clobbered by the now-stale remote value —
+  // schedulePush()'s pending-push flag (flushed by flushPending()) makes sure that edit still
+  // gets pushed instead of being silently dropped.
+  function applyBlob(blob, before) {
+    var changed = false;
+    for (var k in blob) {
+      if (!syncable(k)) continue;
+      if (before && ls.getItem(k) !== before[k]) continue;
+      if (ls.getItem(k) !== blob[k]) { ls.setItem(k, blob[k]); changed = true; }
+    }
+    return changed;
+  }
+  function flushPending() { if (pushPending) { pushPending = false; schedulePush(); } }
 
   // ---- Cloudflare account API ------------------------------------------------
   async function api(path, opts) {
@@ -88,16 +102,19 @@
   async function cloudPush() { if (!ctok()) return; try { await api("/data", { method: "PUT", body: JSON.stringify({ blob: JSON.stringify(collect()) }) }); } catch (e) {} }
   async function cloudPull() {
     pulling = true;
+    var before = collect();
     try {
       var r = await api("/data", { method: "GET" });
-      if (r.status === 401) { cloudSignOut(true); pulling = false; return; }
-      if (!r.ok) { pulling = false; return; }
+      if (r.status === 401) { pulling = false; cloudSignOut(true); flushPending(); return; }
+      if (!r.ok) { pulling = false; flushPending(); return; }
       var remote = {}; try { remote = JSON.parse(r.data.blob || "{}"); } catch (e) {}
-      if (!Object.keys(remote).length) { pulling = false; cloudPush(); return; }
-      var changed = applyBlob(remote);
+      if (!Object.keys(remote).length) { pulling = false; pushPending = false; await cloudPush(); return; }
+      var changed = applyBlob(remote, before);
       pulling = false;
+      // flush (and await) a locally-preserved edit before a reload can strand its debounce timer
+      if (pushPending) { pushPending = false; await cloudPush(); }
       if (changed) location.reload();
-    } catch (e) { pulling = false; }
+    } catch (e) { pulling = false; flushPending(); }
   }
   function cloudSignOut(silent) { [CTOKEN, CEMAIL].forEach(function (k) { ls.removeItem(k); }); if (!silent) render(); }
 
@@ -117,14 +134,19 @@
       else { var r = await gh("/gists", { method: "POST", body: JSON.stringify({ description: "NightmareFTW Hub — synced settings", public: false, files: fileBody(content) }) }); var g = await r.json(); if (g && g.id) ls.setItem(GIST, g.id); } } catch (e) {}
   }
   async function gistPull() {
-    if (!gtok()) return; pulling = true;
+    if (!gtok()) return;
+    pulling = true;
+    var before = collect();
     try {
-      var id = await findGist(); if (!id) { pulling = false; gistPush(); return; }
-      var r = await gh("/gists/" + id); if (!r.ok) { pulling = false; return; }
-      var g = await r.json(); var file = g.files && g.files[GIST_FILE]; if (!file) { pulling = false; return; }
+      var id = await findGist(); if (!id) { pulling = false; pushPending = false; await gistPush(); return; }
+      var r = await gh("/gists/" + id); if (!r.ok) { pulling = false; flushPending(); return; }
+      var g = await r.json(); var file = g.files && g.files[GIST_FILE]; if (!file) { pulling = false; flushPending(); return; }
       var content = file.truncated ? await (await fetch(file.raw_url)).text() : file.content;
-      var changed = applyBlob(JSON.parse(content)); pulling = false; if (changed) location.reload();
-    } catch (e) { pulling = false; }
+      var changed = applyBlob(JSON.parse(content), before);
+      pulling = false;
+      if (pushPending) { pushPending = false; await gistPush(); }
+      if (changed) location.reload();
+    } catch (e) { pulling = false; flushPending(); }
   }
   function githubLogin() { var state = Math.random().toString(36).slice(2); try { sessionStorage.setItem("nftw:auth:state", state); sessionStorage.setItem("nftw:auth:return", location.href); } catch (e) {} location.href = "https://github.com/login/oauth/authorize?client_id=" + CLIENT_ID + "&scope=" + SCOPE + "&redirect_uri=" + encodeURIComponent(REDIRECT) + "&state=" + state; }
   function githubLogout() { [TOKEN, USER, GIST].forEach(function (k) { ls.removeItem(k); }); render(); }
@@ -144,7 +166,10 @@
   }
 
   // ---- unified sync ----------------------------------------------------------
-  function schedulePush() { if (pulling || !signedIn()) return; clearTimeout(pushTimer); pushTimer = setTimeout(pushActive, 1500); }
+  // A write made while a pull is in flight can't push yet (its own response would just
+  // clobber this one) — remember it via pushPending and flushPending() re-schedules it
+  // once the pull settles, instead of the edit being silently lost.
+  function schedulePush() { if (!signedIn()) return; if (pulling) { pushPending = true; return; } clearTimeout(pushTimer); pushTimer = setTimeout(pushActive, 1500); }
   function pushActive() { if (ctok()) cloudPush(); else if (gtok()) gistPush(); }
   function pullActive() { if (ctok()) cloudPull(); else if (gtok()) gistPull(); }
 
