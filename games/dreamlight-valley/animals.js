@@ -2,8 +2,9 @@
    Two tabs: wild Critters (per-species guide — favourite food, weekly schedule,
    DLC, how to approach, plus each colour variant) and Companions (every
    collectible companion grouped by how you get it: event / premium / quest /
-   craftable). Tick what you've collected (saved on this device); collected
-   entries dim and can be filtered. Names show the official PT-BR when PT. */
+   craftable). Tick what you've collected (saved locally, synced to the
+   account when signed in); collected entries dim and can be filtered.
+   Names show the official PT-BR when PT. */
 
 let DATA = null, tab = "critters";
 let query = "", fBiome = "", fDlc = "", fApproach = "", fSource = "", fOwned = "all";

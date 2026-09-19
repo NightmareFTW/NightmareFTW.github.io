@@ -1,7 +1,7 @@
 /* God of War Ragnarök — Missables Checklist.
    Leads with the honest picture (nothing required is permanently missable),
    flags the one time-sensitive area, then provides a return-friendly tracker
-   for every favor and collectible category. Ticks persist on this device.
+   for every favor and collectible category. Ticks are saved locally and sync to the account when signed in.
    Data: data/god-of-war-ragnarok/missables.json. Vanilla JS, no deps. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));

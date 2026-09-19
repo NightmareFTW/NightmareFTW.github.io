@@ -2,7 +2,7 @@
    Every achievement (in-game "Unlocks"), all DLCs included, grouped by
    version/DLC. Steam hides some achievement descriptions until you earn
    them — the wiki documents the real text regardless, so it's shown here
-   in full. Ticks persist on this device.
+   in full. Ticks are saved locally and sync to the account when signed in.
    Data: data/vampire-survivors/achievements.json. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));

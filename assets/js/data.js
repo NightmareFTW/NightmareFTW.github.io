@@ -627,7 +627,7 @@ const GAMES = [
         id: "dungeons",
         name: "Dungeons Checklist",
         type: "checklist",
-        desc: "Track which of the game's dungeons you've cleared. Ticks persist on this device.",
+        desc: "Track which of the game's dungeons you've cleared. Ticks are saved locally and sync to your account when you're signed in.",
         href: "games/farever/dungeons.html",
         available: true,
       },

@@ -1,7 +1,7 @@
 /* Clair Obscur: Expedition 33 — Missables Checklist.
    Leads with the honest picture (almost nothing is permanently missable),
    flags the Prologue one-shots and points of no return, then tracks the
-   return-friendly content. Ticks persist on this device.
+   return-friendly content. Ticks are saved locally and sync to the account when signed in.
    Data: data/expedition-33/missables.json. Vanilla JS, no deps. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
