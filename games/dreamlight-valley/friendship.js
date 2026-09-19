@@ -1,5 +1,6 @@
 /* Disney Dreamlight Valley — Friendship Tracker
-   Track each villager's friendship level (0–10), saved per device. Characters
+   Track each villager's friendship level (0–10), saved locally and synced
+   to the account when signed in. Characters
    are tagged by where they come from (base game / DLC). Face images load from
    assets/img/ddv; missing ones fall back to a coloured initial.
 

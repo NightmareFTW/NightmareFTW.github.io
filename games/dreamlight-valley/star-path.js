@@ -1,7 +1,7 @@
 /* Disney Dreamlight Valley — Star Path Tracker
    Shows both duty types: the repeatable Routine Duties (with detailed how-to)
    and the Weekly Duties (loaded from starpath.json, revealed week by week).
-   Checked state saved per device. */
+   Checked state saved locally and synced to the account when signed in. */
 
 const SEASON = {
   name: "Godly Glamor", number: 23, theme: "Mount Olympus / Greek gods",

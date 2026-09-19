@@ -132,8 +132,8 @@
     "Reward from a quest": "Recompensa de uma quest", "Crafted at a crafting station": "Craftado numa estação de fabrico",
     "Every wild critter — favourite food, when it appears, which DLC, and how to approach it to feed it — plus a section for every collectible companion (event, premium shop, quest & craftable). Tick what you've collected; it dims and you can filter by it.":
       "Cada critter selvagem — comida favorita, quando aparece, que DLC, e como te aproximares para o alimentar — mais uma secção para cada companion colecionável (evento, loja premium, quest & craftável). Marca o que já colectaste; fica esbatido e podes filtrar por isso.",
-    "Critter data, schedules & companion sources from the Dreamlight Valley Wiki; names from the game's official PT-BR data. Your collection is saved on this device.":
-      "Dados de critters, horários & fontes de companions da Dreamlight Valley Wiki; nomes dos dados oficiais PT-BR do jogo. A tua colecção é guardada neste dispositivo.",
+    "Critter data, schedules & companion sources from the Dreamlight Valley Wiki; names from the game's official PT-BR data. Your collection is saved locally and syncs to your account when you're signed in.":
+      "Dados de critters, horários & fontes de companions da Dreamlight Valley Wiki; nomes dos dados oficiais PT-BR do jogo. A tua colecção é guardada localmente e sincroniza com a tua conta quando tens sessão iniciada.",
     "Favourite:": "Favorita:", "How to approach:": "Como aproximar:", "Liked:": "Gosta:",
     "No critters match.": "Nenhum critter corresponde.", "No companions match.": "Nenhum companion corresponde.",
     "No variants match.": "Nenhuma variante corresponde.", "Couldn't load animal data.": "Não foi possível carregar os dados dos animais.",
@@ -956,8 +956,8 @@
       "Perfeito para um investigador solo a transmitir a vista a quem vê os monitores.",
 
     // ---- Tool subtitles / notes / errors (all games) ----
-    "Track every villager's friendship level (0–10). Saved on this device.":
-      "Acompanha o nível de amizade de cada villager (0–10). Guardado neste dispositivo.",
+    "Track every villager's friendship level (0–10). Saved locally and synced to your account when you're signed in.":
+      "Acompanha o nível de amizade de cada villager (0–10). Guardado localmente e sincronizado com a tua conta quando tens sessão iniciada.",
     "Every farmable ingredient and where to get it. Filter by category and biome (multi-select), search and sort.":
       "Cada ingrediente farmável e onde o obter. Filtra por categoria e bioma (multi-selecção), pesquisa e ordena.",
     "A catalogue of the valley's items & resources, laid out by category like the in-game collection. Pick a category, then search, filter and sort.":
@@ -978,8 +978,8 @@
     "Live data via the Warframe API (api.warframestat.us), PC platform.": "Dados ao vivo via API do Warframe (api.warframestat.us), plataforma PC.",
     "Compare offensive and defensive gear. Uses Epic Seven's defense formula: damage taken = 300 / (300 + DEF).":
       "Compara gear ofensivo e defensivo. Usa a fórmula de defesa do Epic Seven: dano recebido = 300 / (300 + DEF).",
-    "Daily section resets at local midnight, weekly resets Monday. Saved on this device.":
-      "A secção diária reseta à meia-noite local, a semanal reseta segunda. Guardado neste dispositivo.",
+    "Daily section resets at local midnight, weekly resets Monday. Saved locally and synced to your account when you're signed in.":
+      "A secção diária reseta à meia-noite local, a semanal reseta segunda. Guardado localmente e sincronizado com a tua conta quando tens sessão iniciada.",
     "Generic gacha routine — once Neverness to Everness's reset times and content are confirmed, ask me to lock the items and reset schedule to the real ones.":
       "Rotina gacha genérica — quando os reset times e conteúdo do Neverness to Everness forem confirmados, pede-me para fixar os items e o horário reais.",
     "Images & tier data via the Phasmophobia Wiki. Tier effects are summarized; exact values can shift between patches.":
@@ -1037,7 +1037,7 @@
     "No tools yet — coming soon.": "Ainda sem ferramentas — em breve.",
 
     // ---- Subtitle / note fragments (with inline tags) ----
-    "Progress is saved on this device and resets automatically —": "O progresso é guardado neste dispositivo e reseta automaticamente —",
+    "Progress is saved locally and syncs to your account when you're signed in, resetting automatically —": "O progresso é guardado localmente e sincroniza com a tua conta quando tens sessão iniciada, reiniciando automaticamente —",
     "daily at 15:00 UTC": "diariamente às 15:00 UTC", "weekly Tuesday 08:00 UTC": "semanalmente terça às 08:00 UTC",
     "Live Eorzea clock. Nodes currently": "Relógio de Eorzea ao vivo. Os nós actualmente",
     "up": "disponíveis", "are shown first with their real-time countdown.": "aparecem primeiro com o countdown em tempo real.",
@@ -1136,12 +1136,12 @@
       "Cada ferramenta de evidência e qual dos 6 tipos detecta, agrupadas por evidência. Dados da",
     "Proven base-game meta builds — full equipment with item icons, the level-150 attribute spread, the weapon's Ash of War, how to play it and where to get the key pieces. Tap a build to expand.":
       "Builds meta comprovadas do jogo base: equipamento completo com ícones, distribuição de atributos ao nível 150, a Ash of War da arma, como se joga e onde apanhar as peças-chave. Toca numa build para abrir.",
-    "Elden Ring's NPC questlines are genuinely, permanently missable — progress the story too far and they break. Track each questline and the world-state triggers so you don't lose one by accident. Ticks are saved on this device.":
-      "As questlines de NPC do Elden Ring perdem-se mesmo de forma permanente: avança demasiado na história e partem. Acompanha cada questline e os triggers do mundo para não perderes nenhuma por acidente. As marcações ficam guardadas neste dispositivo.",
+    "Elden Ring's NPC questlines are genuinely, permanently missable — progress the story too far and they break. Track each questline and the world-state triggers so you don't lose one by accident. Ticks are saved locally and sync to your account when you're signed in.":
+      "As questlines de NPC do Elden Ring perdem-se mesmo de forma permanente: avança demasiado na história e partem. Acompanha cada questline e os triggers do mundo para não perderes nenhuma por acidente. As marcações ficam guardadas localmente e sincronizam com a tua conta quando tens sessão iniciada.",
     "Five end-game meta team builds. Pick a strategy, then tap each member to see their part of it — weapon & skills, the three Pictos, the Luminas and attributes — laid out like the in-game build screen.":
       "Cinco builds de equipa meta de fim de jogo. Escolhe uma estratégia e toca em cada membro para veres a sua parte: arma e skills, os três Pictos, as Luminas e atributos, dispostos como no ecrã de build do jogo.",
-    "What's genuinely missable (mostly a handful of Prologue moments), the points of no return to watch, and the content you can safely clean up later — so you can progress the story without losing anything. Ticks are saved on this device.":
-      "O que se perde mesmo (sobretudo alguns momentos do Prólogo), os pontos sem retorno a vigiar e o conteúdo que podes limpar mais tarde sem risco, para avançares na história sem perderes nada. As marcações ficam guardadas neste dispositivo.",
+    "What's genuinely missable (mostly a handful of Prologue moments), the points of no return to watch, and the content you can safely clean up later — so you can progress the story without losing anything. Ticks are saved locally and sync to your account when you're signed in.":
+      "O que se perde mesmo (sobretudo alguns momentos do Prólogo), os pontos sem retorno a vigiar e o conteúdo que podes limpar mais tarde sem risco, para avançares na história sem perderes nada. As marcações ficam guardadas localmente e sincronizam com a tua conta quando tens sessão iniciada.",
     "Top-rated community loadouts, grouped by primary weapon — each with the full kit (weapons, grenade, spells, hero & mount) and images. Sourced from":
       "Os loadouts da comunidade mais bem votados, agrupados por arma principal, cada um com o kit completo (armas, granada, feitiços, herói e montada) e imagens. Fonte:",
     "and ordered by community votes.": "e ordenados pelos votos da comunidade.",
@@ -1149,13 +1149,13 @@
       "O mapa interactivo de cada região com todos os coleccionáveis, segredos, objectivos, minério, loot e mais. Liga ou desliga uma categoria na legenda. Dados e mapas de",
     "The top armor sets and loadouts in detail — stat spread, set perks, weapons & runic attacks, shield and relic, laid out like the in-game gear screen so a build is easy to recreate. Tap a build to expand.":
       "Os melhores conjuntos de armadura e loadouts ao detalhe: distribuição de stats, perks de conjunto, armas e ataques rúnicos, escudo e relíquia, dispostos como o ecrã de equipamento do jogo para recriares a build com facilidade. Toca numa build para abrir.",
-    "Exactly what you can and can't miss, the one time-sensitive area to watch, and a full return-friendly tracker for every favor and collectible — so you can play the story without fear of leaving something behind. Ticks are saved on this device.":
-      "Exactamente o que podes e não podes perder, a única zona sensível ao tempo a vigiar e um tracker completo para cada favor e coleccionável, para jogares a história sem receio de deixar algo para trás. As marcações ficam guardadas neste dispositivo.",
+    "Exactly what you can and can't miss, the one time-sensitive area to watch, and a full return-friendly tracker for every favor and collectible — so you can play the story without fear of leaving something behind. Ticks are saved locally and sync to your account when you're signed in.":
+      "Exactamente o que podes e não podes perder, a única zona sensível ao tempo a vigiar e um tracker completo para cada favor e coleccionável, para jogares a história sem receio de deixar algo para trás. As marcações ficam guardadas localmente e sincronizam com a tua conta quando tens sessão iniciada.",
     "Per-character build references — best Light Cone, relic set + planar ornament, main stats and substat priority — compiled from":
       "Referências de build por personagem: melhor Light Cone, conjunto de relíquias e ornamento planar, stats principais e prioridade de substats, compiladas do",
     "and refreshed to the live patch. Click a character.": "e actualizadas para o patch actual. Clica numa personagem.",
-    "Trailblaze Power, Daily Training and the weekly endgame, auto-resetting on your server's 04:00 clock. Saved on this device. (The 6-week rotation — Memory of Chaos, Pure Fiction, Apocalyptic Shadow — is noted but not on a weekly reset.)":
-      "Trailblaze Power, Daily Training e o endgame semanal, com reset automático às 04:00 do teu servidor. Guardado neste dispositivo. (A rotação de 6 semanas, Memory of Chaos, Pure Fiction e Apocalyptic Shadow, está indicada mas não tem reset semanal.)",
+    "Trailblaze Power, Daily Training and the weekly endgame, auto-resetting on your server's 04:00 clock. Saved locally and synced to your account when you're signed in. (The 6-week rotation — Memory of Chaos, Pure Fiction, Apocalyptic Shadow — is noted but not on a weekly reset.)":
+      "Trailblaze Power, Daily Training e o endgame semanal, com reset automático às 04:00 do teu servidor. Guardado localmente e sincronizado com a tua conta quando tens sessão iniciada. (A rotação de 6 semanas, Memory of Chaos, Pure Fiction e Apocalyptic Shadow, está indicada mas não tem reset semanal.)",
     "Current and upcoming in-game events on a timeline, with start/end dates and a live \"today\" marker, compiled from":
       "Eventos actuais e futuros numa linha temporal, com datas de início e fim e um marcador de \"hoje\" ao vivo, compilados do",
     "and refreshed to the live patch.": "e actualizados para o patch actual.",
@@ -1282,8 +1282,8 @@
     "Every weapon type in the game and which classes make the most of it.":
       "Cada tipo de arma do jogo e que classes tiram mais proveito dela.",
     "Dungeons Checklist": "Checklist de Dungeons",
-    "Track which of the game's dungeons you've cleared. Ticks persist on this device.":
-      "Acompanha que dungeons do jogo já limpaste. As marcações ficam guardadas neste dispositivo.",
+    "Track which of the game's dungeons you've cleared. Ticks are saved locally and sync to your account when you're signed in.":
+      "Acompanha que dungeons do jogo já limpaste. As marcações ficam guardadas localmente e sincronizam com a tua conta quando tens sessão iniciada.",
     "3 weapon-based build ideas for each of Farever's 4 classes — role, how to play it, and the trade-offs. Any class can equip any weapon, so these are starting points to adapt, not the only way to play. Tap a build to expand.":
       "3 ideias de build por arma para cada uma das 4 classes do Farever — função, como jogar e os trade-offs. Qualquer classe pode equipar qualquer arma, por isso estas são pontos de partida para adaptares, não a única forma de jogar. Toca numa build para expandir.",
     "Builds hand-written by NightmareFTW — Farever is in Early Access, so this will keep changing.":
@@ -1295,8 +1295,8 @@
     "Farever is in Early Access — weapon types and class pairings will keep expanding.":
       "O Farever está em Early Access — os tipos de arma e os pares de classes vão continuar a expandir-se.",
     "Built by NightmareFTW · Farever weapons guide.": "Feito por NightmareFTW · guia de armas do Farever.",
-    "Track which of Farever's co-op dungeons you've cleared. Ticks are saved on this device.":
-      "Acompanha que dungeons co-op do Farever já limpaste. As marcações ficam guardadas neste dispositivo.",
+    "Track which of Farever's co-op dungeons you've cleared. Ticks are saved locally and sync to your account when you're signed in.":
+      "Acompanha que dungeons co-op do Farever já limpaste. As marcações ficam guardadas localmente e sincronizam com a tua conta quando tens sessão iniciada.",
     "Farever is in Early Access — this list only covers dungeons confirmed at launch and will grow over time.":
       "O Farever está em Early Access — esta lista cobre apenas as dungeons confirmadas no lançamento e vai crescer com o tempo.",
     "Built by NightmareFTW · Farever dungeons.": "Feito por NightmareFTW · dungeons do Farever.",
@@ -1654,8 +1654,8 @@
     "Characters Database": "Base de Dados de Personagens",
     "Every character, hidden until you've found it — with a step-by-step unlock guide you can check off.":
       "Todas as personagens, escondidas até as encontrares — com um guia de desbloqueio passo-a-passo que podes marcar.",
-    "Every achievement across the base game and all DLCs — including the ones Steam hides the description of until you earn them. Ticks are saved on this device only.":
-      "Todas as conquistas do jogo base e de todas as DLCs — incluindo as que a Steam esconde a descrição até as ganhares. As marcações só ficam guardadas neste dispositivo.",
+    "Every achievement across the base game and all DLCs — including the ones Steam hides the description of until you earn them. Ticks are saved locally and sync to your account when you're signed in.":
+      "Todas as conquistas do jogo base e de todas as DLCs — incluindo as que a Steam esconde a descrição até as ganhares. As marcações ficam guardadas localmente e sincronizam com a tua conta quando tens sessão iniciada.",
     "Built by NightmareFTW · Vampire Survivors achievements.": "Feito por NightmareFTW · conquistas de Vampire Survivors.",
     "All characters, but hidden until you say you've found them — only the starting characters show up right away. Tick off a character's unlock steps (or just mark it unlocked directly) to reveal it here for good, or flip \"Show all\" if you don't mind spoilers.":
       "Todas as personagens, mas escondidas até dizeres que as encontraste — só as personagens iniciais aparecem logo. Marca os passos de desbloqueio de uma personagem (ou marca-a directamente como desbloqueada) para a revelares aqui para sempre, ou activa \"Mostrar tudo\" se não te importares com spoilers.",

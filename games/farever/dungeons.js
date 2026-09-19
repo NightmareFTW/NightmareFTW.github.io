@@ -1,6 +1,7 @@
 /* Farever — Dungeons Checklist.
-   Simple "have I cleared this" tracker, one tick per dungeon. Ticks persist
-   on this device (no reset — dungeons don't come back to being uncleared).
+   Simple "have I cleared this" tracker, one tick per dungeon. Ticks are saved
+   locally and sync to the account when signed in (no reset — dungeons don't
+   come back to being uncleared).
    Data: data/farever/dungeons.json. Vanilla JS, no deps. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));

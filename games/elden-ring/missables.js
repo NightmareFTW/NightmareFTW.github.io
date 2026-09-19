@@ -1,6 +1,6 @@
 /* Elden Ring — Missables Checklist.
    Per-questline tracker for Elden Ring's permanently-missable NPC quests, plus
-   the world-state triggers that end them. Ticks persist on this device.
+   the world-state triggers that end them. Ticks are saved locally and sync to the account when signed in.
    Data: data/elden-ring/missables.json. Vanilla JS, no deps. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
