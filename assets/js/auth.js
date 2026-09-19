@@ -144,7 +144,8 @@
   }
 
   // ---- unified sync ----------------------------------------------------------
-  function schedulePush() { if (pulling || !signedIn()) return; clearTimeout(pushTimer); pushTimer = setTimeout(function () { if (ctok()) cloudPush(); else if (gtok()) gistPush(); }, 1500); }
+  function schedulePush() { if (pulling || !signedIn()) return; clearTimeout(pushTimer); pushTimer = setTimeout(pushActive, 1500); }
+  function pushActive() { if (ctok()) cloudPush(); else if (gtok()) gistPush(); }
   function pullActive() { if (ctok()) cloudPull(); else if (gtok()) gistPull(); }
 
   // ---- icons -----------------------------------------------------------------
@@ -288,7 +289,7 @@
     email: function () { return ls.getItem(CEMAIL) || ""; }, ghUser: function () { return ls.getItem(USER) || ""; },
     token: function () { return ctok(); }, worker: WORKER,
     signOut: function () { if (ctok()) cloudSignOut(false); else githubLogout(); },
-    pushNow: cloudPush, render: render, open: openModal,
+    pushNow: pushActive, render: render, open: openModal,
   };
 
   // ---- init ------------------------------------------------------------------
