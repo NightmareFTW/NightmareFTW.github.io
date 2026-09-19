@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18T07:23:47.276Z",
+  "updated": "2026-09-19T05:29:24.636Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -79,7 +79,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 528,
+  "count": 653,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -127,6 +127,24 @@
       "creatureSlug": null
     },
     {
+      "id": "0TpBtnR4yUvUW4M7uaGR",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.28154164534249493,
+      "y": 0.8731501829103934,
+      "creatureSlug": null
+    },
+    {
+      "id": "0XSd44T4eTesiYbThQMF",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.5083793104800522,
+      "y": 0.9107796949157887,
+      "creatureSlug": null
+    },
+    {
       "id": "0XsMUUHk9oKqby7q7c4S",
       "name": "Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
@@ -142,6 +160,15 @@
       "group": "Loot",
       "x": 0.2278534182757995,
       "y": 0.4693605155476632,
+      "creatureSlug": null
+    },
+    {
+      "id": "0flJ5r42MECcyyOKEK5V",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.2608470363050264,
+      "y": 0.7401253634161833,
       "creatureSlug": null
     },
     {
@@ -190,6 +217,24 @@
       "creatureSlug": null
     },
     {
+      "id": "1Xf1DiETjJOocR68faXO",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7475628154453616,
+      "y": 0.5648959481436862,
+      "creatureSlug": null
+    },
+    {
+      "id": "1kX6zTl7ZFawaBi9Hcfk",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.15132700581773226,
+      "y": 0.546655375119343,
+      "creatureSlug": null
+    },
+    {
       "id": "1plEEhyLQDPuh9kyORf4",
       "name": "Bloom",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
@@ -226,6 +271,15 @@
       "creatureSlug": null
     },
     {
+      "id": "2C2F7LbRDFagnKodyxdH",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.08255209247199354,
+      "y": 0.48788965957047026,
+      "creatureSlug": null
+    },
+    {
       "id": "2I2tFeamV3EsoXST92E2",
       "name": "Bloom",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
@@ -248,8 +302,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.0764072217119457,
-      "y": 0.6890675919869125,
+      "x": 0.07885949331006412,
+      "y": 0.6896907092405087,
       "creatureSlug": null
     },
     {
@@ -460,6 +514,15 @@
       "creatureSlug": null
     },
     {
+      "id": "3vqECUMPdsXTGCW8Z5BC",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.7551275710124534,
+      "y": 0.5772528401319477,
+      "creatureSlug": null
+    },
+    {
       "id": "3zc45XU380BgIBYMwxxQ",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -496,12 +559,30 @@
       "creatureSlug": null
     },
     {
+      "id": "451HggtCInuJMvjsKXwo",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.34598450323998026,
+      "y": 0.7393562003175305,
+      "creatureSlug": null
+    },
+    {
       "id": "4EGl50qjtOWcVWEjSnFJ",
       "name": "Village Vistas",
       "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
       "group": "Puzzle",
       "x": 0.4855650735462218,
       "y": 0.4836679439179363,
+      "creatureSlug": null
+    },
+    {
+      "id": "4IakJIpHyRc4cr1ff31d",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.30825853703286704,
+      "y": 0.7721337925488285,
       "creatureSlug": null
     },
     {
@@ -523,12 +604,30 @@
       "creatureSlug": null
     },
     {
+      "id": "4S6lUBm4POIXbc4bohlV",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.48354458984585785,
+      "y": 0.8767579317891858,
+      "creatureSlug": null
+    },
+    {
       "id": "4XmtdFB75xetYKA1TY2S",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.109321412949077,
       "y": 0.6287409054187094,
+      "creatureSlug": null
+    },
+    {
+      "id": "4ZnxiHevknnND4HOH1JO",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2938419681914171,
+      "y": 0.804212411459261,
       "creatureSlug": null
     },
     {
@@ -541,6 +640,15 @@
       "creatureSlug": null
     },
     {
+      "id": "4cCxXwH1rYVbKJi4tJex",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.37549223276928895,
+      "y": 0.6968938218981435,
+      "creatureSlug": null
+    },
+    {
       "id": "57iq5Nxrdrh86juOtP0W",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -550,12 +658,21 @@
       "creatureSlug": null
     },
     {
+      "id": "5AZZpwArYS6tOGhNTkqx",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.008795905338238366,
+      "y": 0.5612879804538977,
+      "creatureSlug": null
+    },
+    {
       "id": "5BLedPkz24oWVaRiT1rT",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.046641694593992256,
-      "y": 0.512664594739789,
+      "x": 0.048273760069033764,
+      "y": 0.5157305027505288,
       "creatureSlug": null
     },
     {
@@ -590,8 +707,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.06168371626106826,
-      "y": 0.6595792302001797,
+      "x": 0.0640724160042042,
+      "y": 0.6637770268499708,
       "creatureSlug": null
     },
     {
@@ -613,12 +730,30 @@
       "creatureSlug": null
     },
     {
+      "id": "5ktktNdM4Djf9tytmHge",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2957858567115425,
+      "y": 0.8615998560589162,
+      "creatureSlug": null
+    },
+    {
       "id": "5myVfDpT9IFuwxuKwYS7",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.2280279709667706,
       "y": 0.851895066941978,
+      "creatureSlug": null
+    },
+    {
+      "id": "5uyiFsgROPebMcm9h8nK",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.1452783981689152,
+      "y": 0.8748881931613965,
       "creatureSlug": null
     },
     {
@@ -664,6 +799,15 @@
       "group": "Loot",
       "x": 0.2058054879285186,
       "y": 0.3206884611140026,
+      "creatureSlug": null
+    },
+    {
+      "id": "6hDN26FaAKkJEwDJOslE",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3854385218353297,
+      "y": 0.7182363967468746,
       "creatureSlug": null
     },
     {
@@ -721,6 +865,24 @@
       "creatureSlug": null
     },
     {
+      "id": "7ViQEaE99QG0HazzDG3L",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3480380223515986,
+      "y": 0.7374670461632178,
+      "creatureSlug": null
+    },
+    {
+      "id": "7ZFf9YMLl4COrJRVyISN",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3912543487622236,
+      "y": 0.7016757646050991,
+      "creatureSlug": null
+    },
+    {
       "id": "7hk5VRCIHCQaF1uQRctG",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -736,6 +898,15 @@
       "group": "Loot",
       "x": 0.20526874858351746,
       "y": 0.6396499228299319,
+      "creatureSlug": null
+    },
+    {
+      "id": "7twCNtAp0Tmxeyoi2zE6",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.3757658828495249,
+      "y": 0.7765301977470074,
       "creatureSlug": null
     },
     {
@@ -772,6 +943,15 @@
       "group": "Loot",
       "x": 0.30274359651419464,
       "y": 0.6242888082889095,
+      "creatureSlug": null
+    },
+    {
+      "id": "89AKtoExPlPXMuZngDZM",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.8021041320275669,
+      "y": 0.4601559939614077,
       "creatureSlug": null
     },
     {
@@ -826,6 +1006,15 @@
       "group": "Loot",
       "x": 0.2231684807251613,
       "y": 0.8087900298260564,
+      "creatureSlug": null
+    },
+    {
+      "id": "8fp2RQxIC07X5padcnsw",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.24127987611587234,
+      "y": 0.707448065454102,
       "creatureSlug": null
     },
     {
@@ -919,6 +1108,15 @@
       "creatureSlug": null
     },
     {
+      "id": "9eFOJtodKD2i7qp5v9hm",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.19085966704569526,
+      "y": 0.5899640624067501,
+      "creatureSlug": null
+    },
+    {
       "id": "9miQAWKwAVmq7eQi8ejn",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -928,12 +1126,57 @@
       "creatureSlug": null
     },
     {
+      "id": "9v3UYtiAvezM5k1657ju",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7805985795783167,
+      "y": 0.44912588678747056,
+      "creatureSlug": null
+    },
+    {
+      "id": "A3a3hV9bENRgFjM2b8mf",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.36317809610167673,
+      "y": 0.7223138634755202,
+      "creatureSlug": null
+    },
+    {
       "id": "A58hpAw23J7UfVWMcOBa",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.5661989924597443,
       "y": 0.5276553612999351,
+      "creatureSlug": null
+    },
+    {
+      "id": "A65kPOhIE5XrXPhNqvKE",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.6264913049901903,
+      "y": 0.9143396308898843,
+      "creatureSlug": null
+    },
+    {
+      "id": "A7Yt7IMnfVyYPtePgXqT",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.36214564555193934,
+      "y": 0.7131973172296711,
+      "creatureSlug": null
+    },
+    {
+      "id": "ACb3dpPksesXTFSCx6hh",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.10525646742625538,
+      "y": 0.5590837836008689,
       "creatureSlug": null
     },
     {
@@ -973,6 +1216,24 @@
       "creatureSlug": null
     },
     {
+      "id": "ATx0NLJ0GpRcbGKxuWPe",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.1787852344172657,
+      "y": 0.7894219791972006,
+      "creatureSlug": null
+    },
+    {
+      "id": "AXIgBQZRN6lPnNy4GQ98",
+      "name": "Bouldus",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.3019981470475726,
+      "y": 0.8970563098309725,
+      "creatureSlug": "bouldus"
+    },
+    {
       "id": "AhX0TAUgVHgue94lloBs",
       "name": "Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
@@ -988,6 +1249,15 @@
       "group": "Loot",
       "x": 0.2519644928410501,
       "y": 0.479331404532374,
+      "creatureSlug": null
+    },
+    {
+      "id": "Ava8AxrWyYLz4VHN5iEP",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.7924004071488882,
+      "y": 0.4629135181245232,
       "creatureSlug": null
     },
     {
@@ -1054,6 +1324,33 @@
       "creatureSlug": null
     },
     {
+      "id": "BhBX26oGPqxsl0L6AIEq",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.81639745652952,
+      "y": 0.4715307741331003,
+      "creatureSlug": null
+    },
+    {
+      "id": "BjuqbkGrEsIMMJeV5Yoy",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.5723250357305775,
+      "y": 0.895190167760731,
+      "creatureSlug": null
+    },
+    {
+      "id": "BmqWv4cWLhiO2WlP3aAm",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.5899356051422893,
+      "y": 0.8776745473572731,
+      "creatureSlug": null
+    },
+    {
       "id": "C0F4DztgUcutIqLhokrn",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -1067,8 +1364,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.07008669970613822,
-      "y": 0.5304483035234,
+      "x": 0.0700966713526424,
+      "y": 0.5311117492701669,
       "creatureSlug": null
     },
     {
@@ -1078,6 +1375,15 @@
       "group": "Location",
       "x": 0.13786469487772476,
       "y": 0.4715889582306403,
+      "creatureSlug": null
+    },
+    {
+      "id": "CFGeCrtuYtrxpvSgYpPc",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3002862670913071,
+      "y": 0.8504727741128448,
       "creatureSlug": null
     },
     {
@@ -1148,8 +1454,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.049589066664726095,
-      "y": 0.4999870691151074,
+      "x": 0.04962178437651311,
+      "y": 0.5063658687656414,
       "creatureSlug": null
     },
     {
@@ -1225,6 +1531,15 @@
       "creatureSlug": null
     },
     {
+      "id": "EJVQwRFkw957DTbiKy3g",
+      "name": "Elite Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUVsaXRlIFBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.20001926684291552,
+      "y": 0.6363990559274129,
+      "creatureSlug": null
+    },
+    {
       "id": "ELRSmXW1aqW87eFgEwXR",
       "name": "Pathfinder Challenge",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
@@ -1240,6 +1555,15 @@
       "group": "Loot",
       "x": 0.29252436381342645,
       "y": 0.3809463825720911,
+      "creatureSlug": null
+    },
+    {
+      "id": "EvOAbHAQ5yXALH7kmyu6",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.122835093054047,
+      "y": 0.7237421388582703,
       "creatureSlug": null
     },
     {
@@ -1441,6 +1765,15 @@
       "creatureSlug": null
     },
     {
+      "id": "Gv0BytglJQx3MPWyM2a4",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7593237763823778,
+      "y": 0.5831124686395839,
+      "creatureSlug": null
+    },
+    {
       "id": "HDgtGneBtupPcugVjlwK",
       "name": "Green Shade",
       "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
@@ -1522,12 +1855,30 @@
       "creatureSlug": null
     },
     {
+      "id": "IFF40zdOnUz0koxKj6RY",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3644041311287911,
+      "y": 0.7211689958765248,
+      "creatureSlug": null
+    },
+    {
       "id": "IGxD5g5490mhpwg4J9ET",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.19115536228677807,
       "y": 0.683268678081049,
+      "creatureSlug": null
+    },
+    {
+      "id": "IHsAZHo2t3PZ7oCOGVnq",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.436348092050607,
+      "y": 0.8024006295491546,
       "creatureSlug": null
     },
     {
@@ -1648,6 +1999,15 @@
       "creatureSlug": null
     },
     {
+      "id": "KXEKT0NPpCNh6yBCetxP",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.4187720925600556,
+      "y": 0.7762398904904302,
+      "creatureSlug": null
+    },
+    {
       "id": "KXarEk8uNfLWvPTH9O1q",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -1675,12 +2035,21 @@
       "creatureSlug": null
     },
     {
+      "id": "KxJoONey2jpzu1ie94va",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.10361076015308998,
+      "y": 0.5569212472986322,
+      "creatureSlug": null
+    },
+    {
       "id": "Kylm1nLmyHdqDlgvGUs8",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.1437536233800876,
-      "y": 0.5120959657421764,
+      "x": 0.14396625250483644,
+      "y": 0.5125552031922496,
       "creatureSlug": null
     },
     {
@@ -1690,6 +2059,15 @@
       "group": "Puzzle",
       "x": 0.2257841595752781,
       "y": 0.3924015748396812,
+      "creatureSlug": null
+    },
+    {
+      "id": "L1CKp6B2E7CnMhs0hVAe",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2771081440408142,
+      "y": 0.839456584381196,
       "creatureSlug": null
     },
     {
@@ -1760,8 +2138,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.1400653536116162,
-      "y": 0.5476097441343057,
+      "x": 0.14064946902543632,
+      "y": 0.549360557441716,
       "creatureSlug": null
     },
     {
@@ -1823,8 +2201,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.1483185086326166,
-      "y": 0.5515439480229958,
+      "x": 0.1514008139773652,
+      "y": 0.5526197548378349,
       "creatureSlug": null
     },
     {
@@ -1834,6 +2212,15 @@
       "group": "Loot",
       "x": 0.24171682418311377,
       "y": 0.31723303187361296,
+      "creatureSlug": null
+    },
+    {
+      "id": "McwmJTz8WsfOg2GGHdgX",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.552070138468758,
+      "y": 0.8535858970482337,
       "creatureSlug": null
     },
     {
@@ -1963,12 +2350,30 @@
       "creatureSlug": null
     },
     {
+      "id": "Ni168I2qz6YUVjEmTb2r",
+      "name": "A Fragrant Journey: Rosetower Woods",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.749419252704559,
+      "y": 0.5562227103624053,
+      "creatureSlug": null
+    },
+    {
       "id": "NkJbMjVpUHnLE83Bdj0K",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
       "x": 0.2639941247963969,
       "y": 0.5667700728469782,
+      "creatureSlug": null
+    },
+    {
+      "id": "Nxark9YpPJXCCcYeEgAS",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.36120088697665165,
+      "y": 0.7311260343504244,
       "creatureSlug": null
     },
     {
@@ -1987,6 +2392,15 @@
       "group": "Loot",
       "x": 0.09864150724110855,
       "y": 0.8255945845964021,
+      "creatureSlug": null
+    },
+    {
+      "id": "OHfsX1oXCOb8lOLZGdB6",
+      "name": "Dr. Glass Trial",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.02305632652463998,
+      "y": 0.5919130543481969,
       "creatureSlug": null
     },
     {
@@ -2125,12 +2539,30 @@
       "creatureSlug": null
     },
     {
+      "id": "Pf1d4Axa2NPNVDMsJWxo",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.29162990207260037,
+      "y": 0.765417300733418,
+      "creatureSlug": null
+    },
+    {
       "id": "PpNsVeAf8E3utEZIQnBh",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.20860966810996784,
       "y": 0.3273366532905868,
+      "creatureSlug": null
+    },
+    {
+      "id": "PrDQmNr9sS1DwrZoDw1T",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3759393378505527,
+      "y": 0.7537353939306399,
       "creatureSlug": null
     },
     {
@@ -2197,6 +2629,15 @@
       "creatureSlug": null
     },
     {
+      "id": "QYZ4ySaiN14mMVFU82WJ",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.5463217267585457,
+      "y": 0.8275373182179635,
+      "creatureSlug": null
+    },
+    {
       "id": "QbU2ZW11RuvoThFXz1bY",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -2224,6 +2665,15 @@
       "creatureSlug": null
     },
     {
+      "id": "QixCzuf6UTtw1gv6cXQQ",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.10843411860581714,
+      "y": 0.7897690063497009,
+      "creatureSlug": null
+    },
+    {
       "id": "Qmq8KXUDEDMVwx4g8SSK",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -2239,6 +2689,15 @@
       "group": "Loot",
       "x": 0.32355366919909284,
       "y": 0.4274100939214236,
+      "creatureSlug": null
+    },
+    {
+      "id": "R0HAyg7UQgynpEJObBLJ",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.31680168891275234,
+      "y": 0.7552924200656292,
       "creatureSlug": null
     },
     {
@@ -2275,6 +2734,15 @@
       "group": "Loot",
       "x": 0.26516420947606273,
       "y": 0.679643861748616,
+      "creatureSlug": null
+    },
+    {
+      "id": "RaC6qHruZGgUGJWOEIQh",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.56614462957296,
+      "y": 0.9022538568428473,
       "creatureSlug": null
     },
     {
@@ -2327,8 +2795,17 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.14487087655873734,
-      "y": 0.5363816673790893,
+      "x": 0.14021455079146342,
+      "y": 0.5495891985478636,
+      "creatureSlug": null
+    },
+    {
+      "id": "SRWChc8l7J4g6iJwNIiZ",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2648367322400972,
+      "y": 0.8815706299525488,
       "creatureSlug": null
     },
     {
@@ -2338,6 +2815,15 @@
       "group": "Loot",
       "x": 0.25556753270352534,
       "y": 0.4169805135582436,
+      "creatureSlug": null
+    },
+    {
+      "id": "Si95Xto8illXjkSFqZ7J",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.8028909205453385,
+      "y": 0.4460236661243897,
       "creatureSlug": null
     },
     {
@@ -2356,6 +2842,24 @@
       "group": "Loot",
       "x": 0.2623667106004133,
       "y": 0.4096904728058916,
+      "creatureSlug": null
+    },
+    {
+      "id": "SrO3w5O46BX057OBhx4q",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.1699836175513084,
+      "y": 0.848729699985924,
+      "creatureSlug": null
+    },
+    {
+      "id": "SslbthrygpBAKpYsrcrM",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3637265854557983,
+      "y": 0.7400380729303038,
       "creatureSlug": null
     },
     {
@@ -2381,8 +2885,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.07536831356391796,
-      "y": 0.6917983441833826,
+      "x": 0.07754290980744413,
+      "y": 0.6911540040185713,
       "creatureSlug": null
     },
     {
@@ -2428,6 +2932,15 @@
       "group": "Location",
       "x": 0.6478201818087395,
       "y": 0.47427593191534356,
+      "creatureSlug": null
+    },
+    {
+      "id": "TwstBQuzrgwGM54B8w0m",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.49817664181962773,
+      "y": 0.8838549666340754,
       "creatureSlug": null
     },
     {
@@ -2485,12 +2998,30 @@
       "creatureSlug": null
     },
     {
+      "id": "UcOeyNaAeHkE0hDs0Mcn",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3599484331984528,
+      "y": 0.7327441572719806,
+      "creatureSlug": null
+    },
+    {
       "id": "UkEpXGlmYGGqp3sUepJ0",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.2699058869614356,
       "y": 0.4427096671873727,
+      "creatureSlug": null
+    },
+    {
+      "id": "UugWhAgazulyndFN7vkm",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7608973533914528,
+      "y": 0.5753570766803762,
       "creatureSlug": null
     },
     {
@@ -2509,6 +3040,15 @@
       "group": "Loot",
       "x": 0.25863887821393056,
       "y": 0.5939573831984575,
+      "creatureSlug": null
+    },
+    {
+      "id": "V60aZmP6EBkvrUFsgMYi",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.15196872941834866,
+      "y": 0.7877051959943628,
       "creatureSlug": null
     },
     {
@@ -2588,8 +3128,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.07831101488613312,
-      "y": 0.6242533071209095,
+      "x": 0.07874354095546487,
+      "y": 0.6260305179746268,
       "creatureSlug": null
     },
     {
@@ -2647,6 +3187,15 @@
       "creatureSlug": null
     },
     {
+      "id": "X35IIwTYiphhI2cX7gvu",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.6108179896956362,
+      "y": 0.8536088123533148,
+      "creatureSlug": null
+    },
+    {
       "id": "XM36tcEQJL0hZJxwXnDb",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -2660,8 +3209,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.14807455852383072,
-      "y": 0.539990694317467,
+      "x": 0.14820077128288164,
+      "y": 0.5413434892719096,
       "creatureSlug": null
     },
     {
@@ -2737,6 +3286,15 @@
       "creatureSlug": null
     },
     {
+      "id": "Xz4TLunhffRcp8YKxs6R",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2737766965582367,
+      "y": 0.8340134451602523,
+      "creatureSlug": null
+    },
+    {
       "id": "Y3X7VXW5oxMUI6mZraNq",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -2755,6 +3313,15 @@
       "creatureSlug": null
     },
     {
+      "id": "YLb6QQT92inPjBmr3fQf",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.40669860023566523,
+      "y": 0.7403171458885396,
+      "creatureSlug": null
+    },
+    {
       "id": "YTq84HF4oV9EgBzv8HRG",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -2770,6 +3337,15 @@
       "group": "Loot",
       "x": 0.4843340326651664,
       "y": 0.5033715101256178,
+      "creatureSlug": null
+    },
+    {
+      "id": "YmzToF1D9RK1epEhxPIM",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.2575952290631705,
+      "y": 0.726844623997124,
       "creatureSlug": null
     },
     {
@@ -2858,8 +3434,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.03445029193565387,
-      "y": 0.5616136886852132,
+      "x": 0.037682140506912626,
+      "y": 0.5666029969551971,
       "creatureSlug": null
     },
     {
@@ -2899,6 +3475,15 @@
       "creatureSlug": null
     },
     {
+      "id": "ZgQDp01BqHZRrCmFjFI4",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2772882222833249,
+      "y": 0.8256120633434705,
+      "creatureSlug": null
+    },
+    {
       "id": "Zhv9KJqZQoJFyrR9qlz4",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -2914,6 +3499,15 @@
       "group": "Loot",
       "x": 0.06926075511546093,
       "y": 0.4095122166123133,
+      "creatureSlug": null
+    },
+    {
+      "id": "ZqxQ3JehjkpjFLzTSoxb",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.8544075832775878,
+      "y": 0.43591669001105515,
       "creatureSlug": null
     },
     {
@@ -2971,12 +3565,39 @@
       "creatureSlug": null
     },
     {
+      "id": "aGh6NroOHTp193FYGZ1h",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3952608073113768,
+      "y": 0.7139900864443547,
+      "creatureSlug": null
+    },
+    {
       "id": "aKiA7i8Kx6mzckHJTfeK",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
       "x": 0.2552957603305012,
       "y": 0.6389310685500504,
+      "creatureSlug": null
+    },
+    {
+      "id": "aWEJzr1lFGA8WwXDexpS",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7412175233080717,
+      "y": 0.6163042127961802,
+      "creatureSlug": null
+    },
+    {
+      "id": "aiIKlleaY6sBtMvaMsMW",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.5508195701022107,
+      "y": 0.8482915308833157,
       "creatureSlug": null
     },
     {
@@ -3007,6 +3628,24 @@
       "creatureSlug": null
     },
     {
+      "id": "b4mynaKIoQRCDEisG8bl",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.4106404385137505,
+      "y": 0.6936077430021044,
+      "creatureSlug": null
+    },
+    {
+      "id": "b86tq0cVSQOL8UMupziD",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7865427351745351,
+      "y": 0.522879768449414,
+      "creatureSlug": null
+    },
+    {
       "id": "b8oM4d8TkghOnvfiJf44",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -3031,6 +3670,15 @@
       "group": "Loot",
       "x": 0.2072128323888984,
       "y": 0.5024407482354292,
+      "creatureSlug": null
+    },
+    {
+      "id": "bDWA8bsyzaRITc2UYVcO",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.42084234892408656,
+      "y": 0.7463528524926204,
       "creatureSlug": null
     },
     {
@@ -3061,6 +3709,24 @@
       "creatureSlug": null
     },
     {
+      "id": "bZByIEt8F8mk0RfgQPef",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.43056207886596176,
+      "y": 0.8345734379508798,
+      "creatureSlug": null
+    },
+    {
+      "id": "baciKcVy0IrnrMINzeAB",
+      "name": "Burning Brambles",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.3438960943358254,
+      "y": 0.5144739000018888,
+      "creatureSlug": null
+    },
+    {
       "id": "bhBMmlpfiHEQjUwpcDhd",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -3076,6 +3742,15 @@
       "group": "Loot",
       "x": 0.04302403321156081,
       "y": 0.519668775170345,
+      "creatureSlug": null
+    },
+    {
+      "id": "bpyKZmC5zBsGLh8oCul9",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.5197293745818302,
+      "y": 0.8693959357642882,
       "creatureSlug": null
     },
     {
@@ -3160,6 +3835,15 @@
       "creatureSlug": null
     },
     {
+      "id": "d2xf4KlEzGtNuANilOV5",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7535539940142987,
+      "y": 0.5846635457542249,
+      "creatureSlug": null
+    },
+    {
       "id": "d76D99MJ56cSVmcp8dWn",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3232,6 +3916,15 @@
       "creatureSlug": null
     },
     {
+      "id": "ea8eOn0dhXgIAhWZ3CYj",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7596607946142102,
+      "y": 0.507885851074036,
+      "creatureSlug": null
+    },
+    {
       "id": "ehKDIXrykmKt5kH4jyBf",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3241,12 +3934,30 @@
       "creatureSlug": null
     },
     {
+      "id": "ehZZt22dFJWqnkcgl8S8",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.5080524120759112,
+      "y": 0.9128090000633051,
+      "creatureSlug": null
+    },
+    {
       "id": "eiq9wjUjrWG2ekJbii6D",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
       "x": 0.41965665212594017,
       "y": 0.4687307418176516,
+      "creatureSlug": null
+    },
+    {
+      "id": "elD2rTqiTWCMApw8VU90",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.6553272778128771,
+      "y": 0.6450964292901631,
       "creatureSlug": null
     },
     {
@@ -3265,6 +3976,15 @@
       "group": "Loot",
       "x": 0.32214063014253197,
       "y": 0.45861866434567844,
+      "creatureSlug": null
+    },
+    {
+      "id": "fCMrGzTdDRoFFXxSaFP9",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.19175885907491755,
+      "y": 0.8676144793191298,
       "creatureSlug": null
     },
     {
@@ -3394,6 +4114,15 @@
       "creatureSlug": null
     },
     {
+      "id": "gNimMmCwoMkduHkFQSZC",
+      "name": "Incredible Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.25221630534818984,
+      "y": 0.2970936497797112,
+      "creatureSlug": null
+    },
+    {
       "id": "gT9yymZslUhCreqTPQLv",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3502,6 +4231,15 @@
       "creatureSlug": null
     },
     {
+      "id": "hIAH1PaMGYu7UuljiwoG",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.37891187161402257,
+      "y": 0.7240113723654815,
+      "creatureSlug": null
+    },
+    {
       "id": "hPs3rqTNRiz4vN6gNKLU",
       "name": "Pathfinder Challenge",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
@@ -3526,6 +4264,15 @@
       "group": "Loot",
       "x": 0.36969303174464135,
       "y": 0.7343682459787573,
+      "creatureSlug": null
+    },
+    {
+      "id": "i22cm4zqgosRObbLPVUd",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3599667610888205,
+      "y": 0.8387579851367377,
       "creatureSlug": null
     },
     {
@@ -3596,8 +4343,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.06137855495016987,
-      "y": 0.5561553561325638,
+      "x": 0.06339762796459722,
+      "y": 0.5575803599607951,
       "creatureSlug": null
     },
     {
@@ -3673,6 +4420,15 @@
       "creatureSlug": null
     },
     {
+      "id": "jUhOzqox5rLTEsRaupLD",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.32654574913326423,
+      "y": 0.8797662500177239,
+      "creatureSlug": null
+    },
+    {
       "id": "jVhvnLKRLziUacbHglKN",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3700,12 +4456,30 @@
       "creatureSlug": null
     },
     {
+      "id": "jdHLxCBaR2SnOUyloLJa",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.1374210136277701,
+      "y": 0.5289057031288991,
+      "creatureSlug": null
+    },
+    {
       "id": "jeGm2ZPpf263bcA2OxpL",
       "name": "Transporter",
       "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
       "group": "Others",
       "x": 0.14937347090216863,
       "y": 0.5460063721880601,
+      "creatureSlug": null
+    },
+    {
+      "id": "k1W7Bk1i3tLQf6BZzal5",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3886049164458885,
+      "y": 0.7695315060964134,
       "creatureSlug": null
     },
     {
@@ -3733,6 +4507,15 @@
       "group": "Loot",
       "x": 0.4692203615915871,
       "y": 0.4294380619824949,
+      "creatureSlug": null
+    },
+    {
+      "id": "kIEecDDSJHyyIxTUuEqn",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.4446697992239389,
+      "y": 0.7755581390534019,
       "creatureSlug": null
     },
     {
@@ -3781,12 +4564,30 @@
       "creatureSlug": null
     },
     {
+      "id": "knt2uaE0l7aQf8NaGov1",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.29620659059345805,
+      "y": 0.7833613372151689,
+      "creatureSlug": null
+    },
+    {
       "id": "ks3f1ROo5aUknUkV04Ue",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.15330760299857446,
-      "y": 0.5482904507115478,
+      "x": 0.15268123512157059,
+      "y": 0.5472910635949688,
+      "creatureSlug": null
+    },
+    {
+      "id": "kySSik0cUc9yheFAXfZD",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.8175776392867372,
+      "y": 0.45033230556509807,
       "creatureSlug": null
     },
     {
@@ -3835,6 +4636,15 @@
       "creatureSlug": null
     },
     {
+      "id": "m35HmRzGO1PcJFivxHcO",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.5093024522314092,
+      "y": 0.8447405837242883,
+      "creatureSlug": null
+    },
+    {
       "id": "m3JGTGUsoffTWHJimeUr",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3862,12 +4672,48 @@
       "creatureSlug": null
     },
     {
+      "id": "maWkQrZS4dCmsp1VdSdp",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.4096711340162399,
+      "y": 0.7283425991781343,
+      "creatureSlug": null
+    },
+    {
       "id": "mvvINc0EdrfZ7ZYOXY1e",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.2572274142186402,
       "y": 0.8126062928407265,
+      "creatureSlug": null
+    },
+    {
+      "id": "mwgFM0uOKSIprmrmP5YR",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.2064479704689112,
+      "y": 0.6517010889345158,
+      "creatureSlug": null
+    },
+    {
+      "id": "n3UFOpm9ZmXLxiJ7dHLt",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.4880451709969052,
+      "y": 0.8478074742206729,
+      "creatureSlug": null
+    },
+    {
+      "id": "n3qKy7f5IyzA9LPEhB1m",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.760375975229094,
+      "y": 0.47654146454182467,
       "creatureSlug": null
     },
     {
@@ -3880,12 +4726,30 @@
       "creatureSlug": null
     },
     {
+      "id": "n9mX0wh2UxfbrtlE3Yw1",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7504068399955647,
+      "y": 0.5858699387686244,
+      "creatureSlug": null
+    },
+    {
       "id": "na2EJoFc1v1tILRxgFlF",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.16303006717012286,
       "y": 0.6763631742669816,
+      "creatureSlug": null
+    },
+    {
+      "id": "noJttePtjyMpioto1Jlp",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.36559813087682075,
+      "y": 0.7001951565474087,
       "creatureSlug": null
     },
     {
@@ -3904,6 +4768,15 @@
       "group": "Loot",
       "x": 0.24922208323471637,
       "y": 0.2957359713235945,
+      "creatureSlug": null
+    },
+    {
+      "id": "o8XWpY9NztWS2Ctk97EG",
+      "name": "Dr Glass Trial",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.12662365532808903,
+      "y": 0.5746476402068197,
       "creatureSlug": null
     },
     {
@@ -4042,6 +4915,24 @@
       "creatureSlug": null
     },
     {
+      "id": "pYRWjHleo43KrwJtnHfg",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.505795124669462,
+      "y": 0.8033962644445864,
+      "creatureSlug": null
+    },
+    {
+      "id": "pi81wZXCpzYaQGpti1dT",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7975145324166835,
+      "y": 0.45464094247348896,
+      "creatureSlug": null
+    },
+    {
       "id": "pinFgEsGB5xgWB3Nd3P6",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4057,6 +4948,15 @@
       "group": "Loot",
       "x": 0.30765677624733845,
       "y": 0.7014009268861798,
+      "creatureSlug": null
+    },
+    {
+      "id": "pjVZQHUUYvu6pHSvRj5K",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7791246204169153,
+      "y": 0.5246882629048031,
       "creatureSlug": null
     },
     {
@@ -4096,6 +4996,15 @@
       "creatureSlug": null
     },
     {
+      "id": "qIIggLSXkUgDJa8bvTaE",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.442800501293195,
+      "y": 0.8122637228372014,
+      "creatureSlug": null
+    },
+    {
       "id": "qSIxGrfthAO0EvaENzDQ",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4127,8 +5036,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.14006231739744793,
-      "y": 0.5101076762506551,
+      "x": 0.14179565857607526,
+      "y": 0.510064682768288,
       "creatureSlug": null
     },
     {
@@ -4217,8 +5126,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.15264906567568698,
-      "y": 0.49388321122224,
+      "x": 0.15343606512401278,
+      "y": 0.49471509043461026,
       "creatureSlug": null
     },
     {
@@ -4253,8 +5162,17 @@
       "name": "Incredible Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
       "group": "Location",
-      "x": 0.09738250472126171,
-      "y": 0.5040670040676076,
+      "x": 0.0980876941606053,
+      "y": 0.5060636012541124,
+      "creatureSlug": null
+    },
+    {
+      "id": "sVLPib59VyrJb3xVsk3q",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.8052512860462794,
+      "y": 0.4742882938168407,
       "creatureSlug": null
     },
     {
@@ -4276,6 +5194,15 @@
       "creatureSlug": null
     },
     {
+      "id": "siyldPlr9fDMm612pxOu",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.436950505139902,
+      "y": 0.813295137360683,
+      "creatureSlug": null
+    },
+    {
       "id": "sjy2sg4UejbatKU4mvo7",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -4291,6 +5218,15 @@
       "group": "Loot",
       "x": 0.224569375726124,
       "y": 0.7015322518831653,
+      "creatureSlug": null
+    },
+    {
+      "id": "slLyxEVJFtuk7mrfpk2f",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.14864030439011325,
+      "y": 0.7373634992848537,
       "creatureSlug": null
     },
     {
@@ -4312,6 +5248,15 @@
       "creatureSlug": null
     },
     {
+      "id": "svn0T24xC0WKQHMfnsDC",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.24764432751861895,
+      "y": 0.8158678076281234,
+      "creatureSlug": null
+    },
+    {
       "id": "swrlPJsLRkJu2OA8pImz",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4321,12 +5266,30 @@
       "creatureSlug": null
     },
     {
+      "id": "t4Xi1ktx3ukra1lQu9Zq",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3208734471126169,
+      "y": 0.8478368583397895,
+      "creatureSlug": null
+    },
+    {
       "id": "t8WvxTIn0FuwtBEL3oWj",
       "name": "Pathfinder Challenge",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
       "group": "Challenges",
       "x": 0.08294630592074241,
       "y": 0.35233085578536816,
+      "creatureSlug": null
+    },
+    {
+      "id": "tH9NbzGbDTeaDM5Dtvtt",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.4270507531372584,
+      "y": 0.8242835495312306,
       "creatureSlug": null
     },
     {
@@ -4357,6 +5320,15 @@
       "creatureSlug": null
     },
     {
+      "id": "tPrRu1N5CYW49BV58fp3",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2733887337395011,
+      "y": 0.8968866225633576,
+      "creatureSlug": null
+    },
+    {
       "id": "tRgNAMEVoktjXwpsuSJ7",
       "name": "Bloom",
       "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
@@ -4372,6 +5344,15 @@
       "group": "Loot",
       "x": 0.19017988678374104,
       "y": 0.7635302996038433,
+      "creatureSlug": null
+    },
+    {
+      "id": "tYxp3fmqmvZdJT2N5HHR",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.5961091132169063,
+      "y": 0.9331391354434118,
       "creatureSlug": null
     },
     {
@@ -4393,6 +5374,15 @@
       "creatureSlug": null
     },
     {
+      "id": "u3jz12Zqfrc8sW5zhKFo",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.14209306855820988,
+      "y": 0.6359294286283443,
+      "creatureSlug": null
+    },
+    {
       "id": "u6tZLj5zrbA3qAIwUBFg",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4402,12 +5392,39 @@
       "creatureSlug": null
     },
     {
+      "id": "u7eSQmhbHkmSc2Lo9FFk",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7702076840306861,
+      "y": 0.5367523048872869,
+      "creatureSlug": null
+    },
+    {
       "id": "u9Bzk1qzV6ETFhpU3V1v",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.22385791072060013,
       "y": 0.46791188584188603,
+      "creatureSlug": null
+    },
+    {
+      "id": "uBeVntqLNnBySqpFAuNC",
+      "name": "Pathfinder Challenge",
+      "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
+      "group": "Challenges",
+      "x": 0.4153624824539328,
+      "y": 0.8555752000908257,
+      "creatureSlug": null
+    },
+    {
+      "id": "uChiVJUG6F3eN4FQmJzq",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.8130135636644333,
+      "y": 0.4666103839672928,
       "creatureSlug": null
     },
     {
@@ -4435,6 +5452,15 @@
       "group": "Loot",
       "x": 0.07941642078287629,
       "y": 0.6423093732136635,
+      "creatureSlug": null
+    },
+    {
+      "id": "uOYHAQ1VwRnK66wBz2hV",
+      "name": "Lumin Collection",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.1341551951298678,
+      "y": 0.8518071790596196,
       "creatureSlug": null
     },
     {
@@ -4494,8 +5520,8 @@
     {
       "id": "v1u0sJSWZXFiJ3nHJa9l",
       "name": "Lumin Collection",
-      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
-      "group": "Others",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
       "x": 0.10517584511637586,
       "y": 0.42063068160875616,
       "creatureSlug": null
@@ -4510,12 +5536,39 @@
       "creatureSlug": null
     },
     {
+      "id": "vIwfK3fzdWAxheFvSTP2",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.10466539789828473,
+      "y": 0.5562282053848406,
+      "creatureSlug": null
+    },
+    {
       "id": "vOOG5Ak5ylTOzFNv52av",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
       "x": 0.4362395140659596,
       "y": 0.5476427319971293,
+      "creatureSlug": null
+    },
+    {
+      "id": "vPpfoN1ICBFSLakvXvik",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.770020176592589,
+      "y": 0.5018538054784898,
+      "creatureSlug": null
+    },
+    {
+      "id": "vcVbt5wErcTEbgh4RUVG",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7381818254491713,
+      "y": 0.5291503167701137,
       "creatureSlug": null
     },
     {
@@ -4649,8 +5702,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.05821423875534151,
-      "y": 0.6176430411225908,
+      "x": 0.05818668994933134,
+      "y": 0.6167929868043558,
       "creatureSlug": null
     },
     {
@@ -4687,6 +5740,24 @@
       "group": "Loot",
       "x": 0.6113810076878433,
       "y": 0.28635105862852583,
+      "creatureSlug": null
+    },
+    {
+      "id": "xORavxdHyvDP9u0hEn4G",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.348346050262135,
+      "y": 0.7714716962045003,
+      "creatureSlug": null
+    },
+    {
+      "id": "xVjqUOkBCtVIciOpsQHD",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2979819660552305,
+      "y": 0.9333300554482236,
       "creatureSlug": null
     },
     {
@@ -4732,6 +5803,42 @@
       "group": "Loot",
       "x": 0.2312797206526771,
       "y": 0.7609579679828755,
+      "creatureSlug": null
+    },
+    {
+      "id": "y8zJ9U2wunTo7OrETej2",
+      "name": "Lumin Marking",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
+      "group": "Puzzle",
+      "x": 0.21221867716323453,
+      "y": 0.7759302667058563,
+      "creatureSlug": null
+    },
+    {
+      "id": "yD5j4WUX9OuDSnHRScw8",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3151998479567388,
+      "y": 0.8031097130609766,
+      "creatureSlug": null
+    },
+    {
+      "id": "yGJOeG92fYRDEDs3UVR4",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.8744990467191641,
+      "y": 0.5151310979207722,
+      "creatureSlug": null
+    },
+    {
+      "id": "yeynCtPa9krd9ZhFSAPZ",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7527672055094368,
+      "y": 0.5775975243351184,
       "creatureSlug": null
     },
     {
@@ -4789,6 +5896,15 @@
       "creatureSlug": null
     },
     {
+      "id": "zeq0bhEzLda92FfycoCP",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7556520966938007,
+      "y": 0.5822507589467278,
+      "creatureSlug": null
+    },
+    {
       "id": "zeyp2IjEkVyJ2ExKJHVR",
       "name": "Incredible Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
@@ -4822,6 +5938,15 @@
       "group": "Loot",
       "x": 0.20592584858449584,
       "y": 0.4423685461061524,
+      "creatureSlug": null
+    },
+    {
+      "id": "zw2d60Q6qxrBcEQ8bA8f",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2969693719874139,
+      "y": 0.7479744223200271,
       "creatureSlug": null
     },
     {
