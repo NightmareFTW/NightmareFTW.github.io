@@ -707,6 +707,22 @@ const GAMES = [
         href: "games/vampire-survivors/enemies.html",
         available: true,
       },
+      {
+        id: "stages",
+        name: "Stages Database",
+        type: "database",
+        desc: "Every stage, including Adventure sub-stages — clear time, wave theme and the per-stage rule modifiers (Greed, Luck, XP, chest drop chance).",
+        href: "games/vampire-survivors/stages.html",
+        available: true,
+      },
+      {
+        id: "pickups",
+        name: "Pickups Database",
+        type: "database",
+        desc: "Every non-weapon pickup that can drop from light sources — coins, hearts, the Little Clover, and DLC-specific ones like Barrier or Rapid Fire.",
+        href: "games/vampire-survivors/pickups.html",
+        available: true,
+      },
     ],
   },
   {
@@ -759,6 +775,13 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
+    date: "2026-09-20",
+    title: "Vampire Survivors gets Stages and Pickups databases",
+    desc: "Every stage and every non-weapon pickup, cross-linked everywhere a character's unlock guide mentions one.",
+    image: "assets/img/updates/vs-stages-pickups-database.jpg",
+    href: "games/vampire-survivors/stages.html",
+  },
+  {
     date: "2026-09-18",
     title: "Aniimo gets a Talent Build Route",
     desc: "The Pathfinder's own talent tree, plus a recommended pick order for which to unlock first.",
@@ -806,12 +829,5 @@ const SITE_UPDATES = [
     desc: "A daily scraper keeps the dungeon checklist in sync with FareverDB.",
     image: "assets/img/updates/farever-dungeons.jpg",
     href: "games/farever/dungeons.html",
-  },
-  {
-    date: "2026-09-01",
-    title: "Bulk-unlock Vampire Survivors achievements",
-    desc: "Unlock everything at once, or just one DLC at a time.",
-    image: "assets/img/updates/vs-bulk-unlock.jpg",
-    href: "games/vampire-survivors/achievements.html",
   },
 ];

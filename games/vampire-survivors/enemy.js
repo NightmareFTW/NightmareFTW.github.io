@@ -8,18 +8,20 @@ const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": 
 
 const root = document.getElementById("ve-root");
 
-function statsTable(e) {
+function statsTable(e, xrefIndex) {
   const rows = [
-    ["Health", e.health], ["Damage", e.damage], ["Move speed", e.movespeed],
-    ["Stages", e.stages], ["Theme", e.theme], ["Skills", e.skills], ["Resistances", e.resistances],
+    ["Health", esc(e.health)], ["Damage", esc(e.damage)], ["Move speed", esc(e.movespeed)],
+    ["Stages", e.stages ? VSXref.linkify(e.stages, xrefIndex, e.name) : ""],
+    ["Theme", esc(e.theme)], ["Skills", esc(e.skills)], ["Resistances", esc(e.resistances)],
   ].filter(([, v]) => v);
   if (!rows.length) return "";
-  return `<table class="vs-stat-table"><tbody>${rows.map(([label, v]) => `<tr><td>${esc(label)}</td><td>${esc(v)}</td></tr>`).join("")}</tbody></table>`;
+  return `<table class="vs-stat-table"><tbody>${rows.map(([label, v]) => `<tr><td>${esc(label)}</td><td>${v}</td></tr>`).join("")}</tbody></table>`;
 }
 
 function render(e, xrefIndex) {
   document.title = `${e.name} · Vampire Survivors · NightmareFTW`;
   document.getElementById("bc-enemy").textContent = e.name;
+  const stats = statsTable(e, xrefIndex);
 
   root.innerHTML = `
     <div class="pw-detail-head">
@@ -32,7 +34,7 @@ function render(e, xrefIndex) {
 
     ${e.description ? `<p class="pw-desc">${VSXref.linkify(e.description, xrefIndex, e.name)}</p>` : ""}
 
-    ${statsTable(e) ? `<section class="panel"><h2>Stats</h2>${statsTable(e)}${e.notes ? `<p class="tool-note" style="margin-top:10px">${VSXref.linkify(e.notes, xrefIndex, e.name)}</p>` : ""}</section>` : ""}
+    ${stats ? `<section class="panel"><h2>Stats</h2>${stats}${e.notes ? `<p class="tool-note" style="margin-top:10px">${VSXref.linkify(e.notes, xrefIndex, e.name)}</p>` : ""}</section>` : ""}
 
     <p class="tool-note"><a class="mini-btn" href="enemies.html">← Back to the database</a></p>
   `;
@@ -41,10 +43,12 @@ function render(e, xrefIndex) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const [enemiesData, charsData, weaponsData] = await Promise.all([
+    const [enemiesData, charsData, weaponsData, stagesData, pickupsData] = await Promise.all([
       fetch(`../../data/vampire-survivors/enemies.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/characters.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/weapons.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/stages.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/pickups.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const e = enemiesData.enemies.find((x) => x.slug === slug);
     if (!e) { root.innerHTML = `<p class="tool-note">Enemy not found. <a class="mini-btn" href="enemies.html">Back to the database →</a></p>`; return; }
@@ -52,6 +56,8 @@ function render(e, xrefIndex) {
       ...enemiesData.enemies.map((x) => ({ name: x.name, type: "enemy", href: `enemy.html?slug=${encodeURIComponent(x.slug)}` })),
       ...charsData.characters.map((x) => ({ name: x.name, type: "character", href: `character.html?slug=${encodeURIComponent(x.slug)}` })),
       ...weaponsData.weapons.map((x) => ({ name: x.name, type: "weapon", href: `weapon.html?slug=${encodeURIComponent(x.slug)}` })),
+      ...stagesData.stages.map((x) => ({ name: x.name, type: "stage", href: `stage.html?slug=${encodeURIComponent(x.slug)}` })),
+      ...pickupsData.pickups.map((x) => ({ name: x.name, type: "pickup", href: `pickup.html?slug=${encodeURIComponent(x.slug)}` })),
     ];
     const xrefIndex = VSXref.buildXrefIndex(entities);
     VSXref.initXrefPopup(xrefIndex);

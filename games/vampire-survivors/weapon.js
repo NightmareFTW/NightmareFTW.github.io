@@ -119,11 +119,13 @@ function render(w, weapons, characters, arcanas, xrefIndex) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const [weaponsData, charsData, enemiesData, arcanasData] = await Promise.all([
+    const [weaponsData, charsData, enemiesData, arcanasData, stagesData, pickupsData] = await Promise.all([
       fetch(`../../data/vampire-survivors/weapons.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/characters.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/enemies.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/arcanas.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/stages.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/pickups.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const w = weaponsData.weapons.find((x) => x.slug === slug);
     if (!w) { root.innerHTML = `<p class="tool-note">Weapon not found. <a class="mini-btn" href="weapons.html">Back to the database →</a></p>`; return; }
@@ -131,6 +133,8 @@ function render(w, weapons, characters, arcanas, xrefIndex) {
       ...weaponsData.weapons.map((x) => ({ name: x.name, type: "weapon", href: `weapon.html?slug=${encodeURIComponent(x.slug)}` })),
       ...charsData.characters.map((x) => ({ name: x.name, type: "character", href: `character.html?slug=${encodeURIComponent(x.slug)}` })),
       ...enemiesData.enemies.map((x) => ({ name: x.name, type: "enemy", href: `enemy.html?slug=${encodeURIComponent(x.slug)}` })),
+      ...stagesData.stages.map((x) => ({ name: x.name, type: "stage", href: `stage.html?slug=${encodeURIComponent(x.slug)}` })),
+      ...pickupsData.pickups.map((x) => ({ name: x.name, type: "pickup", href: `pickup.html?slug=${encodeURIComponent(x.slug)}` })),
     ];
     const xrefIndex = VSXref.buildXrefIndex(entities);
     VSXref.initXrefPopup(xrefIndex);

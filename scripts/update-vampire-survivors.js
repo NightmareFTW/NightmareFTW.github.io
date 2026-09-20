@@ -37,6 +37,17 @@
      sometimes carries a wiki-added disambiguator ("Avatar Infernas
      (enemy)") when the plain name collides with a character or another
      enemy — see cleanEnemyName's comment.
+   - data/vampire-survivors/stages.json — every stage (including Adventure
+     sub-stages), with its DLC, clear time, wave theme, and the handful of
+     per-stage rule modifiers the wiki tracks (Greed/Luck/XP/enemy health
+     multipliers, chest drop chance). A title disambiguated against its own
+     DLC's page ("Ante Chamber (stage)") gets that suffix stripped for
+     display, same idea as cleanEnemyName.
+   - data/vampire-survivors/pickups.json — every non-weapon pickup that can
+     drop from light sources (coins, hearts, the Little Clover, DLC-specific
+     ones like Barrier/Rapid Fire) — a different category from weapons and
+     passive items, and the one several character unlock guides actually
+     reference (e.g. "finding 21 Grenades").
 
    Run by .github/workflows/update-vampire-survivors.yml (daily). Node 18+,
    curl. */
@@ -79,6 +90,8 @@ const OUT_WEAPONS = path.join(OUT_DIR, "weapons.json");
 const OUT_ARCANAS = path.join(OUT_DIR, "arcanas.json");
 const OUT_PASSIVES = path.join(OUT_DIR, "passives.json");
 const OUT_ENEMIES = path.join(OUT_DIR, "enemies.json");
+const OUT_STAGES = path.join(OUT_DIR, "stages.json");
+const OUT_PICKUPS = path.join(OUT_DIR, "pickups.json");
 const IMG_BASE = "https://vampire.survivors.wiki/images";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
@@ -562,6 +575,66 @@ function parseEnemy(title, wt) {
   };
 }
 
+// ---- Stages -----------------------------------------------------------------
+// A page's title occasionally carries a disambiguator the wiki added because
+// the plain name collides with something else (usually the DLC of the same
+// name, e.g. "Ante Chamber (stage)" vs the DLC "Ante Chamber") — same idea as
+// cleanEnemyName, strip only that exact suffix for the display name.
+function cleanDisambiguated(title, tag) {
+  const re = new RegExp(`\\s*\\(${tag}\\)\\s*$`, "i");
+  return re.test(title) ? title.replace(re, "").trim() : title.trim();
+}
+const STAGE_META_KEYS = [
+  ["time", "Clear Time"], ["theme", "Wave Theme"], ["player-speed", "Player Speed"],
+  ["enemy-speed", "Enemy Speed"], ["greed", "Greed"], ["luck", "Luck"], ["xp", "XP Gain"],
+  ["enemy-health", "Enemy Health"], ["dchance", "Drop Chance"], ["dchance-max", "Max Drop Chance"], ["dmax", "Max Drops"],
+];
+function introAfter(wt, key) {
+  const block = balancedTemplate(wt, key);
+  const after = block ? wt.slice(wt.indexOf(block) + block.length) : wt;
+  const m = after.match(/^([\s\S]*?)(?=\n==[^=]|\n\[\[Category|$)/);
+  return stripWiki(m ? m[1] : after).trim();
+}
+function parseStage(title, wt) {
+  const info = parseInfobox(wt, "{{Infobox Stage");
+  if (!info) return null;
+  const meta = STAGE_META_KEYS
+    .map(([key, label]) => ({ key, label, value: info[key] ? stripWiki(info[key]).trim() : "" }))
+    .filter((m) => m.value && m.value !== "-");
+  return {
+    name: cleanDisambiguated(title, "stage"),
+    slug: title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    dlcCode: (info.dlc || "").trim().toLowerCase(),
+    type: info.type ? stripWiki(info.type).trim() : "",
+    isAdventure: /^y/i.test(info.adventure || ""),
+    caption: info.description ? stripWiki(info.description).trim() : "",
+    description: introAfter(wt, "{{Infobox Stage"),
+    meta,
+    images: [info.image, `Stage-${title}.png`].map(fileOf).filter(Boolean),
+    icon: null,
+  };
+}
+
+// ---- Pickups ------------------------------------------------------------
+function parsePickup(title, wt) {
+  const info = parseInfobox(wt, "{{Infobox Pickup");
+  if (!info) return null;
+  return {
+    name: cleanDisambiguated(title, "pickup"),
+    slug: title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    dlcCode: (info.dlc || "").trim().toLowerCase(),
+    caption: info.description ? stripWiki(info.description).trim() : "",
+    description: introAfter(wt, "{{Infobox Pickup"),
+    rarity: info.rarity ? stripWiki(info.rarity).trim() : "",
+    level: info.level ? stripWiki(info.level).trim() : "",
+    luckAffected: /^y/i.test(info.luck || ""),
+    effects: info.effects ? stripWiki(info.effects).trim() : "",
+    notes: info.notes ? stripWiki(info.notes).trim() : "",
+    images: [info.image, `Icon-${title}.png`].map(fileOf).filter(Boolean),
+    icon: null,
+  };
+}
+
 function run() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const dlcMap = fetchDlcMap();
@@ -647,6 +720,48 @@ function run() {
     enemies,
   }));
   console.log(`vampire-survivors enemies: ${enemies.length}.`);
+
+  // ---- Stages ---------------------------------------------------------------
+  const stageTitles = fetchCategoryTitles("Stages");
+  const stageWikitexts = fetchWikitextsWithRetry(stageTitles, "stage");
+  const stages = [];
+  for (const title of stageTitles) { const wt = stageWikitexts[title]; const s = wt && parseStage(title, wt); if (s) stages.push(s); }
+  const stageImgMap = fetchImageUrls(stages.flatMap((s) => s.images));
+  for (const s of stages) {
+    s.icon = s.images.map((f) => stageImgMap[f]).find(Boolean) || null;
+    delete s.images;
+    s.dlcName = s.dlcCode ? dlcMap[s.dlcCode] || s.dlcCode : "Base Game";
+  }
+  stages.sort((a, b) => (a.dlcName === b.dlcName ? a.name.localeCompare(b.name) : (a.dlcName === "Base Game" ? -1 : b.dlcName === "Base Game" ? 1 : a.dlcName.localeCompare(b.dlcName))));
+  fs.writeFileSync(OUT_STAGES, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: "https://vampire.survivors.wiki/w/Stages",
+    count: stages.length,
+    dlcs: [...new Set(stages.map((s) => s.dlcName))],
+    stages,
+  }));
+  console.log(`vampire-survivors stages: ${stages.length}.`);
+
+  // ---- Pickups ----------------------------------------------------------------
+  const pickupTitles = fetchCategoryTitles("Pickups");
+  const pickupWikitexts = fetchWikitextsWithRetry(pickupTitles, "pickup");
+  const pickups = [];
+  for (const title of pickupTitles) { const wt = pickupWikitexts[title]; const p = wt && parsePickup(title, wt); if (p) pickups.push(p); }
+  const pickupImgMap = fetchImageUrls(pickups.flatMap((p) => p.images));
+  for (const p of pickups) {
+    p.icon = p.images.map((f) => pickupImgMap[f]).find(Boolean) || null;
+    delete p.images;
+    p.dlcName = p.dlcCode ? dlcMap[p.dlcCode] || p.dlcCode : "Base Game";
+  }
+  pickups.sort((a, b) => (a.dlcName === b.dlcName ? a.name.localeCompare(b.name) : (a.dlcName === "Base Game" ? -1 : b.dlcName === "Base Game" ? 1 : a.dlcName.localeCompare(b.dlcName))));
+  fs.writeFileSync(OUT_PICKUPS, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: "https://vampire.survivors.wiki/w/Pickups",
+    count: pickups.length,
+    dlcs: [...new Set(pickups.map((p) => p.dlcName))],
+    pickups,
+  }));
+  console.log(`vampire-survivors pickups: ${pickups.length}.`);
 
   // ---- Weapons ----------------------------------------------------------------
   const excludeFromWeapons = new Set([...arcanaTitles, ...darkanaTitles]);
@@ -751,4 +866,4 @@ function run() {
   console.log(`vampire-survivors characters: ${characters.length} (${characters.filter((c) => c.secret).length} secret, ${characters.filter((c) => c.isDefault).length} default).`);
 }
 
-try { run(); } catch (e) { require("./lib/keep")([OUT_CHARS, OUT_ACH, OUT_WEAPONS, OUT_ARCANAS, OUT_PASSIVES, OUT_ENEMIES], e); }
+try { run(); } catch (e) { require("./lib/keep")([OUT_CHARS, OUT_ACH, OUT_WEAPONS, OUT_ARCANAS, OUT_PASSIVES, OUT_ENEMIES, OUT_STAGES, OUT_PICKUPS], e); }

@@ -49,6 +49,9 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Vampire Survivors gets Stages and Pickups databases": "Vampire Survivors ganha bases de dados de Fases e Pickups",
+    "Every stage and every non-weapon pickup, cross-linked everywhere a character's unlock guide mentions one.":
+      "Todas as fases e todos os pickups que não são armas, hiperligados em todos os locais onde o guia de desbloqueio de uma personagem os menciona.",
     "Aniimo gets a Talent Build Route": "Aniimo ganha uma Rota de Build de Talentos",
     "The Pathfinder's own talent tree, plus a recommended pick order for which to unlock first.":
       "A árvore de talentos do próprio Pathfinder, mais uma ordem de escolha recomendada para saber o que desbloquear primeiro.",
@@ -1685,6 +1688,31 @@
     "Couldn't load enemy data.": "Não foi possível carregar os dados dos inimigos.",
     "Enemy not found.": "Inimigo não encontrado.",
     "Damage": "Dano", "Move speed": "Velocidade de movimento", "Stages": "Fases", "Resistances": "Resistências",
+    "Stages Database": "Base de Dados de Fases",
+    "Every stage — filter and sort by DLC. Several unlock guides (characters, pickups) point here for what a stage actually requires or offers.":
+      "Todas as fases — filtra e ordena por DLC. Vários guias de desbloqueio (personagens, pickups) apontam para aqui para o que uma fase realmente precisa ou oferece.",
+    "Every stage, including Adventure sub-stages — clear time, wave theme and the per-stage rule modifiers (Greed, Luck, XP, chest drop chance).":
+      "Todas as fases, incluindo sub-fases de Aventura — tempo de conclusão, tema das vagas e os modificadores de regras de cada fase (Greed, Luck, XP, chance de drop dos baús).",
+    "Built by NightmareFTW · Vampire Survivors stages.": "Feito por NightmareFTW · fases de Vampire Survivors.",
+    "Loading stages…": "A carregar fases…", "Search stages…": "Procurar fases…",
+    "No stages match.": "Nenhuma fase corresponde.",
+    "Couldn't load stage data.": "Não foi possível carregar os dados das fases.",
+    "Stage not found.": "Fase não encontrada.", "Stage Rules": "Regras da Fase", "Adventure": "Aventura",
+    "Clear Time": "Tempo de Conclusão", "Wave Theme": "Tema das Vagas", "Player Speed": "Velocidade do Jogador",
+    "Enemy Speed": "Velocidade dos Inimigos", "Greed": "Greed", "Luck": "Luck", "XP Gain": "Ganho de XP",
+    "Enemy Health": "Vida dos Inimigos", "Drop Chance": "Chance de Drop", "Max Drop Chance": "Chance de Drop Máxima", "Max Drops": "Drops Máximos",
+    "Pickups Database": "Base de Dados de Pickups",
+    "Every non-weapon pickup that can drop from light sources — coins, hearts, the Little Clover, and DLC-specific ones like Barrier or Rapid Fire. A few unlock guides need one of these to make sense.":
+      "Todos os pickups que não são armas e que podem cair de fontes de luz — moedas, corações, o Little Clover, e alguns específicos de DLC como o Barrier ou o Rapid Fire. Alguns guias de desbloqueio precisam de um destes para fazerem sentido.",
+    "Every non-weapon pickup that can drop from light sources — coins, hearts, the Little Clover, and DLC-specific ones like Barrier or Rapid Fire.":
+      "Todos os pickups que não são armas e que podem cair de fontes de luz — moedas, corações, o Little Clover, e alguns específicos de DLC como o Barrier ou o Rapid Fire.",
+    "Built by NightmareFTW · Vampire Survivors pickups.": "Feito por NightmareFTW · pickups de Vampire Survivors.",
+    "Loading pickups…": "A carregar pickups…", "Search pickups…": "Procurar pickups…",
+    "No pickups match.": "Nenhum pickup corresponde.",
+    "Couldn't load pickup data.": "Não foi possível carregar os dados dos pickups.",
+    "Pickup not found.": "Pickup não encontrado.", "Effects": "Efeitos", "Unlock level": "Nível de desbloqueio",
+    "Drop rate is affected by Luck": "A taxa de drop é afectada por Luck",
+    "Drop rate is not affected by Luck": "A taxa de drop não é afectada por Luck",
 
     // ---- Epic Seven ----
     "Heroes Database": "Base de Dados de Heróis", "Artifacts Database": "Base de Dados de Artefactos",
@@ -1876,7 +1904,7 @@
     [/^(\d+) passive skills · updated (.+) · source: wikily\.gg$/, "$1 skills passivas · actualizado $2 · fonte: wikily.gg"],
     [/^(\d+) Pals · (\d+) exclusive combos · updated (.+)$/, "$1 Pals · $2 combinações exclusivas · actualizado $3"],
     [/^formula → target rank (\d+)$/, "fórmula → rank alvo $1"],
-    [/^Rarity (\d+)$/, "Raridade $1"],
+    [/^Rarity ([\d.]+|N\/A)$/, "Raridade $1"],
     [/^(\d[\d,]*)𝝨 catch price$/, "$1𝝨 preço de captura"],
     [/^Best: (.+)$/, "Melhor: $1"],
     [/^Exclusive to: (.+)$/, "Exclusivo a: $1"],

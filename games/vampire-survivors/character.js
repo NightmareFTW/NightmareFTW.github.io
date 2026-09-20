@@ -16,23 +16,26 @@ const saveSteps = () => localStorage.setItem(KEY_STEPS, JSON.stringify([...steps
 
 const root = document.getElementById("vs-root");
 
-// Any other character/achievement/weapon/enemy name mentioned in a guide
-// becomes a link — or, when the same name belongs to more than one of
-// them (e.g. the enemy "Avatar Infernas" and the character of the same
-// name), a small popup letting the reader pick which page they meant. See
-// assets/js/vs-xref.js for the shared index/popup this builds on.
+// Any other character/achievement/weapon/enemy/stage/pickup name mentioned
+// in a guide becomes a link — or, when the same name belongs to more than
+// one of them (e.g. the enemy "Avatar Infernas" and the character of the
+// same name), a small popup letting the reader pick which page they meant.
+// See assets/js/vs-xref.js for the shared index/popup this builds on.
 //
-// Characters, weapons and enemies are added unconditionally, but an
-// achievement is only added when nothing else already claims its name —
-// most achievements are simply named after the character/weapon they
-// unlock, so that pairing is the expected 1:1 norm, not a real ambiguity
-// worth interrupting the reader over. Without this, almost every name in
-// a long guide (e.g. Chaos's) would wrongly pop up a picker.
-function buildXrefEntities(characters, achievements, weapons, enemies) {
+// Characters, weapons, enemies, stages and pickups are added
+// unconditionally, but an achievement is only added when nothing else
+// already claims its name — most achievements are simply named after the
+// character/weapon they unlock, so that pairing is the expected 1:1 norm,
+// not a real ambiguity worth interrupting the reader over. Without this,
+// almost every name in a long guide (e.g. Chaos's) would wrongly pop up a
+// picker.
+function buildXrefEntities(characters, achievements, weapons, enemies, stages, pickups) {
   const entities = [];
   for (const c of characters) entities.push({ name: c.name, type: "character", href: `character.html?slug=${encodeURIComponent(c.slug)}` });
   for (const w of weapons) entities.push({ name: w.name, type: "weapon", href: `weapon.html?slug=${encodeURIComponent(w.slug)}` });
   for (const e of enemies) entities.push({ name: e.name, type: "enemy", href: `enemy.html?slug=${encodeURIComponent(e.slug)}` });
+  for (const s of stages) entities.push({ name: s.name, type: "stage", href: `stage.html?slug=${encodeURIComponent(s.slug)}` });
+  for (const p of pickups) entities.push({ name: p.name, type: "pickup", href: `pickup.html?slug=${encodeURIComponent(p.slug)}` });
   const claimed = new Set(entities.map((e) => e.name));
   for (const a of achievements) if (!claimed.has(a.name)) entities.push({ name: a.name, type: "achievement", href: `achievements.html?highlight=${encodeURIComponent(a.name)}` });
   return entities;
@@ -257,18 +260,20 @@ function render(c, linkify, weaponMap) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const [charsData, achData, weaponsData, enemiesData] = await Promise.all([
+    const [charsData, achData, weaponsData, enemiesData, stagesData, pickupsData] = await Promise.all([
       fetch(`../../data/vampire-survivors/characters.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/achievements.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/weapons.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/vampire-survivors/enemies.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/stages.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/vampire-survivors/pickups.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const c = charsData.characters.find((x) => x.slug === slug);
     if (!c) { root.innerHTML = `<p class="tool-note">Character not found. <a class="mini-btn" href="characters.html">Back to the database →</a></p>`; return; }
     c.guide = pickGuideLang(c.guide);
     pickStepsLang(c);
     const weaponMap = new Map(weaponsData.weapons.map((w) => [w.name, w.slug]));
-    const xrefIndex = VSXref.buildXrefIndex(buildXrefEntities(charsData.characters, achData.achievements, weaponsData.weapons, enemiesData.enemies));
+    const xrefIndex = VSXref.buildXrefIndex(buildXrefEntities(charsData.characters, achData.achievements, weaponsData.weapons, enemiesData.enemies, stagesData.stages, pickupsData.pickups));
     VSXref.initXrefPopup(xrefIndex);
     const linkify = (text, excludeName) => VSXref.linkify(text, xrefIndex, excludeName);
     render(c, linkify, weaponMap);
