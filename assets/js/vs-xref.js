@@ -18,6 +18,8 @@
     arcana: ["Arcana", "Arcana"],
     darkana: ["Darkana", "Darkana"],
     passive: ["Passive item", "Item passivo"],
+    stage: ["Stage", "Stage"],
+    pickup: ["Pickup", "Pickup"],
   };
   const typeLabel = (type) => (TYPE_LABEL[type] ? TYPE_LABEL[type][PT() ? 1 : 0] : type);
 
