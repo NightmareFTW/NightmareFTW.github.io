@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18T09:07:33.106Z",
+  "updated": "2026-09-20T11:47:44.234Z",
   "source": "https://game8.co/games/Aniimo/archives/621195",
   "recommendedSource": "https://game8.co/games/Aniimo/archives/619809",
   "titles": [
@@ -35,7 +35,11 @@
       "title": "Student",
       "level": 1,
       "desc": "Increases elemental counter effect by 3/6/9/12%.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 2,
+        "reason": "Elemental Boost, Boss Breaker, and Measured Strike are all damage boosting talents that will help you in combat scenarios such as random enemy encounters and Alpha and Omega Aniimo boss battles."
+      }
     },
     {
       "name": "Enhanced Twining",
@@ -48,7 +52,7 @@
       "desc": "Increases Aniimo damage after twining by 10/13/16/20/25%.",
       "recommended": {
         "group": "Passive",
-        "rank": 2,
+        "rank": 3,
         "reason": "Enhanced Twining increases aniimo damage after twining by a certain percentage. You will likely use Twining in most scenarios such as enemy encounters and boss fights, so having increased damage allows you to defeat enemies faster."
       }
     },
@@ -63,7 +67,7 @@
       "desc": "You sprinkle healing dust on the engaged Aniimo to restore its HP.",
       "recommended": {
         "group": "Active",
-        "rank": 3,
+        "rank": 4,
         "reason": "Heal is an active skill that lets you restore the HP of the Aniimo. It is one of the first skills you can unlock and comes in handy when using Command Mode in combat."
       }
     },
@@ -76,11 +80,7 @@
       "title": "Student",
       "level": 1,
       "desc": "Aniimo EXP gained from catching and defeating targets or using EXP items increases by 10/15/20/30%.",
-      "recommended": {
-        "group": "Passive",
-        "rank": 3,
-        "reason": "Master Trainer is a passive skill that increases the amount of experience you gained from catching aniimo, defeating enemies, and using experience gems by a certain percentage. Unlocking this skill is recommended to level up faster and unlock now skills."
-      }
+      "recommended": null
     },
     {
       "name": "Mode Switch",
@@ -113,7 +113,11 @@
       "title": "Student",
       "level": 1,
       "desc": "A newly developed energy mushroom. Feed it to the active Aniimo to increase its size and attack range, and increase damage taken by enemies by 20%.",
-      "recommended": null
+      "recommended": {
+        "group": "Active",
+        "rank": 3,
+        "reason": "Swoleshroom is a support skill that increases the damage output of your active Aniimo by 20%. Note that this buff disappears when you twine with the Aniimo."
+      }
     },
     {
       "name": "Boss Breaker",
@@ -124,7 +128,11 @@
       "title": "Student",
       "level": 2,
       "desc": "Increases damage to Alpha and Omega by 5%.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 2,
+        "reason": "Elemental Boost, Boss Breaker, and Measured Strike are all damage boosting talents that will help you in combat scenarios such as random enemy encounters and Alpha and Omega Aniimo boss battles."
+      }
     },
     {
       "name": "Dreamsong",
@@ -135,7 +143,11 @@
       "title": "Student",
       "level": 2,
       "desc": "Dreaple’s exceptional evolution unlocked.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 7,
+        "reason": "The passive talents in the above table allow you to unlock the following special Aniimo forms: Nimbi's Dreaple, Chirpi's Tromber, Baleetle's Bouldus, and Helmut's Rookey."
+      }
     },
     {
       "name": "Gravity Pull",
@@ -146,7 +158,11 @@
       "title": "Student",
       "level": 2,
       "desc": "Activates the target’s energy field to create a gravity link. Move objects with ancient energy patterns from a distance. Essential for solving puzzles in ancient ruins.",
-      "recommended": null
+      "recommended": {
+        "group": "Active",
+        "rank": 1,
+        "reason": "Gravity Pull is an active skill mostly used to solve puzzles in the open world and in Sanctums. This is highly recommended as most of the puzzles require this skill to be unlocked first."
+      }
     },
     {
       "name": "Mega Mallet",
@@ -157,11 +173,7 @@
       "title": "Student",
       "level": 2,
       "desc": "Smash the targets within a circular area in front with a huge energy hammer, dealing a large amount of BREAK damage. It can also smash solid objects.",
-      "recommended": {
-        "group": "Active",
-        "rank": 1,
-        "reason": "Mega Mallet allows your Pathfinder to smash solid objects and deal a large amount of Break damage within a circular target. This is one of the most recommended skill as it allows your player character to deal damage to enemies while also commanding your aniimo to fight in combat."
-      }
+      "recommended": null
     },
     {
       "name": "Elemental Ward",
@@ -172,7 +184,11 @@
       "title": "Student",
       "level": 3,
       "desc": "Increases element resistance effect by 3/6/9/12%.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 4,
+        "reason": "Elemental Ward increases your element resistance by a certain percentage and can be upgraded four times. This helps to reduce damage taken by enemy Aniimo in combat."
+      }
     },
     {
       "name": "Magical Horn",
@@ -183,7 +199,11 @@
       "title": "Student",
       "level": 3,
       "desc": "Unlocks Tromber’s exceptional evolution.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 7,
+        "reason": "The passive talents in the above table allow you to unlock the following special Aniimo forms: Nimbi's Dreaple, Chirpi's Tromber, Baleetle's Bouldus, and Helmut's Rookey."
+      }
     },
     {
       "name": "Master Catcher",
@@ -216,11 +236,7 @@
       "title": "Student",
       "level": 3,
       "desc": "Consumes 1 rubber duck and throw it at the target area to draw the attention of all Aniimo in a non-combat state in range for 10s.",
-      "recommended": {
-        "group": "Active",
-        "rank": 4,
-        "reason": "Tweetin' Target lets you throw a yellow rubber duck on the ground to attract an aniimo when not in combat. If you prefer a stealth approach when catching aniimo, unlocking this skill is recommended as it lets you obtain stealth catch bonuses easier."
-      }
+      "recommended": null
     },
     {
       "name": "Bubble Gun",
@@ -231,11 +247,7 @@
       "title": "Wayfarer",
       "level": 1,
       "desc": "Prevents the target Aniimo from being Fainted. While the effect is active, its HP cannot drop below 1, allowing it to be caught multiple times in battle.",
-      "recommended": {
-        "group": "Active",
-        "rank": 2,
-        "reason": "Bubble Gun lets you use a bottle of vigor bubbles towards a targeted aniimo to prevent them from fainting. The HP of the targeted aniimo will remain above 1, allowing you to make multiple catch attempts."
-      }
+      "recommended": null
     },
     {
       "name": "Nimble Dodge",
@@ -246,7 +258,11 @@
       "title": "Wayfarer",
       "level": 1,
       "desc": "Reduces stamina cost for dodging by 10%.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 5,
+        "reason": "Nimble Dodge is recommended to unlock as you will be using dodge most of the time when battling Alpha and Omega Aniimo bosses."
+      }
     },
     {
       "name": "Research Expert",
@@ -268,7 +284,11 @@
       "title": "Wayfarer",
       "level": 1,
       "desc": "Allows you to revive Aniimo in your roster.",
-      "recommended": null
+      "recommended": {
+        "group": "Active",
+        "rank": 2,
+        "reason": "Revive lets you revive a knocked out Aniimo in your party, allowing them to be used again in combat."
+      }
     },
     {
       "name": "Peculiar Rock Ball",
@@ -279,7 +299,11 @@
       "title": "Wayfarer",
       "level": 2,
       "desc": "Unlocks Bouldus’s exceptional evolution.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 7,
+        "reason": "The passive talents in the above table allow you to unlock the following special Aniimo forms: Nimbi's Dreaple, Chirpi's Tromber, Baleetle's Bouldus, and Helmut's Rookey."
+      }
     },
     {
       "name": "Quick Twine",
@@ -316,7 +340,11 @@
       "title": "Wayfarer",
       "level": 3,
       "desc": "Aniimo deals 10% increased damage to targets in BREAK state.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 2,
+        "reason": "Elemental Boost, Boss Breaker, and Measured Strike are all damage boosting talents that will help you in combat scenarios such as random enemy encounters and Alpha and Omega Aniimo boss battles."
+      }
     },
     {
       "name": "Sure Shot",
@@ -338,7 +366,11 @@
       "title": "Trailblazer",
       "level": 1,
       "desc": "Increases the charging speed of Aniimo ultimates by 10%.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 6,
+        "reason": "Fast Charge is another recommended passive talent to unlock as it allows you to use the Aniimo's ultimate faster. This comes in handy in boss battle situations."
+      }
     },
     {
       "name": "Unwavering Rampart",
@@ -349,7 +381,11 @@
       "title": "Trailblazer",
       "level": 1,
       "desc": "Unlocks Rookey’s exceptional evolution.",
-      "recommended": null
+      "recommended": {
+        "group": "Passive",
+        "rank": 7,
+        "reason": "The passive talents in the above table allow you to unlock the following special Aniimo forms: Nimbi's Dreaple, Chirpi's Tromber, Baleetle's Bouldus, and Helmut's Rookey."
+      }
     }
   ]
 }

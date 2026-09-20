@@ -499,27 +499,44 @@ function parseTalentTree(html) {
   return talents;
 }
 
-// Game8's own "Best Talents and Passives" guide, split into an "Active"
-// group ("Best Talents") and a "Passive" group ("Best Passive Skills"),
+// Game8's own "Best Talents and Passives" guide, split into an "Active" group
+// ("Best Active Talents") and a "Passive" group ("Best Passive Talents"),
 // each a numbered list with a short reason per pick — the actual build-route
 // priority, attributed to Game8 rather than invented here.
+//
+// Most h3 entries name a single talent, but some are a group covering
+// several at once (e.g. "All Damage Boosting Talents" bundles Elemental
+// Boost, Boss Breaker and Measured Strike under one shared reason) — rather
+// than trying to match the group's own label against a talent name, this
+// reads the actual talent name(s) out of the mini table Game8 embeds under
+// each heading (the same row shape as the main talent tree), so a group
+// heading fans out to every talent it actually covers.
 function parseBestTalents(html) {
+  const nameRe = /<a class='a-link' href=[^>]+>\s*<img[^>]*\/>([^<]*)<\/a>/g;
+  const namesIn = (section) => [...section.matchAll(nameRe)].map((m) => cleanText(m[1]));
+
   const parseGroup = (label) => {
     const start = html.match(new RegExp(`<h2 class='a-header--2' id='[^']*'>${label}</h2>`));
     if (!start) return [];
     const rest = html.slice(start.index + start[0].length);
     const nextH2 = rest.search(/<h2 class='a-header--2'/);
     const section = nextH2 >= 0 ? rest.slice(0, nextH2) : rest;
+    const marks = [...section.matchAll(/<h3 class='a-header--3' id='[^']*'>([\s\S]*?)<\/h3>/g)];
     const items = [];
-    let rank = 0;
-    for (const m of section.matchAll(/<h3 class='a-header--3' id='[^']*'>([\s\S]*?)<\/h3>([\s\S]*?)(?=<h3 class='a-header--3'|$)/g)) {
-      rank++;
-      const firstP = (m[2].match(/<p class='a-paragraph'>([\s\S]*?)<\/p>/) || [])[1] || "";
-      items.push({ name: cleanText(m[1]), rank, reason: cleanText(firstP) });
-    }
+    marks.forEach((m, i) => {
+      const heading = cleanText(m[1]);
+      const bodyStart = m.index + m[0].length;
+      const bodyEnd = i + 1 < marks.length ? marks[i + 1].index : section.length;
+      const body = section.slice(bodyStart, bodyEnd);
+      const rank = i + 1;
+      const firstP = (body.match(/<p class='a-paragraph'>([\s\S]*?)<\/p>/) || [])[1] || "";
+      const reason = cleanText(firstP);
+      const names = namesIn(body);
+      for (const name of names.length ? names : [heading]) items.push({ name, rank, reason });
+    });
     return items;
   };
-  return { active: parseGroup("Best Talents"), passive: parseGroup("Best Passive Skills") };
+  return { active: parseGroup("Best Active Talents"), passive: parseGroup("Best Passive Talents") };
 }
 
 function buildTalents() {
