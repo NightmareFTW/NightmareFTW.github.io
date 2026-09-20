@@ -27,12 +27,25 @@
       if (!byName.has(e.name)) byName.set(e.name, []);
       byName.get(e.name).push(e);
     }
-    // Longest names first, so a longer name always wins over a shorter
+    // Also match a simple English plural ("Flea Rider" -> "Flea Riders", "Sammy
+    // the Caterpillar" -> "...Caterpillars") for guide text that refers to
+    // several at once — both variants resolve back to the same entity.
+    const names = [...byName.keys()];
+    const variants = [];
+    for (const n of names) {
+      variants.push([n, n]);
+      if (!/s$/i.test(n)) variants.push([n + "s", n]);
+    }
+    // Longest variant first, so a longer name always wins over a shorter
     // name that happens to be a substring of it at the same position.
-    const names = [...byName.keys()].sort((a, b) => b.length - a.length);
-    const escapedNames = names.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-    const re = escapedNames.length ? new RegExp(`\\b(${escapedNames.join("|")})\\b`, "g") : null;
-    return { byName, re };
+    variants.sort((a, b) => b[0].length - a[0].length);
+    const escapedVariants = variants.map(([v]) => v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    // Lookaround rather than \b: a handful of real entity names end in
+    // punctuation ("Report!"), where a trailing \b never matches since
+    // neither side of it is a word character.
+    const re = escapedVariants.length ? new RegExp(`(?<![A-Za-z0-9])(${escapedVariants.join("|")})(?![A-Za-z0-9])`, "g") : null;
+    const variantToCanonical = new Map(variants);
+    return { byName, re, variantToCanonical };
   }
 
   function linkify(text, index, excludeName) {
@@ -41,14 +54,20 @@
     index.re.lastIndex = 0;
     let out = "", last = 0, m;
     while ((m = index.re.exec(text))) {
-      const name = m[1];
-      if (name === excludeName) continue;
-      const matches = index.byName.get(name);
+      const matchedText = m[1];
+      const name = index.variantToCanonical.get(matchedText) || matchedText;
+      let matches = index.byName.get(name);
+      // A guide can legitimately need to link to a *different* entity that
+      // happens to share its own character's name (e.g. defeating the enemy
+      // "Baal'Thasar" to unlock the character "Baal'Thasar") — only drop the
+      // self-referential character entry, not the whole match.
+      if (name === excludeName) matches = matches.filter((e) => e.type !== "character");
+      if (!matches.length) { out += esc(text.slice(last, m.index + matchedText.length)); last = m.index + matchedText.length; continue; }
       out += esc(text.slice(last, m.index));
       out += matches.length === 1
-        ? `<a class="vs-xref" href="${esc(matches[0].href)}">${esc(name)}</a>`
-        : `<button type="button" class="vs-xref vs-xref-ambiguous" data-xref-name="${esc(name)}">${esc(name)}</button>`;
-      last = m.index + name.length;
+        ? `<a class="vs-xref" href="${esc(matches[0].href)}">${esc(matchedText)}</a>`
+        : `<button type="button" class="vs-xref vs-xref-ambiguous" data-xref-name="${esc(name)}">${esc(matchedText)}</button>`;
+      last = m.index + matchedText.length;
     }
     return out + esc(text.slice(last));
   }
