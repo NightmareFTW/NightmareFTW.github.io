@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-19T05:29:24.636Z",
+  "updated": "2026-09-20T05:29:38.846Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -79,7 +79,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 653,
+  "count": 661,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -1081,6 +1081,15 @@
       "creatureSlug": null
     },
     {
+      "id": "9GGdLwwsMlcPwwJCqKlz",
+      "name": "Warrior",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.2481759305459892,
+      "y": 0.6725699143313761,
+      "creatureSlug": null
+    },
+    {
       "id": "9R35HN7ORgDug4zhNkEE",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -1576,6 +1585,15 @@
       "creatureSlug": null
     },
     {
+      "id": "F5DvC9gdalH5vuOtuDmW",
+      "name": "Clue: A Lighthouse?",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.622117843725623,
+      "y": 0.18849054300892476,
+      "creatureSlug": null
+    },
+    {
       "id": "F6sDCwWGcTxGZ8OlD5s0",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -1726,6 +1744,15 @@
       "group": "Loot",
       "x": 0.13842734524967018,
       "y": 0.6234646689311916,
+      "creatureSlug": null
+    },
+    {
+      "id": "GjNe9kJlSvdmPDdRfNs5",
+      "name": "Fists I",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.11857175511477318,
+      "y": 0.49167563399056746,
       "creatureSlug": null
     },
     {
@@ -3196,6 +3223,15 @@
       "creatureSlug": null
     },
     {
+      "id": "XCjRLWjZ9pri2XCXiPIv",
+      "name": "Fly Free",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.18352780843516298,
+      "y": 0.3979035186553972,
+      "creatureSlug": null
+    },
+    {
       "id": "XM36tcEQJL0hZJxwXnDb",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -3535,6 +3571,15 @@
       "group": "Loot",
       "x": 0.3615938006412056,
       "y": 0.6527124213436224,
+      "creatureSlug": null
+    },
+    {
+      "id": "a8Wyf44aJhIwbZcL9fwv",
+      "name": "Warrior",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.41700798731328165,
+      "y": 0.8246818953950168,
       "creatureSlug": null
     },
     {
@@ -4663,6 +4708,15 @@
       "creatureSlug": null
     },
     {
+      "id": "mBH8wSigBKLiQFCezUlO",
+      "name": "The Legend of Echoback Landing: Everlasting Echoback Song",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.11289813326541327,
+      "y": 0.7911741515152073,
+      "creatureSlug": null
+    },
+    {
       "id": "mTxv25iwi5XfcN0ZBjvG",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4822,6 +4876,15 @@
       "group": "Loot",
       "x": 0.43664967747738137,
       "y": 0.5705330644796618,
+      "creatureSlug": null
+    },
+    {
+      "id": "osbQlLgsPc26owmffduD",
+      "name": "Flowers and Thorns: Rosetower Wood",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.8121256914824483,
+      "y": 0.43174277754829404,
       "creatureSlug": null
     },
     {
@@ -5119,6 +5182,15 @@
       "group": "Loot",
       "x": 0.33698600558806874,
       "y": 0.7116844070027639,
+      "creatureSlug": null
+    },
+    {
+      "id": "rzngXMES6dU0Q3E6xwsh",
+      "name": "Flowers and Thorns: Sea of Flowers",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.5601664384739499,
+      "y": 0.43534808105938794,
       "creatureSlug": null
     },
     {
