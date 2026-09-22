@@ -1,11 +1,17 @@
 {
-  "updated": "2026-09-21T05:32:57.928Z",
+  "updated": "2026-09-22T05:32:02.555Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
   "mapWidth": 5143,
   "mapHeight": 3913,
   "categories": [
+    {
+      "id": "Q2hhbGxlbmdlcy0tLU9tZWdhIEFuaWltbw==",
+      "name": "Omega Aniimo",
+      "group": "Challenges",
+      "icon": "https://img.gmtreks.com/LFpIqO_Uhle58LFJtH6w19I5bhxkjPw36YHLs1lUXbryGNbR4Ur82cU9m6sJjjnHm5Z6BydwPLMjDr194w-A-00-MfxvSNTttCAdlGEUji8H2VQDocgcDZub"
+    },
     {
       "id": "Q2hhbGxlbmdlcy0tLUVsaXRlIFBhdGhmaW5kZXIgQ2hhbGxlbmdl",
       "name": "Elite Pathfinder Challenge",
@@ -79,7 +85,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 870,
+  "count": 883,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -1036,6 +1042,15 @@
       "creatureSlug": null
     },
     {
+      "id": "72yzSR8E1Eat7GvKj6pj",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.3640472722859652,
+      "y": 0.43147521664471356,
+      "creatureSlug": null
+    },
+    {
       "id": "76NIzmpcnAws6qeM8Tjx",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -1325,7 +1340,7 @@
     },
     {
       "id": "9GGdLwwsMlcPwwJCqKlz",
-      "name": "Warrior",
+      "name": "Warrior: The Legend of Thousand-Fang Ridge",
       "categoryId": "UXVlc3QtLS1Kb3VybmV5",
       "group": "Quest",
       "x": 0.2481759305459892,
@@ -2177,6 +2192,15 @@
       "x": 0.4831992651367962,
       "y": 0.5085914402031619,
       "creatureSlug": null
+    },
+    {
+      "id": "GZiSyMBd9h8wIeihilC8",
+      "name": "Ignitis",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.41030667646826646,
+      "y": 0.6987974129897339,
+      "creatureSlug": "ignitis"
     },
     {
       "id": "GefXWHXthHPwzUaZdPJR",
@@ -3547,6 +3571,15 @@
       "creatureSlug": null
     },
     {
+      "id": "R7yAeVJH7rqANlIEsrZp",
+      "name": "Pillar Jump",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.36427630577402953,
+      "y": 0.43127604574769407,
+      "creatureSlug": null
+    },
+    {
       "id": "RNYPuu4MrKPYQJfo03Ug",
       "name": "Pathfinder Challenge",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
@@ -3853,6 +3886,15 @@
       "creatureSlug": null
     },
     {
+      "id": "U7ubA1f2MQectbh6sIij",
+      "name": "Rookey",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.4878518565669006,
+      "y": 0.8057294794504628,
+      "creatureSlug": "rookey"
+    },
+    {
       "id": "UCjiAr9CMzsUX774BlST",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4004,6 +4046,15 @@
       "x": 0.1715987477881435,
       "y": 0.6857485614658003,
       "creatureSlug": "glynsera"
+    },
+    {
+      "id": "VOP1sr2FGoPXGWTHsbbR",
+      "name": "Tuckin",
+      "categoryId": "Q2hhbGxlbmdlcy0tLU9tZWdhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.3287839144911215,
+      "y": 0.6522118064583111,
+      "creatureSlug": "tuckin"
     },
     {
       "id": "VRTFoZL56hDGjvl7wzOm",
@@ -4339,6 +4390,15 @@
       "creatureSlug": null
     },
     {
+      "id": "Y6cIXccRlAumJWeWnZDQ",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.346930730973595,
+      "y": 0.4437179151585582,
+      "creatureSlug": null
+    },
+    {
       "id": "YBOxSBspCVWBtWs3Cd84",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4456,6 +4516,15 @@
       "creatureSlug": null
     },
     {
+      "id": "Z3J1hCaKNVZziuEzCjRu",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3562722180431951,
+      "y": 0.4378415726393854,
+      "creatureSlug": null
+    },
+    {
       "id": "Z63YK26DjldicMVBtXZZ",
       "name": "Pathfinder Challenge",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
@@ -4562,6 +4631,15 @@
       "x": 0.4847849208702172,
       "y": 0.4818036766492497,
       "creatureSlug": null
+    },
+    {
+      "id": "ZfJ5xlMOzbpbTtYQTqYN",
+      "name": "Panpanta",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.11600513103446099,
+      "y": 0.8339093572214864,
+      "creatureSlug": "panpanta"
     },
     {
       "id": "ZgQDp01BqHZRrCmFjFI4",
@@ -4699,6 +4777,15 @@
       "creatureSlug": null
     },
     {
+      "id": "ag0Sv1tj8GSzlDBn8cAH",
+      "name": "Scorchhowl",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.21303962081400143,
+      "y": 0.7149718438637365,
+      "creatureSlug": "scorchhowl"
+    },
+    {
       "id": "aiIKlleaY6sBtMvaMsMW",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -4805,6 +4892,15 @@
       "x": 0.5893258263096534,
       "y": 0.39432933061965514,
       "creatureSlug": "irisal"
+    },
+    {
+      "id": "bF5Y8RZGWQmT2hLYQM6p",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.36336804049958427,
+      "y": 0.4342603768602231,
+      "creatureSlug": null
     },
     {
       "id": "bPAdbWP5akRXAsWzod28",
@@ -5680,6 +5776,15 @@
       "creatureSlug": null
     },
     {
+      "id": "iMQ1bFGIuVRnimS7j3tg",
+      "name": "Sanctum: Rushing Rapids",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.10130447541746275,
+      "y": 0.9258353933220747,
+      "creatureSlug": null
+    },
+    {
       "id": "iQMwdKFKhtt2Pc8FEXNG",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -5813,6 +5918,15 @@
       "x": 0.4187062596970317,
       "y": 0.46888600681401726,
       "creatureSlug": null
+    },
+    {
+      "id": "jQUg2sg9Ut5adK5gYVAp",
+      "name": "Grizbo",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.6556180639491277,
+      "y": 0.5994499017636912,
+      "creatureSlug": "grizbo"
     },
     {
       "id": "jUhOzqox5rLTEsRaupLD",
@@ -6094,6 +6208,15 @@
       "creatureSlug": null
     },
     {
+      "id": "lmSS19ZRJm4UPDHfM1Xf",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.3390008277304008,
+      "y": 0.4082613133949877,
+      "creatureSlug": null
+    },
+    {
       "id": "lmgUkP6ZLHdkHsdCABgp",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -6161,8 +6284,8 @@
       "name": "The Legend of Echoback Landing: Everlasting Echoback Song",
       "categoryId": "UXVlc3QtLS1Kb3VybmV5",
       "group": "Quest",
-      "x": 0.11289813326541327,
-      "y": 0.7911741515152073,
+      "x": 0.11418970039798022,
+      "y": 0.7925462631116886,
       "creatureSlug": null
     },
     {
