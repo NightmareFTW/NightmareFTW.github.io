@@ -36,9 +36,9 @@
      name/description/art for the regions it currently showcases (most
      don't have official art yet), plus which Aniimo live in each.
    - data/aniimo/map.json — real map markers (chests, resources, eggs,
-     Pathfinder Challenges, quest waypoints, landmarks, and named Alpha
-     Aniimo boss encounters) with actual pixel-position coordinates on the
-     game's real world map image, plus that image's own URL. Source:
+     Pathfinder Challenges, quest waypoints, landmarks, and named Alpha and
+     Omega Aniimo boss encounters) with actual pixel-position coordinates on
+     the game's real world map image, plus that image's own URL. Source:
      gmtreks.com's Aniimo interactive map — an official-adjacent guide site
      (Lighthouse Studio Inc. / GameTrek) with a fully open robots.txt and a
      Terms of Use that only restricts account registration/"the Service"
@@ -46,11 +46,11 @@
      notice against reusing the map data itself, which ships unauthenticated
      in the plain server-rendered page (no private API call involved) and is
      served from a wildcard-CORS, hotlink-friendly image CDN. Every marker
-     that names an actual Aniimo (the 5 named Alpha encounters) is cross-
-     referenced against creatures.json by name so the map and database can
-     link to each other; regular (non-Alpha) Aniimo aren't pinned anywhere
-     in-game, so those still rely on the habitat/region data above. See the
-     technical note below for how this payload is decoded, and
+     that names an actual Aniimo (the named Alpha/Omega encounters) is
+     cross-referenced against creatures.json by name so the map and database
+     can link to each other; regular (non-Alpha/Omega) Aniimo aren't pinned
+     anywhere in-game, so those still rely on the habitat/region data above.
+     See the technical note below for how this payload is decoded, and
      games/aniimo/map.js for how it's rendered — always credit GameTrek
      (gmtreks.com) wherever this data is shown, per their Terms of Use.
    - data/aniimo/talents.json — the Pathfinder's (the player character, not
@@ -60,6 +60,23 @@
      (attributed, not a claim of our own) for a genuine build route rather
      than an arbitrary one. Source: game8.co, already used elsewhere in this
      scraper for the map's mechanics text — see GAME8_MAP_URL above.
+   - data/aniimo/community-codes.json — player-submitted "Face Codes"
+     (character-appearance import strings, distinct from redeemable gift
+     codes — see this repo's data/codes/aniimo.json for those) scraped from
+     Game8's public Face Codes Sharing Board comment thread. This is
+     genuinely user-generated forum content, not stable wiki/editorial data
+     like everything else this scraper writes: comments are anonymous (no
+     attribution beyond a link back to the original comment), a fair chunk
+     of the thread is chatter rather than an actual code ("anyone got a
+     gojo one yet"), and codes may stop working after a patch with no way
+     for us to verify that. buildCommunityCodes() below only keeps comments
+     whose body contains a 14-20 char hex string (every real code observed
+     on the board is exactly 16 hex chars; the range gives a little slack)
+     — plain chatter comments are dropped. The "Character" tab is the only
+     one with a source right now; "Photo Studio" and "Base" setups don't
+     have an equivalent sharing board yet (the game launched 2026-09-16),
+     so those tabs ship with an empty entries array and a "coming soon"
+     note for the UI to show — see games/aniimo/codes.js.
 
    Technical note: gmtreks.com is a React Router 7 (Remix) app, which streams
    its loader data to the client as a single-line "turbo-stream" payload (a
@@ -86,10 +103,12 @@ const OUT_FILE = path.join(OUT_DIR, "creatures.json");
 const OUT_REGIONS = path.join(OUT_DIR, "regions.json");
 const OUT_MAP = path.join(OUT_DIR, "map.json");
 const OUT_TALENTS = path.join(OUT_DIR, "talents.json");
+const OUT_CODES = path.join(OUT_DIR, "community-codes.json");
 const GMTREKS_MAP_URL = "https://gmtreks.com/aniimo/map/idyll";
 const GMTREKS_ATTRIBUTION = "Map imagery and marker data courtesy of GameTrek (gmtreks.com).";
 const GAME8_TALENTS_URL = "https://game8.co/games/Aniimo/archives/621195";
 const GAME8_BEST_TALENTS_URL = "https://game8.co/games/Aniimo/archives/619809";
+const GAME8_FACE_CODES_URL = "https://game8.co/games/Aniimo/archives/623911";
 const TALENT_LEVEL_NAMES = { 1: "Beginner", 2: "Intermediate", 3: "Veteran" };
 
 // A small, hand-checked set of named environmental mechanics tied to a
@@ -405,10 +424,11 @@ function buildRegions(creatures) {
 }
 
 // The real interactive map (see file header for sourcing/ethics notes).
-// Named Alpha Aniimo boss-encounter markers are cross-referenced against the
-// creature database by name so the map can link straight to that Aniimo's
-// page; every other marker (chests, resources, eggs, challenges, quest
-// waypoints, landmarks) is kept as-is since it isn't a creature encounter.
+// Named Alpha/Omega Aniimo boss-encounter markers are cross-referenced
+// against the creature database by name so the map can link straight to
+// that Aniimo's page; every other marker (chests, resources, eggs,
+// challenges, quest waypoints, landmarks) is kept as-is since it isn't a
+// creature encounter.
 function buildMap(creatures) {
   const html = getText(GMTREKS_MAP_URL, { timeout: 30 });
   if (!html) { console.warn("gmtreks.com fetch failed, skipping map rebuild"); return; }
@@ -433,7 +453,7 @@ function buildMap(creatures) {
   const markers = mapData.mapMarkers
     .filter((m) => mapWidth && mapHeight)
     .map((m) => {
-      const bareName = m.name.replace(/^Alpha\s+/, "");
+      const bareName = m.name.replace(/^(Alpha|Omega)\s+/, "");
       const creature = byName.get(m.name.toLowerCase()) || byName.get(bareName.toLowerCase());
       return {
         id: m.id,
@@ -569,6 +589,61 @@ function buildTalents() {
   console.log(`Wrote ${talents.length} talents to ${OUT_TALENTS} (${recommendedByName.size} with a recommended pick order).`);
 }
 
+// See the header comment (data/aniimo/community-codes.json) for what this
+// is and why it's handled differently from the rest of this scraper.
+const CODE_RE = /\b[0-9A-Fa-f]{14,20}\b/;
+function parseFaceCodeComments(html) {
+  const items = [...html.matchAll(/<div class="c-commentItem" id="anchor_comment_(\d+)">([\s\S]*?)<div class="c-commentItem__footer">/g)];
+  const out = [];
+  for (const [, id, block] of items) {
+    const dateM = block.match(/c-commentItem__date">([^<]*)</);
+    const bodyM = block.match(/c-commentItem__body">([\s\S]*?)<\/div>/);
+    if (!bodyM) continue;
+    const imgM = bodyM[1].match(/<img src="([^"]+)"/);
+    const text = bodyM[1].replace(/<[^>]+>/g, " ").replace(/&#39;/g, "'").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+    const codeM = text.match(CODE_RE);
+    if (!codeM) continue; // plain chatter, not an actual code
+    out.push({
+      code: codeM[0],
+      image: imgM ? imgM[1] : null,
+      postedAgo: dateM ? dateM[1].trim() : null,
+      sourceUrl: `${GAME8_FACE_CODES_URL}#anchor_comment_${id}`,
+    });
+  }
+  return out;
+}
+
+function buildCommunityCodes() {
+  const html = getText(GAME8_FACE_CODES_URL, { timeout: 30 });
+  if (!html) { console.warn("game8.co face codes board fetch failed, skipping community codes rebuild"); return; }
+  const character = parseFaceCodeComments(html);
+
+  fs.writeFileSync(OUT_CODES, JSON.stringify({
+    updated: new Date().toISOString(),
+    note: "These are player-submitted community codes (face/photo/base import strings), not redeemable gift codes — see this game's Codes tab on the hub for those. We can't verify a code still works or who posted it beyond a link back to the original comment.",
+    tabs: {
+      character: {
+        label: "Character (Face Codes)",
+        source: GAME8_FACE_CODES_URL,
+        entries: character,
+      },
+      photoStudio: {
+        label: "Photo Studio",
+        source: null,
+        entries: [],
+        note: "No community sharing board for Photo Studio codes exists yet.",
+      },
+      base: {
+        label: "Base",
+        source: null,
+        entries: [],
+        note: "No community sharing board for Base codes exists yet.",
+      },
+    },
+  }, null, 2));
+  console.log(`Wrote ${character.length} community Face Codes to ${OUT_CODES}.`);
+}
+
 function run() {
   const homeHtml = getText(`${BASE}/`, { timeout: 30 });
   if (!homeHtml) throw new Error("could not fetch wiki.aniimo.com homepage");
@@ -608,14 +683,16 @@ function run() {
   buildRegions(creatures);
   buildMap(creatures);
   buildTalents();
+  buildCommunityCodes();
 }
 
 if (require.main === module) {
-  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP, OUT_TALENTS], e); }
+  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP, OUT_TALENTS, OUT_CODES], e); }
 } else {
   module.exports = {
     unflattenDevalue, parseNuxtPayload, parseCreature, buildRegions, slugify,
     unflattenTurboStream, parseTurboStreamPayload, buildMap,
     parseTalentTree, parseBestTalents, buildTalents,
+    parseFaceCodeComments, buildCommunityCodes,
   };
 }

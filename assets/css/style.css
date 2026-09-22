@@ -1298,6 +1298,7 @@ body {
 .redeem-btn { text-decoration: none; white-space: nowrap; background: rgba(255,36,53,.14); border-color: var(--accent); color: #ff8a82; }
 .redeem-btn:hover { background: rgba(255,36,53,.22); }
 .codes-note { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin-bottom: 16px; padding-left: 12px; border-left: 2px solid var(--border); }
+.codes-note a, .code-reward a { color: var(--accent-2); }
 .codes-list { display: flex; flex-direction: column; gap: 8px; padding-bottom: 60px; }
 .code-row {
   display: flex; align-items: center; gap: 12px;
@@ -1321,6 +1322,8 @@ body {
 .code-row.is-expired { border-color: rgba(255,36,53,.35); }
 .code-row.is-expired .code-text { color: var(--danger); }
 .code-copy { flex-shrink: 0; }
+.ac-code-thumb { width: 44px; height: 44px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+.ac-code-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ---- Warframe drop table ---- */
 .drop-facets {

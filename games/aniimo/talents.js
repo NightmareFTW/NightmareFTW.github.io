@@ -4,10 +4,23 @@
    (Student/Wayfarer/Trailblazer) and a level within it. The recommended
    route up top is Game8's own "Best Talents and Passives" priority order
    (attributed — not a claim of our own); the full tree below is every
-   talent grouped by what unlocks it. See scripts/update-aniimo.js. */
+   talent grouped by what unlocks it. See scripts/update-aniimo.js.
+   Talent descriptions and recommendation reasons are run through the shared
+   cross-reference linker (assets/js/vs-xref.js) — several talents unlock an
+   Aniimo's exceptional evolution by name, and route reasons cross-mention
+   other talents. Deep-link: talents.html?highlight=<talent name>, scrolls
+   to and flashes the matching card (mirrors the VS achievements pattern). */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-let DATA = null, query = "", typeFilter = "all", titleFilter = "all";
+let DATA = null, XREF = null, query = "", typeFilter = "all", titleFilter = "all";
+
+function buildXrefEntities(creatures, regions, talents) {
+  const entities = [];
+  for (const c of creatures) entities.push({ name: c.name, type: "creature", href: `aniimo.html?slug=${c.slug}` });
+  for (const r of regions) entities.push({ name: r.name, type: "region", href: `map.html?region=${encodeURIComponent(r.name)}` });
+  for (const t of talents) entities.push({ name: t.name, type: "talent", href: `talents.html?highlight=${encodeURIComponent(t.name)}` });
+  return entities;
+}
 
 const els = {
   route: document.getElementById("at-route"),
@@ -28,7 +41,7 @@ function routeItem(t) {
     ${t.icon ? `<img class="at-route-icon" src="${esc(t.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">` : ""}
     <div>
       <span class="at-route-name">${esc(t.name)}</span><span class="at-route-unlock">${esc(unlockLabel(t))}</span>
-      <p class="at-route-reason">${esc(t.recommended.reason)}</p>
+      <p class="at-route-reason">${VSXref.linkify(t.recommended.reason, XREF, t.name)}</p>
     </div>
   </div>`;
 }
@@ -65,7 +78,7 @@ function buildControls() {
 }
 
 function talentRow(t) {
-  return `<div class="dr-card rw-talent">
+  return `<div class="dr-card rw-talent" data-name="${esc(t.name)}">
     <div class="rw-t-head">
       ${t.icon ? `<img class="rw-t-icon" src="${esc(t.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : ""}
       <div>
@@ -77,7 +90,7 @@ function talentRow(t) {
         </div>
       </div>
     </div>
-    ${t.desc ? `<p class="rw-t-effect">${esc(t.desc)}</p>` : ""}
+    ${t.desc ? `<p class="rw-t-effect">${VSXref.linkify(t.desc, XREF, t.name)}</p>` : ""}
   </div>`;
 }
 
@@ -103,14 +116,34 @@ function renderTree() {
   }).join("");
 }
 
+// Deep-link from another Aniimo tool (talents.html?highlight=Name) — scroll
+// to and flash the matching card instead of filtering the list down, same
+// pattern as Vampire Survivors' achievements.html?highlight=.
+function highlightFromQuery() {
+  const want = new URLSearchParams(location.search).get("highlight");
+  if (!want) return;
+  const t = DATA.talents.find((x) => x.name.toLowerCase() === want.toLowerCase());
+  if (!t) return;
+  const row = els.tree.querySelector(`.rw-talent[data-name="${CSS.escape(t.name)}"]`);
+  if (row) { row.scrollIntoView({ behavior: "smooth", block: "center" }); row.classList.add("vs-flash"); setTimeout(() => row.classList.remove("vs-flash"), 2200); }
+}
+
 (async function init() {
   try {
-    DATA = await (await fetch(`../../data/aniimo/talents.json?cb=${Date.now()}`)).json();
+    const [talentsData, creaturesData, regionsData] = await Promise.all([
+      fetch(`../../data/aniimo/talents.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/aniimo/regions.json?cb=${Date.now()}`).then((r) => r.json()),
+    ]);
+    DATA = talentsData;
+    XREF = VSXref.buildXrefIndex(buildXrefEntities(creaturesData.creatures, regionsData.regions, DATA.talents));
+    VSXref.initXrefPopup(XREF);
     const upd = DATA.updated ? new Date(DATA.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
     document.getElementById("at-updated").textContent = `${DATA.count} talents · updated ${upd}`;
     renderRoute();
     buildControls();
     renderTree();
+    highlightFromQuery();
   } catch (e) {
     els.route.innerHTML = `<p class="tool-note">Couldn't load Aniimo talent data.</p>`;
     els.tree.innerHTML = "";

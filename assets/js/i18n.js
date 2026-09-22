@@ -49,6 +49,9 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Aniimo gets a Community Codes tool": "Aniimo ganha uma ferramenta de Códigos da Comunidade",
+    "Player-submitted Face Codes to copy a character's look — plus tabs for Photo Studio and Base codes once those sharing boards exist.":
+      "Face Codes partilhados por jogadores para copiar o visual de uma personagem — mais abas para códigos de Photo Studio e Base assim que essas boards existirem.",
     "Vampire Survivors gets Stages and Pickups databases": "Vampire Survivors ganha bases de dados de Fases e Pickups",
     "Every stage and every non-weapon pickup, cross-linked everywhere a character's unlock guide mentions one.":
       "Todas as fases e todos os pickups que não são armas, hiperligados em todos os locais onde o guia de desbloqueio de uma personagem os menciona.",
@@ -1768,10 +1771,10 @@
     "Every Aniimo with images: base stats, mobility, traits, skills, evolution line and habitats.":
       "Todos os Aniimo com imagens: stats base, mobilidade, traços, skills, linha de evolução e habitats.",
     "Aniimo Map": "Mapa de Aniimo",
-    "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha Aniimo encounters, pinned where they actually are.":
-      "Um mapa interactivo real de Idyll: baús, recursos, Desafios Pathfinder, marcos e encontros com Aniimo Alpha nomeados, marcados onde realmente estão.",
-    "The real world of Idyll. Chests, resources, eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha Aniimo encounters, pinned where they actually are.":
-      "O mundo real de Idyll. Baús, recursos, ovos, Desafios Pathfinder, pontos de missão, marcos e encontros com Aniimo Alpha nomeados, marcados onde realmente estão.",
+    "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha and Omega Aniimo encounters, pinned where they actually are.":
+      "Um mapa interactivo real de Idyll: baús, recursos, Desafios Pathfinder, marcos e encontros com Aniimo Alpha e Omega nomeados, marcados onde realmente estão.",
+    "The real world of Idyll. Chests, resources, eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha and Omega Aniimo encounters, pinned where they actually are.":
+      "O mundo real de Idyll. Baús, recursos, ovos, Desafios Pathfinder, pontos de missão, marcos e encontros com Aniimo Alpha e Omega nomeados, marcados onde realmente estão.",
     "Regions": "Regiões",
     "Most Aniimo aren't pinned individually in-game; here's what's known to live in each region.":
       "A maioria dos Aniimo não está marcada individualmente no jogo; aqui está o que se sabe que vive em cada região.",
@@ -1804,6 +1807,20 @@
     "The Pathfinder's own talent tree, plus Game8's recommended pick order: which to unlock first, and why.":
       "A árvore de talentos do próprio Pathfinder, mais a ordem de escolha recomendada pela Game8: o que desbloquear primeiro, e porquê.",
     "Built by NightmareFTW · talent data via Game8.": "Feito por NightmareFTW · dados dos talentos via Game8.",
+    "Community Codes": "Códigos da Comunidade",
+    "Player-submitted import codes — Character (Face Codes), Photo Studio setups and Base layouts. Separate from the redeemable gift codes on this game's Codes tab on the hub — these are strings other players share to copy a look, a photo pose or a room layout.":
+      "Códigos de importação partilhados por jogadores — Personagem (Face Codes), configurações de Photo Studio e layouts de Base. Separado dos códigos de resgate na aba Codes do hub deste jogo — são strings que outros jogadores partilham para copiar um visual, uma pose de foto ou um layout de divisão.",
+    "Loading codes…": "A carregar códigos…",
+    "Couldn't load community codes.": "Não foi possível carregar os códigos da comunidade.",
+    "No codes shared yet.": "Ainda não há códigos partilhados.",
+    "No community sharing board for Photo Studio codes exists yet.": "Ainda não existe uma board da comunidade para códigos de Photo Studio.",
+    "No community sharing board for Base codes exists yet.": "Ainda não existe uma board da comunidade para códigos de Base.",
+    "Scraped from Game8's Face Codes Sharing Board. Anonymous, user-submitted — we can't verify a code still works.":
+      "Recolhido da Face Codes Sharing Board da Game8. Anónimo, submetido por jogadores — não conseguimos confirmar se um código ainda funciona.",
+    "Built by NightmareFTW · Aniimo community codes.": "Feito por NightmareFTW · códigos da comunidade de Aniimo.",
+    "source ↗": "fonte ↗",
+    "Player-submitted Character (Face), Photo Studio and Base import codes — not redeem codes, those are on the hub's Codes tab.":
+      "Códigos de importação de Personagem (Face), Photo Studio e Base partilhados por jogadores — não são códigos de resgate, esses estão na aba Codes do hub.",
     "Every Aniimo. Filter by element, role or stage, then open one to see its base stats, mobility, traits, skills, evolution line, habitats and Resonance Training.":
       "Todos os Aniimo. Filtra por elemento, papel ou estágio, depois abre um para ver os stats base, mobilidade, traços, skills, linha de evolução, habitats e Treino de Ressonância.",
     "Built by NightmareFTW · Aniimo database.": "Feito por NightmareFTW · base de dados de Aniimo.",
@@ -1946,6 +1963,7 @@
     [/^of (\d+) Aniimo$/, "de $1 Aniimo"],
     [/^(\d+) Aniimo · updated (.+)$/, "$1 Aniimo · actualizado $2"],
     [/^(\d+) map markers · updated (.+)$/, "$1 marcadores no mapa · actualizado $2"],
+    [/^(\d+) community codes · updated (.+)$/, "$1 códigos da comunidade · actualizado $2"],
     [/^(\d+) Aniimo · (\d+) known mechanics?$/,
       (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],
     [/^(\d+) talents · updated (.+)$/, "$1 talentos · actualizado $2"],
