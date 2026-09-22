@@ -1,12 +1,16 @@
-/* Vampire Survivors — shared cross-reference linking + disambiguation.
-   Several tools (characters, weapons, enemies, arcanas, passives) mention
-   each other by name inside guide/description text. buildXrefIndex turns a
-   flat list of {name, type, href} entities into a lookup; linkify() then
-   wraps every matched name in a given block of text with a link to that
-   entity's page — except when a name belongs to more than one entity (the
-   wiki itself hits this: the enemy "Avatar Infernas" vs the playable
-   character of the same name), in which case it becomes a small button
-   that opens a popup letting the reader pick which page they meant. */
+/* Shared cross-reference linking + disambiguation, used across this site's
+   per-game tool pages (originally built for Vampire Survivors — characters,
+   weapons, enemies, arcanas, passives, stages, pickups — and reused as-is
+   for Aniimo). Several tools within a game mention each other by name
+   inside guide/description text. buildXrefIndex turns a flat list of
+   {name, type, href} entities into a lookup; linkify() then wraps every
+   matched name in a given block of text with a link to that entity's page —
+   except when a name belongs to more than one entity within the same game
+   (Vampire Survivors' wiki itself hits this: the enemy "Avatar Infernas" vs
+   the playable character of the same name), in which case it becomes a
+   small button that opens a popup letting the reader pick which page they
+   meant. Each caller builds its own index from that game's own entities
+   only, so there's no cross-game leakage. */
 (function (global) {
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const PT = () => localStorage.getItem("nftw:lang") === "pt";
@@ -20,6 +24,9 @@
     passive: ["Passive item", "Item passivo"],
     stage: ["Stage", "Stage"],
     pickup: ["Pickup", "Pickup"],
+    creature: ["Aniimo", "Aniimo"],
+    region: ["Region", "Região"],
+    talent: ["Talent", "Talento"],
   };
   const typeLabel = (type) => (TYPE_LABEL[type] ? TYPE_LABEL[type][PT() ? 1 : 0] : type);
 

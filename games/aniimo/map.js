@@ -1,12 +1,17 @@
 /* Aniimo — Map.
    A real interactive map: actual pixel positions for chests, resources,
    eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha
-   Aniimo encounters, pinned on the game's own world map image. Sourced from
-   gmtreks.com (GameTrek) — see scripts/update-aniimo.js for how and why.
-   Regular (non-Alpha) Aniimo aren't pinned anywhere in-game, so the region
-   browser below the map (built from the official site's own region art plus
-   the Aniimo database's habitats) still covers "where does X live".
-   Data: data/aniimo/map.json + data/aniimo/regions.json + data/aniimo/creatures.json. */
+   and Omega Aniimo encounters, pinned on the game's own world map image.
+   Sourced from gmtreks.com (GameTrek) — see scripts/update-aniimo.js for
+   how and why. Regular (non-Alpha/Omega) Aniimo aren't pinned anywhere
+   in-game, so the region browser below the map (built from the official
+   site's own region art plus
+   the Aniimo database's habitats) still covers "where does X live". Region
+   description/mechanics text is run through the shared cross-reference
+   linker (assets/js/vs-xref.js), and this page accepts ?slug=<creature> or
+   ?region=<name> deep-links from other Aniimo tools.
+   Data: data/aniimo/map.json + data/aniimo/regions.json +
+   data/aniimo/creatures.json + data/aniimo/talents.json. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const ELEMENT_COLOR = {
@@ -16,7 +21,15 @@ const ELEMENT_COLOR = {
 const MIN_ZOOM_STEP = 0.15, WHEEL_ZOOM_STEP = 0.08, MAX_SCALE = 2.5;
 const isDesktopPointer = () => window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-let MAP = null, REGIONS = null, CREATURES = null;
+function buildXrefEntities(creatures, regions, talents) {
+  const entities = [];
+  for (const c of creatures) entities.push({ name: c.name, type: "creature", href: `aniimo.html?slug=${c.slug}` });
+  for (const r of regions) entities.push({ name: r.name, type: "region", href: `map.html?region=${encodeURIComponent(r.name)}` });
+  for (const t of talents) entities.push({ name: t.name, type: "talent", href: `talents.html?highlight=${encodeURIComponent(t.name)}` });
+  return entities;
+}
+
+let MAP = null, REGIONS = null, CREATURES = null, TALENTS = null, XREF = null;
 let activeAniimoSlug = "", query = "", regionQuery = "";
 let scale = 0.2, fitScale = 0.2;
 let hiddenCategories = new Set();
@@ -287,8 +300,8 @@ function openRegion(name) {
     <section class="panel">
       ${region.image ? `<img src="${esc(region.image)}" alt="" style="width:100%;max-height:280px;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:12px">` : ""}
       <h1 style="margin:0 0 6px">${esc(region.name)}</h1>
-      ${region.description ? `<p class="tool-note">${esc(region.description)}</p>` : `<p class="tool-note">No official description published yet for this region.</p>`}
-      ${region.mechanics.length ? `<p class="pw-build-note"><b>Known mechanics</b>:</p><ul class="vs-sub-list">${region.mechanics.map((m) => `<li><b>${esc(m.name)}:</b> ${esc(m.description)}</li>`).join("")}</ul>` : ""}
+      ${region.description ? `<p class="tool-note">${VSXref.linkify(region.description, XREF, region.name)}</p>` : `<p class="tool-note">No official description published yet for this region.</p>`}
+      ${region.mechanics.length ? `<p class="pw-build-note"><b>Known mechanics</b>:</p><ul class="vs-sub-list">${region.mechanics.map((m) => `<li><b>${esc(m.name)}:</b> ${VSXref.linkify(m.description, XREF, region.name)}</li>`).join("")}</ul>` : ""}
       <p class="pw-build-note" style="margin-top:10px"><b>Aniimo found here</b> (${region.creatures.length}):</p>
       <p>${region.creatures.length ? region.creatures.map(creatureChip).join("") : `<span class="tool-note">None listed yet.</span>`}</p>
     </section>`;
@@ -297,11 +310,16 @@ function openRegion(name) {
 
 (async function init() {
   try {
-    [MAP, REGIONS, CREATURES] = await Promise.all([
+    let talents;
+    [MAP, REGIONS, CREATURES, talents] = await Promise.all([
       fetch(`../../data/aniimo/map.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/regions.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()).then((d) => d.creatures),
+      fetch(`../../data/aniimo/talents.json?cb=${Date.now()}`).then((r) => r.json()).then((d) => d.talents),
     ]);
+    TALENTS = talents;
+    XREF = VSXref.buildXrefIndex(buildXrefEntities(CREATURES, REGIONS.regions, TALENTS));
+    VSXref.initXrefPopup(XREF);
     const upd = MAP.updated ? new Date(MAP.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
     document.getElementById("am-updated").textContent = `${MAP.count} map markers · updated ${upd}`;
     els.attribution.innerHTML = `Map imagery and marker data courtesy of <a href="${esc(MAP.source)}" target="_blank" rel="noopener">GameTrek</a>.`;
@@ -312,6 +330,15 @@ function openRegion(name) {
 
     buildControls();
     renderGrid();
+
+    // Deep-link from another tool: ?slug=<creature> jumps to its map pin
+    // (or region, if it isn't pinned individually), ?region=<name> opens
+    // that region's detail panel directly.
+    const params = new URLSearchParams(location.search);
+    const wantSlug = params.get("slug");
+    const wantRegion = params.get("region");
+    if (wantSlug) jumpToAniimo(wantSlug);
+    else if (wantRegion) openRegion(wantRegion);
   } catch (e) {
     els.mapContainer.innerHTML = `<p class="tool-note">Couldn't load Aniimo map data.</p>`;
     els.grid.innerHTML = `<p class="tool-note">Couldn't load Aniimo region data.</p>`;

@@ -1,0 +1,48 @@
+{
+  "updated": "2026-09-22T11:25:22.944Z",
+  "note": "These are player-submitted community codes (face/photo/base import strings), not redeemable gift codes — see this game's Codes tab on the hub for those. We can't verify a code still works or who posted it beyond a link back to the original comment.",
+  "tabs": {
+    "character": {
+      "label": "Character (Face Codes)",
+      "source": "https://game8.co/games/Aniimo/archives/623911",
+      "entries": [
+        {
+          "code": "E02423361AB99047",
+          "image": "https://img.game8.co/4625889/d047b4830599222a8e6d3d322c8c6a44.jpeg/show",
+          "postedAgo": "1 day",
+          "sourceUrl": "https://game8.co/games/Aniimo/archives/623911#anchor_comment_920784"
+        },
+        {
+          "code": "681A1CBB20DBCC8E",
+          "image": null,
+          "postedAgo": "2 days",
+          "sourceUrl": "https://game8.co/games/Aniimo/archives/623911#anchor_comment_920742"
+        },
+        {
+          "code": "3BC04C2FF85D8387",
+          "image": "https://img.game8.co/4624300/4f7042c14eb91a1b2c90fec07952aa56.jpeg/show",
+          "postedAgo": "4 days",
+          "sourceUrl": "https://game8.co/games/Aniimo/archives/623911#anchor_comment_920652"
+        },
+        {
+          "code": "8242DD8F5BC3CDCF",
+          "image": "https://img.game8.co/4624295/c80fb54cfc6cd63add188f1644459121.jpeg/show",
+          "postedAgo": "4 days",
+          "sourceUrl": "https://game8.co/games/Aniimo/archives/623911#anchor_comment_920650"
+        }
+      ]
+    },
+    "photoStudio": {
+      "label": "Photo Studio",
+      "source": null,
+      "entries": [],
+      "note": "No community sharing board for Photo Studio codes exists yet."
+    },
+    "base": {
+      "label": "Base",
+      "source": null,
+      "entries": [],
+      "note": "No community sharing board for Base codes exists yet."
+    }
+  }
+}

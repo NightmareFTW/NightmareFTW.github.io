@@ -3,7 +3,10 @@
    (the official game wiki) via scripts/update-aniimo.js: base stats,
    mobility, traits, skills (grouped by tab: Combat/Innate/...), the
    evolution line, habitats (region names — no map coordinates; see
-   games/aniimo/map.js for why) and Resonance Training. */
+   games/aniimo/map.js for why) and Resonance Training.
+   Free-text fields (description, mobility/trait/skill text) are run through
+   the shared cross-reference linker (assets/js/vs-xref.js) so mentions of
+   other Aniimo, regions or Pathfinder talents link straight to that page. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const ELEMENT_COLOR = {
@@ -16,6 +19,14 @@ const root = document.getElementById("an-root");
 function itemIcon(src, initial) {
   if (!src) return `<span class="ms-item-img no-img" data-init="${esc((initial || "?")[0])}"></span>`;
   return `<span class="ms-item-img"><img src="${esc(src)}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.parentElement.classList.add('no-img')"></span>`;
+}
+
+function buildXrefEntities(creatures, regions, talents) {
+  const entities = [];
+  for (const c of creatures) entities.push({ name: c.name, type: "creature", href: `aniimo.html?slug=${c.slug}` });
+  for (const r of regions) entities.push({ name: r.name, type: "region", href: `map.html?region=${encodeURIComponent(r.name)}` });
+  for (const t of talents) entities.push({ name: t.name, type: "talent", href: `talents.html?highlight=${encodeURIComponent(t.name)}` });
+  return entities;
 }
 
 function kvTable(pairs) {
@@ -31,24 +42,24 @@ function statsTable(s) {
   ].filter(([, v]) => v != null));
 }
 
-function mobilityHtml(m) {
+function mobilityHtml(m, xrefIndex, excludeName) {
   if (!m) return `<p class="tool-note">No Mobility ability listed yet.</p>`;
   return `<div class="ms-items"><div class="ms-item" style="cursor:default">
     ${itemIcon(m.icon, m.name)}
-    <span class="ms-item-body"><span class="ms-item-text"><b>${esc(m.name)}</b></span><span class="ms-item-meta">${esc(m.description)}</span></span>
+    <span class="ms-item-body"><span class="ms-item-text"><b>${esc(m.name)}</b></span><span class="ms-item-meta">${VSXref.linkify(m.description, xrefIndex, excludeName)}</span></span>
   </div></div>`;
 }
 
-function traitsHtml(list) {
+function traitsHtml(list, xrefIndex, excludeName) {
   if (!list.length) return `<p class="tool-note">No traits listed yet.</p>`;
   return `<div class="ms-items">${list.map((t) => `
     <div class="ms-item" style="cursor:default">
       ${itemIcon(t.icon, t.name)}
-      <span class="ms-item-body"><span class="ms-item-text"><b>${esc(t.name)}</b></span><span class="ms-item-meta">${esc(t.description)}</span></span>
+      <span class="ms-item-body"><span class="ms-item-text"><b>${esc(t.name)}</b></span><span class="ms-item-meta">${VSXref.linkify(t.description, xrefIndex, excludeName)}</span></span>
     </div>`).join("")}</div>`;
 }
 
-function skillsHtml(skills) {
+function skillsHtml(skills, xrefIndex, excludeName) {
   const tabs = Object.keys(skills || {});
   if (!tabs.length) return `<p class="tool-note">No skills listed yet.</p>`;
   return tabs.map((tab) => `
@@ -65,35 +76,35 @@ function skillsHtml(skills) {
               ${s.cost ? `<span class="ev-chip">EP ${esc(s.cost)}</span>` : ""}
             </span>
           </span>
-          <span class="ms-item-meta">${esc(s.description)}</span>
+          <span class="ms-item-meta">${VSXref.linkify(s.description, xrefIndex, excludeName)}</span>
         </span>
       </div>`).join("")}</div>`).join("");
 }
 
-function evolutionHtml(node, depth) {
+function evolutionHtml(node, depth, xrefIndex, excludeName) {
   if (!node) return "";
   const row = `<div class="ms-item" style="cursor:default;margin-left:${depth * 24}px">
     ${itemIcon(node.icon, node.name)}
-    <span class="ms-item-body"><span class="ms-item-text"><b>${esc(node.name)}</b></span>${node.condition.length ? `<span class="ms-item-meta">${esc(node.condition.join(", "))}</span>` : ""}</span>
+    <span class="ms-item-body"><span class="ms-item-text"><b>${esc(node.name)}</b></span>${node.condition.length ? `<span class="ms-item-meta">${VSXref.linkify(node.condition.join(", "), xrefIndex, excludeName)}</span>` : ""}</span>
   </div>`;
-  return row + (node.children || []).map((c) => evolutionHtml(c, depth + 1)).join("");
+  return row + (node.children || []).map((c) => evolutionHtml(c, depth + 1, xrefIndex, excludeName)).join("");
 }
 
 function habitatsHtml(list) {
   if (!list.length) return `<p class="tool-note">No known habitats listed yet: check back once the wiki fills this in.</p>`;
-  return `<p class="pw-card-chips">${list.map((h) => `<span class="ev-chip">${esc(h)}</span>`).join("")}</p>
-    <p class="tool-note">See these regions on the <a class="vs-xref" href="map.html">Aniimo Map</a>.</p>`;
+  return `<p class="pw-card-chips">${list.map((h) => `<a class="ev-chip vs-xref" href="map.html?region=${encodeURIComponent(h)}">${esc(h)}</a>`).join("")}</p>
+    <p class="tool-note">See these on the <a class="vs-xref" href="map.html">Aniimo Map</a>.</p>`;
 }
 
-function resonanceHtml(list) {
+function resonanceHtml(list, xrefIndex, excludeName) {
   if (!list.length) return `<p class="tool-note">No Resonance Training data listed yet.</p>`;
   return `<table class="vs-stat-table">
     <thead><tr><th>Level</th><th>Condition</th><th>Cost</th></tr></thead>
-    <tbody>${list.map((r) => `<tr><td>${esc(r.level)}</td><td>${esc(r.condition)}</td><td>${esc(r.cost)}</td></tr>`).join("")}</tbody>
+    <tbody>${list.map((r) => `<tr><td>${esc(r.level)}</td><td>${VSXref.linkify(r.condition, xrefIndex, excludeName)}</td><td>${esc(r.cost)}</td></tr>`).join("")}</tbody>
   </table>`;
 }
 
-function render(c) {
+function render(c, xrefIndex) {
   document.title = `${c.name} · Aniimo · NightmareFTW`;
   document.getElementById("bc-aniimo").textContent = c.name;
   const elemColor = ELEMENT_COLOR[c.elements[0]] || null;
@@ -110,23 +121,23 @@ function render(c) {
           <span class="ev-chip">${esc(c.stage)}</span>
           ${c.gender.length ? `<span class="ev-chip">${esc(c.gender.join(" / "))}</span>` : ""}
         </div>
-        <p class="tool-note">${esc(c.description)}</p>
+        <p class="tool-note">${VSXref.linkify(c.description, xrefIndex, c.name)}</p>
       </div>
     </div>
 
     <section class="panel"><h2>Base Stats</h2>${statsTable(c.baseStats)}</section>
 
-    <section class="panel"><h2>Mobility</h2>${mobilityHtml(c.mobility)}</section>
+    <section class="panel"><h2>Mobility</h2>${mobilityHtml(c.mobility, xrefIndex, c.name)}</section>
 
-    <section class="panel"><h2>Traits</h2>${traitsHtml(c.traits)}</section>
+    <section class="panel"><h2>Traits</h2>${traitsHtml(c.traits, xrefIndex, c.name)}</section>
 
-    <section class="panel"><h2>Skills</h2>${skillsHtml(c.skills)}</section>
+    <section class="panel"><h2>Skills</h2>${skillsHtml(c.skills, xrefIndex, c.name)}</section>
 
-    <section class="panel"><h2>Evolution Line</h2>${c.evolution ? evolutionHtml(c.evolution, 0) : `<p class="tool-note">No evolution data listed yet.</p>`}</section>
+    <section class="panel"><h2>Evolution Line</h2>${c.evolution ? evolutionHtml(c.evolution, 0, xrefIndex, c.name) : `<p class="tool-note">No evolution data listed yet.</p>`}</section>
 
     <section class="panel"><h2>Habitats</h2>${habitatsHtml(c.habitats)}</section>
 
-    <section class="panel"><h2>Resonance Training</h2>${resonanceHtml(c.resonanceTraining)}</section>
+    <section class="panel"><h2>Resonance Training</h2>${resonanceHtml(c.resonanceTraining, xrefIndex, c.name)}</section>
 
     <p class="tool-note"><a class="mini-btn" href="aniimos.html">← Back to the database</a></p>
   `;
@@ -135,10 +146,16 @@ function render(c) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const data = await (await fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`)).json();
-    const c = data.creatures.find((x) => x.slug === slug);
+    const [creaturesData, regionsData, talentsData] = await Promise.all([
+      fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/aniimo/regions.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/aniimo/talents.json?cb=${Date.now()}`).then((r) => r.json()),
+    ]);
+    const c = creaturesData.creatures.find((x) => x.slug === slug);
     if (!c) { root.innerHTML = `<p class="tool-note">Aniimo not found. <a class="mini-btn" href="aniimos.html">Back to the database →</a></p>`; return; }
-    render(c);
+    const xrefIndex = VSXref.buildXrefIndex(buildXrefEntities(creaturesData.creatures, regionsData.regions, talentsData.talents));
+    VSXref.initXrefPopup(xrefIndex);
+    render(c, xrefIndex);
   } catch (e) {
     root.innerHTML = `<p class="tool-note">Couldn't load Aniimo data.</p>`;
   }

@@ -745,7 +745,7 @@ const GAMES = [
         id: "map",
         name: "Aniimo Map",
         type: "database",
-        desc: "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha Aniimo encounters, pinned where they actually are.",
+        desc: "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha and Omega Aniimo encounters, pinned where they actually are.",
         href: "games/aniimo/map.html",
         available: true,
       },
@@ -755,6 +755,14 @@ const GAMES = [
         type: "builder",
         desc: "The Pathfinder's own talent tree, plus Game8's recommended pick order: which to unlock first, and why.",
         href: "games/aniimo/talents.html",
+        available: true,
+      },
+      {
+        id: "codes",
+        name: "Community Codes",
+        type: "database",
+        desc: "Player-submitted Character (Face), Photo Studio and Base import codes — not redeem codes, those are on the hub's Codes tab.",
+        href: "games/aniimo/codes.html",
         available: true,
       },
     ],
@@ -774,6 +782,13 @@ const GAMES = [
    repo's history for how the assets/img/updates/*.jpg screenshots were
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
+  {
+    date: "2026-09-22",
+    title: "Aniimo gets a Community Codes tool",
+    desc: "Player-submitted Face Codes to copy a character's look — plus tabs for Photo Studio and Base codes once those sharing boards exist.",
+    image: "assets/img/updates/aniimo-community-codes.jpg",
+    href: "games/aniimo/codes.html",
+  },
   {
     date: "2026-09-20",
     title: "Vampire Survivors gets Stages and Pickups databases",
@@ -822,12 +837,5 @@ const SITE_UPDATES = [
     desc: "Base weapons, evolutions and unions — plus Arcanas, Darkanas and passive items, filterable by DLC.",
     image: "assets/img/updates/vs-weapon-evolutions.jpg",
     href: "games/vampire-survivors/weapons.html",
-  },
-  {
-    date: "2026-09-01",
-    title: "Farever dungeons now update automatically",
-    desc: "A daily scraper keeps the dungeon checklist in sync with FareverDB.",
-    image: "assets/img/updates/farever-dungeons.jpg",
-    href: "games/farever/dungeons.html",
   },
 ];
