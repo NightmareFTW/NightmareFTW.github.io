@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-25T05:31:39.405Z",
+  "updated": "2026-09-26T05:30:05.012Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -85,7 +85,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 1007,
+  "count": 1015,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -283,6 +283,15 @@
       "group": "Loot",
       "x": 0.7475628154453616,
       "y": 0.5648959481436862,
+      "creatureSlug": null
+    },
+    {
+      "id": "1YF8eEx6dz4A2zzQ7P94",
+      "name": "Legend of the Thunderlands: An Answer from the Heavens",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.3851569150950611,
+      "y": 0.29453220487677356,
       "creatureSlug": null
     },
     {
@@ -889,6 +898,15 @@
       "creatureSlug": null
     },
     {
+      "id": "4ybZSne5FzTH4sbZ7fEM",
+      "name": "A Fragrant Journey: Berylline Vale",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.4762026290127064,
+      "y": 0.4968350365231373,
+      "creatureSlug": null
+    },
+    {
       "id": "52WzvlGpxN2N4TZQoP88",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -1078,6 +1096,15 @@
       "creatureSlug": null
     },
     {
+      "id": "5w0BPlwAJLiYs8mIOjch",
+      "name": "A Fragrant Journey: Driftwise Meadow",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.4448898170263193,
+      "y": 0.6534710747200876,
+      "creatureSlug": null
+    },
+    {
       "id": "5yshjQsdqP2OSVnAmRhA",
       "name": "Incredible Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
@@ -1232,7 +1259,7 @@
     },
     {
       "id": "7CgQT0bu2GxAdSNrVXtI",
-      "name": "Tubster",
+      "name": "Alpha Tubster",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.2616131305199305,
@@ -1754,7 +1781,7 @@
     },
     {
       "id": "AXIgBQZRN6lPnNy4GQ98",
-      "name": "Bouldus",
+      "name": "Alpha Bouldus",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.3019981470475726,
@@ -2537,7 +2564,7 @@
     },
     {
       "id": "GZiSyMBd9h8wIeihilC8",
-      "name": "Ignitis",
+      "name": "Alpha Ignitis",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.41030667646826646,
@@ -2842,6 +2869,15 @@
       "creatureSlug": null
     },
     {
+      "id": "IgfmifqfqgXdHBhkmLV8",
+      "name": "Alpha Luminelle",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.6143272561265873,
+      "y": 0.16574745627615073,
+      "creatureSlug": "luminelle"
+    },
+    {
       "id": "Ipb9Ok4JdUWuIV1jXUZG",
       "name": "Breezy Plains Branch",
       "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
@@ -2861,7 +2897,7 @@
     },
     {
       "id": "J35XNXA1TvT6es12lIn2",
-      "name": "Magmarex",
+      "name": "Alpha Magmarex",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.8431831348825128,
@@ -3068,7 +3104,7 @@
     },
     {
       "id": "L0keSRm7RhXBlLmhaJXT",
-      "name": "Blazen",
+      "name": "Alpha Blazen",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.3869179451179039,
@@ -3122,7 +3158,7 @@
     },
     {
       "id": "LKC1Ao2jAcpI0XBgl0GA",
-      "name": "Turbo",
+      "name": "Alpha Turbo",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.3037592636951009,
@@ -4076,7 +4112,7 @@
     },
     {
       "id": "RVjKNqOkBv2fUTK8mrpj",
-      "name": "Stellarys",
+      "name": "Alpha Stellarys",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.10658038250389082,
@@ -4400,7 +4436,7 @@
     },
     {
       "id": "U7ubA1f2MQectbh6sIij",
-      "name": "Rookey",
+      "name": "Alpha Rookey",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.4878518565669006,
@@ -4571,7 +4607,7 @@
     },
     {
       "id": "VNObuV6bVjcRn0ROh4VU",
-      "name": "Glynsera",
+      "name": "Alpha Glynsera",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.1715987477881435,
@@ -4580,7 +4616,7 @@
     },
     {
       "id": "VOP1sr2FGoPXGWTHsbbR",
-      "name": "Tuckin",
+      "name": "Omega Tuckin",
       "categoryId": "Q2hhbGxlbmdlcy0tLU9tZWdhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.3287839144911215,
@@ -5273,7 +5309,7 @@
     },
     {
       "id": "ZfJ5xlMOzbpbTtYQTqYN",
-      "name": "Panpanta",
+      "name": "Alpha Panpanta",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.11600513103446099,
@@ -5296,6 +5332,15 @@
       "group": "Loot",
       "x": 0.2642420515814427,
       "y": 0.611273843538342,
+      "creatureSlug": null
+    },
+    {
+      "id": "Zq9WH1g5RDYqhlgJVxjG",
+      "name": "A Fragrant Journey: Blitzwood",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.45801994436905236,
+      "y": 0.47474217002640273,
       "creatureSlug": null
     },
     {
@@ -5444,7 +5489,7 @@
     },
     {
       "id": "ag0Sv1tj8GSzlDBn8cAH",
-      "name": "Scorchhowl",
+      "name": "Alpha Scorchhowl",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.21303962081400143,
@@ -6767,7 +6812,7 @@
     },
     {
       "id": "jQUg2sg9Ut5adK5gYVAp",
-      "name": "Grizbo",
+      "name": "Alpha Grizbo",
       "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
       "group": "Challenges",
       "x": 0.6556180639491277,
@@ -6991,6 +7036,15 @@
       "creatureSlug": null
     },
     {
+      "id": "kpTlbSpADn3Pm5AOhebd",
+      "name": "Helmut's Island Adventure",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.44002189249632295,
+      "y": 0.8687601067223909,
+      "creatureSlug": null
+    },
+    {
       "id": "ks3f1ROo5aUknUkV04Ue",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -7078,6 +7132,15 @@
       "group": "Loot",
       "x": 0.37879353167761387,
       "y": 0.6393172735184862,
+      "creatureSlug": null
+    },
+    {
+      "id": "lb1XHtn6WbDk2wRPucD0",
+      "name": "Island Adventure: Nightfall Tales",
+      "categoryId": "UXVlc3QtLS1Kb3VybmV5",
+      "group": "Quest",
+      "x": 0.4095934616411844,
+      "y": 0.9587542358447223,
       "creatureSlug": null
     },
     {
@@ -7205,6 +7268,15 @@
       "x": 0.7359358309864283,
       "y": 0.7507782657599904,
       "creatureSlug": null
+    },
+    {
+      "id": "mYUwjlyOG1sFkl8qCgmi",
+      "name": "Alpha Leafy",
+      "categoryId": "Q2hhbGxlbmdlcy0tLUFscGhhIEFuaWltbw==",
+      "group": "Challenges",
+      "x": 0.2704075806917409,
+      "y": 0.5696690044105992,
+      "creatureSlug": "leafy"
     },
     {
       "id": "maWkQrZS4dCmsp1VdSdp",
