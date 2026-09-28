@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-27T05:31:41.468Z",
+  "updated": "2026-09-28T05:35:10.478Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -85,7 +85,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 1015,
+  "count": 1024,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -157,6 +157,15 @@
       "group": "Loot",
       "x": 0.28154164534249493,
       "y": 0.8731501829103934,
+      "creatureSlug": null
+    },
+    {
+      "id": "0X4LvBOyTnjrSifSJ3Oo",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.6027399134590029,
+      "y": 0.8094614785801753,
       "creatureSlug": null
     },
     {
@@ -754,6 +763,15 @@
       "creatureSlug": null
     },
     {
+      "id": "4FnV9Fm7gg5QF6X5gPXv",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.5100666843123042,
+      "y": 0.35777953466499923,
+      "creatureSlug": null
+    },
+    {
       "id": "4GeRhGrHZa3VbvXp4Lc0",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -1012,6 +1030,15 @@
       "group": "Loot",
       "x": 0.1869809051543034,
       "y": 0.5133016678210396,
+      "creatureSlug": null
+    },
+    {
+      "id": "5WFgH4zx1YK3W9091TvF",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.5100998524386916,
+      "y": 0.532392658317562,
       "creatureSlug": null
     },
     {
@@ -1762,6 +1789,15 @@
       "creatureSlug": null
     },
     {
+      "id": "ASRBRSfam8qATp4b4XyB",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.6101808624000999,
+      "y": 0.7274786970855018,
+      "creatureSlug": null
+    },
+    {
       "id": "ASk4eFnwiHey2zGQ2wjm",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -2090,8 +2126,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.17029558370956172,
-      "y": 0.6832957657576628,
+      "x": 0.17223311594128027,
+      "y": 0.6858364491065885,
       "creatureSlug": null
     },
     {
@@ -4849,6 +4885,15 @@
       "creatureSlug": null
     },
     {
+      "id": "X98mezl7MBH865qEEQWU",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.5004543220847562,
+      "y": 0.5940972145387917,
+      "creatureSlug": null
+    },
+    {
       "id": "XCjRLWjZ9pri2XCXiPIv",
       "name": "Fly Free",
       "categoryId": "UXVlc3QtLS1Kb3VybmV5",
@@ -5287,6 +5332,15 @@
       "group": "Challenges",
       "x": 0.30277049065202943,
       "y": 0.6094648599705579,
+      "creatureSlug": null
+    },
+    {
+      "id": "ZVVZYQwJhuG1SBxDzKIY",
+      "name": "Cave Entrance",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.1790979931557481,
+      "y": 0.6385272174963603,
       "creatureSlug": null
     },
     {
@@ -5807,8 +5861,8 @@
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
-      "x": 0.21213446171962025,
-      "y": 0.6022290544288609,
+      "x": 0.21612985712329733,
+      "y": 0.5999333560666145,
       "creatureSlug": null
     },
     {
@@ -6293,8 +6347,8 @@
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
-      "x": 0.1744757439356661,
-      "y": 0.6236490015718488,
+      "x": 0.1762174539473909,
+      "y": 0.6219662383569187,
       "creatureSlug": null
     },
     {
@@ -6448,6 +6502,15 @@
       "group": "Puzzle",
       "x": 0.556837682976536,
       "y": 0.549188689927604,
+      "creatureSlug": null
+    },
+    {
+      "id": "gbt8a8R0uPFaHYN6jWEu",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.335470566660621,
+      "y": 0.6617965337090226,
       "creatureSlug": null
     },
     {
@@ -8161,6 +8224,15 @@
       "creatureSlug": null
     },
     {
+      "id": "sbcHh6arzy0fzSLHLPek",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.1951986216059881,
+      "y": 0.983857670035988,
+      "creatureSlug": null
+    },
+    {
       "id": "sc5AHJHne9kzRP9j6wJe",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -8941,6 +9013,15 @@
       "group": "Loot",
       "x": 0.2611191802265092,
       "y": 0.8497396751225637,
+      "creatureSlug": null
+    },
+    {
+      "id": "xs50deFihG8CXaV4tp1f",
+      "name": "Irisalis Petal",
+      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
+      "group": "Others",
+      "x": 0.4844569412635709,
+      "y": 0.4059497869502735,
       "creatureSlug": null
     },
     {
