@@ -1,18 +1,90 @@
 {
   "game": "aniimo",
-  "updated": "2026-09-18T01:06:21.687Z",
+  "updated": "2026-09-29T10:08:23.297Z",
   "source": "https://game8.co/games/Aniimo/archives/619365",
   "note": "Enter via the gear icon → Account → Gift Code Redemption in-game. Aniimo just launched, so codes here may still be thin.",
   "codes": [
     {
-      "code": "Aniimo2026",
+      "code": "aniimazingfroyo",
       "reward": "Glimmer x20",
       "expires": null,
       "expired": false
     },
     {
+      "code": "anywhereaniimo",
+      "reward": "Growth Flower x3 Credit x10,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "anythinganiimo",
+      "reward": "Growth Flower x3 Credit x10,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "aniimonow",
+      "reward": "Growth Flower x3 Credit x10,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "aniimofreetoplay",
+      "reward": "Glimmer x50 Growth Flower x5 Aniipod Pro x5",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "aniimotogether",
+      "reward": "Growth Flower x3 Credit x10,000",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "aniimoidyll",
+      "reward": "Credit x10,000 Aniipod x5",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "anyoneaniimo",
+      "reward": "Glimmer x50 Growth Flower x5 Aniipod Pro x5",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "aniimobonus",
+      "reward": "Credit x10,000 Aniipod x5",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "twinewithaniimo",
+      "reward": "Glimmer x10 Credit x20,000 Growth Flower x10 Aniipod Pro x5",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "aniimoopenworld",
+      "reward": "Credit x10,000 Aniipod x5",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "aniimolaunch2026",
+      "reward": "Glimmer x50 Growth Flower x5 Aniipod Pro x5",
+      "expires": null,
+      "expired": false
+    },
+    {
       "code": "ANIIMOGIFT",
-      "reward": "Glimmer x10 Credit x20000 Growth Flower x10 Aniipod Pro x5",
+      "reward": "Glimmer x10 Credit x20,000 Growth Flower x10 Aniipod Pro x5",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "Aniimo2026",
+      "reward": "Glimmer x20",
       "expires": null,
       "expired": false
     }
