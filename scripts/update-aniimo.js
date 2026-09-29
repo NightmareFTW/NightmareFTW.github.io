@@ -77,6 +77,20 @@
      have an equivalent sharing board yet (the game launched 2026-09-16),
      so those tabs ship with an empty entries array and a "coming soon"
      note for the UI to show — see games/aniimo/codes.js.
+   - data/aniimo/builds.json — a real per-Aniimo build guide (which two
+     Skills to equip, which Held Item, stat priority and personality),
+     sourced from Game8's own "List of All Builds" page — the site's
+     established primary source for this kind of attributed "best X"
+     content (same pattern as talents.json's recommended route above).
+     Covers 46 of the 86 tracked Aniimo; the rest simply don't have a
+     published build yet. A handful of rows are for a "Prismana <name>"
+     entry — the creature's top-tier awakened form, not a separate roster
+     entry in creatures.json — those are kept as their own build (tagged
+     formTag: "Prismana") linked to the base creature's slug, since a
+     creature can have both a base and a Prismana build. A few rows name
+     an Aniimo (e.g. Irisalis, Somniwing) that wiki.aniimo.com hasn't
+     documented yet — those ship with slug: null and render as plain text
+     rather than a dead link.
 
    Technical note: gmtreks.com is a React Router 7 (Remix) app, which streams
    its loader data to the client as a single-line "turbo-stream" payload (a
@@ -104,11 +118,13 @@ const OUT_REGIONS = path.join(OUT_DIR, "regions.json");
 const OUT_MAP = path.join(OUT_DIR, "map.json");
 const OUT_TALENTS = path.join(OUT_DIR, "talents.json");
 const OUT_CODES = path.join(OUT_DIR, "community-codes.json");
+const OUT_BUILDS = path.join(OUT_DIR, "builds.json");
 const GMTREKS_MAP_URL = "https://gmtreks.com/aniimo/map/idyll";
 const GMTREKS_ATTRIBUTION = "Map imagery and marker data courtesy of GameTrek (gmtreks.com).";
 const GAME8_TALENTS_URL = "https://game8.co/games/Aniimo/archives/621195";
 const GAME8_BEST_TALENTS_URL = "https://game8.co/games/Aniimo/archives/619809";
 const GAME8_FACE_CODES_URL = "https://game8.co/games/Aniimo/archives/623911";
+const GAME8_BUILDS_URL = "https://game8.co/games/Aniimo/archives/624315";
 const TALENT_LEVEL_NAMES = { 1: "Beginner", 2: "Intermediate", 3: "Veteran" };
 
 // A small, hand-checked set of named environmental mechanics tied to a
@@ -644,6 +660,62 @@ function buildCommunityCodes() {
   console.log(`Wrote ${character.length} community Face Codes to ${OUT_CODES}.`);
 }
 
+// See the header comment (data/aniimo/builds.json) for sourcing notes.
+function parseBuilds(html, creatures) {
+  const byName = new Map(creatures.map((c) => [c.name.toLowerCase(), c]));
+  const clean = (s) => s.replace(/<[^>]+>/g, "").replace(/&#39;/g, "'").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+  const linkItems = (block) => [...block.matchAll(/<div class='align'><a class='a-link' href=[^>]+><img[^>]*data-src='([^']+)'[^>]*\/>\s*([^<]+)<\/a>/g)]
+    .map((m) => ({ name: clean(m[2]), icon: m[1] }));
+
+  const start = html.indexOf("<tbody>");
+  const end = html.indexOf("</tbody>");
+  if (start < 0 || end < 0) return [];
+  const rows = html.slice(start, end).split("<tr>").slice(1);
+
+  const builds = [];
+  for (const row of rows) {
+    const nameM = row.match(/<td class="center">([\s\S]*?)<\/td>/);
+    if (!nameM) continue;
+    const rawName = clean(nameM[1]);
+    const iconM = nameM[1].match(/data-src='([^']+)'/);
+    const formTag = /^Prismana\s+/.test(rawName) ? "Prismana" : null;
+    const bareName = rawName.replace(/^Prismana\s+/, "");
+    const creature = byName.get(bareName.toLowerCase());
+
+    const rest = row.slice(nameM.index + nameM[0].length);
+    const parts = rest.split('<hr class="a-table__line">');
+    if (parts.length < 4) continue;
+    const [skillsBlock, itemBlock, statBlock, persBlock] = parts;
+
+    builds.push({
+      name: rawName,
+      slug: creature ? creature.slug : null,
+      formTag,
+      icon: iconM ? iconM[1] : null,
+      skills: linkItems(skillsBlock),
+      heldItem: linkItems(itemBlock)[0] || null,
+      statPriority: clean(statBlock).replace(/^Stat Priority:\s*/, ""),
+      personality: clean(persBlock).replace(/^Personality:\s*/, ""),
+    });
+  }
+  return builds;
+}
+
+function buildAniimoBuilds(creatures) {
+  const html = getText(GAME8_BUILDS_URL, { timeout: 30 });
+  if (!html) { console.warn("game8.co builds list fetch failed, skipping builds rebuild"); return; }
+  const builds = parseBuilds(html, creatures);
+  if (builds.length < 10) { console.warn("parsed too few Aniimo builds, skipping builds rebuild"); return; }
+
+  fs.writeFileSync(OUT_BUILDS, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: GAME8_BUILDS_URL,
+    count: builds.length,
+    builds,
+  }, null, 2));
+  console.log(`Wrote ${builds.length} Aniimo builds to ${OUT_BUILDS}.`);
+}
+
 function run() {
   const homeHtml = getText(`${BASE}/`, { timeout: 30 });
   if (!homeHtml) throw new Error("could not fetch wiki.aniimo.com homepage");
@@ -684,15 +756,17 @@ function run() {
   buildMap(creatures);
   buildTalents();
   buildCommunityCodes();
+  buildAniimoBuilds(creatures);
 }
 
 if (require.main === module) {
-  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP, OUT_TALENTS, OUT_CODES], e); }
+  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP, OUT_TALENTS, OUT_CODES, OUT_BUILDS], e); }
 } else {
   module.exports = {
     unflattenDevalue, parseNuxtPayload, parseCreature, buildRegions, slugify,
     unflattenTurboStream, parseTurboStreamPayload, buildMap,
     parseTalentTree, parseBestTalents, buildTalents,
     parseFaceCodeComments, buildCommunityCodes,
+    parseBuilds, buildAniimoBuilds,
   };
 }

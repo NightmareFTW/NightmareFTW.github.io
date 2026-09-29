@@ -1,0 +1,1001 @@
+{
+  "updated": "2026-09-29T15:42:48.066Z",
+  "source": "https://game8.co/games/Aniimo/archives/624315",
+  "count": 46,
+  "builds": [
+    {
+      "name": "Minespine",
+      "slug": "minespine",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616738/a1431ebfee344b00749d7d135b3bbb2f.png/show",
+      "skills": [
+        {
+          "name": "Seismic Wave",
+          "icon": "https://img.game8.co/4619140/0060c8156fe9bbd35c883c3aa4d632f2.png/show"
+        },
+        {
+          "name": "Stone Shell",
+          "icon": "https://img.game8.co/4619130/0e8962dfded0b64173fc4caf652a3879.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break and Regen.",
+      "personality": "ESFJ"
+    },
+    {
+      "name": "Tuckin",
+      "slug": "tuckin",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616855/16a5327f58c4569ed1457c33c88efe9d.png/show",
+      "skills": [
+        {
+          "name": "Draw Nourishment",
+          "icon": "https://img.game8.co/4618614/1de3d74a0e5eb8bbcaede2cb3debf7af.png/show"
+        },
+        {
+          "name": "Off-Key Shock Wave",
+          "icon": "https://img.game8.co/4618621/792904bb22254103f65e7e3720866d7c.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Heritage Amulet",
+        "icon": "https://img.game8.co/4620046/bfb615b81d5629439848134a30f4a89c.png/show"
+      },
+      "statPriority": "Prioritize Break and HP.",
+      "personality": "ESTJ"
+    },
+    {
+      "name": "Geoclaw",
+      "slug": "geoclaw",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616692/ae2949cef32217303debc9cd20584e7c.png/show",
+      "skills": [
+        {
+          "name": "Icy Gravel Dance",
+          "icon": "https://img.game8.co/4618657/c91507c62dcf34ccadcfdd955dc8939e.png/show"
+        },
+        {
+          "name": "Frost Slam",
+          "icon": "https://img.game8.co/4618659/22b5df18addea5dd6cb10339ebc104ce.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Luminelle",
+      "slug": "luminelle",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616736/29183ffc21784227d47e1c9aa7801375.png/show",
+      "skills": [
+        {
+          "name": "Swift Retreat",
+          "icon": "https://img.game8.co/4619260/966e3ef5a29b65a8de31e09179dc3898.png/show"
+        },
+        {
+          "name": "Lightning Surge",
+          "icon": "https://img.game8.co/4619243/0aa5ab55a4c936119885cb7188471956.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Auspicious Bell",
+        "icon": "https://img.game8.co/4620054/11ccce8bf16022a1829d6a37606bcaa4.png/show"
+      },
+      "statPriority": "Prioritize HP and Attack.",
+      "personality": "ESFJ"
+    },
+    {
+      "name": "Gracewing",
+      "slug": "gracewing",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616690/f6dbc673c448fa9865805ce0604499be.png/show",
+      "skills": [
+        {
+          "name": "Wind of Rejuvenation",
+          "icon": "https://img.game8.co/4618758/0a757a3800d205004f1e2c2ebd2282a7.png/show"
+        },
+        {
+          "name": "Phantomfly",
+          "icon": "https://img.game8.co/4618759/3296b7ec404277479b339340c531b892.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen and HP.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Besauce",
+      "slug": "besauce",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616664/d618ae6a1f186d2bfc7dbc19536ba861.png/show",
+      "skills": [
+        {
+          "name": "Charged Geyser",
+          "icon": "https://img.game8.co/4619261/d5005646696a4a68d4c7ebe121eb6f18.png/show"
+        },
+        {
+          "name": "Disruptive Current",
+          "icon": "https://img.game8.co/4619252/a5bcdfa1b6cb35a11aae6a1bf087d2b4.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen and HP.",
+      "personality": "ISFJ"
+    },
+    {
+      "name": "Panpanta",
+      "slug": "panpanta",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616769/0978e0841669c7b01acd6243c5333a3f.png/show",
+      "skills": [
+        {
+          "name": "Water Cannon",
+          "icon": "https://img.game8.co/4618877/3c9d9720a7176ab44285a797af84e70c.png/show"
+        },
+        {
+          "name": "Hydro Roll",
+          "icon": "https://img.game8.co/4618944/993a78badbec5eae3c171cec7d2b88fc.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break and Regen.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Tubster",
+      "slug": "tubster",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616849/8daa1b0d0aa5da49ccb47bab8051e67a.png/show",
+      "skills": [
+        {
+          "name": "Gale Guard",
+          "icon": "https://img.game8.co/4618490/39018c8573980cc62561e94505e2c46b.png/show"
+        },
+        {
+          "name": "Resting Whirlwind",
+          "icon": "https://img.game8.co/4618485/f0331b41e2ec54c4a0d58fd8cfe70c7b.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break and HP.",
+      "personality": "ENTJ"
+    },
+    {
+      "name": "Prismana Glynsera",
+      "slug": "glynsera",
+      "formTag": "Prismana",
+      "icon": "https://img.game8.co/4616770/2d5e2e193fd2aa0d2faa9750e9873ef8.png/show",
+      "skills": [
+        {
+          "name": "Ice Strikes",
+          "icon": "https://img.game8.co/4618817/e06c0a2f2612dcc8225e8a1f45059f98.png/show"
+        },
+        {
+          "name": "Frost Tail Strike",
+          "icon": "https://img.game8.co/4618882/ce81e314b6bcfbb7893e782faad9f4cb.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Heartseeker Pendant",
+        "icon": "https://img.game8.co/4620037/1dd022d44079396fec75afe14c5bc786.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ENFP"
+    },
+    {
+      "name": "Erlath",
+      "slug": "erlath",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616677/5ff7171b8cbb730a3d300adb3d22a78a.png/show",
+      "skills": [
+        {
+          "name": "Bubbles",
+          "icon": "https://img.game8.co/4619237/36f365add6c7125584dde0bc75f19156.png/show"
+        },
+        {
+          "name": "Bubble Blast",
+          "icon": "https://img.game8.co/4619264/cca836c7e7f1bb21b70e109320e129c6.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen and HP.",
+      "personality": "ISTP"
+    },
+    {
+      "name": "Stellarys",
+      "slug": "stellarys",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616846/f1fbb7fc77333cdd02f3d77165d6f5d3.png/show",
+      "skills": [
+        {
+          "name": "Shooting Stars (Stellarys)",
+          "icon": "https://img.game8.co/4618417/5e60a5c18b40d978e55507a1e1e2afe7.png/show"
+        },
+        {
+          "name": "Shadow Magic",
+          "icon": "https://img.game8.co/4618416/72e7afdf781a78c5f5da983bc80c14e4.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ISTP"
+    },
+    {
+      "name": "Bailite",
+      "slug": "bailite",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616653/5bea601048664ca47f116b8d2133badf.png/show",
+      "skills": [
+        {
+          "name": "Cozite Nest Sentry",
+          "icon": "https://img.game8.co/4619127/d068df6c982499ec41ee1a6da0f6c4e6.png/show"
+        },
+        {
+          "name": "Cannon Mode",
+          "icon": "https://img.game8.co/4619134/4013cac635e58c89368033dc15fac7dc.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen and HP.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Fragrancier",
+      "slug": "fragrancier",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616701/ea65d0b5364c67919c98869a6a1a6872.png/show",
+      "skills": [
+        {
+          "name": "Secret Fragrance Mark",
+          "icon": "https://img.game8.co/4618823/d5a88a9270046d81c227012d2da78ad5.png/show"
+        },
+        {
+          "name": "Withering Bloom",
+          "icon": "https://img.game8.co/4618829/23a16336f42c97e15f759642d5dc56a5.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Tromber",
+      "slug": "tromber",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616847/523b924e084f83e42ea4d18b5c1d859b.png/show",
+      "skills": [
+        {
+          "name": "Waltz",
+          "icon": "https://img.game8.co/4618460/716fd970dd3c22fdbce071a054d4e84d.png/show"
+        },
+        {
+          "name": "Spiral Blade",
+          "icon": "https://img.game8.co/4618458/b0454ca3a628f84137af81f49e31caad.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ESTJ"
+    },
+    {
+      "name": "Turbo",
+      "slug": "turbo",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616851/99c1e2f0517a2e55199e76f086190475.png/show",
+      "skills": [
+        {
+          "name": "Nimbi Burst",
+          "icon": "https://img.game8.co/4618549/22ff123bdb03c0c1db99f50aaf95b766.png/show"
+        },
+        {
+          "name": "Cloud Shield",
+          "icon": "https://img.game8.co/4618548/c339c16af6b39a704cd9ddf6caefdd3f.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Heritage Amulet",
+        "icon": "https://img.game8.co/4620046/bfb615b81d5629439848134a30f4a89c.png/show"
+      },
+      "statPriority": "Prioritize HP and Attack.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Fenmane",
+      "slug": "fenmane",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616675/8b3586d5e335e9f9ee382dddc4391638.png/show",
+      "skills": [
+        {
+          "name": "Thunder Field",
+          "icon": "https://img.game8.co/4619041/30d07ea0b7bf8943711131c74ff528f3.png/show"
+        },
+        {
+          "name": "Thunder Imprint",
+          "icon": "https://img.game8.co/4619050/88f93afa49b65337de2b3c41f012353f.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Heartseeker Pendant",
+        "icon": "https://img.game8.co/4620037/1dd022d44079396fec75afe14c5bc786.png/show"
+      },
+      "statPriority": "Prioritize Attack and Break.",
+      "personality": "ENFJ"
+    },
+    {
+      "name": "Piopiota",
+      "slug": "piopiota",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616778/17674b2fbc0cedaa35d6442fb9f73f72.png/show",
+      "skills": [
+        {
+          "name": "Surf",
+          "icon": "https://img.game8.co/4618890/4857f8d79490bbb85fcd1c13068d302d.png/show"
+        },
+        {
+          "name": "Surge",
+          "icon": "https://img.game8.co/4618886/51cf3aa4c12a9d4d7e6d538a79d66a7c.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Miraculous Fleece",
+        "icon": "https://img.game8.co/4619937/b9c1abb2b3dd830811b3d0b03bee8e43.png/show"
+      },
+      "statPriority": "Prioritize Attack and Break.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Glacy",
+      "slug": "glacy",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616698/c61ec0e0991fff811a8f51f213ea539b.png/show",
+      "skills": [
+        {
+          "name": "Healing Water",
+          "icon": "https://img.game8.co/4618513/ddbe23ee8dc014a92ce73d6792d42f15.png/show"
+        },
+        {
+          "name": "Water Orb",
+          "icon": "https://img.game8.co/4618514/f5688755d9f2add5e07b0d4c0425308d.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Miraculous Fleece",
+        "icon": "https://img.game8.co/4619937/b9c1abb2b3dd830811b3d0b03bee8e43.png/show"
+      },
+      "statPriority": "Prioritize HP and Regen.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Irisalis",
+      "slug": null,
+      "formTag": null,
+      "icon": "https://img.game8.co/4616741/e4bc531736790df157481abee4a36259.png/show",
+      "skills": [
+        {
+          "name": "Whirling Blossom Rain",
+          "icon": "https://img.game8.co/4619247/112f5467df89327fe8c947658dbdee4f.png/show"
+        },
+        {
+          "name": "Irisalis Shadow",
+          "icon": "https://img.game8.co/4619249/8b02cef0a89d9638165e8247d8594c27.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ESTJ"
+    },
+    {
+      "name": "Dazmand",
+      "slug": "dazmand",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616681/41bfcd73b82b9b6af211d5938269e0ba.png/show",
+      "skills": [
+        {
+          "name": "Thunder Sweep",
+          "icon": "https://img.game8.co/4619245/d00924ea81ece6003292f34f8f3f83e1.png/show"
+        },
+        {
+          "name": "Electricity Shock",
+          "icon": "https://img.game8.co/4619251/e434a9a16ef0f802b115bae82a7ed611.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Attack and Break.",
+      "personality": "ENTJ"
+    },
+    {
+      "name": "Waleetle",
+      "slug": "waleetle",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616856/91c64e94f286d61bbdf525d0caab7670.png/show",
+      "skills": [
+        {
+          "name": "Sandstorm Spin",
+          "icon": "https://img.game8.co/4618948/55cbd3362d09e144b36e285a6f97e533.png/show"
+        },
+        {
+          "name": "Stone Ball Drift",
+          "icon": "https://img.game8.co/4618943/48c14ae35a6b00fe0d6c29706f14c72a.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ESTJ"
+    },
+    {
+      "name": "Eklue",
+      "slug": "eklue",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616678/e5b0b20862ee91948c893fbd52d0d929.png/show",
+      "skills": [
+        {
+          "name": "Detect Weakness",
+          "icon": "https://img.game8.co/4618756/e6bc35716c6e62c710804693dc5c2c01.png/show"
+        },
+        {
+          "name": "Arc Strike",
+          "icon": "https://img.game8.co/4618751/9a0fffb363a061e2e4f4beafc5961bec.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ESTJ"
+    },
+    {
+      "name": "Infergon",
+      "slug": "infergon",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616709/3c8252ccbce8fec634fd2814640be63d.png/show",
+      "skills": [
+        {
+          "name": "Flaming Breath",
+          "icon": "https://img.game8.co/4619136/f23932aa1df060ea5d803856bf426d3f.png/show"
+        },
+        {
+          "name": "Flaming Claws",
+          "icon": "https://img.game8.co/4619145/1d88a64f542a4e08b72bc78a8c4a45b2.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Echoing Grimoire",
+        "icon": "https://img.game8.co/4620026/3c0d61ab8872202352d97194b698a04e.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Pawney",
+      "slug": "pawney",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616774/b82768145e06c0e65edb0f9c52317114.png/show",
+      "skills": [
+        {
+          "name": "Shadow Cut",
+          "icon": "https://img.game8.co/4619039/0d236e994f3226cd957e4a17367f194f.png/show"
+        },
+        {
+          "name": "Weakening Slam",
+          "icon": "https://img.game8.co/4619044/0d42e0738a3d8af6fa59a43397780180.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Echoing Grimoire",
+        "icon": "https://img.game8.co/4620026/3c0d61ab8872202352d97194b698a04e.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ENFP"
+    },
+    {
+      "name": "Thornblade",
+      "slug": "thornblade",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616834/155c7ad19ae08548b64227f671014534.png/show",
+      "skills": [
+        {
+          "name": "Thorny Defense",
+          "icon": "https://img.game8.co/4618775/5839ff595fb712f965afc81a0ccc56e9.png/show"
+        },
+        {
+          "name": "Thorny Impact",
+          "icon": "https://img.game8.co/4618781/11069d7f08fe07304191e345719f9911.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ENTP"
+    },
+    {
+      "name": "Lunara",
+      "slug": "lunara",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616740/ef02144d0f7e38b558c5e86c9d104c89.png/show",
+      "skills": [],
+      "heldItem": {
+        "name": "Fission Needles",
+        "icon": "https://img.game8.co/4620023/106603775ee211c6e3a6a3b13c6b921e.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ENFP"
+    },
+    {
+      "name": "Grizbo",
+      "slug": "grizbo",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616695/2d55fe3108928be3cc252247f109ae7d.png/show",
+      "skills": [
+        {
+          "name": "Critical Hit",
+          "icon": "https://img.game8.co/4619131/a2416fa92c73b35afde24a012bc0d4e9.png/show"
+        },
+        {
+          "name": "Claw of Madness",
+          "icon": "https://img.game8.co/4619139/a4ac336ff793a61ec9b2371f91b11d87.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Sherro",
+      "slug": "sherro",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616810/51c623677b8c980b95b321466d3161b5.png/show",
+      "skills": [
+        {
+          "name": "Flowing Water Slash",
+          "icon": "https://img.game8.co/4618947/a90cc6a5fc98dced57dd416213935eb9.png/show"
+        },
+        {
+          "name": "Torrent Slam",
+          "icon": "https://img.game8.co/4618956/04028844e40e4a0740196ad4ef1e0719.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Scorchhowl",
+      "slug": "scorchhowl",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616807/ba8b51de4f2025d4ff783a2750b1241d.png/show",
+      "skills": [
+        {
+          "name": "Burn Breaker",
+          "icon": "https://img.game8.co/4618396/46f409eb1cc581f9b5ef4ef8502f04ec.png/show"
+        },
+        {
+          "name": "Fire Kick",
+          "icon": "https://img.game8.co/4618391/57e0ced8fd609c7e49899f417ba80722.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ESFP"
+    },
+    {
+      "name": "Fulmintis",
+      "slug": "fulmintis",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616700/6db0436d19dfd4c714deb0c606001c66.png/show",
+      "skills": [
+        {
+          "name": "Lightning Blade Storm",
+          "icon": "https://img.game8.co/4619270/538db949630fcd348818634d032b8d9b.png/show"
+        },
+        {
+          "name": "Enhanced Lightning Blade",
+          "icon": "https://img.game8.co/4619253/6e7ef4a62d4af4944c572958915d0343.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Heartseeker Pendant",
+        "icon": "https://img.game8.co/4620037/1dd022d44079396fec75afe14c5bc786.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ENTP"
+    },
+    {
+      "name": "Glynsera",
+      "slug": "glynsera",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616687/aa19841ba1f58d098b62008d2044d5d6.png/show",
+      "skills": [
+        {
+          "name": "Ice Strikes",
+          "icon": "https://img.game8.co/4618817/e06c0a2f2612dcc8225e8a1f45059f98.png/show"
+        },
+        {
+          "name": "Frost Tail Strike",
+          "icon": "https://img.game8.co/4618882/ce81e314b6bcfbb7893e782faad9f4cb.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Heartseeker Pendant",
+        "icon": "https://img.game8.co/4620037/1dd022d44079396fec75afe14c5bc786.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ENTP"
+    },
+    {
+      "name": "Inferlupa",
+      "slug": "inferlupa",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616724/ab67b799780b24e21a290ef9ada52aaa.png/show",
+      "skills": [
+        {
+          "name": "Unbroken Flameruff Spirit",
+          "icon": "https://img.game8.co/4618387/ed9c89c8542def1b4e6589bb188dbc3b.png/show"
+        },
+        {
+          "name": "Hunting Pack",
+          "icon": "https://img.game8.co/4618397/6e35847b11c07d692fd34150b2af61e3.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break.",
+      "personality": "ESFP"
+    },
+    {
+      "name": "Irisal",
+      "slug": "irisal",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616737/74aac0622dc535e9030765ee5a33487e.png/show",
+      "skills": [
+        {
+          "name": "Focused Beam",
+          "icon": "https://img.game8.co/4618516/8c09d5221932bc54ea129d2b983e1ff8.png/show"
+        },
+        {
+          "name": "Floral Storm",
+          "icon": "https://img.game8.co/4618510/a5880e06390dc60fc28c5d7897614aac.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack and Regen.",
+      "personality": "ESTJ"
+    },
+    {
+      "name": "Cornet",
+      "slug": "cornet",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616674/8ae176d8515c221930d079b4154b481a.png/show",
+      "skills": [
+        {
+          "name": "Wind Bomb Rush",
+          "icon": "https://img.game8.co/4618488/a8a57b06fd9b1aa1809c4caddccd5393.png/show"
+        },
+        {
+          "name": "Scream Splitter",
+          "icon": "https://img.game8.co/4618487/89c1b651d8db2aabca07c38eb4c60040.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ENFP"
+    },
+    {
+      "name": "Ignitis",
+      "slug": "ignitis",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616717/9549c8a73e265347f1a07faf569b7f5e.png/show",
+      "skills": [
+        {
+          "name": "Dark Soul",
+          "icon": "https://img.game8.co/4618818/f3db6c6ad6073737aa709fee4b243ee8.png/show"
+        },
+        {
+          "name": "Scythe Dance",
+          "icon": "https://img.game8.co/4618822/8be942bc8528ffeba767fff9df3fdc3d.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Fission Needles",
+        "icon": "https://img.game8.co/4620023/106603775ee211c6e3a6a3b13c6b921e.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ENFP"
+    },
+    {
+      "name": "Helion",
+      "slug": "helion",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616689/60f132ec73586757e899818c2302e722.png/show",
+      "skills": [],
+      "heldItem": {
+        "name": "Ferocious Fang",
+        "icon": "https://img.game8.co/4631292/4e57e78a7df069d1ebaba901eb2dd2dd.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Somniwing",
+      "slug": null,
+      "formTag": null,
+      "icon": "https://img.game8.co/4616841/7ec7e07b5d0ecfcdb3d985352658da23.png/show",
+      "skills": [
+        {
+          "name": "Ethereal Light Wave",
+          "icon": "https://img.game8.co/4618762/c7d1ec94783d320b5427ab9e233a63f1.png/show"
+        },
+        {
+          "name": "Energy Orb",
+          "icon": "https://img.game8.co/4618755/a30c51d8a05ed5a39e7d1050c3a450cd.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Prismana Fulmintis",
+      "slug": "fulmintis",
+      "formTag": "Prismana",
+      "icon": "https://img.game8.co/4616779/3e54bb0880f3cf54ce83a9013bf8a720.png/show",
+      "skills": [
+        {
+          "name": "Lightning Blade Storm",
+          "icon": "https://img.game8.co/4619270/538db949630fcd348818634d032b8d9b.png/show"
+        },
+        {
+          "name": "Enhanced Lightning Blade",
+          "icon": "https://img.game8.co/4619253/6e7ef4a62d4af4944c572958915d0343.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Heartseeker Pendant",
+        "icon": "https://img.game8.co/4620037/1dd022d44079396fec75afe14c5bc786.png/show"
+      },
+      "statPriority": "Prioritize Attack.",
+      "personality": "ENTP"
+    },
+    {
+      "name": "Sparkelf",
+      "slug": null,
+      "formTag": null,
+      "icon": "https://img.game8.co/4616838/b99609fc23eb5c77c09a43c848a15969.png/show",
+      "skills": [
+        {
+          "name": "Inspiration",
+          "icon": "https://img.game8.co/4619238/9069d6372f76bdebbdc142899c0f40a4.png/show"
+        },
+        {
+          "name": "Treat Feed",
+          "icon": "https://img.game8.co/4619250/b72e052a77325d91d6e2a1502944db13.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Miraculous Fleece",
+        "icon": "https://img.game8.co/4619937/b9c1abb2b3dd830811b3d0b03bee8e43.png/show"
+      },
+      "statPriority": "Prioritize Regen.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Leafy",
+      "slug": "leafy",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616730/d6a9de74c80e347657305f4fcefa0c59.png/show",
+      "skills": [
+        {
+          "name": "Vitality Blooms",
+          "icon": "https://img.game8.co/4618550/93fb17e2c26e62e13bca4fce916536d9.png/show"
+        },
+        {
+          "name": "Cyclone of Leaves",
+          "icon": "https://img.game8.co/4618557/7a1f679feabeec7dc797667fa67b60b5.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Prismana Blazen",
+      "slug": "blazen",
+      "formTag": "Prismana",
+      "icon": "https://img.game8.co/4616786/b12e4723436c71a7cd8dd3da2a4e2233.png/show",
+      "skills": [
+        {
+          "name": "Electrified Impact",
+          "icon": "https://img.game8.co/4618884/f6caa694d3781e762c938d2d16c43efa.png/show"
+        },
+        {
+          "name": "Dark Claw",
+          "icon": "https://img.game8.co/4618883/ac6137de05d61d2f809747d808e48f88.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break.",
+      "personality": "ENTP"
+    },
+    {
+      "name": "Prismana Glacy",
+      "slug": "glacy",
+      "formTag": "Prismana",
+      "icon": "https://img.game8.co/4616783/71b98528d81a690cb57a9ae60575c03e.png/show",
+      "skills": [
+        {
+          "name": "Glimmer Shot",
+          "icon": "https://img.game8.co/4618512/308eb7a1e39e9fceee1ef8002e60e152.png/show"
+        },
+        {
+          "name": "Healing Water",
+          "icon": "https://img.game8.co/4618513/ddbe23ee8dc014a92ce73d6792d42f15.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Miraculous Fleece",
+        "icon": "https://img.game8.co/4619937/b9c1abb2b3dd830811b3d0b03bee8e43.png/show"
+      },
+      "statPriority": "Prioritize HP.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Blazen",
+      "slug": "blazen",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616650/818fc87f5b1f4aa70d0339b64a8860a5.png/show",
+      "skills": [
+        {
+          "name": "Electrified Impact",
+          "icon": "https://img.game8.co/4618884/f6caa694d3781e762c938d2d16c43efa.png/show"
+        },
+        {
+          "name": "Lightning Cross",
+          "icon": "https://img.game8.co/4618885/0284aa27a436c291e059c42a7446cf7d.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break.",
+      "personality": "ENTP"
+    },
+    {
+      "name": "Melloblum",
+      "slug": "melloblum",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616742/6b99c4f490601525c72a8e0e5350c8e1.png/show",
+      "skills": [
+        {
+          "name": "Thorny Blessing",
+          "icon": "https://img.game8.co/4618777/5c33abf2832ab21b81fee33aabc408fd.png/show"
+        },
+        {
+          "name": "Healing Rose",
+          "icon": "https://img.game8.co/4618786/321664cbe6a202324be2a14faf376b1a.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen.",
+      "personality": "ISTJ"
+    },
+    {
+      "name": "Rookey",
+      "slug": "rookey",
+      "formTag": null,
+      "icon": "https://img.game8.co/4616813/044064153b1904cd2131ce140206b270.png/show",
+      "skills": [
+        {
+          "name": "Bouncy Sling",
+          "icon": "https://img.game8.co/4619057/84d3572d6a9cb287ea28184905a9c8ca.png/show"
+        },
+        {
+          "name": "Guardbreak Slam",
+          "icon": "https://img.game8.co/4619052/a26c145bba196a63d7579651e65ee9d1.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Gargantuan Horn",
+        "icon": "https://img.game8.co/4619919/ce0a40b5f97604860384e58b36363665.png/show"
+      },
+      "statPriority": "Prioritize Break and P.Def.",
+      "personality": "ESTP"
+    },
+    {
+      "name": "Hexxin",
+      "slug": null,
+      "formTag": null,
+      "icon": "https://img.game8.co/4616720/c9165e8566679f9480ce2737cf966dec.png/show",
+      "skills": [
+        {
+          "name": "Euphoric Sonic Blast",
+          "icon": "https://img.game8.co/4618619/c858e0ac23fea853f87a974caedb6ada.png/show"
+        },
+        {
+          "name": "Black Hole Domain",
+          "icon": "https://img.game8.co/4618613/2ae4bc1d89f46a25aee5be734b8cd644.png/show"
+        }
+      ],
+      "heldItem": {
+        "name": "Spirited Feather",
+        "icon": "https://img.game8.co/4619934/ec6e52900344a0b571d6c96ca0c3432b.png/show"
+      },
+      "statPriority": "Prioritize Regen.",
+      "personality": "ISTJ"
+    }
+  ]
+}

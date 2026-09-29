@@ -30,6 +30,7 @@ function buildXrefEntities(creatures, regions, talents) {
 }
 
 let MAP = null, REGIONS = null, CREATURES = null, TALENTS = null, XREF = null;
+let MARKER_BY_ID = new Map(), CATEGORY_BY_ID = new Map();
 let activeAniimoSlug = "", query = "", regionQuery = "";
 let scale = 0.2, fitScale = 0.2;
 let hiddenCategories = new Set();
@@ -71,7 +72,7 @@ function buildToolbar() {
     <button type="button" class="am-zoom-btn" id="am-zoom-out" title="Zoom out" aria-label="Zoom out">−</button>
     <button type="button" class="am-zoom-btn" id="am-zoom-reset" title="Reset zoom" aria-label="Reset zoom">⤢</button>
     <button type="button" class="am-zoom-btn" id="am-zoom-in" title="Zoom in" aria-label="Zoom in">+</button>`;
-  document.getElementById("am-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); renderPins(); });
+  document.getElementById("am-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); updatePinVisibility(); });
   document.getElementById("am-jump").addEventListener("change", (e) => jumpToAniimo(e.target.value));
   document.getElementById("am-zoom-out").addEventListener("click", () => setScale(scale - MIN_ZOOM_STEP));
   document.getElementById("am-zoom-in").addEventListener("click", () => setScale(scale + MIN_ZOOM_STEP));
@@ -90,7 +91,7 @@ function buildLegend() {
       const id = el.dataset.cat;
       if (hiddenCategories.has(id)) hiddenCategories.delete(id); else hiddenCategories.add(id);
       el.classList.toggle("am-off");
-      renderPins();
+      updatePinVisibility();
     };
     el.addEventListener("click", toggle);
     el.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
@@ -173,13 +174,28 @@ function pinMatchesQuery(m) {
   return !query || m.name.toLowerCase().includes(query);
 }
 
+// Toggling a legend category or typing a search term used to call
+// renderPins() — a full teardown + rebuild of every pin element (1000+ as
+// of writing, and growing). That's fine once per real map load, but it was
+// firing on every keystroke and every legend click, rebuilding the whole
+// pin set each time. updatePinVisibility() only flips the .am-hidden class
+// on the pins that already exist, which is what actually changes.
+function updatePinVisibility() {
+  const stage = document.getElementById("am-map-stage");
+  if (!stage) return;
+  stage.querySelectorAll(".am-pin").forEach((pin) => {
+    const m = MARKER_BY_ID.get(pin.dataset.markerId);
+    pin.classList.toggle("am-hidden", hiddenCategories.has(m.categoryId) || !pinMatchesQuery(m));
+  });
+}
+
 function renderPins() {
   const stage = document.getElementById("am-map-stage");
   if (!stage) return;
   stage.querySelectorAll(".am-pin").forEach((p) => p.remove());
   const frag = document.createDocumentFragment();
   for (const m of MAP.markers) {
-    const cat = MAP.categories.find((c) => c.id === m.categoryId);
+    const cat = CATEGORY_BY_ID.get(m.categoryId);
     const pin = document.createElement("button");
     pin.type = "button";
     pin.className = "am-pin" + (m.creatureSlug ? " am-pin-creature" : "");
@@ -198,7 +214,7 @@ function renderPins() {
 function openPopup(marker, pinEl) {
   closePopup();
   openPopupMarkerId = marker.id;
-  const cat = MAP.categories.find((c) => c.id === marker.categoryId);
+  const cat = CATEGORY_BY_ID.get(marker.categoryId);
   const rect = pinEl.getBoundingClientRect();
   const popup = document.createElement("div");
   popup.className = "am-popup";
@@ -232,11 +248,11 @@ function jumpToAniimo(slug) {
   const marker = MAP.markers.find((m) => m.creatureSlug === slug);
   if (marker) {
     els.mapContainer.scrollIntoView({ behavior: "smooth", block: "start" });
-    hiddenCategories.forEach((id) => hiddenCategories.delete(id));
+    hiddenCategories.clear();
     buildLegend();
     query = "";
     document.getElementById("am-search").value = "";
-    renderPins();
+    updatePinVisibility();
     requestAnimationFrame(() => {
       const wrap = document.getElementById("am-map-wrap");
       const stage = document.getElementById("am-map-stage");
@@ -318,6 +334,13 @@ function openRegion(name) {
       fetch(`../../data/aniimo/talents.json?cb=${Date.now()}`).then((r) => r.json()).then((d) => d.talents),
     ]);
     TALENTS = talents;
+    MARKER_BY_ID = new Map(MAP.markers.map((m) => [m.id, m]));
+    CATEGORY_BY_ID = new Map(MAP.categories.map((c) => [c.id, c]));
+    // Chest and Lumin Amber alone account for the large majority of all
+    // markers (772 of 1078 as of writing) — enough to bury everything else
+    // at a glance, so start with those off. One legend click brings them
+    // back; nothing is hidden that can't be un-hidden just as easily.
+    for (const c of MAP.categories) if (c.name === "Chest" || c.name === "Lumin Amber") hiddenCategories.add(c.id);
     XREF = VSXref.buildXrefIndex(buildXrefEntities(CREATURES, REGIONS.regions, TALENTS));
     VSXref.initXrefPopup(XREF);
     const upd = MAP.updated ? new Date(MAP.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";

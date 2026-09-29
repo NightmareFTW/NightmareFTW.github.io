@@ -49,6 +49,9 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Aniimo gets a Builds tool": "Aniimo ganha uma ferramenta de Builds",
+    "Best moveset, held item and stat priority for 46 Aniimo, replacing the old Pathfinder talent route on the hub.":
+      "Melhor conjunto de golpes, item equipado e prioridade de stats para 46 Aniimo, substituindo a antiga rota de talentos do Pathfinder no hub.",
     "Aniimo gets a Community Codes tool": "Aniimo ganha uma ferramenta de Códigos da Comunidade",
     "Player-submitted Face Codes to copy a character's look — plus tabs for Photo Studio and Base codes once those sharing boards exist.":
       "Face Codes partilhados por jogadores para copiar o visual de uma personagem — mais abas para códigos de Photo Studio e Base assim que essas boards existirem.",
@@ -1807,6 +1810,18 @@
     "The Pathfinder's own talent tree, plus Game8's recommended pick order: which to unlock first, and why.":
       "A árvore de talentos do próprio Pathfinder, mais a ordem de escolha recomendada pela Game8: o que desbloquear primeiro, e porquê.",
     "Built by NightmareFTW · talent data via Game8.": "Feito por NightmareFTW · dados dos talentos via Game8.",
+    "Aniimo Builds": "Builds de Aniimo",
+    "Which two Skills to equip, the best Held Item, stat priority and personality — a real build for 46 of the 86 Aniimo, from Game8's own guide.":
+      "Que duas Skills equipar, o melhor Held Item, prioridade de stats e personalidade — uma build real para 46 dos 86 Aniimo, do próprio guia da Game8.",
+    "Which two Skills to equip, the best Held Item, stat priority and recommended personality — one real build per Aniimo, from Game8's own build guide.":
+      "Que duas Skills equipar, o melhor Held Item, prioridade de stats e personalidade recomendada — uma build real por Aniimo, do próprio guia de builds da Game8.",
+    "Loading builds…": "A carregar builds…",
+    "Search builds…": "Procurar builds…",
+    "Couldn't load Aniimo build data.": "Não foi possível carregar os dados de builds de Aniimo.",
+    "No builds match.": "Nenhuma build corresponde.",
+    "Equipped Skills": "Skills Equipadas",
+    "Held Item": "Item Equipado",
+    "Built by NightmareFTW · build data via Game8.": "Feito por NightmareFTW · dados de builds via Game8.",
     "Community Codes": "Códigos da Comunidade",
     "Player-submitted import codes — Character (Face Codes), Photo Studio setups and Base layouts. Separate from the redeemable gift codes on this game's Codes tab on the hub — these are strings other players share to copy a look, a photo pose or a room layout.":
       "Códigos de importação partilhados por jogadores — Personagem (Face Codes), configurações de Photo Studio e layouts de Base. Separado dos códigos de resgate na aba Codes do hub deste jogo — são strings que outros jogadores partilham para copiar um visual, uma pose de foto ou um layout de divisão.",
@@ -1967,6 +1982,7 @@
     [/^(\d+) Aniimo · (\d+) known mechanics?$/,
       (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],
     [/^(\d+) talents · updated (.+)$/, "$1 talentos · actualizado $2"],
+    [/^(\d+) builds · updated (.+)$/, "$1 builds · actualizado $2"],
     [/^Recommended #(\d+)$/, "Recomendado #$1"],
   ];
 

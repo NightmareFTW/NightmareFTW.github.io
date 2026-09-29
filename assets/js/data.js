@@ -750,11 +750,11 @@ const GAMES = [
         available: true,
       },
       {
-        id: "talents",
-        name: "Talent Build Route",
+        id: "builds",
+        name: "Aniimo Builds",
         type: "builder",
-        desc: "The Pathfinder's own talent tree, plus Game8's recommended pick order: which to unlock first, and why.",
-        href: "games/aniimo/talents.html",
+        desc: "Which two Skills to equip, the best Held Item, stat priority and personality — a real build for 46 of the 86 Aniimo, from Game8's own guide.",
+        href: "games/aniimo/builds.html",
         available: true,
       },
       {
@@ -782,6 +782,13 @@ const GAMES = [
    repo's history for how the assets/img/updates/*.jpg screenshots were
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
+  {
+    date: "2026-09-29",
+    title: "Aniimo gets a Builds tool",
+    desc: "Best moveset, held item and stat priority for 46 Aniimo, replacing the old Pathfinder talent route on the hub.",
+    image: "assets/img/updates/aniimo-builds.jpg",
+    href: "games/aniimo/builds.html",
+  },
   {
     date: "2026-09-22",
     title: "Aniimo gets a Community Codes tool",
@@ -830,12 +837,5 @@ const SITE_UPDATES = [
     desc: "Every enemy in the game, filterable by DLC — with a picker for the few that share a name with a character.",
     image: "assets/img/updates/vs-enemies-database.jpg",
     href: "games/vampire-survivors/enemies.html",
-  },
-  {
-    date: "2026-09-07",
-    title: "Every Vampire Survivors weapon, with its full evolution chain",
-    desc: "Base weapons, evolutions and unions — plus Arcanas, Darkanas and passive items, filterable by DLC.",
-    image: "assets/img/updates/vs-weapon-evolutions.jpg",
-    href: "games/vampire-survivors/weapons.html",
   },
 ];
