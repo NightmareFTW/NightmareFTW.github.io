@@ -4,12 +4,24 @@
    - Dreamlight Valley: the wiki's dated Available/Retired tables.
    - Epic Seven: ucngame's code table (newest-first; codes expire fast, so we
      keep the most recent set and link to the official redeem page).
+   - HSR, NTE, Aniimo: Game8's own code table for each game.
 
-   Games without a clean source (NTE, Warframe) stay curated in their JSON.
-   Run by .github/workflows/update-news.yml (every 6h).  Node 18+, no dependencies. */
+   Warframe stays curated in its JSON: its promo/glyph codes are permanent and
+   there's no clean structured source (pcgamesn mixes in other games' codes).
+   Run by .github/workflows/update-news.yml (every 6h). Node 18+, curl.
+
+   get() shells out to curl rather than using Node's native fetch(): Game8
+   specifically returns HTTP 202 with an empty body to fetch()'s request
+   fingerprint (verified directly — same URL, same UA header, curl gets a
+   real 200 with the full page every time) while every other source here is
+   fine with fetch(). This silently broke hsr()/nte()/aniimo() for 11+ days
+   before anyone noticed, since each game is wrapped in its own try/catch in
+   run() and just keeps the previous file on failure. curl is what every
+   other Game8 scraper in this repo already uses successfully. */
 
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const DIR = path.join(__dirname, "..", "data", "codes");
 // A realistic browser UA — sources behind Cloudflare may serve a challenge to
@@ -18,11 +30,15 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 async function get(u, tries = 3) {
   for (let i = 0; i < tries; i++) {
     try {
-      const r = await fetch(u, { headers: { "User-Agent": UA, "Accept-Language": "en-US,en;q=0.9" } });
-      const t = await r.text();
-      if (r.ok && t.length > 2000) return t;
+      const t = execFileSync(
+        "curl",
+        ["-sL", "--retry", "2", "--retry-delay", "2", "--retry-all-errors", "--max-time", "25",
+          "-A", UA, "-H", "Accept-Language: en-US,en;q=0.9", u],
+        { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 }
+      );
+      if (t.length > 2000) return t;
     } catch { /* retry */ }
-    await new Promise((res) => setTimeout(res, 1500 * (i + 1)));
+    if (i < tries - 1) await new Promise((res) => setTimeout(res, 1500 * (i + 1)));
   }
   throw new Error("fetch failed after retries");
 }
@@ -220,8 +236,6 @@ async function ffw() {
 }
 
 async function run() {
-  // Warframe stays curated in its JSON: its promo/glyph codes are permanent and
-  // there's no clean structured source (pcgamesn mixes in other games' codes).
   for (const [name, fn] of [["dreamlight-valley", ddv], ["epic7", epic7], ["honkai-star-rail", hsr], ["nte", nte], ["far-far-west", ffw], ["aniimo", aniimo]]) {
     try { await fn(); } catch (e) { console.warn(`[${name}] failed:`, e.message); }
   }
