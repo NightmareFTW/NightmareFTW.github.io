@@ -91,6 +91,19 @@
      an Aniimo (e.g. Irisalis, Somniwing) that wiki.aniimo.com hasn't
      documented yet — those ship with slug: null and render as plain text
      rather than a dead link.
+   - data/aniimo/homeland.json — a full reproduction of darksteelhyren's
+     "RV / Homeland Guide" on Steam Community: a set-it-and-forget-it route
+     through every RV (Homeland base) level, with the author's own
+     screenshots. Unlike everything else this scraper writes, this is one
+     community member's own guide, not aggregated wiki/editorial data —
+     credit (name, profile link, source link) is carried in the JSON and
+     kept front-and-center on the page itself (games/aniimo/homeland.js),
+     per the guide's own terms of reuse. The guide's markup is already
+     heading-driven (Note/Warning/Production/Farm-Tree Summary/Aniimo
+     Summary/Visual, plus "Lesson:"-prefixed asides and an Overview/Closing
+     words), so parseSteamGuideHTML() below classifies and structures each
+     subsection by that heading text alone — nothing is re-authored or
+     summarized. See the function's own comment for the exact schema.
 
    Technical note: gmtreks.com is a React Router 7 (Remix) app, which streams
    its loader data to the client as a single-line "turbo-stream" payload (a
@@ -119,6 +132,7 @@ const OUT_MAP = path.join(OUT_DIR, "map.json");
 const OUT_TALENTS = path.join(OUT_DIR, "talents.json");
 const OUT_CODES = path.join(OUT_DIR, "community-codes.json");
 const OUT_BUILDS = path.join(OUT_DIR, "builds.json");
+const OUT_HOMELAND = path.join(OUT_DIR, "homeland.json");
 const GMTREKS_MAP_URL = "https://gmtreks.com/aniimo/map/idyll";
 const GMTREKS_ATTRIBUTION = "Map imagery and marker data courtesy of GameTrek (gmtreks.com).";
 const GAME8_TALENTS_URL = "https://game8.co/games/Aniimo/archives/621195";
@@ -716,6 +730,115 @@ function buildAniimoBuilds(creatures) {
   console.log(`Wrote ${builds.length} Aniimo builds to ${OUT_BUILDS}.`);
 }
 
+// ---- Homeland (RV) Guide — darksteelhyren's guide, reproduced with credit --
+const STEAM_GUIDE_URL = "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108";
+const STEAM_GUIDE_AUTHOR = "darksteelhyren";
+const STEAM_GUIDE_AUTHOR_URL = "https://steamcommunity.com/id/Zetajezu";
+
+const decodeEntities = (s) => String(s || "")
+  .replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"')
+  .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ");
+
+// One subSectionDesc's raw inner HTML -> {images, items}. Author's own
+// "<br>"-separated lines become items: "-" prefixed = bullet, "N) Name"
+// (optionally "N.M)") = numbered — with any immediately-following "-"
+// lines as its sub-steps (Production entries: a craft/building name plus
+// its "Set X to Y" steps) — anything else is a plain text line. A stray
+// "100%>" is the guide's own typo (a literal ">" beside the number, not
+// a broken tag); collapsed back to "100%" so it doesn't read as a glitch.
+function homelandPrepLines(rawHtml) {
+  const raw = String(rawHtml || "")
+    .replace(/<a class="modalContentLink"[\s\S]*?<img[^>]*\ssrc="([^"]+)"[^>]*>[\s\S]*?<\/a>/g, "\n[[IMG:$1]]\n")
+    .replace(/<img[^>]*\ssrc="([^"]+)"[^>]*>/g, "\n[[IMG:$1]]\n")
+    .replace(/<br\s*\/?>/g, "\n")
+    .replace(/<[^>]+>/g, "");
+  return raw.split("\n").map((l) => decodeEntities(l).trim().replace(/100%>$/, "100%"));
+}
+
+function homelandGroupLines(lines) {
+  const images = [];
+  const items = [];
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!line) { i++; continue; }
+    const mImg = /^\[\[IMG:(.+)\]\]$/.exec(line);
+    if (mImg) { images.push(mImg[1]); i++; continue; }
+    const mNum = /^(\d+(?:\.\d+)?)\)\s*(.+)$/.exec(line);
+    if (mNum) {
+      const sub = [];
+      i++;
+      while (i < lines.length && (lines[i].startsWith("-") || (lines[i] === "" && i + 1 < lines.length && lines[i + 1].startsWith("-")))) {
+        if (lines[i]) sub.push(lines[i].slice(1).trim());
+        i++;
+      }
+      items.push({ kind: "numbered", num: mNum[1], text: mNum[2], sub });
+      continue;
+    }
+    if (line.startsWith("-")) { items.push({ kind: "bullet", text: line.slice(1).trim() }); i++; continue; }
+    items.push({ kind: "text", text: line });
+    i++;
+  }
+  return { images, items };
+}
+
+// Every top-level <div class="subSection[ detailBox]"> on the guide page is
+// Overview, one RV level's setup ("RV7 (==> RV8)"), a "Lesson: X" aside, or
+// the closing FAQ ("Closing words") — classified by title text alone. Each
+// is split on its own "<div class='bb_h1'>Heading</div>" markers (Note,
+// Warning, Production, Farm/Tree Summary, Aniimo Summary, Visual, or the
+// FAQ's own "Prismana?"-style headings) into {heading, images, items}
+// blocks — see games/aniimo/homeland.js for how these render.
+function parseSteamGuideHTML(html) {
+  const containerStart = html.indexOf('class="guide subSections"');
+  if (containerStart < 0) return [];
+  const containerEnd = html.indexOf("commentthread_area", containerStart);
+  const container = containerEnd > containerStart ? html.slice(containerStart, containerEnd) : html.slice(containerStart);
+
+  const subRe = /<div class="subSection(?: detailBox)?"[^>]*>\s*<div class="subSectionTitle">\s*([\s\S]*?)\s*<\/div>\s*<div class="subSectionDesc">\s*([\s\S]*?)\s*<div style="clear: both"><\/div>\s*<\/div>\s*<\/div>/g;
+
+  const sections = [];
+  for (const m of container.matchAll(subRe)) {
+    const title = decodeEntities(m[1].replace(/<[^>]+>/g, "")).trim();
+    if (!title) continue;
+
+    const parts = m[2].split(/<div class="bb_h1">(.*?)<\/div>/);
+    const blocks = [];
+    const lead = homelandGroupLines(homelandPrepLines(parts[0]));
+    if (lead.images.length || lead.items.length) blocks.push({ heading: null, ...lead });
+    for (let i = 1; i < parts.length; i += 2) {
+      blocks.push({ heading: decodeEntities(parts[i]).trim(), ...homelandGroupLines(homelandPrepLines(parts[i + 1] || "")) });
+    }
+
+    const mRv = /^RV(\d+)\s*\(==>\s*RV(\d+)\)$/.exec(title);
+    if (mRv) sections.push({ type: "rv", level: Number(mRv[1]), next: Number(mRv[2]), blocks });
+    else if (title.startsWith("Lesson:")) sections.push({ type: "lesson", title: title.slice("Lesson:".length).trim(), blocks });
+    else if (title === "Overview") sections.push({ type: "overview", blocks });
+    else if (title === "Closing words") sections.push({ type: "closing", blocks });
+  }
+  return sections;
+}
+
+function buildHomelandGuide() {
+  const html = getText(STEAM_GUIDE_URL, { timeout: 30 });
+  if (!html) { console.warn("Steam Homeland guide fetch failed, skipping homeland guide rebuild"); return; }
+  const sections = parseSteamGuideHTML(html);
+  const rvSections = sections.filter((s) => s.type === "rv");
+  if (rvSections.length < 10) { console.warn("parsed too few Homeland RV steps, skipping homeland guide rebuild"); return; }
+
+  fs.writeFileSync(OUT_HOMELAND, JSON.stringify({
+    updated: new Date().toISOString(),
+    source: STEAM_GUIDE_URL,
+    title: "RV / Homeland Guide",
+    description: "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
+    author: STEAM_GUIDE_AUTHOR,
+    authorUrl: STEAM_GUIDE_AUTHOR_URL,
+    maxLevel: Math.max(...rvSections.map((s) => s.level)),
+    sections,
+  }, null, 2));
+  console.log(`Wrote Homeland guide (${rvSections.length} RV steps) to ${OUT_HOMELAND}.`);
+}
+
 function run() {
   const homeHtml = getText(`${BASE}/`, { timeout: 30 });
   if (!homeHtml) throw new Error("could not fetch wiki.aniimo.com homepage");
@@ -757,10 +880,11 @@ function run() {
   buildTalents();
   buildCommunityCodes();
   buildAniimoBuilds(creatures);
+  buildHomelandGuide();
 }
 
 if (require.main === module) {
-  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP, OUT_TALENTS, OUT_CODES, OUT_BUILDS], e); }
+  try { run(); } catch (e) { require("./lib/keep")([OUT_FILE, OUT_REGIONS, OUT_MAP, OUT_TALENTS, OUT_CODES, OUT_BUILDS, OUT_HOMELAND], e); }
 } else {
   module.exports = {
     unflattenDevalue, parseNuxtPayload, parseCreature, buildRegions, slugify,
@@ -768,5 +892,6 @@ if (require.main === module) {
     parseTalentTree, parseBestTalents, buildTalents,
     parseFaceCodeComments, buildCommunityCodes,
     parseBuilds, buildAniimoBuilds,
+    parseSteamGuideHTML, buildHomelandGuide,
   };
 }

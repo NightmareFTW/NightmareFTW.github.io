@@ -765,6 +765,14 @@ const GAMES = [
         href: "games/aniimo/codes.html",
         available: true,
       },
+      {
+        id: "homeland",
+        name: "Homeland Guide",
+        type: "guide",
+        desc: "A full set-it-and-forget-it route through every RV level of your Homeland base: production lines, farm/tree layouts and Aniimo picks, with the original screenshots. Full guide by darksteelhyren on Steam Community.",
+        href: "games/aniimo/homeland.html",
+        available: true,
+      },
     ],
   },
 ];
@@ -782,6 +790,13 @@ const GAMES = [
    repo's history for how the assets/img/updates/*.jpg screenshots were
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
+  {
+    date: "2026-09-30",
+    title: "Aniimo gets a Homeland Guide",
+    desc: "A full set-it-and-forget-it route through every RV level, with the original screenshots. Full guide by darksteelhyren on Steam Community.",
+    image: "assets/img/updates/aniimo-homeland.jpg",
+    href: "games/aniimo/homeland.html",
+  },
   {
     date: "2026-09-29",
     title: "Aniimo gets a Builds tool",
@@ -830,12 +845,5 @@ const SITE_UPDATES = [
     desc: "Every hero and artifact with real images: stats, skills, Fribbels builds, RTA data, suggested teams and an overall 0-100 rating.",
     image: "assets/img/updates/epic7-heroes-artifacts.jpg",
     href: "games/epic7/heroes.html",
-  },
-  {
-    date: "2026-09-07",
-    title: "Vampire Survivors gets an Enemies database",
-    desc: "Every enemy in the game, filterable by DLC — with a picker for the few that share a name with a character.",
-    image: "assets/img/updates/vs-enemies-database.jpg",
-    href: "games/vampire-survivors/enemies.html",
   },
 ];

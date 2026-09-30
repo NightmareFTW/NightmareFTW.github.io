@@ -49,6 +49,9 @@
     "A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.":
       "Uma caixa de ferramentas em crescimento, com calculadoras, checklists e trackers. Nada é removido, só continua a crescer.",
     "What's New": "Novidades",
+    "Aniimo gets a Homeland Guide": "Aniimo ganha um Guia da Homeland",
+    "A full set-it-and-forget-it route through every RV level, with the original screenshots. Full guide by darksteelhyren on Steam Community.":
+      "Uma rota completa de \"configura e esquece\" por cada nível de RV, com as capturas de ecrã originais. Guia completo de darksteelhyren no Steam Community.",
     "Aniimo gets a Builds tool": "Aniimo ganha uma ferramenta de Builds",
     "Best moveset, held item and stat priority for 46 Aniimo, replacing the old Pathfinder talent route on the hub.":
       "Melhor conjunto de golpes, item equipado e prioridade de stats para 46 Aniimo, substituindo a antiga rota de talentos do Pathfinder no hub.",
@@ -1822,6 +1825,20 @@
     "Equipped Skills": "Skills Equipadas",
     "Held Item": "Item Equipado",
     "Built by NightmareFTW · build data via Game8.": "Feito por NightmareFTW · dados de builds via Game8.",
+    "Homeland Guide": "Guia da Homeland", "/ homeland guide": "/ guia da homeland",
+    "A set-it-and-forget-it route through every RV (Homeland) level: what to produce, how to lay out your farms and trees, and which Aniimo to field — including the original screenshots. Full guide by":
+      "Uma rota de \"configura e esquece\" por cada nível de RV (Homeland): o que produzir, como organizar as tuas quintas e árvores, e que Aniimo usar — incluindo as capturas de ecrã originais. Guia completo de",
+    ", posted on": ", publicado em", ", reproduced here with credit.": ", reproduzido aqui com os devidos créditos.",
+    "A full set-it-and-forget-it route through every RV level of your Homeland base: production lines, farm/tree layouts and Aniimo picks, with the original screenshots. Full guide by darksteelhyren on Steam Community.":
+      "Uma rota completa de \"configura e esquece\" por cada nível de RV da tua base Homeland: linhas de produção, layouts de quintas/árvores e escolhas de Aniimo, com as capturas de ecrã originais. Guia completo de darksteelhyren no Steam Community.",
+    "Built by NightmareFTW · Homeland guide by darksteelhyren, via Steam Community.":
+      "Feito por NightmareFTW · guia da Homeland por darksteelhyren, via Steam Community.",
+    "Loading guide…": "A carregar o guia…",
+    "Couldn't load the Homeland guide data.": "Não foi possível carregar os dados do guia da Homeland.",
+    "Overview": "Visão Geral", "Closing words": "Palavras finais",
+    "Note": "Nota", "Warning — untested": "Aviso — não testado",
+    "Production": "Produção", "Farm/Tree Summary": "Resumo de Quintas/Árvores", "Aniimo Summary": "Resumo de Aniimo",
+    "Lesson": "Lição",
     "Community Codes": "Códigos da Comunidade",
     "Player-submitted import codes — Character (Face Codes), Photo Studio setups and Base layouts. Separate from the redeemable gift codes on this game's Codes tab on the hub — these are strings other players share to copy a look, a photo pose or a room layout.":
       "Códigos de importação partilhados por jogadores — Personagem (Face Codes), configurações de Photo Studio e layouts de Base. Separado dos códigos de resgate na aba Codes do hub deste jogo — são strings que outros jogadores partilham para copiar um visual, uma pose de foto ou um layout de divisão.",
@@ -1983,6 +2000,7 @@
       (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],
     [/^(\d+) talents · updated (.+)$/, "$1 talentos · actualizado $2"],
     [/^(\d+) builds · updated (.+)$/, "$1 builds · actualizado $2"],
+    [/^RV1 → RV(\d+) · updated (.+)$/, "RV1 → RV$1 · actualizado $2"],
     [/^Recommended #(\d+)$/, "Recomendado #$1"],
   ];
 

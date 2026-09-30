@@ -2786,3 +2786,48 @@ button.vs-xref-ambiguous { background: none; border: none; padding: 0; margin: 0
 .at-tier-head { font-size: 1rem; margin: 0 0 4px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
 .at-level-head { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 14px 0 6px; }
 .at-recommended-badge { background: rgba(255, 36, 53, .18); color: var(--accent-2); }
+
+/* ---- Aniimo — Homeland Guide (community guide by darksteelhyren, via Steam) ---- */
+.hg-credit { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); background: var(--bg-soft);
+  border: 1px solid var(--border); border-radius: 9px; padding: 10px 14px; margin: 10px 0 20px; }
+.hg-credit a { color: var(--accent-2); }
+.hg-nav { margin-bottom: 22px; }
+.hg-nav .filter-btn { text-decoration: none; display: inline-block; }
+.hg-section { margin: 26px 0; }
+.hg-sub { margin-top: 18px; }
+.hg-sub h3 { font-size: 0.92rem; margin: 0 0 6px; color: var(--accent-2); }
+.hg-sub p { margin: 0 0 8px; line-height: 1.6; font-size: 0.92rem; }
+.hg-sub p:last-child { margin-bottom: 0; }
+
+.hg-list { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.hg-list li { position: relative; padding-left: 15px; font-size: 0.9rem; line-height: 1.55; color: var(--text); }
+.hg-list li::before { content: "–"; position: absolute; left: 0; color: var(--muted); }
+
+.hg-lesson { background: var(--card); border: 1px solid var(--border); border-left: 3px solid #4f9de0;
+  border-radius: 11px; padding: 16px 18px; margin: 22px 0; }
+.hg-lesson-tag { display: inline-block; font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase;
+  letter-spacing: .06em; color: #6cc; background: rgba(80,160,180,.18); padding: 3px 9px; border-radius: 999px; margin-bottom: 9px; }
+.hg-lesson h3 { font-size: 0.95rem; margin: 0 0 8px; }
+
+.hg-callout { border-radius: 9px; padding: 10px 14px; margin: 10px 0; font-size: 0.88rem; line-height: 1.55;
+  border-left: 3px solid var(--border); background: var(--bg-soft); color: var(--muted); }
+.hg-callout p { margin: 0 0 6px; }
+.hg-callout p:last-child { margin-bottom: 0; }
+.hg-callout-label { font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: 5px; }
+.hg-callout.note { border-left-color: var(--accent-2); }
+.hg-callout.note .hg-callout-label { color: var(--accent-2); }
+.hg-callout.warning { border-left-color: #e0a84f; }
+.hg-callout.warning .hg-callout-label { color: #e0a84f; }
+
+.hg-step-block-title { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); margin: 16px 0 7px; }
+.hg-prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; margin: 0 0 8px; }
+.hg-prod-item { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 11px 13px; }
+.hg-prod-item h4 { font-size: 0.85rem; margin: 0 0 6px; }
+.hg-prod-item ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+.hg-prod-item li { font-size: 0.81rem; color: var(--muted); line-height: 1.5; }
+
+.hg-images { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 8px; }
+.hg-images a { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.hg-images img { display: block; max-width: 320px; width: 100%; height: auto; }
+@media (max-width: 500px) { .hg-images img { max-width: 100%; } }

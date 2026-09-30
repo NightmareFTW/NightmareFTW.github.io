@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nftw-auth.nightmareftw.workers.dev https://api.github.com https://github.com https://api.warframestat.us https://cloudflareinsights.com; frame-src https://outlast.fex.dev; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recipe Browser · Disney Dreamlight Valley · NightmareFTW</title>
+  <title>Homeland Guide · Aniimo · NightmareFTW</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/style.css?v=fd57c191">
 </head>
-<body>
+<body data-game="aniimo">
   <div class="bg-grid" aria-hidden="true"></div>
   <header class="site-header">
     <div class="container">
@@ -19,31 +19,16 @@
     </div>
   </header>
   <main class="container tool-page">
-    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Disney Dreamlight Valley</a> / recipes</p>
-    <h1>Recipe Browser</h1>
-    <p class="tool-sub">Search by recipe or ingredient, filter by star level, and sort by sell value or energy.</p>
-    <p class="codes-updated" id="rc-updated">Loading…</p>
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Aniimo</a> / homeland guide</p>
+    <h1>Homeland Guide</h1>
+    <p class="tool-sub">A set-it-and-forget-it route through every RV (Homeland) level: what to produce, how to lay out your farms and trees, and which Aniimo to field — including the original screenshots. Full guide by <a href="https://steamcommunity.com/id/Zetajezu" target="_blank" rel="noopener" style="color:var(--accent)">darksteelhyren</a>, posted on <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108" target="_blank" rel="noopener" style="color:var(--accent)">Steam Community</a>, reproduced here with credit.</p>
+    <p class="codes-updated" id="hg-updated">Loading…</p>
 
-    <div class="list-controls">
-      <input type="search" id="rc-search" class="search-input" placeholder="Search recipe or ingredient…" autocomplete="off">
-      <select id="rc-sort" class="sort-select">
-        <option value="sell-desc">Sort: Sell (high→low)</option>
-        <option value="sell-asc">Sell (low→high)</option>
-        <option value="energy-desc">Energy (high→low)</option>
-        <option value="stars-desc">Star level</option>
-        <option value="az">Name A–Z</option>
-      </select>
-    </div>
-    <div class="facet-group" style="margin-bottom:16px">
-      <span class="facet-title">Stars</span>
-      <div class="facet-chips" id="rc-stars"></div>
-    </div>
-    <p class="drop-count" id="rc-count"></p>
-    <div class="rc-grid" id="rc-list"><p style="color:var(--muted)">Loading recipes…</p></div>
-    <p class="tool-note">Full recipe list compiled from Crystal Dreams (incl. DLC recipes), with sell price &amp; energy from Nintendo Life where available. DLC tags are inferred from DLC-only ingredients and are best-effort.</p>
+    <div class="hg-nav" id="hg-nav"></div>
+    <div id="hg-root"><p style="color:var(--muted)">Loading guide…</p></div>
   </main>
-  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · recipe data via Nintendo Life.</span></div></footer>
-  <script src="recipes.js?v=aed0c5c0"></script>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · Homeland guide by darksteelhyren, via Steam Community.</span></div></footer>
+  <script src="homeland.js?v=9786ce9d"></script>
   <script src="/assets/js/i18n.js?v=c37f5f59" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
