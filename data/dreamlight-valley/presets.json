@@ -1,0 +1,167 @@
+{
+  "updated": "2026-09-30T21:52:31.000Z",
+  "source": "https://starlightdreamers.com/presetcodes",
+  "sourceName": "Dreamers Portal",
+  "note": "Hand-picked from Dreamers Portal, a fan-run board where Disney Dreamlight Valley players share decoration Preset codes (Furniture → Presets → Add New Import Preset). Only presets whose code is visibly confirmed in the player's own screenshot are listed here — the code shown always matches what's baked into the image. Codes expire 14 days after being generated (the game's own rule), so check the date on each before trying it.",
+  "count": 10,
+  "presets": [
+    {
+      "id": 314,
+      "name": "RARE STONE ITEMS",
+      "code": "9PZ2X8YY",
+      "description": "Stone trees, stone fence, stone branches, stone pillars, stone steps, stone tulip, frozen stone pillars",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Christina Prendergast",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc128-314-1790802905-0.webp",
+      "createdAt": "2026-09-30T21:09:00.000Z",
+      "expiresAt": "2026-10-14T21:09:00.000Z"
+    },
+    {
+      "id": 313,
+      "name": "Grecian Pools",
+      "code": "WN2RKHZA",
+      "description": "Custom water rug, fountains, old Greek buildings 🏛️ new Greek building, old Greek seating and fountain, rare stone fence and pillar, and floating candle’s.",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "Christina Prendergast",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc128-313-1790802486-0.webp",
+      "createdAt": "2026-09-30T20:48:00.000Z",
+      "expiresAt": "2026-10-14T20:48:00.000Z"
+    },
+    {
+      "id": 312,
+      "name": "Story Time",
+      "code": "Z6WJZZBA",
+      "description": "Perfect for Split Shop DreamSnap Challenges",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale",
+        "A Rift in Time",
+        "Wishblossom Ranch"
+      ],
+      "creator": "Mindy Dreamlight (Switch 2)",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1522-312-1790800904-0.webp",
+      "createdAt": "2026-09-30T20:39:00.000Z",
+      "expiresAt": "2026-10-14T20:39:00.000Z"
+    },
+    {
+      "id": 307,
+      "name": "Red Riding Hood Cottage Build",
+      "code": "PR393KGQ",
+      "description": "A small but charming little corner of the woods, where Red goes to hide from the big bad wolf!",
+      "type": "Build",
+      "categories": [
+        "Nature",
+        "Water"
+      ],
+      "dlcs": [],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-307-1790780538-0.webp",
+      "createdAt": "2026-09-30T14:59:00.000Z",
+      "expiresAt": "2026-10-14T14:59:00.000Z"
+    },
+    {
+      "id": 306,
+      "name": "Clock Foliage",
+      "code": "3ACQX8FE",
+      "description": "Rustic Clock and foliage space filler. Looks great in the Glade!",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "decadenceisart",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc15703-306-1790749599-0.webp",
+      "createdAt": "2026-09-30T06:25:00.000Z",
+      "expiresAt": "2026-10-14T06:25:00.000Z"
+    },
+    {
+      "id": 291,
+      "name": "Witchy Graveyard 🪦",
+      "code": "NL744WSJ",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-291-1790685865-0.webp",
+      "createdAt": "2026-09-29T12:00:00.000Z",
+      "expiresAt": "2026-10-13T12:00:00.000Z"
+    },
+    {
+      "id": 290,
+      "name": "Witchy Potion Corner Preset 🔮",
+      "code": "TXL4XA43",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale",
+        "Honeyglow Woods"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-290-1790685705-0.webp",
+      "createdAt": "2026-09-29T12:00:00.000Z",
+      "expiresAt": "2026-10-13T12:00:00.000Z"
+    },
+    {
+      "id": 289,
+      "name": "Witchy Seating Area Preset 🖤",
+      "code": "N9SBXP8U",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-289-1790685555-0.webp",
+      "createdAt": "2026-09-29T12:00:00.000Z",
+      "expiresAt": "2026-10-13T12:00:00.000Z"
+    },
+    {
+      "id": 288,
+      "name": "Witchy Pond Preset 🔮",
+      "code": "AEUWDZ7L",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-288-1790685451-0.webp",
+      "createdAt": "2026-09-29T12:00:00.000Z",
+      "expiresAt": "2026-10-13T12:00:00.000Z"
+    },
+    {
+      "id": 287,
+      "name": "Overgrown New Orleans Cemetery Vibes",
+      "code": "HR2FJ2FU",
+      "description": "Sharing my cemetery that I have in the glade. I was going for an old New Orleans vibe. You’ll have to add in path and fencing. I used the Ancient’s Path and the Metal Spike Fence. The whole build is 23X20 squares. Hope this helps someone. 😊 \r\nIf you find this after expiration, message me and I’ll make you a new code.",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "A Rift in Time"
+      ],
+      "creator": "April Lilli",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc5842-287-1790684557-0.webp",
+      "createdAt": "2026-09-29T12:02:00.000Z",
+      "expiresAt": "2026-10-13T12:02:00.000Z"
+    }
+  ]
+}

@@ -164,6 +164,22 @@
     "Sunbirds play no games. Simply approach and be ready to feed them!": "Os sunbirds não brincam. Aproxima-te simplesmente e prepara-te para os alimentar!",
     "Capybaras play no games. Simply approach and be ready to feed them!": "As capivaras não brincam. Aproxima-te simplesmente e prepara-te para as alimentar!",
     "Owls play no games. Simply approach and be ready to feed them!": "As corujas não brincam. Aproxima-te simplesmente e prepara-te para as alimentar!",
+    // ---- DDV Community Presets ----
+    "Community Presets": "Presets da Comunidade", "/ community presets": "/ presets da comunidade",
+    "Player-shared Decoration Preset codes (Furniture → Presets → Add New Import Preset) — not the redeemable gift codes on this game's Codes tab on the hub. Hand-picked from":
+      "Códigos de Decoration Preset partilhados por jogadores (Furniture → Presets → Add New Import Preset) — não são os códigos de resgate na aba Codes do hub deste jogo. Escolhidos a dedo do",
+    ", and only kept if the code is visibly confirmed in the screenshot itself.":
+      ", e só incluídos se o código estiver visivelmente confirmado na própria screenshot.",
+    "Built by NightmareFTW · presets via Dreamers Portal.": "Feito por NightmareFTW · presets via Dreamers Portal.",
+    "Loading presets…": "A carregar presets…",
+    "Couldn't load community presets.": "Não foi possível carregar os presets da comunidade.",
+    "Presets expire 14 days after being generated, even if the original creator changes or removes their design — check the expiry date on each before trying it. Codes and screenshots are community-submitted via Dreamers Portal; we can't verify a preset still works after it expires.":
+      "Os presets expiram 14 dias depois de serem gerados, mesmo que o criador original altere ou remova o seu design — verifica a data de validade de cada um antes de o experimentares. Códigos e screenshots são submetidos pela comunidade via Dreamers Portal; não conseguimos confirmar se um preset ainda funciona depois de expirar.",
+    "Player-shared Decoration Preset codes with real screenshots, hand-picked from Dreamers Portal — not the redeem codes, those are on the hub's Codes tab.":
+      "Códigos de Decoration Preset partilhados por jogadores com screenshots reais, escolhidos a dedo do Dreamers Portal — não são os códigos de resgate, esses estão na aba Codes do hub.",
+    "Dreamlight Valley gets Community Presets": "Dreamlight Valley ganha Presets da Comunidade",
+    "Player-shared decoration Preset codes with real screenshots, hand-picked from Dreamers Portal.":
+      "Códigos de Decoration Preset partilhados por jogadores, com screenshots reais, escolhidos a dedo do Dreamers Portal.",
     "Every Ex-Pop, Night Hunter and Prime Asset — how it behaves and exactly how to deal with it.":
       "Todos os Ex-Pops, Night Hunters e Prime Assets — como se comportam e exactamente como lidar com cada um.",
     "Every Trial and the map it runs on — the full objective walkthrough plus the map screenshot. Click a map to expand its steps.":
@@ -2000,6 +2016,11 @@
       (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],
     [/^(\d+) talents · updated (.+)$/, "$1 talentos · actualizado $2"],
     [/^(\d+) builds · updated (.+)$/, "$1 builds · actualizado $2"],
+
+    // ---- Dreamlight Valley: Community Presets ----
+    [/^(\d+) presets · updated (.+)$/, "$1 presets · actualizado $2"],
+    [/^Expires in (\d+) days? \((.+)\)$/, "Expira em $1 dias ($2)"],
+    [/^Expired \((.+)\)$/, "Expirado ($1)"],
     [/^RV1 → RV(\d+) · updated (.+)$/, "RV1 → RV$1 · actualizado $2"],
     [/^Recommended #(\d+)$/, "Recomendado #$1"],
   ];

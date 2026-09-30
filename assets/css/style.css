@@ -2831,3 +2831,17 @@ button.vs-xref-ambiguous { background: none; border: none; padding: 0; margin: 0
 .hg-images a { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 .hg-images img { display: block; max-width: 320px; width: 100%; height: auto; }
 @media (max-width: 500px) { .hg-images img { max-width: 100%; } }
+
+/* ---- Disney Dreamlight Valley — Community Presets (Dreamers Portal) ---- */
+.dp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.dp-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+  display: flex; flex-direction: column; }
+.dp-card-img-wrap { aspect-ratio: 4 / 3; background: var(--bg-soft); }
+.dp-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dp-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.dp-card-name { font-weight: 800; font-size: 1rem; margin: 0; }
+.dp-card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin: 0; }
+.dp-card-meta { font-size: 0.76rem; color: var(--muted); line-height: 1.6; margin: 0; }
+.dp-card-tag { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
+.dp-card-code-row { margin-top: auto; }
+.dp-card.is-expired .dp-card-img-wrap { opacity: 0.5; }

@@ -227,6 +227,14 @@ const GAMES = [
         href: "games/dreamlight-valley/animals.html",
         available: true,
       },
+      {
+        id: "presets",
+        name: "Community Presets",
+        type: "database",
+        desc: "Player-shared Decoration Preset codes with real screenshots, hand-picked from Dreamers Portal — not the redeem codes, those are on the hub's Codes tab.",
+        href: "games/dreamlight-valley/presets.html",
+        available: true,
+      },
     ],
   },
   {
@@ -792,6 +800,13 @@ const GAMES = [
 const SITE_UPDATES = [
   {
     date: "2026-09-30",
+    title: "Dreamlight Valley gets Community Presets",
+    desc: "Player-shared decoration Preset codes with real screenshots, hand-picked from Dreamers Portal.",
+    image: "assets/img/updates/dreamlight-valley-presets.jpg",
+    href: "games/dreamlight-valley/presets.html",
+  },
+  {
+    date: "2026-09-30",
     title: "Aniimo gets a Homeland Guide",
     desc: "A full set-it-and-forget-it route through every RV level, with the original screenshots. Full guide by darksteelhyren on Steam Community.",
     image: "assets/img/updates/aniimo-homeland.jpg",
@@ -838,12 +853,5 @@ const SITE_UPDATES = [
     desc: "A creature database with all 86 Aniimo, plus a real interactive world map.",
     image: "assets/img/games/aniimo-header.jpg",
     href: "games/aniimo/index.html",
-  },
-  {
-    date: "2026-09-12",
-    title: "Epic Seven gets Heroes and Artifacts databases",
-    desc: "Every hero and artifact with real images: stats, skills, Fribbels builds, RTA data, suggested teams and an overall 0-100 rating.",
-    image: "assets/img/updates/epic7-heroes-artifacts.jpg",
-    href: "games/epic7/heroes.html",
   },
 ];
