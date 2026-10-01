@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30T11:58:32.254Z",
+  "updated": "2026-10-01T05:34:02.897Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -1741,15 +1741,19 @@
             },
             {
               "kind": "bullet",
-              "text": "Seven Glacy (Any Form); until Water needs are met. Preferably \"F\"aithful."
+              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers Well and cooler."
             },
             {
               "kind": "bullet",
-              "text": "Difficult bonus: If you can get a few Nighttime Piopiota with \"J\"udicious, each will allow you to drop both a Glacy and an Ignitis. The upgrade requires \"E\"nergetic and \"P\"layful as well, and as a Water Aniimo, you also want it to have \"F\"aithful in case it decides to work the Well. Up to you if it's worth the effort to catch and raise such specialized Aniimo."
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
-              "text": "Ignitis (Highland Form), until your Fire, Dark, and Artisan needs are met."
+              "text": "Two Sparki/Flamerion/Sparkelf to run your heaters."
+            },
+            {
+              "kind": "bullet",
+              "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
             },
             {
               "kind": "bullet",
@@ -1769,44 +1773,24 @@
       "next": 14,
       "blocks": [
         {
-          "heading": null,
+          "heading": "Notes",
           "images": [],
           "items": [
             {
               "kind": "text",
-              "text": "Index Points goal: 7000"
-            }
-          ]
-        },
-        {
-          "heading": "Warning",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "This is untested. It's what I'm _planning_ to do once I hit RV13. After running the numbers, I have a reasonable amount of confidence this will work."
+              "text": "Buy Resource Detector Level 5."
             },
             {
               "kind": "text",
-              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
+              "text": "Buy Kitchen Module Level 5."
             },
             {
               "kind": "text",
-              "text": "I also could have just made a mistake. I'm not perfect."
-            }
-          ]
-        },
-        {
-          "heading": "Note",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "Value of the Electrical grid is uncertain."
+              "text": "Leave the Tidewhisper Sandcastle at level 2."
             },
             {
               "kind": "text",
-              "text": "Upgrade all seven Mines to the Copper Ore recipe."
+              "text": "Remember to recycle any production buildings you aren't using! If you leave them out and in E-mode, they will slow down the rest of your production."
             }
           ]
         },
@@ -1819,30 +1803,30 @@
               "num": "1",
               "text": "Ginseng Water",
               "sub": [
-                "Set Bouncy Brew Keg to Ginseng Water.",
-                "Set Jukebox Dryer to Dried Ginseng.",
+                "Set one Bouncy Brew Keg to Ginseng Water.",
+                "Set one Jukebox Dryer to Dried Ginseng. This dryer also feeds the porridge.",
                 "Set both Wells to Deep Rock Spring Water.",
-                "Set 4 farm plots to Ginseng"
+                "Set 3 farm plots to Ginseng."
               ]
             },
             {
               "kind": "numbered",
               "num": "2",
-              "text": "Ginseng Chestnut Cake",
+              "text": "Ginseng Porridge",
               "sub": [
-                "Set Blazing Stove to Ginseng Chestnut Cake.",
-                "Set one Carousel Mill to Ginseng Powder.",
-                "Set 11 farm plots to Ginseng",
-                "Set 11 tree plots to Chestnut"
+                "Set one Simmering Pot to Ginseng Porridge.",
+                "Set one Carousel Mill to Milled Rice.",
+                "Set 17 farm plots to Ginseng.",
+                "Set 8 farm plots to Quick Recipe: Rice."
               ]
             },
             {
               "kind": "numbered",
               "num": "3",
-              "text": "Grape Jam",
+              "text": "Premium Salted Lemon",
               "sub": [
-                "Set Simmering Pot to Grape Jam.",
-                "Set 13 farm plots to Grapes"
+                "Set the Pickling Jar to Premium Salted Lemon.",
+                "Set the Tidewhisper Sandcastle to Salt. Leave it at level 2."
               ]
             },
             {
@@ -1850,9 +1834,9 @@
               "num": "4",
               "text": "Advanced Lemon Incense",
               "sub": [
-                "Set Phonolfactory Table to Advanced Lemon Incense.",
+                "Set one Phonolfactory Table to Advanced Lemon Incense.",
                 "Set Dewy House to Aromathyst.",
-                "Set 3 tree plots to Quick Formula: Lemon"
+                "Set 3 tree plots to Quick Formula: Lemon."
               ]
             },
             {
@@ -1860,8 +1844,21 @@
               "num": "5",
               "text": "Advanced Wind Chime",
               "sub": [
-                "Set Joy Wheel Loom to Woolen Yarn.",
-                "Set a Crafting Table to Advanced Wind Chime."
+                "Set a Crafting Table to Advanced Wind Chime.",
+                "Set Joy Wheel Loom to Woolen Yarn."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "The Nimbus Bed makes 6 Wool every 25 minutes. That is more yarn than the stars can use."
+            },
+            {
+              "kind": "numbered",
+              "num": "6",
+              "text": "Chestnut Puree",
+              "sub": [
+                "Set the other Simmering Pot to Chestnut Puree.",
+                "Set 11 tree plots to Chestnut."
               ]
             }
           ]
@@ -1872,11 +1869,15 @@
           "items": [
             {
               "kind": "text",
-              "text": "15 Farm plots: Ginseng (Temperature: Cool)"
+              "text": "20 Farm plots: Ginseng (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "13 Farm plots: Grapes"
+              "text": "8 Farm plots: Quick Recipe: Rice"
+            },
+            {
+              "kind": "bullet",
+              "text": "NOTE: The dried-and-sold Ginseng plots are gone. Event crops now come off porridge Ginseng. Two of those is about 5,900 coins an hour. Four is about 11,800. Do not pull the 3 water plots or the Rice."
             },
             {
               "kind": "text",
@@ -1885,6 +1886,10 @@
             {
               "kind": "text",
               "text": "3 Tree plots: Quick Formula: Lemon"
+            },
+            {
+              "kind": "text",
+              "text": "Set one heater to Warm and put the Chestnuts on it. Set one cooler to Cool and put the Ginseng on it. Keep those two apart. 11 Chestnuts are under the 12-tree cap. 20 Ginseng fit in one cooler."
             }
           ]
         },
@@ -1910,31 +1915,27 @@
             },
             {
               "kind": "bullet",
-              "text": "One Light Aniimo on the Sunlamp: Prismana Felmane, your starter, or battlepass Fulmintis."
+              "text": "Twelve Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
             },
             {
               "kind": "bullet",
-              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers Well and cooler."
             },
             {
               "kind": "bullet",
-              "text": "Seven Glacy (Any Form); until Water needs are met. Preferably \"F\"aithful."
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
-              "text": "Difficult bonus: If you can get a few Nighttime Piopiota with \"J\"udicious, each will allow you to drop both a Glacy and an Ignitis. The upgrade requires \"E\"nergetic and \"P\"layful as well, and as a Water Aniimo, you also want it to have \"F\"aithful in case it decides to work the Well. Up to you if it's worth the effort to catch and raise such specialized Aniimo."
-            },
-            {
-              "kind": "bullet",
-              "text": "Ignitis (Highland Form), until your Fire, Dark, and Artisan needs are met."
-            },
-            {
-              "kind": "bullet",
-              "text": "ZERO Gracewing (Night Form). You shouldn't need any after setting processing buildings to E-mode."
+              "text": "One Sparki/Flamerion/Sparkelf to run the Warm heater."
             },
             {
               "kind": "bullet",
               "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
@@ -2110,19 +2111,15 @@
             },
             {
               "kind": "bullet",
-              "text": "Seven Glacy (Any Form); until Water needs are met. Preferably \"F\"aithful."
+              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers Well and cooler."
             },
             {
               "kind": "bullet",
-              "text": "Difficult bonus: If you can get a few Nighttime Piopiota with \"J\"udicious, each will allow you to drop both a Glacy and an Ignitis. The upgrade requires \"E\"nergetic and \"P\"layful as well, and as a Water Aniimo, you also want it to have \"F\"aithful in case it decides to work the Well. Up to you if it's worth the effort to catch and raise such specialized Aniimo."
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
-              "text": "Ignitis (Highland Form), until your Fire, Dark, and Artisan needs are met."
-            },
-            {
-              "kind": "bullet",
-              "text": "ZERO Gracewing (Night Form). You shouldn't need any after setting processing buildings to E-mode."
+              "text": "Two Sparki/Flamerion/Sparkelf to run your heaters."
             },
             {
               "kind": "bullet",

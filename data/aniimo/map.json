@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30T05:34:06.243Z",
+  "updated": "2026-10-01T05:34:02.221Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -103,7 +103,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 1113,
+  "count": 1154,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -121,6 +121,15 @@
       "group": "Loot",
       "x": 0.6217279776249839,
       "y": 0.45353877013883453,
+      "creatureSlug": null
+    },
+    {
+      "id": "04hYAk73UKqaySo42Edb",
+      "name": "Into the Mist",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.2910805650155396,
+      "y": 0.5479207132364082,
       "creatureSlug": null
     },
     {
@@ -161,7 +170,7 @@
     },
     {
       "id": "0RDfZi7SbzPwdLV5m6nn",
-      "name": "Bloom",
+      "name": "Mistwoods",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.3213097074094392,
@@ -250,6 +259,15 @@
       "creatureSlug": null
     },
     {
+      "id": "1FShvLKkJZxV26HkzV3w",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.10470668087892798,
+      "y": 0.6091407443136632,
+      "creatureSlug": null
+    },
+    {
       "id": "1OZWfYiKBTUuipi1H8Jj",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -332,7 +350,7 @@
     },
     {
       "id": "1plEEhyLQDPuh9kyORf4",
-      "name": "Bloom",
+      "name": "Zephyrus Landbridge",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.7610149115949153,
@@ -422,7 +440,7 @@
     },
     {
       "id": "2I2tFeamV3EsoXST92E2",
-      "name": "Bloom",
+      "name": "Forest of Falling Stars",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.11256103956471458,
@@ -458,7 +476,7 @@
     },
     {
       "id": "2Xt1XwNVLpXFbXTMnTPw",
-      "name": "Bloom",
+      "name": "Brightbough Plateau",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.09640451924307099,
@@ -467,7 +485,7 @@
     },
     {
       "id": "2daRAQP4c2UuqANbYKm4",
-      "name": "Bloom",
+      "name": "Beast Fang Ridge",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.21508902991088258,
@@ -512,7 +530,7 @@
     },
     {
       "id": "2rDp65NkvMhhpn5K390K",
-      "name": "Lumin Collection",
+      "name": "Float Down",
       "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
       "group": "Puzzle",
       "x": 0.26689449140649946,
@@ -575,7 +593,7 @@
     },
     {
       "id": "3I3pA4f28o0yvTI08gub",
-      "name": "Bloom",
+      "name": "Whiterose Tower",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.754678833120345,
@@ -691,6 +709,15 @@
       "creatureSlug": null
     },
     {
+      "id": "3qvfTQtkOQ5rkwd1sdKU",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7568190929398115,
+      "y": 0.4463797698070949,
+      "creatureSlug": null
+    },
+    {
       "id": "3rQ4ygbRSAdGsJPdy4SA",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -742,6 +769,15 @@
       "group": "Loot",
       "x": 0.46419847513702844,
       "y": 0.6282322131945364,
+      "creatureSlug": null
+    },
+    {
+      "id": "427N5IFHZoPBB0WjS6PY",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.7447756491528384,
+      "y": 0.7865153705709531,
       "creatureSlug": null
     },
     {
@@ -1052,7 +1088,7 @@
     },
     {
       "id": "5EOT7eJd2xYxAfblgJAG",
-      "name": "Bloom",
+      "name": "Echoback Landing",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.1286311598394931,
@@ -1250,7 +1286,7 @@
     },
     {
       "id": "6OOJQrYdGPM0deu8CdMC",
-      "name": "Bloom",
+      "name": "Sea of Flowers",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.5804936646177988,
@@ -1321,6 +1357,15 @@
       "creatureSlug": null
     },
     {
+      "id": "6ziYXFPDnP9uNmXa4i3e",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.4687479778637459,
+      "y": 0.6800272673820302,
+      "creatureSlug": null
+    },
+    {
       "id": "70Xw1h2nny71Mw8EsIXO",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -1363,6 +1408,15 @@
       "group": "Loot",
       "x": 0.3987738298814278,
       "y": 0.38527819336918867,
+      "creatureSlug": null
+    },
+    {
+      "id": "79lTJAiEqDdYV0BGIkEs",
+      "name": "Lightning Gale",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.3480832483974365,
+      "y": 0.8357402440963426,
       "creatureSlug": null
     },
     {
@@ -1429,6 +1483,15 @@
       "creatureSlug": null
     },
     {
+      "id": "7lTzVhvWU3iPUSXUyozV",
+      "name": "Vigilant Eyes",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.6168432857696894,
+      "y": 0.8914245947044748,
+      "creatureSlug": null
+    },
+    {
       "id": "7pKR5AXIzUf5PGrdLXSW",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -1466,7 +1529,7 @@
     },
     {
       "id": "81rcgMqK0UyOuqyvIQua",
-      "name": "Bloom",
+      "name": "Forgotten Mine",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.2253232329950175,
@@ -1546,6 +1609,15 @@
       "creatureSlug": null
     },
     {
+      "id": "8U8kcjoGJ49H5UT2P4p2",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.7367211112485097,
+      "y": 0.5234195291552908,
+      "creatureSlug": null
+    },
+    {
       "id": "8ViOihqkUQ5Bg6FgXQOf",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -1610,7 +1682,7 @@
     },
     {
       "id": "8jLQZQnAGhomwXb8IEOB",
-      "name": "Bloom",
+      "name": "Mudstone Pass",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.28121414974495,
@@ -1690,6 +1762,15 @@
       "creatureSlug": null
     },
     {
+      "id": "9BscwVTZx7dJ9pcj64D6",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.4847629853558389,
+      "y": 0.838921941465685,
+      "creatureSlug": null
+    },
+    {
       "id": "9Fk0PE5JRpgM9itb2weO",
       "name": "Pathfinder Challenge",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
@@ -1727,7 +1808,7 @@
     },
     {
       "id": "9ZqoJ7RKkoWP5rOTXyma",
-      "name": "Bloom",
+      "name": "Argent Strait",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.2244508480293955,
@@ -2159,7 +2240,7 @@
     },
     {
       "id": "CE08bJA3nZREMKrdeN9T",
-      "name": "Bloom",
+      "name": "Freshsprout Hill",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.13786469487772476,
@@ -2173,6 +2254,15 @@
       "group": "Loot",
       "x": 0.3002862670913071,
       "y": 0.8504727741128448,
+      "creatureSlug": null
+    },
+    {
+      "id": "CPwYFxJOlcNaGR1x7lDe",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7131177345824925,
+      "y": 0.5006227218918582,
       "creatureSlug": null
     },
     {
@@ -2221,12 +2311,30 @@
       "creatureSlug": null
     },
     {
+      "id": "CudysrDx9qDRq6wBoBX6",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.706031190724371,
+      "y": 0.5083050788880286,
+      "creatureSlug": null
+    },
+    {
       "id": "CvYfvjXqaMBplYdvWyit",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
       "group": "Loot",
       "x": 0.17223311594128027,
       "y": 0.6858364491065885,
+      "creatureSlug": null
+    },
+    {
+      "id": "D0H0sA7JT4j9JteFa6RI",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.8230310796578013,
+      "y": 0.7603541949747807,
       "creatureSlug": null
     },
     {
@@ -2455,6 +2563,15 @@
       "creatureSlug": null
     },
     {
+      "id": "EaIxg5NgDlGFqGmaGFLn",
+      "name": "Run, Emberpup!",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.25387310669227925,
+      "y": 0.4521742148294834,
+      "creatureSlug": null
+    },
+    {
       "id": "EdTrkH8sqlpmJSsq7Xif",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -2542,6 +2659,15 @@
       "group": "Loot",
       "x": 0.46499842617860865,
       "y": 0.8946018948261667,
+      "creatureSlug": null
+    },
+    {
+      "id": "FCE7TGTGRIfebLb2zS3d",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7410398572887973,
+      "y": 0.4958468307963102,
       "creatureSlug": null
     },
     {
@@ -2995,6 +3121,15 @@
       "creatureSlug": null
     },
     {
+      "id": "IBSlT330yLfkbicw8CzO",
+      "name": "Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.23169515365647994,
+      "y": 0.8365444412984999,
+      "creatureSlug": null
+    },
+    {
       "id": "IFF40zdOnUz0koxKj6RY",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3194,11 +3329,11 @@
     },
     {
       "id": "JlHoKGgow4yyfnRKlxiy",
-      "name": "Highland Egg",
+      "name": "Alpha Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
       "group": "Location",
-      "x": 0.7184719475186876,
-      "y": 0.8685182320161431,
+      "x": 0.7208558786586717,
+      "y": 0.868634623117984,
       "creatureSlug": null
     },
     {
@@ -3247,6 +3382,15 @@
       "creatureSlug": null
     },
     {
+      "id": "K1db6Vc25atdvNiTBPn3",
+      "name": "Core Descent",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.2138772464674492,
+      "y": 0.5220918583149228,
+      "creatureSlug": null
+    },
+    {
       "id": "K62zEaUe5rsy5fogMhwQ",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3269,8 +3413,8 @@
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
-      "x": 0.21816750137057536,
-      "y": 0.8444661004346443,
+      "x": 0.22074112040368235,
+      "y": 0.8446916919499188,
       "creatureSlug": null
     },
     {
@@ -3391,6 +3535,15 @@
       "creatureSlug": null
     },
     {
+      "id": "LHH6PcjuomS1wQ5Od68i",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.8144438356769692,
+      "y": 0.5343726375396329,
+      "creatureSlug": null
+    },
+    {
       "id": "LIhfancs7MJReSRtjYWb",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -3464,7 +3617,7 @@
     },
     {
       "id": "LhnIBT0qh3lrhypNaArf",
-      "name": "Bloom",
+      "name": "Berylline Vale",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.37627451788880567,
@@ -3886,6 +4039,15 @@
       "creatureSlug": null
     },
     {
+      "id": "O2dARDQ6f41zd3bfTd8w",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7083757906088811,
+      "y": 0.48279918894820645,
+      "creatureSlug": null
+    },
+    {
       "id": "O7Eb3qIN2BhFn0nm7lJ4",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4111,6 +4273,15 @@
       "creatureSlug": null
     },
     {
+      "id": "PHsP1tN9V9iTV5lBCaWw",
+      "name": "Starry Flow",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.26857455389686136,
+      "y": 0.5233218254367387,
+      "creatureSlug": null
+    },
+    {
       "id": "PQdj8rmk7pOLYoimQFmI",
       "name": "Pathfinder Challenge",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
@@ -4283,7 +4454,7 @@
     },
     {
       "id": "QWYIx5C2EtAbuP4YgCEg",
-      "name": "Pathfinder Challenge",
+      "name": "Lorenz",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
       "group": "Challenges",
       "x": 0.3171862267120277,
@@ -4507,6 +4678,15 @@
       "creatureSlug": null
     },
     {
+      "id": "RyAiBljlh0Zf8Apty5OV",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.8193630460773095,
+      "y": 0.7853579942947704,
+      "creatureSlug": null
+    },
+    {
       "id": "Rz0nKCwknZJce0XiLNXz",
       "name": "Nimbus Fields",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
@@ -4678,6 +4858,15 @@
       "creatureSlug": null
     },
     {
+      "id": "Sz1pn6fYR8DCqCyR2BBT",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.73590231139444,
+      "y": 0.8875704172322827,
+      "creatureSlug": null
+    },
+    {
       "id": "SzytkTczziCoFN357m2V",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4778,7 +4967,7 @@
     },
     {
       "id": "TpdIMgnqyAKiKN0490Uw",
-      "name": "Bloom",
+      "name": "Rosetower Woods",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.6478201818087395,
@@ -5092,6 +5281,15 @@
       "creatureSlug": null
     },
     {
+      "id": "W0RKef7A8lU8aq2DGRTA",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.8227802214493461,
+      "y": 0.7531609854434008,
+      "creatureSlug": null
+    },
+    {
       "id": "W1cBDbgbhp1EIVInhtKc",
       "name": "Forest Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
@@ -5120,7 +5318,7 @@
     },
     {
       "id": "WC9giMGdx7pNxqvC5ezy",
-      "name": "Bloom",
+      "name": "Sandcastle Hill",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.6753478038549229,
@@ -5260,6 +5458,15 @@
       "group": "Loot",
       "x": 0.27679478545488223,
       "y": 0.488987869646067,
+      "creatureSlug": null
+    },
+    {
+      "id": "Wxu1xwFJeeqOaI9j9a35",
+      "name": "Courageous Wit",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.7210311068731633,
+      "y": 0.8892153222114274,
       "creatureSlug": null
     },
     {
@@ -5624,7 +5831,7 @@
     },
     {
       "id": "YnzlqCMhrWFTc9d9rEZJ",
-      "name": "Bloom",
+      "name": "Blitzwood",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.3669201248559725,
@@ -5749,6 +5956,15 @@
       "creatureSlug": null
     },
     {
+      "id": "ZOVjRWHAHv9q2Mbkt51j",
+      "name": "Shattering Stone",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.8136683489093215,
+      "y": 0.7852912851888049,
+      "creatureSlug": null
+    },
+    {
       "id": "ZOaE3LebdP3HieAeDi7e",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -5795,7 +6011,7 @@
     },
     {
       "id": "ZVTY5TyiBTmrqTlkseaW",
-      "name": "Pathfinder Challenge",
+      "name": "Tammy",
       "categoryId": "Q2hhbGxlbmdlcy0tLVBhdGhmaW5kZXIgQ2hhbGxlbmdl",
       "group": "Challenges",
       "x": 0.30277049065202943,
@@ -5836,6 +6052,15 @@
       "group": "Loot",
       "x": 0.4847849208702172,
       "y": 0.4818036766492497,
+      "creatureSlug": null
+    },
+    {
+      "id": "ZbozvCEkJaK5iGKaChUO",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.720132766444414,
+      "y": 0.8906371972373677,
       "creatureSlug": null
     },
     {
@@ -6001,6 +6226,15 @@
       "creatureSlug": null
     },
     {
+      "id": "aTyFXbQI9ivEOdamEuZq",
+      "name": "Smash Through!",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.8024997511086798,
+      "y": 0.7665433653105396,
+      "creatureSlug": null
+    },
+    {
       "id": "aWEJzr1lFGA8WwXDexpS",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -6028,6 +6262,15 @@
       "creatureSlug": "scorchhowl"
     },
     {
+      "id": "ahl28gHUVWHVegl7xMXy",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7158419068204399,
+      "y": 0.4824302178637083,
+      "creatureSlug": null
+    },
+    {
       "id": "aiIKlleaY6sBtMvaMsMW",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -6052,6 +6295,15 @@
       "group": "Puzzle",
       "x": 0.06407829544725342,
       "y": 0.37729409200643715,
+      "creatureSlug": null
+    },
+    {
+      "id": "avvaolWWkml2h3zY6SSZ",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.22604136642148034,
+      "y": 0.7818164097971305,
       "creatureSlug": null
     },
     {
@@ -6487,6 +6739,15 @@
       "creatureSlug": null
     },
     {
+      "id": "dM8pSrDPrkFnvo0d9MV2",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7105705928655424,
+      "y": 0.4844360459896251,
+      "creatureSlug": null
+    },
+    {
       "id": "dV0JR05Vcz8HatkB3DBb",
       "name": "The Legend of Driftwise Meadow: Fentufts and the Nimbi",
       "categoryId": "UXVlc3QtLS1Kb3VybmV5",
@@ -6551,16 +6812,16 @@
     },
     {
       "id": "doq12simdcSliX8lqm5b",
-      "name": "Bloom",
+      "name": "Driftwise Meadow",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
-      "x": 0.441176911240271,
-      "y": 0.6432397364981597,
+      "x": 0.4406914520907729,
+      "y": 0.6341404951582206,
       "creatureSlug": null
     },
     {
       "id": "dsLpDLapaVBI5970w88w",
-      "name": "Bloom",
+      "name": "Rainbow Woods",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.40840565754240027,
@@ -6902,7 +7163,7 @@
     },
     {
       "id": "g3Lgum917U17un0oRQnQ",
-      "name": "Bloom",
+      "name": "Hot Spring Reef",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.8563856236491884,
@@ -7019,7 +7280,7 @@
     },
     {
       "id": "gYLKvQ08Yzic8pb8KgQ2",
-      "name": "Bloom",
+      "name": "Bloomville",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.44629153327474747,
@@ -7450,6 +7711,15 @@
       "creatureSlug": null
     },
     {
+      "id": "jJwQag1GJNfjC0hmuLzK",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.7160686170274808,
+      "y": 0.8639348398115771,
+      "creatureSlug": null
+    },
+    {
       "id": "jKytAxgIAqd5w18yeoHj",
       "name": "Lumin Marking",
       "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
@@ -7648,6 +7918,15 @@
       "creatureSlug": null
     },
     {
+      "id": "kWVTfMe3hDfJde2zrsq1",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.24021108749174364,
+      "y": 0.4278204728013435,
+      "creatureSlug": null
+    },
+    {
       "id": "kWd2nL136k4OMrmgvKHN",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -7681,15 +7960,6 @@
       "group": "Loot",
       "x": 0.2582032652219684,
       "y": 0.5898066737508572,
-      "creatureSlug": null
-    },
-    {
-      "id": "kkySa924XQgJ8kDyWEKB",
-      "name": "Lumin Amber",
-      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
-      "group": "Loot",
-      "x": 0.19055958762917954,
-      "y": 0.674358967052612,
       "creatureSlug": null
     },
     {
@@ -7784,7 +8054,7 @@
     },
     {
       "id": "lCRM4D3kuvVAKhQZqCcj",
-      "name": "Bloom",
+      "name": "Tidebloom Coast",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.5777564089128898,
@@ -7870,6 +8140,15 @@
       "group": "Loot",
       "x": 0.46778254084114285,
       "y": 0.7849332643941125,
+      "creatureSlug": null
+    },
+    {
+      "id": "lvL1T45OwM1jaQFr2oly",
+      "name": "First Sight ",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.4529032197674917,
+      "y": 0.817986898656585,
       "creatureSlug": null
     },
     {
@@ -8080,6 +8359,15 @@
       "creatureSlug": null
     },
     {
+      "id": "nLHLfYyBHIbdYhYWElyZ",
+      "name": "Soaring Glide",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.13415138832739268,
+      "y": 0.6254775309236322,
+      "creatureSlug": null
+    },
+    {
       "id": "nPfY2emGNBYTlditSuak",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -8131,15 +8419,6 @@
       "group": "Loot",
       "x": 0.36559813087682075,
       "y": 0.7001951565474087,
-      "creatureSlug": null
-    },
-    {
-      "id": "npQULXnvIWKWzPNAZa9T",
-      "name": "Lumin Amber",
-      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
-      "group": "Loot",
-      "x": 0.3155782233973174,
-      "y": 0.5614346911703052,
       "creatureSlug": null
     },
     {
@@ -8203,6 +8482,15 @@
       "group": "Loot",
       "x": 0.19929019283552096,
       "y": 0.5946219461540352,
+      "creatureSlug": null
+    },
+    {
+      "id": "oQ0Z6HJRPiCnxDsL6oPX",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.2886520164359463,
+      "y": 0.6006271005277171,
       "creatureSlug": null
     },
     {
@@ -8311,15 +8599,6 @@
       "group": "Loot",
       "x": 0.530054629627169,
       "y": 0.8401445886672292,
-      "creatureSlug": null
-    },
-    {
-      "id": "oyxqqiVxHHQ4yuJlA3DV",
-      "name": "Bloom",
-      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
-      "group": "Location",
-      "x": 0.27127746671762404,
-      "y": 0.4468357215188803,
       "creatureSlug": null
     },
     {
@@ -8450,7 +8729,7 @@
     },
     {
       "id": "pNc2lAxvABTUacjFoZxW",
-      "name": "Bloom",
+      "name": "Twister Peaks",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.573111023587265,
@@ -8611,6 +8890,15 @@
       "creatureSlug": null
     },
     {
+      "id": "qNuRUJeIYMpjbQXG63ib",
+      "name": "Frigid Waters",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.17498879673389564,
+      "y": 0.7219688469576795,
+      "creatureSlug": null
+    },
+    {
       "id": "qSIxGrfthAO0EvaENzDQ",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -8662,6 +8950,15 @@
       "group": "Loot",
       "x": 0.4926626657213383,
       "y": 0.483986493959776,
+      "creatureSlug": null
+    },
+    {
+      "id": "qfumEYFjanadQzQS9xZa",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.8075094118468296,
+      "y": 0.5095596210616407,
       "creatureSlug": null
     },
     {
@@ -8755,6 +9052,15 @@
       "creatureSlug": null
     },
     {
+      "id": "rSAuvyG7mS5n8owV6R05",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.10228745571895868,
+      "y": 0.7516349075378628,
+      "creatureSlug": null
+    },
+    {
       "id": "rUgatOlDEnE4p1mdnctx",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -8788,15 +9094,6 @@
       "group": "Others",
       "x": 0.21940097712555412,
       "y": 0.8427239057799056,
-      "creatureSlug": null
-    },
-    {
-      "id": "rq7pYKPYPx1Os2qsBMs9",
-      "name": "Lumin Amber",
-      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
-      "group": "Loot",
-      "x": 0.1530479624417752,
-      "y": 0.6145237153510976,
       "creatureSlug": null
     },
     {
@@ -9043,6 +9340,15 @@
       "creatureSlug": null
     },
     {
+      "id": "suMgnI9SXOCbT6MjdLAX",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7376488886914928,
+      "y": 0.8942970022037429,
+      "creatureSlug": null
+    },
+    {
       "id": "svn0T24xC0WKQHMfnsDC",
       "name": "Lumin Marking",
       "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
@@ -9085,6 +9391,15 @@
       "group": "Loot",
       "x": 0.3208734471126169,
       "y": 0.8478368583397895,
+      "creatureSlug": null
+    },
+    {
+      "id": "t4ZHndmyl3e8bUn4FTyC",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.7166721939129672,
+      "y": 0.48134420457316196,
       "creatureSlug": null
     },
     {
@@ -9197,7 +9512,7 @@
     },
     {
       "id": "ty5iSvmjawyJifmS04mN",
-      "name": "Bloom",
+      "name": "Beachside Sandbars",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
       "group": "Location",
       "x": 0.23288922276812338,
@@ -9466,6 +9781,15 @@
       "creatureSlug": null
     },
     {
+      "id": "vXzjoAXrxVS8TB1nFnhZ",
+      "name": "Shortcut to the Castle",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.6959907423237213,
+      "y": 0.8728914608692975,
+      "creatureSlug": null
+    },
+    {
       "id": "vZrp10msl8LL4tL8oGZP",
       "name": "Forest Egg",
       "categoryId": "TG9jYXRpb24tLS1FZ2c=",
@@ -9490,6 +9814,15 @@
       "group": "Challenges",
       "x": 0.25103445494462584,
       "y": 0.7344057144256197,
+      "creatureSlug": null
+    },
+    {
+      "id": "veZ6cbNJBetfR0Us8E2J",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7565423305757943,
+      "y": 0.4447429039504982,
       "creatureSlug": null
     },
     {
@@ -9574,6 +9907,15 @@
       "creatureSlug": null
     },
     {
+      "id": "wGBbg8iEBDu26UrEKy5g",
+      "name": "Rising Flame",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.28419907692932145,
+      "y": 0.7615294295480481,
+      "creatureSlug": null
+    },
+    {
       "id": "wP6C7HdplnJHAylHTOVJ",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -9629,11 +9971,20 @@
     },
     {
       "id": "wjriN2FnZpQPh4aBRMAf",
-      "name": "Lumin Marking",
+      "name": "Gates of Ruins",
       "categoryId": "UHV6emxlLS0tTHVtaW4gTWFya2luZw==",
       "group": "Puzzle",
       "x": 0.19644457724856626,
       "y": 0.4757171855247862,
+      "creatureSlug": null
+    },
+    {
+      "id": "wkBzuH13i8y7yelMa3XS",
+      "name": "Bloom",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
+      "x": 0.35231767099624,
+      "y": 0.7884102060914557,
       "creatureSlug": null
     },
     {
@@ -9643,6 +9994,15 @@
       "group": "Loot",
       "x": 0.12345257746441525,
       "y": 0.84827440360651,
+      "creatureSlug": null
+    },
+    {
+      "id": "wo6NN7PNpbFsK5Ywmfx6",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.7954871452337563,
+      "y": 0.4292570463726548,
       "creatureSlug": null
     },
     {
@@ -10084,6 +10444,15 @@
       "group": "Loot",
       "x": 0.3588039277891674,
       "y": 0.31729619343811066,
+      "creatureSlug": null
+    },
+    {
+      "id": "znEC9Vw1OhdqrRNROhPz",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.8387490875383468,
+      "y": 0.7598018812167311,
       "creatureSlug": null
     },
     {
