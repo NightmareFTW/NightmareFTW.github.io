@@ -2837,7 +2837,7 @@ button.vs-xref-ambiguous { background: none; border: none; padding: 0; margin: 0
 .dp-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   display: flex; flex-direction: column; }
 .dp-card-img-wrap { aspect-ratio: 4 / 3; background: var(--bg-soft); }
-.dp-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dp-card-img-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .dp-card-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .dp-card-name { font-weight: 800; font-size: 1rem; margin: 0; }
 .dp-card-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin: 0; }

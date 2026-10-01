@@ -1,10 +1,138 @@
 {
-  "updated": "2026-09-30T21:52:31.000Z",
+  "updated": "2026-10-01T20:38:51.000Z",
   "source": "https://starlightdreamers.com/presetcodes",
   "sourceName": "Dreamers Portal",
   "note": "Hand-picked from Dreamers Portal, a fan-run board where Disney Dreamlight Valley players share decoration Preset codes (Furniture → Presets → Add New Import Preset). Only presets whose code is visibly confirmed in the player's own screenshot are listed here — the code shown always matches what's baked into the image. Codes expire 14 days after being generated (the game's own rule), so check the date on each before trying it.",
-  "count": 10,
+  "count": 67,
   "presets": [
+    {
+      "id": 340,
+      "name": "Base Game House Preset💚",
+      "code": "KZYGA639",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Nature"
+      ],
+      "dlcs": [],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-340-1790882674-0.webp",
+      "createdAt": "2026-10-01T19:22:00.000Z",
+      "expiresAt": "2026-10-15T19:22:00.000Z"
+    },
+    {
+      "id": 339,
+      "name": "Rustic Clock Centrepiece Preset🤍",
+      "code": "YQ2H978B",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-339-1790882564-0.webp",
+      "createdAt": "2026-10-01T19:20:00.000Z",
+      "expiresAt": "2026-10-15T19:20:00.000Z"
+    },
+    {
+      "id": 338,
+      "name": "Natural Centrepiece Preset🍃",
+      "code": "M358GMFM",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Nature",
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-338-1790882381-0.webp",
+      "createdAt": "2026-10-01T19:18:00.000Z",
+      "expiresAt": "2026-10-15T19:18:00.000Z"
+    },
+    {
+      "id": 335,
+      "name": "Market Stall",
+      "code": "Y4RAVC56",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "DreamsWithJam",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc2385-335-1790854994-0.webp",
+      "createdAt": "2026-10-01T11:41:00.000Z",
+      "expiresAt": "2026-10-15T11:41:00.000Z"
+    },
+    {
+      "id": 333,
+      "name": "Cherry blossom fountain",
+      "code": "QQ4T8J8U",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "CleverLeif",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc148-333-1790853392-0.webp",
+      "createdAt": "2026-10-01T11:14:00.000Z",
+      "expiresAt": "2026-10-15T11:14:00.000Z"
+    },
+    {
+      "id": 332,
+      "name": "Cherry blossom plaza centerpiece",
+      "code": "AVLRALYN",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "CleverLeif",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc148-332-1790853212-0.webp",
+      "createdAt": "2026-10-01T11:08:00.000Z",
+      "expiresAt": "2026-10-15T11:08:00.000Z"
+    },
+    {
+      "id": 327,
+      "name": "Greek Centerpiece",
+      "code": "2CZFEWWP",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "DreamsWithJam",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc2385-327-1790825142-0.webp",
+      "createdAt": "2026-10-01T03:24:00.000Z",
+      "expiresAt": "2026-10-15T03:24:00.000Z"
+    },
+    {
+      "id": 326,
+      "name": "Cottagecore Fountain",
+      "code": "TDPUH4XC",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "DreamsWithJam",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc2385-326-1790825032-0.webp",
+      "createdAt": "2026-10-01T03:22:00.000Z",
+      "expiresAt": "2026-10-15T03:22:00.000Z"
+    },
     {
       "id": 314,
       "name": "RARE STONE ITEMS",
@@ -86,6 +214,23 @@
       "expiresAt": "2026-10-14T06:25:00.000Z"
     },
     {
+      "id": 287,
+      "name": "Overgrown New Orleans Cemetery Vibes",
+      "code": "HR2FJ2FU",
+      "description": "Sharing my cemetery that I have in the glade. I was going for an old New Orleans vibe. You’ll have to add in path and fencing. I used the Ancient’s Path and the Metal Spike Fence. The whole build is 23X20 squares. Hope this helps someone. 😊 \r\nIf you find this after expiration, message me and I’ll make you a new code.",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "A Rift in Time"
+      ],
+      "creator": "April Lilli",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc5842-287-1790684557-0.webp",
+      "createdAt": "2026-09-29T12:02:00.000Z",
+      "expiresAt": "2026-10-13T12:02:00.000Z"
+    },
+    {
       "id": 291,
       "name": "Witchy Graveyard 🪦",
       "code": "NL744WSJ",
@@ -147,21 +292,775 @@
       "expiresAt": "2026-10-13T12:00:00.000Z"
     },
     {
-      "id": 287,
-      "name": "Overgrown New Orleans Cemetery Vibes",
-      "code": "HR2FJ2FU",
-      "description": "Sharing my cemetery that I have in the glade. I was going for an old New Orleans vibe. You’ll have to add in path and fencing. I used the Ancient’s Path and the Metal Spike Fence. The whole build is 23X20 squares. Hope this helps someone. 😊 \r\nIf you find this after expiration, message me and I’ll make you a new code.",
+      "id": 262,
+      "name": "Merlin's Reading Nook",
+      "code": "3W562AAK",
+      "description": "i wanted to share my little reading nook i have in Merlin's corner of my Forest of Valor!",
       "type": "Build",
       "categories": [
         "Outdoor"
       ],
       "dlcs": [
-        "A Rift in Time"
+        "The Storybook Vale",
+        "Wishblossom Ranch"
       ],
-      "creator": "April Lilli",
-      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc5842-287-1790684557-0.webp",
-      "createdAt": "2026-09-29T12:02:00.000Z",
-      "expiresAt": "2026-10-13T12:02:00.000Z"
+      "creator": "🍎Sandra📚",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc11058-262-1790623423-0.webp",
+      "createdAt": "2026-09-28T19:21:00.000Z",
+      "expiresAt": "2026-10-12T19:21:00.000Z"
+    },
+    {
+      "id": 260,
+      "name": "Edwardian Tickets Area",
+      "code": "JD2X8GKV",
+      "description": "Tickets and waiting area for an old trainstation 🚂🎟️",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "City"
+      ],
+      "dlcs": [
+        "The Storybook Vale",
+        "A Rift in Time",
+        "Wishblossom Ranch",
+        "Honeyglow Woods"
+      ],
+      "creator": "Kettlebroom Valley",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14473-260-1790621360-0.webp",
+      "createdAt": "2026-09-28T16:00:00.000Z",
+      "expiresAt": "2026-10-12T16:00:00.000Z"
+    },
+    {
+      "id": 259,
+      "name": "Honeyglow Woods centrepiece",
+      "code": "HBF7F9SU",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "Honeyglow Woods"
+      ],
+      "creator": "TheMuffinBox",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc7310-259-1790619259-0.webp",
+      "createdAt": "2026-09-28T16:00:00.000Z",
+      "expiresAt": "2026-10-12T16:00:00.000Z"
+    },
+    {
+      "id": 258,
+      "name": "Hay maze entrance",
+      "code": "WDNQE4QF",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Entrance"
+      ],
+      "dlcs": [
+        "Honeyglow Woods"
+      ],
+      "creator": "TheMuffinBox",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc7310-258-1790618989-0.webp",
+      "createdAt": "2026-09-28T16:00:00.000Z",
+      "expiresAt": "2026-10-12T16:00:00.000Z"
+    },
+    {
+      "id": 245,
+      "name": "Halloween fountain with ravens 🎃🪶✨️",
+      "code": "W2BRG3C5",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "Wishblossom Ranch"
+      ],
+      "creator": "💫🩷Andrea🩵💫",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1921-245-1790593344-0.webp",
+      "createdAt": "2026-09-28T10:58:00.000Z",
+      "expiresAt": "2026-10-12T10:58:00.000Z"
+    },
+    {
+      "id": 242,
+      "name": "Chez Remy Eating Area",
+      "code": "ZHYWFGCN",
+      "description": "You can change the tiling underneath and could look good with the water tile instead",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Hocuspocusgirl",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc16985-242-1790552221-0.webp",
+      "createdAt": "2026-09-27T23:34:00.000Z",
+      "expiresAt": "2026-10-11T23:34:00.000Z"
+    },
+    {
+      "id": 249,
+      "name": "Lot Train Christmas Town",
+      "code": "L99YKLYH",
+      "description": "Lot de 3 items : le train christmas town , le sapin et les barrières en pierre",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Stéphanie Collet (Les Créas de Steph)",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc17573-249-1790602782-0.webp",
+      "createdAt": "2026-09-27T19:30:00.000Z",
+      "expiresAt": "2026-10-11T19:30:00.000Z"
+    },
+    {
+      "id": 236,
+      "name": "Eeyore’s Home Preset✨💜",
+      "code": "UVDYSSFC",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "Honeyglow Woods"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-236-1790539363-0.webp",
+      "createdAt": "2026-09-27T19:30:00.000Z",
+      "expiresAt": "2026-10-11T19:30:00.000Z"
+    },
+    {
+      "id": 235,
+      "name": "Makeshift Swinging Bench Preset🍃✨",
+      "code": "TB7BZFPG",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale",
+        "Honeyglow Woods"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-235-1790539294-0.webp",
+      "createdAt": "2026-09-27T19:30:00.000Z",
+      "expiresAt": "2026-10-11T19:30:00.000Z"
+    },
+    {
+      "id": 234,
+      "name": "Bee Garden Preset🐝🍃",
+      "code": "T57BADM6",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "Honeyglow Woods"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-234-1790539173-0.webp",
+      "createdAt": "2026-09-27T19:30:00.000Z",
+      "expiresAt": "2026-10-11T19:30:00.000Z"
+    },
+    {
+      "id": 218,
+      "name": "Winter Filler Build",
+      "code": "YCC2XW6V",
+      "description": "A winter festive filler build for your valley!",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "TannieGames",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1915-218-1790528428-0.webp",
+      "createdAt": "2026-09-27T16:58:00.000Z",
+      "expiresAt": "2026-10-11T16:58:00.000Z"
+    },
+    {
+      "id": 212,
+      "name": "Pocahontas",
+      "code": "9KHD5DLT",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "DreamsWithJam",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc2385-212-1790526761-0.webp",
+      "createdAt": "2026-09-27T16:31:00.000Z",
+      "expiresAt": "2026-10-11T16:31:00.000Z"
+    },
+    {
+      "id": 211,
+      "name": "Goofy's Tiny Market - Forest Edition",
+      "code": "7294KEM7",
+      "description": "A tiny market build to enhance your stall with cozy foresty vibes as we are entering Autumn !\r\n\r\nOther Goofy builds will come soon. 😊\r\n\r\nPlease note that Goofy's skin is not included. An empty space will be left for your stall with the skin of your choice to be added. 😊",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Monsieur Mike",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc87-211-1790526629-0.webp",
+      "createdAt": "2026-09-27T16:20:00.000Z",
+      "expiresAt": "2026-10-11T16:20:00.000Z"
+    },
+    {
+      "id": 209,
+      "name": "right side of the square with the entrance to Scrooge's shop, museum and boutique",
+      "code": "LG5GVS4N",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "💫🩷Andrea🩵💫",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1921-209-1790523829-0.webp",
+      "createdAt": "2026-09-27T15:42:00.000Z",
+      "expiresAt": "2026-10-11T15:42:00.000Z"
+    },
+    {
+      "id": 208,
+      "name": "Remy's restaurant",
+      "code": "D4RX5DKE",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "💫🩷Andrea🩵💫",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1921-208-1790523076-0.webp",
+      "createdAt": "2026-09-27T15:30:00.000Z",
+      "expiresAt": "2026-10-11T15:30:00.000Z"
+    },
+    {
+      "id": 206,
+      "name": "Square,  Tiana Restaurant",
+      "code": "SC4XK7V2",
+      "description": "Tiana Restaurant",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "💫🩷Andrea🩵💫",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1921-206-1790522150-0.webp",
+      "createdAt": "2026-09-27T15:12:00.000Z",
+      "expiresAt": "2026-10-11T15:12:00.000Z"
+    },
+    {
+      "id": 204,
+      "name": "Left side of the square: fountain preset",
+      "code": "QCLFMHU9",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "💫🩷Andrea🩵💫",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1921-204-1790521365-0.webp",
+      "createdAt": "2026-09-27T14:58:00.000Z",
+      "expiresAt": "2026-10-11T14:58:00.000Z"
+    },
+    {
+      "id": 198,
+      "name": "Square",
+      "code": "DULRWSG9",
+      "description": "",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "💫🩷Andrea🩵💫",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1921-198-1790516890-0.webp",
+      "createdAt": "2026-09-27T13:44:00.000Z",
+      "expiresAt": "2026-10-11T13:44:00.000Z"
+    },
+    {
+      "id": 223,
+      "name": "Witchy Spell Corner",
+      "code": "DSFXKF2U",
+      "description": "A witchy spell corner where jinxes are born and hexes are gone awry!",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-223-1790530115-0.webp",
+      "createdAt": "2026-09-27T11:41:00.000Z",
+      "expiresAt": "2026-10-11T11:41:00.000Z"
+    },
+    {
+      "id": 191,
+      "name": "Green House Build",
+      "code": "F7UW92ZD",
+      "description": "Green house build I created in the Gultch. You’ll need to have the Greenhouse walls from Witchful thinking",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Nature"
+      ],
+      "dlcs": [
+        "Wishblossom Ranch"
+      ],
+      "creator": "🌷🐇Next Phoenix 🐇🌷",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc3852-191-1790506170-0.webp",
+      "createdAt": "2026-09-27T10:36:00.000Z",
+      "expiresAt": "2026-10-11T10:36:00.000Z"
+    },
+    {
+      "id": 232,
+      "name": "Pixie Acres Centre Piece",
+      "code": "2ST78ZFM",
+      "description": "Sharing some presets from my WBR builds",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "Wishblossom Ranch"
+      ],
+      "creator": "🌷🐇Next Phoenix 🐇🌷",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc3852-232-1790538793-0.webp",
+      "createdAt": "2026-09-27T09:30:00.000Z",
+      "expiresAt": "2026-10-11T09:30:00.000Z"
+    },
+    {
+      "id": 217,
+      "name": "Autumn Filler Build",
+      "code": "9RXX4DFH",
+      "description": "An autumnal filler build for your valley",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "TannieGames",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1915-217-1790528259-0.webp",
+      "createdAt": "2026-09-27T07:00:00.000Z",
+      "expiresAt": "2026-10-11T07:00:00.000Z"
+    },
+    {
+      "id": 216,
+      "name": "Summer Filler Build",
+      "code": "L5M39X45",
+      "description": "Summer Filler Build for your valley L5M39X45",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "TannieGames",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1915-216-1790528013-0.webp",
+      "createdAt": "2026-09-27T07:00:00.000Z",
+      "expiresAt": "2026-10-11T07:00:00.000Z"
+    },
+    {
+      "id": 215,
+      "name": "Spring Filler Build",
+      "code": "4M9RPYWG",
+      "description": "A spring filler build for your valley CODE 4M9RPYWG",
+      "type": "Build",
+      "categories": [
+        "Outdoor"
+      ],
+      "dlcs": [],
+      "creator": "TannieGames",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1915-215-1790527528-0.webp",
+      "createdAt": "2026-09-27T07:00:00.000Z",
+      "expiresAt": "2026-10-11T07:00:00.000Z"
+    },
+    {
+      "id": 160,
+      "name": "Prince John Set",
+      "code": "243Q9VHT",
+      "description": "My mom actually missed out on this so I decided to make her a preset to get the items she missed.",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Mindy Dreamlight (Switch 2)",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1522-160-1790462670-0.webp",
+      "createdAt": "2026-09-26T22:43:00.000Z",
+      "expiresAt": "2026-10-10T22:43:00.000Z"
+    },
+    {
+      "id": 159,
+      "name": "Fredrickson Garden Set",
+      "code": "NFV7Y6Z7",
+      "description": "Another collection I was asked to make.",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Mindy Dreamlight (Switch 2)",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1522-159-1790573990-0.webp",
+      "createdAt": "2026-09-26T22:40:00.000Z",
+      "expiresAt": "2026-10-10T22:40:00.000Z"
+    },
+    {
+      "id": 158,
+      "name": "Flying with Water Preset",
+      "code": "VB7WKFD4",
+      "description": "I was asked to create a preset with fireflies so I added to it.",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Mindy Dreamlight (Switch 2)",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1522-158-1790462379-0.webp",
+      "createdAt": "2026-09-26T22:35:00.000Z",
+      "expiresAt": "2026-10-10T22:35:00.000Z"
+    },
+    {
+      "id": 222,
+      "name": "Autumnal Filler",
+      "code": "SHJ9U3KM",
+      "description": "Long and narrow filler piece with seating for your Bind!",
+      "type": "Build",
+      "categories": [
+        "Nature"
+      ],
+      "dlcs": [],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-222-1790529862-0.webp",
+      "createdAt": "2026-09-26T22:22:00.000Z",
+      "expiresAt": "2026-10-10T22:22:00.000Z"
+    },
+    {
+      "id": 221,
+      "name": "Pumpkin Topiary Filler",
+      "code": "ZQCGD7QG",
+      "description": "A filler piece for those empty spaces where you need Autumn magic! 🎃",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Nature"
+      ],
+      "dlcs": [],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-221-1790529734-0.webp",
+      "createdAt": "2026-09-26T22:19:00.000Z",
+      "expiresAt": "2026-10-10T22:19:00.000Z"
+    },
+    {
+      "id": 220,
+      "name": "Cozy Halloween Cottage",
+      "code": "Z5YHY8VX",
+      "description": "Cozy Halloween Cottage - a cozy autumnal spot for a witch!",
+      "type": "Build",
+      "categories": [
+        "Nature",
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-220-1790529558-0.webp",
+      "createdAt": "2026-09-26T22:16:00.000Z",
+      "expiresAt": "2026-10-10T22:16:00.000Z"
+    },
+    {
+      "id": 219,
+      "name": "Fall Book Shop",
+      "code": "EVAMVZA9",
+      "description": "A cozy bookshop surrounded by jaded greens and falling leaves 🍂",
+      "type": "Build",
+      "categories": [
+        "City",
+        "Nature"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-219-1790529200-0.webp",
+      "createdAt": "2026-09-26T22:10:00.000Z",
+      "expiresAt": "2026-10-10T22:10:00.000Z"
+    },
+    {
+      "id": 181,
+      "name": "Tinkerbell’s Home",
+      "code": "YKXSYH7N",
+      "description": "Making Tink feel at home with some fairycore landscaping outside her house!",
+      "type": "Build",
+      "categories": [
+        "Entrance",
+        "Nature"
+      ],
+      "dlcs": [
+        "Wishblossom Ranch"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-181-1790483962-0.webp",
+      "createdAt": "2026-09-26T18:00:00.000Z",
+      "expiresAt": "2026-10-10T18:00:00.000Z"
+    },
+    {
+      "id": 180,
+      "name": "Fairy Pillar 🌷",
+      "code": "KTYTAAPR",
+      "description": "A simple and flowery centerpiece for a fairy build!",
+      "type": "Build",
+      "categories": [
+        "Nature",
+        "Outdoor"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-180-1790483854-0.webp",
+      "createdAt": "2026-09-26T18:00:00.000Z",
+      "expiresAt": "2026-10-10T18:00:00.000Z"
+    },
+    {
+      "id": 179,
+      "name": "Fairycore Seating",
+      "code": "L4EFAY4B",
+      "description": "A nice setting for fairies to have a tea party! 🧚‍♀️",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Nature"
+      ],
+      "dlcs": [
+        "Honeyglow Woods",
+        "Wishblossom Ranch",
+        "The Storybook Vale"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-179-1790483711-0.webp",
+      "createdAt": "2026-09-26T18:00:00.000Z",
+      "expiresAt": "2026-10-10T18:00:00.000Z"
+    },
+    {
+      "id": 178,
+      "name": "Fairycore Gazebo Surrounded by Water",
+      "code": "7T7TCSS2",
+      "description": "As the title suggests, this is a whimsical fairy gazebo in the center of a giant whimsical pond!",
+      "type": "Build",
+      "categories": [
+        "Water",
+        "Nature"
+      ],
+      "dlcs": [
+        "Honeyglow Woods",
+        "Wishblossom Ranch"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-178-1790483562-0.webp",
+      "createdAt": "2026-09-26T18:00:00.000Z",
+      "expiresAt": "2026-10-10T18:00:00.000Z"
+    },
+    {
+      "id": 177,
+      "name": "Fairycore Natural Ponds (LARGE and MEDIUM)",
+      "code": "M2M2DLWW & RG57VRVF",
+      "description": "Two sizes of these natural fairycore ponds for extra whimsy!",
+      "type": "Build",
+      "categories": [
+        "Nature",
+        "Water"
+      ],
+      "dlcs": [],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-177-1790483367-0.webp",
+      "createdAt": "2026-09-26T18:00:00.000Z",
+      "expiresAt": "2026-10-10T18:00:00.000Z"
+    },
+    {
+      "id": 194,
+      "name": "Leota Seance Filler Area🪦🖤",
+      "code": "YX8CAAW7",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-194-1790540348-0.webp",
+      "createdAt": "2026-09-26T15:00:00.000Z",
+      "expiresAt": "2026-10-10T15:00:00.000Z"
+    },
+    {
+      "id": 193,
+      "name": "Mini Graveyard Filler Area🪦🖤",
+      "code": "PV279QKW",
+      "description": "",
+      "type": "Item Collection",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Dahlia🥀",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc14315-193-1790510247-0.webp",
+      "createdAt": "2026-09-26T15:00:00.000Z",
+      "expiresAt": "2026-10-10T15:00:00.000Z"
+    },
+    {
+      "id": 109,
+      "name": "Graveyard",
+      "code": "JE3K4W2W",
+      "description": "",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Kalie",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc12635-109-1790363029-0.webp",
+      "createdAt": "2026-09-25T19:03:00.000Z",
+      "expiresAt": "2026-10-09T19:03:00.000Z"
+    },
+    {
+      "id": 108,
+      "name": "Spooky entryway",
+      "code": "5GKJ3AA8",
+      "description": "",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Kalie",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc12635-108-1790362948-0.webp",
+      "createdAt": "2026-09-25T19:01:00.000Z",
+      "expiresAt": "2026-10-09T19:01:00.000Z"
+    },
+    {
+      "id": 107,
+      "name": "Autumn/fall",
+      "code": "22QGTEZ2",
+      "description": "Codes are attached to the build. Autumn/fall plaza builds. There are 3 codes in this post! All expire same day",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [],
+      "creator": "Kalie",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc12635-107-1790362690-0.webp",
+      "createdAt": "2026-09-25T18:54:00.000Z",
+      "expiresAt": "2026-10-09T18:54:00.000Z"
+    },
+    {
+      "id": 83,
+      "name": "DARK Academia Garden Build!",
+      "code": "2A89T5AK",
+      "description": "Dark Academia! Im loving these new castle walls sooo much! Im making more Dark Academia builds ASAP!",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [],
+      "creator": "CozywithSoph",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc6356-83-1790309494-0.webp",
+      "createdAt": "2026-09-25T02:00:00.000Z",
+      "expiresAt": "2026-10-09T02:00:00.000Z"
+    },
+    {
+      "id": 105,
+      "name": "Neighborhood Spot",
+      "code": "H7PVTKKR",
+      "description": "Giving this a try to see if this actually works of course. I built a little area that I have in my peaceful meadows neighborhood. \r\nIf it does work, please be sure to tag me in it. I hope you enjoy!",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [],
+      "creator": "✨💞Kristie ✨💞",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc9261-105-1790361905-0.webp",
+      "createdAt": "2026-09-24T18:43:00.000Z",
+      "expiresAt": "2026-10-08T18:43:00.000Z"
+    },
+    {
+      "id": 121,
+      "name": "Plaza Fall Entrance",
+      "code": "MHEKDYP4",
+      "description": "Main entryway in the Plaza with the Pumpkin Topiary and Railroad Station Set! 🎃",
+      "type": "Build",
+      "categories": [
+        "City",
+        "Entrance"
+      ],
+      "dlcs": [],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-121-1790402317-0.webp",
+      "createdAt": "2026-09-24T18:20:00.000Z",
+      "expiresAt": "2026-10-08T18:20:00.000Z"
+    },
+    {
+      "id": 176,
+      "name": "Bind Centerpiece",
+      "code": "565FF6L3",
+      "description": "Square centerpiece perfect for Bind builds, or any Autumn build!",
+      "type": "Build",
+      "categories": [],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-176-1790483090-0.webp",
+      "createdAt": "2026-09-24T17:22:00.000Z",
+      "expiresAt": "2026-10-08T17:22:00.000Z"
+    },
+    {
+      "id": 175,
+      "name": "Alpine Build",
+      "code": "9EXRLYA6",
+      "description": "A quick build using the Alpine modular items and Neverland River Kit!",
+      "type": "Build",
+      "categories": [
+        "Water",
+        "Outdoor"
+      ],
+      "dlcs": [
+        "Wishblossom Ranch"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-175-1790482954-0.webp",
+      "createdAt": "2026-09-24T17:19:00.000Z",
+      "expiresAt": "2026-10-08T17:19:00.000Z"
+    },
+    {
+      "id": 174,
+      "name": "Eeyore’s Tree!",
+      "code": "RSGXPNT2",
+      "description": "Giving Eeyore’s pile of sticks a cozy natural transformation— his very own treehouse!",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Nature"
+      ],
+      "dlcs": [
+        "Honeyglow Woods"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-174-1790482742-0.webp",
+      "createdAt": "2026-09-24T17:16:00.000Z",
+      "expiresAt": "2026-10-08T17:16:00.000Z"
+    },
+    {
+      "id": 173,
+      "name": "Grecian Fountain",
+      "code": "48GSJ989",
+      "description": "A circular centerpiece fountain built for the gods of Mount Olympus!",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Water"
+      ],
+      "dlcs": [
+        "The Storybook Vale"
+      ],
+      "creator": "Dreamlight Anya 🌙",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc4848-173-1790482571-0.webp",
+      "createdAt": "2026-09-24T17:13:00.000Z",
+      "expiresAt": "2026-10-08T17:13:00.000Z"
+    },
+    {
+      "id": 214,
+      "name": "Dreamsnaps Lighting and Zoom Effect",
+      "code": "LLDBXUYR",
+      "description": "My dreamsnap presets taken from my youtube video which also has further preset ideas for dreamsnaps! Codes are LLDBXUYR and 6T73X4JN",
+      "type": "Build",
+      "categories": [
+        "Outdoor",
+        "Utility"
+      ],
+      "dlcs": [],
+      "creator": "TannieGames",
+      "image": "https://files.starlightdreamers.com/file/dreamerimages/medthumb/presets/pc1915-214-1790527374-0.webp",
+      "createdAt": "2026-09-23T16:38:00.000Z",
+      "expiresAt": "2026-10-07T16:38:00.000Z"
     }
   ]
 }
