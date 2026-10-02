@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-01T05:34:02.221Z",
+  "updated": "2026-10-02T11:11:09.768Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -1406,8 +1406,8 @@
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
-      "x": 0.3987738298814278,
-      "y": 0.38527819336918867,
+      "x": 0.3982951208054837,
+      "y": 0.38461677277381057,
       "creatureSlug": null
     },
     {
@@ -3940,6 +3940,15 @@
       "creatureSlug": null
     },
     {
+      "id": "NQcF1DlE3IDChzlJA4CJ",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.5625944632314848,
+      "y": 0.5489381010851417,
+      "creatureSlug": null
+    },
+    {
       "id": "NR7B4kPNkKS1adI4GpBE",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -4135,15 +4144,6 @@
       "group": "Puzzle",
       "x": 0.27876287349796053,
       "y": 0.4621846890362633,
-      "creatureSlug": null
-    },
-    {
-      "id": "OXnLs8W07LQsvcj2OJ8w",
-      "name": "Lumin Amber",
-      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
-      "group": "Loot",
-      "x": 0.30502607582995933,
-      "y": 0.33823301565855957,
       "creatureSlug": null
     },
     {
@@ -4639,6 +4639,15 @@
       "group": "Loot",
       "x": 0.4434663949301155,
       "y": 0.6116765367746524,
+      "creatureSlug": null
+    },
+    {
+      "id": "RQ8NikDgql6e87rviyPv",
+      "name": "Incredible Egg",
+      "categoryId": "TG9jYXRpb24tLS1FZ2c=",
+      "group": "Location",
+      "x": 0.7554612936881288,
+      "y": 0.5664674889515026,
       "creatureSlug": null
     },
     {
@@ -5528,8 +5537,8 @@
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
       "group": "Loot",
-      "x": 0.290624081651153,
-      "y": 0.4776747781610027,
+      "x": 0.27545447678866425,
+      "y": 0.44865112152255904,
       "creatureSlug": null
     },
     {
@@ -6826,15 +6835,6 @@
       "group": "Location",
       "x": 0.40840565754240027,
       "y": 0.811222227200588,
-      "creatureSlug": null
-    },
-    {
-      "id": "dsgfDJvv7RRYhjKMOjLk",
-      "name": "Lumin Amber",
-      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
-      "group": "Loot",
-      "x": 0.4433469230437076,
-      "y": 0.44160611819354756,
       "creatureSlug": null
     },
     {
@@ -8647,24 +8647,6 @@
       "creatureSlug": null
     },
     {
-      "id": "p6NFHOGTCCVQH9TIpYaY",
-      "name": "Lumin Amber",
-      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
-      "group": "Loot",
-      "x": 0.39776080806643516,
-      "y": 0.38245064513348836,
-      "creatureSlug": null
-    },
-    {
-      "id": "p6Z0V32fkci7dY4ZBZqf",
-      "name": "Lumin Amber",
-      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
-      "group": "Loot",
-      "x": 0.0981811762048311,
-      "y": 0.50703140435661,
-      "creatureSlug": null
-    },
-    {
       "id": "p9Tim3hy2K1s2fOB8xm6",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -9862,6 +9844,15 @@
       "creatureSlug": null
     },
     {
+      "id": "vrDB2KLCfTyIRkD9rbOp",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.6905508070789931,
+      "y": 0.4535527446533365,
+      "creatureSlug": null
+    },
+    {
       "id": "w2GGptO8jCkQCduN3geA",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -10381,6 +10372,15 @@
       "group": "Loot",
       "x": 0.3983505180302163,
       "y": 0.4092826607370057,
+      "creatureSlug": null
+    },
+    {
+      "id": "zX2g18ey10V0Lu6lr826",
+      "name": "Chest",
+      "categoryId": "TG9vdC0tLUNoZXN0",
+      "group": "Loot",
+      "x": 0.6934923723564825,
+      "y": 0.5669384465875567,
       "creatureSlug": null
     },
     {
