@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-01T05:34:02.897Z",
+  "updated": "2026-10-03T10:28:59.308Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
   "author": "darksteelhyren",
   "authorUrl": "https://steamcommunity.com/id/Zetajezu",
-  "maxLevel": 14,
+  "maxLevel": 15,
   "sections": [
     {
       "type": "overview",
@@ -16,15 +16,15 @@
           "items": [
             {
               "kind": "text",
-              "text": "This is intended as a set-it-and-forget-it guide to each RV level. After you level up the RV, you come back, set up your base like I describe, then come back when you have enough resources to upgrade the RV again."
+              "text": "This is intended as a set-it-and-forget-it guide to each RV level. After you level up the RV, you come back, set up your base like I describe, then let it run until you have enough resources to upgrade the RV again."
             },
             {
               "kind": "text",
-              "text": "Early on, byproducts from Trees and Mines are the limiting resource rather than Home Coins. This guide will maximize the amount of byproducts you get, so your RV upgrade will be available as soon as it's possible. Home Coin gain is a priority, but the important metric is progression through RV levels."
+              "text": "Early on, byproducts from Trees and Mines are the limiting resource rather than Home Coins. This guide will maximize the amount of byproducts you get, so your RV upgrade will be available as soon as it's possible. Maximizing Home Coin gain is the second priority."
             },
             {
               "kind": "text",
-              "text": "I will provide a text description of each RV level, one or more screenshots to help you understand, as well as optional notes and lessons you can read if you want to understand what's going on at each level."
+              "text": "I will provide a text description of each RV level, occasional screenshots to help you understand, as well as optional notes and lessons you can read if you want to understand what's going on at each level."
             }
           ]
         },
@@ -46,7 +46,7 @@
             },
             {
               "kind": "text",
-              "text": "Water. Increases how fast your Wells and Tidewhisper Sandcastles produce."
+              "text": "Water. Increases how fast your Wells produce."
             },
             {
               "kind": "text",
@@ -63,7 +63,7 @@
           ]
         },
         {
-          "heading": "Aniimo choices",
+          "heading": "Early Aniimo choices",
           "images": [],
           "items": [
             {
@@ -103,6 +103,50 @@
             {
               "kind": "text",
               "text": "And, of course, you will want the family-specific Aniimo for their buildings, preferably along with the relevant trait (See Lesson: Traits)"
+            }
+          ]
+        },
+        {
+          "heading": "Post-electricity Aniimo Choices",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "The ideal choices for Aniimo change radically once you have your Crackle Generator."
+            },
+            {
+              "kind": "numbered",
+              "num": "1",
+              "text": "Shrugclaws (Basic Form), with \"P\"layful. This, at least, doesn't change. Mines cost WWWAAAAYYYYY too much electricity to switch to E-mode.",
+              "sub": []
+            },
+            {
+              "kind": "numbered",
+              "num": "2",
+              "text": "Glacy (Any Form), with \"F\"aithful. My builds don't leave enough spare electricity to E-mode the Wells and keep them running at 120%. I recommend enough Glacy to power your Wells AND Cooling Unit.",
+              "sub": []
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Pomhawk (Basic Form) with \"E\"nergetic. The amount of Lumber you need to cut is almost absurd. Pomhawk was chosen because his alternate element doesn't risk tying him down to long-term production; we want him on call for Lumber.",
+              "sub": []
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Sparki/Flamerion/Sparkelf, equal to the number of Heat Furnaces you're running. Everything else that used to use Fire should be switched to E-mode.",
+              "sub": []
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Piopiota (Night Form) or Stellarys (Rain form). These will cover your Water and Dark needs.",
+              "sub": []
+            },
+            {
+              "kind": "text",
+              "text": "Of course, you will still need to field specific Aniimo for buildings that require a member of a certain family."
             }
           ]
         },
@@ -806,7 +850,7 @@
             },
             {
               "kind": "text",
-              "text": "Lastly, if you have the spare Aniimo, put shinies/prismanas in your house. They generate additional Bud Tickets, used to buy decorations, over time. Remember to empty the jar occasionally."
+              "text": "Lastly, if you have the spare Aniimo, put shinies/prismanas in your house to generate Bud Tickets over time, which are used to buy decorations. Aniimo that are both shiny AND prismana generate the most. Remember to empty the jar occasionally."
             }
           ]
         }
@@ -1515,6 +1559,10 @@
             },
             {
               "kind": "text",
+              "text": "The Aniimo you use does not matter, the Crackle Generator is what produces the power. An Electricity-1 Aniimo does the same thing as an Electricity-4 Aniimo, just like with the heater and cooler. I recommend a Bolty."
+            },
+            {
+              "kind": "text",
               "text": "If you don't use all the power, buildings produce more quickly, up to 120%. The more of the electric you use, the more you cut into that bonus. Going above the limit reduces work speed below 100%"
             },
             {
@@ -1566,7 +1614,7 @@
             },
             {
               "kind": "text",
-              "text": "Buy Recipe Note: Ginseng Porridge from the Dream Spark Exchange. The left Bini #2333 in front of the co-op shop has it."
+              "text": "Buy \"Recipe Note: Ginseng Porridge\" from the Dream Spark Exchange. The left Bini #2333 in front of the co-op shop has it."
             },
             {
               "kind": "text",
@@ -1590,7 +1638,7 @@
             },
             {
               "kind": "text",
-              "text": "Do not set Wells on E-Mode. Cutting into the production speed bonus isn't a problem for processing buildings, but it is for Wells. Keeping Wells in Common Mode keeps them going at 120% speed."
+              "text": "Do not set Wells or Mines on E-Mode. Cutting into the production speed bonus isn't a problem for processing buildings, but it is for Wells. Keeping Wells in Common Mode keeps them going at 120% speed."
             },
             {
               "kind": "text",
@@ -1627,8 +1675,12 @@
                 "Set one Jukebox Dryer to Dried Ginseng.",
                 "Set one Carousel Mill to Milled Rice.",
                 "Set 9 farm plots to Ginseng",
-                "Set 5 farm plots to Rice"
+                "Set 5 farm plots to Quick Recipe: Rice"
               ]
+            },
+            {
+              "kind": "text",
+              "text": "If you cannot buy the Ginseng Porridge recipe note, skip this step. Set that Simmering Pot to Grape Jam and plant these 14 plots as Grapes. The other dryer stays on Nuts. The mill and the cooler stay idle. Candy, Lemons, Wind Chimes, and Nuts do not change."
             },
             {
               "kind": "numbered",
@@ -1661,7 +1713,7 @@
             },
             {
               "kind": "text",
-              "text": "NOTE: Consider stockpiling as many Nuts as possible. We'll be producing maple again in RV14 to upgrade this item, but won't be producing the materials for Nuts. If you're ever short on money, you can just sell the Nuts early."
+              "text": "NOTE: At some point I'd recommended stockpiling these, but the introduction of a second heater/cooler in later RV levels ruined that plan. Sell them."
             }
           ]
         },
@@ -1683,11 +1735,11 @@
             },
             {
               "kind": "text",
-              "text": "5 Farm plots: Rice"
+              "text": "5 Farm plots: Quick Recipe: Rice"
             },
             {
               "kind": "text",
-              "text": "Note: If you want to grow event ingredients, drop pairs of Grape and Sugarcane."
+              "text": "Note: If you want to grow event crops, drop pairs of Grape and Sugarcane."
             },
             {
               "kind": "text",
@@ -1700,14 +1752,6 @@
             {
               "kind": "text",
               "text": "3 Tree plots: Quick Formula: Lemon"
-            },
-            {
-              "kind": "text",
-              "text": "The 6 Grapes and 6 Sugarcane leave 14 farms. 10 Ginseng plus 5 Rice is 15, so the Ginseng is the one cut to 9. 9 Ginseng need 27 Milled Rice an hour, and 5 Rice plots make about 33. 10 Ginseng with only 4 Rice would come up short."
-            },
-            {
-              "kind": "text",
-              "text": "Keep the Chestnuts on the Warm heater. Sugarcane stays on the Scorching heater. Ginseng stays on the Cool cooler. Do not overlap them."
             }
           ]
         },
@@ -1737,19 +1781,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
-            },
-            {
-              "kind": "bullet",
-              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers Well and cooler."
-            },
-            {
-              "kind": "bullet",
-              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water needs are met. If you run out and don't want to get more, finish off with more Glacy."
-            },
-            {
-              "kind": "bullet",
-              "text": "Two Sparki/Flamerion/Sparkelf to run your heaters."
+              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
@@ -1757,7 +1789,23 @@
             },
             {
               "kind": "bullet",
-              "text": "ZERO Gracewing (Night Form). You shouldn't need any after setting processing buildings to E-mode"
+              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Sparki/Flamerion/Sparkelf to run your Heat Furnaces."
+            },
+            {
+              "kind": "bullet",
+              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers 2x Wells and 1x Cooling Unit."
+            },
+            {
+              "kind": "bullet",
+              "text": "Piopiota (Night Form) or Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "ZERO Gracewing (Night Form). You shouldn't need any Wind after setting processing buildings to E-mode."
             },
             {
               "kind": "bullet",
@@ -1772,6 +1820,16 @@
       "level": 13,
       "next": 14,
       "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Index Points goal: 7000"
+            }
+          ]
+        },
         {
           "heading": "Notes",
           "images": [],
@@ -1876,20 +1934,12 @@
               "text": "8 Farm plots: Quick Recipe: Rice"
             },
             {
-              "kind": "bullet",
-              "text": "NOTE: The dried-and-sold Ginseng plots are gone. Event crops now come off porridge Ginseng. Two of those is about 5,900 coins an hour. Four is about 11,800. Do not pull the 3 water plots or the Rice."
-            },
-            {
               "kind": "text",
               "text": "11 Tree plots: Chestnut (Temperature: Warm)"
             },
             {
               "kind": "text",
               "text": "3 Tree plots: Quick Formula: Lemon"
-            },
-            {
-              "kind": "text",
-              "text": "Set one heater to Warm and put the Chestnuts on it. Set one cooler to Cool and put the Ginseng on it. Keep those two apart. 11 Chestnuts are under the 12-tree cap. 20 Ginseng fit in one cooler."
             }
           ]
         },
@@ -1915,19 +1965,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Twelve Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
-            },
-            {
-              "kind": "bullet",
-              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers Well and cooler."
-            },
-            {
-              "kind": "bullet",
-              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water needs are met. If you run out and don't want to get more, finish off with more Glacy."
-            },
-            {
-              "kind": "bullet",
-              "text": "One Sparki/Flamerion/Sparkelf to run the Warm heater."
+              "text": "One Sparki/Flamerion/Sparkelf to run the Heat Furnace."
             },
             {
               "kind": "bullet",
@@ -1936,6 +1974,18 @@
             {
               "kind": "bullet",
               "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+            },
+            {
+              "kind": "bullet",
+              "text": "Twelve Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers 2x Wells and 1x cooler."
+            },
+            {
+              "kind": "bullet",
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
@@ -1956,7 +2006,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Index Points goal: ????"
+              "text": "Index points goal: 8500"
             }
           ]
         },
@@ -1984,27 +2034,15 @@
           "items": [
             {
               "kind": "text",
-              "text": "Buy Ecological Module 6."
+              "text": "Buy Power Module Level 2. Upgrade your Crackle Generator."
             },
             {
               "kind": "text",
-              "text": "Chimney Kiln and Woodworking Bench reach level 3, so you'll need to process Byproducts three times. Keep the old ones, and buy the new level 3 versions."
+              "text": "Chimney Kiln and Woodworking Bench reach level 3, so you'll need to process Byproducts three times. Keep the old ones without upgrading them, and buy the new level 3 versions."
             },
             {
               "kind": "text",
               "text": "Upgrade the Tidewhisper Sandcastle to level 3. Produce Pearls; stockpile or sell them."
-            },
-            {
-              "kind": "text",
-              "text": "Value of the Electrical grid is uncertain."
-            },
-            {
-              "kind": "text",
-              "text": "Set the heater to Scorching. It fits 12 Coconut. The cooler must be to Freezing for the 3 Quick Maple or we aren't capping out on Wood Blocks, which is really unfortunate."
-            },
-            {
-              "kind": "text",
-              "text": "The range of the heater is problematic for the first time."
             }
           ]
         },
@@ -2017,27 +2055,34 @@
               "num": "1",
               "text": "Shredded Coconut",
               "sub": [
-                "Set Jukebox Dryer to Shredded Coconut.",
-                "Set 12 tree plots to Coconut"
+                "Set one Jukebox Dryer to Shredded Coconut.",
+                "Set 15 tree plots to Coconut."
               ]
             },
             {
               "kind": "numbered",
               "num": "2",
-              "text": "Grape Juice",
+              "text": "Ginseng Water",
               "sub": [
-                "Set Bouncy Brew Keg to Grape Juice.",
+                "Set one Bouncy Brew Keg to Ginseng Water.",
+                "Set the other Jukebox Dryer to Dried Ginseng.",
                 "Set both Wells to Deep Rock Spring Water.",
-                "Set 4 farm plots to Grapes"
+                "Set 3 farm plots to Ginseng."
               ]
+            },
+            {
+              "kind": "text",
+              "text": "Both wells give 6 Deep Rock every 25 minutes. That supports 3 of these."
             },
             {
               "kind": "numbered",
               "num": "3",
-              "text": "Grape Jam",
+              "text": "Ginseng Porridge",
               "sub": [
-                "Set Simmering Pot to Grape Jam.",
-                "Set 26 farm plots to Grapes"
+                "Set one Simmering Pot to Ginseng Porridge.",
+                "Set one Carousel Mill to Milled Rice.",
+                "Set 18 farm plots to Ginseng.",
+                "Set 9 farm plots to Quick Recipe: Rice."
               ]
             },
             {
@@ -2050,16 +2095,17 @@
               ]
             },
             {
-              "kind": "numbered",
-              "num": "5",
-              "text": "Quick Maple",
-              "sub": [
-                "Set 3 tree plots to Quick Maple"
-              ]
+              "kind": "text",
+              "text": "The Nimbus Bed makes 6 Wool every 25 minutes. Stars are still the cap."
             },
             {
-              "kind": "text",
-              "text": "Note: If you stockpiled Nuts in RV12, cash them in here using the Maple Syrup to make Caramel Nut Chips in your Claw Game Cooker."
+              "kind": "numbered",
+              "num": "5",
+              "text": "Aromathyst",
+              "sub": [
+                "Set Dewy House to Aromathyst.",
+                "NOTE: Sell or stockpile Aromathyst. We can't realistically upgrade this into Ginseng Aroma because the split between Dried Ginseng and Ginseng Powder would massively screw up the production line."
+              ]
             }
           ]
         },
@@ -2069,15 +2115,19 @@
           "items": [
             {
               "kind": "text",
-              "text": "30 Farm plots: Grapes (Sunlamp)"
+              "text": "21 Farm plots: Ginseng (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "12 Tree plots: Coconut (level 5, Temperature: Scorching)"
+              "text": "9 Farm plots: Quick Recipe: Rice"
             },
             {
               "kind": "text",
-              "text": "3 Tree plots: Quick Maple (level 5, Temperature: Freezing)"
+              "text": "15 Tree plots: Coconut (level 5, Temperature: Scorching)"
+            },
+            {
+              "kind": "text",
+              "text": "12 Coconut go on one heater. The other 3 go on the second heater. 21 Ginseng fit in one cooler. No Sunlamp. Event crops come off the porridge Ginseng, not the 3 water plots and not the Rice."
             }
           ]
         },
@@ -2087,7 +2137,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "One Piopiota / Panpanta with \"J\"udicious."
+              "text": "One Sherro with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2103,27 +2153,27 @@
             },
             {
               "kind": "bullet",
-              "text": "One Light Aniimo on the Sunlamp: Prismana Felmane, your starter, or battlepass Fulmintis."
+              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
-              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
-            },
-            {
-              "kind": "bullet",
-              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers Well and cooler."
-            },
-            {
-              "kind": "bullet",
-              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water needs are met. If you run out and don't want to get more, finish off with more Glacy."
-            },
-            {
-              "kind": "bullet",
-              "text": "Two Sparki/Flamerion/Sparkelf to run your heaters."
+              "text": "Two Sparki/Flamerion/Sparkelf to run the two Heat Furnace."
             },
             {
               "kind": "bullet",
               "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
+            },
+            {
+              "kind": "bullet",
+              "text": "Twelve Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers 2x Wells and 1x cooler."
+            },
+            {
+              "kind": "bullet",
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
@@ -2134,7 +2184,9 @@
       ]
     },
     {
-      "type": "closing",
+      "type": "rv",
+      "level": 15,
+      "next": 16,
       "blocks": [
         {
           "heading": null,
@@ -2142,59 +2194,210 @@
           "items": [
             {
               "kind": "text",
-              "text": "I will add setups for further RV levels in the future."
+              "text": "Index Points goal: ????"
             }
           ]
         },
         {
-          "heading": "Prismana?",
+          "heading": "Warning",
           "images": [],
           "items": [
             {
               "kind": "text",
-              "text": "For the purposes of this guide, I am treating Prismana Aniimo as though they don't exist. They uniquely have a 4-strength element and role, making them the best at what they do. However, Prismana are relatively hard to get. If you happen to have some, that's awesome! They'll improve workflow in your base."
-            }
-          ]
-        },
-        {
-          "heading": "Rushing?",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "Plant Growth Tonic and Energizing Work Meal instantly complete a long production. This is really useful when you want to produce, say, 80 lavender _right now_ so you can complete an order before you go to bed. However, you can also use it to spam Mines or Trees to get more Byproduct, thereby getting you to the next level sooner. I do not recommend doing this, but it is an option available to you."
+              "text": "This is untested. It's what I'm _planning_ to do once I hit RV15. After running the numbers, I have a reasonable amount of confidence this will work."
             },
             {
               "kind": "text",
-              "text": "The game is surprisingly generous with rush items, so use them freely when filling out your Index or completing orders. You can buy more - on a weekly basis - from the left Bini #2333 in front of the Co-op store in exchange for Glimmer. Glimmer is useful in the main game, so it's up to you if it's worth it to buy rush items."
+              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
+            },
+            {
+              "kind": "text",
+              "text": "I also could have just made a mistake. I'm not perfect."
             }
           ]
         },
         {
-          "heading": "Dream Sparks?",
+          "heading": "Note",
           "images": [],
           "items": [
             {
               "kind": "text",
-              "text": "Supposedly you can get Dream Sparks from the tilling chests. Visit 3 friends, till 15 plots, come back, open chest. You get a few rush items and a Dream Spark as a rare drop. You get a small number of them guaranteed from rank-up and Index."
+              "text": "Buy Ecological Module 6."
+            },
+            {
+              "kind": "text",
+              "text": "Upgrade every Mine to level 5."
+            },
+            {
+              "kind": "text",
+              "text": "Remember to recycle any unused buildings!"
             }
           ]
         },
         {
-          "heading": "Watering the crops?",
+          "heading": "Production",
+          "images": [],
+          "items": [
+            {
+              "kind": "numbered",
+              "num": "1",
+              "text": "Maple Sugar Chunk",
+              "sub": [
+                "Set one Simmering Pot to Maple Sugar Chunk.",
+                "Set 12 tree plots to Quick Maple."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "2",
+              "text": "Rubber Duck",
+              "sub": [
+                "Set one Crafting Table to Rubber Duck.",
+                "Set 4 tree plots to Natural Rubber."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Ginseng Water",
+              "sub": [
+                "Set one Bouncy Brew Keg to Ginseng Water.",
+                "Set one Jukebox Dryer to Dried Ginseng. This also feeds the porridge.",
+                "Set both Wells to Deep Rock Spring Water.",
+                "Set 3 farm plots to Ginseng."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Both wells give 6 Deep Rock every 25 minutes. That supports 3 of these."
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Ginseng Porridge",
+              "sub": [
+                "Set the other Simmering Pot to Ginseng Porridge.",
+                "Set one Carousel Mill to Milled Rice.",
+                "Set 20 farm plots to Ginseng.",
+                "Set 9 farm plots to Quick Recipe: Rice."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "The rice comes up a little short. Sell the leftover Dried Ginseng."
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Advanced Wind Chime",
+              "sub": [
+                "Set Joy Wheel Loom to Woolen Yarn.",
+                "Set the other Crafting Table to Advanced Wind Chime."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "The Nimbus Bed makes 6 Wool every 25 minutes. Stars are still the cap."
+            },
+            {
+              "kind": "numbered",
+              "num": "6",
+              "text": "Aromathyst",
+              "sub": [
+                "Set Dewy House to Aromathyst."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note: Stockpile or sell."
+            },
+            {
+              "kind": "numbered",
+              "num": "7",
+              "text": "Pearls",
+              "sub": [
+                "Set Tidewhisper Sandcastle to Pearls."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note: Stockpile or sell them."
+            }
+          ]
+        },
+        {
+          "heading": "Farm/Tree Summary",
           "images": [],
           "items": [
             {
               "kind": "text",
-              "text": "If you watch, while you're standing in your Homeland, Aniimo will sometimes come by and water a plant, reducing the timer by 5 minutes."
+              "text": "23 Farm plots: Ginseng (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "As far as I'm aware, this only happens while you're present in the base and logged on. They don't seem to do this while you're logged off."
+              "text": "9 Farm plots: Quick Recipe: Rice"
             },
             {
               "kind": "text",
-              "text": "Does this mean that you can leave the game running while you're afk for hours, and accumulate 33% more Wood Blocks and other plants? Maybe. I haven't tested it."
+              "text": "Note: If you want event crops, take them off 3 Ginseng + 1 Rice."
+            },
+            {
+              "kind": "text",
+              "text": "12 Tree plots: Quick Maple (level 5, Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "4 Tree plots: Natural Rubber (level 5, Temperature: Scorching)"
+            }
+          ]
+        },
+        {
+          "heading": "Aniimo Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "One Sherro with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Fragrancier with \"I\"nstinctive."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Turbo / Dreaple with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Sparki/Flamerion/Sparkelf for the Heat Furnace."
+            },
+            {
+              "kind": "bullet",
+              "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+            },
+            {
+              "kind": "bullet",
+              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Four Glacy (Any Form); preferably \"F\"aithful. Covers 2x Wells and 2x Cooling Units."
+            },
+            {
+              "kind": "bullet",
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "Remaining slots can go to the house to generate Bud Tickets."
             }
           ]
         }
