@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T21:52:45.032Z",
+  "updated": "2026-10-03T03:57:05.130Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -982,7 +982,7 @@
         },
         {
           "name": "Escape the Lies",
-          "goal": "Escape the Lies is the first MK-Challenge that takes place at the Waste Tunnel in The Outlast Trials.",
+          "goal": "Escape the Lies is an MK-Challenge that takes place at the Waste Tunnel in The Outlast Trials.",
           "objectives": [
             "Escort Amelia's loyalists to the incinerators",
             "Return to Easterman",
