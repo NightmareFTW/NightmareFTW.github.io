@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T20:39:07.413Z",
+  "updated": "2026-10-04T04:29:31.450Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -969,6 +969,13 @@
       "img": "https://static.wikia.nocookie.net/outlast/images/c/cb/Reagent_equipment_harvester.jpg",
       "layouts": [],
       "trials": [
+        {
+          "name": "Program Genesis",
+          "goal": "Program Genesis Poster GENESISThematic therapies filled with Trials and MK-Challenges, specially curated by Dr.",
+          "objectives": [],
+          "prime": "",
+          "tips": []
+        },
         {
           "name": "Escape",
           "goal": "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.",
