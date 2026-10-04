@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-03T10:28:59.308Z",
+  "updated": "2026-10-04T11:10:35.225Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -1414,6 +1414,10 @@
             {
               "kind": "text",
               "text": "Do NOT buy the expedition module upgrade unless you can somehow get up to 5500 Index Points."
+            },
+            {
+              "kind": "text",
+              "text": "You will need roughly 5 million Home Coins to upgrade everything in RV12. Don't spend them too frivolously."
             }
           ]
         },
@@ -1563,7 +1567,7 @@
             },
             {
               "kind": "text",
-              "text": "If you don't use all the power, buildings produce more quickly, up to 120%. The more of the electric you use, the more you cut into that bonus. Going above the limit reduces work speed below 100%"
+              "text": "If you don't use all the power, buildings produce more quickly, up to 120%. The more of the electric you use, the more you cut into that bonus. Going above the limit reduces work speed below 100%."
             },
             {
               "kind": "text",
@@ -1698,7 +1702,8 @@
               "text": "Advanced Wind Chime",
               "sub": [
                 "Set Joy Wheel Loom to Woolen Yarn.",
-                "Set a Crafting Table to Advanced Wind Chime."
+                "Set a Crafting Table to Advanced Wind Chime.",
+                "Set the Starfall Hammock to Stars."
               ]
             },
             {
@@ -1935,6 +1940,10 @@
             },
             {
               "kind": "text",
+              "text": "NOTE: For event crops, drop 1 porridge Ginseng and 1 Rice. For 4 plots, drop 3 porridge Ginseng and 1 Rice."
+            },
+            {
+              "kind": "text",
               "text": "11 Tree plots: Chestnut (Temperature: Warm)"
             },
             {
@@ -2011,24 +2020,6 @@
           ]
         },
         {
-          "heading": "Warning",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "This is untested. It's what I'm _planning_ to do once I hit RV14. After running the numbers, I have a reasonable amount of confidence this will work."
-            },
-            {
-              "kind": "text",
-              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
-            },
-            {
-              "kind": "text",
-              "text": "I also could have just made a mistake. I'm not perfect."
-            }
-          ]
-        },
-        {
           "heading": "Note",
           "images": [],
           "items": [
@@ -2038,11 +2029,23 @@
             },
             {
               "kind": "text",
+              "text": "No need to buy Ecological Module Level 5 yet."
+            },
+            {
+              "kind": "text",
+              "text": "Signal Transmitter Level 3 should be affordable now."
+            },
+            {
+              "kind": "text",
               "text": "Chimney Kiln and Woodworking Bench reach level 3, so you'll need to process Byproducts three times. Keep the old ones without upgrading them, and buy the new level 3 versions."
             },
             {
               "kind": "text",
-              "text": "Upgrade the Tidewhisper Sandcastle to level 3. Produce Pearls; stockpile or sell them."
+              "text": "Upgrade both Tidewhisper Sandcastles to level 3. Both produce Pearls; stockpile or sell them. Field a second Sherro with \"J\"udicious."
+            },
+            {
+              "kind": "text",
+              "text": "You get a third Well. All three make Deep Rock."
             }
           ]
         },
@@ -2066,13 +2069,13 @@
               "sub": [
                 "Set one Bouncy Brew Keg to Ginseng Water.",
                 "Set the other Jukebox Dryer to Dried Ginseng.",
-                "Set both Wells to Deep Rock Spring Water.",
-                "Set 3 farm plots to Ginseng."
+                "Set all three Wells to Deep Rock Spring Water.",
+                "Set 4 farm plots to Ginseng."
               ]
             },
             {
               "kind": "text",
-              "text": "Both wells give 6 Deep Rock every 25 minutes. That supports 3 of these."
+              "text": "Each well gives 6 Deep Rock every 25 minutes. That supports 4 of these."
             },
             {
               "kind": "numbered",
@@ -2082,8 +2085,12 @@
                 "Set one Simmering Pot to Ginseng Porridge.",
                 "Set one Carousel Mill to Milled Rice.",
                 "Set 18 farm plots to Ginseng.",
-                "Set 9 farm plots to Quick Recipe: Rice."
+                "Set 8 farm plots to Quick Recipe: Rice."
               ]
+            },
+            {
+              "kind": "text",
+              "text": "The rice comes up a little short. Sell or stockpile the leftover Dried Ginseng."
             },
             {
               "kind": "numbered",
@@ -2106,6 +2113,18 @@
                 "Set Dewy House to Aromathyst.",
                 "NOTE: Sell or stockpile Aromathyst. We can't realistically upgrade this into Ginseng Aroma because the split between Dried Ginseng and Ginseng Powder would massively screw up the production line."
               ]
+            },
+            {
+              "kind": "numbered",
+              "num": "6",
+              "text": "Pearls",
+              "sub": [
+                "Set both Tidewhisper Sandcastles to Pearls."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Stockpile or sell them."
             }
           ]
         },
@@ -2115,19 +2134,19 @@
           "items": [
             {
               "kind": "text",
-              "text": "21 Farm plots: Ginseng (Temperature: Cool)"
+              "text": "22 Farm plots: Ginseng (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "9 Farm plots: Quick Recipe: Rice"
+              "text": "8 Farm plots: Quick Recipe: Rice"
             },
             {
               "kind": "text",
-              "text": "15 Tree plots: Coconut (level 5, Temperature: Scorching)"
+              "text": "NOTE: For event crops, drop 2 porridge Ginseng. If you want 4 plots, drop 3 porridge Ginseng and 1 Rice."
             },
             {
               "kind": "text",
-              "text": "12 Coconut go on one heater. The other 3 go on the second heater. 21 Ginseng fit in one cooler. No Sunlamp. Event crops come off the porridge Ginseng, not the 3 water plots and not the Rice."
+              "text": "15 Tree plots: Coconut (Temperature: Scorching)"
             }
           ]
         },
@@ -2137,7 +2156,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "One Sherro with \"J\"udicious."
+              "text": "Two Sherro with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2169,7 +2188,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Three Glacy (Any Form); preferably \"F\"aithful. Covers 2x Wells and 1x cooler."
+              "text": "Four Glacy (Any Form); preferably \"F\"aithful. Covers 3x Wells and 1x Cooling Unit."
             },
             {
               "kind": "bullet",
@@ -2178,6 +2197,30 @@
             {
               "kind": "bullet",
               "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lesson",
+      "title": "Bubble Gachapon",
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "After building it, you get 5 pulls a week, at increasing cost."
+            },
+            {
+              "kind": "text",
+              "text": "Most of it's junk. Still, max out your pulls. 0.5% chance for Prismana Egg, 0.5% chance for a Dream Spark, 0.5% chance for a 10-pack of Elemental Crystals, 2.5% chance for a single Elemental Crystal."
+            },
+            {
+              "kind": "text",
+              "text": "It only costs 560k Home Coins per week, so might as well. At the level we get it, the doesn't represent a significant expense."
             }
           ]
         }
@@ -2389,7 +2432,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Four Glacy (Any Form); preferably \"F\"aithful. Covers 2x Wells and 2x Cooling Units."
+              "text": "Five Glacy (Any Form); preferably \"F\"aithful. Covers 3x Wells and 2x Cooling Units."
             },
             {
               "kind": "bullet",
