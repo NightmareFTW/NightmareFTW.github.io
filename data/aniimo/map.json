@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04T11:10:34.725Z",
+  "updated": "2026-10-05T12:23:36.086Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -103,7 +103,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 1154,
+  "count": 1157,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -1096,6 +1096,15 @@
       "creatureSlug": null
     },
     {
+      "id": "5FprILQOfmqw6jZfUw5C",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.7152578642377234,
+      "y": 0.5480896945439895,
+      "creatureSlug": null
+    },
+    {
       "id": "5HuXgPALVt78DPlTw2j4",
       "name": "Chest",
       "categoryId": "TG9vdC0tLUNoZXN0",
@@ -1152,8 +1161,8 @@
     {
       "id": "5X7VDATirxcDgBwoUkpL",
       "name": "Bloom",
-      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
-      "group": "Others",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
       "x": 0.2383005008684514,
       "y": 0.4247349759379375,
       "creatureSlug": null
@@ -1593,8 +1602,8 @@
     {
       "id": "8ImOTTjcyvfd0x0xsQYJ",
       "name": "Bloom",
-      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
-      "group": "Others",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
       "x": 0.10231243732895699,
       "y": 0.7538719515921315,
       "creatureSlug": null
@@ -2547,8 +2556,8 @@
     {
       "id": "ETMH0ecJivyyHkiv2nLb",
       "name": "Bloom",
-      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
-      "group": "Others",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
       "x": 0.5667771481555889,
       "y": 0.1877813596801019,
       "creatureSlug": null
@@ -6534,8 +6543,8 @@
     {
       "id": "brVCF6oldDaUPUjHTdF0",
       "name": "Bloom",
-      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
-      "group": "Others",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
       "x": 0.30191384979895625,
       "y": 0.5885589254274066,
       "creatureSlug": null
@@ -6865,6 +6874,15 @@
       "creatureSlug": null
     },
     {
+      "id": "eFNsDQXlWVVcPDp8VWeq",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.6530725926858653,
+      "y": 0.6436453380957232,
+      "creatureSlug": null
+    },
+    {
       "id": "eKjakpcNChOGeGyJNu6e",
       "name": "Lumin Amber",
       "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
@@ -6943,6 +6961,15 @@
       "group": "Loot",
       "x": 0.41965665212594017,
       "y": 0.4687307418176516,
+      "creatureSlug": null
+    },
+    {
+      "id": "emhUUsP6nmIMMf043MpD",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.7173166865242441,
+      "y": 0.5927067759325553,
       "creatureSlug": null
     },
     {
@@ -9441,8 +9468,8 @@
     {
       "id": "tRgNAMEVoktjXwpsuSJ7",
       "name": "Bloom",
-      "categoryId": "T3RoZXJzLS0tTWlzY2VsbGFuZW91cw==",
-      "group": "Others",
+      "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
+      "group": "Location",
       "x": 0.10121988001526032,
       "y": 0.6102325720862041,
       "creatureSlug": null
