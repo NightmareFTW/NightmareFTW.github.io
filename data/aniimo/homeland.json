@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-04T11:10:35.225Z",
+  "updated": "2026-10-06T12:06:20.985Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
   "author": "darksteelhyren",
   "authorUrl": "https://steamcommunity.com/id/Zetajezu",
-  "maxLevel": 15,
+  "maxLevel": 16,
   "sections": [
     {
       "type": "overview",
@@ -300,11 +300,11 @@
             },
             {
               "kind": "bullet",
-              "text": "3) \"J\"udicious; Increases Tidewhisper Sandcastle. This increases Home Coin gain, as you can produce more Salt. Starting at RV5, you should stock one Piopiota / Panpanta with \"J\". Starting at RV14, the sandcastle makes Pearls instead, and Pearls want the Shelly family: one Sherro with \"J\". Turbo/Dreaple use this trait in the Nimbus Bed starting at RV10. At RV16 the Nimbus Bed switches to Petals and wants an Iris-family Aniimo."
+              "text": "3) \"J\"udicious; Increases Tidewhisper Sandcastle and Nimbus Bed efficiency. This increases Home Coin gain, as you can produce more Salt/Pearls/Wood/Petals."
             },
             {
               "kind": "bullet",
-              "text": "4) \"I\"nstinctive; Increases Dewy House efficiency. This increases Home Coin gain, as you can produce more Aromathyst. Starting at RV6, you should stock your base with one Fragrancier with \"I\"."
+              "text": "4) \"I\"nstinctive; Increases Dewy House efficiency. This increases Home Coin gain, as you can produce more Aromathyst."
             },
             {
               "kind": "text",
@@ -822,7 +822,7 @@
     },
     {
       "type": "lesson",
-      "title": "Index points from decorations",
+      "title": "Index Points from Decorations",
       "blocks": [
         {
           "heading": null,
@@ -1171,10 +1171,6 @@
           "items": [
             {
               "kind": "text",
-              "text": "Lesson: Harvest Moon Festival Event"
-            },
-            {
-              "kind": "text",
               "text": "Take this section with a grain of salt."
             },
             {
@@ -1187,19 +1183,43 @@
             },
             {
               "kind": "text",
-              "text": "In the same area, there's a shop where you can buy various recipees for Moonray Wheat coins (instead of spending those coins on more seeds). For now, I recommend purchasing the four recipees after you've done your first set of dailies."
+              "text": "In the same area, there's a shop where you can buy various recipes for Moonray Wheat coins (instead of spending those coins on more seeds). For now, I recommend purchasing the four recipes after you've done your first set of dailies."
             },
             {
               "kind": "text",
-              "text": "I recommend cooking up any Event food that comes up in Orders, using Rush items to grow the needed crops. Maybe cook up 4 of each recipee? I don't recommend selling Event food in the Co-op shop, as it just sells for Home Coins."
+              "text": "I recommend cooking up any Event food that comes up in Orders, using Rush items to grow the needed crops. Maybe cook up 4 of each recipe? I don't recommend selling Event food in the Co-op shop, as it just sells for Home Coins."
             },
             {
               "kind": "text",
-              "text": "As you grow Event crops and cook Event food, you aquire Harvest Moon Points, with rewards up to 160,000 Harvest Moon Points. At our current rate of Moonray Wheat coins per day, there's no way we can get to that point. I recommend stockpiling Moonray Wheat coins until the next phases of the event unlock. These will likely provide the proper ways to maximize our Harvest Moon Points."
+              "text": "As you grow Event crops and cook Event food, you acquire Harvest Moon Points, with rewards up to 160,000 Harvest Moon Points. At our current rate of Moonray Wheat coins per day, there's no way we can get to that point. I recommend stockpiling Moonray Wheat coins until the next phases of the event unlock. These will likely provide the proper ways to maximize our Harvest Moon Points."
             },
             {
               "kind": "text",
               "text": "More info to come."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lesson",
+      "title": "Optimizing Byproduct Processing",
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Welcome to RV10."
+            },
+            {
+              "kind": "text",
+              "text": "This level, you will get a second copy of Chimney Kiln and Woodworking table."
+            },
+            {
+              "kind": "text",
+              "text": "I recommend you keep a single copy of each at every level. Yes, it saves you a few Home Coins, but that isn't the reason why. Later on, you will be putting these buildings on the electrical grid, and their draw increases with each level. If you have 4 level 4 Chimney Kilns, that's 240 energy being pulled from the system, where-as if you had a Level 1, 2, 3, and 4, that's instead 150 energy. Energy saved makes all buildings in the grid go faster, so it is desirable. To the best of my knowledge, you are NOT able to down-grade buildings in any way, so upgrading them is a permanent increase in consumption. If you've already done this, it's not the end of the world; your Homeland will function just fine; at worst you're just fielding one additional Aniimo to Production instead of letting it stay at Home to generate Bud Tickets. You can also just buy your next byproduct processing building at level 1, instead of max level."
             }
           ]
         }
@@ -1405,11 +1425,11 @@
           "items": [
             {
               "kind": "text",
-              "text": "Buy Ecological Module."
+              "text": "Buy Ecological Module Level 4."
             },
             {
               "kind": "text",
-              "text": "Buy Resource Detector."
+              "text": "Buy Resource Detector Level 3."
             },
             {
               "kind": "text",
@@ -1563,7 +1583,7 @@
             },
             {
               "kind": "text",
-              "text": "The Aniimo you use does not matter, the Crackle Generator is what produces the power. An Electricity-1 Aniimo does the same thing as an Electricity-4 Aniimo, just like with the heater and cooler. I recommend a Bolty."
+              "text": "The Crackle Generator limits the power cap, starting at 600 power and going up every upgrade. An Electricity-1 Aniimo will produce 600 power, which is enough for Crackle Generator Level 1, but you might as well just toss a Blazen or something on it and not have to switch later."
             },
             {
               "kind": "text",
@@ -1571,7 +1591,11 @@
             },
             {
               "kind": "text",
-              "text": "Mines cost A LOT of power. DO NOT set mines to e-mode; continue to have \"P\"layful Shrubclaws utilize them."
+              "text": "Mines and Wells cost A LOT of power. DO NOT set them to e-mode; continue to have Aniimo with proper traits utilize them."
+            },
+            {
+              "kind": "text",
+              "text": "Power costs follow a formula. For Mines/Wells/Aniipod_Maker/Dance_Pad_Polisher, They cost 30*level, regardless of recipe. Everything else costs 15*level."
             }
           ]
         }
@@ -1598,7 +1622,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Buy the Power Grid Module."
+              "text": "Buy the Power Module Level 1."
             },
             {
               "kind": "text",
@@ -1610,7 +1634,7 @@
             },
             {
               "kind": "text",
-              "text": "Buy Crafting Module Level 3."
+              "text": "Buy Crafting Module Level 4."
             },
             {
               "kind": "text",
@@ -1634,7 +1658,7 @@
             },
             {
               "kind": "text",
-              "text": "Field one Electric Aniimo, such as unevolved Bolty, for the Crackle Generator."
+              "text": "Field one Electric Aniimo, such as Blazen, for the Crackle Generator."
             },
             {
               "kind": "text",
@@ -1790,7 +1814,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
+              "text": "One Blazen for the generator."
             },
             {
               "kind": "bullet",
@@ -1908,12 +1932,9 @@
               "text": "Advanced Wind Chime",
               "sub": [
                 "Set a Crafting Table to Advanced Wind Chime.",
-                "Set Joy Wheel Loom to Woolen Yarn."
+                "Set Joy Wheel Loom to Woolen Yarn.",
+                "Set the Starfall Hammock to Stars."
               ]
-            },
-            {
-              "kind": "text",
-              "text": "The Nimbus Bed makes 6 Wool every 25 minutes. That is more yarn than the stars can use."
             },
             {
               "kind": "numbered",
@@ -1978,7 +1999,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
+              "text": "One Blazen for the generator."
             },
             {
               "kind": "bullet",
@@ -2025,15 +2046,15 @@
           "items": [
             {
               "kind": "text",
-              "text": "Buy Power Module Level 2. Upgrade your Crackle Generator."
+              "text": "Buy Power Module Level 2. Upgrade your Crackle Generator. 660W is the most you can use at this level while maintaining the maximum 120% work speed. This is not necessary; it just means we can't hook up any mines or wells to the electrical grid."
             },
             {
               "kind": "text",
-              "text": "No need to buy Ecological Module Level 5 yet."
+              "text": "No need to buy Ecological Module Level 6 yet."
             },
             {
               "kind": "text",
-              "text": "Signal Transmitter Level 3 should be affordable now."
+              "text": "Signal Transmitter Level 2 should be affordable now."
             },
             {
               "kind": "text",
@@ -2045,7 +2066,7 @@
             },
             {
               "kind": "text",
-              "text": "You get a third Well. All three make Deep Rock."
+              "text": "Continue to produce Aromathust, and sell or stockpile it. We can't realistically upgrade this into Ginseng Aroma because the split between Dried Ginseng and Ginseng Powder would massively screw up the production line. If you want to try to manually balance it, go ahead, but I won't list it as this is intended to be a low-effort-utilization guide, and I really don't think it'll matter."
             }
           ]
         },
@@ -2056,30 +2077,17 @@
             {
               "kind": "numbered",
               "num": "1",
-              "text": "Shredded Coconut",
-              "sub": [
-                "Set one Jukebox Dryer to Shredded Coconut.",
-                "Set 15 tree plots to Coconut."
-              ]
-            },
-            {
-              "kind": "numbered",
-              "num": "2",
               "text": "Ginseng Water",
               "sub": [
                 "Set one Bouncy Brew Keg to Ginseng Water.",
-                "Set the other Jukebox Dryer to Dried Ginseng.",
+                "Set one Jukebox Dryer to Dried Ginseng.",
                 "Set all three Wells to Deep Rock Spring Water.",
                 "Set 4 farm plots to Ginseng."
               ]
             },
             {
-              "kind": "text",
-              "text": "Each well gives 6 Deep Rock every 25 minutes. That supports 4 of these."
-            },
-            {
               "kind": "numbered",
-              "num": "3",
+              "num": "2",
               "text": "Ginseng Porridge",
               "sub": [
                 "Set one Simmering Pot to Ginseng Porridge.",
@@ -2089,21 +2097,23 @@
               ]
             },
             {
-              "kind": "text",
-              "text": "The rice comes up a little short. Sell or stockpile the leftover Dried Ginseng."
+              "kind": "numbered",
+              "num": "3",
+              "text": "Advanced Wind Chime",
+              "sub": [
+                "Set Joy Wheel Loom to Woolen Yarn.",
+                "Set a Crafting Table to Advanced Wind Chime.",
+                "Set the Starfall Hammock to Stars."
+              ]
             },
             {
               "kind": "numbered",
               "num": "4",
-              "text": "Advanced Wind Chime",
+              "text": "Shredded Coconut",
               "sub": [
-                "Set Joy Wheel Loom to Woolen Yarn.",
-                "Set a Crafting Table to Advanced Wind Chime."
+                "Set another Jukebox Dryer to Shredded Coconut.",
+                "Set 15 tree plots to Coconut."
               ]
-            },
-            {
-              "kind": "text",
-              "text": "The Nimbus Bed makes 6 Wool every 25 minutes. Stars are still the cap."
             },
             {
               "kind": "numbered",
@@ -2119,12 +2129,9 @@
               "num": "6",
               "text": "Pearls",
               "sub": [
-                "Set both Tidewhisper Sandcastles to Pearls."
+                "Set both Tidewhisper Sandcastles to Pearls.",
+                "NOTE: Sell or stockpile Pearls."
               ]
-            },
-            {
-              "kind": "text",
-              "text": "Stockpile or sell them."
             }
           ]
         },
@@ -2142,7 +2149,7 @@
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, drop 2 porridge Ginseng. If you want 4 plots, drop 3 porridge Ginseng and 1 Rice."
+              "text": "NOTE: For event crops, drop 2 Ginseng. If you want 4 plots, drop 3 Ginseng and 1 Rice."
             },
             {
               "kind": "text",
@@ -2180,7 +2187,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
+              "text": "One Blazen for the generator."
             },
             {
               "kind": "bullet",
@@ -2311,10 +2318,6 @@
               ]
             },
             {
-              "kind": "text",
-              "text": "Both wells give 6 Deep Rock every 25 minutes. That supports 3 of these."
-            },
-            {
               "kind": "numbered",
               "num": "4",
               "text": "Ginseng Porridge",
@@ -2326,21 +2329,14 @@
               ]
             },
             {
-              "kind": "text",
-              "text": "The rice comes up a little short. Sell the leftover Dried Ginseng."
-            },
-            {
               "kind": "numbered",
               "num": "5",
               "text": "Advanced Wind Chime",
               "sub": [
                 "Set Joy Wheel Loom to Woolen Yarn.",
-                "Set the other Crafting Table to Advanced Wind Chime."
+                "Set the other Crafting Table to Advanced Wind Chime.",
+                "Set the Starfall Hammock to Stars."
               ]
-            },
-            {
-              "kind": "text",
-              "text": "The Nimbus Bed makes 6 Wool every 25 minutes. Stars are still the cap."
             },
             {
               "kind": "numbered",
@@ -2382,7 +2378,7 @@
             },
             {
               "kind": "text",
-              "text": "Note: If you want event crops, take them off 3 Ginseng + 1 Rice."
+              "text": "NOTE: For event crops, drop 2 porridge Ginseng. About 5,600 coins an hour. For 4 plots, drop 3 porridge Ginseng and 1 Rice. About 10,100 coins an hour. Do not drop the Ginseng Water."
             },
             {
               "kind": "text",
@@ -2420,7 +2416,229 @@
             },
             {
               "kind": "bullet",
-              "text": "One unevolved Bolty, or any single-element Electric Aniimo, for the generator."
+              "text": "One Blazen for the generator."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+            },
+            {
+              "kind": "bullet",
+              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Five Glacy (Any Form); preferably \"F\"aithful. Covers 3x Wells and 2x Cooling Units."
+            },
+            {
+              "kind": "bullet",
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rv",
+      "level": 16,
+      "next": 17,
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Index Points goal: ????"
+            }
+          ]
+        },
+        {
+          "heading": "Warning",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "This is untested. It's what I'm _planning_ to do once I hit RV16. After running the numbers, I have a reasonable amount of confidence this will work."
+            },
+            {
+              "kind": "text",
+              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
+            },
+            {
+              "kind": "text",
+              "text": "I also could have just made a mistake. I'm not perfect."
+            }
+          ]
+        },
+        {
+          "heading": "Note",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Buy Power Module Level 3. Upgrade your Crackle Generator."
+            },
+            {
+              "kind": "text",
+              "text": "Buy Kitchen Module Level 6."
+            },
+            {
+              "kind": "text",
+              "text": "Remember to recycle any unused buildings!"
+            }
+          ]
+        },
+        {
+          "heading": "Production",
+          "images": [],
+          "items": [
+            {
+              "kind": "numbered",
+              "num": "1",
+              "text": "Maple Sugar Chunk",
+              "sub": [
+                "Set one Simmering Pot to Maple Sugar Chunk.",
+                "Set 12 tree plots to Quick Maple."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Sell the leftover Maple Sugar Chunk."
+            },
+            {
+              "kind": "numbered",
+              "num": "2",
+              "text": "Rubber Duck",
+              "sub": [
+                "Set one Crafting Table to Rubber Duck.",
+                "Set 5 tree plots to Natural Rubber."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Ginseng Water",
+              "sub": [
+                "Set one Bouncy Brew Keg to Ginseng Water.",
+                "Set one Jukebox Dryer to Dried Ginseng. This also feeds the porridge.",
+                "Set all three Wells to Deep Rock Spring Water.",
+                "Set 2 farm plots to Ginseng.",
+                "IMPORTANT: Only use this recipe if you are NOT planting any event crops. If you are planting them, Ginseng Porridge will consume all your Ginseng, so we don't want this running."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Ginseng Porridge",
+              "sub": [
+                "Set the other Simmering Pot to Ginseng Porridge.",
+                "Set one Carousel Mill to Milled Rice.",
+                "Set 22 farm plots to Ginseng.",
+                "Set 10 farm plots to Quick Recipe: Rice."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Premium Jello",
+              "sub": [
+                "Set the Blazing Stove to Premium Jello.",
+                "Set the Nimbus Bed to Petals."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "6",
+              "text": "Maple Candy Star",
+              "sub": [
+                "Set one Claw Game Cooker to Maple Candy Star.",
+                "Set the Starfall Hammock to Stars."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "7",
+              "text": "Aromathyst",
+              "sub": [
+                "Set Dewy House to Aromathyst."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note: Stockpile or sell."
+            },
+            {
+              "kind": "numbered",
+              "num": "8",
+              "text": "Pearls",
+              "sub": [
+                "Set both Tidewhisper Sandcastles to Pearls."
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note: Stockpile or sell them."
+            }
+          ]
+        },
+        {
+          "heading": "Farm/Tree Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "24 Farm plots: Ginseng (Temperature: Cool)"
+            },
+            {
+              "kind": "text",
+              "text": "10 Farm plots: Quick Recipe: Rice"
+            },
+            {
+              "kind": "text",
+              "text": "NOTE: For event crops, switch out 2 Ginseng, and recycle the Bouncy Brew Keg. For 4 plots, switch 3 Ginseng and 1 Rice, and recycle the Bouncy Brew Keg."
+            },
+            {
+              "kind": "text",
+              "text": "12 Tree plots: Quick Maple (level 5, Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "5 Tree plots: Natural Rubber (level 5, Temperature: Scorching)"
+            }
+          ]
+        },
+        {
+          "heading": "Aniimo Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "Two Sherro with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Fragrancier with \"I\"nstinctive."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Irisal with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Sparki/Flamerion/Sparkelf for the Heat Furnace."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Blazen for the generator."
             },
             {
               "kind": "bullet",

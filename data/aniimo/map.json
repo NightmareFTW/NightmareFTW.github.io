@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T12:23:36.086Z",
+  "updated": "2026-10-06T12:06:20.506Z",
   "source": "https://gmtreks.com/aniimo/map/idyll",
   "attribution": "Map imagery and marker data courtesy of GameTrek (gmtreks.com).",
   "mapImage": "https://img.gmtreks.com/GP0DIW0z1Q1UNqCJmXnmV8KCaVxLU1KEx3oqGaTjuJaAcSZUALWgojSNyqJS552k42MkiHCiXTUSbxfLmHATY-jWIy5vLfpvWnPZ_RXcx-mmF1Kqs9nStBw=s3000",
@@ -103,7 +103,7 @@
       "icon": "https://img.gmtreks.com/LJvkCNuGxvxnspfm7R96dkat6JJl4Q1KaDv7BelR7C1CjxH1SE4pA5yZYYdcxV-IY7bRZ_9RgQMjYVD4ZPzmlsu54ddmWcORaVkYeHQodcUt4hg"
     }
   ],
-  "count": 1157,
+  "count": 1160,
   "markers": [
     {
       "id": "02GxhxE5e0biXtHmKKt1",
@@ -2308,6 +2308,15 @@
       "group": "Location",
       "x": 0.5324377338968534,
       "y": 0.2325086137782364,
+      "creatureSlug": null
+    },
+    {
+      "id": "CWzujqQn58LTOIISpYef",
+      "name": "Crystal Cavern",
+      "categoryId": "UHV6emxlLS0tTHVtaW4gQ29sbGVjdGlvbg==",
+      "group": "Puzzle",
+      "x": 0.28771468164327524,
+      "y": 0.47997126575714333,
       "creatureSlug": null
     },
     {
@@ -4894,6 +4903,15 @@
       "creatureSlug": null
     },
     {
+      "id": "T4dgHpwMFFwuSevzIeT8",
+      "name": "Chasing Clouds",
+      "categoryId": "UHV6emxlLS0tU2FuY3R1bQ==",
+      "group": "Puzzle",
+      "x": 0.27453152406420994,
+      "y": 0.4044507400590618,
+      "creatureSlug": null
+    },
+    {
       "id": "T4qLLw2NKEE0GYWvKY45",
       "name": "Bloom",
       "categoryId": "TG9jYXRpb24tLS1CbG9vbQ==",
@@ -7384,6 +7402,15 @@
       "group": "Loot",
       "x": 0.2321764316024435,
       "y": 0.8356662049704937,
+      "creatureSlug": null
+    },
+    {
+      "id": "gstxdLQJOVlbSQ3QTVs7",
+      "name": "Lumin Amber",
+      "categoryId": "TG9vdC0tLUx1bWluIEFtYmVy",
+      "group": "Loot",
+      "x": 0.2608992245145579,
+      "y": 0.48357379446227355,
       "creatureSlug": null
     },
     {
