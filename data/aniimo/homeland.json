@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06T12:06:20.985Z",
+  "updated": "2026-10-07T11:51:53.175Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -25,128 +25,6 @@
             {
               "kind": "text",
               "text": "I will provide a text description of each RV level, occasional screenshots to help you understand, as well as optional notes and lessons you can read if you want to understand what's going on at each level."
-            }
-          ]
-        },
-        {
-          "heading": "Elements and Roles",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "Not all elements are created equal."
-            },
-            {
-              "kind": "text",
-              "text": "To put this simply, there are two kinds of task: 1) Things that run quickly, and 2) things that run slowly. There is no point optimizing things that run quickly; if a bread takes 60 seconds or 50 seconds to craft, that doesn't matter at all: we're still waiting 20 minutes for Wheat to grow."
-            },
-            {
-              "kind": "text",
-              "text": "Because of this, there are only two elements that DO matter:"
-            },
-            {
-              "kind": "text",
-              "text": "Water. Increases how fast your Wells produce."
-            },
-            {
-              "kind": "text",
-              "text": "Earth. Increases how fast your Mines produce."
-            },
-            {
-              "kind": "text",
-              "text": "That's it! For the other elements, multiple coverages, even at low levels, is more valuable than high-level coverages."
-            },
-            {
-              "kind": "text",
-              "text": "This may change at higher RV levels. The guide will be updated to reflect this as the community moves to levels where, for example, electricity becomes utilized."
-            }
-          ]
-        },
-        {
-          "heading": "Early Aniimo choices",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "Press 5 in the Homeland. Look top-right. Press the (!) next to Ability Distribution. Your goal is to satisfy the recommended numbers, and make every number in the Ability Distribution green. While you're personally in the base, your Aniimo are much more efficient than they are when you're away or offline. Making the numbers green lets them continue at peak efficiency when you aren't there."
-            },
-            {
-              "kind": "numbered",
-              "num": "1",
-              "text": "Shrubclaws (Basic Form), with Earth-3, Nature, and Transport, are very versatile. Remember that they should have \"P\"layful trait if you want to maximize RV level-up progress.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "2",
-              "text": "Glacy (Any Form), with Water-3, Ice, and Transport, are very useful.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "2.1",
-              "text": "Sherro (Thunderstorm Form) has Water-3, and covers electricity-2 nicely if you choose to use Aniipod Maker. Replace one of the Glacy.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "3",
-              "text": "Ignitis (Highland Form) provides Artisanship, Dark, Fire. Their evolution is a bit of a hassle. At low levels, _any_ fire Aniimo will do.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "4",
-              "text": "Gracewing (Night Form) provides Dark, Wind, and Leisure.",
-              "sub": []
-            },
-            {
-              "kind": "text",
-              "text": "And, of course, you will want the family-specific Aniimo for their buildings, preferably along with the relevant trait (See Lesson: Traits)"
-            }
-          ]
-        },
-        {
-          "heading": "Post-electricity Aniimo Choices",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "The ideal choices for Aniimo change radically once you have your Crackle Generator."
-            },
-            {
-              "kind": "numbered",
-              "num": "1",
-              "text": "Shrugclaws (Basic Form), with \"P\"layful. This, at least, doesn't change. Mines cost WWWAAAAYYYYY too much electricity to switch to E-mode.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "2",
-              "text": "Glacy (Any Form), with \"F\"aithful. My builds don't leave enough spare electricity to E-mode the Wells and keep them running at 120%. I recommend enough Glacy to power your Wells AND Cooling Unit.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "3",
-              "text": "Pomhawk (Basic Form) with \"E\"nergetic. The amount of Lumber you need to cut is almost absurd. Pomhawk was chosen because his alternate element doesn't risk tying him down to long-term production; we want him on call for Lumber.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "4",
-              "text": "Sparki/Flamerion/Sparkelf, equal to the number of Heat Furnaces you're running. Everything else that used to use Fire should be switched to E-mode.",
-              "sub": []
-            },
-            {
-              "kind": "numbered",
-              "num": "5",
-              "text": "Piopiota (Night Form) or Stellarys (Rain form). These will cover your Water and Dark needs.",
-              "sub": []
-            },
-            {
-              "kind": "text",
-              "text": "Of course, you will still need to field specific Aniimo for buildings that require a member of a certain family."
             }
           ]
         },
@@ -997,6 +875,42 @@
       ]
     },
     {
+      "type": "lesson",
+      "title": "Aniipod Maker",
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Depending on how far you plan to go in this game, on this level you'll want an Aniipod Maker Level 3 set to Aniipod Mega, and run it forever."
+            },
+            {
+              "kind": "text",
+              "text": "There is no Trait for this building, so a Lightning-3 (like Blazen) or some Lightning-4 Prismana is the best you can do."
+            },
+            {
+              "kind": "text",
+              "text": "Lightning-3 Crafts in 25m, which is about 58 a day or 403 a week."
+            },
+            {
+              "kind": "text",
+              "text": "Lightning-4 Crafts in 22m 30s, which is about 64 a day or 448 a week."
+            },
+            {
+              "kind": "text",
+              "text": "If you're after top-tier badges for each of the areas, one of the requirements is to finish two \"Catch this Aniimo 1000 times\" research items. Running the Aniipod Maker will reduce the cost of having to buy around a thousand Aniipod Mega per week from the outpost to chuck at the infinite spawn locations, which costs millions of Credits."
+            },
+            {
+              "kind": "text",
+              "text": "Even after Mines go up to level 4, keeping a single Mine on level 3 is more than enough Shells to power the Aniipod Maker. If you're following my guide, you know that the only real blocker is Wood Blocks, not Mineral Sand, so doing this won't hinder your progress through RV levels."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "rv",
       "level": 9,
       "next": 10,
@@ -1654,7 +1568,7 @@
             },
             {
               "kind": "text",
-              "text": "Field one Nature-Artisan-3 Aniimo, such as Pomawk. Preferably it will have \"E\"nergetic. Wood Block byproduct processing needs have begun to be problematically high. This is the best non-prismana Aniimo to handle them, and at 360% efficiency, he works fast. This should carry us most of the way through our RV expedition."
+              "text": "Field one Artisan-3 Aniimo, such as Eklue. As it is Wind, an element we no longer use, he will stay glued to the table without distractions. Preferably it will have \"E\"nergetic. Wood Block byproduct processing needs have begun to be problematically high. This is the best non-prismana Aniimo to handle them, and at 360% efficiency, he works fast. This should carry us most of the way through our RV expedition."
             },
             {
               "kind": "text",
@@ -1810,7 +1724,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
@@ -2003,7 +1917,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
@@ -2179,7 +2093,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
@@ -2420,7 +2334,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
@@ -2642,7 +2556,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Pomhawk, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
             },
             {
               "kind": "bullet",
