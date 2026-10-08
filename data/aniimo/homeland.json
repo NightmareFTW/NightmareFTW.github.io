@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T11:51:53.175Z",
+  "updated": "2026-10-08T12:07:15.243Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -2141,7 +2141,11 @@
             },
             {
               "kind": "text",
-              "text": "It only costs 560k Home Coins per week, so might as well. At the level we get it, the doesn't represent a significant expense."
+              "text": "At RV14, we get 5 rolls a week totaling 560,000 Home Coins. This doesn't represent a significant expense."
+            },
+            {
+              "kind": "text",
+              "text": "At RV15, we get 10 rolls a week. Rolls 6 through 10 cost a total of 3 million, so it might not be in your best interest to go hard in on it when RV16 will cost a ton of Home Coins to upgrade everything."
             }
           ]
         }
@@ -2158,25 +2162,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Index Points goal: ????"
-            }
-          ]
-        },
-        {
-          "heading": "Warning",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "This is untested. It's what I'm _planning_ to do once I hit RV15. After running the numbers, I have a reasonable amount of confidence this will work."
-            },
-            {
-              "kind": "text",
-              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
-            },
-            {
-              "kind": "text",
-              "text": "I also could have just made a mistake. I'm not perfect."
+              "text": "Index Points goal: 11000"
             }
           ]
         },
@@ -2186,7 +2172,15 @@
           "items": [
             {
               "kind": "text",
+              "text": "Buy Resource Detector 7."
+            },
+            {
+              "kind": "text",
               "text": "Buy Ecological Module 6."
+            },
+            {
+              "kind": "text",
+              "text": "Buy Plant Research Module Level 4 if you can afford it."
             },
             {
               "kind": "text",
@@ -2195,6 +2189,10 @@
             {
               "kind": "text",
               "text": "Remember to recycle any unused buildings!"
+            },
+            {
+              "kind": "text",
+              "text": "We get another Crackle Generator. Field a second Blazen. E-mode your Wells and then Mines until you drip below 120, then switch one Mine back to bring it back up to 120%."
             }
           ]
         },
@@ -2214,21 +2212,19 @@
             {
               "kind": "numbered",
               "num": "2",
-              "text": "Rubber Duck",
+              "text": "Porcelain",
               "sub": [
-                "Set one Crafting Table to Rubber Duck.",
-                "Set 4 tree plots to Natural Rubber."
+                "Set one Crafting Table to Porcelain.",
+                "Set all Wells to Quick Recipe: Deep Rock Spring Water."
               ]
             },
             {
               "kind": "numbered",
               "num": "3",
-              "text": "Ginseng Water",
+              "text": "Shredded Coconut",
               "sub": [
-                "Set one Bouncy Brew Keg to Ginseng Water.",
-                "Set one Jukebox Dryer to Dried Ginseng. This also feeds the porridge.",
-                "Set both Wells to Deep Rock Spring Water.",
-                "Set 3 farm plots to Ginseng."
+                "Set one Jukebox Dryer to Shredded Coconut.",
+                "Set 4 tree plots to Coconut."
               ]
             },
             {
@@ -2237,9 +2233,10 @@
               "text": "Ginseng Porridge",
               "sub": [
                 "Set the other Simmering Pot to Ginseng Porridge.",
+                "Set the other Jukebox Dryer to Dried Ginseng.",
                 "Set one Carousel Mill to Milled Rice.",
-                "Set 20 farm plots to Ginseng.",
-                "Set 9 farm plots to Quick Recipe: Rice."
+                "Set 22 farm plots to Ginseng.",
+                "Set 10 farm plots to Quick Recipe: Rice."
               ]
             },
             {
@@ -2247,34 +2244,11 @@
               "num": "5",
               "text": "Advanced Wind Chime",
               "sub": [
-                "Set Joy Wheel Loom to Woolen Yarn.",
                 "Set the other Crafting Table to Advanced Wind Chime.",
-                "Set the Starfall Hammock to Stars."
+                "Set Joy Wheel Loom to Woolen Yarn.",
+                "Set the Starfall Hammock to Stars.",
+                "You're no longer producing the Copper Ore, but... you should have thousands left over."
               ]
-            },
-            {
-              "kind": "numbered",
-              "num": "6",
-              "text": "Aromathyst",
-              "sub": [
-                "Set Dewy House to Aromathyst."
-              ]
-            },
-            {
-              "kind": "text",
-              "text": "Note: Stockpile or sell."
-            },
-            {
-              "kind": "numbered",
-              "num": "7",
-              "text": "Pearls",
-              "sub": [
-                "Set Tidewhisper Sandcastle to Pearls."
-              ]
-            },
-            {
-              "kind": "text",
-              "text": "Note: Stockpile or sell them."
             }
           ]
         },
@@ -2284,15 +2258,15 @@
           "items": [
             {
               "kind": "text",
-              "text": "23 Farm plots: Ginseng (Temperature: Cool)"
+              "text": "22 Farm plots: Ginseng (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "9 Farm plots: Quick Recipe: Rice"
+              "text": "10 Farm plots: Quick Recipe: Rice"
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, drop 2 porridge Ginseng. About 5,600 coins an hour. For 4 plots, drop 3 porridge Ginseng and 1 Rice. About 10,100 coins an hour. Do not drop the Ginseng Water."
+              "text": "NOTE: For event crops, drop 2 Ginseng. For 4 plots, drop 3 Ginseng and 1 Rice."
             },
             {
               "kind": "text",
@@ -2300,7 +2274,7 @@
             },
             {
               "kind": "text",
-              "text": "4 Tree plots: Natural Rubber (level 5, Temperature: Scorching)"
+              "text": "4 Tree plots: Coconut (level 5, Temperature: Scorching)"
             }
           ]
         },
@@ -2310,7 +2284,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "One Sherro with \"J\"udicious."
+              "text": "Two Sherro with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2338,15 +2312,15 @@
             },
             {
               "kind": "bullet",
-              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+              "text": "Two Glacy (Any Form). Covers 2x Cooling Units. The Wells should be under E-mode."
             },
             {
               "kind": "bullet",
-              "text": "Five Glacy (Any Form); preferably \"F\"aithful. Covers 3x Wells and 2x Cooling Units."
+              "text": "Fill Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
             },
             {
               "kind": "bullet",
-              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
@@ -2414,19 +2388,6 @@
             {
               "kind": "numbered",
               "num": "1",
-              "text": "Maple Sugar Chunk",
-              "sub": [
-                "Set one Simmering Pot to Maple Sugar Chunk.",
-                "Set 12 tree plots to Quick Maple."
-              ]
-            },
-            {
-              "kind": "text",
-              "text": "Sell the leftover Maple Sugar Chunk."
-            },
-            {
-              "kind": "numbered",
-              "num": "2",
               "text": "Rubber Duck",
               "sub": [
                 "Set one Crafting Table to Rubber Duck.",
@@ -2435,68 +2396,45 @@
             },
             {
               "kind": "numbered",
-              "num": "3",
+              "num": "2",
               "text": "Ginseng Water",
               "sub": [
                 "Set one Bouncy Brew Keg to Ginseng Water.",
                 "Set one Jukebox Dryer to Dried Ginseng. This also feeds the porridge.",
-                "Set all three Wells to Deep Rock Spring Water.",
-                "Set 2 farm plots to Ginseng.",
-                "IMPORTANT: Only use this recipe if you are NOT planting any event crops. If you are planting them, Ginseng Porridge will consume all your Ginseng, so we don't want this running."
+                "Set all three Wells to Deep Rock Spring Water."
               ]
             },
             {
               "kind": "numbered",
-              "num": "4",
+              "num": "3",
               "text": "Ginseng Porridge",
               "sub": [
                 "Set the other Simmering Pot to Ginseng Porridge.",
                 "Set one Carousel Mill to Milled Rice.",
-                "Set 22 farm plots to Ginseng.",
+                "Set 24 farm plots to Ginseng.",
                 "Set 10 farm plots to Quick Recipe: Rice."
               ]
             },
             {
               "kind": "numbered",
-              "num": "5",
+              "num": "4",
               "text": "Premium Jello",
               "sub": [
-                "Set the Blazing Stove to Premium Jello.",
-                "Set the Nimbus Bed to Petals."
+                "Set one Blazing Stove to Premium Jello.",
+                "Set both Nimbus Beds to Petals.",
+                "Set one Simmering Pot to Maple Sugar Chunk.",
+                "Set 12 tree plots to Quick Maple."
               ]
             },
             {
               "kind": "numbered",
-              "num": "6",
+              "num": "5",
               "text": "Maple Candy Star",
               "sub": [
                 "Set one Claw Game Cooker to Maple Candy Star.",
-                "Set the Starfall Hammock to Stars."
+                "Set the Starfall Hammock to Stars.",
+                "Note: May need to set a second simmering pot to Maple Sugar Chunks, I'm not sure."
               ]
-            },
-            {
-              "kind": "numbered",
-              "num": "7",
-              "text": "Aromathyst",
-              "sub": [
-                "Set Dewy House to Aromathyst."
-              ]
-            },
-            {
-              "kind": "text",
-              "text": "Note: Stockpile or sell."
-            },
-            {
-              "kind": "numbered",
-              "num": "8",
-              "text": "Pearls",
-              "sub": [
-                "Set both Tidewhisper Sandcastles to Pearls."
-              ]
-            },
-            {
-              "kind": "text",
-              "text": "Note: Stockpile or sell them."
             }
           ]
         },
@@ -2514,7 +2452,7 @@
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, switch out 2 Ginseng, and recycle the Bouncy Brew Keg. For 4 plots, switch 3 Ginseng and 1 Rice, and recycle the Bouncy Brew Keg."
+              "text": "NOTE: For event crops, switch 2 Ginseng and recycle the Bouncy Brew Keg. For 4 plots, switch 3 Ginseng and 1 Rice. Leave the keg on."
             },
             {
               "kind": "text",
@@ -2540,7 +2478,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Irisal with \"J\"udicious."
+              "text": "One Turbo / Dreaple with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2560,15 +2498,15 @@
             },
             {
               "kind": "bullet",
-              "text": "Eleven Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+              "text": "Two Glacy (Any Form). Covers 2x Cooling Units. The Wells should be under E-mode."
             },
             {
               "kind": "bullet",
-              "text": "Five Glacy (Any Form); preferably \"F\"aithful. Covers 3x Wells and 2x Cooling Units."
+              "text": "Fill Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
             },
             {
               "kind": "bullet",
-              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
