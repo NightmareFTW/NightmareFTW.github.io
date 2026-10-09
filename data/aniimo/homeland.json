@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-08T12:07:15.243Z",
+  "updated": "2026-10-09T11:58:48.722Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -1129,7 +1129,7 @@
             },
             {
               "kind": "text",
-              "text": "This level, you will get a second copy of Chimney Kiln and Woodworking table."
+              "text": "This level, you will get a second copy of Chimney Kiln and Woodworking Bench."
             },
             {
               "kind": "text",
@@ -1755,6 +1755,24 @@
               "text": "Remaining slots can go to the house to generate Bud Tickets."
             }
           ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "All buildings that transform items into other items."
+            },
+            {
+              "kind": "bullet",
+              "text": "Exception: The Woodworking Bench that handles Rough Lumber should be kept on Common mode."
+            },
+            {
+              "kind": "text",
+              "text": "All Mines and Wells should be on Common-mode."
+            }
+          ]
         }
       ]
     },
@@ -1934,6 +1952,24 @@
             {
               "kind": "bullet",
               "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "All buildings that transform items into other items."
+            },
+            {
+              "kind": "bullet",
+              "text": "Exception: The Woodworking Bench that handles Rough Lumber should be kept on Common mode."
+            },
+            {
+              "kind": "text",
+              "text": "All Mines and Wells should be on Common-mode."
             }
           ]
         }
@@ -2120,6 +2156,24 @@
               "text": "Remaining slots can go to the house to generate Bud Tickets."
             }
           ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "All buildings that transform items into other items."
+            },
+            {
+              "kind": "bullet",
+              "text": "Exception: The Woodworking Bench that handles Rough Lumber should be kept on Common mode."
+            },
+            {
+              "kind": "text",
+              "text": "All Mines and Wells should be on Common-mode."
+            }
+          ]
         }
       ]
     },
@@ -2192,7 +2246,7 @@
             },
             {
               "kind": "text",
-              "text": "We get another Crackle Generator. Field a second Blazen. E-mode your Wells and then Mines until you drip below 120, then switch one Mine back to bring it back up to 120%."
+              "text": "We get another Crackle Generator. Field a second Blazen. It should be enough to E-mode all of your Wells, and all of your production buildings, but none of your Mines. Feel free to do what you want with it, but do not let electricity fall below the 120% bonus."
             }
           ]
         },
@@ -2325,6 +2379,24 @@
             {
               "kind": "bullet",
               "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "All buildings that transform items into other items."
+            },
+            {
+              "kind": "bullet",
+              "text": "Exception: The Woodworking Bench that handles Rough Lumber should be kept on Common mode."
+            },
+            {
+              "kind": "text",
+              "text": "All Mines and Wells should be on Common-mode."
             }
           ]
         }
@@ -2511,6 +2583,28 @@
             {
               "kind": "bullet",
               "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "All buildings that transform items into other items."
+            },
+            {
+              "kind": "bullet",
+              "text": "Exception: The Woodworking Bench that handles Rough Lumber should be kept on Common mode."
+            },
+            {
+              "kind": "text",
+              "text": "All Wells should be on E-mode."
+            },
+            {
+              "kind": "text",
+              "text": "Mines ?????"
             }
           ]
         }
