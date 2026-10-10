@@ -1,10 +1,31 @@
 {
   "game": "epic7",
-  "updated": "2026-10-10T11:58:34.263Z",
+  "updated": "2026-10-10T17:11:20.718Z",
   "source": "https://ucngame.com/codes/epic-seven-codes/",
   "redeem": "https://epic7.onstove.com/en/coupon",
   "note": "Redeem on the official Stove coupon page (button below). Epic Seven codes expire fast — newest at the top; some may already be gone.",
   "codes": [
+    {
+      "code": "E7WCMATCHSTART",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "WELCOME2E7WC",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "K7M9START2",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
     {
       "code": "EPICWITHCZN",
       "reward": "Coupon rewards (event / livestream)",
@@ -189,27 +210,6 @@
     },
     {
       "code": "RELAY_E7_20_SPRING",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "SPR_19_RELAY_E7",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "SPRING_17_E7_RLY",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "RLY_E7_16_SPRING",
       "reward": "Coupon rewards (event / livestream)",
       "added": "",
       "expires": null,
