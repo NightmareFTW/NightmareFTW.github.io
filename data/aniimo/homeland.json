@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-09T11:58:48.722Z",
+  "updated": "2026-10-11T11:28:38.895Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
   "author": "darksteelhyren",
   "authorUrl": "https://steamcommunity.com/id/Zetajezu",
-  "maxLevel": 16,
+  "maxLevel": 17,
   "sections": [
     {
       "type": "overview",
@@ -1576,7 +1576,7 @@
             },
             {
               "kind": "text",
-              "text": "As a result of E-mode, you no longer need a second Fragrancier for the Phonalfactory Table."
+              "text": "As a result of E-mode, you no longer need a second Fragrancier for the Phonolfactory Table."
             },
             {
               "kind": "text",
@@ -2016,7 +2016,7 @@
             },
             {
               "kind": "text",
-              "text": "Continue to produce Aromathust, and sell or stockpile it. We can't realistically upgrade this into Ginseng Aroma because the split between Dried Ginseng and Ginseng Powder would massively screw up the production line. If you want to try to manually balance it, go ahead, but I won't list it as this is intended to be a low-effort-utilization guide, and I really don't think it'll matter."
+              "text": "Continue to produce Aromathyst, and sell or stockpile it. We can't realistically upgrade this into Ginseng Aroma because the split between Dried Ginseng and Ginseng Powder would massively screw up the production line. If you want to try to manually balance it, go ahead, but I won't list it as this is intended to be a low-effort-utilization guide, and I really don't think it'll matter."
             }
           ]
         },
@@ -2226,7 +2226,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Buy Resource Detector 7."
+              "text": "Buy Resource Detector 6."
             },
             {
               "kind": "text",
@@ -2247,6 +2247,10 @@
             {
               "kind": "text",
               "text": "We get another Crackle Generator. Field a second Blazen. It should be enough to E-mode all of your Wells, and all of your production buildings, but none of your Mines. Feel free to do what you want with it, but do not let electricity fall below the 120% bonus."
+            },
+            {
+              "kind": "text",
+              "text": "Switch your level 1 Chimney Kiln, the one handling Course-Sifted Ore, to Common mode. Drop in an extra Flamerion with \"S\"Practical to run it. E-mode is no longer viable starting at RV15."
             }
           ]
         },
@@ -2354,11 +2358,11 @@
             },
             {
               "kind": "bullet",
-              "text": "One Sparki/Flamerion/Sparkelf for the Heat Furnace."
+              "text": "Two Flamerion/Sparkelf, preferably with \"S\"Practical, for the Heat Furnace and the level 1 Chimney Kiln."
             },
             {
               "kind": "bullet",
-              "text": "One Blazen for the generator."
+              "text": "Two Blazen for the generators."
             },
             {
               "kind": "bullet",
@@ -2396,7 +2400,11 @@
             },
             {
               "kind": "text",
-              "text": "All Mines and Wells should be on Common-mode."
+              "text": "All Wells should be on E-mode."
+            },
+            {
+              "kind": "text",
+              "text": "All Mines should be on Common mode."
             }
           ]
         }
@@ -2504,8 +2512,7 @@
               "text": "Maple Candy Star",
               "sub": [
                 "Set one Claw Game Cooker to Maple Candy Star.",
-                "Set the Starfall Hammock to Stars.",
-                "Note: May need to set a second simmering pot to Maple Sugar Chunks, I'm not sure."
+                "Set the Starfall Hammock to Stars."
               ]
             }
           ]
@@ -2550,7 +2557,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Turbo / Dreaple with \"J\"udicious."
+              "text": "Two Irisal with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2558,11 +2565,11 @@
             },
             {
               "kind": "bullet",
-              "text": "One Sparki/Flamerion/Sparkelf for the Heat Furnace."
+              "text": "Two Flamerion/Sparkelf, preferably with \"S\"Practical, for the Heat Furnace and the level 1 Chimney Kiln."
             },
             {
               "kind": "bullet",
-              "text": "One Blazen for the generator."
+              "text": "Two Blazen for the generators."
             },
             {
               "kind": "bullet",
@@ -2570,7 +2577,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Two Glacy (Any Form). Covers 2x Cooling Units. The Wells should be under E-mode."
+              "text": "Two Glacy (Any Form). Covers 2x Cooling Units."
             },
             {
               "kind": "bullet",
@@ -2605,6 +2612,191 @@
             {
               "kind": "text",
               "text": "Mines ?????"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rv",
+      "level": 17,
+      "next": 18,
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Index Points goal: ????"
+            }
+          ]
+        },
+        {
+          "heading": "Warning",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "This is untested. It's what I'm _planning_ to do once I hit RV17. After running the numbers, I have a reasonable amount of confidence this will work."
+            },
+            {
+              "kind": "text",
+              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
+            },
+            {
+              "kind": "text",
+              "text": "I also could have just made a mistake. I'm not perfect."
+            }
+          ]
+        },
+        {
+          "heading": "Note",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Upgrade one Well to level 5."
+            },
+            {
+              "kind": "text",
+              "text": "Upgrade one Bouncy Brew Keg to level 4."
+            },
+            {
+              "kind": "text",
+              "text": "Remember to recycle any unused buildings!"
+            }
+          ]
+        },
+        {
+          "heading": "Production",
+          "images": [],
+          "items": [
+            {
+              "kind": "numbered",
+              "num": "1",
+              "text": "Maple Sugar Chunk",
+              "sub": [
+                "Set one Simmering Pot to Maple Sugar Chunk.",
+                "Set 18 tree plots to Quick Maple."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "2",
+              "text": "Cranberry Juice",
+              "sub": [
+                "Set one Bouncy Brew Keg to Cranberry Juice.",
+                "Set one Well to Natural Mineral Spring.",
+                "Set 2 farm plots to Cranberry."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Ginseng Porridge",
+              "sub": [
+                "Set the other Simmering Pot to Ginseng Porridge.",
+                "Set one Jukebox Dryer to Dried Ginseng.",
+                "Set one Carousel Mill to Milled Rice.",
+                "Set 23 farm plots to Ginseng.",
+                "Set 11 farm plots to Quick Recipe: Rice."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Premium Jello",
+              "sub": [
+                "Set one Blazing Stove to Premium Jello.",
+                "Set both Nimbus Beds to Petals.",
+                "Set the other two Wells to Deep Rock Spring Water."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Maple Candy Star",
+              "sub": [
+                "Set one Claw Game Cooker to Maple Candy Star.",
+                "Set the Starfall Hammock to Stars."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Farm/Tree Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "23 Farm plots: Ginseng (Temperature: Cool)"
+            },
+            {
+              "kind": "text",
+              "text": "11 Farm plots: Quick Recipe: Rice"
+            },
+            {
+              "kind": "text",
+              "text": "2 Farm plots: Cranberry (Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "NOTE: For event crops, switch 1 Ginseng and 1 Rice. For 4 plots, switch 3 Ginseng and 1 Rice. Leave the Cranberry."
+            },
+            {
+              "kind": "text",
+              "text": "18 Tree plots: Quick Maple (level 5, Temperature: Freezing)"
+            }
+          ]
+        },
+        {
+          "heading": "Aniimo Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "Two Sherro with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Fragrancier with \"I\"nstinctive."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Irisal with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Blazen for the generators."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+            },
+            {
+              "kind": "bullet",
+              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Shrubclaws (Basic Form); until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "Remaining slots can go to the house to generate Bud Tickets."
             }
           ]
         }
