@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-11T11:28:38.895Z",
+  "updated": "2026-10-12T13:18:45.303Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -905,6 +905,10 @@
             {
               "kind": "text",
               "text": "Even after Mines go up to level 4, keeping a single Mine on level 3 is more than enough Shells to power the Aniipod Maker. If you're following my guide, you know that the only real blocker is Wood Blocks, not Mineral Sand, so doing this won't hinder your progress through RV levels."
+            },
+            {
+              "kind": "text",
+              "text": "On the related matter of Dance Pad Polisher, I do not feel it is an important building to have. If you feel it would serve you will, then feel free to utilize it."
             }
           ]
         }
@@ -1043,6 +1047,10 @@
             {
               "kind": "bullet",
               "text": "Two Fragrancier with \"I\"nstinctive."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Fenmane/Blazen, for the Aniipod Maker."
             },
             {
               "kind": "bullet",
@@ -1289,6 +1297,10 @@
             },
             {
               "kind": "bullet",
+              "text": "One Fenmane/Blazen, for the Aniipod Maker."
+            },
+            {
+              "kind": "bullet",
               "text": "Shrubclaws (Basic Form) until Earth and Nature needs are met. Preferably \"P\"layful."
             },
             {
@@ -1445,6 +1457,10 @@
             },
             {
               "kind": "bullet",
+              "text": "One Fenmane/Blazen, for the Aniipod Maker."
+            },
+            {
+              "kind": "bullet",
               "text": "Shrubclaws (Basic Form) until Earth and Nature needs are met. Preferably \"P\"layful."
             },
             {
@@ -1588,7 +1604,7 @@
             },
             {
               "kind": "text",
-              "text": "Upgrade all Mines to the Copper Ore recipe."
+              "text": "Upgrade all Mines to the Copper Ore recipe. NOTE: Don't sell your surplus Copper Ore. You'll probably have around 13k when you advance to Quartz. We're going to be using the stockpile in the future."
             }
           ]
         },
@@ -1728,7 +1744,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Blazen for the generator."
+              "text": "Two Fenmane/Blazen, for the Aniipod Maker and the generator."
             },
             {
               "kind": "bullet",
@@ -1931,7 +1947,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Blazen for the generator."
+              "text": "TwoFenmane/Blazen, for the Aniipod Maker and the generator."
             },
             {
               "kind": "bullet",
@@ -2137,7 +2153,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Blazen for the generator."
+              "text": "Two Fenmane/Blazen, for the Aniipod Maker and the generator."
             },
             {
               "kind": "bullet",
@@ -2362,7 +2378,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Two Blazen for the generators."
+              "text": "Three Fenmane/Blazen, for the Aniipod Maker and the generators."
             },
             {
               "kind": "bullet",
@@ -2399,6 +2415,10 @@
               "text": "Exception: The Woodworking Bench that handles Rough Lumber should be kept on Common mode."
             },
             {
+              "kind": "bullet",
+              "text": "Exception: The Chimney Kiln that handles Coarse-Sifted Ore should be kept on Common mode."
+            },
+            {
               "kind": "text",
               "text": "All Wells should be on E-mode."
             },
@@ -2421,25 +2441,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Index Points goal: ????"
-            }
-          ]
-        },
-        {
-          "heading": "Warning",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "This is untested. It's what I'm _planning_ to do once I hit RV16. After running the numbers, I have a reasonable amount of confidence this will work."
-            },
-            {
-              "kind": "text",
-              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
-            },
-            {
-              "kind": "text",
-              "text": "I also could have just made a mistake. I'm not perfect."
+              "text": "Index Points goal: 12000"
             }
           ]
         },
@@ -2449,11 +2451,15 @@
           "items": [
             {
               "kind": "text",
-              "text": "Buy Power Module Level 3. Upgrade your Crackle Generator."
+              "text": "Buy Power Module Level 3. Upgrade your Crackle Generators."
             },
             {
               "kind": "text",
               "text": "Buy Kitchen Module Level 6."
+            },
+            {
+              "kind": "text",
+              "text": "Strongly consider buying Signal Transmitter Level 3."
             },
             {
               "kind": "text",
@@ -2468,20 +2474,23 @@
             {
               "kind": "numbered",
               "num": "1",
-              "text": "Rubber Duck",
+              "text": "Maple Candy Star",
               "sub": [
-                "Set one Crafting Table to Rubber Duck.",
-                "Set 5 tree plots to Natural Rubber."
+                "Set one Claw Game Cooker to Maple Candy Star.",
+                "Set one Simmering Pot to Maple Sugar Chunk.",
+                "Set the Starfall Hammock to Stars.",
+                "Set 17 tree plots to Quick Maple."
               ]
             },
             {
               "kind": "numbered",
               "num": "2",
-              "text": "Ginseng Water",
+              "text": "Premium Jello",
               "sub": [
-                "Set one Bouncy Brew Keg to Ginseng Water.",
-                "Set one Jukebox Dryer to Dried Ginseng. This also feeds the porridge.",
-                "Set all three Wells to Deep Rock Spring Water."
+                "Set one Blazing Stove to Premium Jello.",
+                "Set both Nimbus Beds to Petals.",
+                "Set all Wells to Quick Recipe: Deep Rock Spring Water.",
+                "NOTE: Maple Sugar Chunks come from the previous step."
               ]
             },
             {
@@ -2490,29 +2499,18 @@
               "text": "Ginseng Porridge",
               "sub": [
                 "Set the other Simmering Pot to Ginseng Porridge.",
+                "Set one Jukebox Dryer to Dried Ginseng.",
                 "Set one Carousel Mill to Milled Rice.",
-                "Set 24 farm plots to Ginseng.",
+                "Set 20 farm plots to Ginseng.",
                 "Set 10 farm plots to Quick Recipe: Rice."
               ]
             },
             {
               "kind": "numbered",
               "num": "4",
-              "text": "Premium Jello",
+              "text": "Porcelain",
               "sub": [
-                "Set one Blazing Stove to Premium Jello.",
-                "Set both Nimbus Beds to Petals.",
-                "Set one Simmering Pot to Maple Sugar Chunk.",
-                "Set 12 tree plots to Quick Maple."
-              ]
-            },
-            {
-              "kind": "numbered",
-              "num": "5",
-              "text": "Maple Candy Star",
-              "sub": [
-                "Set one Claw Game Cooker to Maple Candy Star.",
-                "Set the Starfall Hammock to Stars."
+                "Set one Crafting Table to Porcelain."
               ]
             }
           ]
@@ -2523,7 +2521,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "24 Farm plots: Ginseng (Temperature: Cool)"
+              "text": "20 Farm plots: Ginseng (Temperature: Cool)"
             },
             {
               "kind": "text",
@@ -2531,15 +2529,11 @@
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, switch 2 Ginseng and recycle the Bouncy Brew Keg. For 4 plots, switch 3 Ginseng and 1 Rice. Leave the keg on."
+              "text": "4 Farm plots: Flex"
             },
             {
               "kind": "text",
-              "text": "12 Tree plots: Quick Maple (level 5, Temperature: Freezing)"
-            },
-            {
-              "kind": "text",
-              "text": "5 Tree plots: Natural Rubber (level 5, Temperature: Scorching)"
+              "text": "17 Tree plots: Quick Maple (level 5, Temperature: Freezing)"
             }
           ]
         },
@@ -2569,7 +2563,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Two Blazen for the generators."
+              "text": "Three Fenmane/Blazen, for the Aniipod Maker and the generators."
             },
             {
               "kind": "bullet",
@@ -2606,12 +2600,28 @@
               "text": "Exception: The Woodworking Bench that handles Rough Lumber should be kept on Common mode."
             },
             {
+              "kind": "bullet",
+              "text": "Exception: The Chimney Kiln that handles Coarse-Sifted Ore should be kept on Common mode."
+            },
+            {
               "kind": "text",
               "text": "All Wells should be on E-mode."
             },
             {
               "kind": "text",
-              "text": "Mines ?????"
+              "text": "Two Mines should be on E-mode."
+            }
+          ]
+        },
+        {
+          "heading": "Visuals",
+          "images": [
+            "https://images.steamusercontent.com/ugc/14664886059777426644/FF8E0B37B83EBC4D97CB76BB90CB4EF5E9613EEC/"
+          ],
+          "items": [
+            {
+              "kind": "text",
+              "text": "US Build Code: HZRMC6R5"
             }
           ]
         }
@@ -2776,7 +2786,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Two Blazen for the generators."
+              "text": "Three Fenmane/Blazen, for the Aniipod Maker and the generators."
             },
             {
               "kind": "bullet",
