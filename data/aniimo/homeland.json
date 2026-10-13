@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12T13:18:45.303Z",
+  "updated": "2026-10-13T12:48:16.206Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -63,7 +63,7 @@
       "next": 3,
       "blocks": [
         {
-          "heading": null,
+          "heading": "Production",
           "images": [],
           "items": [
             {
@@ -178,7 +178,7 @@
             },
             {
               "kind": "bullet",
-              "text": "3) \"J\"udicious; Increases Tidewhisper Sandcastle and Nimbus Bed efficiency. This increases Home Coin gain, as you can produce more Salt/Pearls/Wood/Petals."
+              "text": "3) \"J\"udicious; Increases Tidewhisper Sandcastle and Nimbus Bed efficiency. This increases Home Coin gain, as you can produce more Salt/Pearls/Wool/Petals."
             },
             {
               "kind": "bullet",
@@ -892,7 +892,11 @@
             },
             {
               "kind": "text",
-              "text": "Lightning-3 Crafts in 25m, which is about 58 a day or 403 a week."
+              "text": "Lightning-3 Crafts in 30m, which is 48 a day or 336 a week."
+            },
+            {
+              "kind": "text",
+              "text": "(RV12) E-mode 120% Crafts in 25m, which is about 58 a day or 403 a week."
             },
             {
               "kind": "text",
@@ -904,7 +908,11 @@
             },
             {
               "kind": "text",
-              "text": "Even after Mines go up to level 4, keeping a single Mine on level 3 is more than enough Shells to power the Aniipod Maker. If you're following my guide, you know that the only real blocker is Wood Blocks, not Mineral Sand, so doing this won't hinder your progress through RV levels."
+              "text": "Even after Mines go up to level 4, keeping a single Mine on level 3 is more than enough Shells to power the Aniipod Maker."
+            },
+            {
+              "kind": "text",
+              "text": "If you're following my guide, you know that the only real blocker is Wood Blocks, not Mineral Sand, so doing this won't hinder your progress through RV levels."
             },
             {
               "kind": "text",
@@ -1101,19 +1109,23 @@
             },
             {
               "kind": "text",
-              "text": "Do the dailies every day to get more coins."
+              "text": "Do the four event dailies every day to get more coins."
             },
             {
               "kind": "text",
-              "text": "In the same area, there's a shop where you can buy various recipes for Moonray Wheat coins (instead of spending those coins on more seeds). For now, I recommend purchasing the four recipes after you've done your first set of dailies."
+              "text": "In the event menu, there's also a shop where you can buy various recipes for Moonray Wheat coins (instead of spending those coins on more seeds). For now, I recommend purchasing the four recipes as soon as you've done your first set of dailies."
             },
             {
               "kind": "text",
-              "text": "I recommend cooking up any Event food that comes up in Orders, using Rush items to grow the needed crops. Maybe cook up 4 of each recipe? I don't recommend selling Event food in the Co-op shop, as it just sells for Home Coins."
+              "text": "I recommend cooking up any Event food that comes up in Orders, using Rush items to grow the needed crops. I recommend NOT selling Event food in the Co-op shop, as it just sells for Home Coins."
             },
             {
               "kind": "text",
-              "text": "As you grow Event crops and cook Event food, you acquire Harvest Moon Points, with rewards up to 160,000 Harvest Moon Points. At our current rate of Moonray Wheat coins per day, there's no way we can get to that point. I recommend stockpiling Moonray Wheat coins until the next phases of the event unlock. These will likely provide the proper ways to maximize our Harvest Moon Points."
+              "text": "The goal is to acquire Harvest Moon Points, with rewards up to 160,000 Harvest Moon Points. Harvesting Event crops gives you 8 points every time, and cooking Event food 8 as well. Harvest Platters are the most Wheat Coin efficient way to gain Harvest Moon Points, but they do cost more in the way of non-event ingredients; Salt and Rock Candy (Sugarcane + Plain Fresh Water)."
+            },
+            {
+              "kind": "text",
+              "text": "The question is where to spend one's Wheat Coins? Spending them on seeds gives you more Harvest Moon Points as well as more chances at Mutated plants (3 Dream Sparks on that track). Or, you can buy event-exclusive decorations up to max. On this matter, only you can decide where your priorities lie."
             },
             {
               "kind": "text",
@@ -2028,7 +2040,7 @@
             },
             {
               "kind": "text",
-              "text": "Upgrade both Tidewhisper Sandcastles to level 3. Both produce Pearls; stockpile or sell them. Field a second Sherro with \"J\"udicious."
+              "text": "Upgrade one Tidewhisper Sandcastles to level 3. Pearls are trash; Stockpile some if you want for Orders, but Salt is better."
             },
             {
               "kind": "text",
@@ -2089,15 +2101,6 @@
                 "Set Dewy House to Aromathyst.",
                 "NOTE: Sell or stockpile Aromathyst. We can't realistically upgrade this into Ginseng Aroma because the split between Dried Ginseng and Ginseng Powder would massively screw up the production line."
               ]
-            },
-            {
-              "kind": "numbered",
-              "num": "6",
-              "text": "Pearls",
-              "sub": [
-                "Set both Tidewhisper Sandcastles to Pearls.",
-                "NOTE: Sell or stockpile Pearls."
-              ]
             }
           ]
         },
@@ -2129,7 +2132,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "Two Sherro with \"J\"udicious."
+              "text": "Two Piopiota / Panpanta with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2216,6 +2219,10 @@
             {
               "kind": "text",
               "text": "At RV15, we get 10 rolls a week. Rolls 6 through 10 cost a total of 3 million, so it might not be in your best interest to go hard in on it when RV16 will cost a ton of Home Coins to upgrade everything."
+            },
+            {
+              "kind": "text",
+              "text": "At RV16, we get 15 rolls a week. Don't even consider it."
             }
           ]
         }
@@ -2358,7 +2365,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "Two Sherro with \"J\"udicious."
+              "text": "Two Piopiota / Panpanta with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2543,7 +2550,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "Two Sherro with \"J\"udicious."
+              "text": "Two Piopiota / Panpanta with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -2766,7 +2773,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "Two Sherro with \"J\"udicious."
+              "text": "Two Piopiota / Panpanta with \"J\"udicious."
             },
             {
               "kind": "bullet",
