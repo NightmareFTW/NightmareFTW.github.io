@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-15T10:05:50.543Z",
+  "updated": "2026-10-16T09:56:49.257Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
   "author": "darksteelhyren",
   "authorUrl": "https://steamcommunity.com/id/Zetajezu",
-  "maxLevel": 17,
+  "maxLevel": 18,
   "sections": [
     {
       "type": "overview",
@@ -2814,6 +2814,200 @@
             {
               "kind": "bullet",
               "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rv",
+      "level": 18,
+      "next": 19,
+      "blocks": [
+        {
+          "heading": "Warning",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "This is untested. It's what I'm planning to do once I hit RV18."
+            }
+          ]
+        },
+        {
+          "heading": "Note",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Keep the old Chimney Kilns and Woodworking Benches, don't upgrade them. Buy the new level 4 copies."
+            },
+            {
+              "kind": "text",
+              "text": "Buy Power Module Level 4, and upgrade your Crackle Generators."
+            },
+            {
+              "kind": "text",
+              "text": "?Buy Crafting Module Level 6?"
+            },
+            {
+              "kind": "text",
+              "text": "?Buy Resource Detector Level 7?"
+            },
+            {
+              "kind": "text",
+              "text": "?Buy Ecological Module Level 9?"
+            },
+            {
+              "kind": "text",
+              "text": "Buy your third Crackle Generator."
+            },
+            {
+              "kind": "text",
+              "text": "Upgrade all trees to their final level, 6. Max-level trees produce Wood Blocks faster than even a Traited Eklue can process them. Starting from this point, you will likely have to maintain 2 Eklue on Rough Lumber processing, and occasionally switch one off to the highest tier lumber."
+            },
+            {
+              "kind": "text",
+              "text": "Remember to recycle any unused buildings!"
+            }
+          ]
+        },
+        {
+          "heading": "Production",
+          "images": [],
+          "items": [
+            {
+              "kind": "numbered",
+              "num": "1",
+              "text": "Cranberry Chocolate",
+              "sub": [
+                "Set one Carousel Mill to Cocoa Powder.",
+                "Set one Simmering Pot to Malt Sugar.",
+                "Set the other Simmering Pot to Cocoa Spread.",
+                "Set one Jukebox Dryer to Dried Cranberries.",
+                "Set one Blazing Stove to Cranberry Chocolate.",
+                "Set all three Wells to Quick Recipe: Deep Rock Spring Water.",
+                "Set 5 tree plots to Cacao.",
+                "Set 5 farm plots to Premium Wheat.",
+                "Set 3 farm plots to Quick Recipe: Rice.",
+                "Set 5 farm plots to Cranberry."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "2",
+              "text": "Coconut Oil",
+              "sub": [
+                "Set the other Carousel Mill to Coconut Oil.",
+                "Set the other 14 tree plots to Coconut."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Dried Strawberries",
+              "sub": [
+                "Set the other Jukebox Dryer to Dried Strawberries.",
+                "Set the other 25 farm plots to Quick Recipe: Strawberry."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Farm/Tree Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "5 Farm plots: Premium Wheat"
+            },
+            {
+              "kind": "text",
+              "text": "3 Farm plots: Quick Recipe: Rice"
+            },
+            {
+              "kind": "text",
+              "text": "5 Farm plots: Cranberry (Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "25 Farm plots: Quick Recipe: Strawberry (Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "NOTE: For event crops, switch 2 Quick Strawberry. For 4 plots, switch 4 Quick Strawberry. Leave the wheat, rice, and cranberry."
+            },
+            {
+              "kind": "text",
+              "text": "5 Tree plots: Cacao (level 6)"
+            },
+            {
+              "kind": "text",
+              "text": "14 Tree plots: Coconut (level 6, Temperature: Scorching)"
+            }
+          ]
+        },
+        {
+          "heading": "Aniimo Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "Two Sherro with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Fragrancier with \"I\"nstinctive."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Irisal with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln."
+            },
+            {
+              "kind": "bullet",
+              "text": "Four Fenmane/Blazen, for the Aniipod Maker and the three generators."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Shrubclaws (Basic Form) until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "All processing buildings in E-mode, except the level 1 Woodworking Bench and the level 1 Chimney Kiln."
+            },
+            {
+              "kind": "bullet",
+              "text": "All three Wells in E-mode."
+            },
+            {
+              "kind": "bullet",
+              "text": "Mines stay off E-mode unless the power meter still reads 120% after everything else."
             }
           ]
         }
