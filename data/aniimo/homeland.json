@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T09:30:02.564Z",
+  "updated": "2026-10-17T23:18:58.333Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -2664,6 +2664,10 @@
             {
               "kind": "text",
               "text": "Ecological Module Level 8 unlocks here. We'll need it at RV18."
+            },
+            {
+              "kind": "text",
+              "text": "Don't upgrade Wells until you need a higher recipe. Higher level Wells require more energy to run in E-mode."
             },
             {
               "kind": "text",
