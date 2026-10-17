@@ -1,10 +1,24 @@
 {
   "game": "epic7",
-  "updated": "2026-10-17T12:15:01.894Z",
+  "updated": "2026-10-17T18:12:03.444Z",
   "source": "https://ucngame.com/codes/epic-seven-codes/",
   "redeem": "https://epic7.onstove.com/en/coupon",
   "note": "Redeem on the official Stove coupon page (button below). Epic Seven codes expire fast — newest at the top; some may already be gone.",
   "codes": [
+    {
+      "code": "EF1GROUPSTAGE",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
+    {
+      "code": "A1REVIVE8Q",
+      "reward": "Coupon rewards (event / livestream)",
+      "added": "",
+      "expires": null,
+      "expired": false
+    },
     {
       "code": "MATCHDAY2WIN",
       "reward": "Coupon rewards (event / livestream)",
@@ -196,20 +210,6 @@
     },
     {
       "code": "RDTOE7WC_03",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "E7MLIVE_DROP7",
-      "reward": "Coupon rewards (event / livestream)",
-      "added": "",
-      "expires": null,
-      "expired": false
-    },
-    {
-      "code": "22E7_GIFT_SPRING",
       "reward": "Coupon rewards (event / livestream)",
       "added": "",
       "expires": null,
