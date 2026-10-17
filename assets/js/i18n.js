@@ -39,6 +39,10 @@
     "Copy share link": "Copiar link de partilha", "Save": "Guardar", "+ Add unit": "+ Adicionar unidade",
     "+ Add substat": "+ Adicionar substat", "+ Add unit ": "+ Adicionar unidade",
     "Copy": "Copiar", "Loading…": "A carregar…",
+    "Copied ✓": "Copiado ✓", "✓ Copied!": "✓ Copiado!", "copied!": "copiado!", "✓ Saved!": "✓ Guardado!",
+    "⧉ Copy code": "⧉ Copiar código", "⧉ Copy deck code": "⧉ Copiar código do deck",
+    "Couldn't load the card database yet.": "Ainda não foi possível carregar a base de dados de cartas.",
+    "Couldn't read that — paste a valid Marvel Snap deck code.": "Não foi possível ler isso — cola um código de deck válido do Marvel Snap.",
     "Loading news…": "A carregar notícias…", "Loading codes…": "A carregar códigos…",
     "Loading live data…": "A carregar dados ao vivo…", "Loading recipes…": "A carregar receitas…",
     "Loading items…": "A carregar items…", "Loading drop data…": "A carregar dados de drops…",
@@ -1901,6 +1905,16 @@
     "No official description published yet for this region.": "Ainda não há descrição oficial publicada para esta região.",
     "Known mechanics": "Mecanismos conhecidos", "Aniimo found here": "Aniimo encontrados aqui",
     "Male / Female": "Macho / Fêmea",
+
+    // ---- Aniimo: Homeland Guide nav ----
+    "Closing": "Conclusão",
+
+    // ---- Far Far West: Meta Builds ----
+    "Primary": "Primária", "Secondary": "Secundária", "Grenade": "Granada",
+    "Spells": "Feitiços", "Hero & Mount": "Herói e Montada", "Hero": "Herói", "Mount": "Montada",
+    "net community votes": "votos líquidos da comunidade",
+    "View full build →": "Ver build completa →",
+    "▶ Watch the author's video": "▶ Ver o vídeo do autor",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -2021,8 +2035,16 @@
     [/^(\d+) presets · updated (.+)$/, "$1 presets · actualizado $2"],
     [/^Expires in (\d+) days? \((.+)\)$/, "Expira em $1 dias ($2)"],
     [/^Expired \((.+)\)$/, "Expirado ($1)"],
+    [/^by (.+)$/, "por $1"],
+    [/^(.+) required$/, "$1 necessário"],
     [/^RV1 → RV(\d+) · updated (.+)$/, "RV1 → RV$1 · actualizado $2"],
     [/^Recommended #(\d+)$/, "Recomendado #$1"],
+
+    // ---- Far Far West: Meta Builds ----
+    [/^Lv (\d+) ★ Prestige$/, "Nv $1 ★ Prestige"],
+    [/^Lv (\d+) ★$/, "Nv $1 ★"],
+    [/^Lv (\d+)$/, "Nv $1"],
+    [/^Build by (.+) · imported from wikily\.gg\.$/, "Build por $1 · importado de wikily.gg."],
   ];
 
   function translateText(raw) {
