@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-16T09:56:49.257Z",
+  "updated": "2026-10-17T09:30:02.564Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
   "author": "darksteelhyren",
   "authorUrl": "https://steamcommunity.com/id/Zetajezu",
-  "maxLevel": 18,
+  "maxLevel": 19,
   "sections": [
     {
       "type": "overview",
@@ -2628,7 +2628,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "US Build Code: HZRMC6R5"
+              "text": "(US) Build Code: HZRMC6R5. Requires 31x Lv6 Farmlands, and 3x Lv.7 Farmlands."
             }
           ]
         }
@@ -2645,25 +2645,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Index Points goal: ????"
-            }
-          ]
-        },
-        {
-          "heading": "Warning",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "This is untested. It's what I'm _planning_ to do once I hit RV17. After running the numbers, I have a reasonable amount of confidence this will work."
-            },
-            {
-              "kind": "text",
-              "text": "However. Some of the information I'm finding online is contradictory, so I can't be certain that some aspects of this are correct."
-            },
-            {
-              "kind": "text",
-              "text": "I also could have just made a mistake. I'm not perfect."
+              "text": "Index Points goal: 14000"
             }
           ]
         },
@@ -2673,11 +2655,15 @@
           "items": [
             {
               "kind": "text",
-              "text": "Upgrade one Well to level 5."
+              "text": "Buy Resource Detector Level 7."
             },
             {
               "kind": "text",
-              "text": "Upgrade one Bouncy Brew Keg to level 4."
+              "text": "Skip Crafting Module Level 5."
+            },
+            {
+              "kind": "text",
+              "text": "Ecological Module Level 8 unlocks here. We'll need it at RV18."
             },
             {
               "kind": "text",
@@ -2704,7 +2690,7 @@
               "text": "Cranberry Juice",
               "sub": [
                 "Set one Bouncy Brew Keg to Cranberry Juice.",
-                "Set one Well to Natural Mineral Spring.",
+                "Set one Well to Quick Recipe: Natural Mineral Water.",
                 "Set 2 farm plots to Cranberry."
               ]
             },
@@ -2727,7 +2713,7 @@
               "sub": [
                 "Set one Blazing Stove to Premium Jello.",
                 "Set both Nimbus Beds to Petals.",
-                "Set the other two Wells to Deep Rock Spring Water."
+                "Set the other two Wells to Quick Recipe: Deep Rock Spring Water."
               ]
             },
             {
@@ -2759,7 +2745,7 @@
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, switch 1 Ginseng and 1 Rice. For 4 plots, switch 3 Ginseng and 1 Rice. Leave the Cranberry."
+              "text": "NOTE: For event crops, switch 1 Ginseng and 1 Rice. For 4 plots, switch 3 Ginseng and 1 Rice."
             },
             {
               "kind": "text",
@@ -2816,6 +2802,16 @@
               "text": "Remaining slots can go to the house to generate Bud Tickets."
             }
           ]
+        },
+        {
+          "heading": "Build Code",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "(US) F9KKQS2W. Requires Full Level 7 farmlands."
+            }
+          ]
         }
       ]
     },
@@ -2848,19 +2844,19 @@
             },
             {
               "kind": "text",
-              "text": "?Buy Crafting Module Level 6?"
+              "text": "Buy Ecological Module Level 8."
             },
             {
               "kind": "text",
-              "text": "?Buy Resource Detector Level 7?"
+              "text": "Skip Ecological Module Level 9."
             },
             {
               "kind": "text",
-              "text": "?Buy Ecological Module Level 9?"
+              "text": "Skip Crafting Module Level 6."
             },
             {
               "kind": "text",
-              "text": "Buy your third Crackle Generator."
+              "text": "Buy your third Crackle Generator. Upgrade them to Level 4."
             },
             {
               "kind": "text",
@@ -2896,10 +2892,11 @@
             {
               "kind": "numbered",
               "num": "2",
-              "text": "Coconut Oil",
+              "text": "Coconut Cooler",
               "sub": [
-                "Set the other Carousel Mill to Coconut Oil.",
-                "Set the other 14 tree plots to Coconut."
+                "Set the other Carousel Mill to Milled Rice.",
+                "Set both Bouncy Brew Kegs to Coconut Cooler.",
+                "Set the other 14 tree plots to Quick Recipe: Coconut."
               ]
             },
             {
@@ -2943,7 +2940,194 @@
             },
             {
               "kind": "text",
-              "text": "14 Tree plots: Coconut (level 6, Temperature: Scorching)"
+              "text": "14 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
+            }
+          ]
+        },
+        {
+          "heading": "Aniimo Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "Two Piopiota / Panpanta with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Fragrancier with \"I\"nstinctive."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Irisal with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln."
+            },
+            {
+              "kind": "bullet",
+              "text": "Four Fenmane/Blazen, for the Aniipod Maker and the three generators."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Shrubclaws (Basic Form) until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "All processing buildings in E-mode, except two Woodworking Benches on Rough Lumber and the level 1 Chimney Kiln."
+            },
+            {
+              "kind": "bullet",
+              "text": "All three Wells in E-mode."
+            },
+            {
+              "kind": "bullet",
+              "text": "Mines stay off E-mode unless the power meter still reads 120% after everything else."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rv",
+      "level": 19,
+      "next": 20,
+      "blocks": [
+        {
+          "heading": "Warning",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "This is untested. It's what I'm planning to do once I hit RV19."
+            }
+          ]
+        },
+        {
+          "heading": "Note",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "40 Farm plots, 20 Tree plots, 10 Mines, 44 Aniimo."
+            },
+            {
+              "kind": "text",
+              "text": "Place the fourth Well."
+            },
+            {
+              "kind": "text",
+              "text": "Buy Resource Detector Level 8."
+            },
+            {
+              "kind": "text",
+              "text": "Skip Kitchen Module Level 7."
+            },
+            {
+              "kind": "text",
+              "text": "Skip Crafting Module Level 7."
+            },
+            {
+              "kind": "text",
+              "text": "Remember to recycle any unused buildings!"
+            }
+          ]
+        },
+        {
+          "heading": "Production",
+          "images": [],
+          "items": [
+            {
+              "kind": "numbered",
+              "num": "1",
+              "text": "Cranberry Chocolate",
+              "sub": [
+                "Set one Carousel Mill to Cocoa Powder.",
+                "Set one Simmering Pot to Malt Sugar.",
+                "Set the other Simmering Pot to Cocoa Spread.",
+                "Set one Jukebox Dryer to Dried Cranberries.",
+                "Set one Blazing Stove to Cranberry Chocolate.",
+                "Set all four Wells to Quick Recipe: Deep Rock Spring Water.",
+                "Set 7 tree plots to Cacao.",
+                "Set 7 farm plots to Premium Wheat.",
+                "Set 4 farm plots to Quick Recipe: Rice.",
+                "Set 7 farm plots to Cranberry."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "2",
+              "text": "Coconut Cooler",
+              "sub": [
+                "Set the other Carousel Mill to Milled Rice.",
+                "Set both Bouncy Brew Kegs to Coconut Cooler.",
+                "Set the other 13 tree plots to Quick Recipe: Coconut."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Dried Strawberries",
+              "sub": [
+                "Set the other Jukebox Dryer to Dried Strawberries.",
+                "Set the other 22 farm plots to Quick Recipe: Strawberry."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Farm/Tree Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "7 Farm plots: Premium Wheat"
+            },
+            {
+              "kind": "text",
+              "text": "4 Farm plots: Quick Recipe: Rice"
+            },
+            {
+              "kind": "text",
+              "text": "7 Farm plots: Cranberry (Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "22 Farm plots: Quick Recipe: Strawberry (Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "NOTE: For event crops, switch 2 Quick Strawberry. For 4 plots, switch 4 Quick Strawberry. Leave the wheat, rice, and cranberry."
+            },
+            {
+              "kind": "text",
+              "text": "7 Tree plots: Cacao (level 6)"
+            },
+            {
+              "kind": "text",
+              "text": "13 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
             }
           ]
         },
@@ -2977,7 +3161,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
+              "text": "Two Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
             },
             {
               "kind": "bullet",
@@ -2999,11 +3183,11 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "All processing buildings in E-mode, except the level 1 Woodworking Bench and the level 1 Chimney Kiln."
+              "text": "All processing buildings in E-mode, except two Woodworking Benches on Rough Lumber and the level 1 Chimney Kiln."
             },
             {
               "kind": "bullet",
-              "text": "All three Wells in E-mode."
+              "text": "All four Wells in E-mode."
             },
             {
               "kind": "bullet",
