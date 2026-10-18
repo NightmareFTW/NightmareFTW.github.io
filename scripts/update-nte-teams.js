@@ -2,15 +2,21 @@
    Each character's Prydwen page lists named teams as:
      <div class="team-header">Team Name</div> … 4× <div class="avatar nte"><img alt="Char">
    We pull those into data/nte/teams.json so the tier-list tool renders real,
-   sourced teams (never invented). Prydwen rate-limits bursts, so fetches are
-   spaced out with retries. Node 18+; uses curl (HTML is server-rendered). */
+   sourced teams (never invented).
+
+   Prydwen started serving a Cloudflare JS challenge at some point after this
+   was first written (confirmed: curl now gets a "Just a moment…" page even
+   with a real browser UA, from this machine as much as from CI) — plain curl
+   can no longer get past it, so fetching goes through scripts/lib/browser-http.js
+   (Playwright) instead. See that file for why this is the one scraper in the
+   repo that isn't zero-dependency curl, and what happens in CI (which doesn't
+   have Playwright installed). Node 18+. */
 
 const fs = require("fs");
 const path = require("path");
-const { execFileSync } = require("child_process");
+const { getHtml, close } = require("./lib/browser-http");
 
 const OUT = path.join(__dirname, "..", "data", "nte", "teams.json");
-const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)";
 const BASE = "https://www.prydwen.gg/neverness-to-everness/characters/";
 
 // Display name -> Prydwen slug (a couple of slugs differ from the lowercased name).
@@ -23,10 +29,8 @@ const slug = (n) => SLUG[n] || n.toLowerCase().replace(/ /g, "-");
 const FIX = { Daffodill: "Daffodil", Zero: "Esper Zero" };
 const norm = (n) => FIX[n] || n;
 
-const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
-const get = (url) => {
-  try { return execFileSync("curl", ["-sL", "--retry", "3", "--retry-delay", "2", "--retry-all-errors", "--max-time", "40", "-A", UA, "-H", "Accept-Language: en-US,en;q=0.9", url], { encoding: "utf8", maxBuffer: 24 * 1024 * 1024 }); } catch { return ""; }
-};
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const get = async (url) => { try { return await getHtml(url); } catch { return ""; } };
 
 // Drop a redundant character name from a team label ("Daffodil Scorch Team"
 // -> "Scorch Team", "Hypercarry Aurelia" -> "Hypercarry").
@@ -54,21 +58,25 @@ function parseTeams(html, name) {
   return out;
 }
 
-function teamsFor(name) {
+async function teamsFor(name) {
   let html = "";
-  for (let i = 0; i < 4 && !/team-header/.test(html); i++) { if (i) sleep(20000 + i * 15000); html = get(BASE + slug(name)); }
+  for (let i = 0; i < 4 && !/team-header/.test(html); i++) { if (i) await sleep(8000 + i * 6000); html = await get(BASE + slug(name)); }
   return /team-header/.test(html) ? parseTeams(html, name) : [];
 }
 
-const data = { updated: new Date().toISOString(), source: "https://www.prydwen.gg/neverness-to-everness/", teams: {} };
-let total = 0;
-for (const c of CHARS) {
-  const t = teamsFor(c);
-  if (t.length) { data.teams[c] = t; total += t.length; }
-  console.log(`${c}: ${t.length} teams  ${t.map((x) => `${x.label}[${x.team.join(", ")}]`).join("  ")}`);
-  sleep(12000);
+async function run() {
+  const data = { updated: new Date().toISOString(), source: "https://www.prydwen.gg/neverness-to-everness/", teams: {} };
+  let total = 0;
+  for (const c of CHARS) {
+    const t = await teamsFor(c);
+    if (t.length) { data.teams[c] = t; total += t.length; }
+    console.log(`${c}: ${t.length} teams  ${t.map((x) => `${x.label}[${x.team.join(", ")}]`).join("  ")}`);
+    await sleep(1500);
+  }
+  await close();
+  if (!total) throw new Error("no teams parsed — keeping previous file");
+  fs.mkdirSync(path.dirname(OUT), { recursive: true });
+  fs.writeFileSync(OUT, JSON.stringify(data, null, 0));
+  console.log(`\nWrote teams for ${Object.keys(data.teams).length}/${CHARS.length} characters (${total} comps).`);
 }
-if (!total) require("./lib/keep")(OUT, new Error("no teams parsed — keeping previous file"));
-fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, JSON.stringify(data, null, 0));
-console.log(`\nWrote teams for ${Object.keys(data.teams).length}/${CHARS.length} characters (${total} comps).`);
+run().catch((e) => { close().finally(() => require("./lib/keep")(OUT, e)); });
