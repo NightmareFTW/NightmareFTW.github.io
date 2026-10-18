@@ -752,6 +752,7 @@ body {
   font-size: 0.88rem;
   margin-bottom: 8px;
 }
+.tool-note.dp-expiry-warning { border-left-color: #e0a84f; margin-bottom: 16px; }
 
 /* ---- Loadout builder ---- */
 .opt-grid { display: flex; flex-wrap: wrap; gap: 8px; }

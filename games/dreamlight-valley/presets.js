@@ -49,7 +49,13 @@ function card(p) {
 }
 
 function render() {
-  els.list.innerHTML = `<div class="dp-grid">${DATA.presets.map(card).join("")}</div>`;
+  const expiredCount = DATA.presets.filter((p) => daysUntil(p.expiresAt) < 0).length;
+  const warning = expiredCount && expiredCount >= DATA.presets.length / 2
+    ? `<p class="tool-note dp-expiry-warning">${expiredCount === DATA.presets.length
+        ? "Every preset below has expired — this list hasn't been refreshed since they were all still valid. A fresh batch is coming; in the meantime these codes won't redeem in-game."
+        : "Most of the presets below have expired. They're still shown for reference, but check the “Expires” date on each before trying it."}</p>`
+    : "";
+  els.list.innerHTML = `${warning}<div class="dp-grid">${DATA.presets.map(card).join("")}</div>`;
   els.list.querySelectorAll(".code-copy").forEach((btn) => {
     btn.addEventListener("click", () => {
       const code = btn.closest(".dp-card-code-row").dataset.code;

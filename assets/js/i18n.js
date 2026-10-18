@@ -182,6 +182,10 @@
     "Player-shared Decoration Preset codes with real screenshots, hand-picked from Dreamers Portal — not the redeem codes, those are on the hub's Codes tab.":
       "Códigos de Decoration Preset partilhados por jogadores com screenshots reais, escolhidos a dedo do Dreamers Portal — não são os códigos de resgate, esses estão na aba Codes do hub.",
     "Dreamlight Valley gets Community Presets": "Dreamlight Valley ganha Presets da Comunidade",
+    "Every preset below has expired — this list hasn't been refreshed since they were all still valid. A fresh batch is coming; in the meantime these codes won't redeem in-game.":
+      "Todos os presets abaixo expiraram — esta lista não é actualizada desde que ainda estavam todos válidos. Um novo lote está a caminho; entretanto, estes códigos não resgatam no jogo.",
+    "Most of the presets below have expired. They're still shown for reference, but check the “Expires” date on each before trying it.":
+      "A maioria dos presets abaixo já expirou. Continuam visíveis como referência, mas verifica a data de “Expira” de cada um antes de o experimentares.",
     "Player-shared decoration Preset codes with real screenshots, hand-picked from Dreamers Portal.":
       "Códigos de Decoration Preset partilhados por jogadores, com screenshots reais, escolhidos a dedo do Dreamers Portal.",
     "Every Ex-Pop, Night Hunter and Prime Asset — how it behaves and exactly how to deal with it.":
