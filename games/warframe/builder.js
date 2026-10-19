@@ -90,11 +90,6 @@
     return (a) => cat === "warframe" ? !/Secondary|Primary|Melee/.test(a.type) : /Secondary|Primary|Melee/.test(a.type) === (cat === "weapon");
   }
 
-  function polarityIcon(p) {
-    const COLORS = { madurai: "#e0514f", vazarin: "#4d8de0", naramon: "#e0cf4d", zenurik: "#a04de0", penjaga: "#6d8689", umbra: "#e0514f", unairu: "#c9a24d" };
-    return `<span class="wf-pol" style="background:${COLORS[p] || "#6d8689"}" title="${esc(p || "")}"></span>`;
-  }
-
   // Greedy best-fit: each placed mod whose polarity still has an unused
   // match among the subject's innate polarities gets the drain halved.
   function computeCapacity() {
@@ -111,7 +106,7 @@
   }
 
   function modCardInner(item) {
-    return `<span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}${item.polarity ? polarityIcon(item.polarity) : ""}</span>
+    return `<span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>
       <span class="wf-mod-card-name">${esc(item.name)}</span>`;
   }
   function slotButton(kind, idx, item) {

@@ -145,7 +145,7 @@
     const RARITY_CLASS = { Common: "wf-r-common", Uncommon: "wf-r-uncommon", Rare: "wf-r-rare", Legendary: "wf-r-legendary", Riven: "wf-r-riven" };
     const slotHtml = (item) => item
       ? `<div class="wf-slot wf-mod-card ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default">
-          <span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}${item.polarity ? `<span class="wf-pol" style="background:${{madurai:"#e0514f",vazarin:"#4d8de0",naramon:"#e0cf4d",zenurik:"#a04de0",penjaga:"#6d8689",umbra:"#e0514f",unairu:"#c9a24d"}[item.polarity]||"#6d8689"}"></span>` : ""}</span>
+          <span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>
           <span class="wf-mod-card-name">${esc(item.name)}</span>
         </div>`
       : `<div class="wf-slot wf-slot-empty" style="cursor:default"><span class="wf-slot-plus">—</span></div>`;
