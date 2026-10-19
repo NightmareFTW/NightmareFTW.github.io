@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/style.css?v=fbd14ea4">
+  <link rel="stylesheet" href="../../assets/css/games/warframe.css?v=1">
 </head>
 <body data-game="warframe">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -18,14 +19,56 @@
       <nav class="top-nav"><a href="../../index.html">Hub</a></nav>
     </div>
   </header>
-  <main class="container">
-    <p class="breadcrumb"><a href="../../index.html">hub</a> / <span id="bc-game"></span></p>
-    <section class="game-hero" id="game-hero"></section>
-    <div class="tool-grid" id="tool-grid"></div>
+  <main class="container wf-main">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <span id="bc-game">Warframe</span></p>
+
+    <section class="wf-panel wf-hero" id="wf-hero">
+      <div class="wf-corner tl"></div>
+      <div class="wf-corner br" style="--wfc: var(--wf-amber);"></div>
+      <div class="wf-hero-glyph" aria-hidden="true"></div>
+      <div class="wf-hero-glyph inner" aria-hidden="true"></div>
+      <div class="wf-hero-inner">
+        <p class="wf-tag wf-eyebrow"><span class="wf-dot"></span> <span id="wf-blurb">Sci-fi co-op looter shooter.</span></p>
+        <h1>WARFRAME</h1>
+        <p>Live worldstate data, open-world cycle timers and the full relic &amp; mission drop table — pulled straight from the game's own API.</p>
+        <div class="wf-reset" id="wf-reset"></div>
+      </div>
+    </section>
+
+    <div class="wf-tabs" id="wf-tabs" role="tablist">
+      <button class="wf-tab active" data-tab="tools" role="tab" aria-selected="true">Tools</button>
+      <button class="wf-tab" data-tab="news" role="tab" aria-selected="false">News</button>
+      <button class="wf-tab" data-tab="codes" role="tab" aria-selected="false">Codes</button>
+    </div>
+
+    <section class="wf-panel-body" data-panel="tools" data-active="1">
+      <div class="wf-controls">
+        <input type="search" id="wf-tool-search" class="wf-input" placeholder="Search tools…" autocomplete="off">
+        <select id="wf-tool-sort" class="wf-select">
+          <option value="default">Sort: Default</option>
+          <option value="az">Name A–Z</option>
+          <option value="za">Name Z–A</option>
+        </select>
+        <div class="wf-view-toggle" id="wf-tool-view">
+          <button data-view="grid" class="active" title="Grid" aria-label="Grid view">▦</button>
+          <button data-view="list" title="List" aria-label="List view">≣</button>
+        </div>
+      </div>
+      <div class="wf-tool-grid" id="wf-tool-grid"></div>
+      <p id="wf-tool-empty" class="wf-empty" style="display:none">No tools match.</p>
+    </section>
+
+    <section class="wf-panel-body" data-panel="news">
+      <div id="wf-news-root"><p class="wf-empty">Loading news…</p></div>
+    </section>
+
+    <section class="wf-panel-body" data-panel="codes">
+      <div id="wf-codes-root"><p class="wf-empty">Loading codes…</p></div>
+    </section>
   </main>
   <footer class="site-footer"><div class="container"><span>Built by NightmareFTW.</span></div></footer>
   <script src="../../assets/js/data.js?v=f23e1613"></script>
-  <script src="../../assets/js/game.js?v=570fc4be"></script>
+  <script src="index.js?v=1"></script>
   <script src="/assets/js/i18n.js?v=115c99d6" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
