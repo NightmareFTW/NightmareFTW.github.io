@@ -870,4 +870,11 @@ const SITE_UPDATES = [
     image: "assets/img/updates/aniimo-talent-route.jpg",
     href: "games/aniimo/talents.html",
   },
+  {
+    date: "2026-09-18",
+    title: "Ravenswatch gets a Build Route Planner",
+    desc: "Pick a hero and a build direction and get a step-by-step draft priority, from openers to the finisher.",
+    image: "assets/img/updates/ravenswatch-build-route.jpg",
+    href: "games/ravenswatch/build-route.html",
+  },
 ];
