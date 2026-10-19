@@ -7,13 +7,13 @@
   // Load the accounts + settings-sync module on every page (this script is global).
   if (!document.querySelector('script[data-nftw-auth]')) {
     const a = document.createElement("script");
-    a.src = "/assets/js/auth.js?v=4857f511"; a.defer = true; a.setAttribute("data-nftw-auth", "");
+    a.src = "/assets/js/auth.js?v=c49d7e82"; a.defer = true; a.setAttribute("data-nftw-auth", "");
     document.head.appendChild(a);
   }
   // Load the Steam free-game alerts bell on every page (also global).
   if (!document.querySelector('script[data-nftw-steam]')) {
     const s = document.createElement("script");
-    s.src = "/assets/js/steam-alerts.js?v=efc15e57"; s.defer = true; s.setAttribute("data-nftw-steam", "");
+    s.src = "/assets/js/steam-alerts.js?v=6e6afbe5"; s.defer = true; s.setAttribute("data-nftw-steam", "");
     document.head.appendChild(s);
   }
   const LANG = localStorage.getItem("nftw:lang") || "en";
