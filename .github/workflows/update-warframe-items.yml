@@ -1,0 +1,25 @@
+name: Update Warframe item database
+
+on:
+  schedule:
+    - cron: "35 6 * * *"   # daily, 06:35 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-warframe-items:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: Scrape Warframes/weapons/companions/mods/arcanes (WFCD warframe-items)
+        run: node scripts/update-warframe-items.js
+      - name: Commit changes if any
+        uses: ./.github/actions/commit-data
+        with:
+          paths: "data/warframe/items.json"
+          message: "chore: auto-update Warframe item database"

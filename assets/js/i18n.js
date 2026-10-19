@@ -181,6 +181,9 @@
       "Os presets expiram 14 dias depois de serem gerados, mesmo que o criador original altere ou remova o seu design — verifica a data de validade de cada um antes de o experimentares. Códigos e screenshots são submetidos pela comunidade via Dreamers Portal; não conseguimos confirmar se um preset ainda funciona depois de expirar.",
     "Player-shared Decoration Preset codes with real screenshots, hand-picked from Dreamers Portal — not the redeem codes, those are on the hub's Codes tab.":
       "Códigos de Decoration Preset partilhados por jogadores com screenshots reais, escolhidos a dedo do Dreamers Portal — não são os códigos de resgate, esses estão na aba Codes do hub.",
+    "Warframe gets a Build Creator and community Showcase": "Warframe ganha um Criador de Builds e Showcase da comunidade",
+    "Mod out a Warframe, weapon or companion with real stats and mod data (via WFCD), then save it to a public showcase other visitors can browse and like.":
+      "Monta mods numa Warframe, arma ou companheiro com stats e dados de mods reais (via WFCD), e guarda o resultado numa showcase pública que outros visitantes podem ver e gostar.",
     "Dreamlight Valley gets Community Presets": "Dreamlight Valley ganha Presets da Comunidade",
     "Every preset below has expired — this list hasn't been refreshed since they were all still valid. A fresh batch is coming; in the meantime these codes won't redeem in-game.":
       "Todos os presets abaixo expiraram — esta lista não é actualizada desde que ainda estavam todos válidos. Um novo lote está a caminho; entretanto, estes códigos não resgatam no jogo.",
@@ -1919,6 +1922,39 @@
     "net community votes": "votos líquidos da comunidade",
     "View full build →": "Ver build completa →",
     "▶ Watch the author's video": "▶ Ver o vídeo do autor",
+
+    // ---- Warframe: Build Creator / Showcase ----
+    "Build Creator": "Criador de Builds", "Build Showcase": "Showcase de Builds",
+    "Mod out a Warframe, weapon or companion": "Monta mods numa Warframe, arma ou companheiro",
+    "Real stats and mod data from the game's own API (via WFCD). Capacity assumes a maxed, reactor-fitted subject — see the note by the capacity bar.":
+      "Stats e dados de mods reais, vindos da própria API do jogo (via WFCD). A capacidade assume o alvo maximizado e com reactor — vê a nota junto à barra de capacidade.",
+    "Browse the community showcase →": "Ver a showcase da comunidade →",
+    "Loading item database…": "A carregar base de dados de itens…",
+    "Couldn't load the item database.": "Não foi possível carregar a base de dados de itens.",
+    "Weapon": "Arma", "Companion": "Companheiro", "Companions": "Companheiros",
+    "Build details": "Detalhes da build",
+    "Build title…": "Título da build…",
+    "Notes (playstyle, forma order, anything else)…": "Notas (estilo de jogo, ordem de forma, o que quiseres)…",
+    "Save to showcase": "Guardar na showcase",
+    "Sign in (email account) to save to the showcase.": "Entra (conta de email) para guardar na showcase.",
+    "Give the build a title first.": "Dá um título à build primeiro.",
+    "Saving…": "A guardar…",
+    "Couldn't save — try again.": "Não foi possível guardar — tenta outra vez.",
+    "Saved ✓": "Guardado ✓",
+    "View in showcase →": "Ver na showcase →",
+    "Network error — try again.": "Erro de rede — tenta outra vez.",
+    "No matches.": "Sem resultados.",
+    "Search…": "Procurar…",
+    "(rank 30 + reactor assumed)": "(rank 30 + reactor assumido)",
+    "Community builds": "Builds da comunidade",
+    "Every build here was saved by another visitor with the": "Cada build aqui foi guardada por outro visitante com o",
+    ". Sign in to like one, or save your own.": ". Entra para gostares de uma, ou guarda a tua.",
+    "Sort: Newest": "Ordenar: Mais recentes", "Sort: Most liked": "Ordenar: Mais gostadas",
+    "No builds yet — be the first from the": "Ainda não há builds — sê o primeiro a partir do",
+    "Couldn't load the showcase right now.": "Não foi possível carregar a showcase agora.",
+    "That build couldn't be found.": "Essa build não foi encontrada.",
+    "← Back to showcase": "← Voltar à showcase",
+    "Delete build": "Eliminar build",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -2049,6 +2085,12 @@
     [/^Lv (\d+) ★$/, "Nv $1 ★"],
     [/^Lv (\d+)$/, "Nv $1"],
     [/^Build by (.+) · imported from wikily\.gg\.$/, "Build por $1 · importado de wikily.gg."],
+
+    // ---- Warframe: Build Creator / Showcase ----
+    [/^HP (\d+) · Shield (\d+) · Armor (\d+)$/, "HP $1 · Shield $2 · Armor $3"],
+    [/^Search (warframe|weapon|companion)…$/, (m, k) => `Procurar ${k === "warframe" ? "warframe" : k === "weapon" ? "arma" : "companheiro"}…`],
+    [/^Pick a (warframe|weapon|companion) above to start modding\.$/, (m, k) => `Escolhe ${k === "warframe" ? "uma warframe" : k === "weapon" ? "uma arma" : "um companheiro"} acima para começar a montar mods.`],
+    [/^(\d+) \/ (\d+) capacity( — over capacity)?$/, (m, a, b, over) => `${a} / ${b} capacidade${over ? " — acima da capacidade" : ""}`],
   ];
 
   function translateText(raw) {

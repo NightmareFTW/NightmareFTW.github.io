@@ -17,6 +17,14 @@
      GET  /data         (Bearer)                  -> { blob, updated }
      PUT  /data         (Bearer) {blob}           -> { ok:true, updated }
 
+     -- Warframe Build Creator / Showcase (public rows, unlike /data) --
+     GET  /builds        ?category&subject&sort=likes&limit&offset -> { builds:[…] }
+     GET  /builds/mine   (Bearer)                 -> { builds:[…] }
+     GET  /builds/:id                             -> the build row
+     POST /builds        (Bearer) {category,subject,title,author,data} -> { id, ok:true }
+     DEL  /builds/:id    (Bearer, owner only)      -> { ok:true }
+     POST /builds/:id/like (Bearer, toggles)       -> { liked, likes }
+
    Secrets/vars (wrangler):
      CLIENT_ID, CLIENT_SECRET   GitHub OAuth app (existing)
      SESSION_SECRET             random string, signs the session JWTs
@@ -73,6 +81,7 @@ const randToken = () => b64u(crypto.getRandomValues(new Uint8Array(24)));
 const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : randToken());
 const normEmail = (e) => String(e || "").trim().toLowerCase();
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) && e.length <= 254;
+const cleanStr = (s, max) => String(s == null ? "" : s).trim().replace(/\s+/g, " ").slice(0, max);
 
 // ---- rate limiting (fixed window, backed by D1) ----
 // Cheap brute-force/credential-stuffing guard for the unauthenticated auth
@@ -127,7 +136,7 @@ async function makeRecoveryCodes(env, userId, n = 10) {
 // that would silently open the API to every origin on a misconfiguration.
 function corsHeaders(env) {
   const h = {
-    "Access-Control-Allow-Methods": "GET,POST,PUT,OPTIONS",
+    "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type,Authorization",
     "Access-Control-Max-Age": "86400",
     "Vary": "Origin",
@@ -324,6 +333,102 @@ export default {
         await env.DB.prepare("INSERT INTO settings (user_id,blob,updated) VALUES (?,?,?) ON CONFLICT(user_id) DO UPDATE SET blob=excluded.blob, updated=excluded.updated")
           .bind(s.uid, blob, t).run();
         return json(env, { ok: true, updated: t });
+      }
+
+      // ==== Warframe Build Creator / Showcase (public builds) ====
+      const BUILD_CATEGORIES = new Set(["warframe", "weapon", "companion"]);
+      const buildIdMatch = url.pathname.match(/^\/builds\/([A-Za-z0-9_-]+)$/);
+      const buildLikeMatch = url.pathname.match(/^\/builds\/([A-Za-z0-9_-]+)\/like$/);
+
+      // ---- list (public) ----
+      if (req.method === "GET" && url.pathname === "/builds") {
+        const category = url.searchParams.get("category");
+        const subject = url.searchParams.get("subject");
+        const byLikes = url.searchParams.get("sort") === "likes";
+        const limit = Math.min(Math.max(parseInt(url.searchParams.get("limit") || "24", 10) || 24, 1), 60);
+        const offset = Math.max(parseInt(url.searchParams.get("offset") || "0", 10) || 0, 0);
+        const conds = [], binds = [];
+        if (category && BUILD_CATEGORIES.has(category)) { conds.push("category=?"); binds.push(category); }
+        if (subject) { conds.push("subject=?"); binds.push(cleanStr(subject, 80)); }
+        const where = conds.length ? `WHERE ${conds.join(" AND ")}` : "";
+        const order = byLikes ? "likes DESC, created DESC" : "created DESC";
+        const rows = await env.DB.prepare(
+          `SELECT id,author,category,subject,title,data,likes,created,updated FROM builds ${where} ORDER BY ${order} LIMIT ? OFFSET ?`
+        ).bind(...binds, limit, offset).all();
+        return json(env, { builds: rows.results || [] });
+      }
+
+      // ---- my own builds (authenticated) — checked before the dynamic
+      // /builds/:id route below, since "mine" would otherwise match it ----
+      if (req.method === "GET" && url.pathname === "/builds/mine") {
+        const s = await auth(req, env); if (!s) return json(env, { error: "unauthorized" }, 401);
+        const rows = await env.DB.prepare(
+          "SELECT id,author,category,subject,title,data,likes,created,updated FROM builds WHERE user_id=? ORDER BY created DESC"
+        ).bind(s.uid).all();
+        return json(env, { builds: rows.results || [] });
+      }
+
+      // ---- single build (public) ----
+      if (req.method === "GET" && buildIdMatch) {
+        const row = await env.DB.prepare(
+          "SELECT id,author,category,subject,title,data,likes,created,updated FROM builds WHERE id=?"
+        ).bind(buildIdMatch[1]).first();
+        if (!row) return json(env, { error: "not_found" }, 404);
+        return json(env, row);
+      }
+
+      // ---- create (authenticated) ----
+      if (req.method === "POST" && url.pathname === "/builds") {
+        const s = await auth(req, env); if (!s) return json(env, { error: "unauthorized" }, 401);
+        const rl = await checkRateLimit(env, `build-create:${s.uid}`, 3600, 30);
+        if (!rl.ok) return tooManyRequests(env, rl.retryAfter);
+        const body = await readJson(req);
+        const category = String(body.category || "");
+        if (!BUILD_CATEGORIES.has(category)) return json(env, { error: "invalid_category" }, 400);
+        const subject = cleanStr(body.subject, 80);
+        const title = cleanStr(body.title, 120);
+        const author = cleanStr(body.author, 40) || "Tenno";
+        if (!subject || !title) return json(env, { error: "missing_fields" }, 400);
+        let data = body.data;
+        if (typeof data !== "string") data = JSON.stringify(data || {});
+        if (data.length > 20000) return json(env, { error: "too_large" }, 413);
+        const id = uuid(), t = now();
+        await env.DB.prepare(
+          "INSERT INTO builds (id,user_id,author,category,subject,title,data,likes,created,updated) VALUES (?,?,?,?,?,?,?,0,?,?)"
+        ).bind(id, s.uid, author, category, subject, title, data, t, t).run();
+        return json(env, { id, ok: true });
+      }
+
+      // ---- delete own build (authenticated) ----
+      if (req.method === "DELETE" && buildIdMatch) {
+        const s = await auth(req, env); if (!s) return json(env, { error: "unauthorized" }, 401);
+        const row = await env.DB.prepare("SELECT user_id FROM builds WHERE id=?").bind(buildIdMatch[1]).first();
+        if (!row) return json(env, { error: "not_found" }, 404);
+        if (row.user_id !== s.uid) return json(env, { error: "forbidden" }, 403);
+        await env.DB.prepare("DELETE FROM builds WHERE id=?").bind(buildIdMatch[1]).run();
+        await env.DB.prepare("DELETE FROM build_likes WHERE build_id=?").bind(buildIdMatch[1]).run();
+        return json(env, { ok: true });
+      }
+
+      // ---- toggle like (authenticated) ----
+      if (req.method === "POST" && buildLikeMatch) {
+        const s = await auth(req, env); if (!s) return json(env, { error: "unauthorized" }, 401);
+        const id = buildLikeMatch[1];
+        const build = await env.DB.prepare("SELECT id FROM builds WHERE id=?").bind(id).first();
+        if (!build) return json(env, { error: "not_found" }, 404);
+        const existing = await env.DB.prepare("SELECT 1 AS x FROM build_likes WHERE build_id=? AND user_id=?").bind(id, s.uid).first();
+        let liked;
+        if (existing) {
+          await env.DB.prepare("DELETE FROM build_likes WHERE build_id=? AND user_id=?").bind(id, s.uid).run();
+          await env.DB.prepare("UPDATE builds SET likes=MAX(0,likes-1) WHERE id=?").bind(id).run();
+          liked = false;
+        } else {
+          await env.DB.prepare("INSERT INTO build_likes (build_id,user_id) VALUES (?,?)").bind(id, s.uid).run();
+          await env.DB.prepare("UPDATE builds SET likes=likes+1 WHERE id=?").bind(id).run();
+          liked = true;
+        }
+        const row = await env.DB.prepare("SELECT likes FROM builds WHERE id=?").bind(id).first();
+        return json(env, { liked, likes: row ? row.likes : 0 });
       }
 
     } catch (e) {

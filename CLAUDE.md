@@ -1,5 +1,21 @@
 # Project notes for Claude
 
+## Warframe data — use WFCD, not scraping
+
+For anything Warframe needs beyond the live worldstate (which already uses
+`api.warframestat.us`): Warframe Community Developers (https://github.com/WFCD)
+maintains open-source, MIT-licensed, API-sourced datasets — this is the
+go-to, not scraping a wiki or another fan site. Notably:
+- `warframe-items` — full item data (warframes, weapons, mods, arcanes,
+  companions, …) pulled from the game's own API, not scraped pages.
+- `warframe-drop-data` — reformatted drop data (where parts/resources come from).
+- `warframe-patchlogs` — patch notes as JSON, with per-item lookups (useful
+  for surfacing recent balance changes on an item).
+- `api.warframestat.us` (already whitelisted in every page's CSP, already
+  used by the Worldstate Tracker) is WFCD's own hosted API and also exposes
+  item/mod/warframe data directly, as an alternative to vendoring the
+  `warframe-items` JSON.
+
 ## "What's New" carousel — do this proactively
 
 Whenever a new game, tool, or otherwise significant feature ships on this

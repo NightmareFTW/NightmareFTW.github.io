@@ -27,6 +27,7 @@ wrangler d1 execute nftw-accounts --file=schema.sql --remote
 # tables to it — also run every file in migrations/ once, in order:
 wrangler d1 execute nftw-accounts --file=migrations/0002_recovery.sql --remote
 wrangler d1 execute nftw-accounts --file=migrations/0003_hardening.sql --remote
+wrangler d1 execute nftw-accounts --file=migrations/0004_builds.sql --remote
 
 # 3) Set the secrets (you'll be prompted to paste each value)
 wrangler secret put SESSION_SECRET   # any long random string, e.g. `openssl rand -base64 48`

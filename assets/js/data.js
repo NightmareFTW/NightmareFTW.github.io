@@ -175,6 +175,22 @@ const GAMES = [
         href: "games/warframe/drops.html",
         available: true,
       },
+      {
+        id: "builder",
+        name: "Build Creator",
+        type: "builder",
+        desc: "Mod out a Warframe, weapon or companion with real item data, then save it to the community showcase.",
+        href: "games/warframe/builder.html",
+        available: true,
+      },
+      {
+        id: "builds",
+        name: "Build Showcase",
+        type: "database",
+        desc: "Browse and like builds other players saved with the Build Creator.",
+        href: "games/warframe/builds.html",
+        available: true,
+      },
     ],
   },
   {
@@ -799,6 +815,13 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
+    date: "2026-10-19",
+    title: "Warframe gets a Build Creator and community Showcase",
+    desc: "Mod out a Warframe, weapon or companion with real stats and mod data (via WFCD), then save it to a public showcase other visitors can browse and like.",
+    image: "assets/img/updates/warframe-build-creator.jpg",
+    href: "games/warframe/builder.html",
+  },
+  {
     date: "2026-09-30",
     title: "Dreamlight Valley gets Community Presets",
     desc: "Player-shared decoration Preset codes with real screenshots, hand-picked from Dreamers Portal.",
@@ -846,12 +869,5 @@ const SITE_UPDATES = [
     desc: "Pick a hero and a build direction and get a step-by-step draft priority, from openers to the finisher.",
     image: "assets/img/updates/ravenswatch-build-route.jpg",
     href: "games/ravenswatch/build-route.html",
-  },
-  {
-    date: "2026-09-18",
-    title: "Aniimo joins the hub",
-    desc: "A creature database with all 86 Aniimo, plus a real interactive world map.",
-    image: "assets/img/games/aniimo-header.jpg",
-    href: "games/aniimo/index.html",
   },
 ];
