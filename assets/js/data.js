@@ -179,7 +179,7 @@ const GAMES = [
         id: "builder",
         name: "Build Creator",
         type: "builder",
-        desc: "Mod out a Warframe, weapon or companion with real item data, then save it to the community showcase.",
+        desc: "Mod out a Warframe, weapon or companion with real item data and Archon Shards, then save it to the community showcase.",
         href: "games/warframe/builder.html",
         available: true,
       },
@@ -816,6 +816,13 @@ const GAMES = [
 const SITE_UPDATES = [
   {
     date: "2026-10-19",
+    title: "Warframe builds get Archon Shards",
+    desc: "Socket up to 5 Archon Shards per Warframe — all six colours, every bonus, Tauforged values — and watch the stat panel update live.",
+    image: "assets/img/updates/warframe-archon-shards.jpg",
+    href: "games/warframe/builder.html",
+  },
+  {
+    date: "2026-10-19",
     title: "Warframe gets a Build Creator and community Showcase",
     desc: "Mod out a Warframe, weapon or companion with real stats and mod data (via WFCD), then save it to a public showcase other visitors can browse and like.",
     image: "assets/img/updates/warframe-build-creator.jpg",
@@ -862,12 +869,5 @@ const SITE_UPDATES = [
     desc: "The Pathfinder's own talent tree, plus a recommended pick order for which to unlock first.",
     image: "assets/img/updates/aniimo-talent-route.jpg",
     href: "games/aniimo/talents.html",
-  },
-  {
-    date: "2026-09-18",
-    title: "Ravenswatch gets a Build Route Planner",
-    desc: "Pick a hero and a build direction and get a step-by-step draft priority, from openers to the finisher.",
-    image: "assets/img/updates/ravenswatch-build-route.jpg",
-    href: "games/ravenswatch/build-route.html",
   },
 ];

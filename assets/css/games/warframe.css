@@ -246,6 +246,31 @@
 }
 .wf-picker-item:hover { border-color: var(--wf-cyan); }
 
+/* Archon Shards — gem slots, colour picker row, Tauforged toggle and bonus rows. */
+.wf-slot-grid-5 { grid-template-columns: repeat(5, 64px); }
+.wf-shard-slot { border-style: solid; }
+.wf-shard-gem {
+  width: 22px; height: 22px; background: var(--shard, #d14b4b); transform: rotate(45deg); border-radius: 3px;
+  box-shadow: 0 0 10px 1px var(--shard, #d14b4b); border: 1px solid rgba(255,255,255,.25);
+}
+.wf-shard-gem.wf-tauforged { box-shadow: 0 0 14px 3px var(--shard, #d14b4b); border-color: #fff; }
+.wf-shard-colors { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
+.wf-shard-color-btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; cursor: pointer;
+  background: var(--wf-panel-2); border: 1px solid var(--wf-border); color: var(--wf-text); font-family: var(--sans); font-size: .78rem;
+}
+.wf-shard-color-btn .wf-shard-gem { width: 13px; height: 13px; box-shadow: none; }
+.wf-shard-color-btn:hover { border-color: var(--shard); }
+.wf-shard-color-btn.active { border-color: var(--shard); box-shadow: inset 0 0 0 1px var(--shard); }
+.wf-shard-tf { grid-column: 1 / -1; display: flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--wf-text); cursor: pointer; padding: 2px 0; }
+.wf-shard-bonus { grid-column: 1 / -1; aspect-ratio: auto; justify-content: flex-start; text-align: left; padding: 9px 12px; font-size: .8rem; line-height: 1.35; }
+.wf-shard-bonus.wf-disabled { opacity: .45; pointer-events: none; }
+.wf-shard-unsocket {
+  grid-column: 1 / -1; padding: 8px 12px; cursor: pointer; font-size: .8rem;
+  background: none; border: 1px solid rgba(255,90,90,.4); color: #ff8a8a; font-family: var(--sans);
+}
+.wf-shard-unsocket:hover { background: rgba(255,90,90,.08); }
+
 /* ---- Showcase ---- */
 .wf-build-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding-bottom: 20px; }
 .wf-build-card {

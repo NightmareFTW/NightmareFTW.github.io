@@ -7,13 +7,13 @@
   // Load the accounts + settings-sync module on every page (this script is global).
   if (!document.querySelector('script[data-nftw-auth]')) {
     const a = document.createElement("script");
-    a.src = "/assets/js/auth.js?v=c49d7e82"; a.defer = true; a.setAttribute("data-nftw-auth", "");
+    a.src = "/assets/js/auth.js?v=4857f511"; a.defer = true; a.setAttribute("data-nftw-auth", "");
     document.head.appendChild(a);
   }
   // Load the Steam free-game alerts bell on every page (also global).
   if (!document.querySelector('script[data-nftw-steam]')) {
     const s = document.createElement("script");
-    s.src = "/assets/js/steam-alerts.js?v=6e6afbe5"; s.defer = true; s.setAttribute("data-nftw-steam", "");
+    s.src = "/assets/js/steam-alerts.js?v=efc15e57"; s.defer = true; s.setAttribute("data-nftw-steam", "");
     document.head.appendChild(s);
   }
   const LANG = localStorage.getItem("nftw:lang") || "en";
@@ -182,6 +182,9 @@
     "Player-shared Decoration Preset codes with real screenshots, hand-picked from Dreamers Portal — not the redeem codes, those are on the hub's Codes tab.":
       "Códigos de Decoration Preset partilhados por jogadores com screenshots reais, escolhidos a dedo do Dreamers Portal — não são os códigos de resgate, esses estão na aba Codes do hub.",
     "Warframe gets a Build Creator and community Showcase": "Warframe ganha um Criador de Builds e Showcase da comunidade",
+    "Warframe builds get Archon Shards": "Builds de Warframe ganham Archon Shards",
+    "Socket up to 5 Archon Shards per Warframe — all six colours, every bonus, Tauforged values — and watch the stat panel update live.":
+      "Encaixa até 5 Archon Shards por Warframe — as seis cores, todos os bónus, valores Tauforged — e vê o painel de stats actualizar em tempo real.",
     "Mod out a Warframe, weapon or companion with real stats and mod data (via WFCD), then save it to a public showcase other visitors can browse and like.":
       "Monta mods numa Warframe, arma ou companheiro com stats e dados de mods reais (via WFCD), e guarda o resultado numa showcase pública que outros visitantes podem ver e gostar.",
     "Dreamlight Valley gets Community Presets": "Dreamlight Valley ganha Presets da Comunidade",
@@ -1926,6 +1929,52 @@
     // ---- Warframe: Build Creator / Showcase ----
     "Build Creator": "Criador de Builds", "Build Showcase": "Showcase de Builds",
     "Mod out a Warframe, weapon or companion": "Monta mods numa Warframe, arma ou companheiro",
+    "Mod out a Warframe, weapon or companion with real item data and Archon Shards, then save it to the community showcase.":
+      "Monta mods numa Warframe, arma ou companheiro com dados de itens reais e Archon Shards, e guarda o resultado na showcase da comunidade.",
+    "Real stats and mod data from the game's own API (via WFCD). Capacity assumes a maxed, reactor-fitted subject — see the note by the capacity bar. Up to 5 Archon Shards per Warframe, Tauforged included, feed straight into the stat panel.":
+      "Stats e dados de mods reais, vindos da própria API do jogo (via WFCD). A capacidade assume o alvo maximizado e com reactor — vê a nota junto à barra de capacidade. Até 5 Archon Shards por Warframe, Tauforged incluído, alimentam o painel de stats.",
+    "Archon Shards": "Archon Shards", "(5 per Warframe)": "(5 por Warframe)",
+    "(1.5× bonuses)": "(bónus 1.5×)", "Unsocket shard": "Retirar shard",
+    // Shard bonus texts (both normal and Tauforged variants).
+    "+10% Ability Strength": "+10% Poder de Habilidade", "+15% Ability Strength": "+15% Poder de Habilidade",
+    "+10% Ability Duration": "+10% Duração de Habilidade", "+15% Ability Duration": "+15% Duração de Habilidade",
+    "+25% Melee Critical Damage": "+25% Dano Crítico Corpo a Corpo", "+37.5% Melee Critical Damage": "+37.5% Dano Crítico Corpo a Corpo",
+    "+25% Primary Status Chance": "+25% Chance de Status da Primária", "+37.5% Primary Status Chance": "+37.5% Chance de Status da Primária",
+    "+25% Secondary Critical Chance": "+25% Chance de Crítico da Secundária", "+37.5% Secondary Critical Chance": "+37.5% Chance de Crítico da Secundária",
+    "+25% Casting Speed": "+25% Velocidade de Conjuração", "+37.5% Casting Speed": "+37.5% Velocidade de Conjuração",
+    "+15% Parkour Velocity": "+15% Velocidade de Parkour", "+22.5% Parkour Velocity": "+22.5% Velocidade de Parkour",
+    "+30% Maximum Energy filled on Spawn": "+30% Energia Máxima ao surgir", "+45% Maximum Energy filled on Spawn": "+45% Energia Máxima ao surgir",
+    "+100% Effectiveness on Health Orbs": "+100% Eficácia em Orbes de Saúde", "+150% Effectiveness on Health Orbs": "+150% Eficácia em Orbes de Saúde",
+    "+50% Effectiveness on Energy Orbs": "+50% Eficácia em Orbes de Energia", "+75% Effectiveness on Energy Orbs": "+75% Eficácia em Orbes de Energia",
+    "+150 Max Health": "+150 Saúde Máxima", "+225 Max Health": "+225 Saúde Máxima",
+    "+150 Shield Capacity": "+150 Capacidade de Escudo", "+225 Shield Capacity": "+225 Capacidade de Escudo",
+    "+50 Energy Max": "+50 Energia Máxima", "+75 Energy Max": "+75 Energia Máxima",
+    "+150 Armor": "+150 Armadura", "+225 Armor": "+225 Armadura",
+    "+5 Health/s Regenerated": "+5 Saúde/s Regenerada", "+7.5 Health/s Regenerated": "+7.5 Saúde/s Regenerada",
+    "+1 Max Health per enemy killed with Blast Damage (max 300)": "+1 Saúde Máxima por inimigo morto com dano Blast (máx. 300)",
+    "+2 Max Health per enemy killed with Blast Damage (max 450)": "+2 Saúde Máxima por inimigo morto com dano Blast (máx. 450)",
+    "Regenerate +5 Shield on a Blast kill": "Regenera +5 de Escudo com uma morte Blast",
+    "Regenerate +7.5 Shield on a Blast kill": "Regenera +7.5 de Escudo com uma morte Blast",
+    "+1% Secondary Critical Chance per Heat kill (max 50%)": "+1% Chance de Crítico da Secundária por morte Heat (máx. 50%)",
+    "+1.5% Secondary Critical Chance per Heat kill (max 75%)": "+1.5% Chance de Crítico da Secundária por morte Heat (máx. 75%)",
+    "+10% Ability Damage on enemies affected by Radiation Status": "+10% Dano de Habilidade a inimigos afetados por Status Radiation",
+    "+15% Ability Damage on enemies affected by Radiation Status": "+15% Dano de Habilidade a inimigos afetados por Status Radiation",
+    "+10% Ability Damage on enemies affected by Electricity Status": "+10% Dano de Habilidade a inimigos afetados por Status Electricity",
+    "+15% Ability Damage on enemies affected by Electricity Status": "+15% Dano de Habilidade a inimigos afetados por Status Electricity",
+    "+30% Primary Electricity Damage (+10% per Crimson, Azure or Violet Shard)": "+30% Dano Electricity da Primária (+10% por shard Crimson, Azure ou Violet)",
+    "+45% Primary Electricity Damage (+15% per Crimson, Azure or Violet Shard)": "+45% Dano Electricity da Primária (+15% por shard Crimson, Azure ou Violet)",
+    "+25% Melee Critical Damage (doubles with 500+ Max Energy)": "+25% Dano Crítico Corpo a Corpo (duplica com 500+ de Energia Máxima)",
+    "+37.5% Melee Critical Damage (doubles with 500+ Max Energy)": "+37.5% Dano Crítico Corpo a Corpo (duplica com 500+ de Energia Máxima)",
+    "Health pickups give +20% Energy · Energy pickups give +20% Health": "Pickups de Saúde dão +20% Energia · Pickups de Energia dão +20% Saúde",
+    "Health pickups give +30% Energy · Energy pickups give +30% Health": "Pickups de Saúde dão +30% Energia · Pickups de Energia dão +30% Saúde",
+    "Toxin Status Effects deal +30% more damage": "Efeitos de Status Toxin causam +30% mais dano",
+    "Toxin Status Effects deal +45% more damage": "Efeitos de Status Toxin causam +45% mais dano",
+    "Recover +2 Health on enemies damaged by Toxin Status": "Recupera +2 de Saúde ao danificar inimigos com Status Toxin",
+    "Recover +3 Health on enemies damaged by Toxin Status": "Recupera +3 de Saúde ao danificar inimigos com Status Toxin",
+    "+10% Ability Damage on enemies affected by Corrosion Status": "+10% Dano de Habilidade a inimigos afetados por Status Corrosion",
+    "+15% Ability Damage on enemies affected by Corrosion Status": "+15% Dano de Habilidade a inimigos afetados por Status Corrosion",
+    "+2 max stacks of Corrosion Status": "+2 stacks máximos de Status Corrosion",
+    "+3 max stacks of Corrosion Status": "+3 stacks máximos de Status Corrosion",
     "Real stats and mod data from the game's own API (via WFCD). Capacity assumes a maxed, reactor-fitted subject — see the note by the capacity bar.":
       "Stats e dados de mods reais, vindos da própria API do jogo (via WFCD). A capacidade assume o alvo maximizado e com reactor — vê a nota junto à barra de capacidade.",
     "Browse the community showcase →": "Ver a showcase da comunidade →",
@@ -2091,6 +2140,10 @@
     [/^Search (warframe|weapon|companion)…$/, (m, k) => `Procurar ${k === "warframe" ? "warframe" : k === "weapon" ? "arma" : "companheiro"}…`],
     [/^Pick a (warframe|weapon|companion) above to start modding\.$/, (m, k) => `Escolhe ${k === "warframe" ? "uma warframe" : k === "weapon" ? "uma arma" : "um companheiro"} acima para começar a montar mods.`],
     [/^(\d+) \/ (\d+) capacity( — over capacity)?$/, (m, a, b, over) => `${a} / ${b} capacidade${over ? " — acima da capacidade" : ""}`],
+    [/^Not eligible on (.+)$/, "Não elegível em $1"],
+    // Shard slot tooltip: "Tauforged Crimson — +15% Ability Strength" — pass the
+    // bonus tail through the DICT so both halves end up in PT.
+    [/^(Tauforged )?(Crimson|Amber|Azure|Topaz|Violet|Emerald) — (.+)$/, (m, tf, name, bonus) => `${tf || ""}${name} — ${DICT[bonus] || bonus}`],
   ];
 
   function translateText(raw) {

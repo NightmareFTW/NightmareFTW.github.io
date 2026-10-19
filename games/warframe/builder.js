@@ -11,7 +11,11 @@
    - Mod compatibility is filtered by the source data's own `type` field
      (e.g. "Primary Mod", "Melee Mod") plus augments matched by exact
      subject name — not a full simulation of every sub-weapon-type's exact
-     eligible pool. */
+     eligible pool.
+   - Archon Shard bonuses are a small hand-kept table (official wiki values;
+     WFCD's item data doesn't carry shard effects): Tauforged is 1.5x, the
+     flat Azure values apply after percentage modifiers, and the in-game
+     no-shield/no-energy Warframe exclusions are honoured. */
 (function () {
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const root = document.getElementById("wf-builder");
@@ -20,6 +24,55 @@
   const ARCANE_SLOTS = 2;
   const CAPACITY = 60; // rank 30 + Orokin Reactor/Catalyst
   const RARITY_CLASS = { Common: "wf-r-common", Uncommon: "wf-r-uncommon", Rare: "wf-r-rare", Legendary: "wf-r-legendary", Riven: "wf-r-riven" };
+
+  // Archon Shards (Warframe-only, 5 slots). Values are the in-game numbers
+  // from the official wiki (current as of Update 35.0's six-shard expansion):
+  // each socketed shard grants one chosen bonus, Tauforged shards give 1.5x.
+  // `pct` bonuses stack additively with mods; `flat` Azure bonuses are added
+  // after all percentage modifiers, per the wiki's own wording. `no` lists
+  // Warframes that can't receive that bonus (no shields / no energy).
+  const SHARD_SLOTS = 5;
+  const SHARDS = {
+    crimson: { name: "Crimson", color: "#d14b4b", bonuses: [
+      { text: "+10% Ability Strength", tf: "+15% Ability Strength", pct: { strength: 10 } },
+      { text: "+10% Ability Duration", tf: "+15% Ability Duration", pct: { duration: 10 } },
+      { text: "+25% Melee Critical Damage", tf: "+37.5% Melee Critical Damage" },
+      { text: "+25% Primary Status Chance", tf: "+37.5% Primary Status Chance" },
+      { text: "+25% Secondary Critical Chance", tf: "+37.5% Secondary Critical Chance" },
+    ] },
+    amber: { name: "Amber", color: "#e2b13c", bonuses: [
+      { text: "+25% Casting Speed", tf: "+37.5% Casting Speed" },
+      { text: "+15% Parkour Velocity", tf: "+22.5% Parkour Velocity" },
+      { text: "+30% Maximum Energy filled on Spawn", tf: "+45% Maximum Energy filled on Spawn" },
+      { text: "+100% Effectiveness on Health Orbs", tf: "+150% Effectiveness on Health Orbs" },
+      { text: "+50% Effectiveness on Energy Orbs", tf: "+75% Effectiveness on Energy Orbs" },
+    ] },
+    azure: { name: "Azure", color: "#4a94d1", bonuses: [
+      { text: "+150 Max Health", tf: "+225 Max Health", flat: { health: 150 } },
+      { text: "+150 Shield Capacity", tf: "+225 Shield Capacity", flat: { shield: 150 }, no: ["inaros", "inaros-prime", "kullervo", "nidus", "nidus-prime"] },
+      { text: "+50 Energy Max", tf: "+75 Energy Max", flat: { energy: 50 }, no: ["hildryn", "hildryn-prime", "lavos"] },
+      { text: "+150 Armor", tf: "+225 Armor", flat: { armor: 150 } },
+      { text: "+5 Health/s Regenerated", tf: "+7.5 Health/s Regenerated" },
+    ] },
+    topaz: { name: "Topaz", color: "#e58a2b", bonuses: [
+      { text: "+1 Max Health per enemy killed with Blast Damage (max 300)", tf: "+2 Max Health per enemy killed with Blast Damage (max 450)" },
+      { text: "Regenerate +5 Shield on a Blast kill", tf: "Regenerate +7.5 Shield on a Blast kill" },
+      { text: "+1% Secondary Critical Chance per Heat kill (max 50%)", tf: "+1.5% Secondary Critical Chance per Heat kill (max 75%)" },
+      { text: "+10% Ability Damage on enemies affected by Radiation Status", tf: "+15% Ability Damage on enemies affected by Radiation Status" },
+    ] },
+    violet: { name: "Violet", color: "#9a5fd3", bonuses: [
+      { text: "+10% Ability Damage on enemies affected by Electricity Status", tf: "+15% Ability Damage on enemies affected by Electricity Status" },
+      { text: "+30% Primary Electricity Damage (+10% per Crimson, Azure or Violet Shard)", tf: "+45% Primary Electricity Damage (+15% per Crimson, Azure or Violet Shard)" },
+      { text: "+25% Melee Critical Damage (doubles with 500+ Max Energy)", tf: "+37.5% Melee Critical Damage (doubles with 500+ Max Energy)" },
+      { text: "Health pickups give +20% Energy · Energy pickups give +20% Health", tf: "Health pickups give +30% Energy · Energy pickups give +30% Health" },
+    ] },
+    emerald: { name: "Emerald", color: "#3fb27f", bonuses: [
+      { text: "Toxin Status Effects deal +30% more damage", tf: "Toxin Status Effects deal +45% more damage" },
+      { text: "Recover +2 Health on enemies damaged by Toxin Status", tf: "Recover +3 Health on enemies damaged by Toxin Status" },
+      { text: "+10% Ability Damage on enemies affected by Corrosion Status", tf: "+15% Ability Damage on enemies affected by Corrosion Status" },
+      { text: "+2 max stacks of Corrosion Status", tf: "+3 max stacks of Corrosion Status" },
+    ] },
+  };
 
   // Mods store one summary line like "+99% Ability Duration -66% Ability Range" —
   // parse each signed-percentage/stat-name pair for the stat panel's colored deltas.
@@ -40,16 +93,32 @@
     }
     return out;
   }
-  function statDeltas(subject, equipped) {
+  function statDeltas(subject, equipped, shardList) {
     const sums = {};
     equipped.filter(Boolean).forEach((m) => parseEffect(m.effect).forEach(({ stat, pct }) => { sums[stat] = (sums[stat] || 0) + pct; }));
-    const cls = (pct) => (pct > 0 ? "wf-stat-up" : pct < 0 ? "wf-stat-down" : "");
-    const scaled = (n, stat) => { const pct = sums[stat] || 0; return { value: Math.round((n || 0) * (1 + pct / 100) * 10) / 10, cls: cls(pct) }; };
-    const ability = (stat) => { const pct = sums[stat] || 0; return { value: Math.round(100 + pct), cls: cls(pct) }; };
+    // Shard bonuses: `pct` stacks with the mod percentages above; `flat` is
+    // added after all percentage modifiers (the wiki's stated ordering).
+    const flats = {};
+    (shardList || []).filter(Boolean).forEach((s) => {
+      const b = (SHARDS[s.color] || {}).bonuses ? SHARDS[s.color].bonuses[s.bonus] : null;
+      if (!b) return;
+      const m = s.tf ? 1.5 : 1;
+      if (b.pct) for (const k in b.pct) sums[k] = (sums[k] || 0) + b.pct[k] * m;
+      if (b.flat) for (const k in b.flat) flats[k] = (flats[k] || 0) + b.flat[k] * m;
+    });
+    const abilityCls = (pct) => (pct > 0 ? "wf-stat-up" : pct < 0 ? "wf-stat-down" : "");
+    // Colour by the actual before/after change, so a flat shard bonus shows
+    // green even when no percentage mod touches that stat.
+    const scaled = (n, stat) => {
+      const base = n || 0, pct = sums[stat] || 0, flat = flats[stat] || 0;
+      const value = Math.round((base * (1 + pct / 100) + flat) * 10) / 10;
+      return { value, cls: value > base ? "wf-stat-up" : value < base ? "wf-stat-down" : "" };
+    };
+    const ability = (stat) => { const pct = sums[stat] || 0; return { value: Math.round(100 + pct), cls: abilityCls(pct) }; };
     return {
       health: scaled(subject.health, "health"), shield: scaled(subject.shield, "shield"), armor: scaled(subject.armor, "armor"),
       energy: scaled(subject.power, "energy"),
-      sprintSpeed: { value: Math.round((subject.sprintSpeed || 1) * (1 + (sums.sprintSpeed || 0) / 100) * 100) / 100, cls: cls(sums.sprintSpeed || 0) },
+      sprintSpeed: { value: Math.round((subject.sprintSpeed || 1) * (1 + (sums.sprintSpeed || 0) / 100) * 100) / 100, cls: abilityCls(sums.sprintSpeed || 0) },
       strength: ability("strength"), efficiency: ability("efficiency"), range: ability("range"), duration: ability("duration"),
     };
   }
@@ -63,6 +132,7 @@
   let mods = new Array(REGULAR_SLOTS).fill(null);
   let aura = null, exilus = null;
   let arcanes = new Array(ARCANE_SLOTS).fill(null);
+  let shards = new Array(SHARD_SLOTS).fill(null);
   let title = "", notes = "";
 
   function subjectsFor(cat) {
@@ -116,6 +186,14 @@
       ${empty ? `<span class="wf-slot-plus">+</span>` : modCardInner(item)}
     </button>`;
   }
+  function shardSlotButton(idx, s) {
+    const info = s && SHARDS[s.color];
+    const b = info && info.bonuses[s.bonus];
+    const label = info && b ? `${s.tf ? "Tauforged " : ""}${info.name} — ${s.tf ? b.tf : b.text}` : "";
+    return `<button type="button" class="wf-slot wf-shard-slot ${info ? "" : "wf-slot-empty"}" data-kind="shard" data-idx="${idx}"${label ? ` title="${esc(label)}"` : ""}>
+      ${info ? `<span class="wf-shard-gem ${s.tf ? "wf-tauforged" : ""}" style="--shard:${info.color}"></span><span class="wf-slot-name">${info.name}</span>` : `<span class="wf-slot-plus">+</span>`}
+    </button>`;
+  }
 
   function render() {
     const cats = [["warframe", "Warframe"], ["weapon", "Weapon"], ["companion", "Companion"]];
@@ -133,7 +211,7 @@
       <div id="wf-subject-list" class="wf-subject-list"></div>
 
       ${subject ? (() => {
-        const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus]) : null;
+        const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus], category === "warframe" ? shards : null) : null;
         const statPanel = deltas ? `
           <div class="wf-stat-panel">
             <p class="wf-tag">Capacity</p>
@@ -189,6 +267,12 @@
                 <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
                 <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
               </div>
+
+              ${category === "warframe" ? `
+              <div class="wf-slot-section">
+                <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
+                <div class="wf-slot-grid wf-slot-grid-5">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
+              </div>` : ""}
             </div>
           </div>
 
@@ -222,6 +306,7 @@
     root.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => {
       category = b.dataset.cat; subject = null; mods = new Array(REGULAR_SLOTS).fill(null);
       aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
+      shards = new Array(SHARD_SLOTS).fill(null);
       render();
     }));
 
@@ -235,6 +320,7 @@
       listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => {
         subject = subjectsFor(category).find((s) => s.slug === btn.dataset.slug);
         mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
+        shards = new Array(SHARD_SLOTS).fill(null);
         render();
       }));
     }
@@ -252,6 +338,8 @@
     const picker = document.getElementById("wf-picker");
     const listEl = document.getElementById("wf-picker-list");
     const searchEl = document.getElementById("wf-picker-search");
+    if (kind === "shard") { openShardPicker(idx); return; }
+    searchEl.hidden = false;
     let pool;
     if (kind === "mod") {
       const base = modPoolFor(category, subject);
@@ -286,6 +374,51 @@
     document.getElementById("wf-picker-close").onclick = closePicker;
     picker.onclick = (e) => { if (e.target === picker) closePicker(); };
   }
+  // Archon Shard picker: colour row + Tauforged toggle + that colour's bonus
+  // list. Simpler than a search list because the whole pool is ~30 fixed rows.
+  function openShardPicker(idx) {
+    const picker = document.getElementById("wf-picker");
+    const listEl = document.getElementById("wf-picker-list");
+    const searchEl = document.getElementById("wf-picker-search");
+    searchEl.hidden = true;
+    const cur = shards[idx];
+    let color = cur ? cur.color : "crimson";
+    let tf = !!(cur && cur.tf);
+    function draw() {
+      const info = SHARDS[color];
+      listEl.innerHTML = `
+        <div class="wf-shard-colors">
+          ${Object.keys(SHARDS).map((id) => `
+            <button type="button" class="wf-shard-color-btn ${color === id ? "active" : ""}" data-color="${id}" style="--shard:${SHARDS[id].color}">
+              <span class="wf-shard-gem ${tf ? "wf-tauforged" : ""}"></span>${SHARDS[id].name}
+            </button>`).join("")}
+        </div>
+        <label class="wf-shard-tf"><input type="checkbox" id="wf-shard-tf" ${tf ? "checked" : ""}> Tauforged <span class="wf-muted-note">(1.5× bonuses)</span></label>
+        ${info.bonuses.map((b, bi) => {
+          const blocked = b.no && b.no.indexOf(subject.slug) >= 0;
+          return `<button type="button" class="wf-picker-item wf-shard-bonus ${blocked ? "wf-disabled" : ""}" data-bonus="${bi}" ${blocked ? "disabled" : ""}>
+            <span>${esc(tf ? b.tf : b.text)}</span>${blocked ? `<span class="wf-muted-note">Not eligible on ${esc(subject.name)}</span>` : ""}
+          </button>`;
+        }).join("")}
+        ${cur ? `<button type="button" class="wf-shard-unsocket" id="wf-shard-unsocket">Unsocket shard</button>` : ""}`;
+      listEl.querySelectorAll("[data-color]").forEach((btn) => btn.addEventListener("click", () => { color = btn.dataset.color; draw(); }));
+      listEl.querySelector("#wf-shard-tf")?.addEventListener("change", (e) => { tf = e.target.checked; draw(); });
+      listEl.querySelectorAll("[data-bonus]").forEach((btn) => btn.addEventListener("click", () => {
+        shards[idx] = { color, bonus: Number(btn.dataset.bonus), tf };
+        closePicker();
+        render();
+      }));
+      listEl.querySelector("#wf-shard-unsocket")?.addEventListener("click", () => {
+        shards[idx] = null;
+        closePicker();
+        render();
+      });
+    }
+    draw();
+    picker.hidden = false;
+    document.getElementById("wf-picker-close").onclick = closePicker;
+    picker.onclick = (e) => { if (e.target === picker) closePicker(); };
+  }
   function closePicker() { const p = document.getElementById("wf-picker"); if (p) p.hidden = true; }
 
   async function saveBuild() {
@@ -301,7 +434,9 @@
       author: (window.NFTWAuth.email && window.NFTWAuth.email()) ? window.NFTWAuth.email().split("@")[0] : "Tenno",
       data: {
         mods: mods.map((m) => m && m.slug), aura: aura && aura.slug, exilus: exilus && exilus.slug,
-        arcanes: arcanes.map((a) => a && a.slug), notes: notes.trim(),
+        arcanes: arcanes.map((a) => a && a.slug),
+        shards: shards.map((s) => (s ? [s.color, s.bonus, s.tf ? 1 : 0] : null)),
+        notes: notes.trim(),
       },
     };
     msg.textContent = "Saving…";
