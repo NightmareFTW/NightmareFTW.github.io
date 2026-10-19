@@ -19,6 +19,43 @@
   const REGULAR_SLOTS = 8;
   const ARCANE_SLOTS = 2;
   const CAPACITY = 60; // rank 30 + Orokin Reactor/Catalyst
+  const RARITY_CLASS = { Common: "wf-r-common", Uncommon: "wf-r-uncommon", Rare: "wf-r-rare", Legendary: "wf-r-legendary", Riven: "wf-r-riven" };
+
+  // Mods store one summary line like "+99% Ability Duration -66% Ability Range" —
+  // parse each signed-percentage/stat-name pair for the stat panel's colored deltas.
+  // Best-effort text parsing against that convention, not a full mod-effect
+  // simulator (no caps/clamps, no non-percent effects) — same spirit as this
+  // tool's other documented simplifications (capacity, polarity matching).
+  const STAT_ALIASES = [
+    [/strength/i, "strength"], [/efficiency/i, "efficiency"], [/range/i, "range"], [/duration/i, "duration"],
+    [/health/i, "health"], [/shield/i, "shield"], [/armor/i, "armor"], [/energy/i, "energy"], [/sprint/i, "sprintSpeed"],
+  ];
+  function parseEffect(effect) {
+    const out = [];
+    const re = /([+-]\d+(?:\.\d+)?)%\s+([A-Za-z][A-Za-z ]*?)(?=\s[+-]\d|$)/g;
+    let m;
+    while ((m = re.exec(effect || ""))) {
+      const hit = STAT_ALIASES.find(([rx]) => rx.test(m[2]));
+      if (hit) out.push({ stat: hit[1], pct: parseFloat(m[1]) });
+    }
+    return out;
+  }
+  function statDeltas(subject, equipped) {
+    const sums = {};
+    equipped.filter(Boolean).forEach((m) => parseEffect(m.effect).forEach(({ stat, pct }) => { sums[stat] = (sums[stat] || 0) + pct; }));
+    const cls = (pct) => (pct > 0 ? "wf-stat-up" : pct < 0 ? "wf-stat-down" : "");
+    const scaled = (n, stat) => { const pct = sums[stat] || 0; return { value: Math.round((n || 0) * (1 + pct / 100) * 10) / 10, cls: cls(pct) }; };
+    const ability = (stat) => { const pct = sums[stat] || 0; return { value: Math.round(100 + pct), cls: cls(pct) }; };
+    return {
+      health: scaled(subject.health, "health"), shield: scaled(subject.shield, "shield"), armor: scaled(subject.armor, "armor"),
+      energy: scaled(subject.power, "energy"),
+      sprintSpeed: { value: Math.round((subject.sprintSpeed || 1) * (1 + (sums.sprintSpeed || 0) / 100) * 100) / 100, cls: cls(sums.sprintSpeed || 0) },
+      strength: ability("strength"), efficiency: ability("efficiency"), range: ability("range"), duration: ability("duration"),
+    };
+  }
+  function statRow(label, d, suffix) {
+    return `<div class="wf-stat-row"><span class="wf-stat-label">${esc(label)}</span><span class="wf-stat-value ${d.cls}">${d.value}${suffix || ""}</span></div>`;
+  }
 
   let DATA = null;
   let category = "warframe"; // warframe | weapon | companion
@@ -73,14 +110,15 @@
     return used;
   }
 
-  function slotButton(kind, idx, item, pool) {
+  function modCardInner(item) {
+    return `<span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}${item.polarity ? polarityIcon(item.polarity) : ""}</span>
+      <span class="wf-mod-card-name">${esc(item.name)}</span>`;
+  }
+  function slotButton(kind, idx, item) {
     const empty = !item;
-    return `<button type="button" class="wf-slot ${empty ? "wf-slot-empty" : ""}" data-kind="${kind}" data-idx="${idx}">
-      ${empty
-        ? `<span class="wf-slot-plus">+</span>`
-        : `${item.image ? `<img src="${esc(item.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}
-           <span class="wf-slot-name">${esc(item.name)}</span>
-           ${item.polarity ? polarityIcon(item.polarity) : ""}`}
+    const rarityCls = !empty && item.rarity ? RARITY_CLASS[item.rarity] || "" : "";
+    return `<button type="button" class="wf-slot ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}" data-kind="${kind}" data-idx="${idx}">
+      ${empty ? `<span class="wf-slot-plus">+</span>` : modCardInner(item)}
     </button>`;
   }
 
@@ -99,7 +137,24 @@
       </div>
       <div id="wf-subject-list" class="wf-subject-list"></div>
 
-      ${subject ? `
+      ${subject ? (() => {
+        const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus]) : null;
+        const statPanel = deltas ? `
+          <div class="wf-stat-panel">
+            <p class="wf-tag">Capacity</p>
+            <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
+            <p class="wf-muted-note ${over ? "wf-over-text" : ""}" style="margin:4px 0 16px">${used} / ${CAPACITY}${over ? " — over capacity" : ""}</p>
+            <div class="wf-stat-group">
+              ${statRow("Health", deltas.health)}${statRow("Shield", deltas.shield)}${statRow("Armor", deltas.armor)}
+              ${category === "warframe" ? statRow("Energy", deltas.energy) + statRow("Sprint Speed", deltas.sprintSpeed) : ""}
+            </div>
+            ${category === "warframe" ? `
+            <p class="wf-tag" style="margin-top:16px">Ability</p>
+            <div class="wf-stat-group">
+              ${statRow("Duration", deltas.duration, "%")}${statRow("Efficiency", deltas.efficiency, "%")}${statRow("Range", deltas.range, "%")}${statRow("Strength", deltas.strength, "%")}
+            </div>` : ""}
+          </div>` : "";
+        return `
         <section class="wf-panel wf-build-area" style="--wfc: var(--wf-cyan);">
           <div class="wf-corner tl"></div>
           <div class="wf-build-head">
@@ -115,25 +170,31 @@
             <div class="wf-abilities">${subject.abilities.map((a) => `<div class="wf-ability"><b>${esc(a.name)}</b><span>${esc(a.desc)}</span></div>`).join("")}</div>
           ` : ""}
 
-          <div class="wf-capacity">
-            <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
-            <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
-          </div>
+          <div class="wf-arsenal">
+            ${statPanel}
+            <div class="wf-arsenal-main">
+              ${!deltas ? `
+              <div class="wf-capacity">
+                <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
+                <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
+              </div>` : ""}
 
-          <div class="wf-slot-section">
-            <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-            <div class="wf-slot-grid">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
-          </div>
+              <div class="wf-slot-section">
+                <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
+                <div class="wf-slot-grid">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
+              </div>
 
-          ${category !== "companion" ? `
-          <div class="wf-slot-section">
-            <p class="wf-tag" style="color:var(--wf-amber)">${category === "warframe" ? "Aura" : "Exilus"}</p>
-            <div class="wf-slot-grid wf-slot-grid-1">${slotButton(category === "warframe" ? "aura" : "exilus", 0, category === "warframe" ? aura : exilus)}</div>
-          </div>` : ""}
+              ${category !== "companion" ? `
+              <div class="wf-slot-section">
+                <p class="wf-tag" style="color:var(--wf-amber)">${category === "warframe" ? "Aura" : "Exilus"}</p>
+                <div class="wf-slot-grid wf-slot-grid-1">${slotButton(category === "warframe" ? "aura" : "exilus", 0, category === "warframe" ? aura : exilus)}</div>
+              </div>` : ""}
 
-          <div class="wf-slot-section">
-            <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
-            <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
+              <div class="wf-slot-section">
+                <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
+                <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
+              </div>
+            </div>
           </div>
 
           <div class="wf-slot-section">
@@ -146,8 +207,8 @@
             <button type="button" class="wf-code-copy" id="wf-save">Save to showcase</button>
             <span id="wf-save-msg" class="wf-muted-note"></span>
           </div>
-        </section>
-      ` : `<p class="wf-empty">Pick a ${esc(category)} above to start modding.</p>`}
+        </section>`;
+      })() : `<p class="wf-empty">Pick a ${esc(category)} above to start modding.</p>`}
 
       <div class="wf-picker" id="wf-picker" hidden>
         <div class="wf-picker-inner">
@@ -210,10 +271,8 @@
     }
     function renderList(q) {
       const list = (q ? pool.filter((m) => m.name.toLowerCase().includes(q.toLowerCase())) : pool).slice(0, 80);
-      listEl.innerHTML = list.map((m) => `<button type="button" class="wf-picker-item" data-slug="${esc(m.slug)}">
-        ${m.image ? `<img src="${esc(m.image)}" alt="">` : ""}
-        <span class="wf-picker-item-body"><b>${esc(m.name)}</b><span>${esc(m.effect || m.type || "")}</span></span>
-        ${m.polarity ? polarityIcon(m.polarity) : ""}
+      listEl.innerHTML = list.map((m) => `<button type="button" class="wf-picker-item wf-mod-card ${RARITY_CLASS[m.rarity] || ""}" data-slug="${esc(m.slug)}" title="${esc(m.effect || m.type || "")}">
+        ${modCardInner(m)}
       </button>`).join("") || `<p class="wf-empty">No matches.</p>`;
       listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => {
         const item = pool.find((m) => m.slug === btn.dataset.slug);

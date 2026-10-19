@@ -37,7 +37,7 @@ const lastStat = (levelStats) => {
   const last = (levelStats || [])[(levelStats || []).length - 1];
   return last && last.stats ? last.stats.map(stripTokens).join(" ") : "";
 };
-const img = (it) => it.wikiaThumbnail || "";
+const img = (it) => it.wikiaThumbnail || (it.imageName ? `https://cdn.warframestat.us/img/${it.imageName}` : "");
 
 function get(file) {
   const data = getJson(`${BASE}/${file}.json`);

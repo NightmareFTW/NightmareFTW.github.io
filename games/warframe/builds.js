@@ -13,10 +13,42 @@
   let sort = "newest";
 
   const bySlug = (list, slug) => (list || []).find((x) => x.slug === slug) || null;
-  function subjectImageFor(b) {
+  function subjectFor(b) {
     const list = b.category === "warframe" ? ITEMS.warframes : b.category === "weapon" ? ITEMS.weapons : ITEMS.companions;
-    return (bySlug(list, (b.subject || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")) || {}).image || "";
+    return bySlug(list, (b.subject || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""));
   }
+  function subjectImageFor(b) { return (subjectFor(b) || {}).image || ""; }
+
+  // Same best-effort "+NN% Stat Name" parsing as builder.js's statDeltas —
+  // duplicated rather than shared, matching this site's per-page script pattern.
+  const STAT_ALIASES = [
+    [/strength/i, "strength"], [/efficiency/i, "efficiency"], [/range/i, "range"], [/duration/i, "duration"],
+    [/health/i, "health"], [/shield/i, "shield"], [/armor/i, "armor"], [/energy/i, "energy"], [/sprint/i, "sprintSpeed"],
+  ];
+  function parseEffect(effect) {
+    const out = [];
+    const re = /([+-]\d+(?:\.\d+)?)%\s+([A-Za-z][A-Za-z ]*?)(?=\s[+-]\d|$)/g;
+    let m;
+    while ((m = re.exec(effect || ""))) {
+      const hit = STAT_ALIASES.find(([rx]) => rx.test(m[2]));
+      if (hit) out.push({ stat: hit[1], pct: parseFloat(m[1]) });
+    }
+    return out;
+  }
+  function statDeltas(subject, equipped, category) {
+    const sums = {};
+    equipped.filter(Boolean).forEach((m) => parseEffect(m.effect).forEach(({ stat, pct }) => { sums[stat] = (sums[stat] || 0) + pct; }));
+    const cls = (pct) => (pct > 0 ? "wf-stat-up" : pct < 0 ? "wf-stat-down" : "");
+    const scaled = (n, stat) => { const pct = sums[stat] || 0; return { value: Math.round((n || 0) * (1 + pct / 100) * 10) / 10, cls: cls(pct) }; };
+    const ability = (stat) => { const pct = sums[stat] || 0; return { value: Math.round(100 + pct), cls: cls(pct) }; };
+    const rows = [["Health", scaled(subject.health, "health"), ""], ["Shield", scaled(subject.shield, "shield"), ""], ["Armor", scaled(subject.armor, "armor"), ""]];
+    if (category === "warframe") {
+      rows.push(["Energy", scaled(subject.power, "energy"), ""], ["Sprint Speed", { value: Math.round((subject.sprintSpeed || 1) * (1 + (sums.sprintSpeed || 0) / 100) * 100) / 100, cls: cls(sums.sprintSpeed || 0) }, ""]);
+    }
+    const abilityRows = category === "warframe" ? [["Duration", ability("duration"), "%"], ["Efficiency", ability("efficiency"), "%"], ["Range", ability("range"), "%"], ["Strength", ability("strength"), "%"]] : [];
+    return { rows, abilityRows };
+  }
+  function statRow(label, d, suffix) { return `<div class="wf-stat-row"><span class="wf-stat-label">${esc(label)}</span><span class="wf-stat-value ${d.cls}">${d.value}${suffix}</span></div>`; }
 
   async function authedFetch(url, opts = {}) {
     const headers = Object.assign({}, opts.headers);
@@ -110,8 +142,12 @@
       return bySlug(list, slug);
     };
     const subjImg = subjectImageFor(b);
+    const RARITY_CLASS = { Common: "wf-r-common", Uncommon: "wf-r-uncommon", Rare: "wf-r-rare", Legendary: "wf-r-legendary", Riven: "wf-r-riven" };
     const slotHtml = (item) => item
-      ? `<div class="wf-slot" style="cursor:default">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}<span class="wf-slot-name">${esc(item.name)}</span></div>`
+      ? `<div class="wf-slot wf-mod-card ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default">
+          <span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}${item.polarity ? `<span class="wf-pol" style="background:${{madurai:"#e0514f",vazarin:"#4d8de0",naramon:"#e0cf4d",zenurik:"#a04de0",penjaga:"#6d8689",umbra:"#e0514f",unairu:"#c9a24d"}[item.polarity]||"#6d8689"}"></span>` : ""}</span>
+          <span class="wf-mod-card-name">${esc(item.name)}</span>
+        </div>`
       : `<div class="wf-slot wf-slot-empty" style="cursor:default"><span class="wf-slot-plus">—</span></div>`;
 
     const mods = (data.mods || []).map((s) => slotName("mod", s));
@@ -119,6 +155,16 @@
     const aura = slotName("mod", data.aura);
     const exilus = slotName("mod", data.exilus);
     const isMine = window.NFTWAuth && window.NFTWAuth.token() && window.NFTWAuth.email && b.author === (window.NFTWAuth.email() || "").split("@")[0];
+
+    const subject = subjectFor(b);
+    let statPanel = "";
+    if (subject && subject.health != null) {
+      const d = statDeltas(subject, [...mods, aura, exilus], b.category);
+      statPanel = `<div class="wf-stat-panel">
+        <div class="wf-stat-group">${d.rows.map(([l, v, s]) => statRow(l, v, s)).join("")}</div>
+        ${d.abilityRows.length ? `<p class="wf-tag" style="margin-top:16px">Ability</p><div class="wf-stat-group">${d.abilityRows.map(([l, v, s]) => statRow(l, v, s)).join("")}</div>` : ""}
+      </div>`;
+    }
 
     root.innerHTML = `
       <a class="wf-detail-back" href="builds.html">← Back to showcase</a>
@@ -133,18 +179,23 @@
         </div>
         ${data.notes ? `<p style="margin:0 0 20px; color:var(--wf-muted); font-size:.88rem; line-height:1.5">${esc(data.notes)}</p>` : ""}
 
-        <div class="wf-slot-section">
-          <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-          <div class="wf-slot-grid">${mods.map(slotHtml).join("")}</div>
+        <div class="wf-arsenal">
+          ${statPanel}
+          <div class="wf-arsenal-main">
+            <div class="wf-slot-section">
+              <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
+              <div class="wf-slot-grid">${mods.map(slotHtml).join("")}</div>
+            </div>
+            ${aura || exilus ? `<div class="wf-slot-section">
+              <p class="wf-tag" style="color:var(--wf-amber)">${b.category === "warframe" ? "Aura" : "Exilus"}</p>
+              <div class="wf-slot-grid wf-slot-grid-1">${slotHtml(b.category === "warframe" ? aura : exilus)}</div>
+            </div>` : ""}
+            ${arcanes.length ? `<div class="wf-slot-section">
+              <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
+              <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map(slotHtml).join("")}</div>
+            </div>` : ""}
+          </div>
         </div>
-        ${aura || exilus ? `<div class="wf-slot-section">
-          <p class="wf-tag" style="color:var(--wf-amber)">${b.category === "warframe" ? "Aura" : "Exilus"}</p>
-          <div class="wf-slot-grid wf-slot-grid-1">${slotHtml(b.category === "warframe" ? aura : exilus)}</div>
-        </div>` : ""}
-        ${arcanes.length ? `<div class="wf-slot-section">
-          <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
-          <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map(slotHtml).join("")}</div>
-        </div>` : ""}
 
         <div class="wf-build-actions">
           <button type="button" class="wf-like-btn" data-like="${esc(b.id)}" style="font-size:.9rem">♥ <span>${b.likes || 0}</span></button>
