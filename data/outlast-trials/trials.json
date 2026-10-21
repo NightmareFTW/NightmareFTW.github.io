@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T18:16:56.362Z",
+  "updated": "2026-10-21T00:30:13.522Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -194,6 +194,19 @@
           "goal": "The nuclear family is the societal ideal. Release the orphan from the shackles of the state and reunite him with mother and father.",
           "objectives": [
             "Reach the Exit Shuttle",
+            "Wait for the Shuttle",
+            "Exit the Trial"
+          ],
+          "prime": "60px|link=Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Compel the Children",
+          "goal": "You are the gentle prayer, the shame ingested and repeated until it feels like your own, and becomes a vector of further infection. Pray for the children, and we will let you out.",
+          "objectives": [
+            "Preach to the Children",
+            "Escort the Priest back to his Van",
+            "Return to the Shuttle",
             "Wait for the Shuttle",
             "Exit the Trial"
           ],
@@ -413,6 +426,19 @@
           "objectives": [
             "Enter the Factory",
             "Power Up the Compactor",
+            "Exit the Trial"
+          ],
+          "prime": "60px|link=Mother Gooseberry",
+          "tips": []
+        },
+        {
+          "name": "Sanitize the Factory",
+          "goal": "You are the rain, a drop in the flood that will nourish the earth, drown the wicked, and cleanse the filth. Sanitize the factory and we will let you out.",
+          "objectives": [
+            "Fill the sanitation tank",
+            "Activate the sanitation system",
+            "Return to the Shuttle",
+            "Wait for the Shuttle",
             "Exit the Trial"
           ],
           "prime": "60px|link=Mother Gooseberry",
