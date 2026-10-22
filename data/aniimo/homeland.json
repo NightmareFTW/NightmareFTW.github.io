@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T05:32:56.401Z",
+  "updated": "2026-10-22T05:33:08.074Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -439,11 +439,11 @@
           "items": [
             {
               "kind": "text",
-              "text": "Remember to upgrade your mines, and set them to the new item (Clay)."
+              "text": "Upgrade your mines, and set them to the new item (Clay)."
             },
             {
               "kind": "text",
-              "text": "Remember to field two Fragrancier, both with \"I\"nstinctive trait."
+              "text": "Field two Fragrancier, both with \"I\"nstinctive trait."
             }
           ]
         },
@@ -458,7 +458,7 @@
               "sub": [
                 "Set Phonolfactory Table to Bamboo Joss Stick.",
                 "Set Dewy House to Aromathyst.",
-                "Set 7 tree plots to Bamboo"
+                "Set 5 tree plots to Bamboo"
               ]
             },
             {
@@ -469,7 +469,7 @@
                 "Set Simmering Pot to Plain Rice Porridge.",
                 "Set Carousel Mill to Milled Rice.",
                 "Set Well to Well Water.",
-                "Set 13 farm plots to Rice"
+                "Set 10 farm plots to Rice"
               ]
             }
           ]
@@ -480,15 +480,19 @@
           "items": [
             {
               "kind": "text",
-              "text": "13 Farm plots: Rice"
+              "text": "10 Farm plots: Rice"
             },
             {
               "kind": "text",
-              "text": "1 Farm plot: Flex"
+              "text": "4 Farm plots: Flex"
             },
             {
               "kind": "text",
-              "text": "7 Tree plots: Bamboo"
+              "text": "5 Tree plots: Bamboo"
+            },
+            {
+              "kind": "text",
+              "text": "2 Tree plots: Flex (Lemon or Bamboo)"
             }
           ]
         },
@@ -607,8 +611,8 @@
                 "Set Crafting Table to Premium Rose Freshener.",
                 "Set Phonolfactory Table to Rose Incense.",
                 "Set Dewy House to Aromathyst.",
-                "Set 7 farm plots to Rose",
-                "Set 3 tree plots to Quick Formula: Bamboo"
+                "Set 5 farm plots to Rose",
+                "Set 2 tree plots to Quick Formula: Bamboo"
               ]
             },
             {
@@ -630,7 +634,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "7 Farm plots: Rose (Temperature: Cool)"
+              "text": "5 Farm plots: Rose (Temperature: Cool)"
             },
             {
               "kind": "text",
@@ -638,11 +642,11 @@
             },
             {
               "kind": "text",
-              "text": "5 Farm plots: Flex"
+              "text": "7 Farm plots: Flex"
             },
             {
               "kind": "text",
-              "text": "3 Tree plots: Quick Formula: Bamboo"
+              "text": "2 Tree plots: Quick Formula: Bamboo"
             },
             {
               "kind": "text",
@@ -650,7 +654,7 @@
             },
             {
               "kind": "text",
-              "text": "1 Tree plot: Flex"
+              "text": "2 Tree plots: Flex"
             },
             {
               "kind": "text",
@@ -774,8 +778,26 @@
                 "Set Crafting Table to Premium Rose Freshener.",
                 "Set Phonolfactory Table to Rose Incense.",
                 "Set Dewy House to Aromathyst.",
-                "Set 7 farm plots to Rose",
-                "Set 3 tree plots to Quick Formula: Bamboo"
+                "Set 5 farm plots to Rose",
+                "Set 2 tree plots to Quick Formula: Bamboo"
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Potato Chips",
+              "sub": [
+                "Set Jukebox Dryer to Potato Chips.",
+                "Set 5 farm plots to Potato"
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Cotton Thread",
+              "sub": [
+                "Set Joy Wheel Loom to Cotton Thread.",
+                "Set 4 farm plots to Cotton"
               ]
             }
           ]
@@ -790,11 +812,15 @@
             },
             {
               "kind": "text",
-              "text": "7 Farm plots: Rose (Temperature: Cool)"
+              "text": "5 Farm plots: Rose (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "7 Farm plots: Flex"
+              "text": "5 Farm plots: Potato"
+            },
+            {
+              "kind": "text",
+              "text": "4 Farm plots: Cotton"
             },
             {
               "kind": "text",
@@ -802,11 +828,11 @@
             },
             {
               "kind": "text",
-              "text": "3 Tree plots: Quick Formula: Bamboo"
+              "text": "2 Tree plots: Quick Formula: Bamboo"
             },
             {
               "kind": "text",
-              "text": "2 Tree plots: Flex. Any level 3 tree is fine as long as it's in the correct temperature."
+              "text": "3 Tree plots: Maple (Temperature: Freezing)"
             }
           ]
         },
@@ -836,7 +862,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Gracewing (Night Form), or any wind aniimo, until Wind needs are met."
+              "text": "Gracewing (Night Form), or any Wind aniimo, until Wind needs are met."
             },
             {
               "kind": "bullet",
@@ -972,10 +998,6 @@
               ]
             },
             {
-              "kind": "text",
-              "text": "Note: 5 Apple plots would be optimal, but we don't have enough tree plots."
-            },
-            {
               "kind": "numbered",
               "num": "2",
               "text": "Cherry Blossom Rice Ball",
@@ -987,10 +1009,6 @@
                 "Set 4 farm plots to Rice",
                 "Set 3 tree plots to Cherry Blossom"
               ]
-            },
-            {
-              "kind": "text",
-              "text": "Note: 4 Cherry Blossom plots would be optimal, but we don't have enough tree plots."
             },
             {
               "kind": "numbered",
@@ -1209,12 +1227,8 @@
                 "Set Simmering Pot to Rock Candy.",
                 "Set both Wells to Plain Fresh Water.",
                 "Set 5 farm plots to Sugarcane",
-                "Set 4 tree plots to Apple"
+                "Set 5 tree plots to Apple"
               ]
-            },
-            {
-              "kind": "text",
-              "text": "Note: 5 Apple plots would be optimal, but we don't have enough tree plots."
             },
             {
               "kind": "numbered",
@@ -1237,8 +1251,8 @@
                 "Set Crafting Table to Premium Rose Freshener.",
                 "Set Phonolfactory Table to Rose Incense.",
                 "Set Dewy House to Aromathyst.",
-                "Set 7 farm plots to Rose",
-                "Set 3 tree plots to Quick Formula: Bamboo"
+                "Set 5 farm plots to Rose",
+                "Set 2 tree plots to Quick Formula: Bamboo"
               ]
             },
             {
@@ -1248,7 +1262,7 @@
               "sub": [
                 "Set the second Crafting Table to Shell Ornament.",
                 "Set Joy Wheel Loom to Cotton Thread.",
-                "Set 6 farm plots to Cotton"
+                "Set 8 farm plots to Cotton"
               ]
             }
           ]
@@ -1267,15 +1281,15 @@
             },
             {
               "kind": "text",
-              "text": "7 Farm plots: Rose (Temperature: Cool)"
+              "text": "5 Farm plots: Rose (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "6 Farm plots: Cotton"
+              "text": "8 Farm plots: Cotton"
             },
             {
               "kind": "text",
-              "text": "4 Tree plots: Apple"
+              "text": "5 Tree plots: Apple"
             },
             {
               "kind": "text",
@@ -1283,7 +1297,7 @@
             },
             {
               "kind": "text",
-              "text": "3 Tree plots: Quick Formula: Bamboo"
+              "text": "2 Tree plots: Quick Formula: Bamboo"
             },
             {
               "kind": "text",
@@ -1332,13 +1346,6 @@
               "text": "Remaining slots can go to the house to generate Bud Tickets."
             }
           ]
-        },
-        {
-          "heading": "Visual",
-          "images": [
-            "https://images.steamusercontent.com/ugc/12468310794724231852/4A2C59DEE6E0B80C991B033007E2ECDC5BF6CC3A/"
-          ],
-          "items": []
         }
       ]
     },
@@ -1645,12 +1652,9 @@
                 "Set one Jukebox Dryer to Dried Ginseng.",
                 "Set one Carousel Mill to Milled Rice.",
                 "Set 9 farm plots to Ginseng",
-                "Set 5 farm plots to Quick Recipe: Rice"
+                "Set 5 farm plots to Quick Recipe: Rice",
+                "NOTE: If you cannot buy the Ginseng Porridge recipe note, skip this step. Set that Simmering Pot to Grape Jam and plant these 14 plots as Grapes. The other dryer stays on Nuts. The mill and the cooler stay idle. Candy, Lemons, Wind Chimes, and Nuts do not change."
               ]
-            },
-            {
-              "kind": "text",
-              "text": "If you cannot buy the Ginseng Porridge recipe note, skip this step. Set that Simmering Pot to Grape Jam and plant these 14 plots as Grapes. The other dryer stays on Nuts. The mill and the cooler stay idle. Candy, Lemons, Wind Chimes, and Nuts do not change."
             },
             {
               "kind": "numbered",
@@ -1659,7 +1663,7 @@
               "sub": [
                 "Set Phonolfactory Table to Advanced Lemon Incense.",
                 "Set Dewy House to Aromathyst.",
-                "Set 3 tree plots to Quick Formula: Lemon."
+                "Set 2 tree plots to Quick Formula: Lemon."
               ]
             },
             {
@@ -1681,10 +1685,6 @@
                 "Set 5 tree plots to Chestnut.",
                 "Set 5 tree plots to Walnut."
               ]
-            },
-            {
-              "kind": "text",
-              "text": "NOTE: At some point I'd recommended stockpiling these, but the introduction of a second heater/cooler in later RV levels ruined that plan. Sell them."
             }
           ]
         },
@@ -1722,7 +1722,11 @@
             },
             {
               "kind": "text",
-              "text": "3 Tree plots: Quick Formula: Lemon"
+              "text": "2 Tree plots: Quick Formula: Lemon"
+            },
+            {
+              "kind": "text",
+              "text": "1 Tree plot: Flex"
             }
           ]
         },
@@ -2470,6 +2474,10 @@
             },
             {
               "kind": "text",
+              "text": "Farm upgrades are expensive, but there's no rush on getting them done. We won't be using those crops this level."
+            },
+            {
+              "kind": "text",
               "text": "Remember to recycle any unused buildings!"
             }
           ]
@@ -2671,6 +2679,10 @@
             },
             {
               "kind": "text",
+              "text": "Build your 3rd Cooling Unit. Build your 3rd heater and then recycle it."
+            },
+            {
+              "kind": "text",
               "text": "Remember to recycle any unused buildings!"
             }
           ]
@@ -2682,8 +2694,11 @@
             {
               "kind": "numbered",
               "num": "1",
-              "text": "Maple Sugar Chunk",
+              "text": "Premium Jello",
               "sub": [
+                "Set one Blazing Stove to Premium Jello.",
+                "Set both Nimbus Beds to Petals.",
+                "Set two Wells to Quick Recipe: Deep Rock Spring Water.",
                 "Set one Simmering Pot to Maple Sugar Chunk.",
                 "Set 18 tree plots to Quick Maple."
               ]
@@ -2713,20 +2728,11 @@
             {
               "kind": "numbered",
               "num": "4",
-              "text": "Premium Jello",
-              "sub": [
-                "Set one Blazing Stove to Premium Jello.",
-                "Set both Nimbus Beds to Petals.",
-                "Set the other two Wells to Quick Recipe: Deep Rock Spring Water."
-              ]
-            },
-            {
-              "kind": "numbered",
-              "num": "5",
               "text": "Maple Candy Star",
               "sub": [
                 "Set one Claw Game Cooker to Maple Candy Star.",
-                "Set the Starfall Hammock to Stars."
+                "Set the Starfall Hammock to Stars.",
+                "Note: Maple Sugar Chunks are already being produced from the Jello line."
               ]
             }
           ]
@@ -2783,15 +2789,15 @@
             },
             {
               "kind": "bullet",
+              "text": "Three Glacy for Cooling Units."
+            },
+            {
+              "kind": "bullet",
               "text": "Three Fenmane/Blazen, for the Aniipod Maker and the generators."
             },
             {
               "kind": "bullet",
               "text": "One Eklue, preferably with \"E\"nergetic, to run the level 1 Woodworking Bench."
-            },
-            {
-              "kind": "bullet",
-              "text": "Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
             },
             {
               "kind": "bullet",
@@ -2824,6 +2830,16 @@
       "level": 18,
       "next": 19,
       "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Index Points goal: 16000"
+            }
+          ]
+        },
         {
           "heading": "Warning",
           "images": [],
@@ -2932,11 +2948,11 @@
             },
             {
               "kind": "text",
-              "text": "25 Farm plots: Quick Recipe: Strawberry (Temperature: Freezing)"
+              "text": "25 Farm plots: Quick Recipe: Strawberry (Temperature: Cool)"
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, switch 2 Quick Strawberry. For 4 plots, switch 4 Quick Strawberry. Leave the wheat, rice, and cranberry."
+              "text": "NOTE: For event crops, switch out Quick Strawberry plots."
             },
             {
               "kind": "text",
@@ -2967,6 +2983,14 @@
             {
               "kind": "bullet",
               "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Flutternym / Gracewing, preferably with \"N\"imble, for the Floral Windmill."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Light Aniimo for the Sunlamp."
             },
             {
               "kind": "bullet",
@@ -3019,6 +3043,16 @@
       "level": 19,
       "next": 20,
       "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Index Points goal: 16000"
+            }
+          ]
+        },
         {
           "heading": "Warning",
           "images": [],
@@ -3141,7 +3175,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "Two Sherro with \"J\"udicious."
+              "text": "Two Piopiota / Panpanta with \"J\"udicious."
             },
             {
               "kind": "bullet",
@@ -3154,6 +3188,14 @@
             {
               "kind": "bullet",
               "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Flutternym / Gracewing, preferably with \"N\"imble, for the Floral Windmill."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Light Aniimo for the Sunlamp."
             },
             {
               "kind": "bullet",
