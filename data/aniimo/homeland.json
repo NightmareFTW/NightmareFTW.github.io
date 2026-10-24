@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T05:32:30.470Z",
+  "updated": "2026-10-24T05:31:24.007Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -2981,7 +2981,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Stellarys with \"F\"aithful."
+              "text": "Two Stellarys with \"F\"aithful."
             },
             {
               "kind": "bullet",
@@ -3001,7 +3001,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Two Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
+              "text": "One Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
             },
             {
               "kind": "bullet",
@@ -3039,7 +3039,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Build Code: F9KKQS2W"
+              "text": "Build Code: WUX4ML8B"
             }
           ]
         }
@@ -3139,6 +3139,15 @@
                 "Set the other Jukebox Dryer to Dried Strawberries.",
                 "Set the other 22 farm plots to Quick Recipe: Strawberry."
               ]
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Premium Gemstone Dust",
+              "sub": [
+                "Set one Crafting Table to Premium Gemstone Dust.",
+                "Set the Floral Windmill to High-Speed Formula: Scales."
+              ]
             }
           ]
         },
@@ -3214,7 +3223,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Two Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
+              "text": "One Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
             },
             {
               "kind": "bullet",
