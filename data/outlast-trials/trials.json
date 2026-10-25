@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25T06:18:22.802Z",
+  "updated": "2026-10-25T12:16:17.758Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -993,15 +993,11 @@
           "tips": []
         },
         {
-          "name": "Escape",
-          "goal": "Escape is a temporary Trial in The Outlast Trials where Reagents try to flee the Sinyala Facility through the Waste Tunnel.",
+          "name": "Escape, 1960",
+          "goal": "Escape, 1960 is a temporary Trial in The Outlast Trials where Reagents were given an option to finally escape from the Sinyala Facility through the Waste Tunnel.",
           "objectives": [],
           "prime": "link=|Non-Applicable|60px",
-          "tips": [
-            "Linear escape — keep moving, don't stop to fight.",
-            "Use the tunnels' tight turns to shake pursuers.",
-            "Push through as a group so no one is left behind a closing gap."
-          ]
+          "tips": []
         },
         {
           "name": "Escape the Lies",
