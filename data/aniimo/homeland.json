@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T05:31:24.007Z",
+  "updated": "2026-10-25T05:31:23.045Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -2818,6 +2818,46 @@
       ]
     },
     {
+      "type": "lesson",
+      "title": "Endgame Byproduct Processing",
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Welcome to RV18."
+            },
+            {
+              "kind": "text",
+              "text": "Unfortunately, this is where byproduct processing stops being simple. Until this point, we could set it up so that all byproducts would be handled automatically without player intervention. With our last upgrade to trees, however, trees now produce so many wooden blocks that not even a Traited tier-4 Artisan that never got distracted would be able to keep up with it - not that any exist..."
+            },
+            {
+              "kind": "text",
+              "text": "Luckily, a Traited Flamerion can keep up with Mineral Sand, but for Wood Blocks we're going to need to get creative."
+            },
+            {
+              "kind": "text",
+              "text": "At the start of every morning, I recommend you switch modes to whichever you weren't on before."
+            },
+            {
+              "kind": "text",
+              "text": "Mode 1: 1 Common-mode table processing Wood Blocks into Rough Lumber. 3 E-mode tables processing Wood Blocks into Rough Lumber."
+            },
+            {
+              "kind": "text",
+              "text": "Mode 2: The same method you've been using until this point: one table for each type, with a traited Eklue processing Wood Blocks."
+            },
+            {
+              "kind": "text",
+              "text": "I've run the math, and this barely keeps up with production if you switch at the same time every day. If you're concerned, or perhaps you've used thousands of instant-grow potions on trees, you can do an alternate mode 1, where you run additional Traited Eklue."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "rv",
       "level": 18,
       "next": 19,
@@ -2993,7 +3033,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln."
+              "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and Heat Furnaces."
             },
             {
               "kind": "bullet",
@@ -3173,7 +3213,7 @@
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, switch 2 Quick Strawberry. For 4 plots, switch 4 Quick Strawberry. Leave the wheat, rice, and cranberry."
+              "text": "NOTE: For event crops, switch off Strawberries."
             },
             {
               "kind": "text",
@@ -3215,7 +3255,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln."
+              "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and Heat Furnaces."
             },
             {
               "kind": "bullet",
