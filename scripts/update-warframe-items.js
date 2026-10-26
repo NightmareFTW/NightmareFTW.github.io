@@ -90,7 +90,13 @@ function run() {
   const arcanesRaw = get("Arcanes");
 
   const warframes = framesRaw
-    .filter((f) => f.type === "Warframe" && !f.excludeFromCodex)
+    // WFCD's own "Warframes" file also includes a non-equippable "Helminth"
+    // entry (the subsume-ability list itself, already used separately as
+    // this tool's HELMINTH_ABILITIES source) with type: "Warframe" like a
+    // real frame but no stats, abilities icons, or portrait — not a real
+    // build subject. It's the only entry with health 0, which every real
+    // Warframe has a positive value for, so that's the filter.
+    .filter((f) => f.type === "Warframe" && !f.excludeFromCodex && f.health)
     .map((f) => {
       const baseName = f.name.replace(/ Prime$/, "");
       let icons = {};
