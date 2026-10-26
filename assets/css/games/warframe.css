@@ -230,12 +230,10 @@
 .wf-slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-top: 8px; }
 .wf-slot-grid-1 { grid-template-columns: 90px; }
 .wf-slot-grid-2 { grid-template-columns: repeat(2, 90px); }
-/* Packed tight (the normal 8px .wf-slot-grid gap only, no extra space
-   introduced between cards) and capped at 104px per card so the grid
-   stays compact — any leftover room in a wide .wf-loadout-main is left
-   unused past the 4th card rather than stretched into bigger cards or
-   wider gaps. */
-.wf-slot-grid-4 { grid-template-columns: repeat(4, minmax(90px, 104px)); }
+/* Stretches to fill all the space between the stat panel and the Arcane
+   column (see .wf-loadout-row below) — the mod grid spans edge to edge,
+   not a smaller block with room left over beside it. */
+.wf-slot-grid-4 { grid-template-columns: repeat(4, 1fr); }
 /* Must come after the base .wf-slot-grid rule above (same specificity,
    source order decides) — otherwise auto-fill wins on a wide container
    like the full-width mobile layout and the 2 Arcane slots sit side by
@@ -250,7 +248,7 @@
    Aura sits over mod-column 2 and Exilus over column 3, matching the
    official wiki's own layout reference for where these sit relative to
    the mod grid (wiki.warframe.com/w/Mod, "Example Modding Menu"). */
-.wf-aura-row { display: grid; grid-template-columns: repeat(4, minmax(90px, 104px)); gap: 8px; margin-bottom: 18px; }
+.wf-aura-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
 .wf-slot {
   /* Mod/Aura/Exilus slots are portrait cards in-game, not squares — ratio
      taken straight from the official wiki's own layout reference (its
