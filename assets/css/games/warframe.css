@@ -226,13 +226,12 @@
 .wf-slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-top: 8px; }
 .wf-slot-grid-1 { grid-template-columns: 90px; }
 .wf-slot-grid-2 { grid-template-columns: repeat(2, 90px); }
-/* Spreads to fill all the space between the stat panel and the Arcane
-   column (see .wf-loadout-row below) instead of sitting as a small fixed
-   block with dead space beside it, but each card is capped at 140px (the
-   same width the wiki's own layout reference renders a mod card at) so
-   they don't balloon on a wide screen — space-between turns any leftover
-   width into gaps instead of growing the cards past that cap. */
-.wf-slot-grid-4 { grid-template-columns: repeat(4, minmax(90px, 140px)); justify-content: space-between; }
+/* Packed tight (the normal 8px .wf-slot-grid gap only, no extra space
+   introduced between cards) and capped at 104px per card so the grid
+   stays compact — any leftover room in a wide .wf-loadout-main is left
+   unused past the 4th card rather than stretched into bigger cards or
+   wider gaps. */
+.wf-slot-grid-4 { grid-template-columns: repeat(4, minmax(90px, 104px)); }
 /* Must come after the base .wf-slot-grid rule above (same specificity,
    source order decides) — otherwise auto-fill wins on a wide container
    like the full-width mobile layout and the 2 Arcane slots sit side by
@@ -243,12 +242,11 @@
    fixed width beside it. */
 .wf-loadout-row { display: flex; gap: 16px; align-items: start; }
 .wf-loadout-main { flex: 1; min-width: 0; }
-/* Grid-aligned with .wf-slot-grid-4 below it (identical column track and
-   justify-content) so Aura sits over mod-column 2 and Exilus over column
-   3, matching the official wiki's own layout reference for where these
-   sit relative to the mod grid (wiki.warframe.com/w/Mod, "Example
-   Modding Menu"). */
-.wf-aura-row { display: grid; grid-template-columns: repeat(4, minmax(90px, 140px)); justify-content: space-between; gap: 8px; margin-bottom: 18px; }
+/* Grid-aligned with .wf-slot-grid-4 below it (identical column track) so
+   Aura sits over mod-column 2 and Exilus over column 3, matching the
+   official wiki's own layout reference for where these sit relative to
+   the mod grid (wiki.warframe.com/w/Mod, "Example Modding Menu"). */
+.wf-aura-row { display: grid; grid-template-columns: repeat(4, minmax(90px, 104px)); gap: 8px; margin-bottom: 18px; }
 .wf-slot {
   /* Mod/Aura/Exilus slots are portrait cards in-game, not squares — ratio
      taken straight from the official wiki's own layout reference (its
@@ -407,6 +405,13 @@ body.wf-authentic .wf-hero h1 { text-shadow: 0 0 24px rgba(204, 51, 51, .35); }
 body.wf-authentic .wf-dot { box-shadow: 0 0 8px 1px rgba(204, 51, 51, .85); }
 body.wf-authentic .wf-dot.amber { box-shadow: 0 0 8px 1px rgba(217, 98, 58, .85); }
 body.wf-authentic .wf-like-btn.wf-liked { border-color: rgba(217, 98, 58, .5); }
+/* The Build Creator's merged screen (portrait/abilities/stats/full mod
+   editor all on one page) is tall enough that the shared site-wide 1100px
+   container left a lot of unused side margin doing nothing for it —
+   widened just for this page's main content (not the header, which stays
+   the same width as every other page) so there's more room to work with
+   without the page needing to scroll as much. */
+body.wf-authentic .wf-main { width: min(1300px, 94vw); }
 
 @media (max-width: 720px) {
   .wf-hero { padding: 32px 24px; }
