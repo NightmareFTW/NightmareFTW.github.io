@@ -205,12 +205,16 @@
     };
     const subjImg = subjectImageFor(b);
     const RARITY_CLASS = { Common: "wf-r-common", Uncommon: "wf-r-uncommon", Rare: "wf-r-rare", Legendary: "wf-r-legendary", Riven: "wf-r-riven" };
-    const slotHtml = (item) => item
+    const POLARITY_COLORS = { madurai: "#e0514f", vazarin: "#4d8de0", naramon: "#e0cf4d", zenurik: "#a04de0", penjaga: "#6d8689", umbra: "#e0514f", unairu: "#c9a24d" };
+    const polarityLabel = (p) => p.charAt(0).toUpperCase() + p.slice(1);
+    const polBadge = (pol) => `<span class="wf-slot-pol" style="cursor:default;${pol ? `--pol:${POLARITY_COLORS[pol]}` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity"}"></span>`;
+    const slotHtml = (item, pol) => item
       ? `<div class="wf-slot wf-mod-card ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default">
           <span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>
           <span class="wf-mod-card-name">${esc(item.name)}</span>
+          ${pol !== undefined ? polBadge(pol) : ""}
         </div>`
-      : `<div class="wf-slot wf-slot-empty" style="cursor:default"><span class="wf-slot-plus">—</span></div>`;
+      : `<div class="wf-slot wf-slot-empty" style="cursor:default">${pol !== undefined ? polBadge(pol) : `<span class="wf-slot-plus">—</span>`}</div>`;
     const shardHtml = (s) => {
       const info = SHARDS[s.color], b = info.bonuses[s.bonus];
       const label = `${s.tf ? "Tauforged " : ""}${info.name} — ${s.tf ? b.tf : b.text}`;
@@ -234,19 +238,22 @@
       const [slot, name, src] = data.helminth;
       const w = ITEMS.warframes.find((x) => x.name === src);
       const a = w && w.abilities.find((x) => x.name.toLowerCase() === name.toLowerCase());
-      return { slot, name, src, desc: (a && a.desc) || "" };
+      return { slot, name, src, desc: (a && a.desc) || "", icon: (a && a.icon) || "" };
     })() : null;
     const isMine = window.NFTWAuth && window.NFTWAuth.token() && window.NFTWAuth.email && b.author === (window.NFTWAuth.email() || "").split("@")[0];
 
     const subject = subjectFor(b);
+    const abilityIconHtml = (item) => item.icon
+      ? `<img src="${esc(item.icon)}" alt="" class="wf-ability-icon" loading="lazy">`
+      : `<span class="wf-ability-icon wf-ability-icon-fallback">${esc((item.name || "?")[0])}</span>`;
     const abilitiesHtml = subject && subject.abilities && subject.abilities.length
       ? `<div class="wf-abilities">${subject.abilities.map((a, i) => {
           const swapped = helminth && helminth.slot === i;
           const shown = swapped ? helminth : a;
           return `<div class="wf-ability wf-ability-static${swapped ? " wf-ability-helminth" : ""}">
             ${swapped ? `<span class="wf-helminth-badge">HELMINTH</span>` : ""}
-            <b>${esc(shown.name)}</b><span>${esc(shown.desc || "")}</span>
-            ${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}
+            ${abilityIconHtml(shown)}
+            <span class="wf-ability-body"><b>${esc(shown.name)}</b><span>${esc(shown.desc || "")}</span>${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}</span>
           </div>`;
         }).join("")}</div>`
       : "";
@@ -276,14 +283,14 @@
         <div class="wf-arsenal">
           ${statPanel}
           <div class="wf-arsenal-main">
+            ${(b.category === "warframe" && aura) || exilus ? `<div class="wf-aura-row">
+              ${b.category === "warframe" && aura ? slotHtml(aura) : ""}
+              ${exilus ? slotHtml(exilus) : ""}
+            </div>` : ""}
             <div class="wf-slot-section">
               <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-              <div class="wf-slot-grid">${mods.map(slotHtml).join("")}</div>
+              <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotHtml(m, (data.polarities || [])[i] ?? null)).join("")}</div>
             </div>
-            ${aura || exilus ? `<div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-amber)">${b.category === "warframe" ? "Aura" : "Exilus"}</p>
-              <div class="wf-slot-grid wf-slot-grid-1">${slotHtml(b.category === "warframe" ? aura : exilus)}</div>
-            </div>` : ""}
             ${arcanes.length ? `<div class="wf-slot-section">
               <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
               <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map(slotHtml).join("")}</div>

@@ -815,6 +815,13 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
+    date: "2026-10-26",
+    title: "Warframe's Build Creator now mirrors the real Arsenal",
+    desc: "Aura/Exilus centered up top, a bottom mod collection you drag straight into a slot, real ability icons and changeable per-slot polarity — matching the in-game Upgrades screen.",
+    image: "assets/img/updates/warframe-build-creator-arsenal.jpg",
+    href: "games/warframe/builder.html",
+  },
+  {
     date: "2026-10-19",
     title: "Warframe builds get Archon Shards",
     desc: "Socket up to 5 Archon Shards per Warframe — all six colours, every bonus, Tauforged values — and watch the stat panel update live.",
@@ -862,12 +869,5 @@ const SITE_UPDATES = [
     desc: "Every stage and every non-weapon pickup, cross-linked everywhere a character's unlock guide mentions one.",
     image: "assets/img/updates/vs-stages-pickups-database.jpg",
     href: "games/vampire-survivors/stages.html",
-  },
-  {
-    date: "2026-09-18",
-    title: "Aniimo gets a Talent Build Route",
-    desc: "The Pathfinder's own talent tree, plus a recommended pick order for which to unlock first.",
-    image: "assets/img/updates/aniimo-talent-route.jpg",
-    href: "games/aniimo/talents.html",
   },
 ];

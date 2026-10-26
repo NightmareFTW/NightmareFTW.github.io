@@ -183,6 +183,9 @@
       "Códigos de Decoration Preset partilhados por jogadores com screenshots reais, escolhidos a dedo do Dreamers Portal — não são os códigos de resgate, esses estão na aba Codes do hub.",
     "Warframe gets a Build Creator and community Showcase": "Warframe ganha um Criador de Builds e Showcase da comunidade",
     "Warframe builds get Archon Shards": "Builds de Warframe ganham Archon Shards",
+    "Warframe's Build Creator now mirrors the real Arsenal": "O Criador de Builds de Warframe agora espelha o Arsenal real",
+    "Aura/Exilus centered up top, a bottom mod collection you drag straight into a slot, real ability icons and changeable per-slot polarity — matching the in-game Upgrades screen.":
+      "Aura/Exilus centrados no topo, uma coleção de mods em baixo que arrastas directamente para um slot, icons reais das habilidades e polaridade alterável por slot — tal como o ecrã Upgrades do próprio jogo.",
     "Socket up to 5 Archon Shards per Warframe — all six colours, every bonus, Tauforged values — and watch the stat panel update live.":
       "Encaixa até 5 Archon Shards por Warframe — as seis cores, todos os bónus, valores Tauforged — e vê o painel de stats actualizar em tempo real.",
     "Mod out a Warframe, weapon or companion with real stats and mod data (via WFCD), then save it to a public showcase other visitors can browse and like.":
@@ -2006,6 +2009,10 @@
     "← Back to showcase": "← Voltar à showcase",
     "Delete build": "Eliminar build",
     "Changeable Slot": "Slot Alterável", "Mod this build →": "Montar mods nesta build →",
+    "No polarity — click to Forma": "Sem polaridade — clica para dar Forma",
+    "No polarity": "Sem polaridade",
+    "Mod Collection": "Coleção de Mods",
+    "Search mods…": "Procurar mods…",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -2143,6 +2150,7 @@
     [/^Pick a (warframe|weapon|companion) above to start modding\.$/, (m, k) => `Escolhe ${k === "warframe" ? "uma warframe" : k === "weapon" ? "uma arma" : "um companheiro"} acima para começar a montar mods.`],
     [/^(\d+) \/ (\d+) capacity( — over capacity)?$/, (m, a, b, over) => `${a} / ${b} capacidade${over ? " — acima da capacidade" : ""}`],
     [/^Not eligible on (.+)$/, "Não elegível em $1"],
+    [/^— Click or drag into slot (\d+)$/, "— Clica ou arrasta para o slot $1"],
     // Shard slot tooltip: "Tauforged Crimson — +15% Ability Strength" — pass the
     // bonus tail through the DICT so both halves end up in PT.
     [/^(Tauforged )?(Crimson|Amber|Azure|Topaz|Violet|Emerald) — (.+)$/, (m, tf, name, bonus) => `${tf || ""}${name} — ${DICT[bonus] || bonus}`],

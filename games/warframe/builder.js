@@ -113,7 +113,7 @@
   function helminthLookup(name, src) {
     const w = DATA.warframes.find((x) => x.name === src);
     const a = w && w.abilities.find((x) => x.name.toLowerCase() === name.toLowerCase());
-    return { name, src, desc: (a && a.desc) || "", image: (w && w.image) || "" };
+    return { name, src, desc: (a && a.desc) || "", image: (w && w.image) || "", icon: (a && a.icon) || "" };
   }
 
   // Mods store one summary line like "+99% Ability Duration -66% Ability Range" —
@@ -168,13 +168,27 @@
     return `<div class="wf-stat-row"><span class="wf-stat-label">${esc(label)}</span><span class="wf-stat-value ${d.cls}">${d.value}${suffix || ""}</span></div>`;
   }
 
+  // Polarities, keyed by the 7 in-game names. No real polarity-icon assets
+  // exist to hotlink (unlike mod/arcane art), so a colored swatch stands in.
+  const POLARITY_COLORS = { madurai: "#e0514f", vazarin: "#4d8de0", naramon: "#e0cf4d", zenurik: "#a04de0", penjaga: "#6d8689", umbra: "#e0514f", unairu: "#c9a24d" };
+  const POLARITY_NAMES = Object.keys(POLARITY_COLORS);
+  const polarityLabel = (p) => p.charAt(0).toUpperCase() + p.slice(1);
+
   let DATA = null;
   let category = "warframe"; // warframe | weapon | companion
   let subject = null;        // the chosen item object
   let mods = new Array(REGULAR_SLOTS).fill(null);
+  // Each regular slot's own assigned polarity (null = unpolarized), separate
+  // from what mod — if any — is installed there. Simulates Forma: the
+  // player can repolarize any slot, which is what actually decides the
+  // half-cost discount below, not just "the subject has this polarity
+  // somewhere" like the old best-fit-against-a-pool approximation did.
+  let slotPolarities = new Array(REGULAR_SLOTS).fill(null);
   let aura = null, exilus = null;
   let arcanes = new Array(ARCANE_SLOTS).fill(null);
   let shards = new Array(SHARD_SLOTS).fill(null);
+  let selectedModSlot = 0; // which of the 8 mod slots the inline mod browser below assigns into
+  let modBrowserQuery = "", modBrowserType = "", modBrowserRarity = "", modBrowserAug = false;
   let helminth = null; // { slot: 0-3, name, src } — the one ability slot a Helminth infusion replaces
   let title = "", notes = "";
   // Two real screens once a subject is picked, mirroring the game's own
@@ -213,15 +227,12 @@
   // Greedy best-fit: each placed mod whose polarity still has an unused
   // match among the subject's innate polarities gets the drain halved.
   function computeCapacity() {
-    const pool = subject && subject.polarities ? subject.polarities.slice() : [];
-    const placed = mods.filter(Boolean);
     let used = 0;
-    for (const m of placed) {
-      const i = pool.indexOf(m.polarity);
+    mods.forEach((m, i) => {
+      if (!m) return;
       const drain = m.baseDrain || 0;
-      if (i >= 0) { pool.splice(i, 1); used += Math.ceil(drain / 2); }
-      else used += drain;
-    }
+      used += slotPolarities[i] === m.polarity ? Math.ceil(drain / 2) : drain;
+    });
     return used;
   }
 
@@ -247,11 +258,17 @@
     return `<span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>
       <span class="wf-mod-card-name">${esc(item.name)}</span>`;
   }
+  function polarityBadgeHtml(idx) {
+    const pol = slotPolarities[idx];
+    return `<span class="wf-slot-pol" data-pol-idx="${idx}" style="${pol ? `--pol:${POLARITY_COLORS[pol]}` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity — click to Forma"}"></span>`;
+  }
   function slotButton(kind, idx, item) {
     const empty = !item;
     const rarityCls = !empty && item.rarity ? RARITY_CLASS[item.rarity] || "" : "";
-    return `<button type="button" class="wf-slot ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}>
+    const selected = kind === "mod" && idx === selectedModSlot;
+    return `<button type="button" class="wf-slot ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}${selected ? " wf-slot-selected" : ""}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}>
       ${empty ? `<span class="wf-slot-plus">+</span>` : modCardInner(item)}
+      ${kind === "mod" ? polarityBadgeHtml(idx) : ""}
     </button>`;
   }
   function shardSlotButton(idx, s) {
@@ -294,6 +311,11 @@
       </div>`;
   }
 
+  function abilityIconHtml(item) {
+    return item.icon
+      ? `<img src="${esc(item.icon)}" alt="" class="wf-ability-icon" loading="lazy">`
+      : `<span class="wf-ability-icon wf-ability-icon-fallback">${esc((item.name || "?")[0])}</span>`;
+  }
   function abilitiesHtml() {
     if (!subject.abilities || !subject.abilities.length) return "";
     return `<div class="wf-abilities">${subject.abilities.map((a, i) => {
@@ -301,8 +323,8 @@
       const shown = swapped ? helminth : a;
       return `<button type="button" class="wf-ability${swapped ? " wf-ability-helminth" : ""}${category === "warframe" ? "" : " wf-ability-static"}" ${category === "warframe" ? `data-helminth-slot="${i}"` : "disabled"}>
         ${swapped ? `<span class="wf-helminth-badge">HELMINTH</span>` : ""}
-        <b>${esc(shown.name)}</b><span>${esc(shown.desc)}</span>
-        ${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}
+        ${abilityIconHtml(shown)}
+        <span class="wf-ability-body"><b>${esc(shown.name)}</b><span>${esc(shown.desc)}</span>${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}</span>
       </button>`;
     }).join("")}</div>`;
   }
@@ -365,20 +387,24 @@
             <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
           </div>`}
           <div class="wf-arsenal-main">
+            ${category !== "companion" ? `
+            <div class="wf-aura-row">
+              ${category === "warframe" ? slotButton("aura", 0, aura) : ""}
+              ${slotButton("exilus", 0, exilus)}
+            </div>` : ""}
             <div class="wf-slot-section">
               <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-              <div class="wf-slot-grid">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
+              <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
             </div>
-            ${category !== "companion" ? `
-            <div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-amber)">${category === "warframe" ? "Aura" : "Exilus"}</p>
-              <div class="wf-slot-grid wf-slot-grid-1">${slotButton(category === "warframe" ? "aura" : "exilus", 0, category === "warframe" ? aura : exilus)}</div>
-            </div>` : ""}
           </div>
           <div class="wf-arsenal-side">
             <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
             <div class="wf-slot-grid wf-slot-grid-side">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
           </div>
+        </div>
+
+        <div class="wf-slot-section">
+          <div id="wf-mod-browser" class="wf-mod-browser"></div>
         </div>
 
         <div class="wf-slot-section">
@@ -394,6 +420,7 @@
       </section>
       ${PICKER_HTML}`;
     wire();
+    renderModBrowser();
   }
 
   function render() {
@@ -418,6 +445,7 @@
   function wire() {
     root.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => {
       category = b.dataset.cat; subject = null; view = "overview"; mods = new Array(REGULAR_SLOTS).fill(null);
+      slotPolarities = new Array(REGULAR_SLOTS).fill(null);
       aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
       shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
       render();
@@ -436,6 +464,12 @@
           view = "overview";
           mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
           shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
+          // Front-load the subject's own innate polarities onto the first N
+          // slots — a documented approximation (the source data has no
+          // per-slot assignment, just an unordered list) — the rest start
+          // unpolarized, same as a freshly-built, un-Forma'd piece of gear.
+          slotPolarities = new Array(REGULAR_SLOTS).fill(null);
+          (subject.polarities || []).forEach((p, i) => { if (i < REGULAR_SLOTS) slotPolarities[i] = p; });
           render();
         }));
       }
@@ -449,8 +483,16 @@
     document.getElementById("wf-title")?.addEventListener("input", (e) => { title = e.target.value; });
     document.getElementById("wf-notes")?.addEventListener("input", (e) => { notes = e.target.value; });
 
-    root.querySelectorAll(".wf-slot").forEach((btn) => btn.addEventListener("click", () => openPicker(btn.dataset.kind, Number(btn.dataset.idx))));
+    root.querySelectorAll(".wf-slot").forEach((btn) => btn.addEventListener("click", () => {
+      const kind = btn.dataset.kind, idx = Number(btn.dataset.idx);
+      // Mod slots select into the always-visible browser below instead of
+      // opening a modal — the browser needs the slots it's assigning into to
+      // stay visible at the same time, which a modal overlay would hide.
+      if (kind === "mod") { selectedModSlot = idx; renderModBrowser(); root.querySelectorAll('[data-kind="mod"]').forEach((s) => s.classList.toggle("wf-slot-selected", Number(s.dataset.idx) === idx)); return; }
+      openPicker(kind, idx);
+    }));
     root.querySelectorAll("[data-helminth-slot]").forEach((btn) => btn.addEventListener("click", () => openHelminthPicker(Number(btn.dataset.helminthSlot))));
+    root.querySelectorAll("[data-pol-idx]").forEach((el) => el.addEventListener("click", (e) => { e.stopPropagation(); openPolarityPicker(Number(el.dataset.polIdx)); }));
     document.getElementById("wf-save")?.addEventListener("click", saveBuild);
     wireDrag();
   }
@@ -459,7 +501,9 @@
   // touch tap, so this is pure addition on top of the click-to-pick flow
   // above — mobile is unaffected. Dragging one filled slot onto another of
   // the same kind swaps them (an empty target just moves it), matching how
-  // the real Arsenal lets you drag-reorder equipped mods.
+  // the real Arsenal lets you drag-reorder equipped mods. A mod slot also
+  // accepts a card dragged up from the mod collection browser below — that's
+  // an assign, not a swap, since the browser card isn't "in" a slot already.
   let dragSrc = null;
   function wireDrag() {
     root.querySelectorAll(".wf-slot[draggable]").forEach((el) => {
@@ -467,14 +511,18 @@
       el.addEventListener("dragend", () => { dragSrc = null; root.querySelectorAll(".wf-drag-over").forEach((x) => x.classList.remove("wf-drag-over")); });
     });
     root.querySelectorAll(".wf-slot").forEach((el) => {
-      el.addEventListener("dragover", (e) => { if (dragSrc && dragSrc.kind === el.dataset.kind) { e.preventDefault(); el.classList.add("wf-drag-over"); } });
+      const accepts = () => !!dragSrc && (dragSrc.kind === el.dataset.kind || (dragSrc.kind === "browser-mod" && el.dataset.kind === "mod"));
+      el.addEventListener("dragover", (e) => { if (accepts()) { e.preventDefault(); el.classList.add("wf-drag-over"); } });
       el.addEventListener("dragleave", () => el.classList.remove("wf-drag-over"));
       el.addEventListener("drop", (e) => {
         e.preventDefault();
         el.classList.remove("wf-drag-over");
-        if (!dragSrc || dragSrc.kind !== el.dataset.kind) return;
+        if (!accepts()) { dragSrc = null; return; }
         const toIdx = Number(el.dataset.idx);
-        if (dragSrc.idx !== toIdx) {
+        if (dragSrc.kind === "browser-mod") {
+          const item = DATA.mods.find((m) => m.slug === dragSrc.slug);
+          if (item) { mods[toIdx] = item; selectedModSlot = toIdx; render(); }
+        } else if (dragSrc.idx !== toIdx) {
           const a = getSlot(dragSrc.kind, dragSrc.idx), b = getSlot(dragSrc.kind, toIdx);
           setSlot(dragSrc.kind, dragSrc.idx, b);
           setSlot(dragSrc.kind, toIdx, a);
@@ -485,11 +533,89 @@
     });
   }
 
+  // Persistent "mod collection" bar beneath the slots — unlike the modal
+  // picker (whose backdrop would hide the very slots it assigns into), this
+  // renders inline so a card can be click-assigned OR dragged straight up
+  // onto the currently selected mod slot, matching the real Arsenal's own
+  // bottom mod browser. Mirrors openPicker's mod-pool/filter logic (type
+  // chips, rarity select, Augments-only toggle) rather than sharing it
+  // outright, since this one persists its filter state across re-renders
+  // instead of resetting per modal-open.
+  function renderModBrowser() {
+    const container = document.getElementById("wf-mod-browser");
+    if (!container) return;
+    const base = modPoolFor(category, subject);
+    const pool = DATA.mods.filter((m) => base(m) || augmentMatches(m, subject));
+    const types = [...new Set(pool.map((m) => m.type))];
+    const rarities = [...new Set(pool.map((m) => m.rarity).filter(Boolean))].sort((a, b) => RARITY_ORDER.indexOf(a) - RARITY_ORDER.indexOf(b));
+    const isSubjAugment = (m) => m.compatName === subject.name;
+    const hasAugments = pool.some(isSubjAugment) && pool.some((m) => !isSubjAugment(m));
+
+    container.innerHTML = `
+      <p class="wf-tag">Mod Collection <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">— Click or drag into slot ${selectedModSlot + 1}</span></p>
+      <div class="wf-mod-browser-head">
+        <input type="search" id="wf-browser-search" class="wf-input" placeholder="Search mods…" autocomplete="off">
+      </div>
+      <div class="wf-picker-filters" id="wf-browser-filters"></div>
+      <div class="wf-mod-browser-grid" id="wf-browser-grid"></div>`;
+
+    const searchEl = container.querySelector("#wf-browser-search");
+    const filtersEl = container.querySelector("#wf-browser-filters");
+    const gridEl = container.querySelector("#wf-browser-grid");
+    searchEl.value = modBrowserQuery;
+
+    function filterRowHtml() {
+      if (types.length < 2 && rarities.length < 2 && !hasAugments) return "";
+      return `
+        ${types.length > 1 ? `<div class="wf-picker-chips">
+          <button type="button" class="wf-picker-chip ${!modBrowserType ? "active" : ""}" data-btype="">All</button>
+          ${types.map((t) => `<button type="button" class="wf-picker-chip ${modBrowserType === t ? "active" : ""}" data-btype="${esc(t)}">${esc(t.replace(/ Mod$/, ""))}</button>`).join("")}
+        </div>` : ""}
+        <div class="wf-picker-chips">
+          ${rarities.length > 1 ? `<select class="wf-select wf-picker-rarity" id="wf-browser-rarity-select">
+            <option value="">All rarities</option>
+            ${rarities.map((r) => `<option value="${esc(r)}" ${modBrowserRarity === r ? "selected" : ""}>${esc(r)}</option>`).join("")}
+          </select>` : ""}
+          ${hasAugments ? `<button type="button" class="wf-picker-chip ${modBrowserAug ? "active" : ""}" id="wf-browser-aug-toggle">Augments only</button>` : ""}
+        </div>`;
+    }
+    function renderGrid() {
+      let list = pool;
+      if (modBrowserType) list = list.filter((m) => m.type === modBrowserType);
+      if (modBrowserRarity) list = list.filter((m) => m.rarity === modBrowserRarity);
+      if (modBrowserAug) list = list.filter(isSubjAugment);
+      if (modBrowserQuery) list = list.filter((m) => m.name.toLowerCase().includes(modBrowserQuery.toLowerCase()));
+      list = list.slice(0, 200);
+      gridEl.innerHTML = list.map((m) => `<button type="button" class="wf-picker-item wf-mod-card ${RARITY_CLASS[m.rarity] || ""}" data-slug="${esc(m.slug)}" title="${esc(m.effect || m.type || "")}" draggable="true">
+        ${modCardInner(m)}
+      </button>`).join("") || `<p class="wf-empty">No matches.</p>`;
+      gridEl.querySelectorAll("[data-slug]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          mods[selectedModSlot] = pool.find((m) => m.slug === btn.dataset.slug);
+          render();
+        });
+        btn.addEventListener("dragstart", () => { dragSrc = { kind: "browser-mod", slug: btn.dataset.slug }; });
+        btn.addEventListener("dragend", () => { dragSrc = null; root.querySelectorAll(".wf-drag-over").forEach((x) => x.classList.remove("wf-drag-over")); });
+      });
+    }
+    function drawFilters() {
+      filtersEl.hidden = !filterRowHtml();
+      filtersEl.innerHTML = filterRowHtml();
+      filtersEl.querySelectorAll("[data-btype]").forEach((btn) => btn.addEventListener("click", () => { modBrowserType = btn.dataset.btype; drawFilters(); renderGrid(); }));
+      filtersEl.querySelector("#wf-browser-rarity-select")?.addEventListener("change", (e) => { modBrowserRarity = e.target.value; renderGrid(); });
+      filtersEl.querySelector("#wf-browser-aug-toggle")?.addEventListener("click", () => { modBrowserAug = !modBrowserAug; drawFilters(); renderGrid(); });
+    }
+    drawFilters();
+    renderGrid();
+    searchEl.oninput = () => { modBrowserQuery = searchEl.value.trim(); renderGrid(); };
+  }
+
   function openPicker(kind, idx) {
     const picker = document.getElementById("wf-picker");
     const listEl = document.getElementById("wf-picker-list");
     const searchEl = document.getElementById("wf-picker-search");
     const filtersEl = document.getElementById("wf-picker-filters");
+    listEl.style.cssText = ""; // clear a possible leftover inline layout from the polarity picker
     if (kind === "shard") { openShardPicker(idx); return; }
     searchEl.hidden = false;
     let pool;
@@ -622,6 +748,7 @@
     const picker = document.getElementById("wf-picker");
     const listEl = document.getElementById("wf-picker-list");
     const searchEl = document.getElementById("wf-picker-search");
+    listEl.style.cssText = ""; // clear a possible leftover inline layout from the polarity picker
     document.getElementById("wf-picker-filters").hidden = true;
     searchEl.hidden = false;
     const pool = helminthPoolFor(subject).map(([name, src]) => helminthLookup(name, src));
@@ -646,6 +773,30 @@
     document.getElementById("wf-picker-close").onclick = closePicker;
     picker.onclick = (e) => { if (e.target === picker) closePicker(); };
   }
+  // Repolarizing a slot (simulated Forma) — same small fixed-list picker
+  // pattern as Archon Shards: 7 polarities + "None", not a search.
+  function openPolarityPicker(idx) {
+    const picker = document.getElementById("wf-picker");
+    const listEl = document.getElementById("wf-picker-list");
+    const searchEl = document.getElementById("wf-picker-search");
+    document.getElementById("wf-picker-filters").hidden = true;
+    searchEl.hidden = true;
+    const options = [...POLARITY_NAMES, null];
+    listEl.style.display = "flex";
+    listEl.style.flexDirection = "column";
+    listEl.innerHTML = options.map((p) => `<button type="button" class="wf-picker-item wf-polarity-item" data-pol="${p || ""}">
+      <span class="wf-pol-swatch" style="${p ? `--pol:${POLARITY_COLORS[p]}` : ""}"></span>
+      <span>${p ? esc(polarityLabel(p)) : "No polarity"}</span>
+    </button>`).join("");
+    listEl.querySelectorAll("[data-pol]").forEach((btn) => btn.addEventListener("click", () => {
+      slotPolarities[idx] = btn.dataset.pol || null;
+      closePicker();
+      render();
+    }));
+    picker.hidden = false;
+    document.getElementById("wf-picker-close").onclick = closePicker;
+    picker.onclick = (e) => { if (e.target === picker) closePicker(); };
+  }
   function closePicker() { const p = document.getElementById("wf-picker"); if (p) p.hidden = true; }
 
   async function saveBuild() {
@@ -662,6 +813,7 @@
       data: {
         mods: mods.map((m) => m && m.slug), aura: aura && aura.slug, exilus: exilus && exilus.slug,
         arcanes: arcanes.map((a) => a && a.slug),
+        polarities: slotPolarities,
         shards: shards.map((s) => (s ? [s.color, s.bonus, s.tf ? 1 : 0] : null)),
         helminth: helminth ? [helminth.slot, helminth.name, helminth.src] : null,
         notes: notes.trim(),

@@ -23,10 +23,12 @@
 
 const fs = require("fs");
 const path = require("path");
-const { getJson } = require("./lib/http");
+const { getJson, getText } = require("./lib/http");
 
 const BASE = "https://raw.githubusercontent.com/WFCD/warframe-items/master/data/json";
+const WIKI = "https://wiki.warframe.com/w/";
 const OUT = path.join(__dirname, "..", "data", "warframe", "items.json");
+const sleep = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch {} };
 
 const slugify = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const clean = (s) => String(s || "").replace(/\s+/g, " ").trim();
@@ -38,6 +40,40 @@ const lastStat = (levelStats) => {
   return last && last.stats ? last.stats.map(stripTokens).join(" ") : "";
 };
 const img = (it) => it.wikiaThumbnail || (it.imageName ? `https://cdn.warframestat.us/img/${it.imageName}` : "");
+
+// Ability icons aren't in WFCD's data at all, so these come straight from
+// each Warframe's own wiki page — its "Abilities" infobox lists them first,
+// each as `data-param-name="<Ability Name>"` immediately before an
+// `/images/thumb/<Filename>/` icon, in game order (1st..4th), before any
+// other page section that might also reference an icon-shaped image (related
+// Warframes, drop tables, etc. — hence only taking the first 4 matches).
+// Prime/Umbra variants share their base's exact abilities, so this is keyed
+// by base name and fetched once per base, not once per warframe (~68 fetches
+// instead of 120).
+const abilityIconCache = {};
+function wikiAbilityIcons(baseName) {
+  if (abilityIconCache[baseName]) return abilityIconCache[baseName];
+  const slug = encodeURIComponent(baseName.replace(/ /g, "_"));
+  const html = getText(`${WIKI}${slug}`, { timeout: 30 });
+  // Collect the first 4 data-param-name positions first, then look for each
+  // one's own icon independently — searching ahead from each name's own
+  // position, not chained through a single regex's lastIndex, since one
+  // ability's icon can sit much closer to its name than another's (an
+  // earlier combined single-pass regex here skipped abilities whose icon
+  // wasn't within a fixed window, silently shifting the rest out of order).
+  const nameRe = /data-param-name="([^"]+)"/g;
+  const names = [];
+  let m;
+  while ((m = nameRe.exec(html)) && names.length < 4) names.push({ name: m[1], pos: m.index });
+  const icons = {};
+  for (const { name, pos } of names) {
+    const im = html.slice(pos, pos + 600).match(/\/images\/thumb\/([^/]+)\//);
+    if (im) icons[name] = `https://wiki.warframe.com/images/${decodeURIComponent(im[1])}`;
+  }
+  abilityIconCache[baseName] = icons;
+  sleep(120);
+  return icons;
+}
 
 function get(file) {
   const data = getJson(`${BASE}/${file}.json`);
@@ -55,16 +91,21 @@ function run() {
 
   const warframes = framesRaw
     .filter((f) => f.type === "Warframe" && !f.excludeFromCodex)
-    .map((f) => ({
-      slug: slugify(f.name), name: f.name, isPrime: !!f.isPrime,
-      health: f.health, shield: f.shield, armor: f.armor, power: f.power, sprintSpeed: f.sprint ?? f.sprintSpeed,
-      masteryReq: f.masteryReq || 0,
-      passive: stripTokens(f.passiveDescription),
-      abilities: (f.abilities || []).map((a) => ({ name: a.name, desc: stripTokens(a.description) })),
-      polarities: f.polarities || [],
-      exilusPolarity: f.exilusPolarity || null,
-      image: img(f),
-    }));
+    .map((f) => {
+      const baseName = f.name.replace(/ Prime$/, "");
+      let icons = {};
+      try { icons = wikiAbilityIcons(baseName); } catch (e) { /* missing icons aren't fatal — keep going without them */ }
+      return {
+        slug: slugify(f.name), name: f.name, isPrime: !!f.isPrime,
+        health: f.health, shield: f.shield, armor: f.armor, power: f.power, sprintSpeed: f.sprint ?? f.sprintSpeed,
+        masteryReq: f.masteryReq || 0,
+        passive: stripTokens(f.passiveDescription),
+        abilities: (f.abilities || []).map((a) => ({ name: a.name, desc: stripTokens(a.description), icon: icons[a.name] || "" })),
+        polarities: f.polarities || [],
+        exilusPolarity: f.exilusPolarity || null,
+        image: img(f),
+      };
+    });
 
   const WEAPON_CATEGORY = { Primary: "Primary", Secondary: "Secondary", Melee: "Melee" };
   const weapons = weaponsRaw

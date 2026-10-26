@@ -181,12 +181,15 @@
 .wf-build-passive { margin: 0; font-size: .82rem; color: var(--wf-muted); font-style: italic; }
 
 .wf-abilities { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 22px; }
-.wf-ability { background: var(--wf-panel-2); border: none; border-left: 2px solid var(--wf-cyan); padding: 9px 12px; display: flex; flex-direction: column; gap: 3px; text-align: left; font-family: inherit; color: inherit; cursor: pointer; position: relative; }
+.wf-ability { background: var(--wf-panel-2); border: none; border-left: 2px solid var(--wf-cyan); padding: 9px 12px; display: flex; flex-direction: row; align-items: flex-start; gap: 10px; text-align: left; font-family: inherit; color: inherit; cursor: pointer; position: relative; }
 .wf-ability:hover { border-left-color: var(--wf-cyan-bright); }
 .wf-ability-static { cursor: default; }
 .wf-ability-static:hover { border-left-color: var(--wf-cyan); }
-.wf-ability b { font-size: .82rem; color: var(--wf-text); }
-.wf-ability span { font-size: .76rem; color: var(--wf-muted); line-height: 1.4; }
+.wf-ability-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.wf-ability-body b { font-size: .82rem; color: var(--wf-text); }
+.wf-ability-body span { font-size: .76rem; color: var(--wf-muted); line-height: 1.4; }
+.wf-ability-icon { width: 30px; height: 30px; object-fit: contain; flex-shrink: 0; background: var(--wf-panel); padding: 4px; }
+.wf-ability-icon-fallback { display: flex; align-items: center; justify-content: center; font-size: .9rem; font-weight: 700; color: var(--wf-muted-2); }
 .wf-ability-helminth { border-left-color: #6fcf5a; }
 .wf-ability-helminth:hover { border-left-color: #8fe077; }
 .wf-helminth-badge { position: absolute; top: 8px; right: 10px; font-family: var(--mono); font-size: .58rem; letter-spacing: .06em; color: #6fcf5a; }
@@ -222,6 +225,9 @@
 .wf-slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-top: 8px; }
 .wf-slot-grid-1 { grid-template-columns: 90px; }
 .wf-slot-grid-2 { grid-template-columns: repeat(2, 90px); }
+.wf-slot-grid-4 { grid-template-columns: repeat(4, 90px); }
+.wf-aura-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 18px; }
+.wf-aura-row .wf-slot { width: 90px; flex-shrink: 0; }
 .wf-slot {
   position: relative; aspect-ratio: 1; background: var(--wf-panel-2); border: 1px dashed var(--wf-border);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
@@ -234,7 +240,13 @@
 .wf-slot-plus { font-size: 1.3rem; color: var(--wf-muted-2); }
 .wf-slot img { width: 32px; height: 32px; object-fit: contain; }
 .wf-slot-name { font-size: .62rem; line-height: 1.15; text-align: center; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-.wf-pol { position: absolute; top: 4px; right: 4px; width: 9px; height: 9px; border-radius: 50%; z-index: 1; }
+/* Per-slot polarity badge (simulated Forma) — filled when the slot has one
+   assigned, a faint ring when it doesn't. Click toggles its own picker;
+   stopPropagation keeps that from also opening the slot's mod picker. */
+.wf-slot-pol { position: absolute; top: 4px; right: 4px; width: 11px; height: 11px; border-radius: 50%; z-index: 2; cursor: pointer; background: var(--pol, transparent); border: 1.5px solid var(--pol, var(--wf-muted-2)); }
+.wf-slot-pol:hover { transform: scale(1.2); }
+.wf-pol-swatch { width: 14px; height: 14px; border-radius: 50%; background: var(--pol, transparent); border: 1.5px solid var(--pol, var(--wf-muted-2)); flex-shrink: 0; }
+.wf-polarity-item { flex-direction: row !important; align-items: center; gap: 8px; aspect-ratio: auto !important; padding: 8px 10px; }
 
 /* Mod cards — real art, rarity-colored bottom border, name label below,
    used both for equipped slots and the picker's browse grid. */
@@ -247,6 +259,13 @@
 .wf-r-rare { border-color: var(--wf-amber); }
 .wf-r-legendary { border-color: #ff6b4d; }
 .wf-r-riven { border-color: #c084f5; }
+
+/* Persistent bottom mod browser (Build Creator only) — unlike the modal
+   picker, this never hides the slots it assigns into, so a card can be
+   dragged straight up onto the selected slot as well as clicked. */
+.wf-mod-browser-head { margin: 8px 0 0; }
+.wf-mod-browser-grid { display: flex; flex-wrap: wrap; gap: 8px; max-height: 320px; overflow-y: auto; padding: 4px 2px 0; }
+.wf-mod-browser-grid .wf-picker-item { width: 76px; flex-shrink: 0; }
 
 .wf-build-actions { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
 
