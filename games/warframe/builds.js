@@ -230,9 +230,26 @@
     const shards = (data.shards || []).map((s) =>
       Array.isArray(s) && SHARDS[s[0]] && SHARDS[s[0]].bonuses[s[1]] ? { color: s[0], bonus: s[1], tf: !!s[2] } : null
     ).filter(Boolean);
+    const helminth = Array.isArray(data.helminth) ? (() => {
+      const [slot, name, src] = data.helminth;
+      const w = ITEMS.warframes.find((x) => x.name === src);
+      const a = w && w.abilities.find((x) => x.name.toLowerCase() === name.toLowerCase());
+      return { slot, name, src, desc: (a && a.desc) || "" };
+    })() : null;
     const isMine = window.NFTWAuth && window.NFTWAuth.token() && window.NFTWAuth.email && b.author === (window.NFTWAuth.email() || "").split("@")[0];
 
     const subject = subjectFor(b);
+    const abilitiesHtml = subject && subject.abilities && subject.abilities.length
+      ? `<div class="wf-abilities">${subject.abilities.map((a, i) => {
+          const swapped = helminth && helminth.slot === i;
+          const shown = swapped ? helminth : a;
+          return `<div class="wf-ability wf-ability-static${swapped ? " wf-ability-helminth" : ""}">
+            ${swapped ? `<span class="wf-helminth-badge">HELMINTH</span>` : ""}
+            <b>${esc(shown.name)}</b><span>${esc(shown.desc || "")}</span>
+            ${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}
+          </div>`;
+        }).join("")}</div>`
+      : "";
     let statPanel = "";
     if (subject && subject.health != null) {
       const d = statDeltas(subject, [...mods, aura, exilus], b.category, b.category === "warframe" ? shards : null);
@@ -254,6 +271,7 @@
           </div>
         </div>
         ${data.notes ? `<p style="margin:0 0 20px; color:var(--wf-muted); font-size:.88rem; line-height:1.5">${esc(data.notes)}</p>` : ""}
+        ${abilitiesHtml}
 
         <div class="wf-arsenal">
           ${statPanel}

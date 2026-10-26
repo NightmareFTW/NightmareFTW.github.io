@@ -2144,6 +2144,8 @@
     // Shard slot tooltip: "Tauforged Crimson — +15% Ability Strength" — pass the
     // bonus tail through the DICT so both halves end up in PT.
     [/^(Tauforged )?(Crimson|Amber|Azure|Topaz|Violet|Emerald) — (.+)$/, (m, tf, name, bonus) => `${tf || ""}${name} — ${DICT[bonus] || bonus}`],
+    [/^from (.+)$/, "de $1"],
+    [/^Revert to (.+)$/, "Reverter para $1"],
   ];
 
   function translateText(raw) {

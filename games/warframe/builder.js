@@ -74,6 +74,47 @@
     ] },
   };
 
+  // Helminth: subsuming a built Warframe permanently unlocks its one
+  // predetermined ability for infusion onto any other Warframe's 1st-4th
+  // slot. List is the official wiki's subsumption chart (ability, source
+  // Warframe) — descriptions/icons aren't duplicated here, they're looked
+  // up live from DATA.warframes by matching the source Warframe's name,
+  // since we already have that data loaded for every frame.
+  const HELMINTH_ABILITIES = [
+    ["Shuriken", "Ash"], ["Petrify", "Atlas"], ["Silence", "Banshee"],
+    ["Lull", "Baruuk"], ["Sentient Wrath", "Caliban"], ["Elemental Ward", "Chroma"],
+    ["Fractured Blast", "Citrine"], ["Evade", "Cyte-09"], ["Wyrd Scythes", "Dagath"],
+    ["Dark Verse", "Dante"], ["Fire Blast", "Ember"], ["Rest & Rage", "Equinox"],
+    ["Radial Blind", "Excalibur"], ["Self Portrait", "Follie"], ["Ice Wave", "Frost"],
+    ["Spectrorage", "Gara"], ["Blood Altar", "Garuda"], ["Thermal Sunder", "Gauss"],
+    ["Nourish", "Grendel"], ["Coil Horizon", "Gyre"], ["Condemn", "Harrow"],
+    ["Pillage", "Hildryn"], ["Tempest Barrage", "Hydroid"], ["Desiccation", "Inaros"],
+    ["Quiver", "Ivara"], ["Ophanim Eyes", "Jade"], ["Ensnare", "Khora"],
+    ["Omamori", "Koumei"], ["Wrathful Advance", "Kullervo"], ["Vial Rush", "Lavos"],
+    ["Banish", "Limbo"], ["Decoy", "Loki"], ["Pull", "Mag"],
+    ["Shooting Gallery", "Mesa"], ["Eclipse", "Mirage"], ["Neote", "Narin"],
+    ["Terrify", "Nekros"], ["Fire Walker", "Nezha"], ["Larva", "Nidus"],
+    ["Brightbonnet", "Nokko"], ["Null Star", "Nova"], ["Mind Control", "Nyx"],
+    ["Smite", "Oberon"], ["Resonator", "Octavia"], ["Webbed Embrace", "Oraxia"],
+    ["Dispensary", "Protea"], ["Chyrinka Pillar", "Qorvex"], ["Reave", "Revenant"],
+    ["Roar", "Rhino"], ["Molt", "Saryn"], ["Gloom", "Sevagoth"],
+    ["Jade Stars", "Sirius & Orion"], ["Tharros Strike", "Styanax"], ["Pyrotechnics", "Temple"],
+    ["Spellbind", "Titania"], ["Well of Life", "Trinity"], ["Remedium", "Uriel"],
+    ["Warcry", "Valkyr"], ["Tesla Nervos", "Vauban"], ["Shock", "Volt"],
+    ["Lycath's Hunt", "Voruna"], ["Breach Surge", "Wisp"], ["Defy", "Wukong"],
+    ["Xata's Whisper", "Xaku"], ["Aquablades", "Yareli"], ["Airburst", "Zephyr"],
+  ];
+  // A Warframe can't infuse an ability it already has, including its own.
+  function helminthPoolFor(subj) {
+    const own = new Set((subj.abilities || []).map((a) => a.name.toLowerCase()));
+    return HELMINTH_ABILITIES.filter(([name, src]) => src !== subj.name && !own.has(name.toLowerCase()));
+  }
+  function helminthLookup(name, src) {
+    const w = DATA.warframes.find((x) => x.name === src);
+    const a = w && w.abilities.find((x) => x.name.toLowerCase() === name.toLowerCase());
+    return { name, src, desc: (a && a.desc) || "", image: (w && w.image) || "" };
+  }
+
   // Mods store one summary line like "+99% Ability Duration -66% Ability Range" —
   // parse each signed-percentage/stat-name pair for the stat panel's colored deltas.
   // Best-effort text parsing against that convention, not a full mod-effect
@@ -133,6 +174,7 @@
   let aura = null, exilus = null;
   let arcanes = new Array(ARCANE_SLOTS).fill(null);
   let shards = new Array(SHARD_SLOTS).fill(null);
+  let helminth = null; // { slot: 0-3, name, src } — the one ability slot a Helminth infusion replaces
   let title = "", notes = "";
 
   function subjectsFor(cat) {
@@ -240,7 +282,15 @@
           </div>
 
           ${subject.abilities && subject.abilities.length ? `
-            <div class="wf-abilities">${subject.abilities.map((a) => `<div class="wf-ability"><b>${esc(a.name)}</b><span>${esc(a.desc)}</span></div>`).join("")}</div>
+            <div class="wf-abilities">${subject.abilities.map((a, i) => {
+              const swapped = category === "warframe" && helminth && helminth.slot === i;
+              const shown = swapped ? helminth : a;
+              return `<button type="button" class="wf-ability${swapped ? " wf-ability-helminth" : ""}${category === "warframe" ? "" : " wf-ability-static"}" ${category === "warframe" ? `data-helminth-slot="${i}"` : "disabled"}>
+                ${swapped ? `<span class="wf-helminth-badge">HELMINTH</span>` : ""}
+                <b>${esc(shown.name)}</b><span>${esc(shown.desc)}</span>
+                ${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}
+              </button>`;
+            }).join("")}</div>
           ` : ""}
 
           <div class="wf-arsenal">
@@ -306,7 +356,7 @@
     root.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => {
       category = b.dataset.cat; subject = null; mods = new Array(REGULAR_SLOTS).fill(null);
       aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
-      shards = new Array(SHARD_SLOTS).fill(null);
+      shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
       render();
     }));
 
@@ -320,7 +370,7 @@
       listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => {
         subject = subjectsFor(category).find((s) => s.slug === btn.dataset.slug);
         mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
-        shards = new Array(SHARD_SLOTS).fill(null);
+        shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
         render();
       }));
     }
@@ -331,6 +381,7 @@
     document.getElementById("wf-notes")?.addEventListener("input", (e) => { notes = e.target.value; });
 
     root.querySelectorAll(".wf-slot").forEach((btn) => btn.addEventListener("click", () => openPicker(btn.dataset.kind, Number(btn.dataset.idx))));
+    root.querySelectorAll("[data-helminth-slot]").forEach((btn) => btn.addEventListener("click", () => openHelminthPicker(Number(btn.dataset.helminthSlot))));
     document.getElementById("wf-save")?.addEventListener("click", saveBuild);
   }
 
@@ -419,6 +470,37 @@
     document.getElementById("wf-picker-close").onclick = closePicker;
     picker.onclick = (e) => { if (e.target === picker) closePicker(); };
   }
+  // Helminth picker: a searchable grid of every subsumable ability (one per
+  // built, non-Prime/non-Umbra Warframe), reusing the mod-card grid visual
+  // with the source Warframe's own portrait standing in for an ability icon
+  // (WFCD's data has no per-ability icon field).
+  function openHelminthPicker(slotIdx) {
+    const picker = document.getElementById("wf-picker");
+    const listEl = document.getElementById("wf-picker-list");
+    const searchEl = document.getElementById("wf-picker-search");
+    searchEl.hidden = false;
+    const pool = helminthPoolFor(subject).map(([name, src]) => helminthLookup(name, src));
+    function renderList(q) {
+      const list = (q ? pool.filter((a) => a.name.toLowerCase().includes(q.toLowerCase()) || a.src.toLowerCase().includes(q.toLowerCase())) : pool);
+      listEl.innerHTML = (helminth && helminth.slot === slotIdx ? `<button type="button" class="wf-picker-item wf-shard-unsocket" id="wf-helminth-revert" style="grid-column:1/-1">Revert to ${esc(subject.abilities[slotIdx].name)}</button>` : "")
+        + (list.map((a) => `<button type="button" class="wf-picker-item wf-mod-card" data-name="${esc(a.name)}" data-src="${esc(a.src)}" title="${esc(a.desc)}">
+            <span class="wf-mod-card-art">${a.image ? `<img src="${esc(a.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(a.name[0])}</span>`}</span>
+            <span class="wf-mod-card-name">${esc(a.name)}</span>
+          </button>`).join("") || `<p class="wf-empty">No matches.</p>`);
+      listEl.querySelector("#wf-helminth-revert")?.addEventListener("click", () => { helminth = null; closePicker(); render(); });
+      listEl.querySelectorAll("[data-name]").forEach((btn) => btn.addEventListener("click", () => {
+        helminth = { slot: slotIdx, name: btn.dataset.name, src: btn.dataset.src, desc: pool.find((a) => a.name === btn.dataset.name).desc };
+        closePicker();
+        render();
+      }));
+    }
+    renderList("");
+    searchEl.value = "";
+    searchEl.oninput = () => renderList(searchEl.value.trim());
+    picker.hidden = false;
+    document.getElementById("wf-picker-close").onclick = closePicker;
+    picker.onclick = (e) => { if (e.target === picker) closePicker(); };
+  }
   function closePicker() { const p = document.getElementById("wf-picker"); if (p) p.hidden = true; }
 
   async function saveBuild() {
@@ -436,6 +518,7 @@
         mods: mods.map((m) => m && m.slug), aura: aura && aura.slug, exilus: exilus && exilus.slug,
         arcanes: arcanes.map((a) => a && a.slug),
         shards: shards.map((s) => (s ? [s.color, s.bonus, s.tf ? 1 : 0] : null)),
+        helminth: helminth ? [helminth.slot, helminth.name, helminth.src] : null,
         notes: notes.trim(),
       },
     };

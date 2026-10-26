@@ -181,9 +181,15 @@
 .wf-build-passive { margin: 0; font-size: .82rem; color: var(--wf-muted); font-style: italic; }
 
 .wf-abilities { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 22px; }
-.wf-ability { background: var(--wf-panel-2); border-left: 2px solid var(--wf-cyan); padding: 9px 12px; display: flex; flex-direction: column; gap: 3px; }
+.wf-ability { background: var(--wf-panel-2); border: none; border-left: 2px solid var(--wf-cyan); padding: 9px 12px; display: flex; flex-direction: column; gap: 3px; text-align: left; font-family: inherit; color: inherit; cursor: pointer; position: relative; }
+.wf-ability:hover { border-left-color: var(--wf-cyan-bright); }
+.wf-ability-static { cursor: default; }
+.wf-ability-static:hover { border-left-color: var(--wf-cyan); }
 .wf-ability b { font-size: .82rem; color: var(--wf-text); }
 .wf-ability span { font-size: .76rem; color: var(--wf-muted); line-height: 1.4; }
+.wf-ability-helminth { border-left-color: #6fcf5a; }
+.wf-ability-helminth:hover { border-left-color: #8fe077; }
+.wf-helminth-badge { position: absolute; top: 8px; right: 10px; font-family: var(--mono); font-size: .58rem; letter-spacing: .06em; color: #6fcf5a; }
 
 .wf-capacity { margin-bottom: 22px; }
 .wf-capacity-bar { height: 8px; background: var(--wf-panel-2); border: 1px solid var(--wf-border); overflow: hidden; }
