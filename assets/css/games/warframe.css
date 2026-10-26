@@ -207,16 +207,13 @@
 .wf-over-text { color: #ff8a8a !important; }
 .wf-muted-note { color: var(--wf-muted-2); font-size: .75rem; }
 
-/* Screen 1 (Changeable Slot): portrait/name on the left, the "enter the mod
-   editor" action on the right, matching the real Arsenal's two-screen flow. */
+/* Changeable Slot: portrait/name on the left, matching the real Arsenal's
+   own equipment-slot screen — one screen per subject, mods included. */
 .wf-changeable-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
 
 /* Left stat column + main column, mirroring the in-game Arsenal's layout. */
 .wf-arsenal { display: grid; grid-template-columns: 190px 1fr; gap: 24px; align-items: start; }
-/* Screen 2 (Upgrades): a third column for Arcanes, which live on this screen
-   in-game rather than alongside Archon Shards on the overview screen. */
-.wf-arsenal-edit { grid-template-columns: 190px 1fr 140px; }
-.wf-arsenal-side { display: flex; flex-direction: column; }
+.wf-arsenal-side { display: flex; flex-direction: column; flex-shrink: 0; }
 .wf-stat-panel { background: var(--wf-panel-2); border: 1px solid var(--wf-border); padding: 14px; font-family: var(--mono); }
 .wf-stat-group { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
 .wf-stat-row { display: flex; justify-content: space-between; gap: 8px; font-size: .78rem; }
@@ -229,14 +226,25 @@
 .wf-slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-top: 8px; }
 .wf-slot-grid-1 { grid-template-columns: 90px; }
 .wf-slot-grid-2 { grid-template-columns: repeat(2, 90px); }
-.wf-slot-grid-4 { grid-template-columns: repeat(4, 90px); }
+/* Stretches to fill all the space between the stat panel and the Arcane
+   column (see .wf-loadout-row below) instead of sitting as a small fixed
+   block with dead space beside it. */
+.wf-slot-grid-4 { grid-template-columns: repeat(4, 1fr); }
 /* Must come after the base .wf-slot-grid rule above (same specificity,
    source order decides) — otherwise auto-fill wins on a wide container
    like the full-width mobile layout and the 2 Arcane slots sit side by
    side instead of stacking, which is how this shipped before being caught. */
 .wf-slot-grid-side { grid-template-columns: 90px; }
-.wf-aura-row { display: flex; justify-content: center; gap: 8px; margin-bottom: 18px; }
-.wf-aura-row .wf-slot { width: 90px; flex-shrink: 0; }
+/* Mods + Arcanes share one row so the mod grid (.wf-loadout-main) can
+   stretch to fill all the space up to the Arcane column, which stays a
+   fixed width beside it. */
+.wf-loadout-row { display: flex; gap: 16px; align-items: start; }
+.wf-loadout-main { flex: 1; min-width: 0; }
+/* Grid-aligned with .wf-slot-grid-4 below it (same 4 equal columns) so
+   Aura sits over mod-column 2 and Exilus over column 3, matching the
+   official wiki's own layout reference for where these sit relative to
+   the mod grid (wiki.warframe.com/w/Mod, "Example Modding Menu"). */
+.wf-aura-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
 .wf-slot {
   /* Mod/Aura/Exilus slots are portrait cards in-game, not squares — ratio
      taken straight from the official wiki's own layout reference (its
@@ -387,5 +395,11 @@ body.wf-authentic .wf-like-btn.wf-liked { border-color: rgba(217, 98, 58, .5); }
   .wf-code-row { flex-wrap: wrap; }
   .wf-code-side { align-items: flex-start; }
   .wf-build-head { flex-direction: column; }
-  .wf-arsenal, .wf-arsenal-edit { grid-template-columns: 1fr; }
+  .wf-arsenal { grid-template-columns: 1fr; }
+  /* align-items: start (set on .wf-loadout-row for desktop, to top-align
+     Arcanes with the mod grid instead of stretching to match its height)
+     stops children from filling the cross axis — which flips to width
+     once flex-direction turns column here, so it has to be reset back to
+     stretch or the mod grid collapses to its own min-content width. */
+  .wf-loadout-row { flex-direction: column; align-items: stretch; }
 }

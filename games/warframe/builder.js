@@ -191,13 +191,6 @@
   let modBrowserQuery = "", modBrowserType = "", modBrowserRarity = "", modBrowserAug = false;
   let helminth = null; // { slot: 0-3, name, src } — the one ability slot a Helminth infusion replaces
   let title = "", notes = "";
-  // Two real screens once a subject is picked, mirroring the game's own
-  // flow: "overview" is the Arsenal's equipment-slot/Changeable-Slot screen
-  // (portrait, abilities incl. Helminth, Archon Shards, stats, then an
-  // explicit action into modding) — "edit" is the Upgrades screen itself
-  // (capacity/stats, the mod grid, Arcanes). Not a URL-level route, just
-  // local state; a subject change always resets back to "overview".
-  let view = "overview";
 
   function subjectsFor(cat) {
     if (cat === "warframe") return DATA.warframes;
@@ -262,12 +255,12 @@
     const pol = slotPolarities[idx];
     return `<span class="wf-slot-pol" data-pol-idx="${idx}" style="${pol ? `--pol:${POLARITY_COLORS[pol]}` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity — click to Forma"}"></span>`;
   }
-  function slotButton(kind, idx, item) {
+  function slotButton(kind, idx, item, extraStyle) {
     const empty = !item;
     const rarityCls = !empty && item.rarity ? RARITY_CLASS[item.rarity] || "" : "";
     const selected = kind === "mod" && idx === selectedModSlot;
     const arcaneCls = kind === "arcane" ? " wf-slot-arcane" : "";
-    return `<button type="button" class="wf-slot${arcaneCls} ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}${selected ? " wf-slot-selected" : ""}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}>
+    return `<button type="button" class="wf-slot${arcaneCls} ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}${selected ? " wf-slot-selected" : ""}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}${extraStyle ? ` style="${extraStyle}"` : ""}>
       ${empty ? `<span class="wf-slot-plus">+</span>` : modCardInner(item)}
       ${kind === "mod" ? polarityBadgeHtml(idx) : ""}
     </button>`;
@@ -330,9 +323,11 @@
     }).join("")}</div>`;
   }
 
-  // Screen 1 — the Arsenal's own equipment-slot/"Changeable Slot" screen:
-  // portrait, abilities (Helminth-swappable), Archon Shards and stats, with
-  // an explicit action into the mod editor rather than mods living here too.
+  // The Arsenal's own equipment-slot/"Changeable Slot" screen: portrait,
+  // abilities (Helminth-swappable), Archon Shards, stats and the full mod
+  // editor all on one screen — one real screen per subject, same as the
+  // in-game Arsenal (which doesn't make you navigate to a second page to
+  // mod what you just selected either).
   function renderOverview() {
     const used = computeCapacity(), over = used > CAPACITY;
     const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus], category === "warframe" ? shards : null) : null;
@@ -351,56 +346,43 @@
               ${subject.passive ? `<p class="wf-build-passive">${esc(subject.passive)}</p>` : ""}
             </div>
           </div>
-          <button type="button" class="wf-code-copy" id="wf-enter-edit">Mod this build →</button>
         </div>
 
         ${abilitiesHtml()}
 
         <div class="wf-arsenal">
-          ${statPanelHtml(deltas, used, over)}
-          <div class="wf-arsenal-main">
-            ${category === "warframe" ? `
-            <div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
-              <div class="wf-slot-grid wf-slot-grid-5">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
-            </div>` : `<p class="wf-empty" style="padding:0">No Archon Shards for ${esc(category === "weapon" ? "weapons" : "companions")} — pick a Warframe to socket shards.</p>`}
-          </div>
-        </div>
-      </section>
-      ${PICKER_HTML}`;
-    wire();
-  }
-
-  // Screen 2 — the Upgrades screen itself: capacity/stats, the mod grid,
-  // Arcanes on the side, same as the real Arsenal's mod-editing view.
-  function renderEdit() {
-    const used = computeCapacity(), over = used > CAPACITY;
-    const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus], category === "warframe" ? shards : null) : null;
-    root.innerHTML = `
-      <a href="#" id="wf-back-to-overview" class="wf-detail-back">← ${esc(subject.name)}</a>
-      <section class="wf-panel wf-build-area" style="--wfc: var(--wf-cyan);">
-        <div class="wf-corner tl"></div>
-        <p class="wf-tag wf-eyebrow"><span class="wf-dot"></span> Upgrades / ${esc(subject.name)}</p>
-
-        <div class="wf-arsenal wf-arsenal-edit">
           ${statPanelHtml(deltas, used, over) || `<div class="wf-capacity">
             <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
             <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
           </div>`}
           <div class="wf-arsenal-main">
-            ${category !== "companion" ? `
-            <div class="wf-aura-row">
-              ${category === "warframe" ? slotButton("aura", 0, aura) : ""}
-              ${slotButton("exilus", 0, exilus)}
-            </div>` : ""}
+            ${category === "warframe" ? `
             <div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-              <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
+              <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
+              <div class="wf-slot-grid wf-slot-grid-5">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
+            </div>` : ""}
+
+            <!-- Mods + Arcanes share one row so the mod grid can stretch to
+                 fill all the space between the stat panel and the Arcane
+                 column, instead of sitting as a small fixed block with dead
+                 space next to it. -->
+            <div class="wf-loadout-row">
+              <div class="wf-loadout-main">
+                ${category !== "companion" ? `
+                <div class="wf-aura-row">
+                  ${category === "warframe" ? slotButton("aura", 0, aura, "grid-column:2") : ""}
+                  ${slotButton("exilus", 0, exilus, category === "warframe" ? "grid-column:3" : "grid-column:2/4;justify-self:center;width:90px")}
+                </div>` : ""}
+                <div class="wf-slot-section">
+                  <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
+                  <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
+                </div>
+              </div>
+              <div class="wf-arsenal-side">
+                <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
+                <div class="wf-slot-grid wf-slot-grid-side">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
+              </div>
             </div>
-          </div>
-          <div class="wf-arsenal-side">
-            <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
-            <div class="wf-slot-grid wf-slot-grid-side">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
           </div>
         </div>
 
@@ -438,13 +420,12 @@
       wire();
       return;
     }
-    if (view === "edit") renderEdit();
-    else renderOverview();
+    renderOverview();
   }
 
   function wire() {
     root.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => {
-      category = b.dataset.cat; subject = null; view = "overview"; mods = new Array(REGULAR_SLOTS).fill(null);
+      category = b.dataset.cat; subject = null; mods = new Array(REGULAR_SLOTS).fill(null);
       slotPolarities = new Array(REGULAR_SLOTS).fill(null);
       aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
       shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
@@ -456,7 +437,6 @@
       const listEl = document.getElementById("wf-subject-list");
       function pickSubject(slug) {
         subject = subjectsFor(category).find((s) => s.slug === slug);
-        view = "overview";
         mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
         shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
         // Front-load the subject's own innate polarities onto the first N
@@ -487,8 +467,6 @@
     }
 
     document.getElementById("wf-back-to-search")?.addEventListener("click", (e) => { e.preventDefault(); subject = null; render(); });
-    document.getElementById("wf-enter-edit")?.addEventListener("click", () => { view = "edit"; render(); });
-    document.getElementById("wf-back-to-overview")?.addEventListener("click", (e) => { e.preventDefault(); view = "overview"; render(); });
 
     document.getElementById("wf-title")?.addEventListener("input", (e) => { title = e.target.value; });
     document.getElementById("wf-notes")?.addEventListener("input", (e) => { notes = e.target.value; });

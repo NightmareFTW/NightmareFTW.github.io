@@ -2008,7 +2008,7 @@
     "That build couldn't be found.": "Essa build não foi encontrada.",
     "← Back to showcase": "← Voltar à showcase",
     "Delete build": "Eliminar build",
-    "Changeable Slot": "Slot Alterável", "Mod this build →": "Montar mods nesta build →",
+    "Changeable Slot": "Slot Alterável",
     "No polarity — click to Forma": "Sem polaridade — clica para dar Forma",
     "No polarity": "Sem polaridade",
     "Mod Collection": "Coleção de Mods",
