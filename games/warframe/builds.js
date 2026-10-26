@@ -205,9 +205,22 @@
     };
     const subjImg = subjectImageFor(b);
     const RARITY_CLASS = { Common: "wf-r-common", Uncommon: "wf-r-uncommon", Rare: "wf-r-rare", Legendary: "wf-r-legendary", Riven: "wf-r-riven" };
-    const POLARITY_COLORS = { madurai: "#e0514f", vazarin: "#4d8de0", naramon: "#e0cf4d", zenurik: "#a04de0", penjaga: "#6d8689", umbra: "#e0514f", unairu: "#c9a24d" };
+    // Real in-game polarity symbols, hotlinked from the wiki's own Polarity
+    // page (same source as builder.js — see its POLARITY_ICONS comment).
+    const POLARITY_ICONS = {
+      madurai: "https://wiki.warframe.com/images/Madurai_Pol%28xBlack%29.svg",
+      vazarin: "https://wiki.warframe.com/images/Vazarin_Pol%28xBlack%29.svg",
+      naramon: "https://wiki.warframe.com/images/Naramon_Pol%28xBlack%29.svg",
+      zenurik: "https://wiki.warframe.com/images/Zenurik_Pol%28xBlack%29.svg",
+      penjaga: "https://wiki.warframe.com/images/Penjaga_Pol%28xBlack%29.svg",
+      umbra: "https://wiki.warframe.com/images/Umbra_Pol%28xBlack%29.svg",
+      unairu: "https://wiki.warframe.com/images/Unairu_Pol%28xBlack%29.svg",
+    };
     const polarityLabel = (p) => p.charAt(0).toUpperCase() + p.slice(1);
-    const polBadge = (pol) => `<span class="wf-slot-pol" style="cursor:default;${pol ? `--pol:${POLARITY_COLORS[pol]}` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity"}"></span>`;
+    // Set as a CSS background-image rather than an <img src> — see
+    // builder.js's POLARITY_ICONS comment for why (these SVGs' own
+    // width="100%" height="100%" breaks <img> rendering in Chromium).
+    const polBadge = (pol) => `<span class="wf-slot-pol${pol ? "" : " wf-slot-pol-empty"}" style="cursor:default${pol ? `;background-image:url('${POLARITY_ICONS[pol]}')` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity"}"></span>`;
     const slotHtml = (item, pol, arcane) => item
       ? `<div class="wf-slot wf-mod-card${arcane ? " wf-slot-arcane" : ""} ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default">
           <span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>

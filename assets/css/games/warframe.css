@@ -226,10 +226,13 @@
 .wf-slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-top: 8px; }
 .wf-slot-grid-1 { grid-template-columns: 90px; }
 .wf-slot-grid-2 { grid-template-columns: repeat(2, 90px); }
-/* Stretches to fill all the space between the stat panel and the Arcane
+/* Spreads to fill all the space between the stat panel and the Arcane
    column (see .wf-loadout-row below) instead of sitting as a small fixed
-   block with dead space beside it. */
-.wf-slot-grid-4 { grid-template-columns: repeat(4, 1fr); }
+   block with dead space beside it, but each card is capped at 140px (the
+   same width the wiki's own layout reference renders a mod card at) so
+   they don't balloon on a wide screen — space-between turns any leftover
+   width into gaps instead of growing the cards past that cap. */
+.wf-slot-grid-4 { grid-template-columns: repeat(4, minmax(90px, 140px)); justify-content: space-between; }
 /* Must come after the base .wf-slot-grid rule above (same specificity,
    source order decides) — otherwise auto-fill wins on a wide container
    like the full-width mobile layout and the 2 Arcane slots sit side by
@@ -240,11 +243,12 @@
    fixed width beside it. */
 .wf-loadout-row { display: flex; gap: 16px; align-items: start; }
 .wf-loadout-main { flex: 1; min-width: 0; }
-/* Grid-aligned with .wf-slot-grid-4 below it (same 4 equal columns) so
-   Aura sits over mod-column 2 and Exilus over column 3, matching the
-   official wiki's own layout reference for where these sit relative to
-   the mod grid (wiki.warframe.com/w/Mod, "Example Modding Menu"). */
-.wf-aura-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
+/* Grid-aligned with .wf-slot-grid-4 below it (identical column track and
+   justify-content) so Aura sits over mod-column 2 and Exilus over column
+   3, matching the official wiki's own layout reference for where these
+   sit relative to the mod grid (wiki.warframe.com/w/Mod, "Example
+   Modding Menu"). */
+.wf-aura-row { display: grid; grid-template-columns: repeat(4, minmax(90px, 140px)); justify-content: space-between; gap: 8px; margin-bottom: 18px; }
 .wf-slot {
   /* Mod/Aura/Exilus slots are portrait cards in-game, not squares — ratio
      taken straight from the official wiki's own layout reference (its
@@ -262,16 +266,32 @@
 .wf-slot-plus { font-size: 1.3rem; color: var(--wf-muted-2); }
 .wf-slot img { width: 32px; height: 32px; object-fit: contain; }
 .wf-slot-name { font-size: .62rem; line-height: 1.15; text-align: center; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-/* Per-slot polarity badge (simulated Forma) — filled when the slot has one
-   assigned, a faint ring when it doesn't. Click toggles its own picker;
-   stopPropagation keeps that from also opening the slot's mod picker. */
 /* Arcanes are landscape cards in-game (ArcaneBlank.png renders at
    140x102 in the same wiki reference table, 140/102 ≈ 1.373) — the
    opposite orientation from a mod card. */
 .wf-slot-arcane { aspect-ratio: 1.373; }
-.wf-slot-pol { position: absolute; top: 4px; right: 4px; width: 11px; height: 11px; border-radius: 50%; z-index: 2; cursor: pointer; background: var(--pol, transparent); border: 1.5px solid var(--pol, var(--wf-muted-2)); }
+/* Per-slot polarity badge (simulated Forma) — the real in-game symbol,
+   shown when the slot has one assigned, a faint empty ring when it
+   doesn't. Click toggles its own picker; stopPropagation on the click
+   handler keeps that from also opening the slot's mod picker. */
+/* The wiki's polarity assets are black-line SVGs (its own light-mode
+   icon), set via background-image (see the POLARITY_ICONS comment in
+   builder.js for why not <img>) — inverted to white so they read against
+   this site's dark panels; .wf-slot-pol-empty/.wf-pol-swatch-empty carry
+   no image, so they're excluded from the filter. */
+.wf-slot-pol {
+  position: absolute; top: 4px; right: 4px; width: 15px; height: 15px; z-index: 2; cursor: pointer;
+  background-size: 75%; background-repeat: no-repeat; background-position: center;
+}
+.wf-slot-pol:not(.wf-slot-pol-empty) { filter: invert(1); }
+.wf-slot-pol-empty { border: 1.5px solid var(--wf-muted-2); border-radius: 50%; }
 .wf-slot-pol:hover { transform: scale(1.2); }
-.wf-pol-swatch { width: 14px; height: 14px; border-radius: 50%; background: var(--pol, transparent); border: 1.5px solid var(--pol, var(--wf-muted-2)); flex-shrink: 0; }
+.wf-pol-swatch {
+  width: 18px; height: 18px; flex-shrink: 0;
+  background-size: 75%; background-repeat: no-repeat; background-position: center;
+}
+.wf-pol-swatch:not(.wf-pol-swatch-empty) { filter: invert(1); }
+.wf-pol-swatch-empty { border: 1.5px solid var(--wf-muted-2); border-radius: 50%; }
 .wf-polarity-item { flex-direction: row !important; align-items: center; gap: 8px; aspect-ratio: auto !important; padding: 8px 10px; }
 
 /* Mod cards — real art, rarity-colored bottom border, name label below,

@@ -168,11 +168,28 @@
     return `<div class="wf-stat-row"><span class="wf-stat-label">${esc(label)}</span><span class="wf-stat-value ${d.cls}">${d.value}${suffix || ""}</span></div>`;
   }
 
-  // Polarities, keyed by the 7 in-game names. No real polarity-icon assets
-  // exist to hotlink (unlike mod/arcane art), so a colored swatch stands in.
-  const POLARITY_COLORS = { madurai: "#e0514f", vazarin: "#4d8de0", naramon: "#e0cf4d", zenurik: "#a04de0", penjaga: "#6d8689", umbra: "#e0514f", unairu: "#c9a24d" };
-  const POLARITY_NAMES = Object.keys(POLARITY_COLORS);
+  // Polarities, keyed by the 7 in-game names. Each symbol is the actual
+  // in-game icon (not an invented stand-in) — hotlinked straight from the
+  // wiki's own Polarity page, same as this tool's ability icons. These are
+  // black-line SVGs (for the wiki's own light-mode use); CSS inverts them
+  // to white to read against this site's dark panels. Set as a CSS
+  // background-image rather than an <img src> — these SVGs declare
+  // width="100%" height="100%" on their root with no absolute intrinsic
+  // size, which <img> fails to rasterize at all in Chromium (renders as a
+  // broken-image icon); a background-image's box is sized by the element
+  // itself instead, which sidesteps that entirely.
+  const POLARITY_ICONS = {
+    madurai: "https://wiki.warframe.com/images/Madurai_Pol%28xBlack%29.svg",
+    vazarin: "https://wiki.warframe.com/images/Vazarin_Pol%28xBlack%29.svg",
+    naramon: "https://wiki.warframe.com/images/Naramon_Pol%28xBlack%29.svg",
+    zenurik: "https://wiki.warframe.com/images/Zenurik_Pol%28xBlack%29.svg",
+    penjaga: "https://wiki.warframe.com/images/Penjaga_Pol%28xBlack%29.svg",
+    umbra: "https://wiki.warframe.com/images/Umbra_Pol%28xBlack%29.svg",
+    unairu: "https://wiki.warframe.com/images/Unairu_Pol%28xBlack%29.svg",
+  };
+  const POLARITY_NAMES = Object.keys(POLARITY_ICONS);
   const polarityLabel = (p) => p.charAt(0).toUpperCase() + p.slice(1);
+  const polarityIconStyle = (p) => p ? ` style="background-image:url('${POLARITY_ICONS[p]}')"` : "";
 
   let DATA = null;
   let category = "warframe"; // warframe | weapon | companion
@@ -253,7 +270,7 @@
   }
   function polarityBadgeHtml(idx) {
     const pol = slotPolarities[idx];
-    return `<span class="wf-slot-pol" data-pol-idx="${idx}" style="${pol ? `--pol:${POLARITY_COLORS[pol]}` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity — click to Forma"}"></span>`;
+    return `<span class="wf-slot-pol${pol ? "" : " wf-slot-pol-empty"}" data-pol-idx="${idx}"${polarityIconStyle(pol)} title="${pol ? esc(polarityLabel(pol)) : "No polarity — click to Forma"}"></span>`;
   }
   function slotButton(kind, idx, item, extraStyle) {
     const empty = !item;
@@ -773,7 +790,7 @@
     listEl.style.display = "flex";
     listEl.style.flexDirection = "column";
     listEl.innerHTML = options.map((p) => `<button type="button" class="wf-picker-item wf-polarity-item" data-pol="${p || ""}">
-      <span class="wf-pol-swatch" style="${p ? `--pol:${POLARITY_COLORS[p]}` : ""}"></span>
+      <span class="wf-pol-swatch${p ? "" : " wf-pol-swatch-empty"}"${polarityIconStyle(p)}></span>
       <span>${p ? esc(polarityLabel(p)) : "No polarity"}</span>
     </button>`).join("");
     listEl.querySelectorAll("[data-pol]").forEach((btn) => btn.addEventListener("click", () => {
