@@ -33,41 +33,46 @@
   // after all percentage modifiers, per the wiki's own wording. `no` lists
   // Warframes that can't receive that bonus (no shields / no energy).
   const SHARD_SLOTS = 5;
+  // Real in-game shard art (WFCD's own CDN, same host/pattern the item-data
+  // scraper's own img() helper uses — this handful of fixed shard icons
+  // doesn't need a scraper entry, so it's kept here next to the hand-kept
+  // bonus table it sits alongside).
+  const SHARD_CDN = "https://cdn.warframestat.us/img/";
   const SHARDS = {
-    crimson: { name: "Crimson", color: "#d14b4b", bonuses: [
+    crimson: { name: "Crimson", color: "#d14b4b", image: SHARD_CDN + "ArchonShardAmar.png", imageTf: SHARD_CDN + "ArchonShardAmarMythicGlow.png", bonuses: [
       { text: "+10% Ability Strength", tf: "+15% Ability Strength", pct: { strength: 10 } },
       { text: "+10% Ability Duration", tf: "+15% Ability Duration", pct: { duration: 10 } },
       { text: "+25% Melee Critical Damage", tf: "+37.5% Melee Critical Damage" },
       { text: "+25% Primary Status Chance", tf: "+37.5% Primary Status Chance" },
       { text: "+25% Secondary Critical Chance", tf: "+37.5% Secondary Critical Chance" },
     ] },
-    amber: { name: "Amber", color: "#e2b13c", bonuses: [
+    amber: { name: "Amber", color: "#e2b13c", image: SHARD_CDN + "ArchonShardNira.png", imageTf: SHARD_CDN + "ArchonShardNiraMythicGlow.png", bonuses: [
       { text: "+25% Casting Speed", tf: "+37.5% Casting Speed" },
       { text: "+15% Parkour Velocity", tf: "+22.5% Parkour Velocity" },
       { text: "+30% Maximum Energy filled on Spawn", tf: "+45% Maximum Energy filled on Spawn" },
       { text: "+100% Effectiveness on Health Orbs", tf: "+150% Effectiveness on Health Orbs" },
       { text: "+50% Effectiveness on Energy Orbs", tf: "+75% Effectiveness on Energy Orbs" },
     ] },
-    azure: { name: "Azure", color: "#4a94d1", bonuses: [
+    azure: { name: "Azure", color: "#4a94d1", image: SHARD_CDN + "ArchonShardBoreal.png", imageTf: SHARD_CDN + "ArchonShardBorealMythicGlow.png", bonuses: [
       { text: "+150 Max Health", tf: "+225 Max Health", flat: { health: 150 } },
       { text: "+150 Shield Capacity", tf: "+225 Shield Capacity", flat: { shield: 150 }, no: ["inaros", "inaros-prime", "kullervo", "nidus", "nidus-prime"] },
       { text: "+50 Energy Max", tf: "+75 Energy Max", flat: { energy: 50 }, no: ["hildryn", "hildryn-prime", "lavos"] },
       { text: "+150 Armor", tf: "+225 Armor", flat: { armor: 150 } },
       { text: "+5 Health/s Regenerated", tf: "+7.5 Health/s Regenerated" },
     ] },
-    topaz: { name: "Topaz", color: "#e58a2b", bonuses: [
+    topaz: { name: "Topaz", color: "#e58a2b", image: SHARD_CDN + "ArchonShardOrange.png", imageTf: SHARD_CDN + "ArchonShardOrangeMythicGlow.png", bonuses: [
       { text: "+1 Max Health per enemy killed with Blast Damage (max 300)", tf: "+2 Max Health per enemy killed with Blast Damage (max 450)" },
       { text: "Regenerate +5 Shield on a Blast kill", tf: "Regenerate +7.5 Shield on a Blast kill" },
       { text: "+1% Secondary Critical Chance per Heat kill (max 50%)", tf: "+1.5% Secondary Critical Chance per Heat kill (max 75%)" },
       { text: "+10% Ability Damage on enemies affected by Radiation Status", tf: "+15% Ability Damage on enemies affected by Radiation Status" },
     ] },
-    violet: { name: "Violet", color: "#9a5fd3", bonuses: [
+    violet: { name: "Violet", color: "#9a5fd3", image: SHARD_CDN + "ArchonShardViolet.png", imageTf: SHARD_CDN + "ArchonShardVioletMythicGlow.png", bonuses: [
       { text: "+10% Ability Damage on enemies affected by Electricity Status", tf: "+15% Ability Damage on enemies affected by Electricity Status" },
       { text: "+30% Primary Electricity Damage (+10% per Crimson, Azure or Violet Shard)", tf: "+45% Primary Electricity Damage (+15% per Crimson, Azure or Violet Shard)" },
       { text: "+25% Melee Critical Damage (doubles with 500+ Max Energy)", tf: "+37.5% Melee Critical Damage (doubles with 500+ Max Energy)" },
       { text: "Health pickups give +20% Energy · Energy pickups give +20% Health", tf: "Health pickups give +30% Energy · Energy pickups give +30% Health" },
     ] },
-    emerald: { name: "Emerald", color: "#3fb27f", bonuses: [
+    emerald: { name: "Emerald", color: "#3fb27f", image: SHARD_CDN + "ArchonShardGreen.png", imageTf: SHARD_CDN + "ArchonShardMythicGreenGlow.png", bonuses: [
       { text: "Toxin Status Effects deal +30% more damage", tf: "Toxin Status Effects deal +45% more damage" },
       { text: "Recover +2 Health on enemies damaged by Toxin Status", tf: "Recover +3 Health on enemies damaged by Toxin Status" },
       { text: "+10% Ability Damage on enemies affected by Corrosion Status", tf: "+15% Ability Damage on enemies affected by Corrosion Status" },
@@ -286,8 +291,9 @@
     const info = s && SHARDS[s.color];
     const b = info && info.bonuses[s.bonus];
     const label = info && b ? `${s.tf ? "Tauforged " : ""}${info.name} — ${s.tf ? b.tf : b.text}` : "";
+    const img = info ? (s.tf ? info.imageTf : info.image) : "";
     return `<button type="button" class="wf-slot wf-shard-slot ${info ? "" : "wf-slot-empty"}" data-kind="shard" data-idx="${idx}"${label ? ` title="${esc(label)}"` : ""}${info ? ' draggable="true"' : ""}>
-      ${info ? `<span class="wf-shard-gem ${s.tf ? "wf-tauforged" : ""}" style="--shard:${info.color}"></span><span class="wf-slot-name">${info.name}</span>` : `<span class="wf-slot-plus">+</span>`}
+      ${info ? `<img src="${esc(img)}" alt="${esc(info.name)}" class="wf-shard-img${s.tf ? " wf-tauforged" : ""}" style="--shard:${info.color}">` : `<span class="wf-slot-plus">+</span>`}
     </button>`;
   }
 
@@ -380,7 +386,7 @@
             ${category === "warframe" ? `
             <div class="wf-slot-section">
               <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards</p>
-              <div class="wf-slot-grid wf-slot-grid-shards-compact">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
+              <div class="wf-shards-pentagon">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
             </div>` : ""}
           </div>
           <div class="wf-arsenal-main">
@@ -721,7 +727,7 @@
         <div class="wf-shard-colors">
           ${Object.keys(SHARDS).map((id) => `
             <button type="button" class="wf-shard-color-btn ${color === id ? "active" : ""}" data-color="${id}" style="--shard:${SHARDS[id].color}">
-              <span class="wf-shard-gem ${tf ? "wf-tauforged" : ""}"></span>${SHARDS[id].name}
+              <img src="${esc(tf ? SHARDS[id].imageTf : SHARDS[id].image)}" alt="" class="wf-shard-img wf-shard-img-sm${tf ? " wf-tauforged" : ""}">${SHARDS[id].name}
             </button>`).join("")}
         </div>
         <label class="wf-shard-tf"><input type="checkbox" id="wf-shard-tf" ${tf ? "checked" : ""}> Tauforged <span class="wf-muted-note">(1.5× bonuses)</span></label>

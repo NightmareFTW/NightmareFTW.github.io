@@ -241,12 +241,6 @@
    like the full-width mobile layout and the 2 Arcane slots sit side by
    side instead of stacking, which is how this shipped before being caught. */
 .wf-slot-grid-side { grid-template-columns: 90px; }
-/* Narrower than the standard .wf-slot-grid-5 (which needs ~350px) so 5
-   shards wrap to fit the 190px stat column instead of overflowing it —
-   3 columns (2 rows: 3+2) rather than 2 (3 rows) keeps this block shorter.
-   Must come after the base .wf-slot-grid rule above for the same reason
-   as .wf-slot-grid-side (see its comment). */
-.wf-slot-grid-shards-compact { grid-template-columns: repeat(3, 1fr); }
 /* Mods + Arcanes share one row so the mod grid (.wf-loadout-main) can
    stretch to fill all the space up to the Arcane column, which stays a
    fixed width beside it. */
@@ -273,7 +267,6 @@
 .wf-slot-empty { border-style: dashed; }
 .wf-slot-plus { font-size: 1.3rem; color: var(--wf-muted-2); }
 .wf-slot img { width: 32px; height: 32px; object-fit: contain; }
-.wf-slot-name { font-size: .62rem; line-height: 1.15; text-align: center; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 /* Arcanes are landscape cards in-game (ArcaneBlank.png renders at
    140x102 in the same wiki reference table, 140/102 ≈ 1.373) — the
    opposite orientation from a mod card. */
@@ -342,22 +335,30 @@
 }
 .wf-picker-item:hover { border-color: var(--wf-cyan); }
 
-/* Archon Shards — gem slots, colour picker row, Tauforged toggle and bonus rows. */
+/* Archon Shards — real in-game shard art (see builder.js's SHARD_CDN
+   comment), colour picker row, Tauforged toggle and bonus rows. */
 .wf-slot-grid-5 { grid-template-columns: repeat(5, 64px); }
 .wf-shard-slot { border-style: solid; aspect-ratio: 1; }
-.wf-shard-gem {
-  width: 22px; height: 22px; background: var(--shard, #d14b4b); transform: rotate(45deg); border-radius: 3px;
-  box-shadow: 0 0 10px 1px var(--shard, #d14b4b); border: 1px solid rgba(255,255,255,.25);
-}
-.wf-shard-gem.wf-tauforged { box-shadow: 0 0 14px 3px var(--shard, #d14b4b); border-color: #fff; }
+.wf-shard-img { width: 28px; height: 28px; object-fit: contain; filter: drop-shadow(0 0 5px var(--shard, #d14b4b)); }
+.wf-shard-img.wf-tauforged { filter: drop-shadow(0 0 9px var(--shard, #d14b4b)) brightness(1.15); }
 .wf-shard-colors { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
 .wf-shard-color-btn {
   display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; cursor: pointer;
   background: var(--wf-panel-2); border: 1px solid var(--wf-border); color: var(--wf-text); font-family: var(--sans); font-size: .78rem;
 }
-.wf-shard-color-btn .wf-shard-gem { width: 13px; height: 13px; box-shadow: none; }
+.wf-shard-img-sm { width: 18px; height: 18px; filter: drop-shadow(0 0 3px var(--shard, #d14b4b)); }
 .wf-shard-color-btn:hover { border-color: var(--shard); }
 .wf-shard-color-btn.active { border-color: var(--shard); box-shadow: inset 0 0 0 1px var(--shard); }
+/* The stat column's 5 shards, arranged in the real in-game rosette —
+   2 up top, 2 narrower in the middle, 1 at the bottom point — rather
+   than a plain grid. Percentages are hand-placed to match that shape. */
+.wf-shards-pentagon { position: relative; width: 100%; height: 175px; margin-top: 8px; }
+.wf-shards-pentagon .wf-slot { position: absolute; width: 56px; aspect-ratio: 1; transform: translate(-50%, -50%); }
+.wf-shards-pentagon .wf-slot:nth-child(1) { left: 18%; top: 14%; }
+.wf-shards-pentagon .wf-slot:nth-child(2) { left: 82%; top: 14%; }
+.wf-shards-pentagon .wf-slot:nth-child(3) { left: 32%; top: 50%; }
+.wf-shards-pentagon .wf-slot:nth-child(4) { left: 68%; top: 50%; }
+.wf-shards-pentagon .wf-slot:nth-child(5) { left: 50%; top: 86%; }
 .wf-shard-tf { grid-column: 1 / -1; display: flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--wf-text); cursor: pointer; padding: 2px 0; }
 .wf-shard-bonus { grid-column: 1 / -1; aspect-ratio: auto; justify-content: flex-start; text-align: left; padding: 9px 12px; font-size: .8rem; line-height: 1.35; }
 .wf-shard-bonus.wf-disabled { opacity: .45; pointer-events: none; }
