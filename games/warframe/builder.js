@@ -385,7 +385,7 @@
             </div>`}
             ${category === "warframe" ? `
             <div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards</p>
+              <p class="wf-tag" style="color:var(--wf-amber); display:flex; justify-content:center">Archon Shards</p>
               <div class="wf-shards-pentagon">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
             </div>` : ""}
           </div>
