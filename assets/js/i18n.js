@@ -2147,7 +2147,6 @@
     // ---- Warframe: Build Creator / Showcase ----
     [/^HP (\d+) · Shield (\d+) · Armor (\d+)$/, "HP $1 · Shield $2 · Armor $3"],
     [/^Search (warframe|weapon|companion)…$/, (m, k) => `Procurar ${k === "warframe" ? "warframe" : k === "weapon" ? "arma" : "companheiro"}…`],
-    [/^Pick a (warframe|weapon|companion) above to start modding\.$/, (m, k) => `Escolhe ${k === "warframe" ? "uma warframe" : k === "weapon" ? "uma arma" : "um companheiro"} acima para começar a montar mods.`],
     [/^(\d+) \/ (\d+) capacity( — over capacity)?$/, (m, a, b, over) => `${a} / ${b} capacidade${over ? " — acima da capacidade" : ""}`],
     [/^Not eligible on (.+)$/, "Não elegível em $1"],
     [/^— Click or drag into slot (\d+)$/, "— Clica ou arrasta para o slot $1"],

@@ -266,7 +266,8 @@
     const empty = !item;
     const rarityCls = !empty && item.rarity ? RARITY_CLASS[item.rarity] || "" : "";
     const selected = kind === "mod" && idx === selectedModSlot;
-    return `<button type="button" class="wf-slot ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}${selected ? " wf-slot-selected" : ""}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}>
+    const arcaneCls = kind === "arcane" ? " wf-slot-arcane" : "";
+    return `<button type="button" class="wf-slot${arcaneCls} ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}${selected ? " wf-slot-selected" : ""}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}>
       ${empty ? `<span class="wf-slot-plus">+</span>` : modCardInner(item)}
       ${kind === "mod" ? polarityBadgeHtml(idx) : ""}
     </button>`;
@@ -433,8 +434,7 @@
         <div class="wf-controls">
           <input type="search" id="wf-subject-search" class="wf-input" placeholder="Search ${esc(category)}…" autocomplete="off">
         </div>
-        <div id="wf-subject-list" class="wf-subject-list"></div>
-        <p class="wf-empty">Pick a ${esc(category)} above to start modding.</p>`;
+        <div id="wf-subject-list" class="wf-subject-grid"></div>`;
       wire();
       return;
     }
@@ -454,25 +454,35 @@
     const searchEl = document.getElementById("wf-subject-search");
     if (searchEl) {
       const listEl = document.getElementById("wf-subject-list");
-      function renderSubjectList(q) {
-        if (!q) { listEl.innerHTML = ""; return; }
-        const qq = q.toLowerCase();
-        const matches = subjectsFor(category).filter((s) => s.name.toLowerCase().includes(qq)).slice(0, 12);
-        listEl.innerHTML = matches.map((s) => `<button type="button" class="wf-subject-item" data-slug="${esc(s.slug)}">${s.image ? `<img src="${esc(s.image)}" alt="">` : ""}${esc(s.name)}</button>`).join("");
-        listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => {
-          subject = subjectsFor(category).find((s) => s.slug === btn.dataset.slug);
-          view = "overview";
-          mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
-          shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
-          // Front-load the subject's own innate polarities onto the first N
-          // slots — a documented approximation (the source data has no
-          // per-slot assignment, just an unordered list) — the rest start
-          // unpolarized, same as a freshly-built, un-Forma'd piece of gear.
-          slotPolarities = new Array(REGULAR_SLOTS).fill(null);
-          (subject.polarities || []).forEach((p, i) => { if (i < REGULAR_SLOTS) slotPolarities[i] = p; });
-          render();
-        }));
+      function pickSubject(slug) {
+        subject = subjectsFor(category).find((s) => s.slug === slug);
+        view = "overview";
+        mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
+        shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
+        // Front-load the subject's own innate polarities onto the first N
+        // slots — a documented approximation (the source data has no
+        // per-slot assignment, just an unordered list) — the rest start
+        // unpolarized, same as a freshly-built, un-Forma'd piece of gear.
+        slotPolarities = new Array(REGULAR_SLOTS).fill(null);
+        (subject.polarities || []).forEach((p, i) => { if (i < REGULAR_SLOTS) slotPolarities[i] = p; });
+        render();
       }
+      // Shows every frame/weapon/companion with its own in-game icon up
+      // front — browsing by eye is the primary flow, same as the real
+      // Arsenal's own equipment-select screen — with the search box above
+      // narrowing the same grid for anyone who'd rather type a name.
+      function renderSubjectList(q) {
+        const qq = q.toLowerCase();
+        const all = subjectsFor(category);
+        const matches = (q ? all.filter((s) => s.name.toLowerCase().includes(qq)) : all)
+          .slice().sort((a, b) => a.name.localeCompare(b.name));
+        listEl.innerHTML = matches.length ? matches.map((s) => `<button type="button" class="wf-subject-card" data-slug="${esc(s.slug)}">
+          <span class="wf-subject-card-art">${s.image ? `<img src="${esc(s.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(s.name[0])}</span>`}</span>
+          <span class="wf-subject-card-name">${esc(s.name)}</span>
+        </button>`).join("") : `<p class="wf-empty">No matches.</p>`;
+        listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => pickSubject(btn.dataset.slug)));
+      }
+      renderSubjectList("");
       searchEl.addEventListener("input", (e) => renderSubjectList(e.target.value.trim()));
     }
 

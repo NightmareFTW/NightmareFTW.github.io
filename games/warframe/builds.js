@@ -208,13 +208,13 @@
     const POLARITY_COLORS = { madurai: "#e0514f", vazarin: "#4d8de0", naramon: "#e0cf4d", zenurik: "#a04de0", penjaga: "#6d8689", umbra: "#e0514f", unairu: "#c9a24d" };
     const polarityLabel = (p) => p.charAt(0).toUpperCase() + p.slice(1);
     const polBadge = (pol) => `<span class="wf-slot-pol" style="cursor:default;${pol ? `--pol:${POLARITY_COLORS[pol]}` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity"}"></span>`;
-    const slotHtml = (item, pol) => item
-      ? `<div class="wf-slot wf-mod-card ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default">
+    const slotHtml = (item, pol, arcane) => item
+      ? `<div class="wf-slot wf-mod-card${arcane ? " wf-slot-arcane" : ""} ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default">
           <span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>
           <span class="wf-mod-card-name">${esc(item.name)}</span>
           ${pol !== undefined ? polBadge(pol) : ""}
         </div>`
-      : `<div class="wf-slot wf-slot-empty" style="cursor:default">${pol !== undefined ? polBadge(pol) : `<span class="wf-slot-plus">—</span>`}</div>`;
+      : `<div class="wf-slot wf-slot-empty${arcane ? " wf-slot-arcane" : ""}" style="cursor:default">${pol !== undefined ? polBadge(pol) : `<span class="wf-slot-plus">—</span>`}</div>`;
     const shardHtml = (s) => {
       const info = SHARDS[s.color], b = info.bonuses[s.bonus];
       const label = `${s.tf ? "Tauforged " : ""}${info.name} — ${s.tf ? b.tf : b.text}`;
@@ -293,7 +293,7 @@
             </div>
             ${arcanes.length ? `<div class="wf-slot-section">
               <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
-              <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map(slotHtml).join("")}</div>
+              <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map((a) => slotHtml(a, undefined, true)).join("")}</div>
             </div>` : ""}
             ${b.category === "warframe" && shards.length ? `<div class="wf-slot-section">
               <p class="wf-tag" style="color:var(--wf-cyan-bright)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
