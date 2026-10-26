@@ -214,6 +214,10 @@
 /* Left stat column + main column, mirroring the in-game Arsenal's layout. */
 .wf-arsenal { display: grid; grid-template-columns: 190px 1fr; gap: 24px; align-items: start; }
 .wf-arsenal-side { display: flex; flex-direction: column; flex-shrink: 0; }
+/* Stat panel + Archon Shards stacked in the left column instead of Shards
+   sitting in their own full-width row above the mods — that row was
+   otherwise just dead space next to a taller stat panel. */
+.wf-stat-col { display: flex; flex-direction: column; gap: 20px; }
 .wf-stat-panel { background: var(--wf-panel-2); border: 1px solid var(--wf-border); padding: 14px; font-family: var(--mono); }
 .wf-stat-group { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
 .wf-stat-row { display: flex; justify-content: space-between; gap: 8px; font-size: .78rem; }
@@ -237,6 +241,12 @@
    like the full-width mobile layout and the 2 Arcane slots sit side by
    side instead of stacking, which is how this shipped before being caught. */
 .wf-slot-grid-side { grid-template-columns: 90px; }
+/* Narrower than the standard .wf-slot-grid-5 (which needs ~350px) so 5
+   shards wrap to fit the 190px stat column instead of overflowing it —
+   3 columns (2 rows: 3+2) rather than 2 (3 rows) keeps this block shorter.
+   Must come after the base .wf-slot-grid rule above for the same reason
+   as .wf-slot-grid-side (see its comment). */
+.wf-slot-grid-shards-compact { grid-template-columns: repeat(3, 1fr); }
 /* Mods + Arcanes share one row so the mod grid (.wf-loadout-main) can
    stretch to fill all the space up to the Arcane column, which stays a
    fixed width beside it. */

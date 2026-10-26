@@ -368,17 +368,22 @@
         ${abilitiesHtml()}
 
         <div class="wf-arsenal">
-          ${statPanelHtml(deltas, used, over) || `<div class="wf-capacity">
-            <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
-            <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
-          </div>`}
-          <div class="wf-arsenal-main">
+          <!-- Archon Shards live under the stat panel rather than as their
+               own full-width row above the mods — that row was otherwise
+               just empty space next to a much taller stat panel, and this
+               uses it instead of leaving it unused. -->
+          <div class="wf-stat-col">
+            ${statPanelHtml(deltas, used, over) || `<div class="wf-capacity">
+              <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
+              <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
+            </div>`}
             ${category === "warframe" ? `
             <div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
-              <div class="wf-slot-grid wf-slot-grid-5">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
+              <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards</p>
+              <div class="wf-slot-grid wf-slot-grid-shards-compact">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
             </div>` : ""}
-
+          </div>
+          <div class="wf-arsenal-main">
             <!-- Mods + Arcanes share one row so the mod grid can stretch to
                  fill all the space between the stat panel and the Arcane
                  column, instead of sitting as a small fixed block with dead
