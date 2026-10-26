@@ -199,8 +199,17 @@
 .wf-over-text { color: #ff8a8a !important; }
 .wf-muted-note { color: var(--wf-muted-2); font-size: .75rem; }
 
+/* Screen 1 (Changeable Slot): portrait/name on the left, the "enter the mod
+   editor" action on the right, matching the real Arsenal's two-screen flow. */
+.wf-changeable-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+
 /* Left stat column + main column, mirroring the in-game Arsenal's layout. */
 .wf-arsenal { display: grid; grid-template-columns: 190px 1fr; gap: 24px; align-items: start; }
+/* Screen 2 (Upgrades): a third column for Arcanes, which live on this screen
+   in-game rather than alongside Archon Shards on the overview screen. */
+.wf-arsenal-edit { grid-template-columns: 190px 1fr 140px; }
+.wf-arsenal-side { display: flex; flex-direction: column; }
+.wf-slot-grid-side { grid-template-columns: 1fr; margin-top: 8px; }
 .wf-stat-panel { background: var(--wf-panel-2); border: 1px solid var(--wf-border); padding: 14px; font-family: var(--mono); }
 .wf-stat-group { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
 .wf-stat-row { display: flex; justify-content: space-between; gap: 8px; font-size: .78rem; }
@@ -341,5 +350,5 @@ body.wf-authentic .wf-like-btn.wf-liked { border-color: rgba(217, 98, 58, .5); }
   .wf-code-row { flex-wrap: wrap; }
   .wf-code-side { align-items: flex-start; }
   .wf-build-head { flex-direction: column; }
-  .wf-arsenal { grid-template-columns: 1fr; }
+  .wf-arsenal, .wf-arsenal-edit { grid-template-columns: 1fr; }
 }

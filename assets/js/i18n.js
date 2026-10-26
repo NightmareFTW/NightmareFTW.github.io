@@ -2005,6 +2005,7 @@
     "That build couldn't be found.": "Essa build não foi encontrada.",
     "← Back to showcase": "← Voltar à showcase",
     "Delete build": "Eliminar build",
+    "Changeable Slot": "Slot Alterável", "Mod this build →": "Montar mods nesta build →",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -2147,6 +2148,8 @@
     [/^(Tauforged )?(Crimson|Amber|Azure|Topaz|Violet|Emerald) — (.+)$/, (m, tf, name, bonus) => `${tf || ""}${name} — ${DICT[bonus] || bonus}`],
     [/^from (.+)$/, "de $1"],
     [/^Revert to (.+)$/, "Reverter para $1"],
+    [/^← Choose a different (warframe|weapon|companion)$/, (m, k) => `← Escolhe ${k === "warframe" ? "uma warframe" : k === "weapon" ? "uma arma" : "um companheiro"} diferente`],
+    [/^No Archon Shards for (weapons|companions) — pick a Warframe to socket shards\.$/, (m, k) => `Sem Archon Shards para ${k === "weapons" ? "armas" : "companheiros"} — escolhe uma Warframe para encaixar shards.`],
   ];
 
   function translateText(raw) {

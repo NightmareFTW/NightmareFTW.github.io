@@ -177,6 +177,13 @@
   let shards = new Array(SHARD_SLOTS).fill(null);
   let helminth = null; // { slot: 0-3, name, src } — the one ability slot a Helminth infusion replaces
   let title = "", notes = "";
+  // Two real screens once a subject is picked, mirroring the game's own
+  // flow: "overview" is the Arsenal's equipment-slot/Changeable-Slot screen
+  // (portrait, abilities incl. Helminth, Archon Shards, stats, then an
+  // explicit action into modding) — "edit" is the Upgrades screen itself
+  // (capacity/stats, the mod grid, Arcanes). Not a URL-level route, just
+  // local state; a subject change always resets back to "overview".
+  let view = "overview";
 
   function subjectsFor(cat) {
     if (cat === "warframe") return DATA.warframes;
@@ -256,42 +263,64 @@
     </button>`;
   }
 
-  function render() {
-    const cats = [["warframe", "Warframe"], ["weapon", "Weapon"], ["companion", "Companion"]];
-    const used = subject ? computeCapacity() : 0;
-    const over = used > CAPACITY;
+  const PICKER_HTML = `
+    <div class="wf-picker" id="wf-picker" hidden>
+      <div class="wf-picker-inner">
+        <div class="wf-picker-head">
+          <input type="search" id="wf-picker-search" class="wf-input" placeholder="Search…" autocomplete="off">
+          <button type="button" class="wf-picker-close" id="wf-picker-close" aria-label="Close">&times;</button>
+        </div>
+        <div class="wf-picker-filters" id="wf-picker-filters" hidden></div>
+        <div class="wf-picker-list" id="wf-picker-list"></div>
+      </div>
+    </div>`;
 
+  function statPanelHtml(deltas, used, over) {
+    if (!deltas) return "";
+    return `
+      <div class="wf-stat-panel">
+        <p class="wf-tag">Capacity</p>
+        <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
+        <p class="wf-muted-note ${over ? "wf-over-text" : ""}" style="margin:4px 0 16px">${used} / ${CAPACITY}${over ? " — over capacity" : ""}</p>
+        <div class="wf-stat-group">
+          ${statRow("Health", deltas.health)}${statRow("Shield", deltas.shield)}${statRow("Armor", deltas.armor)}
+          ${category === "warframe" ? statRow("Energy", deltas.energy) + statRow("Sprint Speed", deltas.sprintSpeed) : ""}
+        </div>
+        ${category === "warframe" ? `
+        <p class="wf-tag" style="margin-top:16px">Ability</p>
+        <div class="wf-stat-group">
+          ${statRow("Duration", deltas.duration, "%")}${statRow("Efficiency", deltas.efficiency, "%")}${statRow("Range", deltas.range, "%")}${statRow("Strength", deltas.strength, "%")}
+        </div>` : ""}
+      </div>`;
+  }
+
+  function abilitiesHtml() {
+    if (!subject.abilities || !subject.abilities.length) return "";
+    return `<div class="wf-abilities">${subject.abilities.map((a, i) => {
+      const swapped = category === "warframe" && helminth && helminth.slot === i;
+      const shown = swapped ? helminth : a;
+      return `<button type="button" class="wf-ability${swapped ? " wf-ability-helminth" : ""}${category === "warframe" ? "" : " wf-ability-static"}" ${category === "warframe" ? `data-helminth-slot="${i}"` : "disabled"}>
+        ${swapped ? `<span class="wf-helminth-badge">HELMINTH</span>` : ""}
+        <b>${esc(shown.name)}</b><span>${esc(shown.desc)}</span>
+        ${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}
+      </button>`;
+    }).join("")}</div>`;
+  }
+
+  // Screen 1 — the Arsenal's own equipment-slot/"Changeable Slot" screen:
+  // portrait, abilities (Helminth-swappable), Archon Shards and stats, with
+  // an explicit action into the mod editor rather than mods living here too.
+  function renderOverview() {
+    const used = computeCapacity(), over = used > CAPACITY;
+    const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus], category === "warframe" ? shards : null) : null;
     root.innerHTML = `
-      <div class="wf-controls" style="margin-bottom:22px">
-        ${cats.map(([id, label]) => `<button type="button" class="wf-tab ${category === id ? "active" : ""}" data-cat="${id}">${label}</button>`).join("")}
-      </div>
+      <a href="#" id="wf-back-to-search" class="wf-detail-back">← Choose a different ${esc(category)}</a>
+      <section class="wf-panel wf-build-area wf-changeable" style="--wfc: var(--wf-cyan);">
+        <div class="wf-corner tl"></div>
+        <p class="wf-tag wf-eyebrow"><span class="wf-dot"></span> Changeable Slot</p>
 
-      <div class="wf-controls">
-        <input type="search" id="wf-subject-search" class="wf-input" placeholder="Search ${esc(category)}…" autocomplete="off" value="${subject ? esc(subject.name) : ""}">
-      </div>
-      <div id="wf-subject-list" class="wf-subject-list"></div>
-
-      ${subject ? (() => {
-        const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus], category === "warframe" ? shards : null) : null;
-        const statPanel = deltas ? `
-          <div class="wf-stat-panel">
-            <p class="wf-tag">Capacity</p>
-            <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
-            <p class="wf-muted-note ${over ? "wf-over-text" : ""}" style="margin:4px 0 16px">${used} / ${CAPACITY}${over ? " — over capacity" : ""}</p>
-            <div class="wf-stat-group">
-              ${statRow("Health", deltas.health)}${statRow("Shield", deltas.shield)}${statRow("Armor", deltas.armor)}
-              ${category === "warframe" ? statRow("Energy", deltas.energy) + statRow("Sprint Speed", deltas.sprintSpeed) : ""}
-            </div>
-            ${category === "warframe" ? `
-            <p class="wf-tag" style="margin-top:16px">Ability</p>
-            <div class="wf-stat-group">
-              ${statRow("Duration", deltas.duration, "%")}${statRow("Efficiency", deltas.efficiency, "%")}${statRow("Range", deltas.range, "%")}${statRow("Strength", deltas.strength, "%")}
-            </div>` : ""}
-          </div>` : "";
-        return `
-        <section class="wf-panel wf-build-area" style="--wfc: var(--wf-cyan);">
-          <div class="wf-corner tl"></div>
-          <div class="wf-build-head">
+        <div class="wf-changeable-head">
+          <div class="wf-build-head" style="margin:0">
             ${subject.image ? `<img src="${esc(subject.image)}" alt="" class="wf-build-portrait">` : ""}
             <div>
               <h2>${esc(subject.name)}${subject.isPrime ? ` <span class="wf-tag" style="color:var(--wf-amber); display:inline-flex"><span class="wf-dot amber"></span>PRIME</span>` : ""}</h2>
@@ -299,103 +328,123 @@
               ${subject.passive ? `<p class="wf-build-passive">${esc(subject.passive)}</p>` : ""}
             </div>
           </div>
-
-          ${subject.abilities && subject.abilities.length ? `
-            <div class="wf-abilities">${subject.abilities.map((a, i) => {
-              const swapped = category === "warframe" && helminth && helminth.slot === i;
-              const shown = swapped ? helminth : a;
-              return `<button type="button" class="wf-ability${swapped ? " wf-ability-helminth" : ""}${category === "warframe" ? "" : " wf-ability-static"}" ${category === "warframe" ? `data-helminth-slot="${i}"` : "disabled"}>
-                ${swapped ? `<span class="wf-helminth-badge">HELMINTH</span>` : ""}
-                <b>${esc(shown.name)}</b><span>${esc(shown.desc)}</span>
-                ${swapped ? `<span class="wf-muted-note">from ${esc(helminth.src)}</span>` : ""}
-              </button>`;
-            }).join("")}</div>
-          ` : ""}
-
-          <div class="wf-arsenal">
-            ${statPanel}
-            <div class="wf-arsenal-main">
-              ${!deltas ? `
-              <div class="wf-capacity">
-                <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
-                <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
-              </div>` : ""}
-
-              <div class="wf-slot-section">
-                <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-                <div class="wf-slot-grid">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
-              </div>
-
-              ${category !== "companion" ? `
-              <div class="wf-slot-section">
-                <p class="wf-tag" style="color:var(--wf-amber)">${category === "warframe" ? "Aura" : "Exilus"}</p>
-                <div class="wf-slot-grid wf-slot-grid-1">${slotButton(category === "warframe" ? "aura" : "exilus", 0, category === "warframe" ? aura : exilus)}</div>
-              </div>` : ""}
-
-              <div class="wf-slot-section">
-                <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
-                <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
-              </div>
-
-              ${category === "warframe" ? `
-              <div class="wf-slot-section">
-                <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
-                <div class="wf-slot-grid wf-slot-grid-5">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
-              </div>` : ""}
-            </div>
-          </div>
-
-          <div class="wf-slot-section">
-            <p class="wf-tag">Build details</p>
-            <input type="text" id="wf-title" class="wf-input" placeholder="Build title…" value="${esc(title)}" style="margin-bottom:8px">
-            <textarea id="wf-notes" class="wf-input" placeholder="Notes (playstyle, forma order, anything else)…" rows="3" style="width:100%; resize:vertical; font-family:inherit">${esc(notes)}</textarea>
-          </div>
-
-          <div class="wf-build-actions">
-            <button type="button" class="wf-code-copy" id="wf-save">Save to showcase</button>
-            <span id="wf-save-msg" class="wf-muted-note"></span>
-          </div>
-        </section>`;
-      })() : `<p class="wf-empty">Pick a ${esc(category)} above to start modding.</p>`}
-
-      <div class="wf-picker" id="wf-picker" hidden>
-        <div class="wf-picker-inner">
-          <div class="wf-picker-head">
-            <input type="search" id="wf-picker-search" class="wf-input" placeholder="Search…" autocomplete="off">
-            <button type="button" class="wf-picker-close" id="wf-picker-close" aria-label="Close">&times;</button>
-          </div>
-          <div class="wf-picker-filters" id="wf-picker-filters" hidden></div>
-          <div class="wf-picker-list" id="wf-picker-list"></div>
+          <button type="button" class="wf-code-copy" id="wf-enter-edit">Mod this build →</button>
         </div>
-      </div>`;
 
+        ${abilitiesHtml()}
+
+        <div class="wf-arsenal">
+          ${statPanelHtml(deltas, used, over)}
+          <div class="wf-arsenal-main">
+            ${category === "warframe" ? `
+            <div class="wf-slot-section">
+              <p class="wf-tag" style="color:var(--wf-amber)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
+              <div class="wf-slot-grid wf-slot-grid-5">${shards.map((s, i) => shardSlotButton(i, s)).join("")}</div>
+            </div>` : `<p class="wf-empty" style="padding:0">No Archon Shards for ${esc(category === "weapon" ? "weapons" : "companions")} — pick a Warframe to socket shards.</p>`}
+          </div>
+        </div>
+      </section>
+      ${PICKER_HTML}`;
     wire();
+  }
+
+  // Screen 2 — the Upgrades screen itself: capacity/stats, the mod grid,
+  // Arcanes on the side, same as the real Arsenal's mod-editing view.
+  function renderEdit() {
+    const used = computeCapacity(), over = used > CAPACITY;
+    const deltas = subject.health != null ? statDeltas(subject, [...mods, aura, exilus], category === "warframe" ? shards : null) : null;
+    root.innerHTML = `
+      <a href="#" id="wf-back-to-overview" class="wf-detail-back">← ${esc(subject.name)}</a>
+      <section class="wf-panel wf-build-area" style="--wfc: var(--wf-cyan);">
+        <div class="wf-corner tl"></div>
+        <p class="wf-tag wf-eyebrow"><span class="wf-dot"></span> Upgrades / ${esc(subject.name)}</p>
+
+        <div class="wf-arsenal wf-arsenal-edit">
+          ${statPanelHtml(deltas, used, over) || `<div class="wf-capacity">
+            <div class="wf-capacity-bar"><div class="wf-capacity-fill ${over ? "wf-over" : ""}" style="width:${Math.min(100, (used / CAPACITY) * 100)}%"></div></div>
+            <p class="${over ? "wf-over-text" : ""}">${used} / ${CAPACITY} capacity ${over ? "— over capacity" : ""} <span class="wf-muted-note">(rank 30 + reactor assumed)</span></p>
+          </div>`}
+          <div class="wf-arsenal-main">
+            <div class="wf-slot-section">
+              <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
+              <div class="wf-slot-grid">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
+            </div>
+            ${category !== "companion" ? `
+            <div class="wf-slot-section">
+              <p class="wf-tag" style="color:var(--wf-amber)">${category === "warframe" ? "Aura" : "Exilus"}</p>
+              <div class="wf-slot-grid wf-slot-grid-1">${slotButton(category === "warframe" ? "aura" : "exilus", 0, category === "warframe" ? aura : exilus)}</div>
+            </div>` : ""}
+          </div>
+          <div class="wf-arsenal-side">
+            <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
+            <div class="wf-slot-grid wf-slot-grid-side">${arcanes.map((a, i) => slotButton("arcane", i, a)).join("")}</div>
+          </div>
+        </div>
+
+        <div class="wf-slot-section">
+          <p class="wf-tag">Build details</p>
+          <input type="text" id="wf-title" class="wf-input" placeholder="Build title…" value="${esc(title)}" style="margin-bottom:8px">
+          <textarea id="wf-notes" class="wf-input" placeholder="Notes (playstyle, forma order, anything else)…" rows="3" style="width:100%; resize:vertical; font-family:inherit">${esc(notes)}</textarea>
+        </div>
+
+        <div class="wf-build-actions">
+          <button type="button" class="wf-code-copy" id="wf-save">Save to showcase</button>
+          <span id="wf-save-msg" class="wf-muted-note"></span>
+        </div>
+      </section>
+      ${PICKER_HTML}`;
+    wire();
+  }
+
+  function render() {
+    const cats = [["warframe", "Warframe"], ["weapon", "Weapon"], ["companion", "Companion"]];
+    if (!subject) {
+      root.innerHTML = `
+        <div class="wf-controls" style="margin-bottom:22px">
+          ${cats.map(([id, label]) => `<button type="button" class="wf-tab ${category === id ? "active" : ""}" data-cat="${id}">${label}</button>`).join("")}
+        </div>
+        <div class="wf-controls">
+          <input type="search" id="wf-subject-search" class="wf-input" placeholder="Search ${esc(category)}…" autocomplete="off">
+        </div>
+        <div id="wf-subject-list" class="wf-subject-list"></div>
+        <p class="wf-empty">Pick a ${esc(category)} above to start modding.</p>`;
+      wire();
+      return;
+    }
+    if (view === "edit") renderEdit();
+    else renderOverview();
   }
 
   function wire() {
     root.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => {
-      category = b.dataset.cat; subject = null; mods = new Array(REGULAR_SLOTS).fill(null);
+      category = b.dataset.cat; subject = null; view = "overview"; mods = new Array(REGULAR_SLOTS).fill(null);
       aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
       shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
       render();
     }));
 
     const searchEl = document.getElementById("wf-subject-search");
-    const listEl = document.getElementById("wf-subject-list");
-    function renderSubjectList(q) {
-      if (!q) { listEl.innerHTML = ""; return; }
-      const qq = q.toLowerCase();
-      const matches = subjectsFor(category).filter((s) => s.name.toLowerCase().includes(qq)).slice(0, 12);
-      listEl.innerHTML = matches.map((s) => `<button type="button" class="wf-subject-item" data-slug="${esc(s.slug)}">${s.image ? `<img src="${esc(s.image)}" alt="">` : ""}${esc(s.name)}</button>`).join("");
-      listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => {
-        subject = subjectsFor(category).find((s) => s.slug === btn.dataset.slug);
-        mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
-        shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
-        render();
-      }));
+    if (searchEl) {
+      const listEl = document.getElementById("wf-subject-list");
+      function renderSubjectList(q) {
+        if (!q) { listEl.innerHTML = ""; return; }
+        const qq = q.toLowerCase();
+        const matches = subjectsFor(category).filter((s) => s.name.toLowerCase().includes(qq)).slice(0, 12);
+        listEl.innerHTML = matches.map((s) => `<button type="button" class="wf-subject-item" data-slug="${esc(s.slug)}">${s.image ? `<img src="${esc(s.image)}" alt="">` : ""}${esc(s.name)}</button>`).join("");
+        listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => {
+          subject = subjectsFor(category).find((s) => s.slug === btn.dataset.slug);
+          view = "overview";
+          mods = new Array(REGULAR_SLOTS).fill(null); aura = null; exilus = null; arcanes = new Array(ARCANE_SLOTS).fill(null);
+          shards = new Array(SHARD_SLOTS).fill(null); helminth = null;
+          render();
+        }));
+      }
+      searchEl.addEventListener("input", (e) => renderSubjectList(e.target.value.trim()));
     }
-    searchEl.addEventListener("input", (e) => renderSubjectList(e.target.value.trim()));
-    if (subject) renderSubjectList("");
+
+    document.getElementById("wf-back-to-search")?.addEventListener("click", (e) => { e.preventDefault(); subject = null; render(); });
+    document.getElementById("wf-enter-edit")?.addEventListener("click", () => { view = "edit"; render(); });
+    document.getElementById("wf-back-to-overview")?.addEventListener("click", (e) => { e.preventDefault(); view = "overview"; render(); });
 
     document.getElementById("wf-title")?.addEventListener("input", (e) => { title = e.target.value; });
     document.getElementById("wf-notes")?.addEventListener("input", (e) => { notes = e.target.value; });
