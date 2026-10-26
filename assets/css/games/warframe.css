@@ -305,6 +305,35 @@
 
 .wf-detail-back { display: inline-block; margin-bottom: 18px; color: var(--wf-cyan-bright); font-family: var(--mono); font-size: .82rem; }
 
+/* ---- Build Creator / Showcase: authentic in-game Arsenal look ----
+   Scoped to body.wf-authentic (builder.html/builds.html only) — the rest
+   of the Warframe section keeps the invented cyan/amber HUD theme by
+   explicit earlier choice, so this doesn't touch it. Recolors to the
+   real Arsenal's black/red instead of reskinning every component: the
+   structural CSS above is untouched, only the --wf-* custom properties
+   change, plus the two things that don't follow a variable (the angular
+   clip-path panel shape, a few old literal rgba() values that predate
+   the --wf-cyan/--wf-amber variables and never got converted). */
+body.wf-authentic {
+  --wf-panel: #140d0d;
+  --wf-panel-2: #1c1212;
+  --wf-border: rgba(200, 55, 55, .3);
+  --wf-cyan: #cc3333;
+  --wf-cyan-bright: #ff5c52;
+  --wf-amber: #d9623a;
+  --wf-text: #f2e8e6;
+  --wf-muted: #a38a8a;
+  --wf-muted-2: #705c5c;
+}
+body.wf-authentic .wf-panel,
+body.wf-authentic .wf-mod-card,
+body.wf-authentic .wf-picker-inner { clip-path: none; }
+body.wf-authentic .wf-corner { display: none; }
+body.wf-authentic .wf-hero h1 { text-shadow: 0 0 24px rgba(204, 51, 51, .35); }
+body.wf-authentic .wf-dot { box-shadow: 0 0 8px 1px rgba(204, 51, 51, .85); }
+body.wf-authentic .wf-dot.amber { box-shadow: 0 0 8px 1px rgba(217, 98, 58, .85); }
+body.wf-authentic .wf-like-btn.wf-liked { border-color: rgba(217, 98, 58, .5); }
+
 @media (max-width: 720px) {
   .wf-hero { padding: 32px 24px; }
   .wf-hero h1 { font-size: 2rem; }
