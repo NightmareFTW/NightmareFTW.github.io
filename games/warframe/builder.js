@@ -24,6 +24,7 @@
   const ARCANE_SLOTS = 2;
   const CAPACITY = 60; // rank 30 + Orokin Reactor/Catalyst
   const RARITY_CLASS = { Common: "wf-r-common", Uncommon: "wf-r-uncommon", Rare: "wf-r-rare", Legendary: "wf-r-legendary", Riven: "wf-r-riven" };
+  const RARITY_ORDER = ["Common", "Uncommon", "Rare", "Legendary", "Riven"];
 
   // Archon Shards (Warframe-only, 5 slots). Values are the in-game numbers
   // from the official wiki (current as of Update 35.0's six-shard expansion):
@@ -217,6 +218,24 @@
     return used;
   }
 
+  // Generic slot read/write so drag-and-drop swapping works the same way
+  // across the mods array, the arcanes array, the shards array and the
+  // single-value aura/exilus slots.
+  function getSlot(kind, idx) {
+    if (kind === "mod") return mods[idx];
+    if (kind === "arcane") return arcanes[idx];
+    if (kind === "shard") return shards[idx];
+    if (kind === "aura") return aura;
+    return exilus;
+  }
+  function setSlot(kind, idx, val) {
+    if (kind === "mod") mods[idx] = val;
+    else if (kind === "arcane") arcanes[idx] = val;
+    else if (kind === "shard") shards[idx] = val;
+    else if (kind === "aura") aura = val;
+    else exilus = val;
+  }
+
   function modCardInner(item) {
     return `<span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="" loading="lazy">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>
       <span class="wf-mod-card-name">${esc(item.name)}</span>`;
@@ -224,7 +243,7 @@
   function slotButton(kind, idx, item) {
     const empty = !item;
     const rarityCls = !empty && item.rarity ? RARITY_CLASS[item.rarity] || "" : "";
-    return `<button type="button" class="wf-slot ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}" data-kind="${kind}" data-idx="${idx}">
+    return `<button type="button" class="wf-slot ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}>
       ${empty ? `<span class="wf-slot-plus">+</span>` : modCardInner(item)}
     </button>`;
   }
@@ -232,7 +251,7 @@
     const info = s && SHARDS[s.color];
     const b = info && info.bonuses[s.bonus];
     const label = info && b ? `${s.tf ? "Tauforged " : ""}${info.name} — ${s.tf ? b.tf : b.text}` : "";
-    return `<button type="button" class="wf-slot wf-shard-slot ${info ? "" : "wf-slot-empty"}" data-kind="shard" data-idx="${idx}"${label ? ` title="${esc(label)}"` : ""}>
+    return `<button type="button" class="wf-slot wf-shard-slot ${info ? "" : "wf-slot-empty"}" data-kind="shard" data-idx="${idx}"${label ? ` title="${esc(label)}"` : ""}${info ? ' draggable="true"' : ""}>
       ${info ? `<span class="wf-shard-gem ${s.tf ? "wf-tauforged" : ""}" style="--shard:${info.color}"></span><span class="wf-slot-name">${info.name}</span>` : `<span class="wf-slot-plus">+</span>`}
     </button>`;
   }
@@ -345,6 +364,7 @@
             <input type="search" id="wf-picker-search" class="wf-input" placeholder="Search…" autocomplete="off">
             <button type="button" class="wf-picker-close" id="wf-picker-close" aria-label="Close">&times;</button>
           </div>
+          <div class="wf-picker-filters" id="wf-picker-filters" hidden></div>
           <div class="wf-picker-list" id="wf-picker-list"></div>
         </div>
       </div>`;
@@ -383,12 +403,44 @@
     root.querySelectorAll(".wf-slot").forEach((btn) => btn.addEventListener("click", () => openPicker(btn.dataset.kind, Number(btn.dataset.idx))));
     root.querySelectorAll("[data-helminth-slot]").forEach((btn) => btn.addEventListener("click", () => openHelminthPicker(Number(btn.dataset.helminthSlot))));
     document.getElementById("wf-save")?.addEventListener("click", saveBuild);
+    wireDrag();
+  }
+
+  // Desktop-only in practice: native HTML5 drag-and-drop doesn't fire from a
+  // touch tap, so this is pure addition on top of the click-to-pick flow
+  // above — mobile is unaffected. Dragging one filled slot onto another of
+  // the same kind swaps them (an empty target just moves it), matching how
+  // the real Arsenal lets you drag-reorder equipped mods.
+  let dragSrc = null;
+  function wireDrag() {
+    root.querySelectorAll(".wf-slot[draggable]").forEach((el) => {
+      el.addEventListener("dragstart", () => { dragSrc = { kind: el.dataset.kind, idx: Number(el.dataset.idx) }; });
+      el.addEventListener("dragend", () => { dragSrc = null; root.querySelectorAll(".wf-drag-over").forEach((x) => x.classList.remove("wf-drag-over")); });
+    });
+    root.querySelectorAll(".wf-slot").forEach((el) => {
+      el.addEventListener("dragover", (e) => { if (dragSrc && dragSrc.kind === el.dataset.kind) { e.preventDefault(); el.classList.add("wf-drag-over"); } });
+      el.addEventListener("dragleave", () => el.classList.remove("wf-drag-over"));
+      el.addEventListener("drop", (e) => {
+        e.preventDefault();
+        el.classList.remove("wf-drag-over");
+        if (!dragSrc || dragSrc.kind !== el.dataset.kind) return;
+        const toIdx = Number(el.dataset.idx);
+        if (dragSrc.idx !== toIdx) {
+          const a = getSlot(dragSrc.kind, dragSrc.idx), b = getSlot(dragSrc.kind, toIdx);
+          setSlot(dragSrc.kind, dragSrc.idx, b);
+          setSlot(dragSrc.kind, toIdx, a);
+          render();
+        }
+        dragSrc = null;
+      });
+    });
   }
 
   function openPicker(kind, idx) {
     const picker = document.getElementById("wf-picker");
     const listEl = document.getElementById("wf-picker-list");
     const searchEl = document.getElementById("wf-picker-search");
+    const filtersEl = document.getElementById("wf-picker-filters");
     if (kind === "shard") { openShardPicker(idx); return; }
     searchEl.hidden = false;
     let pool;
@@ -403,8 +455,42 @@
     } else {
       pool = DATA.arcanes.filter(arcanePoolFor(category));
     }
+
+    // Filter row — type chips (only when the pool actually spans more than
+    // one, e.g. Melee's "Melee Mod" + "Stance Mod"), a rarity select, and an
+    // Augments-only toggle, mirroring how the in-game browser narrows mods.
+    const types = [...new Set(pool.map((m) => m.type))];
+    const rarities = [...new Set(pool.map((m) => m.rarity).filter(Boolean))].sort((a, b) => RARITY_ORDER.indexOf(a) - RARITY_ORDER.indexOf(b));
+    // WFCD's own `isAugment` flag is true for every single mod (a quirk of
+    // their data, not the game) — compatName naming this exact subject is
+    // the only reliable signal that a mod is actually subject-specific.
+    const isSubjAugment = (m) => m.compatName === subject.name;
+    const hasAugments = pool.some(isSubjAugment) && pool.some((m) => !isSubjAugment(m));
+    let typeFilter = "", rarityFilter = "", augOnly = false;
+
+    function filterRowHtml() {
+      if (types.length < 2 && rarities.length < 2 && !hasAugments) return "";
+      return `
+        ${types.length > 1 ? `<div class="wf-picker-chips">
+          <button type="button" class="wf-picker-chip ${!typeFilter ? "active" : ""}" data-type="">All</button>
+          ${types.map((t) => `<button type="button" class="wf-picker-chip ${typeFilter === t ? "active" : ""}" data-type="${esc(t)}">${esc(t.replace(/ Mod$/, ""))}</button>`).join("")}
+        </div>` : ""}
+        <div class="wf-picker-chips">
+          ${rarities.length > 1 ? `<select class="wf-select wf-picker-rarity" id="wf-picker-rarity-select">
+            <option value="">All rarities</option>
+            ${rarities.map((r) => `<option value="${esc(r)}" ${rarityFilter === r ? "selected" : ""}>${esc(r)}</option>`).join("")}
+          </select>` : ""}
+          ${hasAugments ? `<button type="button" class="wf-picker-chip ${augOnly ? "active" : ""}" id="wf-picker-aug-toggle">Augments only</button>` : ""}
+        </div>`;
+    }
+
     function renderList(q) {
-      const list = (q ? pool.filter((m) => m.name.toLowerCase().includes(q.toLowerCase())) : pool).slice(0, 80);
+      let list = pool;
+      if (typeFilter) list = list.filter((m) => m.type === typeFilter);
+      if (rarityFilter) list = list.filter((m) => m.rarity === rarityFilter);
+      if (augOnly) list = list.filter(isSubjAugment);
+      if (q) list = list.filter((m) => m.name.toLowerCase().includes(q.toLowerCase()));
+      list = list.slice(0, 80);
       listEl.innerHTML = list.map((m) => `<button type="button" class="wf-picker-item wf-mod-card ${RARITY_CLASS[m.rarity] || ""}" data-slug="${esc(m.slug)}" title="${esc(m.effect || m.type || "")}">
         ${modCardInner(m)}
       </button>`).join("") || `<p class="wf-empty">No matches.</p>`;
@@ -418,6 +504,14 @@
         render();
       }));
     }
+    function drawFilters() {
+      filtersEl.hidden = !filterRowHtml();
+      filtersEl.innerHTML = filterRowHtml();
+      filtersEl.querySelectorAll("[data-type]").forEach((btn) => btn.addEventListener("click", () => { typeFilter = btn.dataset.type; drawFilters(); renderList(searchEl.value.trim()); }));
+      filtersEl.querySelector("#wf-picker-rarity-select")?.addEventListener("change", (e) => { rarityFilter = e.target.value; renderList(searchEl.value.trim()); });
+      filtersEl.querySelector("#wf-picker-aug-toggle")?.addEventListener("click", () => { augOnly = !augOnly; drawFilters(); renderList(searchEl.value.trim()); });
+    }
+    drawFilters();
     renderList("");
     searchEl.value = "";
     searchEl.oninput = () => renderList(searchEl.value.trim());
@@ -431,6 +525,7 @@
     const picker = document.getElementById("wf-picker");
     const listEl = document.getElementById("wf-picker-list");
     const searchEl = document.getElementById("wf-picker-search");
+    document.getElementById("wf-picker-filters").hidden = true;
     searchEl.hidden = true;
     const cur = shards[idx];
     let color = cur ? cur.color : "crimson";
@@ -478,6 +573,7 @@
     const picker = document.getElementById("wf-picker");
     const listEl = document.getElementById("wf-picker-list");
     const searchEl = document.getElementById("wf-picker-search");
+    document.getElementById("wf-picker-filters").hidden = true;
     searchEl.hidden = false;
     const pool = helminthPoolFor(subject).map(([name, src]) => helminthLookup(name, src));
     function renderList(q) {

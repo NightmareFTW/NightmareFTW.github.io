@@ -1994,6 +1994,7 @@
     "Network error — try again.": "Erro de rede — tenta outra vez.",
     "No matches.": "Sem resultados.",
     "Search…": "Procurar…",
+    "All rarities": "Todas as raridades", "Augments only": "Só augments", "Uncommon": "Pouco comum",
     "(rank 30 + reactor assumed)": "(rank 30 + reactor assumido)",
     "Community builds": "Builds da comunidade",
     "Every build here was saved by another visitor with the": "Cada build aqui foi guardada por outro visitante com o",
