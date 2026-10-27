@@ -223,14 +223,22 @@
     // builder.js's POLARITY_ICONS comment for why (these SVGs' own
     // width="100%" height="100%" breaks <img> rendering in Chromium).
     const polBadge = (pol) => `<span class="wf-slot-pol${pol ? "" : " wf-slot-pol-empty"}" style="cursor:default${pol ? `;background-image:url('${POLARITY_ICONS[pol]}')` : ""}" title="${pol ? esc(polarityLabel(pol)) : "No polarity"}"></span>`;
-    const slotHtml = (item, pol, arcane) => item
-      ? `<div class="wf-slot wf-mod-card${arcane ? " wf-slot-arcane" : ""} ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default">
+    const slotHtml = (item, pol, arcane, extraStyle) => item
+      ? `<div class="wf-slot wf-mod-card${arcane ? " wf-slot-arcane" : ""} ${item.rarity ? RARITY_CLASS[item.rarity] || "" : ""}" style="cursor:default${extraStyle ? `;${extraStyle}` : ""}">
           <span class="wf-mod-card-art">${item.image ? `<img src="${esc(item.image)}" alt="">` : `<span class="wf-slot-plus">${esc(item.name[0])}</span>`}</span>
           <span class="wf-mod-card-name">${esc(item.name)}</span>
           ${pol !== undefined ? polBadge(pol) : ""}
         </div>`
-      : `<div class="wf-slot wf-slot-empty${arcane ? " wf-slot-arcane" : ""}" style="cursor:default">${pol !== undefined ? polBadge(pol) : `<span class="wf-slot-plus">—</span>`}</div>`;
+      : `<div class="wf-slot wf-slot-empty${arcane ? " wf-slot-arcane" : ""}" style="cursor:default${extraStyle ? `;${extraStyle}` : ""}">${pol !== undefined ? polBadge(pol) : `<span class="wf-slot-plus">—</span>`}</div>`;
+    // Unlike mods/arcanes (saved as a fixed-length array with nulls for
+    // empty slots), shards were filtered to just the socketed ones below —
+    // that loses which of the 5 rosette positions each one was in, so a
+    // build with e.g. only slots 2 and 4 filled would render them at
+    // positions 1 and 2 instead. Keep the nulls and show an empty "+" in
+    // their place, same as mods/arcanes already do, so the showcase's
+    // rosette matches the Build Creator's layout exactly.
     const shardHtml = (s) => {
+      if (!s) return `<div class="wf-slot wf-shard-slot wf-slot-empty" style="cursor:default"><span class="wf-slot-plus">+</span></div>`;
       const info = SHARDS[s.color], b = info.bonuses[s.bonus];
       const label = `${s.tf ? "Tauforged " : ""}${info.name} — ${s.tf ? b.tf : b.text}`;
       return `<div class="wf-slot wf-shard-slot" style="cursor:default" title="${esc(label)}">
@@ -239,15 +247,25 @@
     };
 
     const mods = (data.mods || []).map((s) => slotName("mod", s));
-    const arcanes = (data.arcanes || []).map((s) => slotName("arcane", s));
+    // Builder.js always saves exactly 2 arcane slots (ARCANE_SLOTS, with null
+    // for unfilled ones) — pad/truncate to that here too so an old or
+    // hand-edited data blob with a short arcanes array still renders the
+    // same fixed 2-slot column as the Build Creator, instead of collapsing it.
+    const arcanesRaw = (data.arcanes || []).map((s) => slotName("arcane", s));
+    const arcanes = Array.from({ length: 2 }, (_, i) => arcanesRaw[i] || null);
     const aura = slotName("mod", data.aura);
     const exilus = slotName("mod", data.exilus);
-    // Shards: [color, bonusIndex, tauforged] triples. Drop anything from an
-    // unknown colour/bonus so old or hand-edited data blobs can't break
-    // rendering of the rest of the build.
-    const shards = (data.shards || []).map((s) =>
-      Array.isArray(s) && SHARDS[s[0]] && SHARDS[s[0]].bonuses[s[1]] ? { color: s[0], bonus: s[1], tf: !!s[2] } : null
-    ).filter(Boolean);
+    // Shards: [color, bonusIndex, tauforged] triples, one per rosette
+    // position. Keep exactly 5 slots (padding/truncating), with null for
+    // anything missing or from an unknown colour/bonus (old or hand-edited
+    // data blobs), so shardHtml renders each shard in its actual rosette
+    // position rather than collapsing a partially-filled build's shards
+    // together.
+    const shardsRaw = data.shards || [];
+    const shards = Array.from({ length: 5 }, (_, i) => {
+      const s = shardsRaw[i];
+      return Array.isArray(s) && SHARDS[s[0]] && SHARDS[s[0]].bonuses[s[1]] ? { color: s[0], bonus: s[1], tf: !!s[2] } : null;
+    });
     const helminth = Array.isArray(data.helminth) ? (() => {
       const [slot, name, src] = data.helminth;
       const w = ITEMS.warframes.find((x) => x.name === src);
@@ -295,24 +313,30 @@
         ${abilitiesHtml}
 
         <div class="wf-arsenal">
-          ${statPanel}
-          <div class="wf-arsenal-main">
-            ${(b.category === "warframe" && aura) || exilus ? `<div class="wf-aura-row">
-              ${b.category === "warframe" && aura ? slotHtml(aura) : ""}
-              ${exilus ? slotHtml(exilus) : ""}
-            </div>` : ""}
+          <div class="wf-stat-col">
+            ${statPanel}
+            ${b.category === "warframe" ? `
             <div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-              <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotHtml(m, (data.polarities || [])[i] ?? null)).join("")}</div>
+              <p class="wf-tag" style="color:var(--wf-amber); display:flex; justify-content:center">Archon Shards</p>
+              <div class="wf-shards-pentagon">${shards.map(shardHtml).join("")}</div>
+            </div>` : ""}
+          </div>
+          <div class="wf-arsenal-main">
+            <div class="wf-loadout-row">
+              <div class="wf-loadout-main">
+                <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
+                ${b.category !== "companion" ? `
+                <div class="wf-aura-row">
+                  ${b.category === "warframe" ? slotHtml(aura, undefined, false, "grid-column:2") : ""}
+                  ${slotHtml(exilus, undefined, false, b.category === "warframe" ? "grid-column:3" : "grid-column:2/4;justify-self:center;width:90px")}
+                </div>` : ""}
+                <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotHtml(m, (data.polarities || [])[i] ?? null)).join("")}</div>
+              </div>
+              <div class="wf-arsenal-side">
+                <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
+                <div class="wf-slot-grid wf-slot-grid-side">${arcanes.map((a) => slotHtml(a, undefined, true)).join("")}</div>
+              </div>
             </div>
-            ${arcanes.length ? `<div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
-              <div class="wf-slot-grid wf-slot-grid-2">${arcanes.map((a) => slotHtml(a, undefined, true)).join("")}</div>
-            </div>` : ""}
-            ${b.category === "warframe" && shards.length ? `<div class="wf-slot-section">
-              <p class="wf-tag" style="color:var(--wf-cyan-bright)">Archon Shards <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">(5 per Warframe)</span></p>
-              <div class="wf-slot-grid wf-slot-grid-5">${shards.map(shardHtml).join("")}</div>
-            </div>` : ""}
           </div>
         </div>
 

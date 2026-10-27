@@ -1936,7 +1936,7 @@
       "Monta mods numa Warframe, arma ou companheiro com dados de itens reais e Archon Shards, e guarda o resultado na showcase da comunidade.",
     "Real stats and mod data from the game's own API (via WFCD). Capacity assumes a maxed, reactor-fitted subject — see the note by the capacity bar. Up to 5 Archon Shards per Warframe, Tauforged included, feed straight into the stat panel.":
       "Stats e dados de mods reais, vindos da própria API do jogo (via WFCD). A capacidade assume o alvo maximizado e com reactor — vê a nota junto à barra de capacidade. Até 5 Archon Shards por Warframe, Tauforged incluído, alimentam o painel de stats.",
-    "Archon Shards": "Archon Shards", "(5 per Warframe)": "(5 por Warframe)",
+    "Archon Shards": "Archon Shards",
     "(1.5× bonuses)": "(bónus 1.5×)", "Unsocket shard": "Retirar shard",
     // Shard bonus texts (both normal and Tauforged variants).
     "+10% Ability Strength": "+10% Poder de Habilidade", "+15% Ability Strength": "+15% Poder de Habilidade",
