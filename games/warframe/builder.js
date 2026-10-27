@@ -209,7 +209,8 @@
   let aura = null, exilus = null;
   let arcanes = new Array(ARCANE_SLOTS).fill(null);
   let shards = new Array(SHARD_SLOTS).fill(null);
-  let selectedModSlot = 0; // which of the 8 mod slots the inline mod browser below assigns into
+  let selectedModSlot = 0; // which of the 8 mod slots the inline mod browser below assigns into (only meaningful when selectedSlotKind === "mod")
+  let selectedSlotKind = "mod"; // "mod" | "aura" | "exilus" — which kind of slot the inline mod browser below is currently filtered/assigning for
   let modBrowserQuery = "", modBrowserType = "", modBrowserRarity = "", modBrowserAug = false;
   let helminth = null; // { slot: 0-3, name, src } — the one ability slot a Helminth infusion replaces
   let title = "", notes = "";
@@ -280,7 +281,7 @@
   function slotButton(kind, idx, item, extraStyle) {
     const empty = !item;
     const rarityCls = !empty && item.rarity ? RARITY_CLASS[item.rarity] || "" : "";
-    const selected = kind === "mod" && idx === selectedModSlot;
+    const selected = kind === selectedSlotKind && (kind !== "mod" || idx === selectedModSlot);
     const arcaneCls = kind === "arcane" ? " wf-slot-arcane" : "";
     return `<button type="button" class="wf-slot${arcaneCls} ${empty ? "wf-slot-empty" : "wf-mod-card " + rarityCls}${selected ? " wf-slot-selected" : ""}" data-kind="${kind}" data-idx="${idx}"${empty ? "" : ' draggable="true"'}${extraStyle ? ` style="${extraStyle}"` : ""}>
       ${empty ? `<span class="wf-slot-plus">+</span>` : modCardInner(item)}
@@ -396,15 +397,13 @@
                  space next to it. -->
             <div class="wf-loadout-row">
               <div class="wf-loadout-main">
+                <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
                 ${category !== "companion" ? `
                 <div class="wf-aura-row">
                   ${category === "warframe" ? slotButton("aura", 0, aura, "grid-column:2") : ""}
                   ${slotButton("exilus", 0, exilus, category === "warframe" ? "grid-column:3" : "grid-column:2/4;justify-self:center;width:90px")}
                 </div>` : ""}
-                <div class="wf-slot-section">
-                  <p class="wf-tag" style="color:var(--wf-cyan)">Mods</p>
-                  <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
-                </div>
+                <div class="wf-slot-grid wf-slot-grid-4">${mods.map((m, i) => slotButton("mod", i, m)).join("")}</div>
               </div>
               <div class="wf-arsenal-side">
                 <p class="wf-tag" style="color:var(--wf-amber)">Arcanes</p>
@@ -501,10 +500,20 @@
 
     root.querySelectorAll(".wf-slot").forEach((btn) => btn.addEventListener("click", () => {
       const kind = btn.dataset.kind, idx = Number(btn.dataset.idx);
-      // Mod slots select into the always-visible browser below instead of
-      // opening a modal — the browser needs the slots it's assigning into to
-      // stay visible at the same time, which a modal overlay would hide.
-      if (kind === "mod") { selectedModSlot = idx; renderModBrowser(); root.querySelectorAll('[data-kind="mod"]').forEach((s) => s.classList.toggle("wf-slot-selected", Number(s.dataset.idx) === idx)); return; }
+      // Mod/Aura/Exilus slots select into the always-visible browser below
+      // instead of opening a modal — the browser needs the slots it's
+      // assigning into to stay visible at the same time, which a modal
+      // overlay would hide. The browser's own pool switches to match
+      // whichever of the three is selected (see renderModBrowser).
+      if (kind === "mod" || kind === "aura" || kind === "exilus") {
+        selectedSlotKind = kind;
+        if (kind === "mod") selectedModSlot = idx;
+        renderModBrowser();
+        root.querySelectorAll('[data-kind="mod"],[data-kind="aura"],[data-kind="exilus"]').forEach((s) => {
+          s.classList.toggle("wf-slot-selected", s.dataset.kind === kind && (kind !== "mod" || Number(s.dataset.idx) === idx));
+        });
+        return;
+      }
       openPicker(kind, idx);
     }));
     root.querySelectorAll("[data-helminth-slot]").forEach((btn) => btn.addEventListener("click", () => openHelminthPicker(Number(btn.dataset.helminthSlot))));
@@ -517,9 +526,13 @@
   // touch tap, so this is pure addition on top of the click-to-pick flow
   // above — mobile is unaffected. Dragging one filled slot onto another of
   // the same kind swaps them (an empty target just moves it), matching how
-  // the real Arsenal lets you drag-reorder equipped mods. A mod slot also
-  // accepts a card dragged up from the mod collection browser below — that's
-  // an assign, not a swap, since the browser card isn't "in" a slot already.
+  // the real Arsenal lets you drag-reorder equipped mods. A mod/Aura/Exilus
+  // slot also accepts a card dragged up from the mod collection browser
+  // below — that's an assign, not a swap, since the browser card isn't "in"
+  // a slot already. Each browser card remembers which pool it came from
+  // (forKind, set at drag-start from the browser's own current selection)
+  // so an Aura-only card can't be dropped onto a regular mod slot or vice
+  // versa — only onto a slot of the kind that pool was actually filtered for.
   let dragSrc = null;
   function wireDrag() {
     root.querySelectorAll(".wf-slot[draggable]").forEach((el) => {
@@ -527,7 +540,7 @@
       el.addEventListener("dragend", () => { dragSrc = null; root.querySelectorAll(".wf-drag-over").forEach((x) => x.classList.remove("wf-drag-over")); });
     });
     root.querySelectorAll(".wf-slot").forEach((el) => {
-      const accepts = () => !!dragSrc && (dragSrc.kind === el.dataset.kind || (dragSrc.kind === "browser-mod" && el.dataset.kind === "mod"));
+      const accepts = () => !!dragSrc && (dragSrc.kind === el.dataset.kind || (dragSrc.kind === "browser-mod" && dragSrc.forKind === el.dataset.kind));
       el.addEventListener("dragover", (e) => { if (accepts()) { e.preventDefault(); el.classList.add("wf-drag-over"); } });
       el.addEventListener("dragleave", () => el.classList.remove("wf-drag-over"));
       el.addEventListener("drop", (e) => {
@@ -537,7 +550,14 @@
         const toIdx = Number(el.dataset.idx);
         if (dragSrc.kind === "browser-mod") {
           const item = DATA.mods.find((m) => m.slug === dragSrc.slug);
-          if (item) { mods[toIdx] = item; selectedModSlot = toIdx; render(); }
+          if (item) {
+            if (el.dataset.kind === "aura") aura = item;
+            else if (el.dataset.kind === "exilus") exilus = item;
+            else mods[toIdx] = item;
+            selectedSlotKind = el.dataset.kind;
+            if (el.dataset.kind === "mod") selectedModSlot = toIdx;
+            render();
+          }
         } else if (dragSrc.idx !== toIdx) {
           const a = getSlot(dragSrc.kind, dragSrc.idx), b = getSlot(dragSrc.kind, toIdx);
           setSlot(dragSrc.kind, dragSrc.idx, b);
@@ -561,14 +581,21 @@
     const container = document.getElementById("wf-mod-browser");
     if (!container) return;
     const base = modPoolFor(category, subject);
-    const pool = DATA.mods.filter((m) => base(m) || augmentMatches(m, subject));
+    // Pool switches with whichever of the 3 kinds is currently selected —
+    // Aura's pool is its own dedicated set, Exilus is the regular pool minus
+    // Aura mods, and plain mod slots get the regular pool, same splits
+    // openPicker used to apply per kind before this browser replaced it.
+    const pool = selectedSlotKind === "aura" ? DATA.mods.filter(auraPoolFor())
+      : selectedSlotKind === "exilus" ? DATA.mods.filter((m) => (base(m) || augmentMatches(m, subject)) && m.compatName !== "AURA")
+      : DATA.mods.filter((m) => base(m) || augmentMatches(m, subject));
     const types = [...new Set(pool.map((m) => m.type))];
     const rarities = [...new Set(pool.map((m) => m.rarity).filter(Boolean))].sort((a, b) => RARITY_ORDER.indexOf(a) - RARITY_ORDER.indexOf(b));
     const isSubjAugment = (m) => m.compatName === subject.name;
     const hasAugments = pool.some(isSubjAugment) && pool.some((m) => !isSubjAugment(m));
 
+    const target = selectedSlotKind === "aura" ? "the Aura slot" : selectedSlotKind === "exilus" ? "the Exilus slot" : `slot ${selectedModSlot + 1}`;
     container.innerHTML = `
-      <p class="wf-tag">Mod Collection <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">— Click or drag into slot ${selectedModSlot + 1}</span></p>
+      <p class="wf-tag">Mod Collection <span class="wf-muted-note" style="text-transform:none; letter-spacing:0; font-weight:400">— Click or drag into ${target}</span></p>
       <div class="wf-mod-browser-head">
         <input type="search" id="wf-browser-search" class="wf-input" placeholder="Search mods…" autocomplete="off">
       </div>
@@ -607,10 +634,13 @@
       </button>`).join("") || `<p class="wf-empty">No matches.</p>`;
       gridEl.querySelectorAll("[data-slug]").forEach((btn) => {
         btn.addEventListener("click", () => {
-          mods[selectedModSlot] = pool.find((m) => m.slug === btn.dataset.slug);
+          const item = pool.find((m) => m.slug === btn.dataset.slug);
+          if (selectedSlotKind === "aura") aura = item;
+          else if (selectedSlotKind === "exilus") exilus = item;
+          else mods[selectedModSlot] = item;
           render();
         });
-        btn.addEventListener("dragstart", () => { dragSrc = { kind: "browser-mod", slug: btn.dataset.slug }; });
+        btn.addEventListener("dragstart", () => { dragSrc = { kind: "browser-mod", slug: btn.dataset.slug, forKind: selectedSlotKind }; });
         btn.addEventListener("dragend", () => { dragSrc = null; root.querySelectorAll(".wf-drag-over").forEach((x) => x.classList.remove("wf-drag-over")); });
       });
     }
@@ -633,19 +663,11 @@
     const filtersEl = document.getElementById("wf-picker-filters");
     listEl.style.cssText = ""; // clear a possible leftover inline layout from the polarity picker
     if (kind === "shard") { openShardPicker(idx); return; }
+    // Mod/Aura/Exilus slots are handled by the inline mod browser instead
+    // (see wire()'s slot click handler) — this modal only ever opens for
+    // Arcanes now.
     searchEl.hidden = false;
-    let pool;
-    if (kind === "mod") {
-      const base = modPoolFor(category, subject);
-      pool = DATA.mods.filter((m) => base(m) || augmentMatches(m, subject));
-    } else if (kind === "aura") {
-      pool = DATA.mods.filter(auraPoolFor());
-    } else if (kind === "exilus") {
-      const base = modPoolFor(category, subject);
-      pool = DATA.mods.filter((m) => (base(m) || augmentMatches(m, subject)) && m.compatName !== "AURA");
-    } else {
-      pool = DATA.arcanes.filter(arcanePoolFor(category));
-    }
+    const pool = DATA.arcanes.filter(arcanePoolFor(category));
 
     // Filter row — type chips (only when the pool actually spans more than
     // one, e.g. Melee's "Melee Mod" + "Stance Mod"), a rarity select, and an
@@ -687,10 +709,7 @@
       </button>`).join("") || `<p class="wf-empty">No matches.</p>`;
       listEl.querySelectorAll("[data-slug]").forEach((btn) => btn.addEventListener("click", () => {
         const item = pool.find((m) => m.slug === btn.dataset.slug);
-        if (kind === "mod") mods[idx] = item;
-        else if (kind === "aura") aura = item;
-        else if (kind === "exilus") exilus = item;
-        else arcanes[idx] = item;
+        arcanes[idx] = item;
         closePicker();
         render();
       }));

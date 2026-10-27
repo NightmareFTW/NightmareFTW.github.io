@@ -2150,6 +2150,7 @@
     [/^(\d+) \/ (\d+) capacity( — over capacity)?$/, (m, a, b, over) => `${a} / ${b} capacidade${over ? " — acima da capacidade" : ""}`],
     [/^Not eligible on (.+)$/, "Não elegível em $1"],
     [/^— Click or drag into slot (\d+)$/, "— Clica ou arrasta para o slot $1"],
+    [/^— Click or drag into the (Aura|Exilus) slot$/, (m, k) => `— Clica ou arrasta para o slot ${k === "Aura" ? "Aura" : "Exilus"}`],
     // Shard slot tooltip: "Tauforged Crimson — +15% Ability Strength" — pass the
     // bonus tail through the DICT so both halves end up in PT.
     [/^(Tauforged )?(Crimson|Amber|Azure|Topaz|Violet|Emerald) — (.+)$/, (m, tf, name, bonus) => `${tf || ""}${name} — ${DICT[bonus] || bonus}`],
