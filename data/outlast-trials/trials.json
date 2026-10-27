@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T12:19:16.734Z",
+  "updated": "2026-10-27T18:12:04.029Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -994,7 +994,7 @@
         },
         {
           "name": "Escape, 1960",
-          "goal": "Escape, 1960 is a special Trial in The Outlast Trials where Reagents were given an option to finally escape from the Sinyala Facility through the Waste Tunnel.",
+          "goal": "Escape, 1960 is the first Escape Trial in The Outlast Trials where Reagents were given an option to finally escape from the Sinyala Facility through the Waste Tunnel.",
           "objectives": [],
           "prime": "link=|Non-Applicable|60px",
           "tips": []
