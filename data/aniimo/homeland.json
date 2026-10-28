@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T05:34:17.458Z",
+  "updated": "2026-10-28T05:27:14.727Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -2890,11 +2890,7 @@
             },
             {
               "kind": "text",
-              "text": "Skip Ecological Module Level 9."
-            },
-            {
-              "kind": "text",
-              "text": "Skip Crafting Module Level 6."
+              "text": "Buy Crafting Module Level 6."
             },
             {
               "kind": "text",
@@ -3128,15 +3124,15 @@
             },
             {
               "kind": "text",
-              "text": "Skip Kitchen Module Level 7."
+              "text": "Skip Kitchen Module Level 7. (Full automation would require 3 carousal mills)"
             },
             {
               "kind": "text",
-              "text": "Skip Crafting Module Level 7."
+              "text": "Buy Crafting Module Level 7 if you want, but we won't be using it."
             },
             {
               "kind": "text",
-              "text": "Remember to recycle any unused buildings!"
+              "text": "Remember to recycle any unused buildings, and don't upgrade crafting buildings unless needed!"
             }
           ]
         },
