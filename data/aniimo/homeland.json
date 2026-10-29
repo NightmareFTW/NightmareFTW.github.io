@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28T05:27:14.727Z",
+  "updated": "2026-10-29T05:27:26.300Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -2831,7 +2831,7 @@
             },
             {
               "kind": "text",
-              "text": "Unfortunately, this is where byproduct processing stops being simple. Until this point, we could set it up so that all byproducts would be handled automatically without player intervention. With our last upgrade to trees, however, trees now produce so many wooden blocks that not even a Traited tier-4 Artisan that never got distracted would be able to keep up with it - not that any exist..."
+              "text": "Unfortunately, this is where byproduct processing stops being simple. Until this point, we could set it up so that all byproducts would be handled automatically without player intervention. With our last upgrade to trees, however, trees now produce so many wooden blocks that not even a Traited tier-4 Artisan that never got distracted would be able to keep up with it, not that any exist..."
             },
             {
               "kind": "text",
@@ -2843,15 +2843,15 @@
             },
             {
               "kind": "text",
-              "text": "Mode 1: 1 Common-mode table processing Wood Blocks into Rough Lumber. 3 E-mode tables processing Wood Blocks into Rough Lumber."
+              "text": "Mode 1: 2 Common-mode table processing Wood Blocks into Rough Lumber. 1 E-mode tables processing Wood Blocks into Rough Lumber. 1 Common-mode tables processing Wood Blocks into Rough Lumber."
             },
             {
               "kind": "text",
-              "text": "Mode 2: The same method you've been using until this point: one table for each type, with a traited Eklue processing Wood Blocks."
+              "text": "Mode 2: The same method you've been using until this point: one table for each type, with a traited Eklue processing Wood Blocks. The level 2 table processing Wood Blocks into Rough Lumber is switched to Common Mode with a traited Eklue."
             },
             {
               "kind": "text",
-              "text": "I've run the math, and this barely keeps up with production if you switch at the same time every day. If you're concerned, or perhaps you've used thousands of instant-grow potions on trees, you can do an alternate mode 1, where you run additional Traited Eklue."
+              "text": "I've run the math, and this supposedly barely keeps up with production if you switch at the same time every day. In practice, I've found it doesn't work out that way, and I need a second Eklue to process good fast enough."
             }
           ]
         }
@@ -3033,6 +3033,10 @@
             },
             {
               "kind": "bullet",
+              "text": "Two Glacy (Any Form). Covers 2x Cooling Units."
+            },
+            {
+              "kind": "bullet",
               "text": "Four Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker and the three generators."
             },
             {
@@ -3045,7 +3049,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met."
             },
             {
               "kind": "bullet",
@@ -3255,6 +3259,10 @@
             },
             {
               "kind": "bullet",
+              "text": "Two Glacy (Any Form). Covers 2x Cooling Units."
+            },
+            {
+              "kind": "bullet",
               "text": "Four Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker and the three generators."
             },
             {
@@ -3267,7 +3275,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met."
             },
             {
               "kind": "bullet",

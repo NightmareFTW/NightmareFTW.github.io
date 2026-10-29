@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-28T05:27:13.453Z",
+  "updated": "2026-10-29T05:27:25.096Z",
   "source": "https://www.aniimo.com/main",
   "mechanicsSource": "https://game8.co/games/Aniimo/archives/618730",
-  "count": 16,
+  "count": 17,
   "regions": [
     {
       "name": "Beast Fang Ridge",
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "name": "Berylline Causeway",
+      "name": "Berylline Vale",
       "description": null,
       "image": null,
       "mechanics": [],
@@ -227,6 +227,54 @@
           "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10512.png",
           "elements": [
             "Fire"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cloudreach Falls",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "eklue",
+          "name": "Eklue",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10443.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "eko",
+          "name": "Eko",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10441.png",
+          "elements": [
+            "Wind"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Crescent Bay",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "nimbi",
+          "name": "Nimbi",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10261.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "shelly",
+          "name": "Shelly",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10191.png",
+          "elements": [
+            "Water"
           ]
         }
       ]
@@ -805,6 +853,15 @@
           ]
         },
         {
+          "slug": "hexxin",
+          "name": "Hexxin",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10203.png",
+          "elements": [
+            "Dark",
+            "Grass"
+          ]
+        },
+        {
           "slug": "hummin",
           "name": "Hummin",
           "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10201.png",
@@ -835,15 +892,6 @@
           "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10041.png",
           "elements": [
             "Water"
-          ]
-        },
-        {
-          "slug": "witchin",
-          "name": "Witchin",
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10203.png",
-          "elements": [
-            "Dark",
-            "Grass"
           ]
         }
       ]
@@ -892,6 +940,30 @@
           "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10142.png",
           "elements": [
             "Electric"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unknown Area",
+      "description": null,
+      "image": null,
+      "mechanics": [],
+      "creatures": [
+        {
+          "slug": "eklue",
+          "name": "Eklue",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10443.png",
+          "elements": [
+            "Wind"
+          ]
+        },
+        {
+          "slug": "eko",
+          "name": "Eko",
+          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10441.png",
+          "elements": [
+            "Wind"
           ]
         }
       ]
@@ -951,38 +1023,6 @@
           "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10281.png",
           "elements": [
             "Rock"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "夕阳海原",
-      "description": null,
-      "image": null,
-      "mechanics": [],
-      "creatures": [
-        {
-          "slug": "shelly",
-          "name": "Shelly",
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10191.png",
-          "elements": [
-            "Water"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "新月海湾",
-      "description": null,
-      "image": null,
-      "mechanics": [],
-      "creatures": [
-        {
-          "slug": "shelly",
-          "name": "Shelly",
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10191.png",
-          "elements": [
-            "Water"
           ]
         }
       ]
