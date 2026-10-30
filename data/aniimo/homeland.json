@@ -1,11 +1,11 @@
 {
-  "updated": "2026-10-29T05:27:26.300Z",
+  "updated": "2026-10-30T05:27:21.024Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
   "author": "darksteelhyren",
   "authorUrl": "https://steamcommunity.com/id/Zetajezu",
-  "maxLevel": 19,
+  "maxLevel": 20,
   "sections": [
     {
       "type": "overview",
@@ -914,7 +914,7 @@
             },
             {
               "kind": "text",
-              "text": "There is no Trait for this building, so a Lightning-3 (like Blazen) or some Lightning-4 Prismana is the best you can do."
+              "text": "There is no Trait for this building, so a Lightning-3 or some Lightning-4 Prismana is the best you can do."
             },
             {
               "kind": "text",
@@ -1046,7 +1046,7 @@
             },
             {
               "kind": "text",
-              "text": "4 Tree plots: Apple"
+              "text": "4 Tree plots: Apple (Temperature: Cool)"
             },
             {
               "kind": "text",
@@ -1111,7 +1111,7 @@
     },
     {
       "type": "lesson",
-      "title": "Harvest Moon Festival Event",
+      "title": "Magical Wonder Night Event",
       "blocks": [
         {
           "heading": null,
@@ -1119,27 +1119,19 @@
           "items": [
             {
               "kind": "text",
-              "text": "There's a button on the top-right of your screen that becomes clickable at RV10, and you can do dailies to get \"Moonray Wheat\" coins. Use those coins to buy event seeds, grow the event crops, and fulfill event orders."
+              "text": "2026-10-29 sees a new version: Season 1 Part 2. And with it comes a new RV event."
             },
             {
               "kind": "text",
-              "text": "Do the four event dailies every day to get more coins."
+              "text": "It looks to be exactly the same as the old one, except the event crops need a Sunlamp."
             },
             {
               "kind": "text",
-              "text": "In the event menu, there's also a shop where you can buy various recipes for Moonray Wheat coins (instead of spending those coins on more seeds). I recommend purchasing the four recipes as soon as you've done your first set of dailies."
+              "text": "Remember that Pawprint Studio screwed us over last event by introducing a rate-up more than halfway through the season, punishing those who were growing event crops early. I strongly recommend stockpiling coins and only growing on 2, maybe 4 at most farm plots. Keep your coins ready for when they re-introduce the rate-up, and don't go crazy growing until then."
             },
             {
               "kind": "text",
-              "text": "I recommend cooking up any Event food that comes up in Orders, optionally using Rush items to grow the needed crops. I recommend NOT selling Event food in the Co-op shop, as it just sells for Home Coins."
-            },
-            {
-              "kind": "text",
-              "text": "The goal is to acquire Harvest Moon Points, with rewards up to 120,000 Harvest Moon Points. Harvesting Event crops gives you 8 points every time, and cooking Event food 8 as well. Harvest Platters are the most Wheat Coin efficient way to gain Harvest Moon Points, but they do cost more in the way of non-event ingredients; Salt and Rock Candy (Sugarcane + Plain Fresh Water)."
-            },
-            {
-              "kind": "text",
-              "text": "The question is where to spend one's Wheat Coins? Spending them on seeds gives you more Harvest Moon Points as well as more chances at Mutated plants (earning up to 3 Dream Sparks on that track). Or, you can buy event-exclusive decorations up to max. On this matter, only you can decide where your priorities lie."
+              "text": "More details to come."
             }
           ]
         }
@@ -1281,7 +1273,7 @@
             },
             {
               "kind": "text",
-              "text": "5 Tree plots: Apple"
+              "text": "5 Tree plots: Apple (Temperature: Cool)"
             },
             {
               "kind": "text",
@@ -1516,7 +1508,11 @@
           "items": [
             {
               "kind": "text",
-              "text": "You can free up bodies by turning various work stations on to e-mode, or electrical-mode."
+              "text": "Welcome to RV12."
+            },
+            {
+              "kind": "text",
+              "text": "You can free up bodies by turning various work stations on to E-mode, or electrical-mode."
             },
             {
               "kind": "text",
@@ -1524,7 +1520,7 @@
             },
             {
               "kind": "text",
-              "text": "The Crackle Generator limits the power cap, starting at 600 power and going up every upgrade. An Electricity-1 Aniimo will produce 600 power, which is enough for Crackle Generator Level 1, but you might as well just toss a Blazen or something on it and not have to switch later."
+              "text": "The Crackle Generator limits the power cap, starting at 600 power and going up every upgrade. An Electricity-1 Aniimo will produce 600 power, which is enough for Crackle Generator Level 1, but you might as well just toss any Electric-3 Aniimo on it and not have to switch later."
             },
             {
               "kind": "text",
@@ -1532,7 +1528,7 @@
             },
             {
               "kind": "text",
-              "text": "Mines and Wells cost A LOT of power. DO NOT set them to e-mode; continue to have Aniimo with proper traits utilize them."
+              "text": "Mines and Wells cost A LOT of power. DO NOT set them to E-mode; continue to have Aniimo with proper traits utilize them."
             },
             {
               "kind": "text",
@@ -1599,7 +1595,7 @@
             },
             {
               "kind": "text",
-              "text": "Field one Electric Aniimo, such as Blazen, for the Crackle Generator."
+              "text": "Field another Electric Aniimo for the Crackle Generator."
             },
             {
               "kind": "text",
@@ -2265,7 +2261,7 @@
             },
             {
               "kind": "text",
-              "text": "We get another Crackle Generator. Field a second Blazen. It should be enough to E-mode all of your Wells, and all of your production buildings, but none of your Mines. Feel free to do what you want with it, but do not let electricity fall below the 120% bonus."
+              "text": "We get another Crackle Generator. Field a third Luminelle (Rainfall Form). It should be enough to E-mode all of your Wells, and all of your production buildings, but none of your Mines. Feel free to do what you want with it, but do not let electricity fall below the 120% bonus."
             },
             {
               "kind": "text",
@@ -2843,15 +2839,15 @@
             },
             {
               "kind": "text",
-              "text": "Mode 1: 2 Common-mode table processing Wood Blocks into Rough Lumber. 1 E-mode tables processing Wood Blocks into Rough Lumber. 1 Common-mode tables processing Wood Blocks into Rough Lumber."
+              "text": "Mode 1: 2 Common-mode table processing Wood Blocks into Rough Lumber. 1 E-mode table processing Wood Blocks into Rough Lumber. 1 E-mode table processing Rough Lumber into Standard Planks."
             },
             {
               "kind": "text",
-              "text": "Mode 2: The same method you've been using until this point: one table for each type, with a traited Eklue processing Wood Blocks. The level 2 table processing Wood Blocks into Rough Lumber is switched to Common Mode with a traited Eklue."
+              "text": "Mode 2: The same method you've been using until this point: one table for each type. One Common-mode table processing Wood blocks into Rough Lumber. One table, now in Common-mode, processing Rough Lumber into Standard Planks. The last tables, on 120% E-mode, produce Laminated Beams and Densified Timber Component."
             },
             {
               "kind": "text",
-              "text": "I've run the math, and this supposedly barely keeps up with production if you switch at the same time every day. In practice, I've found it doesn't work out that way, and I need a second Eklue to process good fast enough."
+              "text": "I've run the math, and a single Eklue - supposedly - just barely keeps up with production if you switch at the same time every day. In practice, I've found it doesn't work out that way, and I need a second Eklue to process byproducts fast enough."
             }
           ]
         }
@@ -2898,7 +2894,11 @@
             },
             {
               "kind": "text",
-              "text": "Upgrade all trees to their final level, 6. Max-level trees produce Wood Blocks faster than even a Traited Eklue can process them. Starting from this point, you will likely have to maintain 2 Eklue on Rough Lumber processing, and occasionally switch one off to the highest tier lumber."
+              "text": "Upgrade all trees to their final level, 6."
+            },
+            {
+              "kind": "text",
+              "text": "Read the Lesson in the previous section."
             },
             {
               "kind": "text",
@@ -2920,6 +2920,7 @@
               "text": "Cranberry Chocolate",
               "sub": [
                 "Set one Carousel Mill to Cocoa Powder.",
+                "Set the other Carousel Mill to Milled Rice.",
                 "Set one Simmering Pot to Malt Sugar.",
                 "Set the other Simmering Pot to Cocoa Spread.",
                 "Set one Jukebox Dryer to Dried Cranberries.",
@@ -2936,7 +2937,6 @@
               "num": "2",
               "text": "Coconut Cooler",
               "sub": [
-                "Set the other Carousel Mill to Milled Rice.",
                 "Set one Bouncy Brew Keg to Coconut Cooler.",
                 "Set the other 14 tree plots to Quick Recipe: Coconut."
               ]
@@ -3029,7 +3029,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and Heat Furnaces."
+              "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and 2x Heat Furnaces."
             },
             {
               "kind": "bullet",
@@ -3041,7 +3041,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
+              "text": "Two Eklue, with \"E\"nergetic, covers the two Common-mode Woodworking Benches."
             },
             {
               "kind": "bullet",
@@ -3063,7 +3063,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "All processing buildings in E-mode, except two Woodworking Benches on Rough Lumber and the level 1 Chimney Kiln."
+              "text": "All processing buildings in E-mode, except two Woodworking Benches and one Chimney Kiln. See Lesson: Endgame Byproduct Processing."
             },
             {
               "kind": "bullet",
@@ -3116,10 +3116,6 @@
           "items": [
             {
               "kind": "text",
-              "text": "40 Farm plots, 20 Tree plots, 10 Mines, 44 Aniimo."
-            },
-            {
-              "kind": "text",
               "text": "Place the fourth Well."
             },
             {
@@ -3150,15 +3146,16 @@
               "text": "Cranberry Chocolate",
               "sub": [
                 "Set one Carousel Mill to Cocoa Powder.",
+                "Set the other Carousel Mill to Milled Rice.",
                 "Set one Simmering Pot to Malt Sugar.",
                 "Set the other Simmering Pot to Cocoa Spread.",
                 "Set one Jukebox Dryer to Dried Cranberries.",
                 "Set one Blazing Stove to Cranberry Chocolate.",
-                "Set all four Wells to Quick Recipe: Deep Rock Spring Water.",
-                "Set 7 tree plots to Cacao.",
-                "Set 7 farm plots to Premium Wheat.",
-                "Set 4 farm plots to Quick Recipe: Rice.",
-                "Set 7 farm plots to Cranberry."
+                "Set all three Wells to Quick Recipe: Deep Rock Spring Water.",
+                "Set 5 tree plots to Cacao.",
+                "Set 5 farm plots to Premium Wheat.",
+                "Set 3 farm plots to Quick Recipe: Rice.",
+                "Set 5 farm plots to Cranberry."
               ]
             },
             {
@@ -3166,9 +3163,8 @@
               "num": "2",
               "text": "Coconut Cooler",
               "sub": [
-                "Set the other Carousel Mill to Milled Rice.",
-                "Set both Bouncy Brew Kegs to Coconut Cooler.",
-                "Set the other 13 tree plots to Quick Recipe: Coconut."
+                "Set one Bouncy Brew Keg to Coconut Cooler.",
+                "Set the other 14 tree plots to Quick Recipe: Coconut."
               ]
             },
             {
@@ -3209,7 +3205,7 @@
             },
             {
               "kind": "text",
-              "text": "22 Farm plots: Quick Recipe: Strawberry (Temperature: Freezing)"
+              "text": "22 Farm plots: Quick Recipe: Strawberry (Temperature: Cool)"
             },
             {
               "kind": "text",
@@ -3217,7 +3213,7 @@
             },
             {
               "kind": "text",
-              "text": "7 Tree plots: Cacao (level 6)"
+              "text": "7 Tree plots: Cacao (Temperature: Scorching)"
             },
             {
               "kind": "text",
@@ -3255,7 +3251,7 @@
             },
             {
               "kind": "bullet",
-              "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and Heat Furnaces."
+              "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and 2x Heat Furnaces."
             },
             {
               "kind": "bullet",
@@ -3267,7 +3263,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Eklue, preferably with \"E\"nergetic, each on a Woodworking Bench set to Rough Lumber."
+              "text": "Two Eklue, with \"E\"nergetic, covers the two Common-mode Woodworking Benches."
             },
             {
               "kind": "bullet",
@@ -3289,7 +3285,213 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "All processing buildings in E-mode, except two Woodworking Benches on Rough Lumber and the level 1 Chimney Kiln."
+              "text": "All processing buildings in E-mode, except two Woodworking Benches and one Chimney Kiln. See Lesson: Endgame Byproduct Processing."
+            },
+            {
+              "kind": "bullet",
+              "text": "All four Wells in E-mode."
+            },
+            {
+              "kind": "bullet",
+              "text": "Mines stay off E-mode unless the power meter still reads 120% after everything else."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rv",
+      "level": 20,
+      "next": 21,
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Index Points goal: 16000"
+            }
+          ]
+        },
+        {
+          "heading": "Warning",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "This is untested. It's what I'm planning to do once I hit RV20."
+            }
+          ]
+        },
+        {
+          "heading": "Note",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Buy Power Module Level 5, and upgrade your Crackle Generators."
+            },
+            {
+              "kind": "text",
+              "text": "Buy any components you're still missing, as long as you have 16000+ Index Points."
+            },
+            {
+              "kind": "text",
+              "text": "Remember to recycle any unused buildings, and don't upgrade crafting buildings unless needed!"
+            }
+          ]
+        },
+        {
+          "heading": "Production",
+          "images": [],
+          "items": [
+            {
+              "kind": "numbered",
+              "num": "1",
+              "text": "Cranberry Chocolate",
+              "sub": [
+                "Set one Carousel Mill to Cocoa Powder.",
+                "Set the other Carousel Mill to Milled Rice.",
+                "Set one Simmering Pot to Malt Sugar.",
+                "Set the other Simmering Pot to Cocoa Spread.",
+                "Set one Jukebox Dryer to Dried Cranberries.",
+                "Set one Blazing Stove to Cranberry Chocolate.",
+                "Set all three Wells to Quick Recipe: Deep Rock Spring Water.",
+                "Set 5 tree plots to Cacao.",
+                "Set 5 farm plots to Premium Wheat.",
+                "Set 3 farm plots to Quick Recipe: Rice.",
+                "Set 5 farm plots to Cranberry."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "2",
+              "text": "Coconut Cooler",
+              "sub": [
+                "Set one Bouncy Brew Keg to Coconut Cooler.",
+                "Set the other 14 tree plots to Quick Recipe: Coconut."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "3",
+              "text": "Dried Strawberries",
+              "sub": [
+                "Set the other Jukebox Dryer to Dried Strawberries.",
+                "Set the other 24 farm plots to Quick Recipe: Strawberry."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Premium Gemstone Dust",
+              "sub": [
+                "Set one Crafting Table to Premium Gemstone Dust.",
+                "Set the Floral Windmill to High-Speed Formula: Scales."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Farm/Tree Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "7 Farm plots: Premium Wheat"
+            },
+            {
+              "kind": "text",
+              "text": "4 Farm plots: Quick Recipe: Rice"
+            },
+            {
+              "kind": "text",
+              "text": "7 Farm plots: Cranberry (Temperature: Freezing)"
+            },
+            {
+              "kind": "text",
+              "text": "24 Farm plots: Quick Recipe: Strawberry (Temperature: Cool)"
+            },
+            {
+              "kind": "text",
+              "text": "NOTE: For event crops, switch away from Quick Strawberry."
+            },
+            {
+              "kind": "text",
+              "text": "7 Tree plots: Cacao (Temperature: Scorching)"
+            },
+            {
+              "kind": "text",
+              "text": "14 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
+            }
+          ]
+        },
+        {
+          "heading": "Aniimo Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "Two Piopiota / Panpanta with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Fragrancier with \"I\"nstinctive."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Irisal with \"J\"udicious."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Stellarys with \"F\"aithful."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Flutternym / Gracewing, preferably with \"N\"imble, for the Floral Windmill."
+            },
+            {
+              "kind": "bullet",
+              "text": "One Light Aniimo for the Sunlamp."
+            },
+            {
+              "kind": "bullet",
+              "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and 2x Heat Furnaces."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Glacy (Any Form). Covers 2x Cooling Units."
+            },
+            {
+              "kind": "bullet",
+              "text": "Four Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker and the three generators."
+            },
+            {
+              "kind": "bullet",
+              "text": "Two Eklue, with \"E\"nergetic, covers the two Common-mode Woodworking Benches."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Shrubclaws (Basic Form) until Earth and Nature needs are met. Preferably \"P\"layful."
+            },
+            {
+              "kind": "bullet",
+              "text": "Fill Piopiota (Night Form), Stellarys (Rain form) until Water and Dark needs are met. If you run out and don't want to get more, finish off with more Glacy."
+            },
+            {
+              "kind": "bullet",
+              "text": "Remaining slots can go to the house to generate Bud Tickets."
+            }
+          ]
+        },
+        {
+          "heading": "E-mode Summary",
+          "images": [],
+          "items": [
+            {
+              "kind": "bullet",
+              "text": "All processing buildings in E-mode, except two Woodworking Benches and one Chimney Kiln. See Lesson: Endgame Byproduct Processing."
             },
             {
               "kind": "bullet",
