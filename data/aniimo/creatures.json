@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T05:27:19.426Z",
+  "updated": "2026-10-31T05:24:54.272Z",
   "source": "https://wiki.aniimo.com/",
   "count": 86,
   "elements": [
@@ -4000,23 +4000,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Feature_144102_Icon.png",
-          "name": "Judgment Storm",
-          "description": "When applies a debuff to a target, Wind damage for the whole team increases by 16% for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10200430_Icon.png",
-            "name": "Ice Arc Strike",
-            "description": "Arc-shaped sweeping attack dealing Ice damage. Enemies hit that are in the [Weakness Mark] state are additionally afflicted with [Frozen] for 2.5s.",
-            "power": "20",
-            "cost": "10",
-            "type": "Physical"
-          },
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10900480_Icon.png",
             "name": "Detect Weakness",
@@ -4040,17 +4026,9 @@
             "power": "45",
             "cost": "20",
             "type": "Physical"
-          },
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10301540_Icon.png",
-            "name": "Water Arc Strike",
-            "description": "Arc-shaped sweeping attack dealing Water damage. Enemies hit that are in the [Weakness Mark] state have 10 Energy stolen from them.",
-            "power": "20",
-            "cost": "10",
-            "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -4093,8 +4071,7 @@
       },
       "habitats": [
         "Cloudreach Falls",
-        "Forest of Falling Stars",
-        "Unknown Area"
+        "Forest of Falling Stars"
       ],
       "resonanceTraining": [
         {
