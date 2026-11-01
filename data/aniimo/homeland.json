@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31T05:24:56.263Z",
+  "updated": "2026-11-01T05:25:14.592Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -1114,7 +1114,7 @@
       "title": "Magical Wonder Night Event",
       "blocks": [
         {
-          "heading": "Overview",
+          "heading": "Event Overview",
           "images": [],
           "items": [
             {
@@ -1131,7 +1131,7 @@
             },
             {
               "kind": "text",
-              "text": "Note that there is an in-game rate-up for mutations as you grow event plants; certain breakpoints give you bonuses to mutations."
+              "text": "Note that there is an in-game rate-up for mutations, Season Crop Mutation Bonus . Certain breakpoints of event plants grown give you bonuses to mutation odd. Friend tills do not increase the Season Crop Mutation Bonus count."
             }
           ]
         },

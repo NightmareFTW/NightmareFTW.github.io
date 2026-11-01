@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-31T05:24:54.272Z",
+  "updated": "2026-11-01T05:25:12.671Z",
   "source": "https://wiki.aniimo.com/",
   "count": 86,
   "elements": [
@@ -63,15 +63,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005304_Feature_10503_Icon.png",
-          "name": "Scorching Flames",
-          "description": "Increases damage dealt to elementally countered targets by 25%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500080_Icon.png",
             "name": "Fire Kick",
@@ -83,7 +77,7 @@
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10800280_Icon.png",
             "name": "Pebble Kick",
-            "description": "Jumps up to dodge an attack, allowing broken stones to swirl around it before diving down and dealing damage to targets around the landing point. A successful dodge also deals 120% damage and inflicts Blockade on hit targets for 8s.",
+            "description": "Jumps up to dodge an attack, allowing broken stones to swirl around it before diving down and dealing damage to targets around the landing point. A successful dodge also deals 120% damage and inflicts [Lockdown] on hit targets for 8s.",
             "power": "40",
             "cost": null,
             "type": "Physical"
@@ -97,7 +91,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500000_Icon.png",
             "name": "ATK",
@@ -195,15 +189,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005304_Feature_10503_Icon.png",
-          "name": "Scorching Flames",
-          "description": "Increases damage dealt to elementally countered targets by 25%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500080_Icon.png",
             "name": "Fire Kick",
@@ -215,7 +203,7 @@
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10800280_Icon.png",
             "name": "Pebble Kick",
-            "description": "Jumps up to dodge an attack, allowing broken stones to swirl around it before diving down and dealing damage to targets around the landing point. A successful dodge also deals 120% damage and inflicts Blockade on hit targets for 8s.",
+            "description": "Jumps up to dodge an attack, allowing broken stones to swirl around it before diving down and dealing damage to targets around the landing point. A successful dodge also deals 120% damage and inflicts [Lockdown] on hit targets for 8s.",
             "power": "40",
             "cost": null,
             "type": "Physical"
@@ -229,7 +217,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500000_Icon.png",
             "name": "ATK",
@@ -326,15 +314,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005304_Feature_10503_Icon.png",
-          "name": "Scorching Flames",
-          "description": "Increases damage dealt to elementally countered targets by 25%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500080_Icon.png",
             "name": "Fire Kick",
@@ -346,7 +328,7 @@
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10800280_Icon.png",
             "name": "Pebble Kick",
-            "description": "Jumps up to dodge an attack, allowing broken stones to swirl around it before diving down and dealing damage to targets around the landing point. A successful dodge also deals 120% damage and inflicts Blockade on hit targets for 8s.",
+            "description": "Jumps up to dodge an attack, allowing broken stones to swirl around it before diving down and dealing damage to targets around the landing point. A successful dodge also deals 120% damage and inflicts [Lockdown] on hit targets for 8s.",
             "power": "40",
             "cost": null,
             "type": "Physical"
@@ -376,7 +358,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500120_Icon.png",
             "name": "Falling Star",
@@ -479,15 +461,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005503_Feature_105502_Icon.png",
-          "name": "Full Energy",
-          "description": "After using 8 basic attacks in battle, Inferlupa enters Full Energy, enhancing its next skill. Damage dealt by that skill is treated as basic attack damage."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005500_Skill_10500730_Icon.png",
             "name": "Blazing Wolf Assault",
@@ -521,7 +497,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -617,15 +593,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1001200_Feature_10175_Icon.png",
-          "name": "Grand Sorcerer",
-          "description": "For 5s after using a skill, basic attack hits deal additional damage equal to 6 Might."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1001100_Skill_11100011_Icon.png",
             "name": "Shooting Stars",
@@ -643,7 +613,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -721,15 +691,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1001200_Feature_10175_Icon.png",
-          "name": "Grand Sorcerer",
-          "description": "For 5s after using a skill, basic attack hits deal additional damage equal to 6 Might."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1001200_Skill_11100040_Icon.png",
             "name": "Shadow Magic",
@@ -771,7 +735,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1001200_Skill_11100070_Icon.png",
             "name": "Comet Aureus",
@@ -854,15 +818,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018401_Feature_11873_Icon.png",
-          "name": "Band Member",
-          "description": "When switching Aniimo in battle, restores 20 EP to the next Chirpi family member switched in. Triggers once every 20s at most."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018400_Skill_10600600_Icon.png",
             "name": "Leaf Tornado",
@@ -904,7 +862,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -1000,15 +958,9 @@
         "name": "Take Off",
         "description": "Enters the Flying state to evade attacks from ground enemies. Takes more DMG while airborne."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018401_Feature_11873_Icon.png",
-          "name": "Band Member",
-          "description": "When switching Aniimo in battle, restores 20 EP to the next Chirpi family member switched in. Triggers once every 20s at most."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018400_Skill_10600600_Icon.png",
             "name": "Leaf Tornado",
@@ -1050,7 +1002,7 @@
             "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018400_Skill_10900290_Icon.png",
             "name": "Zephyr’s Breath",
@@ -1151,15 +1103,9 @@
         "name": "Take Off",
         "description": "Enters the Flying state to evade attacks from ground enemies. Takes more DMG while airborne."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018502_Feature_11874_Icon.png",
-          "name": "Air Superiority",
-          "description": "Increases Crit Rate by 20% while flying."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018500_Skill_10400300_Icon.png",
             "name": "Lightning Splitter",
@@ -1209,7 +1155,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -1306,15 +1252,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018700_Feature_118701_Icon.png",
-          "name": "Victory Concerto",
-          "description": "While shielded, BREAK efficiency +40%.When triggering BREAK, plays [Concerto], reducing the whole team’s stamina cost by 30%.When you have 3 Movement-series buffs, increases all Movement effects by 30%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018400_Skill_10600600_Icon.png",
             "name": "Leaf Tornado",
@@ -1356,7 +1296,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1018400_Skill_10900290_Icon.png",
             "name": "Truce",
@@ -1457,15 +1397,9 @@
         "name": "Blooming",
         "description": "Flowers bloom wherever it dances."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1021106_Feature_121102_Icon.png",
-          "name": "Disco Aniimo",
-          "description": "While on Turf, Damage Amp increases by 30%. After entering battle, each skill hit grants 1 [Dance Power]. Hitting multiple targets does not grant extra [Dance Power]. At 24, the next skill costs no EP."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1021100_Skill_10600913_Icon.png",
             "name": "Floral Storm",
@@ -1483,7 +1417,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032400_Skill_14200000_Icon.png",
             "name": "ATK",
@@ -1562,15 +1496,9 @@
         "name": "Blooming",
         "description": "Flowers bloom wherever it dances."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1021106_Feature_121102_Icon.png",
-          "name": "Disco Aniimo",
-          "description": "While on Turf, Damage Amp increases by 30%. After entering battle, each skill hit grants 1 [Dance Power]. Hitting multiple targets does not grant extra [Dance Power]. At 24, the next skill costs no EP."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016100_Skill_10600520_Icon.png",
             "name": "Focused Beam",
@@ -1596,7 +1524,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1021200_Skill_10600930_Icon.png",
             "name": "Dancing Petals",
@@ -1679,15 +1607,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004102_Feature_10402_Icon.png",
-          "name": "Water Spirit",
-          "description": "While in water terrain, reduces the EP cost of all skills by 16%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004100_Skill_10300040_Icon.png",
             "name": "Healing Water",
@@ -1713,7 +1635,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -1805,15 +1727,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004102_Feature_10402_Icon.png",
-          "name": "Water Spirit",
-          "description": "While in water terrain, reduces the EP cost of all skills by 16%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004100_Skill_10300040_Icon.png",
             "name": "Healing Water",
@@ -1839,7 +1755,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -1932,15 +1848,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004102_Feature_10402_Icon.png",
-          "name": "Water Spirit",
-          "description": "While in water terrain, reduces the EP cost of all skills by 16%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004100_Skill_10300040_Icon.png",
             "name": "Healing Water",
@@ -1982,7 +1892,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -2079,15 +1989,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004500_Feature_10473_Icon.png",
-          "name": "Power of Nature",
-          "description": "While off field, creates a patch of Turf under a teammate after they cast 3 skills."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004500_Skill_10600301_Icon.png",
             "name": "Vitality Blooms",
@@ -2113,7 +2017,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1004500_Skill_10600420_Icon.png",
             "name": "Lotus Bloom",
@@ -2215,15 +2119,9 @@
         "name": "Puff Up",
         "description": "Puffs up, allowing it to jump higher and perform one dash while airborne."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026201_Feature_12603_Icon.png",
-          "name": "Shrouded in Mist",
-          "description": "Gains 1 stack after being off the field for 5s or casting a basic attack. At 4 stacks, enters [Shrouded in Mist] state. Casting a skill consumes this state to enhance the skill’s effects."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_10900250_Icon.png",
             "name": "Cloud Orb",
@@ -2249,7 +2147,7 @@
             "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -2334,18 +2232,12 @@
       },
       "mobility": {
         "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026201_Skill_9400130_Icon.png",
-        "name": "Cloudwalk",
-        "description": "Floats freely among the clouds."
+        "name": "Cloud Float",
+        "description": "Float freely among the clouds."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026201_Feature_12603_Icon.png",
-          "name": "Shrouded in Mist",
-          "description": "Gains 1 stack after being off the field for 5s or casting a basic attack. At 4 stacks, enters [Shrouded in Mist] state. Casting a skill consumes this state to enhance the skill’s effects."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_10900260_Icon.png",
             "name": "Nimbi Burst",
@@ -2387,7 +2279,7 @@
             "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_10900270_Icon.png",
             "name": "Collectible Drop",
@@ -2477,15 +2369,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026300_Feature_126301_Icon.png",
-          "name": "Counting Sheep",
-          "description": "Every 10s, the next skill applies 1 stack of [Drowsiness] to the target. At 3 stacks, the target enters [Nightmare] for 20s. Targets in [Nightmare] have their Dark Resistance reduced by 27% and cannot move or cast skills for 3s. Taking damage removes the control effect."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026300_Skill_11200360_Icon.png",
             "name": "Nimbi Attack",
@@ -2511,7 +2397,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -2603,15 +2489,9 @@
         "name": "Dig In",
         "description": "Roots firmly into the ground."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020101_Feature_120101_Icon.png",
-          "name": "Energized",
-          "description": "For every 1,000 max HP, increases BREAK damage by 2%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020100_Skill_10800290_Icon.png",
             "name": "Gravel Tackle",
@@ -2637,7 +2517,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032400_Skill_14200000_Icon.png",
             "name": "ATK",
@@ -2728,17 +2608,11 @@
         "name": "Luminous Seed",
         "description": "Throws luminous seeds that light up the surrounding area when they land."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020300_Feature_12074_Icon.png",
-          "name": "Prank",
-          "description": "Every 18s, the next skill applies [Curse] to enemies hit for 10s. Dark basic attacks restore 0.4 EP when hitting enemies with [Curse]."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1063300_Skill_10200440_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020300_Skill_11200193_Icon.png",
             "name": "Malicious Outburst",
             "description": "Releases a wide-area energy burst around the target, dealing damage to targets hit and reducing subsequent shield values gained by 44% for 20s.",
             "power": "82",
@@ -2770,7 +2644,7 @@
             "type": "Magic"
           },
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1063300_Skill_10200440_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020300_Skill_11200193_Icon.png",
             "name": "Oozing Malice",
             "description": "Releases an energy shock wave around the target, dealing damage to enemies hit and reducing their healing received by 44% for 20s.",
             "power": "82",
@@ -2778,7 +2652,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -2868,15 +2742,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020701_Feature_120701_Icon.png",
-          "name": "Prank Master",
-          "description": "Increases BREAK damage by 2% for every 1,000 max HP. Upon entering battle, summons 1 Hummin to assist. An additional Hummin is summoned every 10s, up to a maximum of 3."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020700_Skill_10800111_Icon.png",
             "name": "Draw Nourishment",
@@ -2910,7 +2778,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020700_Skill_10600260_Icon.png",
             "name": "Breaking Roar",
@@ -3003,15 +2871,9 @@
         "name": "Tunnel",
         "description": "Enters the Tunneling state, becoming immune to ranged attacks while continuously consuming stamina, but can be knocked into the air by pound skills."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016101_Feature_116101_Icon.png",
-          "name": "Stealth",
-          "description": "Builds Momentum when dealing damage, up to 6 stacks. Momentum gain is doubled while tunneling. At max stacks, BREAK efficiency increases by 30% for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016100_Skill_10800320_Icon.png",
             "name": "The Luminus Gust",
@@ -3037,7 +2899,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_14300000_Icon.png",
             "name": "ATK",
@@ -3127,15 +2989,9 @@
         "name": "Tunnel",
         "description": "Enters the Tunneling state, becoming immune to ranged attacks while continuously consuming stamina, but can be knocked into the air by pound skills."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016101_Feature_116101_Icon.png",
-          "name": "Stealth",
-          "description": "Builds Momentum when dealing damage, up to 6 stacks. Momentum gain is doubled while tunneling. At max stacks, BREAK efficiency increases by 30% for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016100_Skill_10800320_Icon.png",
             "name": "The Luminus Gust",
@@ -3169,7 +3025,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016200_Skill_10800070_Icon.png",
             "name": "Quake Impact",
@@ -3263,15 +3119,9 @@
         "name": "Tunnel",
         "description": "Enters the Tunneling state, becoming immune to ranged attacks while continuously consuming stamina, but can be knocked into the air by pound skills."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016300_Feature_116306_Icon.png",
-          "name": "Frostbite Sunder",
-          "description": "Basic attacks apply [Ice Debuff]. Deals 35% extra BREAK to targets with more than 5 stacks of [Ice Debuff]."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016300_Skill_10200130_Icon.png",
             "name": "Ice Spikes",
@@ -3297,7 +3147,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1016300_Skill_10200150_Icon.png",
             "name": "Freezing Claws",
@@ -3382,15 +3232,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1033302_Feature_133303_Icon.png",
-          "name": "Blazing Flames",
-          "description": "Skills inflict [Fire Debuff] on the target. [Trick Fire Ring] applies 4 stacks, and [Fire Orb] applies 3 stacks. Also, permanently has 20 stacks of [Fire Debuff]."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1033300_Skill_10500360_Icon.png",
             "name": "Trick Fire Ring",
@@ -3408,7 +3252,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500000_Icon.png",
             "name": "ATK",
@@ -3482,15 +3326,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1033302_Feature_133303_Icon.png",
-          "name": "Blazing Flames",
-          "description": "Skills inflict [Fire Debuff] on the target. [Trick Fire Ring] applies 4 stacks, and [Fire Orb] applies 3 stacks. Also, permanently has 20 stacks of [Fire Debuff]."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1033300_Skill_10500360_Icon.png",
             "name": "Trick Fire Ring",
@@ -3516,7 +3354,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1033300_Skill_10500400_Icon.png",
             "name": "Phantom Flame Cannon",
@@ -3603,15 +3441,9 @@
         "name": "Luminous Prowl",
         "description": "Enters the Cloak state, concealed by pink mist."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1023102_Feature_12371_Icon.png",
-          "name": "Flutter Heal",
-          "description": "When entering battle as the active Aniimo, increases healing by 20%. If off field, appears as a phantom. When other Aniimo cast skills or Ultimates, restores HP equal to 0.5% of max HP."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1023100_Skill_10600110_Icon.png",
             "name": "Purifying Dance",
@@ -3653,7 +3485,7 @@
             "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -3735,15 +3567,9 @@
         "name": "Luminous Prowl",
         "description": "Enters the Cloak state, concealed by pink mist."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1023102_Feature_12371_Icon.png",
-          "name": "Flutter Heal",
-          "description": "When entering battle as the active Aniimo, increases healing by 20%. If off field, appears as a phantom. When other Aniimo cast skills or Ultimates, restores HP equal to 0.5% of max HP."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1023100_Skill_10600110_Icon.png",
             "name": "Purifying Dance",
@@ -3793,7 +3619,7 @@
             "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1023200_Skill_10900430_Icon.png",
             "name": "Help! Gracewing!",
@@ -3874,22 +3700,16 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Feature_144102_Icon.png",
-          "name": "Judgment Storm",
-          "description": "When applies a debuff to a target, Wind damage for the whole team increases by 16% for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10200430_Icon.png",
-            "name": "Ice Arc Strike",
-            "description": "Arc-shaped sweeping attack dealing Ice damage. Enemies hit that are in the [Weakness Mark] state are additionally afflicted with [Frozen] for 2.5s.",
-            "power": "20",
-            "cost": "10",
-            "type": "Physical"
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10900480_Icon.png",
+            "name": "Sonar Attack",
+            "description": "Fires a Sonar Attack in a cone, dealing damage 10 times to targets within range. The final hit applies Weakness Mark, reducing the Crit Resistance Rate of targets hit by 12% for 5s.",
+            "power": "30",
+            "cost": "20",
+            "type": "Support"
           },
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10900490_Icon.png",
@@ -3898,25 +3718,9 @@
             "power": "20",
             "cost": "10",
             "type": "Physical"
-          },
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10301540_Icon.png",
-            "name": "Water Arc Strike",
-            "description": "Arc-shaped sweeping attack dealing Water damage. Enemies hit that are in the [Weakness Mark] state have 10 Energy stolen from them.",
-            "power": "20",
-            "cost": "10",
-            "type": "Physical"
-          },
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Skill_10900480_Icon.png",
-            "name": "Sonar Attack",
-            "description": "Fires a Sonar Attack in a cone, dealing damage 10 times to targets within range. The final hit applies Weakness Mark, reducing the Crit Resistance Rate of targets hit by 12% for 5s.",
-            "power": "30",
-            "cost": "20",
-            "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -3951,8 +3755,7 @@
       },
       "habitats": [
         "Cloudreach Falls",
-        "Forest of Falling Stars",
-        "Unknown Area"
+        "Forest of Falling Stars"
       ],
       "resonanceTraining": [
         {
@@ -4119,15 +3922,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032402_Feature_132402_Icon.png",
-          "name": "Sword Dance",
-          "description": "Each skill used grants 1 stack of [Sword Dance], up to 4 stacks, lasting 15s. Each basic attack costs 1 stack of [Sword Dance] to deal 180% extra damage."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032100_Skill_10600370_Icon.png",
             "name": "Thorny Defense",
@@ -4145,7 +3942,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032400_Skill_14200000_Icon.png",
             "name": "ATK",
@@ -4228,15 +4025,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032402_Feature_132402_Icon.png",
-          "name": "Sword Dance",
-          "description": "Each skill used grants 1 stack of [Sword Dance], up to 4 stacks, lasting 15s. Each basic attack costs 1 stack of [Sword Dance] to deal 180% extra damage."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032100_Skill_10600370_Icon.png",
             "name": "Thorny Defense",
@@ -4278,7 +4069,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032300_Skill_10600410_Icon.png",
             "name": "Elegant Waltz",
@@ -4368,15 +4159,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032402_Feature_132402_Icon.png",
-          "name": "Phantom Opening",
-          "description": "When a party member deals basic attack damage, gains 1 stack of [Rose Mark], up to 10 stacks. Each stack of [Rose Mark] reduces Melloblum’s EP cost by 3."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032400_Skill_10600560_Icon.png",
             "name": "Thorny Blessing",
@@ -4410,7 +4195,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032400_Skill_14200000_Icon.png",
             "name": "ATK",
@@ -4500,15 +4285,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1047503_Feature_147102_Icon.png",
-          "name": "Tuning",
-          "description": "Each skill cast grants 1 stack of [Volume], up to 6 stacks. At 6 stacks of [Volume], increases Crit Rate by 20% for 15s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1047500_Skill_10200380_Icon.png",
             "name": "Frost Strike",
@@ -4534,7 +4313,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032400_Skill_14200000_Icon.png",
             "name": "ATK",
@@ -4616,15 +4395,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1047503_Feature_147102_Icon.png",
-          "name": "Tuning",
-          "description": "Each skill cast grants 1 stack of [Volume], up to 6 stacks. At 6 stacks of [Volume], increases Crit Rate by 20% for 15s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1047500_Skill_10600620_Icon.png",
             "name": "Wild Show",
@@ -4658,7 +4431,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1032400_Skill_14200000_Icon.png",
             "name": "ATK",
@@ -4748,15 +4521,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1035100_Feature_13522_Icon.png",
-          "name": "Dangerous Fragrance",
-          "description": "When deals damage to a target, reduces the target’s Dark Resistance by 12% for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1035100_Skill_11201200_Icon.png",
             "name": "Blossoming Moment",
@@ -4774,7 +4541,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -4854,15 +4621,9 @@
         "name": "Take Off",
         "description": "Enters the Flying state to evade attacks from ground enemies. Takes more DMG while airborne."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1035100_Feature_13522_Icon.png",
-          "name": "Dangerous Fragrance",
-          "description": "When deals damage to a target, reduces the target’s Dark Resistance by 12% for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1022200_Skill_11200170_Icon.png",
             "name": "Withering Bloom",
@@ -4880,7 +4641,7 @@
             "type": "Magic"
           },
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1063300_Skill_10200440_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020300_Skill_11200193_Icon.png",
             "name": "Secret Fragrance Mark",
             "description": "Deals damage to targets in front and applies Secret Fragrance for 20s. While the marks are active, Dark-type basic attacks deal 50% extra damage to the targets.",
             "power": "30",
@@ -4888,7 +4649,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1020300_Skill_11200230_Icon.png",
             "name": "Fragrance Bomb",
@@ -4975,15 +4736,9 @@
         "name": "Cloak",
         "description": "Enter Cloak state."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Feature_10372_Icon.png",
-          "name": "Battle Fervor",
-          "description": "Defeating a target grants 1 stack of Battlelust, increasing damage by 25% for 20s. Stacks up to 2 times."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200030_Icon.png",
             "name": "Scythe Dance",
@@ -5009,7 +4764,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -5095,15 +4850,9 @@
         "name": "Cloak",
         "description": "Enter Cloak state."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Feature_10372_Icon.png",
-          "name": "Battle Fervor",
-          "description": "Defeating a target grants 1 stack of Battlelust, increasing damage by 25% for 20s. Stacks up to 2 times."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200011_Icon.png",
             "name": "Dark Soul",
@@ -5145,7 +4894,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -5239,15 +4988,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013102_Feature_11372_Icon.png",
-          "name": "Biting Wind",
-          "description": "When dealing damage to targets with more than 5 stacks of [Ice Debuff], increases Crit Rate of that damage by 15%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013100_Skill_10200081_Icon.png",
             "name": "Ice Strikes",
@@ -5273,7 +5016,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013100_Skill_10200000_Icon.png",
             "name": "ATK",
@@ -5361,15 +5104,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013102_Feature_11372_Icon.png",
-          "name": "Biting Wind",
-          "description": "When dealing damage to targets with more than 5 stacks of [Ice Debuff], increases Crit Rate of that damage by 15%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013100_Skill_10200081_Icon.png",
             "name": "Ice Strikes",
@@ -5395,7 +5132,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013100_Skill_10200000_Icon.png",
             "name": "ATK",
@@ -5483,15 +5220,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013102_Feature_11372_Icon.png",
-          "name": "Biting Wind",
-          "description": "When dealing damage to targets with more than 5 stacks of [Ice Debuff], increases Crit Rate of that damage by 15%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013300_Skill_10200100_Icon.png",
             "name": "Frost Tail Strike",
@@ -5533,7 +5264,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1013300_Skill_10200090_Icon.png",
             "name": "Ice Tornado",
@@ -5628,15 +5359,9 @@
         "name": "High Jump",
         "description": "Allows you to perform a higher jump."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1022100_Feature_12222_Icon.png",
-          "name": "Power Sustain",
-          "description": "After skills land 6 critical hits, becomes [Overcharged], immediately gaining a shield equal to 5% HP. All skills cost 12 less EP, but UP cannot be gained. Lasts 6s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1022100_Skill_10400210_Icon.png",
             "name": "High-Voltage Dash",
@@ -5654,7 +5379,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -5740,15 +5465,9 @@
         "name": "High Jump",
         "description": "Allows you to perform a higher jump."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1022100_Feature_12222_Icon.png",
-          "name": "Power Sustain",
-          "description": "After skills land 6 critical hits, becomes [Overcharged], immediately gaining a shield equal to 5% HP. All skills cost 12 less EP, but UP cannot be gained. Lasts 6s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1022200_Skill_10400211_Icon.png",
             "name": "Lightning Cross",
@@ -5782,7 +5501,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -5872,31 +5591,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005304_Feature_10503_Icon.png",
-          "name": "Raging Fire",
-          "description": "After using a skill, the next basic attack used within 10s will directly release the final hit of the basic attack, and its Might is increased from 4 to 25."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_10500490_Icon.png",
-            "name": "Pinecone Bomb",
-            "description": "Throws a flaming pinecone that bursts on impact, scattering an additional 3 pinecone fragments in all directions. Targets hit are marked with [Pinecone].",
-            "power": "38",
-            "cost": "15",
-            "type": "Physical"
-          },
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_10900640_Icon.png",
-            "name": "1697050901",
-            "description": "1194069327",
-            "power": "45",
-            "cost": "15",
-            "type": "Physical"
-          },
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_10500500_Icon.png",
             "name": "Heavy Tail Strike",
@@ -5906,15 +5603,15 @@
             "type": "Physical"
           },
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_11200620_Icon.png",
-            "name": "1290507190",
-            "description": "1193278891",
-            "power": "45",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_10500490_Icon.png",
+            "name": "Pinecone Bomb",
+            "description": "Throws a flaming pinecone that bursts on impact, scattering an additional 3 pinecone fragments in all directions. Targets hit are marked with [Pinecone].",
+            "power": "38",
             "cost": "15",
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500000_Icon.png",
             "name": "ATK",
@@ -5989,36 +5686,14 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005304_Feature_10503_Icon.png",
-          "name": "Raging Fire",
-          "description": "After using a skill, the next basic attack used within 10s will directly release the final hit of the basic attack, and its Might is increased from 4 to 25."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_11200620_Icon.png",
-            "name": "1290507190",
-            "description": "1193278891",
-            "power": "45",
-            "cost": "15",
-            "type": "Physical"
-          },
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_10500490_Icon.png",
             "name": "Pinecone Bomb",
             "description": "Throws a flaming pinecone that bursts on impact, scattering an additional 3 pinecone fragments in all directions. Targets hit are marked with [Pinecone].",
             "power": "38",
-            "cost": "15",
-            "type": "Physical"
-          },
-          {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1051100_Skill_10900640_Icon.png",
-            "name": "1697050901",
-            "description": "1194069327",
-            "power": "45",
             "cost": "15",
             "type": "Physical"
           },
@@ -6039,7 +5714,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500000_Icon.png",
             "name": "ATK",
@@ -6122,15 +5797,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017200_Feature_11771_Icon.png",
-          "name": "Appeal",
-          "description": "When entering battle, if the party has an opposite-sex Susuta family member, increases own BREAK efficiency by 30% for 15s. Cooldown: 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017200_Skill_10300111_Icon.png",
             "name": "Water Cannon",
@@ -6148,7 +5817,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -6238,15 +5907,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017200_Feature_11771_Icon.png",
-          "name": "Appeal",
-          "description": "When entering battle, if the party has an opposite-sex Susuta family member, increases own BREAK efficiency by 30% for 15s. Cooldown: 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017200_Skill_10300111_Icon.png",
             "name": "Water Cannon",
@@ -6264,7 +5927,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -6354,15 +6017,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017300_Feature_11731_Icon.png",
-          "name": "Radiant Charm",
-          "description": "Increases Water damage by16% for all opposite-sex Aniimo in the party."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017200_Skill_10300111_Icon.png",
             "name": "Water Cannon",
@@ -6396,7 +6053,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -6492,15 +6149,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017200_Feature_11771_Icon.png",
-          "name": "Appeal",
-          "description": "When entering battle, if the party has an opposite-sex Susuta family member, increases own BREAK efficiency by 30% for 15s. Cooldown: 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017200_Skill_10300111_Icon.png",
             "name": "Water Cannon",
@@ -6518,7 +6169,7 @@
             "type": "Physical"
           },
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019400_Skill_10300080_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017400_Skill_10300083_Icon.png",
             "name": "Hydro Roll",
             "description": "Rolls continuously to ram targets while draining stamina. If cast near a water environment, absorbs water to increase BREAK Efficiency by 30% for 15s.",
             "power": "18",
@@ -6534,7 +6185,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017400_Skill_10300160_Icon.png",
             "name": "Home Run",
@@ -6629,15 +6280,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019401_Feature_119403_Icon.png",
-          "name": "Tidal Heart",
-          "description": "While in water terrain or after absorbing water, increases Water damage by 20% for 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019400_Skill_10300090_Icon.png",
             "name": "Torrent Slam",
@@ -6647,7 +6292,7 @@
             "type": "Physical"
           },
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019400_Skill_10300080_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017400_Skill_10300083_Icon.png",
             "name": "Hydro Roll",
             "description": "Continuously consumes stamina to roll forward and ram targets, dealing damage and restoring stamina over time. Creates a puddle when the roll ends. Stamina can be restored this way at most once every 3s.",
             "power": "83",
@@ -6655,7 +6300,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -6736,15 +6381,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019401_Feature_119403_Icon.png",
-          "name": "Tidal Heart",
-          "description": "While in water terrain or after absorbing water, increases Water damage by 20% for 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019400_Skill_10300090_Icon.png",
             "name": "Torrent Slam",
@@ -6754,7 +6393,7 @@
             "type": "Physical"
           },
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019400_Skill_10300080_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017400_Skill_10300083_Icon.png",
             "name": "Hydro Roll",
             "description": "Continuously consumes stamina to roll forward and ram targets, dealing damage and restoring stamina over time. Creates a puddle when the roll ends. Stamina can be restored this way at most once every 3s.",
             "power": "83",
@@ -6762,7 +6401,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -6842,17 +6481,11 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019401_Feature_119403_Icon.png",
-          "name": "Tidal Heart",
-          "description": "While in water terrain or after absorbing water, increases Water Elemental Boost by 25% for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1061300_Skill_10301640_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019400_Skill_10301330_Icon.png",
             "name": "Flowing Water Slash",
             "description": "Gathers water and unleashes 3 consecutive slashes. Hitting the target with all slashes triggers an additional powerful slash. When near a water environment, absorbs water and empowers the slashes into water blade slashes, dealing additional damage equal to 30% Might.",
             "power": "70",
@@ -6884,7 +6517,7 @@
             "type": "Physical"
           },
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1019400_Skill_10300080_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1017400_Skill_10300083_Icon.png",
             "name": "Hydro Roll",
             "description": "Continuously consumes stamina to roll forward and ram targets, dealing damage and restoring stamina over time. Creates a puddle when the roll ends. Stamina can be restored this way at most once every 3s.",
             "power": "83",
@@ -6892,7 +6525,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -6985,15 +6618,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1045300_Feature_145301_Icon.png",
-          "name": "Overloaded Engine",
-          "description": "Moving and using skills builds [Overload Energy]. When [Overload Energy] is full, the next skill gains 40% bonus damage."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1045300_Skill_10800250_Icon.png",
             "name": "Mud Ball Drift",
@@ -7019,7 +6646,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_14300000_Icon.png",
             "name": "ATK",
@@ -7105,15 +6732,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1045300_Feature_145301_Icon.png",
-          "name": "Overloaded Engine",
-          "description": "Moving and using skills builds [Overload Energy]. When fully charged, the next skill deals 40% extra damage and immediately brings [Sandstorm Spin] to maximum speed."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1045300_Skill_11200640_Icon.png",
             "name": "Darkwheel Slash",
@@ -7155,7 +6776,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1045300_Skill_10800270_Icon.png",
             "name": "Mudwheel Ashburst",
@@ -7245,15 +6866,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1045401_Feature_145402_Icon.png",
-          "name": "Rock Empowerment",
-          "description": "[Rock Piles] created by Bouldus can be destroyed by Waleetle’s [Stone Ball Drift], releasing shock waves and applying [Disintegration] to the target. [Disintegration]: Each stack reduces Earth Resistance by 6% and Movement Speed by 5% for 20s, up to 6 stacks."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_10800330_Icon.png",
             "name": "Clay Ball",
@@ -7287,7 +6902,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1045400_Skill_10800522_Icon.png",
             "name": "Boulder Blast",
@@ -7381,15 +6996,9 @@
         "name": "Scurry",
         "description": "Rushes forward a short distance."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1029100_Feature_12932_Icon.png",
-          "name": "Thunderbond",
-          "description": "When this Aniimo’s attack hits a target, it gains 1 stack of [Thunderbond]. At 30 stacks, it enters the [Thunderwing Stance] when using its next skill or Ultimate. Lasts 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1029100_Skill_10400360_Icon.png",
             "name": "Thunder Field",
@@ -7407,7 +7016,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -7486,15 +7095,9 @@
         "name": "Scurry",
         "description": "Rushes forward a short distance."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1029100_Feature_12932_Icon.png",
-          "name": "Thunderbond",
-          "description": "When this Aniimo’s attack hits a target, it gains 1 stack of [Thunderbond]. At 30 stacks, it enters the [Thunderwing Stance] when using its next skill or Ultimate. Lasts 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1029100_Skill_10400360_Icon.png",
             "name": "Thunder Field",
@@ -7528,7 +7131,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -7612,15 +7215,9 @@
         "name": "Detection",
         "description": "Gives you a special detective vision that allows you to see metal objects and cloaked Aniimo nearby."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002102_Feature_102101_Icon.png",
-          "name": "Guardbreak Resonance",
-          "description": "Increases BREAK by 0."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002100_Skill_10700356_Icon.png",
             "name": "Ballistic Guard",
@@ -7646,7 +7243,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -7729,15 +7326,9 @@
         "name": "Hookshot",
         "description": "Stretch your arm toward the center of view. Pull yourself to walls or enemies on hit. Hold skill button to aim."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002602_Feature_10232_Icon.png",
-          "name": "Pursuit",
-          "description": "When dealing damage to targets in Controlled or Break State, increases an additional 30% Damage Amp."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1059300_Skill_10301220_Icon.png",
             "name": "Weakening Smash",
@@ -7771,7 +7362,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002600_Skill_11200160_Icon.png",
             "name": "Ironclad Armament",
@@ -7860,15 +7451,9 @@
         "name": "Detection",
         "description": "Gives you a special detective vision that allows you to see metal objects and cloaked Aniimo nearby."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002102_Feature_102101_Icon.png",
-          "name": "Guardbreak Resonance",
-          "description": "Increases BREAK by 0."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002100_Skill_11200260_Icon.png",
             "name": "Guardbreak Slam",
@@ -7902,7 +7487,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003200_Skill_11200000_Icon.png",
             "name": "ATK",
@@ -7996,15 +7581,9 @@
         "name": "Bilateral",
         "description": "Enters Bilateral mode to see a different perspective."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002401_Feature_10281_Icon.png",
-          "name": "Counter Strike",
-          "description": "After being attacked, increases BREAK efficiency by 25% for 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002400_Skill_10900200_Icon.png",
             "name": "Wind Tackle",
@@ -8022,7 +7601,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -8093,15 +7672,9 @@
         "name": "Bilateral",
         "description": "Enters Bilateral mode to see a different perspective."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002401_Feature_10281_Icon.png",
-          "name": "Counter Strike",
-          "description": "After being attacked, increases BREAK efficiency by 25% for 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002400_Skill_10900200_Icon.png",
             "name": "Wind Tackle",
@@ -8119,7 +7692,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1026200_Skill_14400000_Icon.png",
             "name": "ATK",
@@ -8205,15 +7778,9 @@
         "name": "Bilateral",
         "description": "Enters Bilateral mode to see a different perspective."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002401_Feature_10281_Icon.png",
-          "name": "Counter Strike",
-          "description": "After being attacked, increases BREAK efficiency by 25% for 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002400_Skill_10900200_Icon.png",
             "name": "Wind Tackle",
@@ -8239,7 +7806,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002300_Skill_10700020_Icon.png",
             "name": "Skyfall",
@@ -8333,15 +7900,9 @@
         "name": "Bilateral",
         "description": "Enters Bilateral mode to see a different perspective."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002503_Feature_10252_Icon.png",
-          "name": "Power of Fire",
-          "description": "Deals 30% extra damage to targets with more than 5 stacks of Fire Debuff."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1002500_Skill_10500021_Icon.png",
             "name": "Fiery Charge",
@@ -8375,7 +7936,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028300_Skill_10500440_Icon.png",
             "name": "Hot Breath",
@@ -8467,15 +8028,9 @@
         "name": "Head Hammer",
         "description": "Uses Head Hammer to deliver a powerful impact."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1050100_Feature_150102_Icon.png",
-          "name": "Raging Rampage",
-          "description": "Builds [Rage] during battle. Basic attacks grant 2 points, every 10 EP spent on skills grants 10, and taking damage grants 2. At 100 points, enters the [Enraged] state.[Enraged] increases own skill damage by 30%, increases the REGEN rate by 25%, and prevents [Rage] gain. Lasts 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1050100_Skill_10800340_Icon.png",
             "name": "Fanatic Clawing",
@@ -8493,7 +8048,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_14300000_Icon.png",
             "name": "ATK",
@@ -8572,15 +8127,9 @@
         "name": "Head Hammer",
         "description": "Uses Head Hammer to deliver a powerful impact."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1050100_Feature_150102_Icon.png",
-          "name": "Raging Rampage",
-          "description": "Builds [Rage] during battle. Basic attacks grant 2 points, every 10 EP spent on skills grants 10, and taking damage grants 2. At 100 points, enters the [Enraged] state.[Enraged] increases own skill damage by 30%, increases the REGEN rate by 25%, and prevents [Rage] gain. Lasts 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1050300_Skill_11200480_Icon.png",
             "name": "Claw of Madness",
@@ -8614,7 +8163,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1050300_Skill_10800430_Icon.png",
             "name": "Rock Smash",
@@ -8701,15 +8250,9 @@
         "name": "Tunnel",
         "description": "Enters the Tunneling state, becoming immune to ranged attacks while continuously consuming stamina, but can be knocked into the air by pound skills."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028400_Feature_12812_Icon.png",
-          "name": "Earth Affinity",
-          "description": "While in [Tunneling] state, can cast skills and deal 20% extra BREAK damage."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028400_Skill_10800140_Icon.png",
             "name": "Earth Spikes",
@@ -8727,7 +8270,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_14300000_Icon.png",
             "name": "ATK",
@@ -8826,15 +8369,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028301_Feature_128301_Icon.png",
-          "name": "Pyro Charge",
-          "description": "After spending a total of 50 EP, gains [Pyro Charge]. Every 2s, applies 1 stack of [Fire Debuff] to nearby targets for 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028300_Skill_10500460_Icon.png",
             "name": "Fiery Punch",
@@ -8852,7 +8389,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500000_Icon.png",
             "name": "ATK",
@@ -8955,15 +8492,9 @@
         "name": "Fast and Furious",
         "description": "Enters Fast and Furious state, increasing movement speed while allowing you to knock away certain obstacles, consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028301_Feature_128301_Icon.png",
-          "name": "Pyro Charge",
-          "description": "After spending a total of 50 EP, gains [Pyro Charge]. Every 2s, applies 1 stack of [Fire Debuff] to nearby targets for 10s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028300_Skill_10500460_Icon.png",
             "name": "Lava Punch",
@@ -8997,7 +8528,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028300_Skill_10500350_Icon.png",
             "name": "Burning Sun",
@@ -9107,15 +8638,9 @@
         "name": "Tunnel",
         "description": "Enters the Tunneling state, becoming immune to ranged attacks while continuously consuming stamina, but can be knocked into the air by pound skills."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028400_Feature_12812_Icon.png",
-          "name": "Earth Affinity",
-          "description": "While in [Tunneling] state, can cast skills and deal 20% extra BREAK damage."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028400_Skill_10800140_Icon.png",
             "name": "Earth Spikes",
@@ -9133,7 +8658,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_14300000_Icon.png",
             "name": "ATK",
@@ -9233,15 +8758,9 @@
         "name": "Tunnel",
         "description": "Enters the Tunneling state, becoming immune to ranged attacks while continuously consuming stamina, but can be knocked into the air by pound skills."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028400_Feature_12812_Icon.png",
-          "name": "Earth Affinity",
-          "description": "While in [Tunneling] state, can cast skills and deal 20% extra BREAK damage."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028400_Skill_10800140_Icon.png",
             "name": "Earth Spikes",
@@ -9267,9 +8786,9 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
-            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1059300_Skill_10800760_Icon.png",
+            "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1028500_Skill_10800210_Icon.png",
             "name": "Meteor Shower",
             "description": "Unleashes all the energy stored in the minerals on its back into the sky, where it transforms into meteors that rain down on targets.",
             "power": "175",
@@ -9371,15 +8890,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Feature_143301_Icon.png",
-          "name": "Potent Erosion",
-          "description": "When a skill or an Ultimate hits a target, reduces the target’s Earth Resistance by 2% for 20s. Stacks up to 10 times."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_10800360_Icon.png",
             "name": "Shielding Smoke",
@@ -9397,7 +8910,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_14300000_Icon.png",
             "name": "ATK",
@@ -9472,15 +8985,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Feature_143301_Icon.png",
-          "name": "Potent Erosion",
-          "description": "When a skill or an Ultimate hits a target, reduces the target’s Earth Resistance by 2% for 20s. Stacks up to 10 times."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_10800360_Icon.png",
             "name": "Shielding Smoke",
@@ -9506,7 +9013,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1043100_Skill_14300000_Icon.png",
             "name": "ATK",
@@ -9593,15 +9100,9 @@
         "name": "Glow",
         "description": "Emits light from above to illuminate surroundings."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014302_Feature_11431_Icon.png",
-          "name": "Arc Surge",
-          "description": "Teammates who receive this Aniimo’s skill buff also gain a 12% Lightning boost for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_10400100_Icon.png",
             "name": "Swift Retreat",
@@ -9619,7 +9120,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -9706,15 +9207,9 @@
         "name": "Glow",
         "description": "Emits light from above to illuminate surroundings."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014302_Feature_11431_Icon.png",
-          "name": "Arc Surge",
-          "description": "Teammates who receive this Aniimo’s skill buff also gain a 12% Lightning boost for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_10400100_Icon.png",
             "name": "Swift Retreat",
@@ -9732,7 +9227,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -9819,15 +9314,9 @@
         "name": "Glow",
         "description": "Emits light from above to illuminate surroundings."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014302_Feature_11431_Icon.png",
-          "name": "Arc Surge",
-          "description": "Teammates who receive this Aniimo’s skill buff also gain a 12% Lightning boost for 20s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_11300120_Icon.png",
             "name": "Healing Impact",
@@ -9869,7 +9358,7 @@
             "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_10400150_Icon.png",
             "name": "Self-Destruction",
@@ -9964,15 +9453,9 @@
         "name": "Floaty Bubble",
         "description": "Scrubs itself to create a large bubble around itself."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1048100_Feature_148301_Icon.png",
-          "name": "Bubble",
-          "description": "Every 12s, enters Bathing. The next skill cast creates a puddle."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1048100_Skill_10301050_Icon.png",
             "name": "Here Comes the Bubble",
@@ -9990,7 +9473,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1054300_Skill_10300000_Icon.png",
             "name": "ATK",
@@ -10069,15 +9552,9 @@
         "name": "Floaty Bubble",
         "description": "Scrubs itself to create a large bubble around itself."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1048100_Feature_148301_Icon.png",
-          "name": "Bubble",
-          "description": "Every 12s, enters Bathing. The next skill cast creates a puddle."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1048300_Skill_10301060_Icon.png",
             "name": "Bubbles",
@@ -10103,7 +9580,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1062300_Skill_10301340_Icon.png",
             "name": "Crazy Bubbles",
@@ -10183,15 +9660,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1012200_Feature_11272_Icon.png",
-          "name": "Power Surge",
-          "description": "When casting a skill with less than 20 EP, restores 4 EP."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1071300_Skill_10400490_Icon.png",
             "name": "Disruptive Current",
@@ -10217,7 +9688,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -10290,15 +9761,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1047400_Feature_147402_Icon.png",
-          "name": "Spotlight Moment",
-          "description": "The first skill this Aniimo uses within 5s of entering battle does not consume EP. Cooldown: 15s."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1047400_Skill_10400400_Icon.png",
             "name": "Lightning Break",
@@ -10324,7 +9789,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -10416,15 +9881,9 @@
         "name": "Cloak",
         "description": "Enter Cloak state."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003305_Feature_103302_Icon.png",
-          "name": "Electro Stash",
-          "description": "Restores 4 EP when a skill lands a critical hit."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1003300_Skill_10400330_Icon.png",
             "name": "Lightning Blade Storm",
@@ -10458,7 +9917,7 @@
             "type": "Support"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1014300_Skill_14000000_Icon.png",
             "name": "ATK",
@@ -10543,15 +10002,9 @@
         "background": ""
       },
       "mobility": null,
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/6999300_Feature_6999301_Icon.png",
-          "name": "Reliable Fire Companion",
-          "description": "When in a party, increases party 15% Fire Elemental Boost. When Energy is above 40, the effect increases to 20%."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1033300_Skill_10500410_Icon.png",
             "name": "Inspiration",
@@ -10585,7 +10038,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1005300_Skill_10500000_Icon.png",
             "name": "ATK",
@@ -10659,15 +10112,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1037100_Feature_13711_Icon.png",
-          "name": "Lunar Power",
-          "description": "When not attacking with an advantageous element, final damage increases by 30%.Casting a skill or Ultimate grants 4 stacks of [Silver Moon Mark]. Each basic attack hit consumes 1 stack, deals 100% extra damage, and restores 0.5% HP."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1037100_Skill_11300080_Icon.png",
             "name": "Moon Impact",
@@ -10701,7 +10148,7 @@
             "type": "Magic"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1036100_Skill_11300000_Icon.png",
             "name": "ATK",
@@ -10769,15 +10216,9 @@
         "name": "Hustle",
         "description": "Enters the Hustle state to move at high speed by continuously consuming stamina."
       },
-      "traits": [
-        {
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1044300_Feature_144102_Icon.png",
-          "name": "Solar Grace",
-          "description": "When not attacking with an advantageous element, final damage increases by 30%. Every 4 basic attacks grants [Solar Halo], enhancing the next skill."
-        }
-      ],
+      "traits": [],
       "skills": {
-        "Combat": [
+        "Combat Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1036100_Skill_11300040_Icon.png",
             "name": "Light Bombardment",
@@ -10811,7 +10252,7 @@
             "type": "Physical"
           }
         ],
-        "Innate": [
+        "Innate Skills": [
           {
             "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/1036100_Skill_11300000_Icon.png",
             "name": "ATK",

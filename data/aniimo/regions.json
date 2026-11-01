@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-31T05:24:54.990Z",
+  "updated": "2026-11-01T05:25:13.244Z",
   "source": "https://www.aniimo.com/main",
   "mechanicsSource": "https://game8.co/games/Aniimo/archives/618730",
-  "count": 17,
+  "count": 16,
   "regions": [
     {
       "name": "Beast Fang Ridge",
@@ -940,22 +940,6 @@
           "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10142.png",
           "elements": [
             "Electric"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Unknown Area",
-      "description": null,
-      "image": null,
-      "mechanics": [],
-      "creatures": [
-        {
-          "slug": "eko",
-          "name": "Eko",
-          "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10441.png",
-          "elements": [
-            "Wind"
           ]
         }
       ]
