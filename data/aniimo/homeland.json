@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01T05:25:14.592Z",
+  "updated": "2026-11-02T05:25:52.857Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -1131,7 +1131,7 @@
             },
             {
               "kind": "text",
-              "text": "Note that there is an in-game rate-up for mutations, Season Crop Mutation Bonus . Certain breakpoints of event plants grown give you bonuses to mutation odd. Friend tills do not increase the Season Crop Mutation Bonus count."
+              "text": "Note that there is an in-game rate-up for mutations, Season Crop Mutation Bonus. Certain breakpoints of event plants grown give you bonuses to mutation odds. Friend tills do not increase the Season Crop Mutation Bonus count."
             }
           ]
         },
@@ -1150,6 +1150,24 @@
             {
               "kind": "text",
               "text": "That said, don't neglect to craft the other stuff. Have a good stockpile of everything ready for orders. Make sure to do both orders and all daily quests every day to maximize your event currency income. This event is asking a casual 2.3x as many points as the last one did. But if you're gaining all event currency from day 1, you should easily be able to make it."
+            }
+          ]
+        },
+        {
+          "heading": "Today",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Do dailies + orders every day. Stockpile coins."
+            },
+            {
+              "kind": "text",
+              "text": "Dedicate 2 or 4 farm plots to event crops to keep up with orders."
+            },
+            {
+              "kind": "text",
+              "text": "Stockpile Plain Fresh Water, as much as you can. Ideally tens of thousands in reserve by around 2026-11-19, just past the half-way point."
             }
           ]
         }
