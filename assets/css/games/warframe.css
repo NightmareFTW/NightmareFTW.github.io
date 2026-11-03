@@ -233,13 +233,12 @@
 /* Packed tight (the normal 8px .wf-slot-grid gap only, no extra space
    introduced between cards) and capped at 148px per card — any leftover
    room in a wide .wf-loadout-main is centered around the grid (rather
-   than stretched into bigger cards, or left as dead space on one side). */
+   than stretched into bigger cards, or left as dead space on one side).
+   Height isn't pinned — it follows .wf-slot's aspect-ratio like every
+   other slot, so the real (portrait) mod card art it displays still
+   scales proportionally instead of being squashed into a too-short box
+   and spilling its baked-in name/description text past the card edge. */
 .wf-slot-grid-4 { grid-template-columns: repeat(4, minmax(80px, 148px)); justify-content: center; }
-/* Widening the mod card above decouples it from .wf-slot's aspect-ratio
-   (that ratio is tuned for the narrower 108px cap) — pin the height it
-   already had at that cap instead, so cards get wider without also
-   getting taller. */
-.wf-slot-grid-4 .wf-slot, .wf-aura-row .wf-slot { aspect-ratio: auto; height: 157px; }
 /* Must come after the base .wf-slot-grid rule above (same specificity,
    source order decides) — otherwise auto-fill wins on a wide container
    like the full-width mobile layout and the 2 Arcane slots sit side by
