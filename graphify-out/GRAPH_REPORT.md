@@ -1,16 +1,17 @@
-# Graph Report - NightmareFTW.github.io  (2026-09-15)
+# Graph Report - NightmareFTW.github.io  (2026-11-04)
 
 ## Corpus Check
-- 194 files · ~1,645,691 words
+- 252 files · ~975,895 words
 - Verdict: corpus is large enough that graph structure adds value.
+- Unclassified: 4 file(s) not represented in the graph (top: .css 2, (none) 1, .toml 1)
 
 ## Summary
-- 1675 nodes · 2710 edges · 232 communities (117 shown, 115 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 162 edges (avg confidence: 0.66)
+- 2395 nodes · 3774 edges · 276 communities (159 shown, 117 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 180 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6cd7417b`
+- Built from commit: `006cc5f2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,59 +27,59 @@
 - items.js
 - update-news.js
 - gifts.js
-- index.js
+- src/index.js
 - update-outlast.js
-- builds.js
+- cyberpunk-2077/builds.js
 - loadout.js
-- builds.js
+- god-of-war-ragnarok/builds.js
 - update-codes.js
 - friendship.js
-- builds.js
+- expedition-33/builds.js
 - update-demonologist.js
 - update-nte-teams.js
-- missables.js
-- missables.js
-- builds.js
-- missables.js
+- elden-ring/missables.js
+- expedition-33/missables.js
+- far-far-west/builds.js
+- god-of-war-ragnarok/missables.js
 - update-ffw-builds.js
-- builds.js
+- elden-ring/builds.js
 - Expedition 33 Missables Checklist
-- tier-list.js
+- nte/tier-list.js
 - update-ffw-maps.js
 - update-hsr-builds.js
 - update-hsr-teams.js
-- evidence.js
+- demonologist/evidence.js
 - murdoku.js
 - update-marvel-snap.js
 - star-path.js
-- gear-score.js
+- update-epic7.js
 - meta-builds.js
 - trials.js
-- t
-- update-hsr-banners.js
+- engine.js
+- ref_child_process
 - Disney Dreamlight Valley (game hub)
 - maps.js
-- nodes.js
-- builds.js
+- vampire-survivors/weapons.js
+- honkai-star-rail/builds.js
 - ghost-evidence.js
 - drops.js
 - home.js
 - demons.js
-- speed-tuning.js
+- hero.js
 - event-calendar.js
 - warp-calendar.js
-- enemies.js
-- update-drops.js
-- update-marvel-snap-codes.js
+- outlast-trials/enemies.js
+- ref_path
+- ref_fs
 - recipes.js
 - cycles.js
 - checklist.js
 - i18n.js
-- equipment.js
-- equipment.js
+- demonologist/equipment.js
+- phasmophobia/equipment.js
 - game.js
-- damage.js
-- builds.js
+- epic7/heroes.js
+- outlast-trials/builds.js
 - Epic Seven (game hub)
 - update-ravenswatch.js
 - Update Marvel Snap Cards
@@ -194,21 +195,21 @@
 - Warframe Drops Tracker Screenshot
 - Site Favicon / Logo Mark
 - Demonologist (game hub)
-- ddv-catalogue.js
+- ddv-official.js
 - update-animals.js
 - update-starpath.js
 - stamp-assets.js
-- talents.js
+- ravenswatch/talents.js
 - update-the-other-side.js
-- evidence.js
+- the-other-side/evidence.js
 - objects.js
 - profile.js
 - update-vampire-survivors.js
-- heroes.js
+- ravenswatch/heroes.js
 - ghosts.js
-- equipment.js
-- NightmareFTW auth + sync Worker
-- keep.js
+- the-other-side/equipment.js
+- update-aniimo.js
+- builder.js
 - vs-curated-guides.js
 - update-palworld.js
 - deck-builder.js
@@ -220,14 +221,14 @@
 - characters.js
 - pal.js
 - NightmareFTW · Gaming Tools Hub
-- builds.js
+- farever/builds.js
 - breeding.js
 - update-farever.js
-- weapons.js
+- farever/weapons.js
 - update-hsr-events.js
 - pals.js
 - passives.js
-- add-csp.js
+- map.js
 - add-analytics.js
 - Demonologist Wiki
 - updates-carousel.js
@@ -237,39 +238,83 @@
 - Update Warframe Drop Table
 - Update Neverness to Everness Teams
 - Update Dreamlight Valley Data
-- tier-list.js
+- nodes.js
 - weapon.js
-- enemies.js
+- vampire-survivors/enemies.js
 - vs-xref.js
 - arcana.js
 - passive.js
 - enemy.js
 - artifacts.js
 - artifact.js
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- steps
+- aniimo.js
+- action.yml
+- build-route.js
+- honkai-star-rail/tier-list.js
+- homeland.js
+- aniimo/talents.js
+- cards.js
+- warframe/builds.js
+- aniimos.js
+- decks.js
+- ravenswatch/builds.js
+- worldstate.js
+- aniimo/builds.js
+- codes.js
+- pickups.js
+- stages.js
+- presets.js
+- pickup.js
+- stage.js
+- warframe/index.js
+- Project notes for Claude
 
 ## God Nodes (most connected - your core abstractions)
-1. `t()` - 37 edges
-2. `fetch()` - 20 edges
-3. `run()` - 17 edges
-4. `esc()` - 16 edges
+1. `fetch()` - 23 edges
+2. `run()` - 18 edges
+3. `esc()` - 16 edges
+4. `getText()` - 14 edges
 5. `render()` - 13 edges
-6. `clean()` - 12 edges
-7. `cleanCell()` - 12 edges
-8. `parseHero()` - 12 edges
-9. `officialName()` - 11 edges
-10. `sectionById()` - 11 edges
+6. `stripWiki()` - 13 edges
+7. `clean()` - 12 edges
+8. `cleanCell()` - 12 edges
+9. `parseHero()` - 12 edges
+10. `esc()` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `parseCompanions()` --indirect_call--> `t()`  [INFERRED]
-  scripts/update-animals.js → games/warframe/worldstate.js
-- `ddv()` --indirect_call--> `t()`  [INFERRED]
-  scripts/update-codes.js → games/warframe/worldstate.js
-- `game8Codes()` --indirect_call--> `t()`  [INFERRED]
-  scripts/update-codes.js → games/warframe/worldstate.js
-- `run()` --indirect_call--> `t()`  [INFERRED]
-  scripts/update-hsr-tierlist.js → games/warframe/worldstate.js
-- `rowsFromPage()` --indirect_call--> `t()`  [INFERRED]
-  scripts/update-items.js → games/warframe/worldstate.js
+- `Update Honkai Star Rail Warp Calendar` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
+  .github/workflows/update-hsr-banners.yml → README.md
+- `Update Honkai Star Rail Character Builds` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
+  .github/workflows/update-hsr-builds.yml → README.md
+- `Update Honkai Star Rail Event Calendar` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
+  .github/workflows/update-hsr-events.yml → README.md
+- `Update Honkai Star Rail Meta Teams` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
+  .github/workflows/update-hsr-teams.yml → README.md
+- `Update Honkai Star Rail Tier List` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
+  .github/workflows/update-hsr-tierlist.yml → README.md
 
 ## Import Cycles
 - None detected.
@@ -288,11 +333,11 @@
 - **Phasmophobia equipment set** — assets_img_phasmo_firelight_firelight, assets_img_phasmo_flashlight_flashlight, assets_img_phasmo_headgear_headgear, assets_img_phasmo_igniter_igniter, assets_img_phasmo_incense_incense, assets_img_phasmo_medication_medication, assets_img_phasmo_motionsensor_motion_sensor, assets_img_phasmo_parabolic_parabolic_microphone [INFERRED 0.75]
 - **Phasmophobia equipment set** — assets_img_phasmo_photocamera_photo_camera, assets_img_phasmo_salt_salt, assets_img_phasmo_soundsensor_sound_sensor, assets_img_phasmo_spiritbox_spirit_box, assets_img_phasmo_thermometer_thermometer, assets_img_phasmo_tripod_tripod, assets_img_phasmo_uv_uv_flashlight, assets_img_phasmo_videocamera_video_camera [INFERRED 0.75]
 
-## Communities (232 total, 115 thin omitted)
+## Communities (276 total, 117 thin omitted)
 
 ### Community 0 - "update-items.js"
-Cohesion: 0.14
-Nodes (19): imageUrls(), BIOMES, biomesIn(), dlcOf(), fs, isLimited(), LOC, LOC_PAIRS (+11 more)
+Cohesion: 0.13
+Nodes (20): ADJ, SMALL, translateName(), tword(), WORD, BIOMES, biomesIn(), dlcOf() (+12 more)
 
 ### Community 1 - "update-hsr-tierlist.js"
 Cohesion: 0.27
@@ -304,7 +349,7 @@ Nodes (7): Game8, Update Honkai Star Rail Warp Calendar, Update Honkai Star Rail
 
 ### Community 3 - "animals.js"
 Cohesion: 0.14
-Nodes (27): approachOf(), BIOME_ORDER, biomeRank(), buildControls(), companionCard(), critterCard(), DAY3, DAYS_FULL (+19 more)
+Nodes (26): approachOf(), BIOME_ORDER, buildControls(), companionCard(), critterCard(), DAY3, DAYS_FULL, DLC_CLASS (+18 more)
 
 ### Community 4 - "Game8 (data source)"
 Cohesion: 0.11
@@ -315,15 +360,15 @@ Cohesion: 0.11
 Nodes (25): Game8 (data source), Tier List & Builds (Neverness to Everness), Loadout Composition (1 Rig + 1 Tool + 1 Skill + 1 Medicine amp), Recommended Builds (The Outlast Trials), Enemies & Counters (The Outlast Trials), Outlast Wiki (data source), The Outlast Trials Game Hub, Loadout Builder (The Outlast Trials) (+17 more)
 
 ### Community 6 - "auth.js"
-Cohesion: 0.20
-Nodes (20): api(), applyBlob(), closeModal(), cloudPull(), cloudPush(), cloudSignOut(), collect(), fetchGithubUser() (+12 more)
+Cohesion: 0.19
+Nodes (28): api(), applyBlob(), closeModal(), cloudPull(), cloudPush(), cloudSignOut(), collect(), errMsg() (+20 more)
 
 ### Community 7 - "update-recipes.js"
-Cohesion: 0.16
-Nodes (20): ADJ, SMALL, translateName(), tword(), WORD, clean(), dlcOfCollection(), fs (+12 more)
+Cohesion: 0.29
+Nodes (12): clean(), dlcOfCollection(), fs, get(), imgUrl(), mealMeta(), norm(), OUT (+4 more)
 
 ### Community 8 - "items.js"
-Cohesion: 0.20
+Cohesion: 0.19
 Nodes (19): biomeLabel(), buildDropdowns(), buildTabs(), CAT_ORDER, DLC_CLASS, els, esc(), from() (+11 more)
 
 ### Community 9 - "update-news.js"
@@ -334,15 +379,15 @@ Nodes (21): articleMeta(), bbcodeToHtml(), decode(), decodeEntities(), escAttr()
 Cohesion: 0.16
 Nodes (19): charCard(), detail, flashCap(), fons(), giftKind(), giftRow(), GIFTS, ORDER (+11 more)
 
-### Community 11 - "index.js"
-Cohesion: 0.16
-Nodes (29): auth(), b64u(), checkPassword(), checkRateLimit(), clientIp(), corsHeaders(), dec, enc (+21 more)
+### Community 11 - "src/index.js"
+Cohesion: 0.12
+Nodes (34): NightmareFTW auth + sync Worker, Notes / security, One-time deploy, Password recovery, auth(), b64u(), checkPassword(), checkRateLimit() (+26 more)
 
 ### Community 12 - "update-outlast.js"
 Cohesion: 0.18
 Nodes (19): api(), bullets(), dewiki(), ENV_ORDER, envTrials(), field(), fileUrls(), fs (+11 more)
 
-### Community 13 - "builds.js"
+### Community 13 - "cyberpunk-2077/builds.js"
 Cohesion: 0.22
 Nodes (17): attrBars(), ATTRS, buildCard(), buildFilters(), colorForTree(), cyberDiagram(), esc(), I (+9 more)
 
@@ -350,19 +395,19 @@ Nodes (17): attrBars(), ATTRS, buildCard(), buildFilters(), colorForTree(), cybe
 Cohesion: 0.18
 Nodes (14): AMP_GROUPS, build, builds, chips(), encode(), optButtons(), persist(), renderSaved() (+6 more)
 
-### Community 15 - "builds.js"
-Cohesion: 0.27
+### Community 15 - "god-of-war-ragnarok/builds.js"
+Cohesion: 0.26
 Nodes (15): buildCard(), buildFilters(), esc(), gearDiagram(), I, open, primaryStat(), render() (+7 more)
 
 ### Community 16 - "update-codes.js"
-Cohesion: 0.28
-Nodes (19): altCodes(), clean(), ddv(), ddvPcgamesn(), DIR, epic7(), ffw(), firstCode() (+11 more)
+Cohesion: 0.26
+Nodes (21): altCodes(), aniimo(), clean(), ddv(), ddvPcgamesn(), DIR, epic7(), { execFileSync } (+13 more)
 
 ### Community 17 - "friendship.js"
-Cohesion: 0.22
+Cohesion: 0.21
 Nodes (14): DLC, dlcClass(), grid, levels, lvl(), render(), renderSummary(), ROLES (+6 more)
 
-### Community 18 - "builds.js"
+### Community 18 - "expedition-33/builds.js"
 Cohesion: 0.25
 Nodes (14): attrBars(), ATTRS, characterScreen(), elBuilds, elTabs, elTeam, esc(), render() (+6 more)
 
@@ -371,22 +416,22 @@ Cohesion: 0.22
 Nodes (14): clean(), demonsWithEvidence(), EVID, { execFileSync }, fs, get(), ib(), OUT (+6 more)
 
 ### Community 20 - "update-nte-teams.js"
-Cohesion: 0.18
-Nodes (14): CHARS, cleanLabel(), data, { execFileSync }, FIX, fs, get(), norm() (+6 more)
+Cohesion: 0.17
+Nodes (17): close(), getContext(), getHtml(), CHARS, cleanLabel(), FIX, fs, get() (+9 more)
 
-### Community 21 - "missables.js"
+### Community 21 - "elden-ring/missables.js"
 Cohesion: 0.25
 Nodes (13): allItems(), done, esc(), FLAG_LABEL, itemId(), progressEl, render(), renderIntro() (+5 more)
 
-### Community 22 - "missables.js"
+### Community 22 - "expedition-33/missables.js"
 Cohesion: 0.25
 Nodes (13): allItems(), done, esc(), FLAG_LABEL, itemId(), progressEl, render(), renderIntro() (+5 more)
 
-### Community 23 - "builds.js"
+### Community 23 - "far-far-west/builds.js"
 Cohesion: 0.33
 Nodes (14): buildCard(), BY_ID, esc(), icon(), jokerRow(), openDetail(), RARITY, render() (+6 more)
 
-### Community 24 - "missables.js"
+### Community 24 - "god-of-war-ragnarok/missables.js"
 Cohesion: 0.25
 Nodes (13): allItems(), done, esc(), FLAG_LABEL, itemId(), progressEl, render(), renderIntro() (+5 more)
 
@@ -394,31 +439,31 @@ Nodes (13): allItems(), done, esc(), FLAG_LABEL, itemId(), progressEl, render(),
 Cohesion: 0.24
 Nodes (13): balancedObj(), clean(), detailOf(), { execFileSync }, fs, getHtml(), jokerName(), listBuilds() (+5 more)
 
-### Community 26 - "builds.js"
-Cohesion: 0.29
+### Community 26 - "elden-ring/builds.js"
+Cohesion: 0.28
 Nodes (12): ATTR_COL, buildCard(), buildFilters(), col(), DMG_STATS, esc(), itemCard(), open (+4 more)
 
 ### Community 27 - "Expedition 33 Missables Checklist"
 Cohesion: 0.18
 Nodes (13): Community Elden Ring API, Elden Ring Meta Builds, Elden Ring (game hub), Elden Ring Missables Checklist, Expedition 33 Meta Builds, Clair Obscur: Expedition 33 (game hub), Game8, Expedition 33 Missables Checklist (+5 more)
 
-### Community 28 - "tier-list.js"
-Cohesion: 0.24
+### Community 28 - "nte/tier-list.js"
+Cohesion: 0.23
 Nodes (12): CHARACTERS, detail, esc(), portrait(), PRYDWEN_TEAMS, render(), root, showBuild() (+4 more)
 
 ### Community 29 - "update-ffw-maps.js"
-Cohesion: 0.24
-Nodes (11): balancedArray(), { execFileSync }, fs, getHtml(), OUT, path, regionFrom(), rscOf() (+3 more)
+Cohesion: 0.23
+Nodes (12): balancedObjectAfter(), CATEGORY_KIND, decodePois(), { execFileSync }, fs, getHtml(), kindOf(), mapPropsFromHtml() (+4 more)
 
 ### Community 30 - "update-hsr-builds.js"
 Cohesion: 0.21
 Nodes (17): cleanCell(), cleanName(), decode(), { execFileSync }, fs, getHtml(), LIST_URLS, OUT (+9 more)
 
 ### Community 31 - "update-hsr-teams.js"
-Cohesion: 0.27
+Cohesion: 0.26
 Nodes (11): cleanName(), decode(), ELEMENTS, { execFileSync }, fs, getHtml(), OUT, parseTeams() (+3 more)
 
-### Community 32 - "evidence.js"
+### Community 32 - "demonologist/evidence.js"
 Cohesion: 0.24
 Nodes (10): demonMatches(), DEMONS, esc(), EVIDENCE, labelOf(), NEXT, render(), state (+2 more)
 
@@ -434,7 +479,7 @@ Nodes (10): decode(), { execFileSync }, fs, getJson(), norm(), OUT, path, run() 
 Cohesion: 0.31
 Nodes (10): build(), checks, dutyCard(), esc(), progress(), root, ROUTINE, save() (+2 more)
 
-### Community 36 - "gear-score.js"
+### Community 36 - "update-epic7.js"
 Cohesion: 0.16
 Nodes (34): artifactRoster(), buildSuggestedTeams(), cleanCell(), costList(), decode(), { execFileSync }, fs, gearSets() (+26 more)
 
@@ -446,13 +491,13 @@ Nodes (9): dpsBlock(), elBar, esc(), member(), render(), renderTabs(), roleClass
 Cohesion: 0.42
 Nodes (8): closeModal(), esc(), mapCard(), matches(), missionPanel(), openMap(), render(), root
 
-### Community 39 - "t"
-Cohesion: 0.06
-Nodes (55): buildSection(), compsFor(), detail, esc(), member(), portrait(), render(), roleClass() (+47 more)
+### Community 39 - "engine.js"
+Cohesion: 0.25
+Nodes (11): buildRoster(), candidateClues(), context(), count(), generateCase(), holds(), makeMap(), mulberry32() (+3 more)
 
-### Community 40 - "update-hsr-banners.js"
-Cohesion: 0.27
-Nodes (9): decode(), { execFileSync }, fs, getHtml(), iso(), MON, OUT, path (+1 more)
+### Community 40 - "ref_child_process"
+Cohesion: 0.19
+Nodes (10): { execFileSync }, decode(), { execFileSync }, fs, getHtml(), iso(), MON, OUT (+2 more)
 
 ### Community 41 - "Disney Dreamlight Valley (game hub)"
 Cohesion: 0.25
@@ -462,11 +507,11 @@ Nodes (9): DDV Animal Guide, Dreamlight Valley Wiki, DDV Friendship Tracker, Dis
 Cohesion: 0.33
 Nodes (8): active, catOf(), CATS, esc(), renderRegion(), renderTabs(), root, tabsEl
 
-### Community 43 - "nodes.js"
+### Community 43 - "vampire-survivors/weapons.js"
 Cohesion: 0.29
 Nodes (15): arcanaCard(), buildControls(), buildTabs(), cardFor(), els, esc(), hrefFor(), itemsFor() (+7 more)
 
-### Community 44 - "builds.js"
+### Community 44 - "honkai-star-rail/builds.js"
 Cohesion: 0.53
 Nodes (8): buildSection(), detail, esc(), portraitHTML(), render(), roleClass(), root, showBuild()
 
@@ -486,7 +531,7 @@ Nodes (6): cardHtml(), render(), saveOrderFromDom(), savePinnedFromDom(), sortLi
 Cohesion: 0.43
 Nodes (7): card(), esc(), evBar, labelOf(), render(), renderTabs(), root
 
-### Community 49 - "speed-tuning.js"
+### Community 49 - "hero.js"
 Cohesion: 0.25
 Nodes (21): awakeningTable(), ELEMENT_COLOR, esc(), exclusiveEquipmentHtml(), fribbelsHtml(), gearSetLine(), gwMetaNote(), heroChipList() (+13 more)
 
@@ -498,17 +543,17 @@ Nodes (7): esc(), fmt(), ms(), render(), root, STATUS, statusOf()
 Cohesion: 0.39
 Nodes (7): bannerCard(), esc(), render(), root, STATUS_LABEL, statusOf(), today
 
-### Community 52 - "enemies.js"
+### Community 52 - "outlast-trials/enemies.js"
 Cohesion: 0.29
 Nodes (7): CATS, DANGER_CLASS, ENEMIES, esc(), filters, render(), root
 
-### Community 53 - "update-drops.js"
-Cohesion: 0.32
-Nodes (7): fs, getJson(), OUT, path, RARITIES, ri(), run()
+### Community 53 - "ref_path"
+Cohesion: 0.15
+Nodes (11): OUT, path, fs, getJson(), OUT, path, RARITIES, ri() (+3 more)
 
-### Community 54 - "update-marvel-snap-codes.js"
-Cohesion: 0.32
-Nodes (7): clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
+### Community 54 - "ref_fs"
+Cohesion: 0.12
+Nodes (15): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk(), fs (+7 more)
 
 ### Community 55 - "recipes.js"
 Cohesion: 0.39
@@ -526,59 +571,55 @@ Nodes (5): load(), nextReset(), periodKey(), render(), save()
 Cohesion: 0.60
 Nodes (5): applyTranslation(), init(), injectSwitcher(), translateText(), walk()
 
-### Community 59 - "equipment.js"
+### Community 59 - "demonologist/equipment.js"
 Cohesion: 0.53
 Nodes (5): card(), esc(), labelOf(), render(), root
 
-### Community 60 - "equipment.js"
+### Community 60 - "phasmophobia/equipment.js"
 Cohesion: 0.33
 Nodes (4): CATS, EQUIPMENT, filtersEl, root
 
-### Community 62 - "damage.js"
+### Community 62 - "epic7/heroes.js"
 Cohesion: 0.20
 Nodes (20): buildControls(), card(), CLASS_ICON_SLUG, classIcon(), computeRatingRange(), ELEMENT_COLOR, elementIcon(), els (+12 more)
 
-### Community 63 - "builds.js"
+### Community 63 - "outlast-trials/builds.js"
 Cohesion: 0.40
 Nodes (3): BUILDS, root, SLOTS
 
-### Community 64 - "Epic Seven (game hub)"
-Cohesion: 0.50
-Nodes (4): Epic Seven Damage / EHP Calculator, Epic Seven Gear Score Calculator, Epic Seven (game hub), Epic Seven Speed Tuning / Turn Order
-
 ### Community 65 - "update-ravenswatch.js"
-Cohesion: 0.17
+Cohesion: 0.16
 Nodes (25): api(), clean(), ENT, { execFileSync }, fileIn(), fs, get(), OUT (+17 more)
 
 ### Community 66 - "Update Marvel Snap Cards"
 Cohesion: 0.67
 Nodes (3): Marvel Snap, Marvel Snap Zone, Update Marvel Snap Cards
 
-### Community 180 - "ddv-catalogue.js"
-Cohesion: 0.13
-Nodes (18): buildCatalogue(), fs, { officialName }, parseCatalogue(), path, { wikitext, imageUrls, sections, galleries }, fs, load() (+10 more)
+### Community 180 - "ddv-official.js"
+Cohesion: 0.53
+Nodes (5): fs, load(), norm(), officialName(), path
 
 ### Community 181 - "update-animals.js"
-Cohesion: 0.16
-Nodes (26): clean(), fileAndName(), { getJson }, parseTable(), sections(), tables(), wikitext(), buildFoodMap() (+18 more)
+Cohesion: 0.15
+Nodes (29): buildCatalogue(), fs, parseCatalogue(), path, clean(), fileAndName(), galleries(), imageUrls() (+21 more)
 
 ### Community 182 - "update-starpath.js"
-Cohesion: 0.23
-Nodes (10): { execFileSync }, getJson(), getText(), clean(), fs, { getJson }, OUT, path (+2 more)
+Cohesion: 0.32
+Nodes (7): getJson(), clean(), fs, OUT, path, run(), SEASON
 
 ### Community 183 - "stamp-assets.js"
-Cohesion: 0.15
-Nodes (9): crypto, fs, hashes, i18n, missing, path, ROOT, SELF_INJECTED (+1 more)
+Cohesion: 0.14
+Nodes (10): crypto, fs, hashes, i18n, missing, path, ROOT, SELF_INJECTED (+2 more)
 
-### Community 184 - "talents.js"
+### Community 184 - "ravenswatch/talents.js"
 Cohesion: 0.26
-Nodes (11): ALL, card(), chips(), esc(), flatten(), heroBar, render(), renderBars() (+3 more)
+Nodes (10): ALL, card(), chips(), esc(), heroBar, render(), renderBars(), root (+2 more)
 
 ### Community 185 - "update-the-other-side.js"
-Cohesion: 0.26
-Nodes (11): clean(), EV, evId(), { execFileSync }, fs, get(), OUT, path (+3 more)
+Cohesion: 0.23
+Nodes (12): clean(), EV, evId(), { execFileSync }, fs, get(), GHOST_NAMES, ghostEvidence() (+4 more)
 
-### Community 186 - "evidence.js"
+### Community 186 - "the-other-side/evidence.js"
 Cohesion: 0.24
 Nodes (10): esc(), EVIDENCE, ghostMatches(), GHOSTS, labelOf(), NEXT, render(), state (+2 more)
 
@@ -587,14 +628,14 @@ Cohesion: 0.36
 Nodes (9): card(), esc(), rarBar, rarClass(), RARITIES, rarRank(), render(), renderBar() (+1 more)
 
 ### Community 188 - "profile.js"
-Cohesion: 0.51
-Nodes (9): api(), loadRecoveryCount(), openEditor(), refreshHeader(), render(), showCodes(), syncNow(), toast() (+1 more)
+Cohesion: 0.38
+Nodes (10): api(), loadRecoveryCount(), openEditor(), paint(), refreshHeader(), render(), showCodes(), syncNow() (+2 more)
 
 ### Community 189 - "update-vampire-survivors.js"
 Cohesion: 0.10
-Nodes (42): autoGuide(), balancedTemplate(), buildWeaponGraph(), chunk(), cleanEnemyName(), curatedGuides, enemyIntro(), { execFileSync } (+34 more)
+Nodes (47): autoGuide(), balancedTemplate(), buildWeaponGraph(), chunk(), cleanDisambiguated(), cleanEnemyName(), enemyIntro(), { execFileSync } (+39 more)
 
-### Community 190 - "heroes.js"
+### Community 190 - "ravenswatch/heroes.js"
 Cohesion: 0.54
 Nodes (7): abilityHTML(), detail, esc(), portraitHTML(), render(), root, showHero()
 
@@ -602,21 +643,25 @@ Nodes (7): abilityHTML(), detail, esc(), portraitHTML(), render(), root, showHer
 Cohesion: 0.43
 Nodes (7): card(), esc(), evBar, labelOf(), render(), renderTabs(), root
 
-### Community 192 - "equipment.js"
+### Community 192 - "the-other-side/equipment.js"
 Cohesion: 0.48
 Nodes (6): card(), esc(), evOrder(), labelOf(), render(), root
 
-### Community 193 - "NightmareFTW auth + sync Worker"
-Cohesion: 0.40
-Nodes (4): NightmareFTW auth + sync Worker, Notes / security, One-time deploy, Password recovery
+### Community 193 - "update-aniimo.js"
+Cohesion: 0.06
+Nodes (60): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap(), buildRegions(), buildTalents() (+52 more)
+
+### Community 194 - "builder.js"
+Cohesion: 0.11
+Nodes (41): abilitiesHtml(), abilityIconHtml(), arcanePoolFor(), augmentMatches(), auraPoolFor(), closePicker(), computeCapacity(), getSlot() (+33 more)
 
 ### Community 195 - "vs-curated-guides.js"
 Cohesion: 0.07
 Nodes (26): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+18 more)
 
 ### Community 196 - "update-palworld.js"
-Cohesion: 0.18
-Nodes (21): balancedArr(), balancedObj(), clean(), detailFor(), elementsOf(), { execFileSync }, fs, getHtml() (+13 more)
+Cohesion: 0.17
+Nodes (19): clean(), decodeEntities(), ELEMENTS, { execFileSync }, fs, getHtml(), idxOf(), leafTexts() (+11 more)
 
 ### Community 197 - "deck-builder.js"
 Cohesion: 0.23
@@ -654,7 +699,7 @@ Nodes (12): buildSection(), EFFECT_LABEL, effectLabel(), esc(), fmtEffect(), pas
 Cohesion: 0.15
 Nodes (12): A few in action, Accounts & sync, Adding a game or tool, Auto-updating data, Credits, NightmareFTW · Gaming Tools Hub, Play, Project structure (+4 more)
 
-### Community 206 - "builds.js"
+### Community 206 - "farever/builds.js"
 Cohesion: 0.26
 Nodes (10): buildCard(), buildFilters(), DIFF_LABEL, esc(), HAS_IMG, open, render(), root (+2 more)
 
@@ -666,7 +711,7 @@ Nodes (10): closestByRank(), compute(), els, esc(), overrideKey(), pickResult(),
 Cohesion: 0.25
 Nodes (10): clean(), decodeEntities(), { execFileSync }, fs, getHtml(), NAMED, OUT, parseDungeons() (+2 more)
 
-### Community 209 - "weapons.js"
+### Community 209 - "farever/weapons.js"
 Cohesion: 0.29
 Nodes (8): buildFilters(), card(), empty, esc(), grid, HAS_IMG, render(), WEAPON_ICON
 
@@ -682,13 +727,13 @@ Nodes (8): buildControls(), card(), ELEMENT_CLASS(), els, esc(), opt(), render()
 Cohesion: 0.36
 Nodes (8): card(), EFFECT_LABEL, effectLabel(), els, esc(), fmtEffect(), RANK_LABEL, render()
 
-### Community 213 - "add-csp.js"
-Cohesion: 0.25
-Nodes (6): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS
+### Community 213 - "map.js"
+Cohesion: 0.15
+Nodes (28): applyScale(), bindMapInteractions(), buildControls(), buildLegend(), buildMapStage(), buildToolbar(), CATEGORY_BY_ID, closePopup() (+20 more)
 
 ### Community 214 - "add-analytics.js"
 Cohesion: 0.29
-Nodes (5): fs, missingBody, path, ROOT, SKIP_DIRS
+Nodes (6): fs, missingBody, path, ROOT, SKIP_DIRS, walk()
 
 ### Community 215 - "Demonologist Wiki"
 Cohesion: 0.60
@@ -718,7 +763,7 @@ Nodes (3): Update Warframe Drop Table, WFCD Warframe Drop Tables, Warframe
 Cohesion: 0.67
 Nodes (3): Prydwen, Update Neverness to Everness Teams, Neverness to Everness
 
-### Community 223 - "tier-list.js"
+### Community 223 - "nodes.js"
 Cohesion: 0.31
 Nodes (8): eorzea(), etEl, fmt(), JOB_LABEL, listEl, NODES, nodeState(), render()
 
@@ -726,7 +771,7 @@ Nodes (8): eorzea(), etEl, fmt(), JOB_LABEL, listEl, NODES, nodeState(), render(
 Cohesion: 0.36
 Nodes (11): affectingArcanas(), effectsList(), esc(), evolutionSection(), recipeGroups(), render(), root, startingWeaponOf() (+3 more)
 
-### Community 225 - "enemies.js"
+### Community 225 - "vampire-survivors/enemies.js"
 Cohesion: 0.62
 Nodes (6): buildControls(), card(), els, esc(), opt(), render()
 
@@ -754,25 +799,197 @@ Nodes (6): buildControls(), card(), els, esc(), opt(), render()
 Cohesion: 0.67
 Nodes (5): esc(), heroesHtml(), levelBlock(), render(), root
 
+### Community 232 - "steps"
+Cohesion: 0.10
+Nodes (19): jobs, stamp, name, on, push, workflow_dispatch, permissions, contents (+11 more)
+
+### Community 233 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-aniimo, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 234 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-ddv, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 235 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-demonologist, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 236 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-drops, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 237 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-epic7, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 238 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-farever, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 239 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-ffw-builds, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 240 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-ffw-maps, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 241 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-hsr-banners, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 242 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-hsr-builds, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 243 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-hsr-events, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 244 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-hsr-teams, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 245 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-hsr-tierlist, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 246 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-marvel-snap, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 247 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-news, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 248 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-nte-teams, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 249 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-palworld, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 250 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-ravenswatch, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 251 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-steam-free-games, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 252 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-the-other-side, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 253 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-vampire-survivors, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 254 - "steps"
+Cohesion: 0.11
+Nodes (18): jobs, update-warframe-items, name, on, schedule, workflow_dispatch, permissions, contents (+10 more)
+
+### Community 255 - "aniimo.js"
+Cohesion: 0.33
+Nodes (13): ELEMENT_COLOR, esc(), evolutionHtml(), habitatsHtml(), itemIcon(), kvTable(), mobilityHtml(), render() (+5 more)
+
+### Community 256 - "action.yml"
+Cohesion: 0.13
+Nodes (14): description, inputs, message, paths, description, required, name, description (+6 more)
+
+### Community 257 - "build-route.js"
+Cohesion: 0.35
+Nodes (12): esc(), heroBar, portrait(), render(), renderHeroBar(), renderRoute(), renderThemeBar(), root (+4 more)
+
+### Community 258 - "honkai-star-rail/tier-list.js"
+Cohesion: 0.42
+Nodes (11): buildSection(), compsFor(), detail, esc(), member(), portrait(), render(), roleClass() (+3 more)
+
+### Community 259 - "homeland.js"
+Cohesion: 0.42
+Nodes (9): els, esc(), render(), renderBlock(), renderItems(), renderLesson(), renderNamed(), renderProdItem() (+1 more)
+
+### Community 260 - "aniimo/talents.js"
+Cohesion: 0.33
+Nodes (8): buildControls(), els, esc(), renderRoute(), renderTree(), routeItem(), talentRow(), unlockLabel()
+
+### Community 261 - "cards.js"
+Cohesion: 0.31
+Nodes (10): cardArt(), CARDS, chips(), detail, esc(), openCard(), render(), root (+2 more)
+
+### Community 262 - "warframe/builds.js"
+Cohesion: 0.40
+Nodes (10): authedFetch(), buildCard(), parseEffect(), renderDetail(), renderList(), statDeltas(), statRow(), subjectFor() (+2 more)
+
+### Community 263 - "aniimos.js"
+Cohesion: 0.39
+Nodes (8): buildControls(), card(), ELEMENT_COLOR, els, esc(), opt(), render(), STAGE_RANK
+
+### Community 264 - "decks.js"
+Cohesion: 0.31
+Nodes (8): archetype(), BY, CARDS, compile(), esc(), msg, out, parseCode()
+
+### Community 265 - "ravenswatch/builds.js"
+Cohesion: 0.50
+Nodes (8): esc(), heroBar, portrait(), render(), renderBar(), root, talentRow(), themeBlock()
+
+### Community 266 - "worldstate.js"
+Cohesion: 0.43
+Nodes (7): esc(), fmt(), load(), render(), section(), state, t()
+
+### Community 267 - "aniimo/builds.js"
+Cohesion: 0.57
+Nodes (6): buildControls(), card(), els, esc(), render(), skillChip()
+
+### Community 268 - "codes.js"
+Cohesion: 0.52
+Nodes (6): buildTabs(), codeRow(), els, esc(), render(), TAB_ORDER
+
+### Community 269 - "pickups.js"
+Cohesion: 0.62
+Nodes (6): buildControls(), card(), els, esc(), opt(), render()
+
+### Community 270 - "stages.js"
+Cohesion: 0.62
+Nodes (6): buildControls(), card(), els, esc(), opt(), render()
+
+### Community 271 - "presets.js"
+Cohesion: 0.60
+Nodes (5): card(), daysUntil(), els, esc(), render()
+
+### Community 272 - "pickup.js"
+Cohesion: 0.70
+Nodes (4): esc(), render(), root, statsTable()
+
+### Community 273 - "stage.js"
+Cohesion: 0.70
+Nodes (4): esc(), metaTable(), render(), root
+
+### Community 275 - "Project notes for Claude"
+Cohesion: 0.50
+Nodes (3): Project notes for Claude, Warframe data — use WFCD, not scraping, "What's New" carousel — do this proactively
+
 ## Knowledge Gaps
-- **593 isolated node(s):** `GAMES`, `SITE_UPDATES`, `ATTRS`, `SLOT_LAYOUT`, `I` (+588 more)
-  These have ≤1 connection - possible missing edges or undocumented components.
-- **115 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **141 isolated node(s):** `Update Dreamlight Valley Data`, `Prydwen`, `WFCD Warframe Drop Tables`, `Marvel Snap Zone`, `Steam Dev Posts` (+136 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 938 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **117 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `t()` connect `t` to `update-hsr-tierlist.js`, `update-recipes.js`, `items.js`, `update-news.js`, `update-outlast.js`, `builds.js`, `builds.js`, `update-codes.js`, `builds.js`, `builds.js`, `tier-list.js`, `meta-builds.js`, `trials.js`, `update-animals.js`, `update-starpath.js`, `talents.js`, `update-vampire-survivors.js`, `update-ravenswatch.js`, `deck-builder.js`, `tier-list.js`?**
-  _High betweenness centrality (0.086) - this node is a cross-community bridge._
-- **Why does `run()` connect `update-ravenswatch.js` to `t`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
-- **Why does `mealMeta()` connect `update-recipes.js` to `t`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
-- **Are the 35 inferred relationships involving `t()` (e.g. with `buildCard()` and `selectTab()`) actually correct?**
-  _`t()` has 35 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `GAMES`, `SITE_UPDATES`, `ATTRS` to the rest of the system?**
-  _593 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `img()` connect `update-aniimo.js` to `profile.js`?**
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **What connects `Update Dreamlight Valley Data`, `Prydwen`, `WFCD Warframe Drop Tables` to the rest of the system?**
+  _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `update-items.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.1368421052631579 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12987012987012986 - nodes in this community are weakly interconnected._
+- **Why does `paint()` connect `profile.js` to `update-aniimo.js`?**
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Should `animals.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.13793103448275862 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
+- **Should `Game8 (data source)` be split into smaller, more focused modules?**
+  _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
+- **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**
+  _Cohesion score 0.11333333333333333 - nodes in this community are weakly interconnected._
