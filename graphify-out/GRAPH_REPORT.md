@@ -1,22 +1,22 @@
 # Graph Report - NightmareFTW.github.io  (2026-11-04)
 
 ## Corpus Check
-- 252 files · ~975,895 words
+- 254 files · ~978,197 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: .css 2, (none) 1, .toml 1)
 
 ## Summary
-- 2395 nodes · 3774 edges · 276 communities (159 shown, 117 thin omitted)
+- 2398 nodes · 3776 edges · 274 communities (156 shown, 118 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 180 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `006cc5f2`
+- Built from commit: `bd76f578`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- update-items.js
+- update-marvel-snap-codes.js
 - update-hsr-tierlist.js
 - Game8
 - animals.js
@@ -69,8 +69,8 @@
 - event-calendar.js
 - warp-calendar.js
 - outlast-trials/enemies.js
-- ref_path
 - ref_fs
+- ref_path
 - recipes.js
 - cycles.js
 - checklist.js
@@ -195,9 +195,9 @@
 - Warframe Drops Tracker Screenshot
 - Site Favicon / Logo Mark
 - Demonologist (game hub)
-- ddv-official.js
+- .claude/CLAUDE.md
 - update-animals.js
-- update-starpath.js
+- ref_child_process
 - stamp-assets.js
 - ravenswatch/talents.js
 - update-the-other-side.js
@@ -210,7 +210,6 @@
 - the-other-side/equipment.js
 - update-aniimo.js
 - builder.js
-- vs-curated-guides.js
 - update-palworld.js
 - deck-builder.js
 - character.js
@@ -229,7 +228,6 @@
 - pals.js
 - passives.js
 - map.js
-- add-analytics.js
 - Demonologist Wiki
 - updates-carousel.js
 - Update Far Far West Builds
@@ -297,12 +295,12 @@
 2. `run()` - 18 edges
 3. `esc()` - 16 edges
 4. `getText()` - 14 edges
-5. `render()` - 13 edges
-6. `stripWiki()` - 13 edges
+5. `stripWiki()` - 13 edges
+6. `render()` - 13 edges
 7. `clean()` - 12 edges
 8. `cleanCell()` - 12 edges
 9. `parseHero()` - 12 edges
-10. `esc()` - 11 edges
+10. `officialName()` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Update Honkai Star Rail Warp Calendar` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
@@ -320,24 +318,24 @@
 - None detected.
 
 ## Hyperedges (group relationships)
+- **Disney Dreamlight Valley character roster** — assets_img_ddv_mike_wazowski_mike_wazowski, assets_img_ddv_minnie_mouse_minnie_mouse, assets_img_ddv_mirabel_mirabel, assets_img_ddv_moana_moana, assets_img_ddv_mother_gothel_mother_gothel, assets_img_ddv_mulan_mulan, assets_img_ddv_nala_nala, assets_img_ddv_olaf_olaf [INFERRED 0.75]
+- **NTE character roster** — assets_img_nte_daffodil_daffodil, assets_img_nte_edgar_edgar, assets_img_nte_esper_zero_esper_zero, assets_img_nte_fadia_fadia, assets_img_nte_haniel_haniel, assets_img_nte_hathor_hathor, assets_img_nte_hotori_hotori, assets_img_nte_jiuyuan_jiuyuan [INFERRED 0.75]
+- **Phasmophobia equipment set** — assets_img_phasmo_photocamera_photo_camera, assets_img_phasmo_salt_salt, assets_img_phasmo_soundsensor_sound_sensor, assets_img_phasmo_spiritbox_spirit_box, assets_img_phasmo_thermometer_thermometer, assets_img_phasmo_tripod_tripod, assets_img_phasmo_uv_uv_flashlight, assets_img_phasmo_videocamera_video_camera [INFERRED 0.75]
+- **Disney Dreamlight Valley character roster** — assets_img_ddv_jack_skellington_jack_skellington, assets_img_ddv_jafar_jafar, assets_img_ddv_kristoff_kristoff, assets_img_ddv_maleficent_maleficent, assets_img_ddv_maui_maui, assets_img_ddv_merida_merida, assets_img_ddv_merlin_merlin, assets_img_ddv_mickey_mouse_mickey_mouse [INFERRED 0.75]
+- **Disney Dreamlight Valley character roster** — assets_img_ddv_snow_white_snow_white, assets_img_ddv_stitch_stitch, assets_img_ddv_sulley_sulley, assets_img_ddv_the_beast_the_beast, assets_img_ddv_the_fairy_godmother_the_fairy_godmother, assets_img_ddv_the_forgotten_the_forgotten, assets_img_ddv_tiana_tiana, assets_img_ddv_tigger_tigger [INFERRED 0.75]
+- **Disney Dreamlight Valley character roster** — assets_img_ddv_oswald_oswald, assets_img_ddv_pocahontas_pocahontas, assets_img_ddv_prince_eric_prince_eric, assets_img_ddv_rapunzel_rapunzel, assets_img_ddv_remy_remy, assets_img_ddv_scar_scar, assets_img_ddv_scrooge_mcduck_scrooge_mcduck, assets_img_ddv_simba_simba [INFERRED 0.75]
+- **Phasmophobia equipment set** — assets_img_phasmo_firelight_firelight, assets_img_phasmo_flashlight_flashlight, assets_img_phasmo_headgear_headgear, assets_img_phasmo_igniter_igniter, assets_img_phasmo_incense_incense, assets_img_phasmo_medication_medication, assets_img_phasmo_motionsensor_motion_sensor, assets_img_phasmo_parabolic_parabolic_microphone [INFERRED 0.75]
+- **Dreamlight Valley character roster** — assets_img_ddv_anna_anna, assets_img_ddv_ariel_ariel, assets_img_ddv_aurora_aurora, assets_img_ddv_belle_belle, assets_img_ddv_bruni_the_fire_spirit_bruni_the_fire_spirit, assets_img_ddv_buzz_lightyear_buzz_lightyear, assets_img_ddv_cruella_de_vil_cruella_de_vil, assets_img_ddv_daisy_duck_daisy_duck [INFERRED 0.75]
+- **Dreamlight Valley character roster** — assets_img_ddv_donald_duck_donald_duck, assets_img_ddv_elsa_elsa, assets_img_ddv_eve_eve, assets_img_ddv_flynn_rider_flynn_rider, assets_img_ddv_gaston_gaston, assets_img_ddv_goofy_goofy, assets_img_ddv_hades_hades, assets_img_ddv_hercules_hercules [INFERRED 0.75]
 - **Scheduled scrape-and-commit workflow pattern** — _github_workflows_update_ddv_update_dreamlight_valley_data, _github_workflows_update_demonologist_update_demonologist_data, _github_workflows_update_drops_update_warframe_drop_table, _github_workflows_update_ffw_builds_update_far_far_west_builds, _github_workflows_update_ffw_maps_update_far_far_west_maps, _github_workflows_update_hsr_banners_update_honkai_star_rail_warp_calendar, _github_workflows_update_hsr_builds_update_honkai_star_rail_character_builds, _github_workflows_update_hsr_events_update_honkai_star_rail_event_calendar, _github_workflows_update_hsr_teams_update_honkai_star_rail_meta_teams, _github_workflows_update_hsr_tierlist_update_honkai_star_rail_tier_list, _github_workflows_update_marvel_snap_update_marvel_snap_cards, _github_workflows_update_news_update_game_news, _github_workflows_update_nte_teams_update_neverness_to_everness_teams [INFERRED 0.85]
 - **Cross-game Meta Builds tool pattern** — games_elden_ring_builds_meta_builds, games_expedition_33_builds_meta_builds, games_far_far_west_builds_meta_builds [INFERRED 0.85]
 - **Cross-game Missables Checklist tool pattern (on-device ticks)** — games_elden_ring_missables_missables_checklist, games_expedition_33_missables_missables_checklist [INFERRED 0.85]
-- **Dreamlight Valley character roster** — assets_img_ddv_anna_anna, assets_img_ddv_ariel_ariel, assets_img_ddv_aurora_aurora, assets_img_ddv_belle_belle, assets_img_ddv_bruni_the_fire_spirit_bruni_the_fire_spirit, assets_img_ddv_buzz_lightyear_buzz_lightyear, assets_img_ddv_cruella_de_vil_cruella_de_vil, assets_img_ddv_daisy_duck_daisy_duck [INFERRED 0.75]
-- **Dreamlight Valley character roster** — assets_img_ddv_donald_duck_donald_duck, assets_img_ddv_elsa_elsa, assets_img_ddv_eve_eve, assets_img_ddv_flynn_rider_flynn_rider, assets_img_ddv_gaston_gaston, assets_img_ddv_goofy_goofy, assets_img_ddv_hades_hades, assets_img_ddv_hercules_hercules [INFERRED 0.75]
-- **Disney Dreamlight Valley character roster** — assets_img_ddv_jack_skellington_jack_skellington, assets_img_ddv_jafar_jafar, assets_img_ddv_kristoff_kristoff, assets_img_ddv_maleficent_maleficent, assets_img_ddv_maui_maui, assets_img_ddv_merida_merida, assets_img_ddv_merlin_merlin, assets_img_ddv_mickey_mouse_mickey_mouse [INFERRED 0.75]
-- **Disney Dreamlight Valley character roster** — assets_img_ddv_mike_wazowski_mike_wazowski, assets_img_ddv_minnie_mouse_minnie_mouse, assets_img_ddv_mirabel_mirabel, assets_img_ddv_moana_moana, assets_img_ddv_mother_gothel_mother_gothel, assets_img_ddv_mulan_mulan, assets_img_ddv_nala_nala, assets_img_ddv_olaf_olaf [INFERRED 0.75]
-- **Disney Dreamlight Valley character roster** — assets_img_ddv_oswald_oswald, assets_img_ddv_pocahontas_pocahontas, assets_img_ddv_prince_eric_prince_eric, assets_img_ddv_rapunzel_rapunzel, assets_img_ddv_remy_remy, assets_img_ddv_scar_scar, assets_img_ddv_scrooge_mcduck_scrooge_mcduck, assets_img_ddv_simba_simba [INFERRED 0.75]
-- **Disney Dreamlight Valley character roster** — assets_img_ddv_snow_white_snow_white, assets_img_ddv_stitch_stitch, assets_img_ddv_sulley_sulley, assets_img_ddv_the_beast_the_beast, assets_img_ddv_the_fairy_godmother_the_fairy_godmother, assets_img_ddv_the_forgotten_the_forgotten, assets_img_ddv_tiana_tiana, assets_img_ddv_tigger_tigger [INFERRED 0.75]
-- **NTE character roster** — assets_img_nte_daffodil_daffodil, assets_img_nte_edgar_edgar, assets_img_nte_esper_zero_esper_zero, assets_img_nte_fadia_fadia, assets_img_nte_haniel_haniel, assets_img_nte_hathor_hathor, assets_img_nte_hotori_hotori, assets_img_nte_jiuyuan_jiuyuan [INFERRED 0.75]
-- **Phasmophobia equipment set** — assets_img_phasmo_firelight_firelight, assets_img_phasmo_flashlight_flashlight, assets_img_phasmo_headgear_headgear, assets_img_phasmo_igniter_igniter, assets_img_phasmo_incense_incense, assets_img_phasmo_medication_medication, assets_img_phasmo_motionsensor_motion_sensor, assets_img_phasmo_parabolic_parabolic_microphone [INFERRED 0.75]
-- **Phasmophobia equipment set** — assets_img_phasmo_photocamera_photo_camera, assets_img_phasmo_salt_salt, assets_img_phasmo_soundsensor_sound_sensor, assets_img_phasmo_spiritbox_spirit_box, assets_img_phasmo_thermometer_thermometer, assets_img_phasmo_tripod_tripod, assets_img_phasmo_uv_uv_flashlight, assets_img_phasmo_videocamera_video_camera [INFERRED 0.75]
 
-## Communities (276 total, 117 thin omitted)
+## Communities (274 total, 118 thin omitted)
 
-### Community 0 - "update-items.js"
-Cohesion: 0.13
-Nodes (20): ADJ, SMALL, translateName(), tword(), WORD, BIOMES, biomesIn(), dlcOf() (+12 more)
+### Community 0 - "update-marvel-snap-codes.js"
+Cohesion: 0.32
+Nodes (7): clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
 
 ### Community 1 - "update-hsr-tierlist.js"
 Cohesion: 0.27
@@ -364,8 +362,8 @@ Cohesion: 0.19
 Nodes (28): api(), applyBlob(), closeModal(), cloudPull(), cloudPush(), cloudSignOut(), collect(), errMsg() (+20 more)
 
 ### Community 7 - "update-recipes.js"
-Cohesion: 0.29
-Nodes (12): clean(), dlcOfCollection(), fs, get(), imgUrl(), mealMeta(), norm(), OUT (+4 more)
+Cohesion: 0.14
+Nodes (22): fs, load(), norm(), officialName(), path, ADJ, SMALL, translateName() (+14 more)
 
 ### Community 8 - "items.js"
 Cohesion: 0.19
@@ -496,8 +494,8 @@ Cohesion: 0.25
 Nodes (11): buildRoster(), candidateClues(), context(), count(), generateCase(), holds(), makeMap(), mulberry32() (+3 more)
 
 ### Community 40 - "ref_child_process"
-Cohesion: 0.19
-Nodes (10): { execFileSync }, decode(), { execFileSync }, fs, getHtml(), iso(), MON, OUT (+2 more)
+Cohesion: 0.27
+Nodes (9): decode(), { execFileSync }, fs, getHtml(), iso(), MON, OUT, path (+1 more)
 
 ### Community 41 - "Disney Dreamlight Valley (game hub)"
 Cohesion: 0.25
@@ -547,13 +545,13 @@ Nodes (7): bannerCard(), esc(), render(), root, STATUS_LABEL, statusOf(), today
 Cohesion: 0.29
 Nodes (7): CATS, DANGER_CLASS, ENEMIES, esc(), filters, render(), root
 
-### Community 53 - "ref_path"
-Cohesion: 0.15
-Nodes (11): OUT, path, fs, getJson(), OUT, path, RARITIES, ri() (+3 more)
-
-### Community 54 - "ref_fs"
+### Community 53 - "ref_fs"
 Cohesion: 0.12
-Nodes (15): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk(), fs (+7 more)
+Nodes (14): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), fs, fs (+6 more)
+
+### Community 54 - "ref_path"
+Cohesion: 0.13
+Nodes (11): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk(), OUT (+3 more)
 
 ### Community 55 - "recipes.js"
 Cohesion: 0.39
@@ -595,17 +593,13 @@ Nodes (25): api(), clean(), ENT, { execFileSync }, fileIn(), fs, get(), OUT (+17
 Cohesion: 0.67
 Nodes (3): Marvel Snap, Marvel Snap Zone, Update Marvel Snap Cards
 
-### Community 180 - "ddv-official.js"
-Cohesion: 0.53
-Nodes (5): fs, load(), norm(), officialName(), path
-
 ### Community 181 - "update-animals.js"
-Cohesion: 0.15
-Nodes (29): buildCatalogue(), fs, parseCatalogue(), path, clean(), fileAndName(), galleries(), imageUrls() (+21 more)
+Cohesion: 0.10
+Nodes (44): buildCatalogue(), fs, parseCatalogue(), path, clean(), fileAndName(), galleries(), imageUrls() (+36 more)
 
-### Community 182 - "update-starpath.js"
-Cohesion: 0.32
-Nodes (7): getJson(), clean(), fs, OUT, path, run(), SEASON
+### Community 182 - "ref_child_process"
+Cohesion: 0.13
+Nodes (21): { execFileSync }, getJson(), clean(), fs, OUT, path, run(), SEASON (+13 more)
 
 ### Community 183 - "stamp-assets.js"
 Cohesion: 0.14
@@ -632,8 +626,8 @@ Cohesion: 0.38
 Nodes (10): api(), loadRecoveryCount(), openEditor(), paint(), refreshHeader(), render(), showCodes(), syncNow() (+2 more)
 
 ### Community 189 - "update-vampire-survivors.js"
-Cohesion: 0.10
-Nodes (47): autoGuide(), balancedTemplate(), buildWeaponGraph(), chunk(), cleanDisambiguated(), cleanEnemyName(), enemyIntro(), { execFileSync } (+39 more)
+Cohesion: 0.05
+Nodes (73): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+65 more)
 
 ### Community 190 - "ravenswatch/heroes.js"
 Cohesion: 0.54
@@ -648,16 +642,12 @@ Cohesion: 0.48
 Nodes (6): card(), esc(), evOrder(), labelOf(), render(), root
 
 ### Community 193 - "update-aniimo.js"
-Cohesion: 0.06
-Nodes (60): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap(), buildRegions(), buildTalents() (+52 more)
+Cohesion: 0.07
+Nodes (47): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap(), buildRegions(), buildTalents() (+39 more)
 
 ### Community 194 - "builder.js"
 Cohesion: 0.11
 Nodes (41): abilitiesHtml(), abilityIconHtml(), arcanePoolFor(), augmentMatches(), auraPoolFor(), closePicker(), computeCapacity(), getSlot() (+33 more)
-
-### Community 195 - "vs-curated-guides.js"
-Cohesion: 0.07
-Nodes (26): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+18 more)
 
 ### Community 196 - "update-palworld.js"
 Cohesion: 0.17
@@ -730,10 +720,6 @@ Nodes (8): card(), EFFECT_LABEL, effectLabel(), els, esc(), fmtEffect(), RANK_LA
 ### Community 213 - "map.js"
 Cohesion: 0.15
 Nodes (28): applyScale(), bindMapInteractions(), buildControls(), buildLegend(), buildMapStage(), buildToolbar(), CATEGORY_BY_ID, closePopup() (+20 more)
-
-### Community 214 - "add-analytics.js"
-Cohesion: 0.29
-Nodes (6): fs, missingBody, path, ROOT, SKIP_DIRS, walk()
 
 ### Community 215 - "Demonologist Wiki"
 Cohesion: 0.60
@@ -968,28 +954,28 @@ Cohesion: 0.70
 Nodes (4): esc(), metaTable(), render(), root
 
 ### Community 275 - "Project notes for Claude"
-Cohesion: 0.50
-Nodes (3): Project notes for Claude, Warframe data — use WFCD, not scraping, "What's New" carousel — do this proactively
+Cohesion: 0.40
+Nodes (4): graphify, Project notes for Claude, Warframe data — use WFCD, not scraping, "What's New" carousel — do this proactively
 
 ## Knowledge Gaps
-- **141 isolated node(s):** `Update Dreamlight Valley Data`, `Prydwen`, `WFCD Warframe Drop Tables`, `Marvel Snap Zone`, `Steam Dev Posts` (+136 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 938 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **117 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **141 isolated node(s):** `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait`, `Rapunzel — Dreamlight Valley character portrait`, `Remy — Dreamlight Valley character portrait` (+136 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 941 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `img()` connect `update-aniimo.js` to `profile.js`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **What connects `Update Dreamlight Valley Data`, `Prydwen`, `WFCD Warframe Drop Tables` to the rest of the system?**
+- **Why does `img()` connect `ref_child_process` to `profile.js`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **What connects `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `update-items.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.12987012987012986 - nodes in this community are weakly interconnected._
-- **Why does `paint()` connect `profile.js` to `update-aniimo.js`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Should `animals.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
+- **Why does `paint()` connect `profile.js` to `ref_child_process`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Should `Game8 (data source)` be split into smaller, more focused modules?**
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11333333333333333 - nodes in this community are weakly interconnected._
+- **Should `update-recipes.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.14333333333333334 - nodes in this community are weakly interconnected._

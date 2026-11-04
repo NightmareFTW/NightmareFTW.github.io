@@ -2966,9 +2966,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1792932612.3339505,
-    "seen": 1793758580.2465463,
-    "ast_hash": "027fcb30250699649e183165e71b9e8f",
+    "mtime": 1793759278.609002,
+    "seen": 1793759651.5840726,
+    "ast_hash": "866621ab132273c503e9f99825cd3783",
     "semantic_hash": ""
   },
   "games/aniimo/aniimo.html": {
@@ -3131,6 +3131,18 @@
     "mtime": 1792932612.483298,
     "seen": 1793758580.246763,
     "ast_hash": "358499c37d88c69163de3b708b0681b3",
+    "semantic_hash": ""
+  },
+  ".claude/settings.json": {
+    "mtime": 1793759311.1290421,
+    "seen": 1793759651.5777483,
+    "ast_hash": "3b541b9935fcf0831355da956f897645",
+    "semantic_hash": ""
+  },
+  ".claude/CLAUDE.md": {
+    "mtime": 1793759311.1277952,
+    "seen": 1793759651.5840695,
+    "ast_hash": "9b31786b637be3c13978bec4c2330752",
     "semantic_hash": ""
   }
 }

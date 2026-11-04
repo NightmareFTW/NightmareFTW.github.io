@@ -18,5 +18,9 @@ npm-debug.log*
 .cache/
 tmp/
 
-# Local agent / tooling config
-.claude/
+# Local agent / tooling config — except graphify's setup, which is meant
+# to be shared so every session (and teammate) gets the same hook/skill.
+.claude/*
+!.claude/CLAUDE.md
+!.claude/settings.json
+!.claude/skills/
