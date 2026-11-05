@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04T05:26:34.301Z",
+  "updated": "2026-11-05T05:25:24.710Z",
   "source": "https://wiki.aniimo.com/",
   "count": 86,
   "elements": [
@@ -669,7 +669,7 @@
         "Dark"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -1470,7 +1470,7 @@
         "Grass"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -2209,7 +2209,7 @@
         "Wind"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -2347,7 +2347,7 @@
         "Dark"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -2582,7 +2582,7 @@
         "Grass"
       ],
       "role": "REGEN",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -2720,7 +2720,7 @@
         "Grass"
       ],
       "role": "BREAK",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -2963,7 +2963,7 @@
         "Grass"
       ],
       "role": "BREAK",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -3093,7 +3093,7 @@
         "Ice"
       ],
       "role": "BREAK",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -3307,7 +3307,7 @@
         "Fire"
       ],
       "role": "REGEN",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [],
       "baseStats": {
         "hp": 80,
@@ -3541,7 +3541,7 @@
         "Wind"
       ],
       "role": "HEAL",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -3781,7 +3781,7 @@
         "Wind"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -4003,7 +4003,7 @@
         "Grass"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -4137,7 +4137,7 @@
         "Grass"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -4373,7 +4373,7 @@
         "Grass"
       ],
       "role": "BREAK",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -4595,7 +4595,7 @@
         "Dark"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -4824,7 +4824,7 @@
         "Dark"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -5439,7 +5439,7 @@
         "Electric"
       ],
       "role": "BREAK",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -5664,7 +5664,7 @@
         "Fire"
       ],
       "role": "BREAK",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -6706,7 +6706,7 @@
         "Rock"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -6844,7 +6844,7 @@
         "Rock"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -7069,7 +7069,7 @@
         "Electric"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -7303,7 +7303,7 @@
         "Dark"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [],
       "baseStats": {
         "hp": 90,
@@ -7428,7 +7428,7 @@
         "Dark"
       ],
       "role": "BREAK",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [],
       "baseStats": {
         "hp": 100,
@@ -8101,7 +8101,7 @@
         "Rock"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -8963,7 +8963,7 @@
         "Rock"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -9526,7 +9526,7 @@
         "Water"
       ],
       "role": "REGEN",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -9739,7 +9739,7 @@
         "Electric"
       ],
       "role": "SUPPORT",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
@@ -9855,7 +9855,7 @@
         "Electric"
       ],
       "role": "DPS",
-      "stage": "Gamma",
+      "stage": "Nova",
       "gender": [
         "Male",
         "Female"
