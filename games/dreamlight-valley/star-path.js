@@ -3,9 +3,12 @@
    and the Weekly Duties (loaded from starpath.json, revealed week by week).
    Checked state saved locally and synced to the account when signed in. */
 
-const SEASON = {
-  name: "Godly Glamor", number: 23, theme: "Mount Olympus / Greek gods",
-  start: "2026-06-03", end: "2026-07-28",
+// Only used if starpath.json (fetched in build() below) has no `season`
+// field — the real source of truth is scraped from the wiki by
+// scripts/update-starpath.js so this never needs to be hand-updated again.
+const FALLBACK_SEASON = {
+  name: "Haunting Elegance", number: 25, theme: "Witches, vampires, ghosts, skeletons",
+  start: "2026-09-23", end: "2026-12-07",
 };
 
 // Repeatable routine duties (rotate during the season) with how-to.
@@ -30,10 +33,14 @@ let checks = {};
 try { checks = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { checks = {}; }
 const save = () => localStorage.setItem(KEY, JSON.stringify(checks));
 
-document.getElementById("season-info").innerHTML =
-  `<b>Season ${SEASON.number}: ${SEASON.name}</b> · ${SEASON.theme} · ${SEASON.start} → ${SEASON.end}`;
-
 const root = document.getElementById("sp-root");
+
+function renderSeasonInfo(season) {
+  const s = season || FALLBACK_SEASON;
+  document.getElementById("season-info").innerHTML =
+    `<b>Season ${esc(s.number)}: ${esc(s.name)}</b> · ${esc(s.theme)} · ${esc(s.start)} → ${esc(s.end)}`;
+}
+renderSeasonInfo(FALLBACK_SEASON);
 
 function dutyCard(id, name, how, meta) {
   return `<div class="cp-card ${checks[id] ? "is-checked" : ""}" data-id="${esc(id)}">
@@ -73,6 +80,7 @@ async function build() {
 
   try {
     const data = await (await fetch(`../../data/dreamlight-valley/starpath.json?cb=${Date.now()}`)).json();
+    if (data.season) renderSeasonInfo(data.season);
     for (const w of data.weeks) {
       if (!w.duties.length) continue;
       html += `<h2 class="sp-section">Week ${esc(w.week)} <span class="sp-hint">${esc(w.unlocks || "")}</span></h2>`;
