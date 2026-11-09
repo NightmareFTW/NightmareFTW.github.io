@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08T05:25:28.956Z",
+  "updated": "2026-11-09T10:35:12.597Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -943,6 +943,34 @@
             {
               "kind": "text",
               "text": "On the related matter of Dance Pad Polisher, I do not feel it is an important building to have. If you feel it would serve you will, then feel free to utilize it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lesson",
+      "title": "Incubation Reaction Module; DO NOT BUY IT!",
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "At RV9, you gain the ability to buy the component named Inclubation Reaction Module in the Rooftop Loft section. This reduces the time required to hatch eggs by a tiny amount."
+            },
+            {
+              "kind": "text",
+              "text": "Do not buy it. Ever."
+            },
+            {
+              "kind": "text",
+              "text": "This game's balance around Modification Toolkits is questionable at best. As of V1.1 (RV22 max), there aren't enough toolkits to buy every component at max level unless you also have Index Score 27000. This isn't a problem, but it does mean that certain recipes that are unlocked by components won't be available to you for potentially a very long time, so you'll have to pass on orders that contain them."
+            },
+            {
+              "kind": "text",
+              "text": "Trust me on this. Leave the Inclubation Reaction Module unpurchased."
             }
           ]
         }
@@ -3122,7 +3150,7 @@
               "text": "Exception: The Jukebox Drier making Dried Strawberries should be Common mode."
             },
             {
-              "kind": "bullet",
+              "kind": "text",
               "text": "All Wells and Mines except about four of them on E-mode. Add more until the next puts you below 120% efficiency, then common another 1 or 2; leave yourself spare for order/event recipe crafts."
             }
           ]
@@ -3136,6 +3164,42 @@
             {
               "kind": "text",
               "text": "Build Code: WUX4ML8B"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lesson",
+      "title": "Preparing for RV22",
+      "blocks": [
+        {
+          "heading": null,
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Pop open your RV upgrade page, and look ahead to the upgrade costs of RV19. RV20. RV21. RV22."
+            },
+            {
+              "kind": "text",
+              "text": "One of these is not like the others.."
+            },
+            {
+              "kind": "text",
+              "text": "While Wood Blocks has, and continues to be, the blocking point through RV21, RV22 requires an incredible amount of Mineral Sand to upgrade. Rough calculations indicate that it will take twice as long to get the rock byproduct than it will to get the wood byproduct, assuming you start from zero on both."
+            },
+            {
+              "kind": "text",
+              "text": "Strongly consider posting your Earth-4 Aniimo on your mines. Strongly consider buying 100 Energizing Work Meals every week from the shop, and holding on to them until you are RV21. 100 Energizing work Meals will get you roughly 6 hours closer to the upgrade; up to you if that's worth 100 glimmer."
+            },
+            {
+              "kind": "text",
+              "text": "Additionally, you might consider not following my advice to maintain a single Mine on Shells, for the Aniipod Maker. That measure can be made up for by simply buying additional aniipods for credits. It's your call."
+            },
+            {
+              "kind": "text",
+              "text": "The more rock byproducts and Energizing Work Meals you can bring into RV21, the sooner you can get on to RV22. This is the difference between 3 weeks at RV21 (with preparation), and somewhere between 5 and 6 weeks (without preparation.)"
             }
           ]
         }
@@ -3214,7 +3278,7 @@
               "text": "Coconut Cooler",
               "sub": [
                 "Set both Bouncy Brew Kegs to Coconut Cooler.",
-                "Set the other 13 tree plots to Quick Recipe: Coconut."
+                "Set 9 more tree plots to Quick Recipe: Coconut."
               ]
             },
             {
@@ -3233,6 +3297,16 @@
               "sub": [
                 "Set one Crafting Table to Premium Gemstone Dust.",
                 "Set the Floral Windmill to High-Speed Formula: Scales."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Orange Flower Incense (Optional)",
+              "sub": [
+                "Upgrade one Phonolfactory Table to level 6, and set it to Orange Flower Incense.",
+                "Set both Dewy Houses to Aromathyst.",
+                "Note: If you don't want to run the Dewy Houses, skip this and just run more coconut trees instead. You don't lose much."
               ]
             }
           ]
@@ -3267,7 +3341,11 @@
             },
             {
               "kind": "text",
-              "text": "13 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
+              "text": "9 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
+            },
+            {
+              "kind": "text",
+              "text": "4 Tree plots: Orange Flower (Sunlamp)"
             }
           ]
         },
@@ -3354,7 +3432,7 @@
               "text": "Exception: The Jukebox Drier making Dried Strawberries should be Common mode."
             },
             {
-              "kind": "bullet",
+              "kind": "text",
               "text": "All Wells and Mines except about five of them on E-mode. Add more until the next puts you below 120% efficiency, then common another 1 or 2; leave yourself spare for order/event recipe crafts."
             }
           ]
@@ -3377,22 +3455,12 @@
           ]
         },
         {
-          "heading": "Warning",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "This is untested. It's what I'm planning to do once I hit RV20."
-            }
-          ]
-        },
-        {
           "heading": "Note",
           "images": [],
           "items": [
             {
               "kind": "text",
-              "text": "Buy Power Module Level 5, and upgrade your Crackle Generators."
+              "text": "Buy Power Module Level 5, and upgrade your Crackle Generators. These are a small upgrade even if your Electric Aniimo are rank 3, but works best if you happen to have any Prismana Electric-4 Aniimo."
             },
             {
               "kind": "text",
@@ -3432,7 +3500,7 @@
               "text": "Coconut Cooler",
               "sub": [
                 "Set both Bouncy Brew Kegs to Coconut Cooler.",
-                "Set the other 14 tree plots to Quick Recipe: Coconut."
+                "Set 9 more tree plots to Quick Recipe: Coconut."
               ]
             },
             {
@@ -3441,7 +3509,7 @@
               "text": "Dried Strawberries",
               "sub": [
                 "Set the other Jukebox Dryer to Dried Strawberries.",
-                "Set the other 24 farm plots to Quick Recipe: Strawberry."
+                "Set the other 22 farm plots to Quick Recipe: Strawberry."
               ]
             },
             {
@@ -3460,6 +3528,17 @@
               "sub": [
                 "Upgrade the other Crafting Table to level 8 and set it to Star Diamond.",
                 "Set both Starfall Hammocks to Stars."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "6",
+              "text": "Orange Flower Incense (Optional)",
+              "sub": [
+                "Set one Phonolfactory Table to Orange Flower Incense.",
+                "Set both Dewy Houses to Aromathyst.",
+                "Set the last 4 tree plots to Orange Flower. They share the Sunlamp with the Floral Windmill.",
+                "Note: If you don't want to run the Dewy Houses, skip this and just run more coconut trees instead. You don't lose much."
               ]
             }
           ]
@@ -3482,7 +3561,7 @@
             },
             {
               "kind": "text",
-              "text": "24 Farm plots: Quick Recipe: Strawberry (Temperature: Cool)"
+              "text": "22 Farm plots: Quick Recipe: Strawberry (Temperature: Cool)"
             },
             {
               "kind": "text",
@@ -3494,7 +3573,11 @@
             },
             {
               "kind": "text",
-              "text": "14 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
+              "text": "9 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
+            },
+            {
+              "kind": "text",
+              "text": "4 Tree plots: Orange Flower (Sunlamp)"
             }
           ]
         },
@@ -3540,7 +3623,11 @@
             },
             {
               "kind": "bullet",
-              "text": "Four Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker and the three generators."
+              "text": "One Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker."
+            },
+            {
+              "kind": "bullet",
+              "text": "Three Electric-4 Aniimo, for three generators. Electric-3 Aniimo work just fine as a fallback."
             },
             {
               "kind": "bullet",
@@ -3581,7 +3668,7 @@
               "text": "Exception: The Jukebox Drier making Dried Strawberries should be Common mode."
             },
             {
-              "kind": "bullet",
+              "kind": "text",
               "text": "All Wells and Mines except about five of them on E-mode. Add more until the next puts you below 120% efficiency, then common another 1 or 2; leave yourself spare for order/event recipe crafts."
             }
           ]
@@ -3619,19 +3706,23 @@
           "items": [
             {
               "kind": "text",
-              "text": "Keep your level 3 mine producing Shells for Aniipod Megas. Upgrade the rest and produce Silver Ore."
+              "text": "Keep your level 3 mine producing Shells for Aniipod Megas. Upgrade the rest and produce Silver Ore. No Gems means no Gemstone Dust or Star Diamond."
             },
             {
               "kind": "text",
-              "text": "Skip Ecological Module Level 9."
+              "text": "Buy Ecological Module Level 9. Quick Agave needs it."
+            },
+            {
+              "kind": "text",
+              "text": "Upgrade every Farmland to level 8. If you've been following my guide, you should have more than enough home coins for this. RV22 requires this, as well."
+            },
+            {
+              "kind": "text",
+              "text": "If you skipped Recipe Note: Lotion back at RV19, buy it now. We're crafting it this time."
             },
             {
               "kind": "text",
               "text": "Remember to recycle any unused buildings! And don't upgrade production buildings unless you need them for a new recipe; this saves on electricity."
-            },
-            {
-              "kind": "text",
-              "text": "When you can, upgrade every Farmland to level 8. You don't need them for recipes this level, but you DO need them upgraded as a pre-requisite for RV22."
             }
           ]
         },
@@ -3642,63 +3733,56 @@
             {
               "kind": "numbered",
               "num": "1",
-              "text": "Cranberry Chocolate",
+              "text": "Pearl Face Cream",
               "sub": [
-                "Set one Carousel Mill to Cocoa Powder.",
-                "Set the other Carousel Mill to Milled Rice.",
-                "Set one Simmering Pot to Malt Sugar.",
-                "Set the other Simmering Pot to Cocoa Spread.",
-                "Set one Jukebox Dryer to Dried Cranberries.",
-                "Set one Blazing Stove to Cranberry Chocolate.",
-                "Set all four Wells to Quick Recipe: Deep Rock Spring Water.",
-                "Set 7 tree plots to Cacao.",
-                "Set 7 farm plots to Premium Wheat.",
-                "Set 4 farm plots to Quick Recipe: Rice.",
-                "Set 7 farm plots to Cranberry."
+                "Set both Tidewhisper Sandcastles to Quick Recipe: Pearl.",
+                "Set one Carousel Mill to Pearl Powder.",
+                "Set the other Carousel Mill to Coconut Oil.",
+                "Set one Phonolfactory Table to Lotion.",
+                "Set one Crafting Table to Pearl Face Cream.",
+                "Set 5 tree plots to Orange Flower.",
+                "Set the other 15 tree plots to Quick Recipe: Coconut.",
+                "NOTE: You'll make more Coconut Oil than the Lotion needs. Sell the extra."
               ]
             },
             {
               "kind": "numbered",
               "num": "2",
-              "text": "Coconut Cooler",
+              "text": "Agave Fiber",
               "sub": [
-                "Set both Bouncy Brew Kegs to Coconut Cooler.",
-                "Set the other 13 tree plots to Quick Recipe: Coconut."
+                "Set both Jukebox Dryers to Agave Fiber.",
+                "Set 35 farm plots to Quick Recipe: Agave."
               ]
             },
             {
               "kind": "numbered",
               "num": "3",
-              "text": "Dried Strawberries",
+              "text": "Sorghum Fermented Mash",
               "sub": [
-                "Set the other Jukebox Dryer to Dried Strawberries.",
-                "Set the other 22 farm plots to Quick Recipe: Strawberry."
+                "Set all four Wells to Snowmelt Cold Spring.",
+                "Set one Pickling Jar to Sorghum Fermented Mash.",
+                "Set the other 5 farm plots to Sorghum."
               ]
             },
             {
               "kind": "numbered",
               "num": "4",
-              "text": "Premium Gemstone Dust",
+              "text": "Dye",
               "sub": [
-                "Set one Crafting Table to Premium Gemstone Dust.",
+                "Set the other Crafting Table to Dye.",
+                "Set both Nimbus Beds to Petals.",
                 "Set the Floral Windmill to High-Speed Formula: Scales."
               ]
             },
             {
               "kind": "numbered",
               "num": "5",
-              "text": "Star Diamond",
+              "text": "Leftovers",
               "sub": [
-                "Set the other Crafting Table to Star Diamond.",
-                "Set both Starfall Hammocks to Stars."
-              ]
-            },
-            {
-              "kind": "numbered",
-              "num": "6",
-              "text": "Silver Ore",
-              "sub": [
-                "Set two level 7 Mines to Silver Ore."
+                "Set all but one Mines to Silver Ore.",
+                "Set both Dewy Houses to Aromathyst.",
+                "Set both Starfall Hammocks to Stars.",
+                "NOTE: Nothing in this build uses these, or the extra Petals. Stockpile them for later, sell them, or don't produce them; your call."
               ]
             }
           ]
@@ -3709,31 +3793,23 @@
           "items": [
             {
               "kind": "text",
-              "text": "7 Farm plots: Premium Wheat"
+              "text": "35 Farm plots: Quick Recipe: Agave (Temperature: Scorching)"
             },
             {
               "kind": "text",
-              "text": "4 Farm plots: Quick Recipe: Rice"
+              "text": "5 Farm plots: Sorghum (Sunlamp)"
             },
             {
               "kind": "text",
-              "text": "7 Farm plots: Cranberry (Temperature: Freezing)"
+              "text": "NOTE: For event crops, switch off Quick Agave."
             },
             {
               "kind": "text",
-              "text": "22 Farm plots: Quick Recipe: Strawberry (Temperature: Cool)"
+              "text": "5 Tree plots: Orange Flower (Sunlamp)"
             },
             {
               "kind": "text",
-              "text": "NOTE: For event crops, switch off Strawberries."
-            },
-            {
-              "kind": "text",
-              "text": "7 Tree plots: Cacao (Temperature: Scorching)"
-            },
-            {
-              "kind": "text",
-              "text": "13 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
+              "text": "15 Tree plots: Quick Recipe: Coconut (level 6, Temperature: Scorching)"
             }
           ]
         },
@@ -3743,7 +3819,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "Two Piopiota / Panpanta with \"J\"udicious."
+              "text": "Two Sherro, for the Tidewhisper Sandcastles."
             },
             {
               "kind": "bullet",
@@ -3767,19 +3843,19 @@
             },
             {
               "kind": "bullet",
-              "text": "One Dark-3 Aniimo for the Jukebox Drier."
-            },
-            {
-              "kind": "bullet",
               "text": "Three Flamerion/Sparkelf, preferably with \"S\"Practical, for the level 1 Chimney Kiln and 2x Heat Furnaces."
             },
             {
               "kind": "bullet",
-              "text": "Two Glacy (Any Form). Covers 2x Cooling Units."
+              "text": "One Glacy (Any Form). Covers the Cooling Unit."
             },
             {
               "kind": "bullet",
-              "text": "Four Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker and the three generators."
+              "text": "One Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker."
+            },
+            {
+              "kind": "bullet",
+              "text": "Three Electric-4 Aniimo, for three generators. Electric-3 Aniimo work just fine as a fallback."
             },
             {
               "kind": "bullet",
@@ -3816,11 +3892,7 @@
               "text": "Exception: The Chimney Kiln that handles Coarse-Sifted Ore should be kept on Common mode."
             },
             {
-              "kind": "bullet",
-              "text": "Exception: The Jukebox Drier making Dried Strawberries should be Common mode."
-            },
-            {
-              "kind": "bullet",
+              "kind": "text",
               "text": "All Wells and Mines except about five of them on E-mode. Add more until the next puts you below 120% efficiency, then common another 1 or 2; leave yourself spare for order/event recipe crafts."
             }
           ]
