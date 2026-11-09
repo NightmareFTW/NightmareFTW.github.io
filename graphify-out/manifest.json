@@ -2170,9 +2170,9 @@
     "semantic_hash": ""
   },
   "data/steam-free-games.json": {
-    "mtime": 1794218610.452467,
-    "seen": 1794220917.089364,
-    "ast_hash": "71f79eb43b7f6c54401cf5861e220e7e",
+    "mtime": 1794220921.7719452,
+    "seen": 1794221323.571372,
+    "ast_hash": "f0881771317245456007558b6e9ce2d2",
     "semantic_hash": ""
   },
   "data/vampire-survivors/achievements.json": {
@@ -2966,9 +2966,9 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1793759278.609002,
-    "seen": 1793759651.5840726,
-    "ast_hash": "866621ab132273c503e9f99825cd3783",
+    "mtime": 1794221317.2279687,
+    "seen": 1794221323.577747,
+    "ast_hash": "3a2f28c5ee0f03288be5e3188a33e6fd",
     "semantic_hash": ""
   },
   "games/aniimo/aniimo.html": {

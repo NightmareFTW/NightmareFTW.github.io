@@ -16,6 +16,16 @@ go-to, not scraping a wiki or another fan site. Notably:
   item/mod/warframe data directly, as an alternative to vendoring the
   `warframe-items` JSON.
 
+## Shipping a change — two things to update every time, proactively
+
+Whenever you make a change that adds or modifies something on this site, do
+both of these as part of that same piece of work — don't wait to be asked,
+and don't wait for the user to remind you afterwards:
+1. Run `graphify update .` (see the graphify section below) so the
+   knowledge graph doesn't go stale.
+2. If the change is a new game/tool/significant feature (not every commit
+   needs this — see below), add a "What's New" carousel entry.
+
 ## "What's New" carousel — do this proactively
 
 Whenever a new game, tool, or otherwise significant feature ships on this
