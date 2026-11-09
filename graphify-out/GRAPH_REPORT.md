@@ -1,17 +1,17 @@
-# Graph Report - NightmareFTW.github.io  (2026-11-04)
+# Graph Report - NightmareFTW.github.io  (2026-11-09)
 
 ## Corpus Check
-- 254 files · ~978,197 words
+- 254 files · ~985,040 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: .css 2, (none) 1, .toml 1)
 
 ## Summary
-- 2398 nodes · 3776 edges · 274 communities (156 shown, 118 thin omitted)
+- 2404 nodes · 3788 edges · 279 communities (161 shown, 118 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 180 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bd76f578`
+- Built from commit: `dd51b75d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -210,6 +210,7 @@
 - the-other-side/equipment.js
 - update-aniimo.js
 - builder.js
+- vs-curated-guides.js
 - update-palworld.js
 - deck-builder.js
 - character.js
@@ -228,6 +229,7 @@
 - pals.js
 - passives.js
 - map.js
+- ref_path
 - Demonologist Wiki
 - updates-carousel.js
 - Update Far Far West Builds
@@ -289,6 +291,9 @@
 - stage.js
 - warframe/index.js
 - Project notes for Claude
+- update-items.js
+- update-starpath.js
+- update-drops.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `fetch()` - 23 edges
@@ -300,7 +305,7 @@
 7. `clean()` - 12 edges
 8. `cleanCell()` - 12 edges
 9. `parseHero()` - 12 edges
-10. `officialName()` - 11 edges
+10. `wire()` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Update Honkai Star Rail Warp Calendar` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
@@ -331,11 +336,11 @@
 - **Cross-game Meta Builds tool pattern** — games_elden_ring_builds_meta_builds, games_expedition_33_builds_meta_builds, games_far_far_west_builds_meta_builds [INFERRED 0.85]
 - **Cross-game Missables Checklist tool pattern (on-device ticks)** — games_elden_ring_missables_missables_checklist, games_expedition_33_missables_missables_checklist [INFERRED 0.85]
 
-## Communities (274 total, 118 thin omitted)
+## Communities (279 total, 118 thin omitted)
 
 ### Community 0 - "update-marvel-snap-codes.js"
-Cohesion: 0.32
-Nodes (7): clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
+Cohesion: 0.22
+Nodes (8): { execFileSync }, clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
 
 ### Community 1 - "update-hsr-tierlist.js"
 Cohesion: 0.27
@@ -362,8 +367,8 @@ Cohesion: 0.19
 Nodes (28): api(), applyBlob(), closeModal(), cloudPull(), cloudPush(), cloudSignOut(), collect(), errMsg() (+20 more)
 
 ### Community 7 - "update-recipes.js"
-Cohesion: 0.14
-Nodes (22): fs, load(), norm(), officialName(), path, ADJ, SMALL, translateName() (+14 more)
+Cohesion: 0.17
+Nodes (18): ADJ, SMALL, translateName(), tword(), WORD, ptName(), clean(), dlcOfCollection() (+10 more)
 
 ### Community 8 - "items.js"
 Cohesion: 0.19
@@ -474,8 +479,8 @@ Cohesion: 0.27
 Nodes (10): decode(), { execFileSync }, fs, getJson(), norm(), OUT, path, run() (+2 more)
 
 ### Community 35 - "star-path.js"
-Cohesion: 0.31
-Nodes (10): build(), checks, dutyCard(), esc(), progress(), root, ROUTINE, save() (+2 more)
+Cohesion: 0.30
+Nodes (11): build(), checks, dutyCard(), esc(), FALLBACK_SEASON, progress(), renderSeasonInfo(), root (+3 more)
 
 ### Community 36 - "update-epic7.js"
 Cohesion: 0.16
@@ -546,12 +551,12 @@ Cohesion: 0.29
 Nodes (7): CATS, DANGER_CLASS, ENEMIES, esc(), filters, render(), root
 
 ### Community 53 - "ref_fs"
-Cohesion: 0.12
-Nodes (14): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), fs, fs (+6 more)
+Cohesion: 0.20
+Nodes (7): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), fs
 
 ### Community 54 - "ref_path"
-Cohesion: 0.13
-Nodes (11): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk(), OUT (+3 more)
+Cohesion: 0.25
+Nodes (7): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk()
 
 ### Community 55 - "recipes.js"
 Cohesion: 0.39
@@ -594,12 +599,12 @@ Cohesion: 0.67
 Nodes (3): Marvel Snap, Marvel Snap Zone, Update Marvel Snap Cards
 
 ### Community 181 - "update-animals.js"
-Cohesion: 0.10
-Nodes (44): buildCatalogue(), fs, parseCatalogue(), path, clean(), fileAndName(), galleries(), imageUrls() (+36 more)
+Cohesion: 0.16
+Nodes (28): buildCatalogue(), parseCatalogue(), clean(), fileAndName(), galleries(), imageUrls(), parseTable(), sections() (+20 more)
 
 ### Community 182 - "ref_child_process"
-Cohesion: 0.13
-Nodes (21): { execFileSync }, getJson(), clean(), fs, OUT, path, run(), SEASON (+13 more)
+Cohesion: 0.24
+Nodes (13): abilityIconCache, clean(), fs, get(), img(), lastStat(), OUT, path (+5 more)
 
 ### Community 183 - "stamp-assets.js"
 Cohesion: 0.14
@@ -626,8 +631,8 @@ Cohesion: 0.38
 Nodes (10): api(), loadRecoveryCount(), openEditor(), paint(), refreshHeader(), render(), showCodes(), syncNow() (+2 more)
 
 ### Community 189 - "update-vampire-survivors.js"
-Cohesion: 0.05
-Nodes (73): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+65 more)
+Cohesion: 0.10
+Nodes (47): autoGuide(), balancedTemplate(), buildWeaponGraph(), chunk(), cleanDisambiguated(), cleanEnemyName(), enemyIntro(), { execFileSync } (+39 more)
 
 ### Community 190 - "ravenswatch/heroes.js"
 Cohesion: 0.54
@@ -648,6 +653,10 @@ Nodes (47): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), b
 ### Community 194 - "builder.js"
 Cohesion: 0.11
 Nodes (41): abilitiesHtml(), abilityIconHtml(), arcanePoolFor(), augmentMatches(), auraPoolFor(), closePicker(), computeCapacity(), getSlot() (+33 more)
+
+### Community 195 - "vs-curated-guides.js"
+Cohesion: 0.07
+Nodes (26): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+18 more)
 
 ### Community 196 - "update-palworld.js"
 Cohesion: 0.17
@@ -720,6 +729,10 @@ Nodes (8): card(), EFFECT_LABEL, effectLabel(), els, esc(), fmtEffect(), RANK_LA
 ### Community 213 - "map.js"
 Cohesion: 0.15
 Nodes (28): applyScale(), bindMapInteractions(), buildControls(), buildLegend(), buildMapStage(), buildToolbar(), CATEGORY_BY_ID, closePopup() (+20 more)
+
+### Community 214 - "ref_path"
+Cohesion: 0.18
+Nodes (11): fs, path, fs, load(), norm(), officialName(), path, OUT (+3 more)
 
 ### Community 215 - "Demonologist Wiki"
 Cohesion: 0.60
@@ -957,25 +970,37 @@ Nodes (4): esc(), metaTable(), render(), root
 Cohesion: 0.40
 Nodes (4): graphify, Project notes for Claude, Warframe data — use WFCD, not scraping, "What's New" carousel — do this proactively
 
+### Community 276 - "update-items.js"
+Cohesion: 0.18
+Nodes (14): BIOMES, biomesIn(), dlcOf(), fs, isLimited(), LOC, LOC_PAIRS, MATERIALS (+6 more)
+
+### Community 277 - "update-starpath.js"
+Cohesion: 0.27
+Nodes (10): clean(), discoverCurrentSeason(), FALLBACK_SEASON, fetchWikitext(), fs, iso(), OUT, parseWikiDate() (+2 more)
+
+### Community 278 - "update-drops.js"
+Cohesion: 0.32
+Nodes (7): fs, getJson(), OUT, path, RARITIES, ri(), run()
+
 ## Knowledge Gaps
 - **141 isolated node(s):** `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait`, `Rapunzel — Dreamlight Valley character portrait`, `Remy — Dreamlight Valley character portrait` (+136 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 941 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 942 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `img()` connect `ref_child_process` to `profile.js`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `animals.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
 - **Why does `paint()` connect `profile.js` to `ref_child_process`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Should `Game8 (data source)` be split into smaller, more focused modules?**
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11333333333333333 - nodes in this community are weakly interconnected._
-- **Should `update-recipes.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.14333333333333334 - nodes in this community are weakly interconnected._
+- **Should `src/index.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.11904761904761904 - nodes in this community are weakly interconnected._
