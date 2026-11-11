@@ -876,9 +876,9 @@
     "semantic_hash": ""
   },
   "games/dreamlight-valley/star-path.html": {
-    "mtime": 1793095788.7077613,
-    "seen": 1793758580.246568,
-    "ast_hash": "370cc6a9a67e708a47787ac7e611d5e9",
+    "mtime": 1794221328.6639693,
+    "seen": 1794369017.659722,
+    "ast_hash": "e58d9cd156adbc5a2a2fc60bffb161e4",
     "semantic_hash": ""
   },
   "games/elden-ring/builds.html": {
@@ -3143,6 +3143,12 @@
     "mtime": 1793759311.1277952,
     "seen": 1793759651.5840695,
     "ast_hash": "9b31786b637be3c13978bec4c2330752",
+    "semantic_hash": ""
+  },
+  "design-pilot/hub.html": {
+    "mtime": 1794369022.2413213,
+    "seen": 1794369023.5985436,
+    "ast_hash": "dadd03f25e55f482a13342138ae81037",
     "semantic_hash": ""
   }
 }
