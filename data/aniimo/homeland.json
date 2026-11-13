@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T05:25:38.516Z",
+  "updated": "2026-11-13T05:25:23.907Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -10,6 +10,20 @@
     {
       "type": "overview",
       "blocks": [
+        {
+          "heading": "Temporary Notice",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "2026-11-13 through 2026-11-15"
+            },
+            {
+              "kind": "text",
+              "text": "Strongly consider catching at least one, but optionally two Prismana Royalbee during the event. She is the best Aniimo in the game to put on the woodworking bench; Artisan-4, and with elements that don't let her get distracted with other tasks."
+            }
+          ]
+        },
         {
           "heading": "Overview",
           "images": [],
@@ -1196,6 +1210,24 @@
             {
               "kind": "text",
               "text": "Stockpile Plain Fresh Water, as much as you can. Ideally tens of thousands in reserve by around 2026-11-19, just past the half-way point."
+            }
+          ]
+        },
+        {
+          "heading": "Nighttime Gathering",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Perhaps the first real reason to have an active, private RV park. Go to the RV park, and run to the middle to talk to Pumpkin God. He'll ask you for items in 8 categories; you can refresh them if he issues a request for something stupid like an RV22-exclusive item. Note that you'll have to have this in your inventory; he doesn't accept items in your Homeland, a pretty big oversight from the dev team."
+            },
+            {
+              "kind": "text",
+              "text": "This also means you'll probably want to have about 100 of each event item ready to go in case he asks for it."
+            },
+            {
+              "kind": "text",
+              "text": "NOTE: It looks like you can only do so many a day, and as this is the first day I'm not sure about the refresh schedule. It MIGHT be a good idea to reroll for high-value turnins, and do them in descending order of value until you're out of turnins."
             }
           ]
         }
