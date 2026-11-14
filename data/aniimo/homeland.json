@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13T05:25:23.907Z",
+  "updated": "2026-11-14T05:24:47.814Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -1223,11 +1223,67 @@
             },
             {
               "kind": "text",
-              "text": "This also means you'll probably want to have about 100 of each event item ready to go in case he asks for it."
+              "text": "Each slot can be completed once by your park every 6 hours; buying it locks it for everyone. These locks are refreshed every 6 hours, and you only have X number of purchases per day. He asks for things like event goods, normal RV goods, Wishstars(formerly named Bud Tickets), Egg Heist currency, and even Egg Heist Prismana-tier items."
             },
             {
               "kind": "text",
-              "text": "NOTE: It looks like you can only do so many a day, and as this is the first day I'm not sure about the refresh schedule. It MIGHT be a good idea to reroll for high-value turnins, and do them in descending order of value until you're out of turnins."
+              "text": "Consider holding (in your personal inventory) about 100 of each event item ready to go in case he asks for it."
+            },
+            {
+              "kind": "text",
+              "text": "There are two tracks, top and bottom. Top track asks for _both_ personal and park \"Contribution\". Bottom track only asks for personal \"Contribution\"."
+            },
+            {
+              "kind": "text",
+              "text": "Besides submitting items, you can improve \"Contribution\" decorating your RV park. Check the item's Habitability - tripling it, if it's a current event item - when deciding which 100 items to decorate your park with. The absolute best items are the 658 habitability items that come from Nighttime Gathering itself. But I do not recommend investing heavily into this unless you're coming in late and want to buy your way to a win; rather, save those Weird Jelly Beans for more event crop growing instead. If, at the end of the event, your'e close to 220000 points, dump WJBs into high-value decorations for the Park."
+            },
+            {
+              "kind": "text",
+              "text": "If you want to spend your Wishstars on this though, I think that's a wise investment. High-hab items will likely be reused in future events (speculation). I'm listing some RV20 and below items that aren't pay2play. RV21 and 22 have some very high hab items that will eventually surpass some of the low items on this list. I'm not listing them, but Kid Fruit series (Slumber/Glowfun/Softcore) have excellent Hab, if you're willing to spend the Dream Sparks."
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bathtub ==> Forest Whispers Wooden Bath and Mige Pool Bathtub (5 and 5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bed ==> Sweet Dreams Tent Bed Large (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Rice Cooker ==> Timber & Table Baking Counter (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Swing ==> Windchime Swing Chair (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Cabinet ==> Retro Kitchen Counter (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Cabinet ==> Woofy Stove (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Swing ==> Starry Bed (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bathtub ==> Drawer Washbasin Maple and Cabinet Washbasin Maple (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bathtub ==> Wooden Washbasin Oak and Washbasin Mist Grey (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Tree ==> Cherry Tree (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Windmill ==> Garden Gate (10)"
             }
           ]
         }
