@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10T05:25:06.059Z",
+  "updated": "2026-11-15T05:24:57.569Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -10,6 +10,20 @@
     {
       "type": "overview",
       "blocks": [
+        {
+          "heading": "Temporary Notice",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "2026-11-13 through 2026-11-15"
+            },
+            {
+              "kind": "text",
+              "text": "Strongly consider catching at least one, but optionally two Prismana Royalbee during the event. She is the best Aniimo in the game to put on the woodworking bench; Artisan-4, and with elements that don't let her get distracted with other tasks."
+            }
+          ]
+        },
         {
           "heading": "Overview",
           "images": [],
@@ -1196,6 +1210,80 @@
             {
               "kind": "text",
               "text": "Stockpile Plain Fresh Water, as much as you can. Ideally tens of thousands in reserve by around 2026-11-19, just past the half-way point."
+            }
+          ]
+        },
+        {
+          "heading": "Nighttime Gathering",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "Perhaps the first real reason to have an active, private RV park. Go to the RV park, and run to the middle to talk to Pumpkin God. He'll ask you for items in 8 categories; you can refresh them if he issues a request for something stupid like an RV22-exclusive item. Note that you'll have to have this in your inventory; he doesn't accept items in your Homeland, a pretty big oversight from the dev team."
+            },
+            {
+              "kind": "text",
+              "text": "Each slot can be completed once by your park every 6 hours; buying it locks it for everyone. These locks are refreshed every 6 hours, and you only have X number of purchases per day. He asks for things like event goods, normal RV goods, Wishstars(formerly named Bud Tickets), Egg Heist currency, and even Egg Heist Prismana-tier items."
+            },
+            {
+              "kind": "text",
+              "text": "Consider holding (in your personal inventory) about 100 of each event item ready to go in case he asks for it."
+            },
+            {
+              "kind": "text",
+              "text": "There are two tracks, top and bottom. Top track asks for _both_ personal and park \"Contribution\". Bottom track only asks for personal \"Contribution\"."
+            },
+            {
+              "kind": "text",
+              "text": "Besides submitting items, you can improve \"Contribution\" decorating your RV park. Check the item's Habitability - tripling it, if it's a current event item - when deciding which 100 items to decorate your park with. The absolute best items are the 658 habitability items that come from Nighttime Gathering itself. But I do not recommend investing heavily into this unless you're coming in late and want to buy your way to a win; rather, save those Weird Jelly Beans for more event crop growing instead. If, at the end of the event, your'e close to 220000 points, dump WJBs into high-value decorations for the Park."
+            },
+            {
+              "kind": "text",
+              "text": "If you want to spend your Wishstars on this though, I think that's a wise investment. High-hab items will likely be reused in future events (speculation). I'm listing some RV20 and below items that aren't pay2play. RV21 and 22 have some very high hab items that will eventually surpass some of the low items on this list. I'm not listing them, but Kid Fruit series (Slumber/Glowfun/Softcore) have excellent Hab, if you're willing to spend the Dream Sparks."
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bathtub ==> Forest Whispers Wooden Bath and Mige Pool Bathtub (5 and 5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bed ==> Sweet Dreams Tent Bed Large (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Rice Cooker ==> Timber & Table Baking Counter (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Swing ==> Windchime Swing Chair (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Cabinet ==> Retro Kitchen Counter (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Cabinet ==> Woofy Stove (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Swing ==> Starry Bed (5)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bathtub ==> Drawer Washbasin Maple and Cabinet Washbasin Maple (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Indoor Decorations ==> Bathtub ==> Wooden Washbasin Oak and Washbasin Mist Grey (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Tree ==> Cherry Tree (10)"
+            },
+            {
+              "kind": "text",
+              "text": "Outdoor Decorations ==> Windmill ==> Garden Gate (10)"
             }
           ]
         }
