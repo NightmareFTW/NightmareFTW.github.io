@@ -89,7 +89,7 @@
   // ---------- spectrum ----------
   function renderSpectrum() {
     el.spectrum.innerHTML = LIST.map(function (g) {
-      return '<button data-open="' + g.id + '" title="' + esc(g.name) + '" aria-label="' + esc(g.name) + '" aria-current="' + (g.id === state.active) + '" style="--seg:' + g.color + ";background-image:url(" + JSON.stringify(g.banner) + ')"></button>';
+      return '<button data-open="' + g.id + '" title="' + esc(g.name) + '" aria-label="' + esc(g.name) + '" aria-current="' + (g.id === state.active) + '" style="--seg:' + g.color + ";background-image:url('" + g.banner + "')\"></button>";
     }).join("");
   }
 
@@ -98,7 +98,7 @@
     var i = idxOf(g.id), lc = liveCount(g), on = onCount(g), page = gamePage(g), pinned = isPinned(g.id);
     var name = page ? '<a href="' + esc(page) + '">' + esc(g.name) + "</a>" : esc(g.name);
     return "" +
-      (g.banner ? '<div class="hero-art" style="background-image:url(' + JSON.stringify(g.banner) + ')"></div>' : "") +
+      (g.banner ? '<div class="hero-art" style="background-image:url(\'' + g.banner + '\')"></div>' : "") +
       '<div class="hero-wm num" aria-hidden="true">' + String(i + 1).padStart(2, "0") + "</div>" +
       '<div class="hero-in">' +
         '<div class="eyebrow"><span class="idx num"><b>' + String(i + 1).padStart(2, "0") + "</b> / " + String(LIST.length).padStart(2, "0") + "</span><span class=\"rule\"></span>" +

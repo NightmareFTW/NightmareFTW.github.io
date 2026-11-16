@@ -11,7 +11,7 @@
   --line: #232329; --line-2: #34343c;
   --c-text: #f4f3f5; --text-2: #a6a4ad; --text-3: #76747e; --text-4: #4a4951;
   --c-accent: #ff2a38; --accent-deep: #c01320; --accent-dim: #3a1216;
-  --rail: 304px; --topbar: 54px; --spec: 34px;
+  --rail: 304px; --topbar: 54px; --spec: 48px;
 }
 html, body { height: 100%; }
 body {
@@ -115,11 +115,13 @@ body::before {
 .topbar .top-nav .auth-btn { font-size: .78rem; }
 
 /* spectrum: the whole library as one strip you can jump around */
-.spectrum { flex: none; height: var(--spec); display: flex; align-items: stretch; gap: 2px; padding: 9px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
-.spectrum button { flex: 1; min-width: 0; position: relative; background-color: var(--seg, var(--line-2)); background-size: cover; background-position: center; opacity: .42; filter: saturate(.9); transition: opacity .12s, filter .12s; }
-.spectrum button:hover { opacity: .85; filter: none; }
+.spectrum { flex: none; height: var(--spec); display: flex; align-items: stretch; gap: 2px; padding: 8px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
+.spectrum button { flex: 1; min-width: 0; position: relative; overflow: hidden; background-color: var(--seg, var(--line-2)); background-size: cover; background-position: center 32%; opacity: .62; filter: saturate(.95); transition: opacity .12s, filter .12s; }
+.spectrum button:hover { opacity: .9; filter: none; }
 .spectrum button[aria-current="true"] { opacity: 1; filter: none; }
-.spectrum button::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, color-mix(in srgb, var(--seg, #000) 55%, transparent)); }
+/* subtle game-colour wash along the bottom so the strip still reads as a spectrum */
+.spectrum button::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, color-mix(in srgb, var(--seg, #000) 50%, transparent)); }
+@supports not (background: color-mix(in srgb, red, blue)) { .spectrum button::before { display: none; } }
 .spectrum button[aria-current="true"]::after { content: ""; position: absolute; inset: -4px -1px; border: 1px solid var(--c-accent); }
 
 .scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
