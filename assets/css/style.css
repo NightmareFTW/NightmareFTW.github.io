@@ -1,15 +1,15 @@
 :root {
-  --bg: #0a0708;
-  --bg-soft: #14100f;
-  --card: #181113;
-  --card-hover: #221619;
-  --border: #321f22;
-  --text: #f0e7e8;
-  --muted: #9c8a8c;
-  --accent: #ff2435;
+  --bg: #09090b;
+  --bg-soft: #121217;
+  --card: #15151b;
+  --card-hover: #1c1c23;
+  --border: #2a2a31;
+  --text: #f3f1f3;
+  --muted: #9a98a0;
+  --accent: #ff2a38;
   --accent-2: #ff6a5e;
-  --danger: #ff2435;
-  --radius: 14px;
+  --danger: #ff2a38;
+  --radius: 6px;
   --mono: "JetBrains Mono", ui-monospace, monospace;
   --sans: "Inter", system-ui, sans-serif;
 }
@@ -26,15 +26,14 @@ body {
   overflow-x: hidden;
 }
 
+/* faint film grain for depth — matches the hub; no red grid, no glow */
 .bg-grid {
   position: fixed;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 36, 53, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 36, 53, 0.05) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
   z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
 }
 
 .container {
@@ -47,8 +46,7 @@ body {
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: rgba(10, 11, 15, 0.7);
-  backdrop-filter: blur(10px);
+  background: var(--bg);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -57,7 +55,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 54px;
 }
 .brand {
   display: flex;
@@ -65,23 +63,30 @@ body {
   gap: 10px;
   text-decoration: none;
   color: var(--text);
-  font-family: var(--mono);
-  font-weight: 800;
-  font-size: 1.05rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
 }
-.brand-mark { color: var(--accent); }
+.brand-mark { color: var(--accent); display: inline-flex; align-items: center; }
+.brand-mark svg { display: block; }
 .accent { color: var(--accent); }
 .top-nav { display: flex; gap: 22px; }
 .top-nav a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 500;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   transition: color 0.15s;
 }
 .top-nav a:hover, .top-nav a.active { color: var(--text); }
+/* keep the injected GitHub icon-link from inheriting the nav's text sizing */
+.top-nav a.gh-link { font-size: 0; letter-spacing: 0; }
 .auth-btn { display: inline-flex; align-items: center; gap: 6px; font-family: var(--sans); font-size: 0.84rem; font-weight: 600;
-  color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 5px 11px; cursor: pointer; transition: border-color .15s, color .15s; }
+  color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 4px; padding: 5px 11px; cursor: pointer; transition: border-color .15s, color .15s; }
 .auth-btn:hover { border-color: var(--accent); color: var(--text); }
 .auth-btn svg { display: block; }
 /* discreet GitHub link, injected next to the account button on every page */
@@ -92,7 +97,7 @@ body {
 /* Steam free-game alerts: bell + badge + dropdown panel */
 .bell-wrap { position: relative; display: flex; align-items: center; }
 .bell-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
-  color: var(--muted); background: none; border: 1px solid transparent; border-radius: 8px; cursor: pointer; transition: color .15s, border-color .15s, background .15s; }
+  color: var(--muted); background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; transition: color .15s, border-color .15s, background .15s; }
 .bell-btn:hover { color: var(--text); border-color: var(--border); background: var(--card); }
 .bell-badge { position: absolute; top: 1px; right: 1px; min-width: 15px; height: 15px; padding: 0 3px; border-radius: 8px;
   background: var(--accent); color: #fff; font-family: var(--sans); font-size: 0.65rem; font-weight: 800; line-height: 15px; text-align: center;
@@ -335,16 +340,16 @@ body {
 .search-input {
   flex: 1; min-width: 180px;
   background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 10px 14px;
+  border-radius: 4px; padding: 10px 14px;
   color: var(--text); font-family: var(--sans); font-size: 0.95rem;
 }
 .search-input:focus { outline: none; border-color: var(--accent); }
 .sort-select {
   background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 10px 14px;
+  border-radius: 4px; padding: 10px 14px;
   color: var(--text); font-family: var(--sans); cursor: pointer;
 }
-.view-toggle { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.view-toggle { display: flex; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
 .view-toggle button {
   background: var(--card); border: none; color: var(--muted);
   padding: 0 14px; cursor: pointer; font-size: 1.1rem;
@@ -420,11 +425,14 @@ body {
 /* ---- Game detail page ---- */
 .breadcrumb {
   font-family: var(--mono);
-  font-size: 0.85rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--muted);
-  padding: 28px 0 0;
+  padding: 24px 0 0;
 }
-.breadcrumb a { color: var(--accent-2); text-decoration: none; }
+.breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
+.breadcrumb a:hover { color: var(--accent); }
 .game-hero {
   display: flex;
   align-items: center;
@@ -558,7 +566,7 @@ body {
   font-family: var(--mono);
   font-size: 0.85rem;
   padding: 9px 16px;
-  border-radius: 9px;
+  border-radius: 4px;
   border: 1px solid var(--border);
   background: var(--bg-soft);
   color: var(--text);

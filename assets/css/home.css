@@ -61,7 +61,7 @@ body::before {
 .rail-head { display: flex; align-items: baseline; justify-content: space-between; padding: 14px 14px 7px; }
 .rail-head span { font: 600 9.5px/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--text-4); }
 
-.g-row { position: relative; display: grid; grid-template-columns: 26px 34px 1fr auto; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 7px 14px 7px 14px; border-left: 2px solid transparent; }
+.g-row { position: relative; display: grid; grid-template-columns: 26px 34px 1fr auto auto; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 7px 14px 7px 14px; border-left: 2px solid transparent; }
 .g-row:hover { background: var(--panel-2); }
 .g-row::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--g, var(--line-2)); opacity: 0; }
 .g-row:hover::before { opacity: .7; }
@@ -71,7 +71,7 @@ body::before {
 .g-row[aria-current="true"] .ix { color: var(--c-accent); }
 .g-row .th { width: 34px; height: 22px; object-fit: cover; background: var(--panel-2); filter: saturate(.85) brightness(.92); }
 .g-row[aria-current="true"] .th { filter: none; }
-.g-row .nm { min-width: 0; font: 500 13.5px/1.25 var(--sans); color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.g-row .nm { min-width: 0; text-align: left; font: 500 13.5px/1.25 var(--sans); color: var(--text-2); }
 .g-row:hover .nm, .g-row[aria-current="true"] .nm { color: var(--c-text); }
 .g-row .ct { display: flex; align-items: center; gap: 7px; font: 500 10.5px/1 var(--mono); color: var(--text-4); }
 .g-row .ct.live { color: var(--c-accent); }
@@ -84,6 +84,15 @@ body::before {
 .g-row .pin svg { display: block; }
 
 .pinned { border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+.pinned .g-row { grid-template-columns: 34px 1fr auto auto; }
+
+/* themed scrollbars (match the dark shell, not the OS default) */
+.rail-scroll, .scroll { scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+.rail-scroll::-webkit-scrollbar, .scroll::-webkit-scrollbar { width: 11px; height: 11px; }
+.rail-scroll::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track { background: transparent; }
+.rail-scroll::-webkit-scrollbar-thumb { background: var(--line-2); border: 3px solid var(--panel); border-radius: 7px; }
+.scroll::-webkit-scrollbar-thumb { background: var(--line-2); border: 3px solid var(--bg); border-radius: 7px; }
+.rail-scroll:hover::-webkit-scrollbar-thumb, .scroll:hover::-webkit-scrollbar-thumb { background: var(--text-4); }
 
 .rail-foot { flex: none; display: flex; align-items: center; gap: 14px; padding: 11px 16px; border-top: 1px solid var(--line); font: 500 10.5px/1 var(--mono); color: var(--text-4); }
 .rail-foot a:hover { color: var(--text-2); }
@@ -107,9 +116,10 @@ body::before {
 
 /* spectrum: the whole library as one strip you can jump around */
 .spectrum { flex: none; height: var(--spec); display: flex; align-items: stretch; gap: 2px; padding: 9px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
-.spectrum button { flex: 1; min-width: 0; position: relative; background: var(--seg, var(--line-2)); opacity: .34; transition: opacity .12s; }
-.spectrum button:hover { opacity: .8; }
-.spectrum button[aria-current="true"] { opacity: 1; }
+.spectrum button { flex: 1; min-width: 0; position: relative; background-color: var(--seg, var(--line-2)); background-size: cover; background-position: center; opacity: .42; filter: saturate(.9); transition: opacity .12s, filter .12s; }
+.spectrum button:hover { opacity: .85; filter: none; }
+.spectrum button[aria-current="true"] { opacity: 1; filter: none; }
+.spectrum button::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, color-mix(in srgb, var(--seg, #000) 55%, transparent)); }
 .spectrum button[aria-current="true"]::after { content: ""; position: absolute; inset: -4px -1px; border: 1px solid var(--c-accent); }
 
 .scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }

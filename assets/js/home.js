@@ -89,7 +89,7 @@
   // ---------- spectrum ----------
   function renderSpectrum() {
     el.spectrum.innerHTML = LIST.map(function (g) {
-      return '<button data-open="' + g.id + '" title="' + esc(g.name) + '" aria-label="' + esc(g.name) + '" aria-current="' + (g.id === state.active) + '" style="--seg:' + g.color + '"></button>';
+      return '<button data-open="' + g.id + '" title="' + esc(g.name) + '" aria-label="' + esc(g.name) + '" aria-current="' + (g.id === state.active) + '" style="--seg:' + g.color + ";background-image:url(" + JSON.stringify(g.banner) + ')"></button>';
     }).join("");
   }
 
