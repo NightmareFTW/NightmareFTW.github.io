@@ -8,34 +8,46 @@ vanilla HTML/CSS/JS, hosted on GitHub Pages.
 
 ![Home page](assets/screenshots/home.png)
 
+The hub is a **launcher**: a searchable game index on the left and a stage on the
+right that opens any game's tools in one click — no page reload. Live-data games
+are flagged, a "spectrum" strip maps the whole library at a glance, and it's
+keyboard-driven (`/` to search, `↑`/`↓` to move through the library, `Enter` to
+open). The whole site is bilingual — **English and European Portuguese (PT-PT)** —
+switched from the header flags.
+
+![Home page — Portuguese](assets/screenshots/home-pt.png)
+
 ---
 
 ## What's inside
 
-18 games, each with its own page and three tabs — **Tools**, **News**
+21 games, each with its own page and three tabs — **Tools**, **News**
 (auto-fetched headlines) and **Codes** (redeemable codes, kept fresh
 automatically where a game has any).
 
 | Game | Tools |
 | --- | --- |
-| **Phasmophobia** | Ghost Evidence Checker · Cursed Possession Reference · Equipment Guide |
-| **The Outlast Trials** | Enemies & Counters · Trials & Maps Guide · Recommended Builds · Loadout Builder (shareable builds) |
-| **Final Fantasy XIV** | Daily/Weekly Checklist (reset-aware) · Gathering Node Timer (live Eorzea clock) |
-| **Epic Seven** | Gear Score · Damage / EHP Calculator · Speed Tuning / Turn Order |
-| **Warframe** | Worldstate Tracker · Open-World Cycle Timers · Drop Table |
-| **Disney Dreamlight Valley** | Star Path Tracker · Recipe Browser · Friendship Tracker · Items Database · Animal Guide |
-| **Neverness to Everness** | Daily Checklist · Tier List & Builds · Bond Gift Planner |
-| **Honkai: Star Rail** | Daily/Weekly Checklist · Tier List · Meta Builds (team comps) · Character Builds · Warp Calendar · Event Calendar |
-| **Cyberpunk 2077** | Meta Builds (in-game-style skill tree & cyberware body diagram) |
-| **God of War Ragnarök** | Meta Builds (gear screen with Kratos in each set) · Missables Checklist |
+| **Aniimo** | Aniimo Database · Aniimo Map · Aniimo Builds · Community Codes · Homeland Guide |
 | **Clair Obscur: Expedition 33** | Meta Builds (in-game build screen — Weapon, Pictos, Luminas) · Missables Checklist |
-| **Elden Ring** | Meta Builds (real item icons) · Missables Checklist (NPC questlines) |
+| **Cyberpunk 2077** | Meta Builds (in-game-style skill tree & cyberware body diagram) |
 | **Demonologist** | Demon Evidence Checker · Demon Reference · Equipment Guide |
-| **The Other Side** | Ghost Evidence Checker · Ghost Reference (18 ghosts) · Equipment Guide |
-| **Ravenswatch** | Hero Reference (full kits) · Build Directions · Talent Database (26 talents/hero) · Magical Objects |
+| **Disney Dreamlight Valley** | Star Path Tracker · Recipe Browser · Friendship Tracker · Items Database · Animal Guide · Community Presets |
+| **Elden Ring** | Meta Builds (real item icons) · Missables Checklist (NPC questlines) |
+| **Epic Seven** | Heroes Database · Artifacts Database |
 | **Far Far West** | Meta Builds (top-rated community loadouts, with images) · Maps & Collectibles (interactive region maps, every POI plotted) |
-| **Marvel Snap** | Card Database · Deck Builder · Deck Importer (paste a code from Snap Zone/Untapped) |
 | **Farever** | Class Builds (3 per class) · Weapons Guide · Dungeons Checklist |
+| **Final Fantasy XIV** | Daily / Weekly Checklist (reset-aware) · Gathering Node Timer (live Eorzea clock) |
+| **God of War Ragnarök** | Meta Builds (gear screen with Kratos in each set) · Missables Checklist |
+| **Honkai: Star Rail** | Daily / Weekly Checklist · Tier List · Meta Builds (team comps) · Character Builds · Warp Calendar · Event Calendar |
+| **Marvel Snap** | Card Database · Deck Builder · Deck Importer (paste a code from Snap Zone/Untapped) |
+| **Neverness to Everness** | Daily Checklist · Tier List & Builds · Bond Gift Planner |
+| **Palworld** | Pal Database · Passive Skills · Breeding Calculator |
+| **Phasmophobia** | Ghost Evidence Checker · Cursed Possession Reference · Equipment Guide |
+| **Ravenswatch** | Hero Reference (full kits) · Build Directions · Talent Database (26 talents/hero) · Build Route Planner · Magical Objects |
+| **The Other Side** | Ghost Evidence Checker · Ghost Reference · Equipment Guide |
+| **The Outlast Trials** | Enemies & Counters · Trials & Maps Guide · Recommended Builds · Loadout Builder (shareable builds) |
+| **Vampire Survivors** | Achievements Checklist · Characters Database · Weapons, Arcanas & Passives · Enemies Database · Stages Database · Pickups Database |
+| **Warframe** | Worldstate Tracker · Open-World Cycle Timers · Drop Table · Build Creator · Build Showcase |
 
 <!-- ➕ New games go here. Each is one object in assets/js/data.js (see "Adding a game or tool"). -->
 
@@ -52,9 +64,14 @@ Two recurring themes in the newer guides:
   Early Access titles with no reliable public source yet (Farever) — those are
   hand-written and clearly marked as such instead of guessing.
 
-The home page supports live search, sorting and grid / list / compact views, plus
-**pinning** favourite games to a section up top and **drag-to-reorder** for your
-own default order (saved on your device).
+The home page is a launcher ("Console"): a fixed game index on the left with live
+**search** across games *and* tools, quick **filters** (All · Live · Builders ·
+Databases · Checklists · Guides), and a clickable **spectrum** strip mapping the
+whole library. Picking a game swaps the stage client-side — hero key art, that
+game's tools as a menu, and a "What's New" feed — and you can **pin** favourite
+games to a section up top (synced to your account, or saved on your device when
+signed out). It's keyboard-driven and responsive down to a phone, where the index
+becomes a horizontal shelf.
 
 ### Accounts & sync
 
@@ -201,13 +218,15 @@ without manual edits:
 
 ```
 .
-├── index.html                # home (game grid + search/sort/views)
+├── index.html                # home — "Console" launcher (game index + stage)
 ├── favicon.svg
 ├── assets/
-│   ├── css/style.css         # all styling (black/red theme)
+│   ├── css/
+│   │   ├── style.css         # shared styling (black/red theme) + injected chrome
+│   │   └── home.css          # the home "Console" launcher shell
 │   ├── js/
-│   │   ├── data.js           # ⭐ central config: games + tools
-│   │   ├── home.js           # home grid: search/sort/views + pin & drag-reorder
+│   │   ├── data.js           # ⭐ central config: games + tools + What's New
+│   │   ├── home.js           # home launcher: search, filters, spectrum, keyboard, synced pins
 │   │   ├── game.js           # game page: tabs (Tools/News/Codes) + reset timers
 │   │   ├── auth.js           # sign-in (GitHub or email/password) + cross-device sync
 │   │   ├── steam-alerts.js   # header notification bell (free Steam game promos)
@@ -255,7 +274,8 @@ cache-busters.
 Stored in `assets/screenshots/`. To refresh or add one, capture the tool and save
 it under the matching name. Current set:
 
-- [x] `home.png` — home grid
+- [x] `home.png` — home ("Console" launcher)
+- [x] `home-pt.png` — home in European Portuguese (PT-PT)
 - [x] `murdoku.png` — Murdoku, the browser puzzle game
 - [x] `steam-alerts.png` — Steam free-game notification panel
 - [x] `nte-tierlist.png` — Neverness to Everness tier list
@@ -300,6 +320,17 @@ Demonologist data from their respective Fandom wikis; Far Far West builds and
 maps from [wikily.gg](https://farfarwest.wikily.gg); Farever's builds and weapon
 data are hand-written by NightmareFTW rather than scraped (see "Auto-updating
 data" above for why).
+
+## License
+
+This project's original code and content are released under the
+**[PolyForm Noncommercial License 1.0.0](LICENSE.md)** — free to use, study,
+modify and share for any **noncommercial** purpose. **Commercial use requires the
+copyright holder's prior written consent;** NightmareFTW can grant a separate
+commercial license on request. Game names, trademarks, art and data belong to
+their respective owners (see Credits) and are used for noncommercial reference
+only — they are not covered by this license. See [`LICENSE.md`](LICENSE.md) for
+the full terms.
 
 ---
 

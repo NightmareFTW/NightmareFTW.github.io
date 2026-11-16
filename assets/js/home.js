@@ -1,177 +1,234 @@
-/* Renders the game grid on the home page from GAMES (data.js).
-   Features: live search, sorting and grid/list/compact views, plus
-   user-pinned games (shown in their own section above the list) and
-   drag-to-reorder of the "Default" order. Pins + custom order persist in
-   localStorage. */
+/* Home / Hub — the "Console" launcher.
+   A fixed game index (the rail) on the left and a stage on the right that
+   swaps the active game client-side: hero key art, its tools as a menu, and a
+   "What's New" feed. Reads GAMES / SITE_UPDATES from data.js. Keyboard-driven
+   (/ to search, ↑/↓ to move through the library, Enter to open the first tool)
+   and a clickable "spectrum" strip mapping the whole library. Pins reuse the
+   real synced nftw:pinnedGames key (auth.js syncs them across devices). All
+   visible strings are English; i18n.js translates the page to PT-PT via its
+   dictionary + MutationObserver, so no language branching lives here (only the
+   date format is picked directly, same as the rest of the site). */
 (function () {
-  const grid = document.getElementById("game-grid");
-  const pinnedSection = document.getElementById("pinned-section");
-  const pinnedGrid = document.getElementById("pinned-grid");
-  const pinnedCount = document.getElementById("pinned-count");
-  const countEl = document.getElementById("game-count");
-  const searchEl = document.getElementById("game-search");
-  const sortEl = document.getElementById("game-sort");
-  const toggle = document.getElementById("view-toggle");
-  const noResults = document.getElementById("no-results");
-  if (!grid) return;
+  "use strict";
+  if (typeof GAMES === "undefined" || !document.getElementById("rail-list")) return;
 
-  const PIN_KEY = "nftw:pinnedGames";
-  const ORDER_KEY = "nftw:gameOrder";
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]); }); };
+  var LIST = GAMES.slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
+  var UPDATES = (typeof SITE_UPDATES !== "undefined" ? SITE_UPDATES : []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
 
-  const PIN_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 3h6l-1 2v5l3 3v2h-5v5l-1 2-1-2v-5H4v-2l3-3V5z" fill="currentColor"/></svg>';
-  const allIds = () => GAMES.map((g) => g.id);
-  const byId = (id) => GAMES.find((g) => g.id === id);
-  const alpha = (ids) => ids.slice().sort((a, b) => byId(a).name.localeCompare(byId(b).name));
-  const load = (k) => { try { return JSON.parse(localStorage.getItem(k) || "[]"); } catch { return []; } };
-  const save = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+  var LANG = (function () { try { return localStorage.getItem("nftw:lang") === "pt" ? "pt" : "en"; } catch (e) { return "en"; } })();
+  var fmtDate = function (iso) {
+    try { return new Date(iso + "T00:00:00").toLocaleDateString(LANG === "pt" ? "pt-PT" : "en-GB", { day: "numeric", month: "short" }); }
+    catch (e) { return iso; }
+  };
+  var liveCount = function (g) { return g.tools.filter(function (t) { return t.available && t.type === "live"; }).length; };
+  var onCount = function (g) { return g.tools.filter(function (t) { return t.available; }).length; };
+  var gamePage = function (g) { return onCount(g) ? "games/" + g.id + "/index.html" : null; };
 
-  // pinned ids (ordered), filtered to games that still exist
-  let pinned = load(PIN_KEY).filter((id) => byId(id));
-  // custom "Default" order: saved order (filtered) + any new games appended A-Z;
-  // with nothing saved yet the default IS alphabetical.
-  function buildOrder() {
-    const saved = load(ORDER_KEY).filter((id) => byId(id));
-    const missing = alpha(allIds().filter((id) => !saved.includes(id)));
-    return saved.length ? saved.concat(missing) : alpha(allIds());
+  var PIN_KEY = "nftw:pinnedGames";
+  var loadPins = function () { try { var a = JSON.parse(localStorage.getItem(PIN_KEY) || "[]"); return Array.isArray(a) ? a : []; } catch (e) { return []; } };
+  var savePins = function (a) { try { localStorage.setItem(PIN_KEY, JSON.stringify(a)); } catch (e) {} };
+  var pins = loadPins().filter(function (id) { return byId(id); });
+  var isPinned = function (id) { return pins.indexOf(id) >= 0; };
+
+  var PIN_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M9 3h6l-1 2v5l3 3v2h-5v5l-1 2-1-2v-5H4v-2l3-3V5z" fill="currentColor"/></svg>';
+
+  function byId(id) { for (var i = 0; i < LIST.length; i++) if (LIST[i].id === id) return LIST[i]; return null; }
+  function idxOf(id) { for (var i = 0; i < LIST.length; i++) if (LIST[i].id === id) return i; return -1; }
+  function updGame(u) { var m = String(u.href || "").match(/games\/([^\/]+)\//); return m ? m[1] : null; }
+
+  var el = {
+    railList: document.getElementById("rail-list"), railEmpty: document.getElementById("rail-empty"),
+    libCount: document.getElementById("lib-count"), pinned: document.getElementById("pinned"), pinnedList: document.getElementById("pinned-list"),
+    spectrum: document.getElementById("spectrum"), hero: document.getElementById("hero"), tools: document.getElementById("tools"),
+    toolCount: document.getElementById("tool-count"), feed: document.getElementById("feed"), feedCount: document.getElementById("feed-count"),
+    crumb: document.getElementById("crumb"), q: document.getElementById("q"), filters: document.getElementById("filters"),
+  };
+  var state = { active: null, query: "", filter: "all" };
+
+  // ---------- matching / filtering ----------
+  function matchQuery(g, q) {
+    if (!q) return true;
+    if (g.name.toLowerCase().indexOf(q) >= 0) return true;
+    return g.tools.some(function (t) { return t.name.toLowerCase().indexOf(q) >= 0 || t.type.indexOf(q) >= 0; });
   }
-  let order = buildOrder();
-
-  let query = "";
-  let sort = "default";
-  let view = localStorage.getItem("nftw:homeView") || "grid";
-
-  const liveTools = (g) => g.tools.filter((t) => t.available).length;
-  const isPinned = (id) => pinned.includes(id);
-
-  function cardHtml(game, draggable) {
-    const lt = liveTools(game);
-    const has = lt > 0;
-    const href = has ? `games/${game.id}/index.html` : null;
-    const tag = has ? `<span class="tool-badge">${lt} tool${lt > 1 ? "s" : ""}</span>` : `<span class="soon-badge">soon</span>`;
-    const banner = `<div class="game-banner" style="background:${game.color}"><img src="${game.banner}" alt="${game.name}" loading="lazy" onerror="this.style.display='none'"></div>`;
-    const controls =
-      `<button class="pin-btn ${isPinned(game.id) ? "pinned" : ""}" data-id="${game.id}" title="${isPinned(game.id) ? "Unpin" : "Pin"}" aria-label="${isPinned(game.id) ? "Unpin game" : "Pin game"}">${PIN_SVG}</button>` +
-      (draggable ? `<span class="drag-handle" title="Drag to reorder" aria-hidden="true">⠿</span>` : "");
-    const inner = `${controls}${banner}
-      <div class="game-card-body">
-        <h3>${game.name}</h3>
-        <p>${game.blurb}</p>
-        <div class="game-meta">
-          <span>${game.tools.length || "no"} tool${game.tools.length === 1 ? "" : "s"}</span>
-          ${tag}
-        </div>
-      </div>`;
-    const cls = `game-card${has ? "" : " disabled"}${draggable ? " is-draggable" : ""}`;
-    return href
-      ? `<a class="${cls}" href="${href}" style="--glow:${game.glow}" data-id="${game.id}">${inner}</a>`
-      : `<div class="${cls}" style="--glow:${game.glow}" data-id="${game.id}">${inner}</div>`;
+  function matchFilter(g, f) {
+    if (f === "all") return true;
+    if (f === "live") return liveCount(g) > 0;
+    return g.tools.some(function (t) { return t.available && t.type === f; });
   }
+  function visibleGames() { return LIST.filter(function (g) { return matchQuery(g, state.query) && matchFilter(g, state.filter); }); }
 
-  function sortList(ids) {
-    if (sort === "az") return alpha(ids);
-    if (sort === "za") return alpha(ids).reverse();
-    if (sort === "tools") return ids.slice().sort((a, b) => liveTools(byId(b)) - liveTools(byId(a)));
-    return order.filter((id) => ids.includes(id)); // "default" = custom order
+  // ---------- rail ----------
+  function rowHtml(g, withIx) {
+    var i = idxOf(g.id), lc = liveCount(g), on = onCount(g);
+    var ct = lc > 0 ? '<span class="ct live num">' + on + "</span>" : '<span class="ct num">' + on + "</span>";
+    var ixCell = withIx ? '<span class="ix num">' + String(i + 1).padStart(2, "0") + "</span>" : "";
+    var pinned = isPinned(g.id);
+    return '<div class="g-row" data-id="' + g.id + '" aria-current="' + (g.id === state.active) + '" style="--g:' + g.color + '">' +
+      ixCell +
+      '<img class="th" src="' + esc(g.banner) + '" alt="" width="34" height="22" loading="lazy" onerror="this.style.visibility=\'hidden\'">' +
+      '<button class="nm" type="button" data-open="' + g.id + '">' + esc(g.name) + "</button>" + ct +
+      '<button class="pin' + (pinned ? " on" : "") + '" type="button" data-pin="' + g.id + '" aria-pressed="' + pinned + '" title="Pin game" aria-label="Pin game">' + PIN_SVG + "</button>" +
+      "</div>";
   }
+  function renderRail() {
+    var vis = visibleGames();
+    el.railList.innerHTML = vis.map(function (g) { return rowHtml(g, true); }).join("");
+    el.railEmpty.hidden = vis.length > 0;
+    el.libCount.textContent = (state.query || state.filter !== "all") ? (vis.length + " of " + LIST.length) : String(LIST.length);
 
-  function render() {
-    const matches = (g) => g.name.toLowerCase().includes(query);
-    const pinnedIds = pinned.filter((id) => matches(byId(id)));
-    const mainIds = sortList(allIds().filter((id) => !isPinned(id) && matches(byId(id))));
-
-    // pinned section (always drag-sortable in its own order)
-    pinnedSection.hidden = pinnedIds.length === 0;
-    pinnedGrid.className = `game-grid view-${view}`;
-    pinnedGrid.innerHTML = pinnedIds.map((id) => cardHtml(byId(id), true)).join("");
-    pinnedCount.textContent = `${pinnedIds.length} pinned`;
-
-    // main list (drag-sortable only in Default sort, and not while searching)
-    const canDragMain = sort === "default" && !query;
-    grid.className = `game-grid view-${view}`;
-    grid.innerHTML = mainIds.map((id) => cardHtml(byId(id), canDragMain)).join("");
-    noResults.style.display = (pinnedIds.length + mainIds.length) ? "none" : "block";
-    countEl.textContent = query
-      ? `${mainIds.length + pinnedIds.length} of ${GAMES.length}`
-      : `${GAMES.length} games`;
-
-    wireCards(pinnedGrid, () => savePinnedFromDom(pinnedGrid));
-    wireCards(grid, canDragMain ? () => saveOrderFromDom(grid) : null);
+    var plist = pins.map(byId).filter(Boolean);
+    if (plist.length && !state.query && state.filter === "all") {
+      el.pinned.hidden = false;
+      el.pinnedList.innerHTML = plist.map(function (g) { return rowHtml(g, false); }).join("");
+    } else { el.pinned.hidden = true; el.pinnedList.innerHTML = ""; }
+    markCurrent();
   }
 
-  // ---- pin toggle + drag reorder wiring ----
-  function wireCards(container, onReorder) {
-    container.querySelectorAll(".pin-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault(); e.stopPropagation();
-        const id = btn.dataset.id;
-        if (isPinned(id)) pinned = pinned.filter((x) => x !== id);
-        else pinned = pinned.concat(id);
-        save(PIN_KEY, pinned);
-        render();
-      });
-    });
-    if (!onReorder) return;
-    container.querySelectorAll(".game-card.is-draggable").forEach((card) => {
-      const handle = card.querySelector(".drag-handle");
-      if (handle) {
-        const arm = () => card.setAttribute("draggable", "true");
-        handle.addEventListener("mousedown", arm);
-        handle.addEventListener("touchstart", arm, { passive: true });
-      }
-      card.addEventListener("dragstart", (e) => {
-        card.classList.add("dragging");
-        e.dataTransfer.effectAllowed = "move";
-        try { e.dataTransfer.setData("text/plain", card.dataset.id); } catch (_) {}
-      });
-      card.addEventListener("dragend", () => {
-        card.classList.remove("dragging");
-        card.removeAttribute("draggable");
-        container.querySelectorAll(".drag-over-before,.drag-over-after").forEach((x) => x.classList.remove("drag-over-before", "drag-over-after"));
-      });
-      card.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        const dragging = container.querySelector(".dragging");
-        if (!dragging || card === dragging) return;
-        const box = card.getBoundingClientRect();
-        const after = e.clientX > box.left + box.width / 2;
-        card.classList.toggle("drag-over-after", after);
-        card.classList.toggle("drag-over-before", !after);
-      });
-      card.addEventListener("dragleave", () => card.classList.remove("drag-over-before", "drag-over-after"));
-      card.addEventListener("drop", (e) => {
-        e.preventDefault();
-        const dragging = container.querySelector(".dragging");
-        card.classList.remove("drag-over-before", "drag-over-after");
-        if (!dragging || card === dragging) return;
-        const box = card.getBoundingClientRect();
-        if (e.clientX > box.left + box.width / 2) card.after(dragging); else card.before(dragging);
-        onReorder();
+  // ---------- spectrum ----------
+  function renderSpectrum() {
+    el.spectrum.innerHTML = LIST.map(function (g) {
+      return '<button data-open="' + g.id + '" title="' + esc(g.name) + '" aria-label="' + esc(g.name) + '" aria-current="' + (g.id === state.active) + '" style="--seg:' + g.color + '"></button>';
+    }).join("");
+  }
+
+  // ---------- stage ----------
+  function heroHtml(g) {
+    var i = idxOf(g.id), lc = liveCount(g), on = onCount(g), page = gamePage(g), pinned = isPinned(g.id);
+    var name = page ? '<a href="' + esc(page) + '">' + esc(g.name) + "</a>" : esc(g.name);
+    return "" +
+      (g.banner ? '<div class="hero-art" style="background-image:url(' + JSON.stringify(g.banner) + ')"></div>' : "") +
+      '<div class="hero-wm num" aria-hidden="true">' + String(i + 1).padStart(2, "0") + "</div>" +
+      '<div class="hero-in">' +
+        '<div class="eyebrow"><span class="idx num"><b>' + String(i + 1).padStart(2, "0") + "</b> / " + String(LIST.length).padStart(2, "0") + "</span><span class=\"rule\"></span>" +
+          (lc > 0 ? '<span class="live-pill"><i></i>Live data</span>' : "") + "</div>" +
+        "<h1>" + name + "</h1>" +
+        '<p class="blurb">' + esc(g.blurb) + "</p>" +
+        '<div class="meta"><span><b>' + on + "</b> tool" + (on === 1 ? "" : "s") + "</span>" +
+          (lc > 0 ? '<span class="sep"></span><span style="color:var(--c-accent)"><b style="color:var(--c-accent)">' + lc + "</b> live</span>" : "") +
+          '<span class="sep"></span>' +
+          '<button class="pinbtn' + (pinned ? " on" : "") + '" type="button" data-pin="' + g.id + '" aria-pressed="' + pinned + '">' + PIN_SVG + "<span>" + (pinned ? "Unpin" : "Pin") + "</span></button>" +
+        "</div>" +
+      "</div>";
+  }
+  function toolHtml(t, i) {
+    var tag = t.type === "live"
+      ? '<span class="ttype live">live</span>'
+      : '<span class="ttype">' + esc(t.type) + "</span>";
+    var status = t.available ? "" : '<span class="soon">soon</span>';
+    var inner =
+      '<span class="tix num">' + String(i + 1).padStart(2, "0") + "</span>" +
+      '<span class="tbody"><span class="trow"><span class="tname">' + esc(t.name) + "</span>" + (t.available ? tag : status) + "</span>" +
+      '<span class="tdesc">' + esc(t.desc || "") + "</span></span>" +
+      '<span class="arrow">→</span>';
+    if (t.available && t.href) return '<a class="tool" href="' + esc(t.href) + '">' + inner + "</a>";
+    return '<div class="tool off">' + inner + "</div>";
+  }
+  function renderStage() {
+    var g = byId(state.active) || LIST[0];
+    el.hero.innerHTML = heroHtml(g);
+    el.tools.style.setProperty("--gc", g.color);
+    var tools = g.tools.slice().sort(function (a, b) { return (b.available ? 1 : 0) - (a.available ? 1 : 0); });
+    el.tools.className = "tools" + (tools.length === 1 ? " one" : "");
+    el.tools.innerHTML = tools.map(function (t, i) { return toolHtml(t, i); }).join("");
+    el.toolCount.textContent = g.tools.length + " total";
+    el.crumb.innerHTML = '<span class="sm">Hub / </span><b>' + esc(g.name) + "</b>";
+    markCurrent();
+  }
+  function markCurrent() {
+    [el.railList, el.pinnedList, el.spectrum].forEach(function (c) {
+      if (!c) return;
+      c.querySelectorAll("[data-id],[data-open]").forEach(function (n) {
+        var id = n.dataset.id || n.dataset.open;
+        if (n.classList.contains("g-row") || n.parentElement === el.spectrum) n.setAttribute("aria-current", id === state.active);
       });
     });
   }
 
-  function saveOrderFromDom(container) {
-    const ids = [...container.querySelectorAll(".game-card")].map((c) => c.dataset.id);
-    // keep pinned + filtered-out games in their existing relative spots
-    const rest = order.filter((id) => !ids.includes(id));
-    order = ids.concat(rest);
-    save(ORDER_KEY, order);
-  }
-  function savePinnedFromDom(container) {
-    pinned = [...container.querySelectorAll(".game-card")].map((c) => c.dataset.id);
-    save(PIN_KEY, pinned);
+  // ---------- feed ----------
+  function renderFeed() {
+    el.feedCount.textContent = UPDATES.length + " updates";
+    el.feed.innerHTML = UPDATES.map(function (u, i) {
+      var gid = updGame(u); var g = gid && byId(gid);
+      var color = g ? g.color : "var(--line-2)";
+      return '<a class="fitem' + (i === 0 ? " new" : "") + '" href="' + esc(u.href) + '"' + (gid ? ' data-go="' + gid + '"' : "") + ">" +
+        '<span class="fd num">' + esc(fmtDate(u.date)) + (i === 0 ? " <b>NEW</b>" : "") + "</span>" +
+        '<span class="fk" style="--fc:' + color + '"></span>' +
+        '<span><span class="ft">' + esc(u.title) + '</span><span class="fx">' + esc(u.desc) + "</span></span></a>";
+    }).join("");
   }
 
-  // ---- controls ----
-  searchEl.addEventListener("input", () => { query = searchEl.value.trim().toLowerCase(); render(); });
-  sortEl.addEventListener("change", () => { sort = sortEl.value; render(); });
-  toggle.querySelectorAll("button").forEach((b) =>
-    b.addEventListener("click", () => {
-      view = b.dataset.view;
-      localStorage.setItem("nftw:homeView", view);
-      toggle.querySelectorAll("button").forEach((x) => x.classList.toggle("active", x === b));
-      render();
-    }));
-  toggle.querySelectorAll("button").forEach((b) => b.classList.toggle("active", b.dataset.view === view));
-  render();
+  // ---------- navigation ----------
+  function setActive(id, opts) {
+    opts = opts || {};
+    var g = byId(id); if (!g) return;
+    state.active = id;
+    renderStage();
+    if (opts.scrollTop !== false) { var s = document.getElementById("scroll"); if (s) s.scrollTop = 0; }
+    if (opts.hash !== false && history.replaceState) history.replaceState(null, "", "#g/" + id);
+  }
+  function togglePin(id) {
+    if (isPinned(id)) pins = pins.filter(function (x) { return x !== id; });
+    else pins = [id].concat(pins);
+    savePins(pins);
+    renderRail();
+    if (state.active === id) renderStage(); // refresh hero pin button
+  }
+
+  // ---------- wiring ----------
+  function onOpen(e) {
+    var pin = e.target.closest("[data-pin]"); if (pin) { e.preventDefault(); togglePin(pin.dataset.pin); return; }
+    var opener = e.target.closest("[data-open]") || e.target.closest("[data-id]");
+    if (opener) { e.preventDefault(); setActive(opener.dataset.open || opener.dataset.id); }
+  }
+  el.railList.addEventListener("click", onOpen);
+  el.pinnedList.addEventListener("click", onOpen);
+  el.spectrum.addEventListener("click", onOpen);
+  el.hero.addEventListener("click", function (e) { var pin = e.target.closest("[data-pin]"); if (pin) { e.preventDefault(); togglePin(pin.dataset.pin); } });
+  el.feed.addEventListener("click", function (e) { var a = e.target.closest("[data-go]"); if (a) setActive(a.dataset.go); });
+
+  el.q.addEventListener("input", function () { state.query = el.q.value.trim().toLowerCase(); renderRail(); });
+  el.filters.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-f]"); if (!b) return;
+    state.filter = b.dataset.f;
+    el.filters.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+    renderRail();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "/" && document.activeElement !== el.q) { e.preventDefault(); el.q.focus(); el.q.select(); return; }
+    if (e.key === "Escape" && document.activeElement === el.q) { el.q.value = ""; state.query = ""; renderRail(); el.q.blur(); return; }
+    if ((e.key === "ArrowDown" || e.key === "ArrowUp") && document.activeElement !== el.q) {
+      var vis = visibleGames(); if (!vis.length) return;
+      e.preventDefault();
+      var cur = vis.findIndex(function (g) { return g.id === state.active; });
+      var ni = e.key === "ArrowDown" ? cur + 1 : cur - 1;
+      if (ni < 0) ni = vis.length - 1; if (ni >= vis.length) ni = 0;
+      setActive(vis[ni].id);
+      var row = el.railList.querySelector('[data-id="' + vis[ni].id + '"]');
+      if (row && row.scrollIntoView) row.scrollIntoView({ block: "nearest" });
+    }
+    if (e.key === "Enter" && document.activeElement !== el.q && document.activeElement !== el.filters) {
+      var g = byId(state.active); if (!g) return;
+      var first = g.tools.find(function (t) { return t.available && t.href; });
+      if (first) window.location.href = first.href;
+    }
+  });
+
+  // ---------- init ----------
+  function initialId() {
+    var m = (location.hash || "").match(/^#g\/(.+)$/);
+    if (m && byId(decodeURIComponent(m[1]))) return decodeURIComponent(m[1]);
+    for (var i = 0; i < UPDATES.length; i++) { var gid = updGame(UPDATES[i]); if (gid && byId(gid)) return gid; }
+    return LIST[0].id;
+  }
+  function init() {
+    renderSpectrum();
+    renderFeed();
+    state.active = initialId();
+    renderRail();
+    setActive(state.active, { hash: false, scrollTop: false });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();

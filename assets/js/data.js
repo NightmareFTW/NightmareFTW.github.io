@@ -815,6 +815,13 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
+    date: "2026-11-16",
+    title: "The hub has a whole new look",
+    desc: "A launcher layout — search the whole game library on the left and open any game's tools in one click, with live-data games flagged and a what's-new feed.",
+    image: "assets/img/updates/hub-console-redesign.jpg",
+    href: "index.html",
+  },
+  {
     date: "2026-10-26",
     title: "Warframe's Build Creator now mirrors the real Arsenal",
     desc: "Aura/Exilus centered up top, a bottom mod collection you drag straight into a slot, real ability icons and changeable per-slot polarity — matching the in-game Upgrades screen.",
@@ -862,12 +869,5 @@ const SITE_UPDATES = [
     desc: "Player-submitted Face Codes to copy a character's look — plus tabs for Photo Studio and Base codes once those sharing boards exist.",
     image: "assets/img/updates/aniimo-community-codes.jpg",
     href: "games/aniimo/codes.html",
-  },
-  {
-    date: "2026-09-20",
-    title: "Vampire Survivors gets Stages and Pickups databases",
-    desc: "Every stage and every non-weapon pickup, cross-linked everywhere a character's unlock guide mentions one.",
-    image: "assets/img/updates/vs-stages-pickups-database.jpg",
-    href: "games/vampire-survivors/stages.html",
   },
 ];

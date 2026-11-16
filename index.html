@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nftw-auth.nightmareftw.workers.dev https://api.github.com https://github.com https://api.warframestat.us https://cloudflareinsights.com; frame-src https://outlast.fex.dev; object-src 'none'; base-uri 'self'; form-action 'self';">
@@ -7,87 +7,85 @@
   <title>NightmareFTW · Gaming Tools Hub</title>
   <meta name="description" content="A growing collection of tools for the games I play.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css?v=fbd14ea4">
+  <link rel="stylesheet" href="assets/css/home.css?v=d20b406c">
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">▲</span>
-        <span class="brand-name">Nightmare<span class="accent">FTW</span></span>
+  <div class="app">
+    <!-- ========== RAIL: the game index ========== -->
+    <aside class="rail">
+      <a class="c-brand" href="index.html">
+        <svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true"><path d="M10 0 0 18h10z" fill="#ff2a38"/><path d="M10 0v18h10z" fill="#c01320"/></svg>
+        <b>Nightmare<i>FTW</i></b>
+        <span class="tag">Console</span>
       </a>
-      <nav class="top-nav">
-        <a href="index.html" class="active">Hub</a>
-        <a href="play/index.html">Play</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <p class="kicker">// gaming tools hub</p>
-      <h1>Less grind, <span class="accent">more game</span>.</h1>
-      <p class="lead">A growing toolbox — calculators, checklists and trackers. Nothing gets removed; it just keeps growing.</p>
-    </section>
-
-    <section class="updates-carousel" id="updates-carousel" aria-label="What's new" hidden>
-      <div class="uc-head"><h2>What's New</h2></div>
-      <div class="uc-viewport">
-        <div class="uc-track" id="uc-track"></div>
-        <button type="button" class="uc-arrow uc-prev" id="uc-prev" aria-label="Previous">‹</button>
-        <button type="button" class="uc-arrow uc-next" id="uc-next" aria-label="Next">›</button>
+      <div class="rail-search">
+        <label class="field">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="q" type="search" placeholder="Search games and tools" autocomplete="off" aria-label="Search games and tools">
+          <kbd>/</kbd>
+        </label>
       </div>
-      <div class="uc-dots" id="uc-dots"></div>
-    </section>
-
-    <section class="pinned-section" id="pinned-section" hidden aria-label="Pinned games">
-      <div class="section-head">
-        <h2><span class="pin-star">★</span> Pinned</h2>
-        <span class="count" id="pinned-count"></span>
+      <div class="filters" id="filters" role="group" aria-label="Filter library">
+        <button data-f="all" aria-pressed="true">All</button>
+        <button data-f="live" class="lv" aria-pressed="false">Live</button>
+        <button data-f="builder" aria-pressed="false">Builders</button>
+        <button data-f="database" aria-pressed="false">Databases</button>
+        <button data-f="checklist" aria-pressed="false">Checklists</button>
+        <button data-f="guide" aria-pressed="false">Guides</button>
       </div>
-      <div class="game-grid" id="pinned-grid"></div>
-    </section>
-
-    <section class="games" aria-label="Games">
-      <div class="section-head">
-        <h2>Games</h2>
-        <span class="count" id="game-count"></span>
-      </div>
-
-      <div class="list-controls">
-        <input type="search" id="game-search" class="search-input" placeholder="Search games…" autocomplete="off">
-        <select id="game-sort" class="sort-select">
-          <option value="default">Sort: Default</option>
-          <option value="az">Name A–Z</option>
-          <option value="za">Name Z–A</option>
-          <option value="tools">Most tools</option>
-        </select>
-        <div class="view-toggle" id="view-toggle">
-          <button data-view="grid" class="active" title="Grid">▦</button>
-          <button data-view="list" title="List">≣</button>
-          <button data-view="compact" title="Compact">≡</button>
+      <div class="rail-scroll">
+        <div class="pinned" id="pinned" hidden>
+          <div class="rail-head"><span>Pinned</span></div>
+          <div id="pinned-list"></div>
         </div>
+        <div class="rail-head"><span>Library</span><span id="lib-count" class="num"></span></div>
+        <div class="rail-list" id="rail-list"></div>
+        <div id="rail-empty" hidden style="padding:24px 14px;font:500 12px/1.5 var(--mono);color:var(--text-4)">No match.</div>
       </div>
+      <div class="rail-foot">
+        <a href="https://github.com/NightmareFTW" target="_blank" rel="noopener">GitHub ↗</a>
+        <span style="margin-left:auto">Gaming tools hub</span>
+      </div>
+    </aside>
 
-      <div class="game-grid" id="game-grid"><!-- populated by JS --></div>
-      <p id="no-results" class="no-results" style="display:none">No games match your search.</p>
-    </section>
-  </main>
+    <!-- ========== STAGE ========== -->
+    <main class="stage">
+      <div class="topbar">
+        <nav class="nav" aria-label="Sections">
+          <a href="index.html" class="on" aria-current="page">Hub</a>
+          <a href="play/index.html">Play</a>
+        </nav>
+        <div class="crumb" id="crumb"><span class="sm">Hub / </span><b>—</b></div>
+        <div class="top-nav"><!-- EN/PT flags, Steam bell, GitHub + sign-in injected by i18n.js / steam-alerts.js / auth.js --></div>
+      </div>
+      <div class="spectrum" id="spectrum" role="group" aria-label="Jump to game"></div>
+      <div class="scroll" id="scroll">
+        <h1 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">NightmareFTW — gaming tools hub</h1>
+        <section class="hero" id="hero" aria-live="polite"></section>
+        <section class="block">
+          <div class="block-head"><h2>Tools</h2><span class="ln"></span><span class="ct num" id="tool-count"></span></div>
+          <div class="tools" id="tools"></div>
+        </section>
+        <section class="block" style="padding-top:4px">
+          <div class="block-head"><h2>What's New</h2><span class="ln"></span><span class="ct num" id="feed-count"></span></div>
+          <div class="feed" id="feed"></div>
+        </section>
+        <footer class="ftr">
+          <span><b>NightmareFTW</b> — Built by NightmareFTW.</span>
+          <span>vanilla HTML, CSS &amp; JS</span>
+          <a href="https://github.com/NightmareFTW" target="_blank" rel="noopener" style="margin-left:auto">GitHub ↗</a>
+        </footer>
+      </div>
+    </main>
+  </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <span>Built by NightmareFTW.</span>
-    </div>
-  </footer>
-
-  <script src="assets/js/data.js?v=b084289f"></script>
-  <script src="assets/js/updates-carousel.js?v=cbdb9d06"></script>
-  <script src="assets/js/home.js?v=4ddc46b8"></script>
-  <script src="/assets/js/i18n.js?v=077d3dd6" defer></script>
+  <script src="assets/js/data.js?v=9af3447b"></script>
+  <script src="assets/js/home.js?v=06497c0f"></script>
+  <script src="/assets/js/i18n.js?v=bb6066e4" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

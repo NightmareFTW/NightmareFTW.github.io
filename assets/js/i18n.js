@@ -2013,6 +2013,81 @@
     "No polarity": "Sem polaridade",
     "Mod Collection": "Coleção de Mods",
     "Search mods…": "Procurar mods…",
+
+    // ---- Hub "Console" launcher: chrome ----
+    "Search games and tools": "Procurar jogos e ferramentas",
+    "Library": "Biblioteca", "All": "Todos", "Databases": "Bases de dados", "Guides": "Guias",
+    "Live data": "Dados ao vivo", "No match.": "Sem resultados.", "NEW": "NOVO", "tools": "ferramentas",
+    "The hub has a whole new look": "O hub tem um visual completamente novo",
+    "A launcher layout — search the whole game library on the left and open any game's tools in one click, with live-data games flagged and a what's-new feed.":
+      "Um layout de launcher — pesquisa toda a biblioteca de jogos à esquerda e abre as ferramentas de qualquer jogo num clique, com os jogos de dados ao vivo assinalados e um feed de novidades.",
+    "Jump to game": "Saltar para o jogo", "Filter library": "Filtrar biblioteca", "Sections": "Secções",
+    "Pin game": "Fixar jogo", "Pin": "Fixar", "Unpin": "Remover",
+    "Gaming tools hub": "Hub de ferramentas de jogos", "vanilla HTML, CSS & JS": "HTML, CSS e JS, sem frameworks",
+    // tool-type tags (rendered lowercase, uppercased by CSS; "database", "tier list", "live" already above)
+    "tracker": "monitor", "reference": "referência", "guide": "guia",
+    "timer": "cronómetro", "tool": "ferramenta", "calculator": "calculadora",
+
+    // ---- Game blurbs still missing a translation (also shown on each game page) ----
+    "Open-world action RPG in Night City.": "RPG de ação em mundo aberto em Night City.",
+    "Norse action-adventure epic.": "Épico de ação-aventura nórdico.",
+    "Turn-based RPG, Belle Époque fantasy.": "RPG por turnos, fantasia Belle Époque.",
+    "Open-world Soulslike, the Lands Between.": "Soulslike de mundo aberto, nas Terras Intermédias.",
+    "Space-fantasy turn-based RPG.": "RPG por turnos de fantasia espacial.",
+    "Co-op horror — hunt and identify demons.": "Terror cooperativo — caça e identifica demónios.",
+    "Weird-west co-op extraction shooter.": "Extraction shooter cooperativo weird-west.",
+    "Fast 3-lane collectible card game.": "Jogo de cartas colecionáveis rápido, em 3 linhas.",
+
+    // ---- Tool names / descriptions still missing a translation ----
+    "Weapons, Arcanas & Passives": "Armas, Arcanas e Passivos",
+    "Browse and like builds other players saved with the Build Creator.":
+      "Explora e gosta de builds que outros jogadores guardaram com o Build Creator.",
+    "Every meta build in detail — attribute spread, perks, cyberware, weapons and how to play it, with visual skill distribution.":
+      "Cada build meta em detalhe — distribuição de atributos, perks, cyberware, armas e como jogá-la, com a distribuição de skills visual.",
+    "Top armor sets and loadouts in detail — stat spread, set perks, weapons, runic attacks, shield & relic, shown on the in-game gear screen.":
+      "Os melhores conjuntos de armadura e loadouts em detalhe — distribuição de stats, perks de conjunto, armas, ataques rúnicos, escudo e relíquia, mostrados no ecrã de equipamento do jogo.",
+    "What you can and can't miss, the one time-sensitive area, and a full return-friendly 100% tracker (favors + collectibles) saved on your device.":
+      "O que podes e não podes perder, a única zona sensível ao tempo, e um tracker 100% completo (favores + colecionáveis) que podes retomar, guardado no teu dispositivo.",
+    "Best end-game build per character — weapon, Pictos, Luminas, attributes and skills, shown on a recreation of the in-game build screen.":
+      "A melhor build de fim de jogo por personagem — arma, Pictos, Luminas, atributos e skills, mostrados numa recriação do ecrã de build do jogo.",
+    "Point-of-no-return warnings plus a tracker for the genuinely missable content so you can progress the story without losing anything.":
+      "Avisos de pontos sem retorno mais um tracker do conteúdo realmente perdível, para avançares na história sem perder nada.",
+    "Proven meta builds with item icons — full equipment, the level-150 attribute spread, the weapon's Ash of War, how to play it and where to get the pieces.":
+      "Builds meta comprovadas com ícones dos itens — equipamento completo, a distribuição de atributos ao nível 150, a Ash of War da arma, como jogá-la e onde obter as peças.",
+    "Track the famously missable NPC questlines (Ranni, Fia, Millicent…) and progression triggers so you don't break a quest by accident.":
+      "Acompanha as famosas questlines de NPC perdíveis (Ranni, Fia, Millicent…) e os gatilhos de progressão para não partires uma quest sem querer.",
+    "Trailblaze Power, Daily Training, Assignments plus the weekly endgame — auto-resets on your server's clock.":
+      "Trailblaze Power, Treino Diário, Destacamentos mais o endgame semanal — reinicia automaticamente pelo relógio do teu servidor.",
+    "Live character rankings, auto-scraped from Game8. Click any character for their builds and every team comp they play in.":
+      "Rankings de personagens ao vivo, recolhidos automaticamente do Game8. Clica em qualquer personagem para ver as builds e todas as comps de equipa em que joga.",
+    "Current best team comps for every DPS, by element — carry, supports and sustain roles, auto-updated to the live patch.":
+      "As melhores comps de equipa atuais para cada DPS, por elemento — carry, suportes e sustain, atualizadas automaticamente ao patch em vigor.",
+    "Per-character builds — best Light Cone, relic set + ornament, main stats and substat priority, auto-updated to the live patch.":
+      "Builds por personagem — melhor Light Cone, conjunto de relíquias + ornamento, stats principais e prioridade de substats, atualizadas automaticamente ao patch em vigor.",
+    "Character banners — what's live now, what's coming next and recent history with dates, auto-updated.":
+      "Banners de personagens — o que está ativo agora, o que vem a seguir e o histórico recente com datas, atualizado automaticamente.",
+    "Current and upcoming in-game events on a timeline with dates and a live today marker, auto-updated.":
+      "Eventos do jogo atuais e futuros numa linha temporal com datas e um marcador de hoje ao vivo, atualizado automaticamente.",
+    "Cross off evidence to narrow down the demon — like the in-game journal.":
+      "Risca as evidências para reduzir o demónio — como o diário do jogo.",
+    "Every demon, its evidence combo, behaviour and hunt tells.":
+      "Cada demónio, a sua combinação de evidências, comportamento e sinais de caçada.",
+    "Every tool, how to use it and what it detects.":
+      "Cada ferramenta, como usá-la e o que deteta.",
+    "Top-rated community loadouts by weapon type — full kit with images, ordered by votes.":
+      "Loadouts da comunidade mais bem avaliados por tipo de arma — kit completo com imagens, ordenados por votos.",
+    "Interactive region maps with every collectible, secret and objective plotted; toggle categories.":
+      "Mapas interativos das regiões com todos os colecionáveis, segredos e objetivos marcados; alterna categorias.",
+    "Every card with art — filter by cost, pool or archetype; click for full details. Refreshed daily.":
+      "Cada carta com arte — filtra por custo, pool ou arquétipo; clica para ver os detalhes completos. Atualizado diariamente.",
+    "Build a 12-card deck by hand from the live card pool, see the curve and export the deck code.":
+      "Monta um deck de 12 cartas à mão a partir da pool atual, vê a curva e exporta o código do deck.",
+    "Paste a deck code from Marvel Snap Zone, Untapped or in-game to compile the full deck here — cards, curve and archetype.":
+      "Cola um código de deck do Marvel Snap Zone, Untapped ou do jogo para montar aqui o deck completo — cartas, curva e arquétipo.",
+    "Every weapon (with its full evolution chain), Arcana, Darkana and passive item — filter and sort by DLC.":
+      "Cada arma (com a cadeia de evolução completa), Arcana, Darkana e item passivo — filtra e ordena por DLC.",
+    "Every enemy in the game — filter and sort by DLC. A shared name with a character asks which page you meant.":
+      "Cada inimigo do jogo — filtra e ordena por DLC. Um nome partilhado com uma personagem pergunta qual a página pretendida.",
   };
 
   // Regex rules for dynamic counts etc. (applied to whole text nodes).
@@ -2023,6 +2098,10 @@
     [/^no tools?$/i, "sem ferramentas"],
     [/^(\d+) tool(s)?$/, (m, n) => `${n} ferramenta${n === "1" ? "" : "s"}`],
     [/^(\d[\d,]*) results?$/, (m, n) => `${n} resultado${n === "1" ? "" : "s"}`],
+    // Hub "Console" counts
+    [/^(\d+) live$/, "$1 ao vivo"],
+    [/^(\d+) total$/, "$1 total"],
+    [/^(\d+) updates?$/, (m, n) => `${n} atualiza${n === "1" ? "ção" : "ções"}`],
     [/^(\d[\d,]*) recipes?$/, (m, n) => `${n} receita${n === "1" ? "" : "s"}`],
     [/^(\d[\d,]*) items?$/, (m, n) => `${n} item${n === "1" ? "" : "s"}`],
     [/^(\d+) headlines · updated (.+)$/, "$1 notícias · actualizado $2"],
