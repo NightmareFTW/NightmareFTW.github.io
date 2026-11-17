@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T05:24:57.569Z",
+  "updated": "2026-11-17T05:25:15.939Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -10,20 +10,6 @@
     {
       "type": "overview",
       "blocks": [
-        {
-          "heading": "Temporary Notice",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "2026-11-13 through 2026-11-15"
-            },
-            {
-              "kind": "text",
-              "text": "Strongly consider catching at least one, but optionally two Prismana Royalbee during the event. She is the best Aniimo in the game to put on the woodworking bench; Artisan-4, and with elements that don't let her get distracted with other tasks."
-            }
-          ]
-        },
         {
           "heading": "Overview",
           "images": [],
@@ -3557,6 +3543,10 @@
             {
               "kind": "text",
               "text": "Remember to recycle any unused buildings! And don't upgrade production buildings unless you need them for a new recipe; this saves on electricity."
+            },
+            {
+              "kind": "text",
+              "text": "RV21 will require 121m home coins for the upgrade plus upgrading 40 farms, which the RV21 build uses exclusively. Try to save up this amount."
             }
           ]
         },
