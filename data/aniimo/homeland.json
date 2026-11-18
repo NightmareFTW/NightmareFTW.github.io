@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T05:25:15.939Z",
+  "updated": "2026-11-18T05:25:44.920Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -3534,7 +3534,7 @@
           "items": [
             {
               "kind": "text",
-              "text": "Buy Power Module Level 5, and upgrade your Crackle Generators. These are a small upgrade even if your Electric Aniimo are rank 3, but works best if you happen to have any Prismana Electric-4 Aniimo."
+              "text": "Buy Power Module Level 5, and upgrade your Crackle Generators."
             },
             {
               "kind": "text",
@@ -3701,11 +3701,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker."
-            },
-            {
-              "kind": "bullet",
-              "text": "Three Electric-4 Aniimo, for three generators. Electric-3 Aniimo work just fine as a fallback."
+              "text": "Four Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker and the three generators."
             },
             {
               "kind": "bullet",
@@ -3929,11 +3925,7 @@
             },
             {
               "kind": "bullet",
-              "text": "One Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker."
-            },
-            {
-              "kind": "bullet",
-              "text": "Three Electric-4 Aniimo, for three generators. Electric-3 Aniimo work just fine as a fallback."
+              "text": "Four Luminelle (Rainfall form), or any Electric-3 Aniimo, for the Aniipod Maker and the three generators."
             },
             {
               "kind": "bullet",
