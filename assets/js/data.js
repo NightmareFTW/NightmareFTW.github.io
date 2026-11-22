@@ -815,9 +815,9 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
-    date: "2026-11-16",
+    date: "2026-11-22",
     title: "The hub has a whole new look",
-    desc: "A launcher layout — search the whole game library on the left and open any game's tools in one click, with live-data games flagged and a what's-new feed.",
+    desc: "A cinematic homepage — a featured game that rotates through the live and latest titles, plus a what's-new strip and an editorial mosaic of the whole library.",
     image: "assets/img/updates/hub-console-redesign.jpg",
     href: "index.html",
   },

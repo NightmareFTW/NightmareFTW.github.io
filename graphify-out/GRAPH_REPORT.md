@@ -1,17 +1,17 @@
-# Graph Report - NightmareFTW.github.io  (2026-11-16)
+# Graph Report - NightmareFTW.github.io  (2026-11-22)
 
 ## Corpus Check
-- 255 files · ~987,385 words
+- 255 files · ~963,695 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: .css 3, (none) 1, .toml 1)
 
 ## Summary
-- 2436 nodes · 3841 edges · 280 communities (162 shown, 118 thin omitted)
+- 2423 nodes · 3804 edges · 280 communities (162 shown, 118 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 183 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4e2f4bb0`
+- Built from commit: `9c438257`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -63,7 +63,7 @@
 - honkai-star-rail/builds.js
 - ghost-evidence.js
 - drops.js
-- home.js
+- init
 - demons.js
 - hero.js
 - event-calendar.js
@@ -299,8 +299,8 @@
 ## God Nodes (most connected - your core abstractions)
 1. `fetch()` - 23 edges
 2. `run()` - 18 edges
-3. `PolyForm Noncommercial License 1.0.0` - 16 edges
-4. `esc()` - 16 edges
+3. `esc()` - 16 edges
+4. `PolyForm Noncommercial License 1.0.0` - 16 edges
 5. `getText()` - 14 edges
 6. `stripWiki()` - 13 edges
 7. `render()` - 13 edges
@@ -344,8 +344,8 @@ Cohesion: 0.32
 Nodes (7): clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
 
 ### Community 1 - "update-hsr-tierlist.js"
-Cohesion: 0.27
-Nodes (9): cleanName(), decode(), { execFileSync }, fs, getHtml(), OUT, path, run() (+1 more)
+Cohesion: 0.19
+Nodes (10): { execFileSync }, cleanName(), decode(), { execFileSync }, fs, getHtml(), OUT, path (+2 more)
 
 ### Community 2 - "Game8"
 Cohesion: 0.48
@@ -500,8 +500,8 @@ Cohesion: 0.25
 Nodes (11): buildRoster(), candidateClues(), context(), count(), generateCase(), holds(), makeMap(), mulberry32() (+3 more)
 
 ### Community 40 - "ref_child_process"
-Cohesion: 0.19
-Nodes (10): { execFileSync }, decode(), { execFileSync }, fs, getHtml(), iso(), MON, OUT (+2 more)
+Cohesion: 0.27
+Nodes (9): decode(), { execFileSync }, fs, getHtml(), iso(), MON, OUT, path (+1 more)
 
 ### Community 41 - "Disney Dreamlight Valley (game hub)"
 Cohesion: 0.25
@@ -527,9 +527,9 @@ Nodes (8): EVIDENCE, ghostMatches(), GHOSTS, NEXT, render(), state, STATE_CLASS,
 Cohesion: 0.31
 Nodes (9): buildFacets(), els, esc(), matches(), render(), sel, TIER_ORDER, TYPE_LABEL (+1 more)
 
-### Community 47 - "home.js"
-Cohesion: 0.24
-Nodes (19): byId(), heroHtml(), idxOf(), init(), initialId(), markCurrent(), matchFilter(), matchQuery() (+11 more)
+### Community 47 - "init"
+Cohesion: 0.43
+Nodes (6): init(), card(), heroHtml(), play(), render(), show()
 
 ### Community 48 - "demons.js"
 Cohesion: 0.43
@@ -989,20 +989,20 @@ Nodes (13): abilityIconCache, clean(), fs, get(), img(), lastStat(), OUT, path (
 
 ## Knowledge Gaps
 - **141 isolated node(s):** `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait`, `Rapunzel — Dreamlight Valley character portrait`, `Remy — Dreamlight Valley character portrait` (+136 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 958 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 959 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `img()` connect `update-warframe-items.js` to `profile.js`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `animals.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
 - **Why does `paint()` connect `profile.js` to `update-warframe-items.js`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Should `Game8 (data source)` be split into smaller, more focused modules?**
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**
