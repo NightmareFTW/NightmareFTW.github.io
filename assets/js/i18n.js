@@ -2018,6 +2018,8 @@
     "Search games and tools": "Procurar jogos e ferramentas",
     "Library": "Biblioteca", "All": "Todos", "Databases": "Bases de dados", "Guides": "Guias",
     "Live data": "Dados ao vivo", "No match.": "Sem resultados.", "NEW": "NOVO", "tools": "ferramentas",
+    "Now featured": "Em destaque", "Live now": "Ao vivo agora", "Read more →": "Ler mais →",
+    "All games": "Todos os jogos", "No games match.": "Nenhum jogo corresponde.",
     "The hub has a whole new look": "O hub tem um visual completamente novo",
     "A launcher layout — search the whole game library on the left and open any game's tools in one click, with live-data games flagged and a what's-new feed.":
       "Um layout de launcher — pesquisa toda a biblioteca de jogos à esquerda e abre as ferramentas de qualquer jogo num clique, com os jogos de dados ao vivo assinalados e um feed de novidades.",
@@ -2098,7 +2100,8 @@
     [/^no tools?$/i, "sem ferramentas"],
     [/^(\d+) tool(s)?$/, (m, n) => `${n} ferramenta${n === "1" ? "" : "s"}`],
     [/^(\d[\d,]*) results?$/, (m, n) => `${n} resultado${n === "1" ? "" : "s"}`],
-    // Hub "Console" counts
+    // Hub counts + the featured "Open <tool> →" button (tool name goes through the DICT too)
+    [/^Open (.+) →$/, (m, name) => `Abrir ${DICT[name] || name} →`],
     [/^(\d+) live$/, "$1 ao vivo"],
     [/^(\d+) total$/, "$1 total"],
     [/^(\d+) updates?$/, (m, n) => `${n} atualiza${n === "1" ? "ção" : "ções"}`],
