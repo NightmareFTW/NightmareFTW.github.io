@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /design-pilot/
+
+Sitemap: https://nightmareftw.github.io/sitemap.xml
