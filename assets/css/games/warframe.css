@@ -55,8 +55,8 @@
 .wf-hero-glyph.inner { width: 120px; height: 120px; right: 65px; border-color: rgba(255,154,77,.13); }
 .wf-hero-inner { position: relative; max-width: 640px; }
 .wf-hero h1 {
-  margin: 12px 0 14px; font-family: var(--mono); font-weight: 800; font-size: 2.6rem;
-  line-height: 1.05; color: #f3fbfb; text-shadow: 0 0 24px rgba(77,217,224,.3);
+  margin: 12px 0 14px; font-family: var(--disp); font-weight: 700; font-size: 2.7rem;
+  letter-spacing: -.02em; line-height: 1.03; color: #f3fbfb; text-shadow: 0 0 24px rgba(77,217,224,.3);
 }
 .wf-hero p { margin: 0 0 26px; font-size: .95rem; line-height: 1.6; color: var(--wf-muted); max-width: 540px; }
 .wf-tag.wf-eyebrow { color: var(--wf-cyan); }

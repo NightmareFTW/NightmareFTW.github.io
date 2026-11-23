@@ -1134,9 +1134,9 @@
     "semantic_hash": ""
   },
   "games/warframe/index.html": {
-    "mtime": 1795390913.152281,
-    "seen": 1795390919.0949287,
-    "ast_hash": "d7b4fe95e4bccb3e6533b7777faf2481",
+    "mtime": 1795392055.068372,
+    "seen": 1795392056.8669474,
+    "ast_hash": "f84ec3dfa8bc05be0fdb6ca0dcb83c2c",
     "semantic_hash": ""
   },
   "games/warframe/worldstate.html": {
@@ -2170,9 +2170,9 @@
     "semantic_hash": ""
   },
   "data/steam-free-games.json": {
-    "mtime": 1795374890.1240888,
-    "seen": 1795390919.091329,
-    "ast_hash": "7f3d87aaf23d540de502060e44c286a3",
+    "mtime": 1795390921.0602815,
+    "seen": 1795392056.8608696,
+    "ast_hash": "e111782db4cc56072534cc4db209ef7d",
     "semantic_hash": ""
   },
   "data/vampire-survivors/achievements.json": {
@@ -3056,15 +3056,15 @@
     "semantic_hash": ""
   },
   "games/warframe/builder.html": {
-    "mtime": 1795390913.148281,
-    "seen": 1795390919.0949228,
-    "ast_hash": "8464cd73f5f18b17ab5489ee3bbb9253",
+    "mtime": 1795392055.064372,
+    "seen": 1795392056.8668933,
+    "ast_hash": "c0e468a646773d260f86300adaff78d8",
     "semantic_hash": ""
   },
   "games/warframe/builds.html": {
-    "mtime": 1795390913.152281,
-    "seen": 1795390919.0949252,
-    "ast_hash": "3cb8ccd0a6a3bdce2f5aed510232d7bc",
+    "mtime": 1795392055.064372,
+    "seen": 1795392056.8668957,
+    "ast_hash": "0a23b12939b64d031c7372b10eeb0ddf",
     "semantic_hash": ""
   },
   "assets/img/games/aniimo-header.jpg": {
