@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T18:09:05.383Z",
+  "updated": "2026-11-23T00:21:57.227Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -102,7 +102,7 @@
         },
         {
           "name": "Seize the Narcotics",
-          "goal": "You are the controlled substance. The law enslaves minds by caging bodies. You destroy bodies and liberate minds, making users more desperate for control. Find the narcotics and set yourself free.",
+          "goal": "Section A (Blue)",
           "objectives": [
             "Open the prison door to escape",
             "Return to the Shuttle",
