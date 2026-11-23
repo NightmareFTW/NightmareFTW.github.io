@@ -17,7 +17,7 @@
   var page = function (g) { return on(g) ? "games/" + g.id + "/index.html" : "#"; };
   var updGame = function (u) { var m = String(u.href || "").match(/games\/([^\/]+)\//); return m ? m[1] : null; };
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
-  var DUR = 6500;
+  var DUR = 7200;
   var UPDATES = (typeof SITE_UPDATES !== "undefined" ? SITE_UPDATES : []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
 
   function init() {
@@ -56,7 +56,7 @@
       heroMain.style.opacity = 0;
       setTimeout(function () { heroMain.innerHTML = heroHtml(g); heroMain.style.transition = "opacity .5s"; heroMain.style.opacity = 1; }, instant ? 0 : 260);
       poster.setAttribute("href", page(g));
-      poster.innerHTML = '<img src="' + esc(g.banner) + '" alt="' + esc(g.name) + '"><span class="idx num">' + String(cur + 1).padStart(2, "0") + " / " + String(feat.length).padStart(2, "0") + "</span>";
+      poster.innerHTML = '<img src="' + esc(g.banner) + '" alt="' + esc(g.name) + '" fetchpriority="high" decoding="async"><span class="idx num">' + String(cur + 1).padStart(2, "0") + " / " + String(feat.length).padStart(2, "0") + "</span>";
       sws.forEach(function (b, bi) {
         b.setAttribute("aria-current", bi === cur);
         var pg = b.querySelector(".pg"); pg.style.animation = "none"; void pg.offsetWidth; if (bi === cur && !reduce) pg.style.animation = "";
@@ -81,7 +81,7 @@
     var lives = GAMES.filter(function (g) { return live(g) > 0; }).sort(function (a, b) { return live(b) - live(a); });
     document.getElementById("liveList").innerHTML = lives.map(function (g) {
       var t = g.tools.filter(function (x) { return x.available && x.type === "live"; })[0];
-      return '<a class="lrow" href="' + (t ? esc(t.href) : page(g)) + '"><img src="' + esc(g.banner) + '" alt=""><span class="n">' + esc(g.name) + '</span><span class="t">' + live(g) + " live</span></a>";
+      return '<a class="lrow" href="' + (t ? esc(t.href) : page(g)) + '"><img src="' + esc(g.banner) + '" alt="" loading="lazy" decoding="async"><span class="n">' + esc(g.name) + '</span><span class="t">' + live(g) + " live</span></a>";
     }).join("");
 
     // ---- library mosaic ----
@@ -94,7 +94,7 @@
       var ct = c ? (lv > 0 ? '<span class="ct live num">' + c + "</span>" : '<span class="ct num">' + c + "</span>") : "";
       var big = (c >= 5 || lv > 0) ? " big" : "";
       return '<a class="card' + big + '" href="' + page(g) + '" style="--gc:' + g.color + '">' +
-        '<span class="ph" style="background-image:url(\'' + esc(g.banner) + '\')"></span>' +
+        '<img class="ph" src="' + esc(g.banner) + '" alt="" loading="lazy" decoding="async">' +
         (c ? "" : '<span class="soon">Soon</span>') +
         '<span class="cap"><span class="nm">' + esc(g.name) + "</span>" + ct + "</span></a>";
     }

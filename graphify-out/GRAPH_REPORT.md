@@ -1,17 +1,17 @@
 # Graph Report - NightmareFTW.github.io  (2026-11-23)
 
 ## Corpus Check
-- 256 files · ~974,254 words
+- 257 files · ~968,873 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: .css 3, (none) 1, .xml 1)
 
 ## Summary
-- 2431 nodes · 3814 edges · 278 communities (160 shown, 118 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 183 edges (avg confidence: 0.85)
+- 2443 nodes · 3829 edges · 278 communities (160 shown, 118 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 184 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `def6e84c`
+- Built from commit: `e400c7c8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -63,7 +63,7 @@
 - honkai-star-rail/builds.js
 - ghost-evidence.js
 - drops.js
-- init
+- build-og.js
 - demons.js
 - hero.js
 - event-calendar.js
@@ -525,9 +525,9 @@ Nodes (8): EVIDENCE, ghostMatches(), GHOSTS, NEXT, render(), state, STATE_CLASS,
 Cohesion: 0.31
 Nodes (9): buildFacets(), els, esc(), matches(), render(), sel, TIER_ORDER, TYPE_LABEL (+1 more)
 
-### Community 47 - "init"
-Cohesion: 0.43
-Nodes (6): init(), card(), heroHtml(), play(), render(), show()
+### Community 47 - "build-og.js"
+Cohesion: 0.12
+Nodes (14): init(), card(), heroHtml(), play(), render(), show(), byId(), ctx (+6 more)
 
 ### Community 48 - "demons.js"
 Cohesion: 0.43
@@ -550,12 +550,12 @@ Cohesion: 0.29
 Nodes (7): CATS, DANGER_CLASS, ENEMIES, esc(), filters, render(), root
 
 ### Community 53 - "ref_path"
-Cohesion: 0.14
-Nodes (10): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), OUT, path (+2 more)
+Cohesion: 0.13
+Nodes (11): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk(), OUT (+3 more)
 
 ### Community 54 - "ref_fs"
 Cohesion: 0.11
-Nodes (15): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk(), fs (+7 more)
+Nodes (14): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), fs, pages (+6 more)
 
 ### Community 55 - "recipes.js"
 Cohesion: 0.39
@@ -979,23 +979,23 @@ Nodes (7): fs, getJson(), OUT, path, RARITIES, ri(), run()
 
 ## Knowledge Gaps
 - **141 isolated node(s):** `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait`, `Rapunzel — Dreamlight Valley character portrait`, `Remy — Dreamlight Valley character portrait` (+136 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 965 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 974 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `img()` connect `update-aniimo.js` to `profile.js`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `animals.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
-- **Why does `paint()` connect `profile.js` to `update-aniimo.js`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Should `Game8 (data source)` be split into smaller, more focused modules?**
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11333333333333333 - nodes in this community are weakly interconnected._
 - **Should `vs-curated-guides.js` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
+- **Should `src/index.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.11904761904761904 - nodes in this community are weakly interconnected._
