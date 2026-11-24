@@ -1892,6 +1892,7 @@
     "Built by NightmareFTW · Aniimo map.": "Feito por NightmareFTW · mapa de Aniimo.",
     "Search Aniimo…": "Procurar Aniimo…", "Search regions…": "Procurar regiões…",
     "All stages": "Todos os estágios",
+    "stats soon": "stats em breve", "Full data coming soon": "Dados completos em breve",
     "Sort: Number": "Ordenar: Número", "Sort: Total Stats": "Ordenar: Stats Totais",
     "No Aniimo match.": "Nenhum Aniimo corresponde.", "No regions match.": "Nenhuma região corresponde.",
     "Loading Aniimo…": "A carregar Aniimo…",
@@ -2204,6 +2205,10 @@
     [/^(\d+) of (\d+) talents · (\d+) from the start$/, "$1 de $2 talentos · $3 desde o início"],
 
     // ---- Aniimo ----
+    [/^(\d+) Aniimo · (\d+) new \(full stats coming soon\) · updated (.+)$/,
+      "$1 Aniimo · $2 novos (stats completos em breve) · actualizado $3"],
+    [/^(.+) has just been added to the game\. Its base stats, skills, evolution line and habitats aren't on the official Aniimo wiki yet — this page fills them in automatically as soon as they are\. For now, here's the element, role and bio from the in-game index\.$/,
+      (m, name) => `${name} acabou de ser adicionado ao jogo. Os stats base, as skills, a linha de evolução e os habitats ainda não estão na wiki oficial do Aniimo — esta página preenche-os automaticamente assim que estiverem. Por agora, ficam o elemento, a função e a biografia do índice do jogo.`],
     [/^of (\d+) Aniimo$/, "de $1 Aniimo"],
     [/^(\d+) Aniimo · updated (.+)$/, "$1 Aniimo · actualizado $2"],
     [/^(\d+) map markers · updated (.+)$/, "$1 marcadores no mapa · actualizado $2"],

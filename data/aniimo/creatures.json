@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-24T05:26:13.134Z",
+  "updated": "2026-11-24T12:19:19.014Z",
   "source": "https://wiki.aniimo.com/",
-  "count": 86,
+  "count": 91,
   "elements": [
     "Dark",
     "Electric",
@@ -10285,6 +10285,193 @@
           "cost": "Phenomena Crystal x2"
         }
       ]
+    },
+    {
+      "slug": "somniwing",
+      "entryId": "030",
+      "number": "030",
+      "name": "Somniwing",
+      "description": "Their magnificent wings spread scales to help flowers grow and spread vitality wherever they fly.",
+      "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10233.png",
+      "elements": [
+        "Wind",
+        "Grass"
+      ],
+      "role": "REGEN",
+      "stage": "",
+      "gender": [],
+      "baseStats": {
+        "hp": null,
+        "physicalAttack": null,
+        "magicAttack": null,
+        "physicalDefense": null,
+        "magicDefense": null,
+        "haste": null,
+        "total": null
+      },
+      "images": {
+        "male": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10233.png",
+        "female": "",
+        "noGender": "",
+        "illustration": "",
+        "background": ""
+      },
+      "mobility": null,
+      "traits": [],
+      "skills": {},
+      "evolution": null,
+      "habitats": [],
+      "resonanceTraining": [],
+      "dataPending": true
+    },
+    {
+      "slug": "irisalis",
+      "entryId": "10001",
+      "number": "10001",
+      "name": "Irisalis",
+      "description": "They absorb the world’s colors as floral raiment, bringing colorful vitality to nature. If petals wither, they can bloom again by returning to the earth’s embrace.",
+      "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10213.png",
+      "elements": [
+        "Grass"
+      ],
+      "role": "DPS",
+      "stage": "",
+      "gender": [],
+      "baseStats": {
+        "hp": null,
+        "physicalAttack": null,
+        "magicAttack": null,
+        "physicalDefense": null,
+        "magicDefense": null,
+        "haste": null,
+        "total": null
+      },
+      "images": {
+        "male": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10213.png",
+        "female": "",
+        "noGender": "",
+        "illustration": "",
+        "background": ""
+      },
+      "mobility": null,
+      "traits": [],
+      "skills": {},
+      "evolution": null,
+      "habitats": [],
+      "resonanceTraining": [],
+      "dataPending": true
+    },
+    {
+      "slug": "hoptail",
+      "entryId": "10004",
+      "number": "10004",
+      "name": "Hoptail",
+      "description": "They use their special fur to capture charged particles in the air to produce and store electricity.",
+      "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10223.png",
+      "elements": [
+        "Wind",
+        "Electric"
+      ],
+      "role": "DPS",
+      "stage": "Nova",
+      "gender": [],
+      "baseStats": {
+        "hp": null,
+        "physicalAttack": null,
+        "magicAttack": null,
+        "physicalDefense": null,
+        "magicDefense": null,
+        "haste": null,
+        "total": null
+      },
+      "images": {
+        "male": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10223.png",
+        "female": "",
+        "noGender": "",
+        "illustration": "",
+        "background": ""
+      },
+      "mobility": null,
+      "traits": [],
+      "skills": {},
+      "evolution": null,
+      "habitats": [],
+      "resonanceTraining": [],
+      "dataPending": true
+    },
+    {
+      "slug": "hypnyto",
+      "entryId": "10006",
+      "number": "10006",
+      "name": "Hypnyto",
+      "description": "Lazy yet sharp, Hypnyto loves to lounge in soft, cozy nests. The pair of eye-like markings on its wings enhance the hypnotic effect when it releases its waves.",
+      "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10574.png",
+      "elements": [
+        "Wind"
+      ],
+      "role": "DPS",
+      "stage": "Nova",
+      "gender": [],
+      "baseStats": {
+        "hp": null,
+        "physicalAttack": null,
+        "magicAttack": null,
+        "physicalDefense": null,
+        "magicDefense": null,
+        "haste": null,
+        "total": null
+      },
+      "images": {
+        "male": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10574.png",
+        "female": "",
+        "noGender": "",
+        "illustration": "",
+        "background": ""
+      },
+      "mobility": null,
+      "traits": [],
+      "skills": {},
+      "evolution": null,
+      "habitats": [],
+      "resonanceTraining": [],
+      "dataPending": true
+    },
+    {
+      "slug": "jaguaraun",
+      "entryId": "10007",
+      "number": "10007",
+      "name": "Jaguaraun",
+      "description": "Jaguaraun’s neck fur is incredibly thick, brimming with abundant Lightning Element. Like a brewing thundercloud, a dark tide churns beneath it. When it sprints, it tears past with the howl of a thunderstorm.",
+      "icon": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10713.png",
+      "elements": [
+        "Electric"
+      ],
+      "role": "BREAK",
+      "stage": "Nova",
+      "gender": [],
+      "baseStats": {
+        "hp": null,
+        "physicalAttack": null,
+        "magicAttack": null,
+        "physicalDefense": null,
+        "magicDefense": null,
+        "haste": null,
+        "total": null
+      },
+      "images": {
+        "male": "https://worldx-website-cdn.aniimo.com/official-website/worldx/wiki_stage/init/Wiki_Aniimo_10713.png",
+        "female": "",
+        "noGender": "",
+        "illustration": "",
+        "background": ""
+      },
+      "mobility": null,
+      "traits": [],
+      "skills": {},
+      "evolution": null,
+      "habitats": [],
+      "resonanceTraining": [],
+      "dataPending": true
     }
   ]
 }

@@ -47,9 +47,13 @@ function card(c) {
       <span class="pw-card-top"><span class="pw-card-name" title="${esc(c.name)}">${esc(c.name)}</span></span>
       <span class="vs-card-weapon" ${elemColor ? `style="color:${elemColor}"` : ""}>${esc(c.elements.join(" / "))} · ${esc(c.role)}</span>
       <span class="pw-card-chips">
-        <span class="ev-chip">No.${esc(c.number)}</span>
-        <span class="ev-chip">${esc(c.stage)}</span>
-        ${c.baseStats.total != null ? `<span class="ev-chip" style="background:rgba(52,211,153,.18);color:#34d399">${esc(c.baseStats.total)} Total</span>` : ""}
+        ${c.dataPending
+          ? `<span class="ev-chip" style="background:rgba(255,66,80,.2);color:#ff6470;font-weight:700;letter-spacing:.04em">NEW</span>`
+          : `<span class="ev-chip">No.${esc(c.number)}</span>`}
+        ${c.stage ? `<span class="ev-chip">${esc(c.stage)}</span>` : ""}
+        ${c.baseStats.total != null
+          ? `<span class="ev-chip" style="background:rgba(52,211,153,.18);color:#34d399">${esc(c.baseStats.total)} Total</span>`
+          : (c.dataPending ? `<span class="ev-chip" style="opacity:.55">stats soon</span>` : "")}
       </span>
     </span>
   </a>`;
@@ -74,7 +78,8 @@ function render() {
   try {
     DATA = await (await fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`)).json();
     const upd = DATA.updated ? new Date(DATA.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
-    document.getElementById("an-updated").textContent = `${DATA.count} Aniimo · updated ${upd}`;
+    const pending = DATA.creatures.filter((c) => c.dataPending).length;
+    document.getElementById("an-updated").textContent = `${DATA.count} Aniimo${pending ? ` · ${pending} new (full stats coming soon)` : ""} · updated ${upd}`;
     buildControls();
     render();
   } catch (e) {

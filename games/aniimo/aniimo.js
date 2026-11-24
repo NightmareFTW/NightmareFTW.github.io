@@ -108,22 +108,34 @@ function render(c, xrefIndex) {
   document.getElementById("bc-aniimo").textContent = c.name;
   const elemColor = ELEMENT_COLOR[c.elements[0]] || null;
 
-  root.innerHTML = `
+  const head = `
     <div class="pw-detail-head">
       <span class="pw-detail-img" ${elemColor ? `style="border-color:${elemColor}"` : ""}><img src="${esc(c.icon || "")}" alt="" referrerpolicy="no-referrer" onerror="this.closest('.pw-detail-img').classList.add('no-img')"></span>
       <div class="pw-detail-title">
         <h1>${esc(c.name)}</h1>
         <div class="pw-detail-chips">
-          <span class="ev-chip">No.${esc(c.number)}</span>
+          ${c.dataPending
+            ? `<span class="ev-chip" style="background:rgba(255,66,80,.2);color:#ff6470;font-weight:700;letter-spacing:.04em">NEW</span>`
+            : `<span class="ev-chip">No.${esc(c.number)}</span>`}
           ${c.elements.map((e) => `<span class="ev-chip" style="background:${(ELEMENT_COLOR[e] || "#888")}26;color:${ELEMENT_COLOR[e] || "#ccc"}">${esc(e)}</span>`).join("")}
           <span class="ev-chip">${esc(c.role)}</span>
-          <span class="ev-chip">${esc(c.stage)}</span>
+          ${c.stage ? `<span class="ev-chip">${esc(c.stage)}</span>` : ""}
           ${c.gender.length ? `<span class="ev-chip">${esc(c.gender.join(" / "))}</span>` : ""}
         </div>
         <p class="tool-note">${VSXref.linkify(c.description, xrefIndex, c.name)}</p>
       </div>
-    </div>
+    </div>`;
 
+  if (c.dataPending) {
+    root.innerHTML = head + `
+      <section class="panel"><h2>Full data coming soon</h2>
+        <p class="tool-note">${esc(c.name)} has just been added to the game. Its base stats, skills, evolution line and habitats aren't on the official Aniimo wiki yet — this page fills them in automatically as soon as they are. For now, here's the element, role and bio from the in-game index.</p>
+      </section>
+      <p class="tool-note"><a class="mini-btn" href="aniimos.html">← Back to the database</a></p>`;
+    return;
+  }
+
+  root.innerHTML = head + `
     <section class="panel"><h2>Base Stats</h2>${statsTable(c.baseStats)}</section>
 
     <section class="panel"><h2>Mobility</h2>${mobilityHtml(c.mobility, xrefIndex, c.name)}</section>

@@ -724,6 +724,34 @@ function buildHomelandGuide() {
   console.log(`Wrote Homeland guide (${rvSections.length} RV steps) to ${OUT_HOMELAND}.`);
 }
 
+// A new creature lands in the roster before the official wiki publishes its
+// detail page. We surface it from the roster's own searchKey (name, art,
+// element, role, stage, description) and flag dataPending so the UI can show a
+// "full stats coming soon" state; a later run fills in stats/skills/evolution.
+function partialCreature(entryId, sk) {
+  return {
+    slug: slugify(sk.name),
+    entryId,
+    number: sk.entryId,
+    name: sk.name,
+    description: sk.description || "",
+    icon: sk.imageUrl || "",
+    elements: (sk.attributes || []).map(attrName),
+    role: roleName((sk.position || [])[0]),
+    stage: STAGE_NAMES[sk.currentStage] || "",
+    gender: [],
+    baseStats: { hp: null, physicalAttack: null, magicAttack: null, physicalDefense: null, magicDefense: null, haste: null, total: null },
+    images: { male: sk.imageUrl || "", female: "", noGender: "", illustration: "", background: "" },
+    mobility: null,
+    traits: [],
+    skills: {},
+    evolution: null,
+    habitats: [],
+    resonanceTraining: [],
+    dataPending: true,
+  };
+}
+
 function run() {
   const homeHtml = getText(`${BASE}/`, { timeout: 30 });
   if (!homeHtml) throw new Error("could not fetch wiki.aniimo.com homepage");
@@ -731,22 +759,39 @@ function run() {
   const roster = homePayload && homePayload.data && homePayload.data["aniimo-wiki-list-en"];
   if (!roster || !roster.length) throw new Error("could not parse the Aniimo roster list");
 
-  const entryIds = [...new Set(roster.map((r) => r.searchKey.entryId))];
+  const skByEntry = new Map();
+  for (const r of roster) { const sk = r.searchKey; if (sk && sk.entryId != null && !skByEntry.has(sk.entryId)) skByEntry.set(sk.entryId, sk); }
+  const entryIds = [...skByEntry.keys()];
   console.log(`Roster: ${entryIds.length} Aniimo. Fetching detail pages…`);
 
+  // Keep any full data we already have. The official wiki adds new creatures
+  // to the roster before publishing their detail page, and during a content
+  // rollout it serves the existing detail pages inconsistently, so a transient
+  // miss must never downgrade a creature we already scraped in full: fall back
+  // to the previous full entry, and only emit a "pending" stub for a creature
+  // that is genuinely new (in the roster, no detail page, never scraped).
+  const existingByEntry = new Map();
+  try {
+    for (const c of JSON.parse(fs.readFileSync(OUT_FILE, "utf8")).creatures) existingByEntry.set(c.entryId, c);
+  } catch { /* first run — no previous file */ }
+
   const creatures = [];
+  let fullCount = 0, pendingCount = 0;
   for (const entryId of entryIds) {
     const html = getText(`${BASE}/item/${entryId}/basic-form`, { timeout: 25, retries: 2 });
-    if (!html) { console.warn(`[${entryId}] fetch failed, skipping`); continue; }
-    const creature = parseCreature(entryId, html);
-    if (!creature) { console.warn(`[${entryId}] could not parse detail payload, skipping`); continue; }
-    creatures.push(creature);
-    process.stdout.write(".");
+    const creature = html ? parseCreature(entryId, html) : null;
+    if (creature) { creatures.push(creature); fullCount++; process.stdout.write("."); continue; }
+    const prev = existingByEntry.get(entryId);
+    if (prev && !prev.dataPending) { creatures.push(prev); process.stdout.write("="); continue; }
+    const sk = skByEntry.get(entryId);
+    if (sk) { creatures.push(partialCreature(entryId, sk)); pendingCount++; process.stdout.write("~"); continue; }
+    console.warn(`[${entryId}] no detail page and no roster entry, skipping`);
   }
-  console.log(`\nParsed ${creatures.length}/${entryIds.length} Aniimo.`);
-  if (creatures.length < entryIds.length * 0.5) throw new Error("parsed fewer than half the roster — keeping previous data");
+  console.log(`\n${fullCount} full · ${pendingCount} pending (new, awaiting a detail page) · ${creatures.length}/${entryIds.length} total.`);
+  if (creatures.length < entryIds.length * 0.5) throw new Error("built fewer than half the roster — keeping previous data");
 
-  creatures.sort((a, b) => a.number.localeCompare(b.number, undefined, { numeric: true }));
+  // Pending (new) creatures sort to the end; everything else by dex number.
+  creatures.sort((a, b) => (a.dataPending ? 1 : 0) - (b.dataPending ? 1 : 0) || a.number.localeCompare(b.number, undefined, { numeric: true }));
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
   fs.writeFileSync(OUT_FILE, JSON.stringify({
