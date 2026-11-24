@@ -1894,27 +1894,27 @@
     "All stages": "Todos os estágios",
     "stats soon": "stats em breve", "Full data coming soon": "Dados completos em breve",
     "Aniimo Teams & Builds": "Equipas e Builds de Aniimo",
-    "Full team compositions — who to run together, the role each covers and why it works — with every member's Held Item, personality and stat priority, plus the full list of individual per-Aniimo builds.":
-      "Composições de equipa completas — quem juntar, a função que cada um cobre e porque funciona — com o Held Item, a personalidade e a prioridade de stats de cada membro, mais a lista completa de builds individuais por Aniimo.",
-    "Team Comps": "Composições de Equipa", "Individual builds": "Builds individuais",
-    "Loading teams…": "A carregar equipas…", "+ flex slot": "+ slot flexível",
-    "not in database yet": "ainda não está na base de dados", "Mixed": "Misto",
-    "early": "início", "mid": "meio", "endgame": "fim de jogo",
-    "Team comps compiled from games.gg; each member's Held Item, personality and stat priority is from our Game8 build data. Metas shift with patches — a starting point, not gospel.":
-      "Composições compiladas do games.gg; o Held Item, a personalidade e a prioridade de stats de cada membro vêm dos nossos dados de build do Game8. As metas mudam com os patches — um ponto de partida, não uma regra.",
-    "Source ↗": "Fonte ↗",
-    "Turbo's Nimbi Burst buffs the team's damage right before your main DPS commits, while Glacy covers chip damage and keeps everyone topped up. A flexible fourth slot fills whatever the fight is missing — swap Helion for Lunara if you want a ranged carry.":
-      "O Nimbi Burst do Turbo potencia o dano da equipa mesmo antes do teu DPS principal atacar, enquanto a Glacy cobre o dano contínuo e mantém todos de saúde cheia. Um quarto slot flexível preenche o que faltar ao combate — troca o Helion pela Lunara se quiseres um carry à distância.",
-    "An all-Dark core: Fragrancier's debuffs and Witchin's curses feed Stellarys' energy and damage, while Rookey opens the break window. It scales cleanly out of the early game into mid-game content.":
-      "Um núcleo todo-Dark: os debuffs da Fragrancier e as maldições do Witchin alimentam a energia e o dano do Stellarys, enquanto o Rookey abre a janela de break. Escala bem do início do jogo para o conteúdo de meio-jogo.",
-    "Blazen breaks enemy stance, Luminelle's Arc Surge buffs the team, and Fenmane cashes in the damage window. Note Besauce isn't an open-world catch at launch, and the team runs without a dedicated healer — lean on the break windows for safety.":
-      "O Blazen quebra a postura inimiga, o Arc Surge da Luminelle potencia a equipa e o Fenmane aproveita a janela de dano. Nota: o Besauce não se apanha em mundo aberto no lançamento, e a equipa joga sem curandeiro dedicado — apoia-te nas janelas de break para sobreviver.",
-    "Panpanta and Piopiota flood the arena with water puddles that amplify Sherro's Water damage, while Prismana Glacy provides the sustain to keep the combo running through long fights.":
-      "A Panpanta e o Piopiota inundam a arena com poças de água que amplificam o dano de Água do Sherro, enquanto a Prismana Glacy dá o sustento para manter o combo em combates longos.",
-    "A high-speed, no-healer Lightning team that breaks, double-buffs and slams the damage window shut fast. Brilliant for bursting down single targets — but fragile against sustained, multi-hit bosses where you can't out-race the incoming damage.":
-      "Uma equipa Electric veloz e sem curandeiro que quebra, duplica buffs e fecha a janela de dano depressa. Excelente para rebentar alvos únicos — mas frágil contra bosses prolongados de múltiplos golpes, onde não consegues correr mais que o dano recebido.",
-    "A dedicated boss-killer: two supports strip Dark resistance and buff the team, then Inferlupa opens the break window for Pawney's ultimate to land at full value.":
-      "Um mata-bosses dedicado: dois suportes retiram a resistência a Dark e potenciam a equipa, depois o Inferlupa abre a janela de break para o ultimate do Pawney acertar com valor máximo.",
+    "The best endgame meta teams — who to run together, the role each covers and why — with every member's Held Item, personality and stat priority, plus the full list of individual per-Aniimo builds.":
+      "As melhores equipas meta de endgame — quem juntar, a função que cada um cobre e porquê — com o Held Item, a personalidade e a prioridade de stats de cada membro, mais a lista completa de builds individuais por Aniimo.",
+    "Endgame Meta Teams": "Equipas Meta de Endgame", "Individual builds": "Builds individuais",
+    "Loading teams…": "A carregar equipas…", "not in database yet": "ainda não está na base de dados",
+    "Primary source ↗": "Fonte principal ↗",
+    "boss one-shot": "one-shot de boss", "balanced PvE": "PvE equilibrado",
+    "reliable PvE": "PvE fiável", "crit PvE": "PvE de crítico", "mark & burst": "marcar & rebentar",
+    "The premier burst team for PvP and fast clears: Blazen breaks stance, Luminelle and Turbo double-buff, and Fulmintis — the top Electric carry — slams the damage window shut. No healer, so it's high-risk, high-reward against anything you can't kill fast.":
+      "A melhor equipa de burst para PvP e clears rápidos: o Blazen quebra a postura, a Luminelle e o Turbo duplicam os buffs, e o Fulmintis — o melhor carry Electric — fecha a janela de dano. Sem curandeiro, por isso é de alto risco e alta recompensa contra tudo o que não consigas matar depressa.",
+    "Built around one enormous damage window rather than steady damage: Dreaple and Fragrancier stack Dark-resistance shred and buffs, Inferlupa opens the break, and Pawney's ultimate lands at full value. The go-to boss-deleter.":
+      "Construída à volta de uma janela de dano enorme em vez de dano constante: o Dreaple e a Fragrancier acumulam redução de resistência a Dark e buffs, o Inferlupa abre o break, e o ultimate do Pawney acerta com valor máximo. O mata-bosses de eleição.",
+    "Balances offense and defense for late-game content: Panpanta and Piopiota flood the arena with water puddles that amplify Sherro's Water damage, while Prismana Glacy keeps the combo running through long fights.":
+      "Equilibra ataque e defesa para conteúdo de fim de jogo: a Panpanta e o Piopiota inundam a arena com poças de água que amplificam o dano de Água do Sherro, enquanto a Prismana Glacy mantém o combo em combates longos.",
+    "A reliable PvE Electric team that keeps a dedicated healer — it trades the burst team's raw speed for the survivability to grind out long fights safely.":
+      "Uma equipa Electric fiável para PvE que mantém um curandeiro dedicado — troca a velocidade pura da equipa de burst pela resistência para aguentar combates longos em segurança.",
+    "A dependable Fire composition for PvE: Magmarex controls through Break, Flamerion feeds the team energy, and Glacy sustains while Infergon carries the damage.":
+      "Uma composição de Fogo fiável para PvE: o Magmarex controla pelo Break, o Flamerion alimenta a energia da equipa, e a Glacy sustenta enquanto o Infergon faz o dano.",
+    "Keeps a fragile crit carry alive: Thornblade sits behind Melloblum's buffs, Somniwing's energy and Glacy's healing, turning sustained uptime into steady PvE damage.":
+      "Mantém vivo um carry de crítico frágil: o Thornblade joga protegido pelos buffs da Melloblum, pela energia da Somniwing e pela cura da Glacy, transformando o tempo em jogo em dano constante de PvE.",
+    "An all-Dark mark-and-burst core that scales from progression into endgame: Fragrancier's debuffs and Hexxin's curses feed Stellarys' energy and damage while Rookey opens the break window.":
+      "Um núcleo todo-Dark de marcar-e-rebentar que escala da progressão até ao endgame: os debuffs da Fragrancier e as maldições do Hexxin alimentam a energia e o dano do Stellarys enquanto o Rookey abre a janela de break.",
     "Sort: Number": "Ordenar: Número", "Sort: Total Stats": "Ordenar: Stats Totais",
     "No Aniimo match.": "Nenhum Aniimo corresponde.", "No regions match.": "Nenhuma região corresponde.",
     "Loading Aniimo…": "A carregar Aniimo…",
@@ -2241,6 +2241,8 @@
     [/^(\d+) builds · updated (.+)$/, "$1 builds · actualizado $2"],
     [/^(\d+) team comps · (\d+) individual builds · updated (.+)$/,
       "$1 composições de equipa · $2 builds individuais · actualizado $3"],
+    [/^The current best endgame \/ meta teams, as of (.+) — compiled from and corroborated across up-to-date guides \((.+)\)\. Each member's Held Item, personality and stat priority is from our Game8 build data\. Metas shift with every patch\.$/,
+      (m, date, src) => `As melhores equipas meta de endgame, de ${date} — compiladas e corroboradas a partir de guias actualizados (${src}). O Held Item, a personalidade e a prioridade de stats de cada membro vêm dos nossos dados de build do Game8. As metas mudam a cada patch.`],
 
     // ---- Dreamlight Valley: Community Presets ----
     [/^(\d+) presets · updated (.+)$/, "$1 presets · actualizado $2"],

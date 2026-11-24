@@ -66,7 +66,7 @@ function teamCard(t) {
     <div class="tm-head">
       <h3>${esc(t.name)}</h3>
       <span class="tm-tags">
-        <span class="ev-chip">${esc(t.stage)}</span>
+        <span class="ev-chip">${esc(t.tag)}</span>
         <span class="ev-chip" style="background:${elColor}22;color:${elColor}">${esc(t.element)}</span>
         ${t.flex ? `<span class="ev-chip" style="opacity:.7">+ flex slot</span>` : ""}
       </span>
@@ -79,8 +79,10 @@ function teamCard(t) {
 function renderTeams() {
   if (!els.teams) return;
   if (!TEAMS || !TEAMS.teams || !TEAMS.teams.length) { els.teams.innerHTML = ""; return; }
-  els.teams.innerHTML = `<div class="tm-grid">${TEAMS.teams.map(teamCard).join("")}</div>
-    <p class="tool-note">Team comps compiled from games.gg; each member's Held Item, personality and stat priority is from our Game8 build data. Metas shift with patches — a starting point, not gospel. <a href="${esc(TEAMS.source)}" target="_blank" rel="noopener">Source ↗</a></p>`;
+  const tUpd = TEAMS.updated ? new Date(TEAMS.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
+  els.teams.innerHTML = `<p class="tool-note" style="margin:0 0 14px">The current best endgame / meta teams${tUpd ? `, as of ${tUpd}` : ""} — compiled from and corroborated across up-to-date guides (${esc(TEAMS.sourceName || "the source guides")}). Each member's Held Item, personality and stat priority is from our Game8 build data. Metas shift with every patch.</p>
+    <div class="tm-grid">${TEAMS.teams.map(teamCard).join("")}</div>
+    <p class="tool-note"><a href="${esc(TEAMS.source)}" target="_blank" rel="noopener">Primary source ↗</a></p>`;
 }
 
 /* ---- Individual builds ---- */
