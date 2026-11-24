@@ -11,7 +11,7 @@
    linker (assets/js/vs-xref.js), and this page accepts ?slug=<creature> or
    ?region=<name> deep-links from other Aniimo tools.
    Data: data/aniimo/map.json + data/aniimo/regions.json +
-   data/aniimo/creatures.json + data/aniimo/talents.json. */
+   data/aniimo/creatures.json. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const ELEMENT_COLOR = {
@@ -21,15 +21,14 @@ const ELEMENT_COLOR = {
 const MIN_ZOOM_STEP = 0.15, WHEEL_ZOOM_STEP = 0.08, MAX_SCALE = 2.5;
 const isDesktopPointer = () => window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-function buildXrefEntities(creatures, regions, talents) {
+function buildXrefEntities(creatures, regions) {
   const entities = [];
   for (const c of creatures) entities.push({ name: c.name, type: "creature", href: `aniimo.html?slug=${c.slug}` });
   for (const r of regions) entities.push({ name: r.name, type: "region", href: `map.html?region=${encodeURIComponent(r.name)}` });
-  for (const t of talents) entities.push({ name: t.name, type: "talent", href: `talents.html?highlight=${encodeURIComponent(t.name)}` });
   return entities;
 }
 
-let MAP = null, REGIONS = null, CREATURES = null, TALENTS = null, XREF = null;
+let MAP = null, REGIONS = null, CREATURES = null, XREF = null;
 let MARKER_BY_ID = new Map(), CATEGORY_BY_ID = new Map();
 let activeAniimoSlug = "", query = "", regionQuery = "";
 let scale = 0.2, fitScale = 0.2;
@@ -326,14 +325,11 @@ function openRegion(name) {
 
 (async function init() {
   try {
-    let talents;
-    [MAP, REGIONS, CREATURES, talents] = await Promise.all([
+    [MAP, REGIONS, CREATURES] = await Promise.all([
       fetch(`../../data/aniimo/map.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/regions.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()).then((d) => d.creatures),
-      fetch(`../../data/aniimo/talents.json?cb=${Date.now()}`).then((r) => r.json()).then((d) => d.talents),
     ]);
-    TALENTS = talents;
     MARKER_BY_ID = new Map(MAP.markers.map((m) => [m.id, m]));
     CATEGORY_BY_ID = new Map(MAP.categories.map((c) => [c.id, c]));
     // Chest and Lumin Amber alone account for the large majority of all
@@ -341,7 +337,7 @@ function openRegion(name) {
     // at a glance, so start with those off. One legend click brings them
     // back; nothing is hidden that can't be un-hidden just as easily.
     for (const c of MAP.categories) if (c.name === "Chest" || c.name === "Lumin Amber") hiddenCategories.add(c.id);
-    XREF = VSXref.buildXrefIndex(buildXrefEntities(CREATURES, REGIONS.regions, TALENTS));
+    XREF = VSXref.buildXrefIndex(buildXrefEntities(CREATURES, REGIONS.regions));
     VSXref.initXrefPopup(XREF);
     const upd = MAP.updated ? new Date(MAP.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
     document.getElementById("am-updated").textContent = `${MAP.count} map markers · updated ${upd}`;

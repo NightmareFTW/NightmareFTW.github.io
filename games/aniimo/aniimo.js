@@ -21,11 +21,10 @@ function itemIcon(src, initial) {
   return `<span class="ms-item-img"><img src="${esc(src)}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.parentElement.classList.add('no-img')"></span>`;
 }
 
-function buildXrefEntities(creatures, regions, talents) {
+function buildXrefEntities(creatures, regions) {
   const entities = [];
   for (const c of creatures) entities.push({ name: c.name, type: "creature", href: `aniimo.html?slug=${c.slug}` });
   for (const r of regions) entities.push({ name: r.name, type: "region", href: `map.html?region=${encodeURIComponent(r.name)}` });
-  for (const t of talents) entities.push({ name: t.name, type: "talent", href: `talents.html?highlight=${encodeURIComponent(t.name)}` });
   return entities;
 }
 
@@ -146,14 +145,13 @@ function render(c, xrefIndex) {
 (async function init() {
   const slug = new URLSearchParams(location.search).get("slug");
   try {
-    const [creaturesData, regionsData, talentsData] = await Promise.all([
+    const [creaturesData, regionsData] = await Promise.all([
       fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/regions.json?cb=${Date.now()}`).then((r) => r.json()),
-      fetch(`../../data/aniimo/talents.json?cb=${Date.now()}`).then((r) => r.json()),
     ]);
     const c = creaturesData.creatures.find((x) => x.slug === slug);
     if (!c) { root.innerHTML = `<p class="tool-note">Aniimo not found. <a class="mini-btn" href="aniimos.html">Back to the database →</a></p>`; return; }
-    const xrefIndex = VSXref.buildXrefIndex(buildXrefEntities(creaturesData.creatures, regionsData.regions, talentsData.talents));
+    const xrefIndex = VSXref.buildXrefIndex(buildXrefEntities(creaturesData.creatures, regionsData.regions));
     VSXref.initXrefPopup(xrefIndex);
     render(c, xrefIndex);
   } catch (e) {

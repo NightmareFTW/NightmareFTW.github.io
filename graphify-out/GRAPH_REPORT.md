@@ -1,17 +1,17 @@
-# Graph Report - NightmareFTW.github.io  (2026-11-23)
+# Graph Report - NightmareFTW.github.io  (2026-11-24)
 
 ## Corpus Check
-- 257 files · ~968,873 words
+- 255 files · ~966,608 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: .css 3, (none) 1, .xml 1)
 
 ## Summary
-- 2443 nodes · 3829 edges · 278 communities (160 shown, 118 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 184 edges (avg confidence: 0.85)
+- 2427 nodes · 3799 edges · 283 communities (164 shown, 119 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 179 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e400c7c8`
+- Built from commit: `c1960496`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,7 @@
 - Game8 (data source)
 - The Outlast Trials Game Hub
 - auth.js
-- vs-curated-guides.js
+- ref_path
 - items.js
 - update-news.js
 - gifts.js
@@ -275,7 +275,7 @@
 - build-route.js
 - honkai-star-rail/tier-list.js
 - homeland.js
-- aniimo/talents.js
+- update-warframe-items.js
 - cards.js
 - warframe/builds.js
 - aniimos.js
@@ -291,18 +291,23 @@
 - stage.js
 - warframe/index.js
 - Project notes for Claude
+- getText
 - update-starpath.js
 - update-drops.js
+- build-sitemap.js
+- parseSteamGuideHTML
+- parseTurboStreamPayload
+- unflattenDevalue
 
 ## God Nodes (most connected - your core abstractions)
 1. `fetch()` - 23 edges
 2. `run()` - 18 edges
 3. `esc()` - 16 edges
 4. `PolyForm Noncommercial License 1.0.0` - 16 edges
-5. `getText()` - 14 edges
-6. `stripWiki()` - 13 edges
-7. `render()` - 13 edges
-8. `clean()` - 12 edges
+5. `stripWiki()` - 13 edges
+6. `render()` - 13 edges
+7. `clean()` - 12 edges
+8. `getText()` - 12 edges
 9. `cleanCell()` - 12 edges
 10. `parseHero()` - 12 edges
 
@@ -335,15 +340,15 @@
 - **Cross-game Meta Builds tool pattern** — games_elden_ring_builds_meta_builds, games_expedition_33_builds_meta_builds, games_far_far_west_builds_meta_builds [INFERRED 0.85]
 - **Cross-game Missables Checklist tool pattern (on-device ticks)** — games_elden_ring_missables_missables_checklist, games_expedition_33_missables_missables_checklist [INFERRED 0.85]
 
-## Communities (278 total, 118 thin omitted)
+## Communities (283 total, 119 thin omitted)
 
 ### Community 0 - "update-marvel-snap-codes.js"
-Cohesion: 0.22
-Nodes (8): { execFileSync }, clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
+Cohesion: 0.32
+Nodes (7): clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
 
 ### Community 1 - "update-hsr-tierlist.js"
-Cohesion: 0.27
-Nodes (9): cleanName(), decode(), { execFileSync }, fs, getHtml(), OUT, path, run() (+1 more)
+Cohesion: 0.19
+Nodes (10): { execFileSync }, cleanName(), decode(), { execFileSync }, fs, getHtml(), OUT, path (+2 more)
 
 ### Community 2 - "Game8"
 Cohesion: 0.48
@@ -365,9 +370,9 @@ Nodes (25): Game8 (data source), Tier List & Builds (Neverness to Everness), Loa
 Cohesion: 0.19
 Nodes (28): api(), applyBlob(), closeModal(), cloudPull(), cloudPush(), cloudSignOut(), collect(), errMsg() (+20 more)
 
-### Community 7 - "vs-curated-guides.js"
-Cohesion: 0.07
-Nodes (26): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+18 more)
+### Community 7 - "ref_path"
+Cohesion: 0.17
+Nodes (15): buildCatalogue(), fs, parseCatalogue(), path, fs, load(), norm(), officialName() (+7 more)
 
 ### Community 8 - "items.js"
 Cohesion: 0.19
@@ -550,12 +555,12 @@ Cohesion: 0.29
 Nodes (7): CATS, DANGER_CLASS, ENEMIES, esc(), filters, render(), root
 
 ### Community 53 - "ref_path"
-Cohesion: 0.13
-Nodes (11): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk(), OUT (+3 more)
+Cohesion: 0.25
+Nodes (7): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk()
 
 ### Community 54 - "ref_fs"
-Cohesion: 0.11
-Nodes (14): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), fs, pages (+6 more)
+Cohesion: 0.20
+Nodes (7): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), fs
 
 ### Community 55 - "recipes.js"
 Cohesion: 0.39
@@ -598,12 +603,12 @@ Cohesion: 0.67
 Nodes (3): Marvel Snap, Marvel Snap Zone, Update Marvel Snap Cards
 
 ### Community 181 - "update-items.js"
-Cohesion: 0.13
-Nodes (20): ADJ, SMALL, translateName(), tword(), WORD, BIOMES, biomesIn(), dlcOf() (+12 more)
+Cohesion: 0.18
+Nodes (14): BIOMES, biomesIn(), dlcOf(), fs, isLimited(), LOC, LOC_PAIRS, MATERIALS (+6 more)
 
 ### Community 182 - "update-animals.js"
-Cohesion: 0.15
-Nodes (30): buildCatalogue(), fs, parseCatalogue(), path, clean(), fileAndName(), galleries(), imageUrls() (+22 more)
+Cohesion: 0.18
+Nodes (24): clean(), fileAndName(), parseTable(), sections(), tables(), wikitext(), getJson(), buildFoodMap() (+16 more)
 
 ### Community 183 - "stamp-assets.js"
 Cohesion: 0.14
@@ -630,8 +635,8 @@ Cohesion: 0.38
 Nodes (10): api(), loadRecoveryCount(), openEditor(), paint(), refreshHeader(), render(), showCodes(), syncNow() (+2 more)
 
 ### Community 189 - "update-vampire-survivors.js"
-Cohesion: 0.10
-Nodes (47): autoGuide(), balancedTemplate(), buildWeaponGraph(), chunk(), cleanDisambiguated(), cleanEnemyName(), enemyIntro(), { execFileSync } (+39 more)
+Cohesion: 0.05
+Nodes (73): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+65 more)
 
 ### Community 190 - "ravenswatch/heroes.js"
 Cohesion: 0.54
@@ -646,8 +651,8 @@ Cohesion: 0.48
 Nodes (6): card(), esc(), evOrder(), labelOf(), render(), root
 
 ### Community 193 - "update-aniimo.js"
-Cohesion: 0.06
-Nodes (60): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap(), buildRegions(), buildTalents() (+52 more)
+Cohesion: 0.11
+Nodes (22): attrName(), findComponent(), fs, NUXT_REVIVERS, OUT_BUILDS, OUT_CODES, OUT_DIR, OUT_FILE (+14 more)
 
 ### Community 194 - "builder.js"
 Cohesion: 0.11
@@ -730,8 +735,8 @@ Cohesion: 0.15
 Nodes (28): applyScale(), bindMapInteractions(), buildControls(), buildLegend(), buildMapStage(), buildToolbar(), CATEGORY_BY_ID, closePopup() (+20 more)
 
 ### Community 214 - "update-recipes.js"
-Cohesion: 0.20
-Nodes (17): fs, load(), norm(), officialName(), path, clean(), dlcOfCollection(), fs (+9 more)
+Cohesion: 0.17
+Nodes (18): ADJ, SMALL, translateName(), tword(), WORD, ptName(), clean(), dlcOfCollection() (+10 more)
 
 ### Community 215 - "Demonologist Wiki"
 Cohesion: 0.60
@@ -909,9 +914,9 @@ Nodes (11): buildSection(), compsFor(), detail, esc(), member(), portrait(), ren
 Cohesion: 0.42
 Nodes (9): els, esc(), render(), renderBlock(), renderItems(), renderLesson(), renderNamed(), renderProdItem() (+1 more)
 
-### Community 260 - "aniimo/talents.js"
-Cohesion: 0.33
-Nodes (8): buildControls(), els, esc(), renderRoute(), renderTree(), routeItem(), talentRow(), unlockLabel()
+### Community 260 - "update-warframe-items.js"
+Cohesion: 0.24
+Nodes (13): abilityIconCache, clean(), fs, get(), img(), lastStat(), OUT, path (+5 more)
 
 ### Community 261 - "cards.js"
 Cohesion: 0.31
@@ -969,6 +974,10 @@ Nodes (4): esc(), metaTable(), render(), root
 Cohesion: 0.33
 Nodes (5): graphify, Project notes for Claude, Shipping a change — two things to update every time, proactively, Warframe data — use WFCD, not scraping, "What's New" carousel — do this proactively
 
+### Community 276 - "getText"
+Cohesion: 0.33
+Nodes (10): getText(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap(), buildRegions(), parseBuilds(), parseFaceCodeComments() (+2 more)
+
 ### Community 277 - "update-starpath.js"
 Cohesion: 0.27
 Nodes (10): clean(), discoverCurrentSeason(), FALLBACK_SEASON, fetchWikitext(), fs, iso(), OUT, parseWikiDate() (+2 more)
@@ -977,25 +986,37 @@ Nodes (10): clean(), discoverCurrentSeason(), FALLBACK_SEASON, fetchWikitext(), 
 Cohesion: 0.32
 Nodes (7): fs, getJson(), OUT, path, RARITIES, ri(), run()
 
+### Community 279 - "build-sitemap.js"
+Cohesion: 0.25
+Nodes (7): fs, pages, path, ROOT, SKIP_DIRS, SKIP_FILES, walk()
+
+### Community 280 - "parseSteamGuideHTML"
+Cohesion: 0.67
+Nodes (4): decodeEntities(), homelandGroupLines(), homelandPrepLines(), parseSteamGuideHTML()
+
+### Community 281 - "parseTurboStreamPayload"
+Cohesion: 0.67
+Nodes (3): parseTurboStreamPayload(), unflattenTurboStream(), hydrate()
+
 ## Knowledge Gaps
 - **141 isolated node(s):** `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait`, `Rapunzel — Dreamlight Valley character portrait`, `Remy — Dreamlight Valley character portrait` (+136 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 974 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 970 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **119 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `img()` connect `update-aniimo.js` to `profile.js`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `img()` connect `update-warframe-items.js` to `profile.js`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **What connects `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `animals.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
+- **Why does `paint()` connect `profile.js` to `update-warframe-items.js`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Should `Game8 (data source)` be split into smaller, more focused modules?**
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11333333333333333 - nodes in this community are weakly interconnected._
-- **Should `vs-curated-guides.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `src/index.js` be split into smaller, more focused modules?**
   _Cohesion score 0.11904761904761904 - nodes in this community are weakly interconnected._
