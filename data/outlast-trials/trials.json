@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23T12:13:06.794Z",
+  "updated": "2026-11-24T06:13:42.519Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -325,7 +325,7 @@
         },
         {
           "name": "Win the Truth",
-          "goal": "You are the blind observer, who consumes screen-fed ignorance and swells with the genius of idiot artifice. Regurgitate the knowledge that brings suffering to the wise, win the game which only punishes the defeated, and we will let you out.",
+          "goal": "Sign Symbols",
           "objectives": [
             "Complete the First Round",
             "Survive the Game Show",

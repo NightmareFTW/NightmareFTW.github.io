@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23T05:28:03.834Z",
+  "updated": "2026-11-24T05:26:14.809Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -3765,22 +3765,12 @@
           ]
         },
         {
-          "heading": "Warning",
-          "images": [],
-          "items": [
-            {
-              "kind": "text",
-              "text": "This is untested. It's what I'm planning to do once I hit RV21."
-            }
-          ]
-        },
-        {
           "heading": "Note",
           "images": [],
           "items": [
             {
               "kind": "text",
-              "text": "Keep your level 3 mine producing Shells for Aniipod Megas. Upgrade the rest and produce Silver Ore. No Gems means no Gemstone Dust or Star Diamond."
+              "text": "Keep your level 3 mine producing Shells for Aniipod Megas. Upgrade the rest and produce Silver Ore."
             },
             {
               "kind": "text",
