@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T06:13:42.519Z",
+  "updated": "2026-11-24T12:12:13.789Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -557,7 +557,7 @@
         },
         {
           "name": "Bribe the Judges",
-          "goal": "You are the master, whose property is the purpose of the law. Salary reminds enforcement that their monopoly of violence only exists for your monopoly of capital. Collect the bribes, pay the judges, and we will let you out.",
+          "goal": "Bribe the Judges is the sixth MK-Challenge that takes place at the Courthouse in The Outlast Trials.",
           "objectives": [
             "Deliver the First Bribe",
             "Bribe The Remaining Corruptible Judges",
