@@ -775,9 +775,9 @@ const GAMES = [
       },
       {
         id: "builds",
-        name: "Aniimo Builds",
+        name: "Aniimo Teams & Builds",
         type: "builder",
-        desc: "Which two Skills to equip, the best Held Item, stat priority and personality — a real build for 46 of the 86 Aniimo, from Game8's own guide.",
+        desc: "Full team comps — who to run together, the role each covers and why — with every member's Held Item, personality and stat priority, plus individual builds for 116 Aniimo. Teams via games.gg, builds via Game8.",
         href: "games/aniimo/builds.html",
         available: true,
       },

@@ -1,0 +1,86 @@
+{
+  "updated": "2026-11-24",
+  "source": "https://games.gg/aniimo/guides/aniimo-best-teams/",
+  "sourceName": "games.gg",
+  "note": "Real recommended Aniimo team compositions, compiled from games.gg's best-teams guide. Each member's Held Item, personality and stat priority is pulled from our per-Aniimo build data (Game8), and each links to that Aniimo's full page. Team metas shift with patches — this is a curated snapshot, not auto-updated.",
+  "teams": [
+    {
+      "id": "helion-lunara-starter",
+      "name": "Helion / Lunara Starter",
+      "stage": "early",
+      "element": "Mixed",
+      "members": [
+        { "name": "Helion", "role": "DPS", "alt": "Lunara" },
+        { "name": "Glacy", "role": "HEAL" },
+        { "name": "Turbo", "role": "SUPPORT" }
+      ],
+      "flex": true,
+      "why": "Turbo's Nimbi Burst buffs the team's damage right before your main DPS commits, while Glacy covers chip damage and keeps everyone topped up. A flexible fourth slot fills whatever the fight is missing — swap Helion for Lunara if you want a ranged carry."
+    },
+    {
+      "id": "rookey-dark-starter",
+      "name": "Rookey Dark Starter",
+      "stage": "early",
+      "element": "Dark",
+      "members": [
+        { "name": "Rookey", "role": "BREAK" },
+        { "name": "Fragrancier", "role": "SUPPORT" },
+        { "name": "Stellarys", "role": "DPS" },
+        { "name": "Witchin", "role": "REGEN" }
+      ],
+      "why": "An all-Dark core: Fragrancier's debuffs and Witchin's curses feed Stellarys' energy and damage, while Rookey opens the break window. It scales cleanly out of the early game into mid-game content."
+    },
+    {
+      "id": "fenmane-lightning-mid",
+      "name": "Fenmane Lightning",
+      "stage": "mid",
+      "element": "Electric",
+      "members": [
+        { "name": "Fenmane", "role": "DPS" },
+        { "name": "Blazen", "role": "BREAK" },
+        { "name": "Luminelle", "role": "SUPPORT" },
+        { "name": "Besauce", "role": "REGEN" }
+      ],
+      "why": "Blazen breaks enemy stance, Luminelle's Arc Surge buffs the team, and Fenmane cashes in the damage window. Note Besauce isn't an open-world catch at launch, and the team runs without a dedicated healer — lean on the break windows for safety."
+    },
+    {
+      "id": "sherro-water-endgame",
+      "name": "Sherro Water",
+      "stage": "endgame",
+      "element": "Water",
+      "members": [
+        { "name": "Sherro", "role": "DPS" },
+        { "name": "Panpanta", "role": "BREAK" },
+        { "name": "Piopiota", "role": "SUPPORT" },
+        { "name": "Prismana Glacy", "role": "HEAL", "base": "Glacy" }
+      ],
+      "why": "Panpanta and Piopiota flood the arena with water puddles that amplify Sherro's Water damage, while Prismana Glacy provides the sustain to keep the combo running through long fights."
+    },
+    {
+      "id": "fulmintis-lightning-burst",
+      "name": "Fulmintis Lightning Burst",
+      "stage": "endgame",
+      "element": "Electric",
+      "members": [
+        { "name": "Fulmintis", "role": "DPS" },
+        { "name": "Blazen", "role": "BREAK" },
+        { "name": "Luminelle", "role": "SUPPORT" },
+        { "name": "Turbo", "role": "SUPPORT" }
+      ],
+      "why": "A high-speed, no-healer Lightning team that breaks, double-buffs and slams the damage window shut fast. Brilliant for bursting down single targets — but fragile against sustained, multi-hit bosses where you can't out-race the incoming damage."
+    },
+    {
+      "id": "dreaple-dark-boss",
+      "name": "Dreaple Dark Boss",
+      "stage": "endgame",
+      "element": "Dark",
+      "members": [
+        { "name": "Dreaple", "role": "SUPPORT" },
+        { "name": "Fragrancier", "role": "SUPPORT" },
+        { "name": "Inferlupa", "role": "BREAK" },
+        { "name": "Pawney", "role": "DPS" }
+      ],
+      "why": "A dedicated boss-killer: two supports strip Dark resistance and buff the team, then Inferlupa opens the break window for Pawney's ultimate to land at full value."
+    }
+  ]
+}

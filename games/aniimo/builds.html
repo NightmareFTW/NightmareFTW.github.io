@@ -9,18 +9,37 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NightmareFTW">
   <meta property="og:url" content="https://nightmareftw.github.io/games/aniimo/builds.html">
-  <meta property="og:title" content="Aniimo Builds · Aniimo">
-  <meta property="og:description" content="Which two Skills to equip, the best Held Item, stat priority and personality — a real build for 46 of the 86 Aniimo, from Game8's own guide.">
+  <meta property="og:title" content="Aniimo Teams &amp; Builds · Aniimo">
+  <meta property="og:description" content="Full team comps — who to run together, the role each covers and why — with every member's Held Item, personality and stat priority, plus individual builds for 116 Aniimo. Teams via games.gg, builds via Game8.">
   <meta property="og:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aniimo Builds · Aniimo">
-  <meta name="twitter:description" content="Which two Skills to equip, the best Held Item, stat priority and personality — a real build for 46 of the 86 Aniimo, from Game8's own guide.">
+  <meta name="twitter:title" content="Aniimo Teams &amp; Builds · Aniimo">
+  <meta name="twitter:description" content="Full team comps — who to run together, the role each covers and why — with every member's Held Item, personality and stat priority, plus individual builds for 116 Aniimo. Teams via games.gg, builds via Game8.">
   <meta name="twitter:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
   <!--/og-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/style.css?v=39722315">
+  <style>
+    .section-title{font-family:var(--disp);font-weight:600;font-size:1.3rem;margin:30px 0 14px}
+    .tm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+    .tm-card{background:var(--card,#121218);border:1px solid var(--border,#22222b);border-radius:12px;padding:16px 16px 14px}
+    .tm-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+    .tm-head h3{font-family:var(--disp);font-weight:600;font-size:1.08rem;margin:0}
+    .tm-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tm-members{display:flex;flex-direction:column;gap:11px}
+    .tm-member{display:flex;gap:10px;align-items:flex-start}
+    .tm-ic{flex:none;width:40px;height:40px;border-radius:8px;overflow:hidden;border:1px solid var(--border,#2a2a33);background:#0c0c10;display:flex;align-items:center;justify-content:center}
+    .tm-ic img{width:100%;height:100%;object-fit:cover}
+    .tm-info{min-width:0;flex:1}
+    .tm-name{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-weight:600}
+    .tm-name a{color:#fff;text-decoration:none}
+    .tm-name a:hover{text-decoration:underline}
+    .tm-alt{color:var(--muted);font-weight:400;font-size:.9em}
+    .tm-bits{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+    .tm-why{color:var(--muted);font-size:.92rem;line-height:1.5;margin:12px 0 0;border-top:1px solid var(--border,#22222b);padding-top:10px}
+  </style>
 </head>
 <body data-game="aniimo">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -32,15 +51,23 @@
   </header>
   <main class="container tool-page">
     <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Aniimo</a> / builds</p>
-    <h1>Aniimo Builds</h1>
-    <p class="tool-sub">Which two Skills to equip, the best Held Item, stat priority and recommended personality — one real build per Aniimo, from Game8's own build guide.</p>
+    <h1>Aniimo Teams &amp; Builds</h1>
+    <p class="tool-sub">Full team compositions — who to run together, the role each covers and why it works — with every member's Held Item, personality and stat priority, plus the full list of individual per-Aniimo builds.</p>
     <p class="codes-updated" id="ab-updated">Loading…</p>
 
-    <div class="pw-controls" id="ab-controls"></div>
-    <p class="pw-count" id="ab-progress"></p>
-    <div id="ab-list"><p style="color:var(--muted)">Loading builds…</p></div>
+    <section class="tm-section">
+      <h2 class="section-title">Team Comps</h2>
+      <div id="ab-teams"><p style="color:var(--muted)">Loading teams…</p></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Individual builds</h2>
+      <div class="pw-controls" id="ab-controls"></div>
+      <p class="pw-count" id="ab-progress"></p>
+      <div id="ab-list"><p style="color:var(--muted)">Loading builds…</p></div>
+    </section>
   </main>
-  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · build data via Game8.</span></div></footer>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · team comps via games.gg · build data via Game8.</span></div></footer>
   <script src="builds.js?v=6999a69f"></script>
   <script src="/assets/js/i18n.js?v=96db9e99" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->

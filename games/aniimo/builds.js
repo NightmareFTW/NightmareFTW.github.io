@@ -1,27 +1,92 @@
-/* Aniimo — Builds.
-   A real per-Aniimo build: which two Skills to equip, the best Held Item,
-   stat priority and a recommended personality — sourced from Game8's own
-   "List of All Builds" page (the site's established primary source for
-   this kind of attributed guide, same as the Pathfinder's talent route).
-   Covers 46 of the 86 tracked Aniimo; a few rows are for a "Prismana"
-   (top-tier awakened) form of a base creature rather than a separate
-   roster entry, and a handful name an Aniimo not yet documented on
-   wiki.aniimo.com (creatures.json) — those render as plain text instead
-   of a dead link. See scripts/update-aniimo.js (buildAniimoBuilds).
-   Data: data/aniimo/builds.json. */
+/* Aniimo — Teams & Builds.
+   Real recommended team compositions (compiled from games.gg's best-teams
+   guide — data/aniimo/teams.json) on top, each member enriched with its own
+   Held Item, personality and stat priority from our per-Aniimo build data
+   (Game8 — data/aniimo/builds.json) and linked to its full Aniimo page.
+   Below that, the full searchable list of individual per-Aniimo builds.
+   Data: data/aniimo/teams.json, builds.json, creatures.json. */
 
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-let DATA = null, query = "";
+const ELEMENT_COLOR = {
+  Fire: "#f2543d", Water: "#3d9bf2", Grass: "#6bbf3f", Electric: "#e0c23a", Ice: "#38b6e0",
+  Wind: "#7fd9c4", Dark: "#a866e0", Holy: "#f2e6a3", Rock: "#a9835a", Mixed: "#9aa0ad",
+};
+const ROLE_COLOR = { DPS: "#ff6470", BREAK: "#e0a23a", HEAL: "#34d399", REGEN: "#3d9bf2", SUPPORT: "#a866e0" };
+
+let BUILDS = null, TEAMS = null, CREATURES = null, byCreature = null, byBuild = null, query = "";
 
 const els = {
   controls: document.getElementById("ab-controls"),
   list: document.getElementById("ab-list"),
   progress: document.getElementById("ab-progress"),
+  teams: document.getElementById("ab-teams"),
 };
 
+/* ---- Teams ---- */
+function resolveMember(m) {
+  const nameKey = m.name.toLowerCase();
+  const baseKey = (m.base || m.name).toLowerCase();
+  return {
+    creature: byCreature.get(baseKey) || null,
+    build: byBuild.get(nameKey) || byBuild.get(baseKey) || null,
+  };
+}
+
+function memberCard(m) {
+  const { creature, build } = resolveMember(m);
+  const slug = creature && creature.slug;
+  const icon = creature ? creature.icon : (build ? build.icon : "");
+  const element = creature && creature.elements && creature.elements[0];
+  const elColor = ELEMENT_COLOR[element] || null;
+  const roleColor = ROLE_COLOR[m.role] || "#9aa0ad";
+  const name = slug
+    ? `<a class="vs-xref" href="aniimo.html?slug=${encodeURIComponent(slug)}">${esc(m.name)}</a>`
+    : `<span>${esc(m.name)}</span>`;
+  const alt = m.alt ? ` <span class="tm-alt">or ${esc(m.alt)}</span>` : "";
+  const bits = build
+    ? `${build.heldItem ? `<span class="ev-chip" title="Held Item">${esc(build.heldItem.name)}</span>` : ""}
+       ${build.personality ? `<span class="ev-chip" title="Personality">${esc(build.personality)}</span>` : ""}
+       ${build.statPriority ? `<span class="ev-chip" title="Stat priority">${esc(build.statPriority)}</span>` : ""}`
+    : (creature ? "" : `<span class="ev-chip" style="opacity:.55">not in database yet</span>`);
+  return `<div class="tm-member">
+    <span class="tm-ic" ${elColor ? `style="border-color:${elColor}80"` : ""}>${icon ? `<img src="${esc(icon)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">` : ""}</span>
+    <div class="tm-info">
+      <div class="tm-name">${name}${alt}
+        ${element ? `<span class="ev-chip" style="background:${elColor}22;color:${elColor}">${esc(element)}</span>` : ""}
+        <span class="ev-chip" style="background:${roleColor}22;color:${roleColor}">${esc(m.role || "")}</span>
+      </div>
+      <div class="tm-bits">${bits}</div>
+    </div>
+  </div>`;
+}
+
+function teamCard(t) {
+  const elColor = ELEMENT_COLOR[t.element] || "#9aa0ad";
+  return `<div class="tm-card" style="border-color:${elColor}3d">
+    <div class="tm-head">
+      <h3>${esc(t.name)}</h3>
+      <span class="tm-tags">
+        <span class="ev-chip">${esc(t.stage)}</span>
+        <span class="ev-chip" style="background:${elColor}22;color:${elColor}">${esc(t.element)}</span>
+        ${t.flex ? `<span class="ev-chip" style="opacity:.7">+ flex slot</span>` : ""}
+      </span>
+    </div>
+    <div class="tm-members">${t.members.map(memberCard).join("")}</div>
+    <p class="tm-why">${esc(t.why)}</p>
+  </div>`;
+}
+
+function renderTeams() {
+  if (!els.teams) return;
+  if (!TEAMS || !TEAMS.teams || !TEAMS.teams.length) { els.teams.innerHTML = ""; return; }
+  els.teams.innerHTML = `<div class="tm-grid">${TEAMS.teams.map(teamCard).join("")}</div>
+    <p class="tool-note">Team comps compiled from games.gg; each member's Held Item, personality and stat priority is from our Game8 build data. Metas shift with patches — a starting point, not gospel. <a href="${esc(TEAMS.source)}" target="_blank" rel="noopener">Source ↗</a></p>`;
+}
+
+/* ---- Individual builds ---- */
 function buildControls() {
   els.controls.innerHTML = `<input type="search" id="f-search" class="search-input" placeholder="Search builds…" autocomplete="off" value="${esc(query)}">`;
-  document.getElementById("f-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); render(); });
+  document.getElementById("f-search").addEventListener("input", (e) => { query = e.target.value.trim().toLowerCase(); renderBuilds(); });
 }
 
 function skillChip(s) {
@@ -51,20 +116,29 @@ function card(b) {
   </div>`;
 }
 
-function render() {
+function renderBuilds() {
   const q = query;
-  const list = DATA.builds.filter((b) => !q || b.name.toLowerCase().includes(q) || b.statPriority.toLowerCase().includes(q));
-  els.progress.textContent = `${list.length} of ${DATA.count} builds`;
+  const list = BUILDS.builds.filter((b) => !q || b.name.toLowerCase().includes(q) || b.statPriority.toLowerCase().includes(q));
+  els.progress.textContent = `${list.length} of ${BUILDS.count} builds`;
   els.list.innerHTML = list.length ? `<div class="dr-grid">${list.map(card).join("")}</div>` : `<p class="no-results">No builds match.</p>`;
 }
 
 (async function init() {
   try {
-    DATA = await (await fetch(`../../data/aniimo/builds.json?cb=${Date.now()}`)).json();
-    const upd = DATA.updated ? new Date(DATA.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
-    document.getElementById("ab-updated").textContent = `${DATA.count} builds · updated ${upd}`;
+    const [builds, teams, creatures] = await Promise.all([
+      fetch(`../../data/aniimo/builds.json?cb=${Date.now()}`).then((r) => r.json()),
+      fetch(`../../data/aniimo/teams.json?cb=${Date.now()}`).then((r) => r.json()).catch(() => null),
+      fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()).catch(() => null),
+    ]);
+    BUILDS = builds; TEAMS = teams;
+    CREATURES = creatures ? creatures.creatures : [];
+    byCreature = new Map(CREATURES.map((c) => [c.name.toLowerCase(), c]));
+    byBuild = new Map(BUILDS.builds.map((b) => [b.name.toLowerCase(), b]));
+    const upd = BUILDS.updated ? new Date(BUILDS.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
+    document.getElementById("ab-updated").textContent = `${(TEAMS && TEAMS.teams ? TEAMS.teams.length : 0)} team comps · ${BUILDS.count} individual builds · updated ${upd}`;
+    renderTeams();
     buildControls();
-    render();
+    renderBuilds();
   } catch (e) {
     els.list.innerHTML = `<p class="tool-note">Couldn't load Aniimo build data.</p>`;
   }
