@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T12:12:13.789Z",
+  "updated": "2026-11-27T00:20:49.662Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -884,7 +884,7 @@
         },
         {
           "name": "Poison the Cattle",
-          "goal": "The milk of human kindness must be contaminated with liberty and progress. Poison the cattle and spoil their milk.",
+          "goal": "Poison the Cattle is the second MK-Challenge that takes place at the The Docks in The Outlast Trials.",
           "objectives": [
             "Return to the Shuttle",
             "Wait for the Shuttle",

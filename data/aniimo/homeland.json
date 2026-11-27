@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-24T05:26:14.809Z",
+  "updated": "2026-11-26T05:26:58.088Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -170,7 +170,7 @@
             },
             {
               "kind": "bullet",
-              "text": "1) \"P\"layful; Increases Mine efficiency. This means you gain rock byproduct faster."
+              "text": "1) \"P\"layful; Increases Mine efficiency. This means you gain rock byproduct faster. Make it a priority to always produce as much of this as you can; it will matter in higher levels."
             },
             {
               "kind": "bullet",
@@ -1386,6 +1386,15 @@
                 "Set Joy Wheel Loom to Cotton Thread.",
                 "Set 8 farm plots to Cotton"
               ]
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Leftovers",
+              "sub": [
+                "Set Nimbus Bed to Wool.",
+                "NOTE: Nothing in this build uses this. Stockpile it for later, sell it, or don't produce it; your call."
+              ]
             }
           ]
         },
@@ -1542,6 +1551,15 @@
                 "Set a Crafting Table to Shell Ornament.",
                 "Set Joy Wheel Loom to Cotton Thread.",
                 "Set 16 farm plots to Cotton"
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "4",
+              "text": "Leftovers",
+              "sub": [
+                "Set Nimbus Bed to Wool.",
+                "NOTE: Nothing in this build uses this. Stockpile it for later, sell it, or don't produce it; your call."
               ]
             }
           ]
@@ -2226,9 +2244,10 @@
             {
               "kind": "numbered",
               "num": "5",
-              "text": "Aromathyst",
+              "text": "Leftovers",
               "sub": [
                 "Set Dewy House to Aromathyst.",
+                "Set both Tidewhisper Sandcastles to Salt.",
                 "NOTE: Sell or stockpile Aromathyst. We can't realistically upgrade this into Ginseng Aroma because the split between Dried Ginseng and Ginseng Powder would massively screw up the production line."
               ]
             }
@@ -2460,6 +2479,16 @@
                 "Set the Starfall Hammock to Stars.",
                 "You're no longer producing the Copper Ore, but... you should have thousands left over."
               ]
+            },
+            {
+              "kind": "numbered",
+              "num": "6",
+              "text": "Leftovers",
+              "sub": [
+                "Set Dewy House to Aromathyst.",
+                "Set both Tidewhisper Sandcastles to Salt.",
+                "NOTE: Nothing in this build uses these. Stockpile them for later, sell them, or don't produce them; your call."
+              ]
             }
           ]
         },
@@ -2652,6 +2681,16 @@
               "text": "Porcelain",
               "sub": [
                 "Set one Crafting Table to Porcelain."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Leftovers",
+              "sub": [
+                "Set Dewy House to Aromathyst.",
+                "Set both Tidewhisper Sandcastles to Salt.",
+                "NOTE: Nothing in this build uses these. Stockpile them for later, sell them, or don't produce them; your call."
               ]
             }
           ]
@@ -2859,6 +2898,16 @@
                 "Set one Claw Game Cooker to Maple Candy Star.",
                 "Set the Starfall Hammock to Stars.",
                 "Note: Maple Sugar Chunks are already being produced from the Jello line."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Leftovers",
+              "sub": [
+                "Set both Dewy Houses to Aromathyst.",
+                "Set both Tidewhisper Sandcastles to Salt.",
+                "NOTE: Nothing in this build uses these. Stockpile them for later, sell them, or don't produce them; your call."
               ]
             }
           ]
@@ -3099,6 +3148,18 @@
               "sub": [
                 "Set one Crafting Table to Premium Gemstone Dust.",
                 "Set the Floral Windmill to Scales."
+              ]
+            },
+            {
+              "kind": "numbered",
+              "num": "5",
+              "text": "Leftovers",
+              "sub": [
+                "Set both Dewy Houses to Aromathyst.",
+                "Set both Starfall Hammocks to Stars.",
+                "Set both Nimbus Beds to Petals or Wool.",
+                "Set both Tidewhisper Sandcastles to Salt.",
+                "NOTE: Nothing in this build uses these. Stockpile them for later, sell them, or don't produce them; your call."
               ]
             }
           ]
@@ -3382,6 +3443,17 @@
                 "Set both Dewy Houses to Aromathyst.",
                 "Note: If you don't want to run the Dewy Houses, skip this and just run more coconut trees instead. You don't lose much."
               ]
+            },
+            {
+              "kind": "numbered",
+              "num": "6",
+              "text": "Leftovers",
+              "sub": [
+                "Set the Starfall Hammock to Stars.",
+                "Set both Nimbus Beds to Petals or Wool.",
+                "Set both Tidewhisper Sandcastles to Salt.",
+                "NOTE: Nothing in this build uses these. Stockpile them for later, sell them, or don't produce them; your call."
+              ]
             }
           ]
         },
@@ -3618,6 +3690,16 @@
                 "Set the last 4 tree plots to Orange Flower. They share the Sunlamp with the Floral Windmill.",
                 "Note: If you don't want to run the Dewy Houses, skip this and just run more coconut trees instead. You don't lose much."
               ]
+            },
+            {
+              "kind": "numbered",
+              "num": "7",
+              "text": "Leftovers",
+              "sub": [
+                "Set both Nimbus Beds to Petals or Wool.",
+                "Set both Tidewhisper Sandcastles to Quick Recipe: Pearl.",
+                "NOTE: Nothing in this build uses these. Stockpile them for later, sell them, or don't produce them; your call."
+              ]
             }
           ]
         },
@@ -3842,11 +3924,14 @@
               "num": "5",
               "text": "Leftovers",
               "sub": [
-                "Set all but one Mines to Silver Ore.",
                 "Set both Dewy Houses to Aromathyst.",
                 "Set both Starfall Hammocks to Stars.",
                 "NOTE: Nothing in this build uses these, or the extra Petals. Stockpile them for later, sell them, or don't produce them; your call."
               ]
+            },
+            {
+              "kind": "text",
+              "text": "Optional) If you're short on Home Coins, you can temporarily switch the Carousal Mills to Bright Silver Powder and sell it."
             }
           ]
         },
@@ -3882,7 +3967,7 @@
           "items": [
             {
               "kind": "bullet",
-              "text": "Two Sherro, for the Tidewhisper Sandcastles."
+              "text": "Two Sherro with \"J\"udicious, for the Tidewhisper Sandcastles."
             },
             {
               "kind": "bullet",
