@@ -56,8 +56,7 @@ body {
 .site-header .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 54px;
+  height: 64px;
 }
 .brand {
   display: flex;
@@ -71,9 +70,22 @@ body {
   letter-spacing: -0.01em;
 }
 .brand-mark { color: var(--accent); display: inline-flex; align-items: center; }
-.brand-mark svg { display: block; }
+.brand-mark svg { display: block; filter: drop-shadow(0 0 7px rgba(255, 42, 56, 0.55)); }
 .accent { color: var(--accent); }
-.top-nav { display: flex; gap: 22px; }
+/* Left-aligned section nav (Hub / Play), matching the homepage header */
+.site-header .nav { display: flex; align-items: center; gap: 4px; margin-left: 26px; }
+.site-header .nav a {
+  font: 600 11.5px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 9px;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-header .nav a:hover, .site-header .nav a.on { color: var(--text); }
+.top-nav { display: flex; align-items: center; gap: 22px; margin-left: auto; }
+@media (max-width: 560px) { .site-header .nav { display: none; } }
 .top-nav a {
   color: var(--muted);
   text-decoration: none;
