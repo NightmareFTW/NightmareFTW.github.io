@@ -1,0 +1,2825 @@
+{
+  "updated": "2026-11-27T01:34:03.790Z",
+  "source": "https://game8.co/games/Aniimo/archives/621098",
+  "sourceName": "Game8",
+  "note": "Overall tier ranking from Game8's Best Aniimo Tier List, cross-referenced with our database so you can filter by role and element. Includes regional and Prismana form variants. Tiers and metas shift with patches.",
+  "order": [
+    "OP",
+    "SS",
+    "S",
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "count": 244,
+  "tiers": [
+    {
+      "tier": "S",
+      "entries": [
+        {
+          "name": "Besauce",
+          "base": "Besauce",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "besauce"
+        },
+        {
+          "name": "Ekrim",
+          "base": "Ekrim",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Fulmintis",
+          "base": "Fulmintis",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "fulmintis"
+        },
+        {
+          "name": "Glameep",
+          "base": "Glameep",
+          "form": "Basic",
+          "role": "HEAL",
+          "elements": [
+            "Grass",
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Helion",
+          "base": "Helion",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "helion"
+        },
+        {
+          "name": "Hexxin",
+          "base": "Hexxin",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Grass",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "hexxin"
+        },
+        {
+          "name": "Highland Scorchhowl",
+          "base": "Scorchhowl",
+          "form": "Highland",
+          "role": "DPS",
+          "elements": [
+            "Fire",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "scorchhowl"
+        },
+        {
+          "name": "Hypnyto",
+          "base": "Hypnyto",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": "hypnyto"
+        },
+        {
+          "name": "Ignitis",
+          "base": "Ignitis",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "ignitis"
+        },
+        {
+          "name": "Inferlupa",
+          "base": "Inferlupa",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Fire",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "inferlupa"
+        },
+        {
+          "name": "Irisalis",
+          "base": "Irisalis",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "irisalis"
+        },
+        {
+          "name": "Jeburst",
+          "base": "Jeburst",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Lunara",
+          "base": "Lunara",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "lunara"
+        },
+        {
+          "name": "Mountain Hexxin",
+          "base": "Hexxin",
+          "form": "Mountain",
+          "role": "REGEN",
+          "elements": [
+            "Grass",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "hexxin"
+        },
+        {
+          "name": "Pawney",
+          "base": "Pawney",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "pawney"
+        },
+        {
+          "name": "Pouchwisp",
+          "base": "Pouchwisp",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Prismana Ekrim",
+          "base": "Ekrim",
+          "form": "Prismana",
+          "role": "BREAK",
+          "elements": [
+            "Dark",
+            "Fire"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Prismana Glacy",
+          "base": "Glacy",
+          "form": "Prismana",
+          "role": "HEAL",
+          "elements": [
+            "Water",
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "glacy"
+        },
+        {
+          "name": "Prismana Glameep",
+          "base": "Glameep",
+          "form": "Prismana",
+          "role": "HEAL",
+          "elements": [
+            "Grass",
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Prismana Hexxin",
+          "base": "Hexxin",
+          "form": "Prismana",
+          "role": "REGEN",
+          "elements": [
+            "Grass",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "hexxin"
+        },
+        {
+          "name": "Prismana Hypnyto",
+          "base": "Hypnyto",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Wind",
+            "Holy"
+          ],
+          "isNew": true,
+          "slug": "hypnyto"
+        },
+        {
+          "name": "Prismana Inferlupa",
+          "base": "Inferlupa",
+          "form": "Prismana",
+          "role": "BREAK",
+          "elements": [
+            "Fire",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "inferlupa"
+        },
+        {
+          "name": "Prismana Jeburst",
+          "base": "Jeburst",
+          "form": "Prismana",
+          "role": "BREAK",
+          "elements": [
+            "Water",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": null
+        },
+        {
+          "name": "Prismana Pouchwisp",
+          "base": "Pouchwisp",
+          "form": "Prismana",
+          "role": "REGEN",
+          "elements": [
+            "Dark",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": null
+        },
+        {
+          "name": "Prismana Scorchhowl",
+          "base": "Scorchhowl",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "scorchhowl"
+        },
+        {
+          "name": "Prismana Sparkelf",
+          "base": "Sparkelf",
+          "form": "Prismana",
+          "role": "SUPPORT",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "sparkelf"
+        },
+        {
+          "name": "Prismana Turbo",
+          "base": "Turbo",
+          "form": "Prismana",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "turbo"
+        },
+        {
+          "name": "Rookey",
+          "base": "Rookey",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "rookey"
+        },
+        {
+          "name": "Scorchhowl",
+          "base": "Scorchhowl",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "scorchhowl"
+        },
+        {
+          "name": "Somniwing",
+          "base": "Somniwing",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Wind",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "somniwing"
+        },
+        {
+          "name": "Sparkelf",
+          "base": "Sparkelf",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "sparkelf"
+        },
+        {
+          "name": "Stellarys",
+          "base": "Stellarys",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "stellarys"
+        },
+        {
+          "name": "Tempest Glameep",
+          "base": "Glameep",
+          "form": "Tempest",
+          "role": "HEAL",
+          "elements": [
+            "Grass",
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Tempest Jeburst",
+          "base": "Jeburst",
+          "form": "Tempest",
+          "role": "BREAK",
+          "elements": [
+            "Water",
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Thunderstorm Scorchhowl",
+          "base": "Scorchhowl",
+          "form": "Thunderstorm",
+          "role": "DPS",
+          "elements": [
+            "Fire",
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "scorchhowl"
+        },
+        {
+          "name": "Timberline Scorchhowl",
+          "base": "Scorchhowl",
+          "form": "Timberline",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "scorchhowl"
+        },
+        {
+          "name": "Turbo",
+          "base": "Turbo",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "turbo"
+        }
+      ]
+    },
+    {
+      "tier": "A",
+      "entries": [
+        {
+          "name": "Beach Cornet",
+          "base": "Cornet",
+          "form": "Beach",
+          "role": "DPS",
+          "elements": [
+            "Wind",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "cornet"
+        },
+        {
+          "name": "Beach Tromber",
+          "base": "Tromber",
+          "form": "Beach",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "tromber"
+        },
+        {
+          "name": "Beach Tubster",
+          "base": "Tubster",
+          "form": "Beach",
+          "role": "BREAK",
+          "elements": [
+            "Wind",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "tubster"
+        },
+        {
+          "name": "Blazen",
+          "base": "Blazen",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "blazen"
+        },
+        {
+          "name": "Buffby",
+          "base": "Buffby",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Coraliz",
+          "base": "Coraliz",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Rock",
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Cornet",
+          "base": "Cornet",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "cornet"
+        },
+        {
+          "name": "Crocobask",
+          "base": "Crocobask",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Grass",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": null
+        },
+        {
+          "name": "Dazmand",
+          "base": "Dazmand",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "dazmand"
+        },
+        {
+          "name": "Dewple",
+          "base": "Dewple",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Dreaple",
+          "base": "Dreaple",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "dreaple"
+        },
+        {
+          "name": "Eklue",
+          "base": "Eklue",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "eklue"
+        },
+        {
+          "name": "Fenmane",
+          "base": "Fenmane",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "fenmane"
+        },
+        {
+          "name": "Flamerion",
+          "base": "Flamerion",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "flamerion"
+        },
+        {
+          "name": "Flowerfield Flamerion",
+          "base": "Flamerion",
+          "form": "Flowerfield",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "flamerion"
+        },
+        {
+          "name": "Flowerfield Gracewing",
+          "base": "Gracewing",
+          "form": "Flowerfield",
+          "role": "HEAL",
+          "elements": [
+            "Wind",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "gracewing"
+        },
+        {
+          "name": "Forest Flamerion",
+          "base": "Flamerion",
+          "form": "Forest",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "flamerion"
+        },
+        {
+          "name": "Fragrancier",
+          "base": "Fragrancier",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "fragrancier"
+        },
+        {
+          "name": "Gachapus",
+          "base": "Gachapus",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Glynsera",
+          "base": "Glynsera",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "glynsera"
+        },
+        {
+          "name": "Gracewing",
+          "base": "Gracewing",
+          "form": "Basic",
+          "role": "HEAL",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "gracewing"
+        },
+        {
+          "name": "Helgon",
+          "base": "Helgon",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "helgon"
+        },
+        {
+          "name": "Highland Flamerion",
+          "base": "Flamerion",
+          "form": "Highland",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "flamerion"
+        },
+        {
+          "name": "Highland Ignitis",
+          "base": "Ignitis",
+          "form": "Highland",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "ignitis"
+        },
+        {
+          "name": "Infergon",
+          "base": "Infergon",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "infergon"
+        },
+        {
+          "name": "Jabster",
+          "base": "Jabster",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Ice",
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Leafy",
+          "base": "Leafy",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Grass",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "leafy"
+        },
+        {
+          "name": "Luminelle",
+          "base": "Luminelle",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "luminelle"
+        },
+        {
+          "name": "Mesmerowl",
+          "base": "Mesmerowl",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Mountain Helgon",
+          "base": "Helgon",
+          "form": "Mountain",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "helgon"
+        },
+        {
+          "name": "Nighttime Glynsera",
+          "base": "Glynsera",
+          "form": "Nighttime",
+          "role": "DPS",
+          "elements": [
+            "Ice",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "glynsera"
+        },
+        {
+          "name": "Nighttime Gracewing",
+          "base": "Gracewing",
+          "form": "Nighttime",
+          "role": "HEAL",
+          "elements": [
+            "Wind",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "gracewing"
+        },
+        {
+          "name": "Nighttime Piopiota",
+          "base": "Piopiota",
+          "form": "Nighttime",
+          "role": "SUPPORT",
+          "elements": [
+            "Water",
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": "piopiota"
+        },
+        {
+          "name": "Piopiota",
+          "base": "Piopiota",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "piopiota"
+        },
+        {
+          "name": "Plateau Turbo",
+          "base": "Turbo",
+          "form": "Plateau",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "turbo"
+        },
+        {
+          "name": "Prismana Blazen",
+          "base": "Blazen",
+          "form": "Prismana",
+          "role": "BREAK",
+          "elements": [
+            "Electric",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "blazen"
+        },
+        {
+          "name": "Prismana Cornet",
+          "base": "Cornet",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Wind",
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "cornet"
+        },
+        {
+          "name": "Prismana Fenmane",
+          "base": "Fenmane",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Electric",
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "fenmane"
+        },
+        {
+          "name": "Prismana Fulmintis",
+          "base": "Fulmintis",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Electric",
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "fulmintis"
+        },
+        {
+          "name": "Prismana Gachapus",
+          "base": "Gachapus",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Water",
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Prismana Glynsera",
+          "base": "Glynsera",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Ice",
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "glynsera"
+        },
+        {
+          "name": "Prismana Grizbo",
+          "base": "Grizbo",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Rock",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "grizbo"
+        },
+        {
+          "name": "Prismana Ignitis",
+          "base": "Ignitis",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "ignitis"
+        },
+        {
+          "name": "Prismana Jabster",
+          "base": "Jabster",
+          "form": "Prismana",
+          "role": "BREAK",
+          "elements": [
+            "Ice",
+            "Electric"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Prismana Pawney",
+          "base": "Pawney",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "pawney"
+        },
+        {
+          "name": "Prismana Royalby",
+          "base": "Royalby",
+          "form": "Prismana",
+          "role": "REGEN",
+          "elements": [
+            "Wind",
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": null
+        },
+        {
+          "name": "Prismana Sherro",
+          "base": "Sherro",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Water",
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "sherro"
+        },
+        {
+          "name": "Prismana Stellarys",
+          "base": "Stellarys",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "stellarys"
+        },
+        {
+          "name": "Prismana Sugartini",
+          "base": "Sugartini",
+          "form": "Prismana",
+          "role": "SUPPORT",
+          "elements": [
+            "Ice",
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Prismana Thornblade",
+          "base": "Thornblade",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Grass",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "thornblade"
+        },
+        {
+          "name": "Prismana Whirlbite",
+          "base": "Whirlbite",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Water",
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Rainfall Coraliz",
+          "base": "Coraliz",
+          "form": "Rainfall",
+          "role": "REGEN",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Rainfall Jabster",
+          "base": "Jabster",
+          "form": "Rainfall",
+          "role": "BREAK",
+          "elements": [
+            "Ice",
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Rainfall Scrubbit",
+          "base": "Scrubbit",
+          "form": "Rainfall",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Rainfall Turbo",
+          "base": "Turbo",
+          "form": "Rainfall",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "turbo"
+        },
+        {
+          "name": "Royalby",
+          "base": "Royalby",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Scrubbit",
+          "base": "Scrubbit",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Sherro",
+          "base": "Sherro",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "sherro"
+        },
+        {
+          "name": "Squashel",
+          "base": "Squashel",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "squashel"
+        },
+        {
+          "name": "Sugartini",
+          "base": "Sugartini",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Thunderstorm Sherro",
+          "base": "Sherro",
+          "form": "Thunderstorm",
+          "role": "DPS",
+          "elements": [
+            "Water",
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "sherro"
+        },
+        {
+          "name": "Timberline Blazen",
+          "base": "Blazen",
+          "form": "Timberline",
+          "role": "BREAK",
+          "elements": [
+            "Electric",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "blazen"
+        },
+        {
+          "name": "Timberline Gracewing",
+          "base": "Gracewing",
+          "form": "Timberline",
+          "role": "HEAL",
+          "elements": [
+            "Wind",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "gracewing"
+        },
+        {
+          "name": "Timberline Pawney",
+          "base": "Pawney",
+          "form": "Timberline",
+          "role": "DPS",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "pawney"
+        },
+        {
+          "name": "Timberline Rookey",
+          "base": "Rookey",
+          "form": "Timberline",
+          "role": "BREAK",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "rookey"
+        },
+        {
+          "name": "Tromber",
+          "base": "Tromber",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "tromber"
+        },
+        {
+          "name": "Tubster",
+          "base": "Tubster",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "tubster"
+        },
+        {
+          "name": "Waterfall Dewple",
+          "base": "Dewple",
+          "form": "Waterfall",
+          "role": "SUPPORT",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Whirlbite",
+          "base": "Whirlbite",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": null
+        }
+      ]
+    },
+    {
+      "tier": "B",
+      "entries": [
+        {
+          "name": "Beach Chirpi",
+          "base": "Chirpi",
+          "form": "Beach",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "chirpi"
+        },
+        {
+          "name": "Chirpi",
+          "base": "Chirpi",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "chirpi"
+        },
+        {
+          "name": "Erlath",
+          "base": "Erlath",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "erlath"
+        },
+        {
+          "name": "Flowerfield Flutternym",
+          "base": "Flutternym",
+          "form": "Flowerfield",
+          "role": "HEAL",
+          "elements": [
+            "Wind",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "flutternym"
+        },
+        {
+          "name": "Flowerfield Glacy",
+          "base": "Glacy",
+          "form": "Flowerfield",
+          "role": "HEAL",
+          "elements": [
+            "Water",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "glacy"
+        },
+        {
+          "name": "Flowerfield Pomawk",
+          "base": "Pomawk",
+          "form": "Flowerfield",
+          "role": "BREAK",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "pomawk"
+        },
+        {
+          "name": "Flutternym",
+          "base": "Flutternym",
+          "form": "Basic",
+          "role": "HEAL",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "flutternym"
+        },
+        {
+          "name": "Forest Ignitis",
+          "base": "Ignitis",
+          "form": "Forest",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "ignitis"
+        },
+        {
+          "name": "Geoclaw",
+          "base": "Geoclaw",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "geoclaw"
+        },
+        {
+          "name": "Glacy",
+          "base": "Glacy",
+          "form": "Basic",
+          "role": "HEAL",
+          "elements": [
+            "Water",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "glacy"
+        },
+        {
+          "name": "Grizbo",
+          "base": "Grizbo",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "grizbo"
+        },
+        {
+          "name": "Highland Cornet",
+          "base": "Cornet",
+          "form": "Highland",
+          "role": "DPS",
+          "elements": [
+            "Wind",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "cornet"
+        },
+        {
+          "name": "Highland Pomawk",
+          "base": "Pomawk",
+          "form": "Highland",
+          "role": "BREAK",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "pomawk"
+        },
+        {
+          "name": "Highland Tromber",
+          "base": "Tromber",
+          "form": "Highland",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "tromber"
+        },
+        {
+          "name": "Highland Tubster",
+          "base": "Tubster",
+          "form": "Highland",
+          "role": "BREAK",
+          "elements": [
+            "Wind",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "tubster"
+        },
+        {
+          "name": "Hoptail",
+          "base": "Hoptail",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Wind",
+            "Electric"
+          ],
+          "isNew": true,
+          "slug": "hoptail"
+        },
+        {
+          "name": "Irisal",
+          "base": "Irisal",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "irisal"
+        },
+        {
+          "name": "Magmarex",
+          "base": "Magmarex",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Fire",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "magmarex"
+        },
+        {
+          "name": "Melloblum",
+          "base": "Melloblum",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "melloblum"
+        },
+        {
+          "name": "Minespine",
+          "base": "Minespine",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "minespine"
+        },
+        {
+          "name": "Mountain Tuckin",
+          "base": "Tuckin",
+          "form": "Mountain",
+          "role": "BREAK",
+          "elements": [
+            "Grass",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "tuckin"
+        },
+        {
+          "name": "Nighttime Flutternym",
+          "base": "Flutternym",
+          "form": "Nighttime",
+          "role": "HEAL",
+          "elements": [
+            "Wind",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "flutternym"
+        },
+        {
+          "name": "Nighttime Panpanta",
+          "base": "Panpanta",
+          "form": "Nighttime",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "panpanta"
+        },
+        {
+          "name": "Panpanta",
+          "base": "Panpanta",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "panpanta"
+        },
+        {
+          "name": "Prismana Infergon",
+          "base": "Infergon",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Fire",
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "infergon"
+        },
+        {
+          "name": "Prismana Irisal",
+          "base": "Irisal",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "irisal"
+        },
+        {
+          "name": "Prismana Luminelle",
+          "base": "Luminelle",
+          "form": "Prismana",
+          "role": "SUPPORT",
+          "elements": [
+            "Electric",
+            "Holy"
+          ],
+          "isNew": false,
+          "slug": "luminelle"
+        },
+        {
+          "name": "Prismana Panpanta",
+          "base": "Panpanta",
+          "form": "Prismana",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "panpanta"
+        },
+        {
+          "name": "Prismana Waleetle",
+          "base": "Waleetle",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Rock",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "waleetle"
+        },
+        {
+          "name": "Rainfall Luminelle",
+          "base": "Luminelle",
+          "form": "Rainfall",
+          "role": "SUPPORT",
+          "elements": [
+            "Electric",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "luminelle"
+        },
+        {
+          "name": "Rainfall Stellarys",
+          "base": "Stellarys",
+          "form": "Rainfall",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "stellarys"
+        },
+        {
+          "name": "Snowfield Glacy",
+          "base": "Glacy",
+          "form": "Snowfield",
+          "role": "HEAL",
+          "elements": [
+            "Water",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "glacy"
+        },
+        {
+          "name": "Snowfield Pawney",
+          "base": "Pawney",
+          "form": "Snowfield",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "pawney"
+        },
+        {
+          "name": "Snowfield Pomawk",
+          "base": "Pomawk",
+          "form": "Snowfield",
+          "role": "BREAK",
+          "elements": [
+            "Grass",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "pomawk"
+        },
+        {
+          "name": "Snowfield Rookey",
+          "base": "Rookey",
+          "form": "Snowfield",
+          "role": "BREAK",
+          "elements": [
+            "Dark",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "rookey"
+        },
+        {
+          "name": "Sugarslime",
+          "base": "Sugarslime",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Thornblade",
+          "base": "Thornblade",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "thornblade"
+        },
+        {
+          "name": "Rainfall Thornblade",
+          "base": "Thornblade",
+          "form": "Rainfall",
+          "role": "DPS",
+          "elements": [
+            "Grass",
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "thornblade"
+        },
+        {
+          "name": "Timberline Flutternym",
+          "base": "Flutternym",
+          "form": "Timberline",
+          "role": "HEAL",
+          "elements": [
+            "Wind",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "flutternym"
+        },
+        {
+          "name": "Towerwood Thornblade",
+          "base": "Thornblade",
+          "form": "Towerwood",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "thornblade"
+        },
+        {
+          "name": "Tuckin",
+          "base": "Tuckin",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "tuckin"
+        },
+        {
+          "name": "Waleetle",
+          "base": "Waleetle",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "waleetle"
+        }
+      ]
+    },
+    {
+      "tier": "C",
+      "entries": [
+        {
+          "name": "Baleetle",
+          "base": "Baleetle",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "baleetle"
+        },
+        {
+          "name": "Bouldus",
+          "base": "Bouldus",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "bouldus"
+        },
+        {
+          "name": "Celestis",
+          "base": "Celestis",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "celestis"
+        },
+        {
+          "name": "Cubbo",
+          "base": "Cubbo",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "cubbo"
+        },
+        {
+          "name": "Dewy",
+          "base": "Dewy",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "dewy"
+        },
+        {
+          "name": "Eko",
+          "base": "Eko",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "eko"
+        },
+        {
+          "name": "Fahloo",
+          "base": "Fahloo",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "fahloo"
+        },
+        {
+          "name": "Fentuft",
+          "base": "Fentuft",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "fentuft"
+        },
+        {
+          "name": "Flowerfield Pranky",
+          "base": "Pranky",
+          "form": "Flowerfield",
+          "role": "HEAL",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "pranky"
+        },
+        {
+          "name": "Forest Iris",
+          "base": "Iris",
+          "form": "Forest",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "iris"
+        },
+        {
+          "name": "Forest Wisptis",
+          "base": "Wisptis",
+          "form": "Forest",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "wisptis"
+        },
+        {
+          "name": "Geodeback",
+          "base": "Geodeback",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "geodeback"
+        },
+        {
+          "name": "Grassland Iris",
+          "base": "Iris",
+          "form": "Grassland",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "iris"
+        },
+        {
+          "name": "Helmut",
+          "base": "Helmut",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "helmut"
+        },
+        {
+          "name": "Helmwhelp",
+          "base": "Helmwhelp",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "helmwhelp"
+        },
+        {
+          "name": "Highland Chirpi",
+          "base": "Chirpi",
+          "form": "Highland",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "chirpi"
+        },
+        {
+          "name": "Highland Iris",
+          "base": "Iris",
+          "form": "Highland",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "iris"
+        },
+        {
+          "name": "Highland Wisptis",
+          "base": "Wisptis",
+          "form": "Highland",
+          "role": "DPS",
+          "elements": [
+            "Dark",
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "wisptis"
+        },
+        {
+          "name": "Hummin",
+          "base": "Hummin",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "hummin"
+        },
+        {
+          "name": "Hypnowl",
+          "base": "Hypnowl",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Iris",
+          "base": "Iris",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "iris"
+        },
+        {
+          "name": "Lilipole",
+          "base": "Lilipole",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Mountain Helmwhelp",
+          "base": "Helmwhelp",
+          "form": "Mountain",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "helmwhelp"
+        },
+        {
+          "name": "Mountain Hummin",
+          "base": "Hummin",
+          "form": "Mountain",
+          "role": "BREAK",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "hummin"
+        },
+        {
+          "name": "Nimbi",
+          "base": "Nimbi",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "nimbi"
+        },
+        {
+          "name": "Plateau Iris",
+          "base": "Iris",
+          "form": "Plateau",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "iris"
+        },
+        {
+          "name": "Pomawk",
+          "base": "Pomawk",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "pomawk"
+        },
+        {
+          "name": "Popapus",
+          "base": "Popapus",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Pranky",
+          "base": "Pranky",
+          "form": "Basic",
+          "role": "HEAL",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "pranky"
+        },
+        {
+          "name": "Prawnch",
+          "base": "Prawnch",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Prismana Iris",
+          "base": "Iris",
+          "form": "Prismana",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "iris"
+        },
+        {
+          "name": "Prismana Magmarex",
+          "base": "Magmarex",
+          "form": "Prismana",
+          "role": "BREAK",
+          "elements": [
+            "Fire",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "magmarex"
+        },
+        {
+          "name": "Puffby",
+          "base": "Puffby",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Rainfall Nimbi",
+          "base": "Nimbi",
+          "form": "Rainfall",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "nimbi"
+        },
+        {
+          "name": "Rainfall Reefish",
+          "base": "Reefish",
+          "form": "Rainfall",
+          "role": "REGEN",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Reefish",
+          "base": "Reefish",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Rock",
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Salabask",
+          "base": "Salabask",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Grass",
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Shrubclaw",
+          "base": "Shrubclaw",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Rock",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "shrubclaw"
+        },
+        {
+          "name": "Snowfield Baleetle",
+          "base": "Baleetle",
+          "form": "Snowfield",
+          "role": "DPS",
+          "elements": [
+            "Rock",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "baleetle"
+        },
+        {
+          "name": "Snowfield Bouldus",
+          "base": "Bouldus",
+          "form": "Snowfield",
+          "role": "SUPPORT",
+          "elements": [
+            "Rock",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "bouldus"
+        },
+        {
+          "name": "Snowfield Helmut",
+          "base": "Helmut",
+          "form": "Snowfield",
+          "role": "BREAK",
+          "elements": [
+            "Dark",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "helmut"
+        },
+        {
+          "name": "Snowfield Pranky",
+          "base": "Pranky",
+          "form": "Snowfield",
+          "role": "HEAL",
+          "elements": [
+            "Water",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "pranky"
+        },
+        {
+          "name": "Snowfield Waleetle",
+          "base": "Waleetle",
+          "form": "Snowfield",
+          "role": "DPS",
+          "elements": [
+            "Rock",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "waleetle"
+        },
+        {
+          "name": "Sparki",
+          "base": "Sparki",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "sparki"
+        },
+        {
+          "name": "Squarrel",
+          "base": "Squarrel",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "squarrel"
+        },
+        {
+          "name": "Sugarfish",
+          "base": "Sugarfish",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Timberline Helmut",
+          "base": "Helmut",
+          "form": "Timberline",
+          "role": "BREAK",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "helmut"
+        },
+        {
+          "name": "Timberline Iris",
+          "base": "Iris",
+          "form": "Timberline",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "iris"
+        },
+        {
+          "name": "Wisptis",
+          "base": "Wisptis",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "wisptis"
+        }
+      ]
+    },
+    {
+      "tier": "D",
+      "entries": [
+        {
+          "name": "Bailite",
+          "base": "Bailite",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "bailite"
+        },
+        {
+          "name": "Bay Budclaw",
+          "base": "Budclaw",
+          "form": "Bay",
+          "role": "BREAK",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "budclaw"
+        },
+        {
+          "name": "Beach Budclaw",
+          "base": "Budclaw",
+          "form": "Beach",
+          "role": "BREAK",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "budclaw"
+        },
+        {
+          "name": "Bolty",
+          "base": "Bolty",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "bolty"
+        },
+        {
+          "name": "Bonesky",
+          "base": "Bonesky",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "bonesky"
+        },
+        {
+          "name": "Bubbeep",
+          "base": "Bubbeep",
+          "form": "Basic",
+          "role": "HEAL",
+          "elements": [
+            "Grass",
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Budclaw",
+          "base": "Budclaw",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Rock",
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "budclaw"
+        },
+        {
+          "name": "Budsquire",
+          "base": "Budsquire",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "budsquire"
+        },
+        {
+          "name": "Bulbly",
+          "base": "Bulbly",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "bulbly"
+        },
+        {
+          "name": "Coinwisp",
+          "base": "Coinwisp",
+          "form": "Basic",
+          "role": "REGEN",
+          "elements": [
+            "Dark"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Cozite",
+          "base": "Cozite",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "cozite"
+        },
+        {
+          "name": "Dewlop",
+          "base": "Dewlop",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Emberpup",
+          "base": "Emberpup",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "emberpup"
+        },
+        {
+          "name": "Fenrier",
+          "base": "Fenrier",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "fenrier"
+        },
+        {
+          "name": "Flameruff",
+          "base": "Flameruff",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "flameruff"
+        },
+        {
+          "name": "Flowerfield Skippy",
+          "base": "Skippy",
+          "form": "Flowerfield",
+          "role": "HEAL",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "skippy"
+        },
+        {
+          "name": "Flowerfield Sparki",
+          "base": "Sparki",
+          "form": "Flowerfield",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "sparki"
+        },
+        {
+          "name": "Forest Sparki",
+          "base": "Sparki",
+          "form": "Forest",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "sparki"
+        },
+        {
+          "name": "Highland Emberpup",
+          "base": "Emberpup",
+          "form": "Highland",
+          "role": "DPS",
+          "elements": [
+            "Fire",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "emberpup"
+        },
+        {
+          "name": "Highland Flameruff",
+          "base": "Flameruff",
+          "form": "Highland",
+          "role": "DPS",
+          "elements": [
+            "Fire",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "flameruff"
+        },
+        {
+          "name": "Highland Sparki",
+          "base": "Sparki",
+          "form": "Highland",
+          "role": "REGEN",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "sparki"
+        },
+        {
+          "name": "Jawling",
+          "base": "Jawling",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "jawling"
+        },
+        {
+          "name": "Jeglid",
+          "base": "Jeglid",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Lavazar",
+          "base": "Lavazar",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Fire",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "lavazar"
+        },
+        {
+          "name": "Mountain Jawling",
+          "base": "Jawling",
+          "form": "Mountain",
+          "role": "BREAK",
+          "elements": [
+            "Wind"
+          ],
+          "isNew": false,
+          "slug": "jawling"
+        },
+        {
+          "name": "Mudflat Budclaw",
+          "base": "Budclaw",
+          "form": "Mudflat",
+          "role": "BREAK",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "budclaw"
+        },
+        {
+          "name": "Nighttime Bonesky",
+          "base": "Bonesky",
+          "form": "Nighttime",
+          "role": "DPS",
+          "elements": [
+            "Ice",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "bonesky"
+        },
+        {
+          "name": "Nighttime Fenrier",
+          "base": "Fenrier",
+          "form": "Nighttime",
+          "role": "DPS",
+          "elements": [
+            "Ice",
+            "Dark"
+          ],
+          "isNew": false,
+          "slug": "fenrier"
+        },
+        {
+          "name": "Nighttime Popota",
+          "base": "Popota",
+          "form": "Nighttime",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "popota"
+        },
+        {
+          "name": "Nighttime Susuta",
+          "base": "Susuta",
+          "form": "Nighttime",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "susuta"
+        },
+        {
+          "name": "Pebbling",
+          "base": "Pebbling",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "pebbling"
+        },
+        {
+          "name": "Plateau Nimbi",
+          "base": "Nimbi",
+          "form": "Plateau",
+          "role": "SUPPORT",
+          "elements": [
+            "Wind",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "nimbi"
+        },
+        {
+          "name": "Pomegg",
+          "base": "Pomegg",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "pomegg"
+        },
+        {
+          "name": "Popota",
+          "base": "Popota",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "popota"
+        },
+        {
+          "name": "Saws",
+          "base": "Saws",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Sheldon",
+          "base": "Sheldon",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "sheldon"
+        },
+        {
+          "name": "Shelly",
+          "base": "Shelly",
+          "form": "Basic",
+          "role": "DPS",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "shelly"
+        },
+        {
+          "name": "Skippy",
+          "base": "Skippy",
+          "form": "Basic",
+          "role": "HEAL",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "skippy"
+        },
+        {
+          "name": "Snowfield Skippy",
+          "base": "Skippy",
+          "form": "Snowfield",
+          "role": "HEAL",
+          "elements": [
+            "Water",
+            "Ice"
+          ],
+          "isNew": false,
+          "slug": "skippy"
+        },
+        {
+          "name": "Susuta",
+          "base": "Susuta",
+          "form": "Basic",
+          "role": "BREAK",
+          "elements": [
+            "Water"
+          ],
+          "isNew": false,
+          "slug": "susuta"
+        },
+        {
+          "name": "Tempest Jeglid",
+          "base": "Jeglid",
+          "form": "Tempest",
+          "role": "BREAK",
+          "elements": [
+            "Water",
+            "Wind"
+          ],
+          "isNew": true,
+          "slug": null
+        },
+        {
+          "name": "Timberline Bolty",
+          "base": "Bolty",
+          "form": "Timberline",
+          "role": "BREAK",
+          "elements": [
+            "Electric",
+            "Rock"
+          ],
+          "isNew": false,
+          "slug": "bolty"
+        },
+        {
+          "name": "Timberline Emberpup",
+          "base": "Emberpup",
+          "form": "Timberline",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "emberpup"
+        },
+        {
+          "name": "Timberline Flameruff",
+          "base": "Flameruff",
+          "form": "Timberline",
+          "role": "DPS",
+          "elements": [
+            "Fire"
+          ],
+          "isNew": false,
+          "slug": "flameruff"
+        },
+        {
+          "name": "Towerwood Budsquire",
+          "base": "Budsquire",
+          "form": "Towerwood",
+          "role": "DPS",
+          "elements": [
+            "Grass"
+          ],
+          "isNew": false,
+          "slug": "budsquire"
+        },
+        {
+          "name": "Veilfloat",
+          "base": "Veilfloat",
+          "form": "Basic",
+          "role": "SUPPORT",
+          "elements": [
+            "Electric"
+          ],
+          "isNew": false,
+          "slug": "veilfloat"
+        },
+        {
+          "name": "Waterfall Dewlop",
+          "base": "Dewlop",
+          "form": "Waterfall",
+          "role": "SUPPORT",
+          "elements": [
+            "Water"
+          ],
+          "isNew": true,
+          "slug": null
+        }
+      ]
+    }
+  ]
+}

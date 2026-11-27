@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nftw-auth.nightmareftw.workers.dev https://api.github.com https://github.com https://api.warframestat.us https://cloudflareinsights.com; frame-src https://outlast.fex.dev; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniimo Tier List · Aniimo · NightmareFTW</title>
+  <!--og-->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NightmareFTW">
+  <meta property="og:url" content="https://nightmareftw.github.io/games/aniimo/tier-list.html">
+  <meta property="og:title" content="Aniimo Tier List · Aniimo">
+  <meta property="og:description" content="Every Aniimo ranked S to D, filterable by role and element — the best DPS, Break, Heal, Regen and Support at a glance. Ranking from Game8, linked to the database.">
+  <meta property="og:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aniimo Tier List · Aniimo">
+  <meta name="twitter:description" content="Every Aniimo ranked S to D, filterable by role and element — the best DPS, Break, Heal, Regen and Support at a glance. Ranking from Game8, linked to the database.">
+  <meta name="twitter:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
+  <!--/og-->
+  <meta name="description" content="Every Aniimo ranked S to D, filterable by role and element, from Game8's tier list and cross-referenced with our database.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=16a4aa29">
+  <style>
+    .tl-controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 4px 0 20px; }
+    .tl-group-f { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+    .tl-group-f > .lbl { font: 600 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+    .tl-btn { font: 600 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 7px 10px; cursor: pointer; transition: .15s; }
+    .tl-btn:hover { color: var(--text); }
+    .tl-btn.on { color: #fff; border-color: var(--accent); background: rgba(255, 42, 56, .14); }
+    .tl-row { display: flex; gap: 12px; margin-bottom: 12px; align-items: stretch; }
+    .tl-letter { flex: none; width: 62px; display: flex; align-items: center; justify-content: center; border-radius: 10px; font: 800 26px/1 var(--disp); color: #0a0a0c; }
+    .tl-group { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px; }
+    .tl-chip { display: flex; align-items: center; gap: 8px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px 5px 5px; text-decoration: none; color: var(--text); transition: border-color .15s, transform .15s; }
+    a.tl-chip:hover { border-color: var(--accent-2); transform: translateY(-1px); }
+    .tl-chip .tl-ic { flex: none; display: block; }
+    .tl-chip img { width: 32px; height: 32px; border-radius: 6px; object-fit: cover; flex: none; background: #0c0c10; display: block; }
+    .tl-chip .b { min-width: 0; }
+    .tl-chip .n { font: 600 13px/1.15 var(--sans); white-space: nowrap; }
+    .tl-chip .meta { display: flex; gap: 5px; align-items: center; margin-top: 3px; }
+    .tl-chip .rc { font: 700 8.5px/1 var(--mono); letter-spacing: .04em; padding: 2px 4px; border-radius: 3px; }
+    .tl-chip .form { font: 600 9px/1 var(--mono); color: var(--muted); }
+    .tl-chip .new { font: 700 8.5px/1 var(--mono); color: var(--accent); }
+    .tl-empty { color: var(--muted); align-self: center; padding: 6px 4px; font-size: .9rem; }
+    @media (max-width: 560px) { .tl-letter { width: 46px; font-size: 20px; } }
+  </style>
+</head>
+<body data-game="aniimo">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark"><svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true"><path d="M10 0 0 18h10z" fill="#ff2a38"/><path d="M10 0v18h10z" fill="#c01320"/></svg></span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="nav" aria-label="Sections"><a href="../../index.html">Hub</a><a href="../../play/index.html">Play</a></nav>
+      <div class="top-nav"></div>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Aniimo</a> / tier list</p>
+    <h1>Aniimo Tier List</h1>
+    <p class="tool-sub">Every Aniimo ranked S to D — filter by role to see the best DPS, Break, Heal, Regen or Support, or by element. Each links to its full page. Ranking from Game8; includes regional and Prismana form variants.</p>
+    <p class="codes-updated" id="tl-updated">Loading…</p>
+
+    <div class="tl-controls" id="tl-controls"></div>
+    <div id="tl-list"><p style="color:var(--muted)">Loading tier list…</p></div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · tier list via Game8.</span></div></footer>
+  <script src="tier-list.js?v=b8a90718"></script>
+  <script src="/assets/js/i18n.js?v=09385dcc" defer></script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

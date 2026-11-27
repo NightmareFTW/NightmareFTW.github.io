@@ -1890,6 +1890,17 @@
       "Todos os Aniimo. Filtra por elemento, papel ou estágio, depois abre um para ver os stats base, mobilidade, traços, skills, linha de evolução, habitats e Treino de Ressonância.",
     "Built by NightmareFTW · Aniimo database.": "Feito por NightmareFTW · base de dados de Aniimo.",
     "Built by NightmareFTW · Aniimo map.": "Feito por NightmareFTW · mapa de Aniimo.",
+    "Built by NightmareFTW · tier list via Game8.": "Feito por NightmareFTW · tier list via Game8.",
+    "Aniimo Tier List": "Tier List de Aniimo",
+    "Every Aniimo ranked S to D — filter by role to see the best DPS, Break, Heal, Regen or Support, or by element. Each links to its full page. Ranking from Game8; includes regional and Prismana form variants.":
+      "Todos os Aniimo ordenados de S a D — filtra por função para ver os melhores DPS, Break, Heal, Regen ou Support, ou por elemento. Cada um liga à sua página. Ranking do Game8; inclui variantes de forma regionais e Prismana.",
+    "Every Aniimo ranked S to D, filterable by role and element — the best DPS, Break, Heal, Regen and Support at a glance. Ranking from Game8, linked to the database.":
+      "Todos os Aniimo ordenados de S a D, filtráveis por função e elemento — os melhores DPS, Break, Heal, Regen e Support num relance. Ranking do Game8, ligado à base de dados.",
+    "Role": "Função", "Element": "Elemento", "All": "Todos",
+    "Show form variants": "Mostrar variantes de forma",
+    "No Aniimo match these filters.": "Nenhum Aniimo corresponde a estes filtros.",
+    "Couldn't load the Aniimo tier list.": "Não foi possível carregar a tier list de Aniimo.",
+    "Loading tier list…": "A carregar tier list…",
     "Search Aniimo…": "Procurar Aniimo…", "Search regions…": "Procurar regiões…",
     "All stages": "Todos os estágios",
     "stats soon": "stats em breve", "Full data coming soon": "Dados completos em breve",
@@ -2241,6 +2252,7 @@
     [/^(\d+) builds · updated (.+)$/, "$1 builds · actualizado $2"],
     [/^(\d+) team comps · (\d+) individual builds · updated (.+)$/,
       "$1 composições de equipa · $2 builds individuais · actualizado $3"],
+    [/^(\d+) ranked · updated (.+)$/, "$1 ordenados · actualizado $2"],
     [/^The current best endgame \/ meta teams, as of (.+) — compiled from and corroborated across up-to-date guides \((.+)\)\. Each member's Held Item, personality and stat priority is from our Game8 build data\. Metas shift with every patch\.$/,
       (m, date, src) => `As melhores equipas meta de endgame, de ${date} — compiladas e corroboradas a partir de guias actualizados (${src}). O Held Item, a personalidade e a prioridade de stats de cada membro vêm dos nossos dados de build do Game8. As metas mudam a cada patch.`],
 

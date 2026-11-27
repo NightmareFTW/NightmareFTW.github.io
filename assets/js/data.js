@@ -782,6 +782,14 @@ const GAMES = [
         available: true,
       },
       {
+        id: "tier-list",
+        name: "Aniimo Tier List",
+        type: "tier list",
+        desc: "Every Aniimo ranked S to D, filterable by role and element — the best DPS, Break, Heal, Regen and Support at a glance. Ranking from Game8, linked to the database.",
+        href: "games/aniimo/tier-list.html",
+        available: true,
+      },
+      {
         id: "codes",
         name: "Community Codes",
         type: "database",
