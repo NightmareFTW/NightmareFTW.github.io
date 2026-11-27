@@ -1,17 +1,17 @@
 # Graph Report - NightmareFTW.github.io  (2026-11-27)
 
 ## Corpus Check
-- 262 files · ~967,577 words
+- 263 files · ~1,078,753 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: .css 3, (none) 1, .xml 1)
 
 ## Summary
-- 2473 nodes · 3873 edges · 279 communities (161 shown, 118 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 184 edges (avg confidence: 0.85)
+- 2490 nodes · 3912 edges · 280 communities (162 shown, 118 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 187 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6349ecdf`
+- Built from commit: `96ccb4b0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -70,6 +70,7 @@
 - warp-calendar.js
 - outlast-trials/enemies.js
 - ref_fs
+- ref_child_process
 - recipes.js
 - cycles.js
 - checklist.js
@@ -298,14 +299,14 @@
 ## God Nodes (most connected - your core abstractions)
 1. `fetch()` - 23 edges
 2. `run()` - 18 edges
-3. `esc()` - 16 edges
-4. `PolyForm Noncommercial License 1.0.0` - 16 edges
-5. `getText()` - 14 edges
+3. `getText()` - 16 edges
+4. `esc()` - 16 edges
+5. `PolyForm Noncommercial License 1.0.0` - 16 edges
 6. `stripWiki()` - 13 edges
 7. `render()` - 13 edges
 8. `clean()` - 12 edges
-9. `cleanCell()` - 12 edges
-10. `parseHero()` - 12 edges
+9. `esc()` - 12 edges
+10. `cleanCell()` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Update Honkai Star Rail Warp Calendar` --conceptually_related_to--> `Honkai: Star Rail`  [INFERRED]
@@ -336,10 +337,10 @@
 - **Cross-game Meta Builds tool pattern** — games_elden_ring_builds_meta_builds, games_expedition_33_builds_meta_builds, games_far_far_west_builds_meta_builds [INFERRED 0.85]
 - **Cross-game Missables Checklist tool pattern (on-device ticks)** — games_elden_ring_missables_missables_checklist, games_expedition_33_missables_missables_checklist [INFERRED 0.85]
 
-## Communities (279 total, 118 thin omitted)
+## Communities (280 total, 118 thin omitted)
 
 ### Community 0 - "ref_child_process"
-Cohesion: 0.28
+Cohesion: 0.32
 Nodes (7): clean(), { execFileSync }, fs, getHtml(), OUT, path, run()
 
 ### Community 1 - "update-hsr-tierlist.js"
@@ -554,6 +555,10 @@ Nodes (7): CATS, DANGER_CLASS, ENEMIES, esc(), filters, render(), root
 Cohesion: 0.25
 Nodes (7): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk()
 
+### Community 54 - "ref_child_process"
+Cohesion: 0.20
+Nodes (12): { execFileSync }, buildCategories(), { execFileSync }, fs, imageSize(), jpegSize(), OUT_DIR, OUT_FILE (+4 more)
+
 ### Community 55 - "recipes.js"
 Cohesion: 0.39
 Nodes (7): buildStarFilter(), els, esc(), matches(), nm(), render(), starSel
@@ -600,7 +605,7 @@ Nodes (11): ELEMENT_COLOR, ELS, esc(), grid, mult, pills(), rel(), renderGrid() 
 
 ### Community 182 - "ref_path"
 Cohesion: 0.06
-Nodes (70): buildCatalogue(), fs, parseCatalogue(), path, fs, load(), norm(), officialName() (+62 more)
+Nodes (71): buildCatalogue(), fs, parseCatalogue(), path, fs, load(), norm(), officialName() (+63 more)
 
 ### Community 183 - "stamp-assets.js"
 Cohesion: 0.14
@@ -644,7 +649,7 @@ Nodes (6): card(), esc(), evOrder(), labelOf(), render(), root
 
 ### Community 193 - "update-aniimo.js"
 Cohesion: 0.05
-Nodes (66): { execFileSync }, getJson(), getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap() (+58 more)
+Nodes (64): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap(), buildRegions(), decodeEntities() (+56 more)
 
 ### Community 194 - "builder.js"
 Cohesion: 0.11
@@ -723,8 +728,8 @@ Cohesion: 0.36
 Nodes (8): card(), EFFECT_LABEL, effectLabel(), els, esc(), fmtEffect(), RANK_LABEL, render()
 
 ### Community 213 - "map.js"
-Cohesion: 0.15
-Nodes (28): applyScale(), bindMapInteractions(), buildControls(), buildLegend(), buildMapStage(), buildToolbar(), CATEGORY_BY_ID, closePopup() (+20 more)
+Cohesion: 0.14
+Nodes (33): applyScale(), bindMapInteractions(), buildAreaTabs(), buildControls(), buildLegend(), buildMapStage(), buildToolbar(), CATEGORY_BY_ID (+25 more)
 
 ### Community 214 - "aniimo/tier-list.js"
 Cohesion: 0.31
@@ -984,20 +989,20 @@ Nodes (7): fs, pages, path, ROOT, SKIP_DIRS, SKIP_FILES, walk()
 
 ## Knowledge Gaps
 - **141 isolated node(s):** `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait`, `Rapunzel — Dreamlight Valley character portrait`, `Remy — Dreamlight Valley character portrait` (+136 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 990 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 996 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `img()` connect `update-aniimo.js` to `profile.js`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `animals.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
 - **Why does `paint()` connect `profile.js` to `update-aniimo.js`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Should `Game8 (data source)` be split into smaller, more focused modules?**
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**

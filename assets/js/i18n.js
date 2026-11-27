@@ -1810,10 +1810,10 @@
     "Every Aniimo with images: base stats, mobility, traits, skills, evolution line and habitats.":
       "Todos os Aniimo com imagens: stats base, mobilidade, traços, skills, linha de evolução e habitats.",
     "Aniimo Map": "Mapa de Aniimo",
-    "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha and Omega Aniimo encounters, pinned where they actually are.":
-      "Um mapa interactivo real de Idyll: baús, recursos, Desafios Pathfinder, marcos e encontros com Aniimo Alpha e Omega nomeados, marcados onde realmente estão.",
-    "The real world of Idyll. Chests, resources, eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha and Omega Aniimo encounters, pinned where they actually are.":
-      "O mundo real de Idyll. Baús, recursos, ovos, Desafios Pathfinder, pontos de missão, marcos e encontros com Aniimo Alpha e Omega nomeados, marcados onde realmente estão.",
+    "A real interactive map across Breezy Plains, Whisperwake Isles and Astra: Aniimo spawns, chests, Lumin Amber, eggs, Pathfinder Challenges, points of interest and named Alpha and Omega encounters, pinned where they actually are.":
+      "Um mapa interactivo real por Breezy Plains, Whisperwake Isles e Astra: spawns de Aniimo, baús, Lumin Amber, ovos, Desafios Pathfinder, pontos de interesse e encontros Alpha e Omega nomeados, marcados onde realmente estão.",
+    "The real world of Aniimo — Breezy Plains, Whisperwake Isles and Astra. Aniimo spawns, chests, Lumin Amber, eggs, Pathfinder Challenges, points of interest, landmarks and named Alpha and Omega encounters, pinned where they actually are. Switch areas, then pan and zoom.":
+      "O mundo real de Aniimo — Breezy Plains, Whisperwake Isles e Astra. Spawns de Aniimo, baús, Lumin Amber, ovos, Desafios Pathfinder, pontos de interesse, marcos e encontros Alpha e Omega nomeados, marcados onde realmente estão. Troca de área e depois faz pan e zoom.",
     "Regions": "Regiões",
     "Most Aniimo aren't pinned individually in-game; here's what's known to live in each region.":
       "A maioria dos Aniimo não está marcada individualmente no jogo; aqui está o que se sabe que vive em cada região.",
@@ -1823,6 +1823,9 @@
     "Aniimo world map": "Mapa do mundo de Aniimo",
     "View in database →": "Ver na base de dados →",
     "Couldn't load Aniimo region data.": "Não foi possível carregar os dados das regiões de Aniimo.",
+    "Couldn't load Aniimo map data.": "Não foi possível carregar os dados do mapa de Aniimo.",
+    "Map images and pin data from Game8's Aniimo Interactive Map.": "Imagens e dados dos pins do Mapa Interativo de Aniimo do Game8.",
+    "View on Game8 →": "Ver no Game8 →",
     "Map imagery and marker data courtesy of": "Imagens e dados de marcadores do mapa cedidos por",
     "Talent Build Route": "Rota de Build de Talentos", "/ talent build route": "/ rota de build de talentos",
     "Not an Aniimo's own skills — this is the Pathfinder's (your own player character's) talent tree: which to unlock first, in what order, and why. Talent tree from the":
@@ -2082,6 +2085,9 @@
     "Live data": "Dados ao vivo", "No match.": "Sem resultados.", "NEW": "NOVO", "tools": "ferramentas",
     "Now featured": "Em destaque", "Live now": "Ao vivo agora", "Read more →": "Ler mais →",
     "All games": "Todos os jogos", "No games match.": "Nenhum jogo corresponde.",
+    "The Aniimo map now spans Whisperwake and Astra": "O mapa de Aniimo agora abrange Whisperwake e Astra",
+    "A rebuilt interactive world map — three full areas with 3,200+ pins: every Aniimo spawn, chest, Lumin Amber, egg, Pathfinder Challenge and point of interest, pinned where it actually is. Switch areas, filter by type, or jump straight to any Aniimo.":
+      "Um mapa do mundo interativo reconstruído — três áreas completas com mais de 3.200 pins: cada spawn de Aniimo, baú, Lumin Amber, ovo, Desafio Pathfinder e ponto de interesse, marcado onde realmente está. Troca de área, filtra por tipo ou salta direto para qualquer Aniimo.",
     "The hub has a whole new look": "O hub tem um visual completamente novo",
     "A cinematic homepage — a featured game that rotates through the live and latest titles, plus a what's-new strip and an editorial mosaic of the whole library.":
       "Uma homepage cinematográfica — um jogo em destaque que roda pelos títulos ao vivo e mais recentes, mais uma tira de novidades e um mosaico editorial de toda a biblioteca.",
@@ -2273,6 +2279,7 @@
     [/^of (\d+) Aniimo$/, "de $1 Aniimo"],
     [/^(\d+) Aniimo · updated (.+)$/, "$1 Aniimo · actualizado $2"],
     [/^(\d+) map markers · updated (.+)$/, "$1 marcadores no mapa · actualizado $2"],
+    [/^(\d+) map markers across (\d+) areas · updated (.+)$/, "$1 marcadores no mapa em $2 áreas · actualizado $3"],
     [/^(\d+) community codes · updated (.+)$/, "$1 códigos da comunidade · actualizado $2"],
     [/^(\d+) Aniimo · (\d+) known mechanics?$/,
       (m, n1, n2) => `${n1} Aniimo · ${n2} mecanismo${n2 === "1" ? "" : "s"} conhecido${n2 === "1" ? "" : "s"}`],

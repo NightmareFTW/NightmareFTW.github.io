@@ -769,7 +769,7 @@ const GAMES = [
         id: "map",
         name: "Aniimo Map",
         type: "database",
-        desc: "A real interactive map of Idyll: chests, resources, Pathfinder Challenges, landmarks and named Alpha and Omega Aniimo encounters, pinned where they actually are.",
+        desc: "A real interactive map across Breezy Plains, Whisperwake Isles and Astra: Aniimo spawns, chests, Lumin Amber, eggs, Pathfinder Challenges, points of interest and named Alpha and Omega encounters, pinned where they actually are.",
         href: "games/aniimo/map.html",
         available: true,
       },
@@ -839,6 +839,13 @@ const GAMES = [
    captured (Playwright, cropped to roughly the carousel's aspect ratio). */
 const SITE_UPDATES = [
   {
+    date: "2026-11-27",
+    title: "The Aniimo map now spans Whisperwake and Astra",
+    desc: "A rebuilt interactive world map — three full areas with 3,200+ pins: every Aniimo spawn, chest, Lumin Amber, egg, Pathfinder Challenge and point of interest, pinned where it actually is. Switch areas, filter by type, or jump straight to any Aniimo.",
+    image: "assets/img/updates/aniimo-map-expanded.jpg",
+    href: "games/aniimo/map.html",
+  },
+  {
     date: "2026-11-22",
     title: "The hub has a whole new look",
     desc: "A cinematic homepage — a featured game that rotates through the live and latest titles, plus a what's-new strip and an editorial mosaic of the whole library.",
@@ -886,12 +893,5 @@ const SITE_UPDATES = [
     desc: "Best moveset, held item and stat priority for 46 Aniimo, replacing the old Pathfinder talent route on the hub.",
     image: "assets/img/updates/aniimo-builds.jpg",
     href: "games/aniimo/builds.html",
-  },
-  {
-    date: "2026-09-22",
-    title: "Aniimo gets a Community Codes tool",
-    desc: "Player-submitted Face Codes to copy a character's look — plus tabs for Photo Studio and Base codes once those sharing boards exist.",
-    image: "assets/img/updates/aniimo-community-codes.jpg",
-    href: "games/aniimo/codes.html",
   },
 ];

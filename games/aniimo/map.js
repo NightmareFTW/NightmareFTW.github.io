@@ -1,15 +1,16 @@
 /* Aniimo — Map.
-   A real interactive map: actual pixel positions for chests, resources,
-   eggs, Pathfinder Challenges, quest waypoints, landmarks and named Alpha
-   and Omega Aniimo encounters, pinned on the game's own world map image.
-   Sourced from gmtreks.com (GameTrek) — see scripts/update-aniimo.js for
-   how and why. Regular (non-Alpha/Omega) Aniimo aren't pinned anywhere
-   in-game, so the region browser below the map (built from the official
-   site's own region art plus
-   the Aniimo database's habitats) still covers "where does X live". Region
-   description/mechanics text is run through the shared cross-reference
-   linker (assets/js/vs-xref.js), and this page accepts ?slug=<creature> or
-   ?region=<name> deep-links from other Aniimo tools.
+   A real interactive map: actual pixel positions for Aniimo spawns, chests,
+   Lumin Amber, eggs, Pathfinder Challenges, points of interest, landmarks and
+   named Alpha and Omega Aniimo encounters, pinned on the game's own world map
+   images. Three areas — Breezy Plains, Whisperwake Isles and Astra — each a
+   full-image map you can switch between, pan and zoom. Sourced from Game8's
+   Aniimo Interactive Map (see scripts/update-aniimo-map.js for how and why).
+   Aniimo pins link into our database where the creature is known; the region
+   browser below the map (built from the official site's own region art plus
+   the Aniimo database's habitats) still covers "where does X live" for the
+   rest. Region description/mechanics text is run through the shared
+   cross-reference linker (assets/js/vs-xref.js), and this page accepts
+   ?slug=<creature> or ?region=<name> deep-links from other Aniimo tools.
    Data: data/aniimo/map.json + data/aniimo/regions.json +
    data/aniimo/creatures.json. */
 
@@ -19,6 +20,8 @@ const ELEMENT_COLOR = {
   Wind: "#7fd9c4", Dark: "#a866e0", Holy: "#f2e6a3", Rock: "#a9835a",
 };
 const MIN_ZOOM_STEP = 0.15, WHEEL_ZOOM_STEP = 0.08, MAX_SCALE = 2.5;
+// Categories that would otherwise bury everything else are off by default.
+const DEFAULT_OFF = new Set(["Chest", "Lumin Amber"]);
 const isDesktopPointer = () => window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
 function buildXrefEntities(creatures, regions) {
@@ -30,14 +33,15 @@ function buildXrefEntities(creatures, regions) {
 
 let MAP = null, REGIONS = null, CREATURES = null, XREF = null;
 let MARKER_BY_ID = new Map(), CATEGORY_BY_ID = new Map();
+let activeAreaId = null;
 let activeAniimoSlug = "", query = "", regionQuery = "";
 let scale = 0.2, fitScale = 0.2;
 let hiddenCategories = new Set();
 let openPopupMarkerId = null;
 // Click-drag panning on desktop (wheel is reserved for zoom there — see
 // bindMapInteractions()); a single set of window-level listeners tracks it
-// so buildMapStage() can freely recreate the wrap element on resize without
-// piling up duplicate listeners.
+// so buildMapStage() can freely recreate the wrap element on resize/area
+// switch without piling up duplicate listeners.
 const drag = { active: false, startX: 0, startY: 0, startLeft: 0, startTop: 0, wrap: null };
 document.addEventListener("mousemove", (e) => {
   if (!drag.active) return;
@@ -51,6 +55,7 @@ document.addEventListener("mouseup", () => {
 });
 
 const els = {
+  areaTabs: document.getElementById("am-area-tabs"),
   toolbar: document.getElementById("am-toolbar"),
   legend: document.getElementById("am-legend"),
   mapContainer: document.getElementById("am-map-container"),
@@ -60,6 +65,24 @@ const els = {
   detail: document.getElementById("am-detail"),
 };
 const opt = (v, label, sel) => `<option value="${esc(v)}" ${v === sel ? "selected" : ""}>${esc(label)}</option>`;
+const curArea = () => MAP.areas.find((a) => a.id === activeAreaId) || MAP.areas[0];
+
+// ---- area switcher ----------------------------------------------------------
+function buildAreaTabs() {
+  els.areaTabs.innerHTML = MAP.areas.map((a) =>
+    `<button type="button" class="am-area-tab${a.id === activeAreaId ? " active" : ""}" data-area="${esc(a.id)}">${esc(a.name)} <span class="am-area-count">${a.markers.length}</span></button>`
+  ).join("");
+  els.areaTabs.querySelectorAll("[data-area]").forEach((b) => b.addEventListener("click", () => setArea(b.dataset.area)));
+}
+
+function setArea(id) {
+  if (id === activeAreaId) return;
+  activeAreaId = id;
+  closePopup();
+  buildAreaTabs();
+  buildLegend();
+  buildMapStage();
+}
 
 // ---- toolbar + legend -------------------------------------------------------
 function buildToolbar() {
@@ -79,11 +102,13 @@ function buildToolbar() {
 }
 
 function buildLegend() {
+  const markers = curArea().markers;
   els.legend.innerHTML = MAP.categories.map((c) => {
-    const count = MAP.markers.filter((m) => m.categoryId === c.id).length;
+    const count = markers.filter((m) => m.categoryId === c.id).length;
+    if (!count) return ""; // this category isn't present in the active area
     const off = hiddenCategories.has(c.id);
-    return `<span class="am-legend-item${off ? " am-off" : ""}" data-cat="${esc(c.id)}" role="button" tabindex="0">
-      <img src="${esc(c.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer">${esc(c.name)} (${count})</span>`;
+    return `<span class="am-legend-item${off ? " am-off" : ""}" data-cat="${esc(c.id)}" role="button" tabindex="0" title="${esc(c.group)}">
+      ${c.icon ? `<img src="${esc(c.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}${esc(c.name)} (${count})</span>`;
   }).join("");
   els.legend.querySelectorAll("[data-cat]").forEach((el) => {
     const toggle = () => {
@@ -99,10 +124,11 @@ function buildLegend() {
 
 // ---- the map itself ---------------------------------------------------------
 function buildMapStage() {
+  const area = curArea();
   els.mapContainer.innerHTML = `
     <div class="am-map-wrap" id="am-map-wrap">
       <div class="am-map-stage" id="am-map-stage">
-        <img src="${esc(MAP.mapImage)}" alt="Aniimo world map" referrerpolicy="no-referrer">
+        <img src="${esc(area.mapImage)}" alt="Aniimo map — ${esc(area.name)}" referrerpolicy="no-referrer">
       </div>
     </div>`;
   const wrap = document.getElementById("am-map-wrap");
@@ -112,8 +138,8 @@ function buildMapStage() {
   // map on both axes with nothing cut off. Touch devices keep the plain
   // scrollable box, fit to width only, since they still pan by finger-swipe.
   fitScale = isDesktopPointer()
-    ? Math.min(wrapWidth / MAP.mapWidth, (wrap.clientHeight || 600) / MAP.mapHeight)
-    : Math.min(1, wrapWidth / MAP.mapWidth);
+    ? Math.min(wrapWidth / area.mapWidth, (wrap.clientHeight || 600) / area.mapHeight)
+    : Math.min(1, wrapWidth / area.mapWidth);
   scale = fitScale;
   applyScale();
   renderPins();
@@ -121,10 +147,11 @@ function buildMapStage() {
 }
 
 function applyScale() {
+  const area = curArea();
   const stage = document.getElementById("am-map-stage");
   if (!stage) return;
-  stage.style.width = `${MAP.mapWidth * scale}px`;
-  stage.style.height = `${MAP.mapHeight * scale}px`;
+  stage.style.width = `${area.mapWidth * scale}px`;
+  stage.style.height = `${area.mapHeight * scale}px`;
 }
 
 // Zoom while keeping the map point under (px, py) — viewport-relative
@@ -132,13 +159,17 @@ function applyScale() {
 // (wheel) or the viewport center (the +/- buttons) both feel anchored.
 function zoomAtPoint(next, px, py) {
   const wrap = document.getElementById("am-map-wrap");
-  if (!wrap) return;
-  const worldX = (wrap.scrollLeft + px) / scale;
-  const worldY = (wrap.scrollTop + py) / scale;
+  const stage = document.getElementById("am-map-stage");
+  if (!wrap || !stage) return;
+  // The stage is centered with margin:auto when it's narrower than the wrap,
+  // so its offset within the wrap shifts as we zoom across that threshold —
+  // fold offsetLeft/Top into the world-point math so zoom stays anchored.
+  const worldX = (wrap.scrollLeft + px - stage.offsetLeft) / scale;
+  const worldY = (wrap.scrollTop + py - stage.offsetTop) / scale;
   scale = Math.max(fitScale, Math.min(MAX_SCALE, next));
   applyScale();
-  wrap.scrollLeft = worldX * scale - px;
-  wrap.scrollTop = worldY * scale - py;
+  wrap.scrollLeft = worldX * scale + stage.offsetLeft - px;
+  wrap.scrollTop = worldY * scale + stage.offsetTop - py;
 }
 
 function setScale(next) {
@@ -170,15 +201,13 @@ function bindMapInteractions(wrap) {
 }
 
 function pinMatchesQuery(m) {
-  return !query || m.name.toLowerCase().includes(query);
+  return !query || m.name.toLowerCase().includes(query) || (m.region || "").toLowerCase().includes(query);
 }
 
-// Toggling a legend category or typing a search term used to call
-// renderPins() — a full teardown + rebuild of every pin element (1000+ as
-// of writing, and growing). That's fine once per real map load, but it was
-// firing on every keystroke and every legend click, rebuilding the whole
-// pin set each time. updatePinVisibility() only flips the .am-hidden class
-// on the pins that already exist, which is what actually changes.
+// Toggling a legend category or typing a search term only flips the
+// .am-hidden class on the pins that already exist (renderPins() is a full
+// teardown + rebuild of every pin, fine once per area load but far too heavy
+// to run on every keystroke).
 function updatePinVisibility() {
   const stage = document.getElementById("am-map-stage");
   if (!stage) return;
@@ -193,8 +222,9 @@ function renderPins() {
   if (!stage) return;
   stage.querySelectorAll(".am-pin").forEach((p) => p.remove());
   const frag = document.createDocumentFragment();
-  for (const m of MAP.markers) {
+  for (const m of curArea().markers) {
     const cat = CATEGORY_BY_ID.get(m.categoryId);
+    const icon = m.img || (cat && cat.icon);
     const pin = document.createElement("button");
     pin.type = "button";
     pin.className = "am-pin" + (m.creatureSlug ? " am-pin-creature" : "");
@@ -203,7 +233,7 @@ function renderPins() {
     pin.style.top = `${m.y * 100}%`;
     pin.title = m.name;
     pin.dataset.markerId = m.id;
-    pin.innerHTML = cat && cat.icon ? `<img src="${esc(cat.icon)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : "";
+    pin.innerHTML = icon ? `<img src="${esc(icon)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : "";
     pin.addEventListener("click", (e) => { e.stopPropagation(); openPopup(m, pin); });
     frag.appendChild(pin);
   }
@@ -214,15 +244,21 @@ function openPopup(marker, pinEl) {
   closePopup();
   openPopupMarkerId = marker.id;
   const cat = CATEGORY_BY_ID.get(marker.categoryId);
+  const icon = marker.img || (cat && cat.icon);
   const rect = pinEl.getBoundingClientRect();
   const popup = document.createElement("div");
   popup.className = "am-popup";
   popup.id = "am-popup";
+  const sub = [cat && cat.name, marker.region].filter(Boolean).join(" · ");
   popup.innerHTML = `
     <button type="button" class="am-popup-close" aria-label="Close">✕</button>
-    <div class="am-popup-title">${cat && cat.icon ? `<img src="${esc(cat.icon)}" alt="" referrerpolicy="no-referrer">` : ""}${esc(marker.name)}</div>
-    <div class="am-popup-group">${esc(marker.group || "")}</div>
-    ${marker.creatureSlug ? `<a class="am-popup-link" href="aniimo.html?slug=${encodeURIComponent(marker.creatureSlug)}">View in database →</a>` : ""}`;
+    <div class="am-popup-title">${icon ? `<img src="${esc(icon)}" alt="" referrerpolicy="no-referrer">` : ""}${esc(marker.name)}</div>
+    ${sub ? `<div class="am-popup-group">${esc(sub)}</div>` : ""}
+    ${marker.desc ? `<p class="am-popup-desc">${esc(marker.desc)}</p>` : ""}
+    <div class="am-popup-links">
+      ${marker.creatureSlug ? `<a class="am-popup-link" href="aniimo.html?slug=${encodeURIComponent(marker.creatureSlug)}">View in database →</a>` : ""}
+      ${marker.source ? `<a class="am-popup-link am-popup-ext" href="${esc(marker.source)}" target="_blank" rel="noopener">Game8 ↗</a>` : ""}
+    </div>`;
   document.body.appendChild(popup);
   const pw = popup.offsetWidth, ph = popup.offsetHeight;
   let top = rect.top - ph - 10;
@@ -241,25 +277,36 @@ document.addEventListener("click", (e) => { if (openPopupMarkerId && !e.target.c
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePopup(); });
 window.addEventListener("resize", () => { if (document.getElementById("am-map-stage")) buildMapStage(); });
 
+// Find a creature's pin across every area (first match), or null.
+function findAniimoMarker(slug) {
+  for (const a of MAP.areas) {
+    const m = a.markers.find((k) => k.creatureSlug === slug);
+    if (m) return { area: a, marker: m };
+  }
+  return null;
+}
+
 function jumpToAniimo(slug) {
   activeAniimoSlug = slug;
   if (!slug) { renderGrid(); return; }
-  const marker = MAP.markers.find((m) => m.creatureSlug === slug);
-  if (marker) {
+  const hit = findAniimoMarker(slug);
+  if (hit) {
+    if (hit.area.id !== activeAreaId) setArea(hit.area.id); // rebuilds legend + stage
     els.mapContainer.scrollIntoView({ behavior: "smooth", block: "start" });
     hiddenCategories.clear();
     buildLegend();
     query = "";
-    document.getElementById("am-search").value = "";
+    const search = document.getElementById("am-search");
+    if (search) search.value = "";
     updatePinVisibility();
     requestAnimationFrame(() => {
       const wrap = document.getElementById("am-map-wrap");
       const stage = document.getElementById("am-map-stage");
       if (!wrap || !stage) return;
-      wrap.scrollLeft = marker.x * stage.clientWidth - wrap.clientWidth / 2;
-      wrap.scrollTop = marker.y * stage.clientHeight - wrap.clientHeight / 2;
-      const pin = stage.querySelector(`[data-marker-id="${CSS.escape(marker.id)}"]`);
-      if (pin) { pin.classList.add("am-target"); openPopup(marker, pin); setTimeout(() => pin.classList.remove("am-target"), 4200); }
+      wrap.scrollLeft = hit.marker.x * stage.clientWidth + stage.offsetLeft - wrap.clientWidth / 2;
+      wrap.scrollTop = hit.marker.y * stage.clientHeight + stage.offsetTop - wrap.clientHeight / 2;
+      const pin = stage.querySelector(`[data-marker-id="${CSS.escape(hit.marker.id)}"]`);
+      if (pin) { pin.classList.add("am-target"); openPopup(hit.marker, pin); setTimeout(() => pin.classList.remove("am-target"), 4200); }
     });
   } else {
     closePopup();
@@ -330,19 +377,20 @@ function openRegion(name) {
       fetch(`../../data/aniimo/regions.json?cb=${Date.now()}`).then((r) => r.json()),
       fetch(`../../data/aniimo/creatures.json?cb=${Date.now()}`).then((r) => r.json()).then((d) => d.creatures),
     ]);
-    MARKER_BY_ID = new Map(MAP.markers.map((m) => [m.id, m]));
+    activeAreaId = MAP.areas[0].id;
+    MARKER_BY_ID = new Map(MAP.areas.flatMap((a) => a.markers).map((m) => [m.id, m]));
     CATEGORY_BY_ID = new Map(MAP.categories.map((c) => [c.id, c]));
-    // Chest and Lumin Amber alone account for the large majority of all
-    // markers (772 of 1078 as of writing) — enough to bury everything else
-    // at a glance, so start with those off. One legend click brings them
-    // back; nothing is hidden that can't be un-hidden just as easily.
-    for (const c of MAP.categories) if (c.name === "Chest" || c.name === "Lumin Amber") hiddenCategories.add(c.id);
+    // Chest and Lumin Amber alone account for the large majority of markers —
+    // enough to bury everything else at a glance, so start with those off.
+    // One legend click brings them back.
+    for (const c of MAP.categories) if (DEFAULT_OFF.has(c.name)) hiddenCategories.add(c.id);
     XREF = VSXref.buildXrefIndex(buildXrefEntities(CREATURES, REGIONS.regions));
     VSXref.initXrefPopup(XREF);
     const upd = MAP.updated ? new Date(MAP.updated).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
-    document.getElementById("am-updated").textContent = `${MAP.count} map markers · updated ${upd}`;
-    els.attribution.innerHTML = `Map imagery and marker data courtesy of <a href="${esc(MAP.source)}" target="_blank" rel="noopener">GameTrek</a>.`;
+    document.getElementById("am-updated").textContent = `${MAP.count} map markers across ${MAP.areas.length} areas · updated ${upd}`;
+    els.attribution.innerHTML = `${esc(MAP.attribution || "")} <a href="${esc(MAP.source)}" target="_blank" rel="noopener">View on Game8 →</a>`;
 
+    buildAreaTabs();
     buildToolbar();
     buildLegend();
     buildMapStage();
