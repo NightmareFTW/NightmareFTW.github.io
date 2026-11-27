@@ -1,7 +1,7 @@
 # Graph Report - NightmareFTW.github.io  (2026-11-27)
 
 ## Corpus Check
-- 262 files · ~967,024 words
+- 262 files · ~967,218 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: .css 3, (none) 1, .xml 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d401e448`
+- Built from commit: `6e4eff65`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -947,7 +947,7 @@ Nodes (12): buildControls(), card(), ELEMENT_COLOR, els, esc(), memberCard(), re
 
 ### Community 268 - "codes.js"
 Cohesion: 0.52
-Nodes (6): buildTabs(), codeRow(), els, esc(), render(), TAB_ORDER
+Nodes (6): buildTabs(), codeCard(), els, esc(), render(), TAB_ORDER
 
 ### Community 269 - "pickups.js"
 Cohesion: 0.62
@@ -1006,13 +1006,13 @@ Nodes (7): fs, pages, path, ROOT, SKIP_DIRS, SKIP_FILES, walk()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `img()` connect `update-aniimo.js` to `profile.js`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **What connects `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `animals.js` be split into smaller, more focused modules?**
   _Cohesion score 0.1354679802955665 - nodes in this community are weakly interconnected._
 - **Why does `paint()` connect `profile.js` to `update-aniimo.js`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Should `Game8 (data source)` be split into smaller, more focused modules?**
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**

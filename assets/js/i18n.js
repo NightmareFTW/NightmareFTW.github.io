@@ -1927,6 +1927,7 @@
     "Tap an element in the grid to see its matchups.": "Toca num elemento na grelha para ver os confrontos.",
     "Couldn't load the element chart.": "Não foi possível carregar a tabela de elementos.",
     "Built by NightmareFTW · matchup data via AniimoTools, GameWith & MetaBot.": "Feito por NightmareFTW · dados de confronto via AniimoTools, GameWith e MetaBot.",
+    "no preview": "sem pré-visualização", "Copy": "Copiar", "Copied ✓": "Copiado ✓",
     "Search Aniimo…": "Procurar Aniimo…", "Search regions…": "Procurar regiões…",
     "All stages": "Todos os estágios",
     "stats soon": "stats em breve", "Full data coming soon": "Dados completos em breve",

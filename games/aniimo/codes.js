@@ -34,31 +34,32 @@ function buildTabs() {
   }));
 }
 
-function codeRow(entry) {
-  return `<div class="code-row ac-code-row" data-code="${esc(entry.code)}">
-    ${entry.image ? `<span class="ac-code-thumb"><img src="${esc(entry.image)}" alt="" loading="lazy" referrerpolicy="no-referrer"></span>` : ""}
-    <div class="code-main">
-      <code class="code-text">${esc(entry.code)}</code>
-      <span class="code-reward">${entry.postedAgo ? `Posted ${esc(entry.postedAgo)} ago` : ""}${entry.sourceUrl ? ` · <a href="${esc(entry.sourceUrl)}" target="_blank" rel="noopener">source ↗</a>` : ""}</span>
+function codeCard(entry) {
+  return `<div class="cc-card">
+    <div class="cc-shot${entry.image ? "" : " noimg"}">${entry.image ? `<img src="${esc(entry.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="const s=this.closest('.cc-shot');s.classList.add('noimg');s.textContent='no preview'">` : "no preview"}</div>
+    <div class="cc-body">
+      <div class="cc-code-row">
+        <code class="cc-code" title="${esc(entry.code)}">${esc(entry.code)}</code>
+        <button type="button" class="cc-copy" data-code="${esc(entry.code)}">Copy</button>
+      </div>
+      <div class="cc-meta">${entry.postedAgo ? `Posted ${esc(entry.postedAgo)} ago` : ""}${entry.sourceUrl ? ` · <a href="${esc(entry.sourceUrl)}" target="_blank" rel="noopener">source ↗</a>` : ""}</div>
     </div>
-    <button type="button" class="btn code-copy">Copy</button>
   </div>`;
 }
 
 function render() {
   const tab = DATA.tabs[activeTab];
   if (!tab.entries.length) {
-    els.list.innerHTML = `<p class="tool-note">${esc(tab.note || "No codes shared yet.")}</p>`;
+    els.list.innerHTML = `<div class="cc-empty">${esc(tab.note || "No codes shared yet.")}</div>`;
     return;
   }
   els.list.innerHTML = `
     ${tab.source ? `<p class="codes-note">Scraped from <a href="${esc(tab.source)}" target="_blank" rel="noopener">Game8's Face Codes Sharing Board</a>. Anonymous, user-submitted — we can't verify a code still works.</p>` : ""}
-    <div class="codes-list">${tab.entries.map(codeRow).join("")}</div>`;
+    <div class="cc-grid">${tab.entries.map(codeCard).join("")}</div>`;
 
-  els.list.querySelectorAll(".code-copy").forEach((btn) => {
+  els.list.querySelectorAll(".cc-copy").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const code = btn.closest(".code-row").dataset.code;
-      navigator.clipboard?.writeText(code);
+      navigator.clipboard?.writeText(btn.dataset.code);
       btn.textContent = "Copied ✓";
       setTimeout(() => (btn.textContent = "Copy"), 1500);
     });
