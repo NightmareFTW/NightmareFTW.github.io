@@ -21,6 +21,29 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="../../assets/css/style.css?v=16a4aa29">
+  <style>
+    .hg-sec-title { font-family: var(--disp); font-weight: 600; font-size: 1.25rem; margin: 30px 0 12px; }
+    .hg-overview { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; }
+    .hg-overview .hg-sub h3 { font-family: var(--disp); font-size: 1rem; margin: 10px 0 6px; }
+    .hg-rv-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .hg-lv { font: 700 12px/1 var(--mono); min-width: 42px; height: 34px; padding: 0 6px; display: flex; align-items: center; justify-content: center; border-radius: 7px; background: var(--card); border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: .12s; }
+    .hg-lv:hover { color: var(--text); border-color: var(--accent-2); }
+    .hg-lv.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .hg-rv-content { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+    .hg-rv-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+    .hg-rv-head h3 { font-family: var(--disp); font-size: 1.3rem; margin: 0; }
+    .hg-np { display: flex; gap: 6px; }
+    .hg-np button { font: 600 11px/1 var(--mono); padding: 7px 11px; border-radius: 6px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--text); cursor: pointer; transition: .12s; }
+    .hg-np button:hover:not(:disabled) { border-color: var(--accent-2); }
+    .hg-np button:disabled { opacity: .4; cursor: default; }
+    .hg-acc { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 8px; background: var(--card); }
+    .hg-acc-head { width: 100%; text-align: left; background: none; border: none; color: var(--text); font: 600 14px/1.3 var(--disp); padding: 13px 16px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .hg-acc-head:hover { color: #fff; }
+    .hg-acc-head .chev { color: var(--muted); transition: transform .2s; }
+    .hg-acc.open .hg-acc-head .chev { transform: rotate(90deg); }
+    .hg-acc-body { display: none; padding: 2px 16px 14px; }
+    .hg-acc.open .hg-acc-body { display: block; }
+  </style>
 </head>
 <body data-game="aniimo">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -37,12 +60,18 @@
     <p class="tool-sub">A set-it-and-forget-it route through every RV (Homeland) level: what to produce, how to lay out your farms and trees, and which Aniimo to field — including the original screenshots. Full guide by <a href="https://steamcommunity.com/id/Zetajezu" target="_blank" rel="noopener" style="color:var(--accent)">darksteelhyren</a>, posted on <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108" target="_blank" rel="noopener" style="color:var(--accent)">Steam Community</a>, reproduced here with credit.</p>
     <p class="codes-updated" id="hg-updated">Loading…</p>
 
-    <div class="hg-nav" id="hg-nav"></div>
-    <div id="hg-root"><p style="color:var(--muted)">Loading guide…</p></div>
+    <div id="hg-overview"></div>
+
+    <h2 class="hg-sec-title">Per-RV setup</h2>
+    <div class="hg-rv-nav" id="hg-rv-nav"></div>
+    <div class="hg-rv-content" id="hg-rv-content"><p style="color:var(--muted)">Loading guide…</p></div>
+
+    <h2 class="hg-sec-title" id="hg-mech-title" hidden>Mechanics &amp; deep dives</h2>
+    <div id="hg-lessons"></div>
   </main>
   <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · Homeland guide by darksteelhyren, via Steam Community.</span></div></footer>
-  <script src="homeland.js?v=9786ce9d"></script>
-  <script src="/assets/js/i18n.js?v=4e510b63" defer></script>
+  <script src="homeland.js?v=3e9c17aa"></script>
+  <script src="/assets/js/i18n.js?v=529b05f5" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

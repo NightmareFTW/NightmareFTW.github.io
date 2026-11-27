@@ -1928,6 +1928,7 @@
     "Couldn't load the element chart.": "Não foi possível carregar a tabela de elementos.",
     "Built by NightmareFTW · matchup data via AniimoTools, GameWith & MetaBot.": "Feito por NightmareFTW · dados de confronto via AniimoTools, GameWith e MetaBot.",
     "no preview": "sem pré-visualização", "Copy": "Copiar", "Copied ✓": "Copiado ✓",
+    "Per-RV setup": "Configuração por nível RV", "Mechanics & deep dives": "Mecânicas e aprofundamentos",
     "Search Aniimo…": "Procurar Aniimo…", "Search regions…": "Procurar regiões…",
     "All stages": "Todos os estágios",
     "stats soon": "stats em breve", "Full data coming soon": "Dados completos em breve",
@@ -2283,6 +2284,7 @@
     [/^(\d+) regions · updated (.+)$/, "$1 regiões · actualizado $2"],
     [/^(\d+) Aniimo here$/, "$1 Aniimo aqui"],
     [/^(\d+) elements · updated (.+)$/, "$1 elementos · actualizado $2"],
+    [/^RV1 → RV(\d+) · updated (.+)$/, "RV1 → RV$1 · actualizado $2"],
     [/^The current best endgame \/ meta teams, as of (.+) — compiled from and corroborated across up-to-date guides \((.+)\)\. Each member's Held Item, personality and stat priority is from our Game8 build data\. Metas shift with every patch\.$/,
       (m, date, src) => `As melhores equipas meta de endgame, de ${date} — compiladas e corroboradas a partir de guias actualizados (${src}). O Held Item, a personalidade e a prioridade de stats de cada membro vêm dos nossos dados de build do Game8. As metas mudam a cada patch.`],
 

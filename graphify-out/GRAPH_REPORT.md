@@ -1,17 +1,17 @@
 # Graph Report - NightmareFTW.github.io  (2026-11-27)
 
 ## Corpus Check
-- 262 files · ~967,218 words
+- 262 files · ~967,577 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: .css 3, (none) 1, .xml 1)
 
 ## Summary
-- 2474 nodes · 3877 edges · 282 communities (164 shown, 118 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 185 edges (avg confidence: 0.85)
+- 2473 nodes · 3873 edges · 279 communities (161 shown, 118 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 184 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6e4eff65`
+- Built from commit: `6349ecdf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,7 @@
 - Game8 (data source)
 - The Outlast Trials Game Hub
 - auth.js
-- update-items.js
+- vs-curated-guides.js
 - items.js
 - update-news.js
 - gifts.js
@@ -70,7 +70,6 @@
 - warp-calendar.js
 - outlast-trials/enemies.js
 - ref_fs
-- update-recipes.js
 - recipes.js
 - cycles.js
 - checklist.js
@@ -197,7 +196,7 @@
 - Demonologist (game hub)
 - .claude/CLAUDE.md
 - elements.js
-- update-animals.js
+- ref_path
 - stamp-assets.js
 - ravenswatch/talents.js
 - update-the-other-side.js
@@ -275,7 +274,6 @@
 - build-route.js
 - honkai-star-rail/tier-list.js
 - homeland.js
-- ddv-official.js
 - cards.js
 - warframe/builds.js
 - aniimos.js
@@ -291,7 +289,6 @@
 - stage.js
 - warframe/index.js
 - Project notes for Claude
-- ref_path
 - update-starpath.js
 - update-drops.js
 - ref_fs
@@ -339,7 +336,7 @@
 - **Cross-game Meta Builds tool pattern** — games_elden_ring_builds_meta_builds, games_expedition_33_builds_meta_builds, games_far_far_west_builds_meta_builds [INFERRED 0.85]
 - **Cross-game Missables Checklist tool pattern (on-device ticks)** — games_elden_ring_missables_missables_checklist, games_expedition_33_missables_missables_checklist [INFERRED 0.85]
 
-## Communities (282 total, 118 thin omitted)
+## Communities (279 total, 118 thin omitted)
 
 ### Community 0 - "ref_child_process"
 Cohesion: 0.28
@@ -369,9 +366,9 @@ Nodes (25): Game8 (data source), Tier List & Builds (Neverness to Everness), Loa
 Cohesion: 0.19
 Nodes (28): api(), applyBlob(), closeModal(), cloudPull(), cloudPush(), cloudSignOut(), collect(), errMsg() (+20 more)
 
-### Community 7 - "update-items.js"
-Cohesion: 0.13
-Nodes (20): ADJ, SMALL, translateName(), tword(), WORD, BIOMES, biomesIn(), dlcOf() (+12 more)
+### Community 7 - "vs-curated-guides.js"
+Cohesion: 0.07
+Nodes (26): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+18 more)
 
 ### Community 8 - "items.js"
 Cohesion: 0.19
@@ -557,10 +554,6 @@ Nodes (7): CATS, DANGER_CLASS, ENEMIES, esc(), filters, render(), root
 Cohesion: 0.25
 Nodes (7): ALLOW, fs, missingCharset, path, ROOT, SKIP_DIRS, walk()
 
-### Community 54 - "update-recipes.js"
-Cohesion: 0.29
-Nodes (12): clean(), dlcOfCollection(), fs, get(), imgUrl(), mealMeta(), norm(), OUT (+4 more)
-
 ### Community 55 - "recipes.js"
 Cohesion: 0.39
 Nodes (7): buildStarFilter(), els, esc(), matches(), nm(), render(), starSel
@@ -605,9 +598,9 @@ Nodes (3): Marvel Snap, Marvel Snap Zone, Update Marvel Snap Cards
 Cohesion: 0.27
 Nodes (11): ELEMENT_COLOR, ELS, esc(), grid, mult, pills(), rel(), renderGrid() (+3 more)
 
-### Community 182 - "update-animals.js"
-Cohesion: 0.19
-Nodes (22): clean(), fileAndName(), parseTable(), sections(), tables(), buildFoodMap(), DAY_FULL, dlcOf() (+14 more)
+### Community 182 - "ref_path"
+Cohesion: 0.06
+Nodes (70): buildCatalogue(), fs, parseCatalogue(), path, fs, load(), norm(), officialName() (+62 more)
 
 ### Community 183 - "stamp-assets.js"
 Cohesion: 0.14
@@ -634,8 +627,8 @@ Cohesion: 0.38
 Nodes (10): api(), loadRecoveryCount(), openEditor(), paint(), refreshHeader(), render(), showCodes(), syncNow() (+2 more)
 
 ### Community 189 - "update-vampire-survivors.js"
-Cohesion: 0.05
-Nodes (73): avatarInfernasEn, avatarInfernasPt, bigTrouserEn, bigTrouserPt, chaosEn, chaosPt, cosmoPavoneEn, cosmoPavonePt (+65 more)
+Cohesion: 0.10
+Nodes (47): autoGuide(), balancedTemplate(), buildWeaponGraph(), chunk(), cleanDisambiguated(), cleanEnemyName(), enemyIntro(), { execFileSync } (+39 more)
 
 ### Community 190 - "ravenswatch/heroes.js"
 Cohesion: 0.54
@@ -910,12 +903,8 @@ Cohesion: 0.42
 Nodes (11): buildSection(), compsFor(), detail, esc(), member(), portrait(), render(), roleClass() (+3 more)
 
 ### Community 259 - "homeland.js"
-Cohesion: 0.42
-Nodes (9): els, esc(), render(), renderBlock(), renderItems(), renderLesson(), renderNamed(), renderProdItem() (+1 more)
-
-### Community 260 - "ddv-official.js"
-Cohesion: 0.53
-Nodes (5): fs, load(), norm(), officialName(), path
+Cohesion: 0.40
+Nodes (9): els, esc(), lessonTitle(), LEVELS, renderBlock(), renderItems(), renderLessons(), renderProdItem() (+1 more)
 
 ### Community 261 - "cards.js"
 Cohesion: 0.31
@@ -973,10 +962,6 @@ Nodes (4): esc(), metaTable(), render(), root
 Cohesion: 0.33
 Nodes (5): graphify, Project notes for Claude, Shipping a change — two things to update every time, proactively, Warframe data — use WFCD, not scraping, "What's New" carousel — do this proactively
 
-### Community 276 - "ref_path"
-Cohesion: 0.21
-Nodes (11): buildCatalogue(), fs, parseCatalogue(), path, galleries(), imageUrls(), wikitext(), OUT (+3 more)
-
 ### Community 277 - "update-starpath.js"
 Cohesion: 0.27
 Nodes (10): clean(), discoverCurrentSeason(), FALLBACK_SEASON, fetchWikitext(), fs, iso(), OUT, parseWikiDate() (+2 more)
@@ -1017,5 +1002,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.10541310541310542 - nodes in this community are weakly interconnected._
 - **Should `The Outlast Trials Game Hub` be split into smaller, more focused modules?**
   _Cohesion score 0.11333333333333333 - nodes in this community are weakly interconnected._
-- **Should `update-items.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.12987012987012986 - nodes in this community are weakly interconnected._
+- **Should `vs-curated-guides.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
