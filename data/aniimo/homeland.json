@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T05:26:58.088Z",
+  "updated": "2026-11-27T01:23:47.271Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -1270,6 +1270,64 @@
             {
               "kind": "text",
               "text": "Outdoor Decorations ==> Windmill ==> Garden Gate (10)"
+            }
+          ]
+        },
+        {
+          "heading": "Full-in on Event builds by level",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "This will be a mini writeup of things you can do while dedicating all of your farms to event crops, to hopefully get all 16 mutants and cap out your Whimsy Points."
+            },
+            {
+              "kind": "text",
+              "text": "One Simmering Pot on Golden Lantern Pumpkin Soup"
+            },
+            {
+              "kind": "text",
+              "text": "All wells on Fresh Water"
+            },
+            {
+              "kind": "text",
+              "text": "All farms on an even split of event crops."
+            },
+            {
+              "kind": "text",
+              "text": "After that..."
+            },
+            {
+              "kind": "text",
+              "text": "RV10: Maple, sell 'em."
+            },
+            {
+              "kind": "text",
+              "text": "RV11: Walnuts, sell 'em."
+            },
+            {
+              "kind": "text",
+              "text": "RV12/RV13: Chestnuts + Walnuts = Nuts. Also make Advanced Wind Chime."
+            },
+            {
+              "kind": "text",
+              "text": "RV14-RV17: All trees on Quick Maple Syrup ==> Maple Sugar Chunk."
+            },
+            {
+              "kind": "text",
+              "text": "RV18: All trees on Quick Coconut ==> Coconut Coolers."
+            },
+            {
+              "kind": "text",
+              "text": "RV19: Trees: 4 Orange Flower, 6 Quick Coconut, 10 Cocoa. Sell Orange Flower Incense and Coconut Cocoa (which, surprisingly, doesn't need the water we can't spare.)"
+            },
+            {
+              "kind": "text",
+              "text": "RV20: 5 Orange Flower Trees + 15 Quick Coconut Trees. Sell Pearl Face Cream and Coconut Oil."
+            },
+            {
+              "kind": "text",
+              "text": "RV21: 5 Orange Flower Trees + 15 Quick Coconut Trees. Sell Pearl Face Cream and Coconut Oil. When your Mills stall, consider temporarily crafting Bright Silver Powder."
             }
           ]
         }

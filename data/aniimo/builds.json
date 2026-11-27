@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T05:27:55.429Z",
+  "updated": "2026-11-27T01:23:46.796Z",
   "source": "https://game8.co/games/Aniimo/archives/624315",
   "count": 116,
   "builds": [
@@ -291,7 +291,7 @@
     },
     {
       "name": "Somniwing",
-      "slug": null,
+      "slug": "somniwing",
       "formTag": null,
       "icon": "https://img.game8.co/4616841/7ec7e07b5d0ecfcdb3d985352658da23.png/show",
       "skills": [
@@ -885,7 +885,7 @@
     },
     {
       "name": "Irisalis",
-      "slug": null,
+      "slug": "irisalis",
       "formTag": null,
       "icon": "https://img.game8.co/4616741/e4bc531736790df157481abee4a36259.png/show",
       "skills": [
