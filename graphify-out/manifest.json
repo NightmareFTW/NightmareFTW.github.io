@@ -12,9 +12,9 @@
     "semantic_hash": ""
   },
   "assets/js/data.js": {
-    "mtime": 1795743371.9409535,
-    "seen": 1795743506.0424042,
-    "ast_hash": "09e966927effb600a7727b79eaa5bed4",
+    "mtime": 1795743753.408976,
+    "seen": 1795743832.5177476,
+    "ast_hash": "48ce06470b5cdbe87e6e8f56797aab8f",
     "semantic_hash": ""
   },
   "assets/js/game.js": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "assets/js/i18n.js": {
-    "mtime": 1795743448.484958,
-    "seen": 1795743506.042456,
-    "ast_hash": "f1bec57debf04b0049610e4bfd1030cc",
+    "mtime": 1795743805.8089793,
+    "seen": 1795743832.5177913,
+    "ast_hash": "10742ed305d071e9f25fcaeb00100e51",
     "semantic_hash": ""
   },
   "data/codes/dreamlight-valley.json": {
@@ -804,363 +804,363 @@
     "semantic_hash": ""
   },
   "article.html": {
-    "mtime": 1795743503.6009612,
-    "seen": 1795743506.0475273,
-    "ast_hash": "54239a126bb6e8349d00a41cdedf9b10",
+    "mtime": 1795743830.2329807,
+    "seen": 1795743832.522558,
+    "ast_hash": "07524a881a65fbc23659c338e731f024",
     "semantic_hash": ""
   },
   "games/cyberpunk-2077/builds.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0476115,
-    "ast_hash": "c1ec4c3de4b82c8f3b974b6376810365",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226207,
+    "ast_hash": "0aafa79f88dcb096f0507651873f2318",
     "semantic_hash": ""
   },
   "games/cyberpunk-2077/index.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.047614,
-    "ast_hash": "585491e9838c18262113a1c5d99b9924",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226228,
+    "ast_hash": "a462fa97539631b23f20cd141f56f777",
     "semantic_hash": ""
   },
   "games/demonologist/demons.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0476172,
-    "ast_hash": "7e3d3fe4389392e3605445d2de1084bd",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226243,
+    "ast_hash": "b16683055eea6d3d5b1b127ef6c66935",
     "semantic_hash": ""
   },
   "games/demonologist/equipment.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.04762,
-    "ast_hash": "24b08426de924dce4b84d0d8d4924d91",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226264,
+    "ast_hash": "a72344a39053ac1e237c555485716a66",
     "semantic_hash": ""
   },
   "games/demonologist/evidence.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.047623,
-    "ast_hash": "60c75b7d50543cea88151fa687d8e51a",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226278,
+    "ast_hash": "1593fbd5796273ebbea097f648f3b71d",
     "semantic_hash": ""
   },
   "games/demonologist/index.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.047625,
-    "ast_hash": "2d4ed0a5f5e06c28148c3d5d0176ad7b",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226293,
+    "ast_hash": "30e1ec7d796420ed4d726e3f9ccd316e",
     "semantic_hash": ""
   },
   "games/dreamlight-valley/animals.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0476267,
-    "ast_hash": "528cc7d0f4f4c846ed56b5bf0fb1761c",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.522631,
+    "ast_hash": "01cdba487d5691ab5449bcc4e70320c9",
     "semantic_hash": ""
   },
   "games/dreamlight-valley/friendship.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476289,
-    "ast_hash": "348e090e9f7d13e09dfe7befcda2598f",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226321,
+    "ast_hash": "216fc890639d68690223a4976dd017d8",
     "semantic_hash": ""
   },
   "games/dreamlight-valley/index.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.047631,
-    "ast_hash": "31cf5d1cc2b87b84fdd380334e9db8ac",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226336,
+    "ast_hash": "dd626957dc232ae88699141cb999c6d6",
     "semantic_hash": ""
   },
   "games/dreamlight-valley/items.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.047633,
-    "ast_hash": "b56fe3f6cd8abc9b4a6dd15b470db269",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226347,
+    "ast_hash": "e8c2c5f1d4ccfd02cc6c8a8ec5bd0d57",
     "semantic_hash": ""
   },
   "games/dreamlight-valley/recipes.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476372,
-    "ast_hash": "1364d2e8cf3c275842a54e75b9c1c30a",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226374,
+    "ast_hash": "5c165dc1068fb42f6d31659b0d6e9c18",
     "semantic_hash": ""
   },
   "games/dreamlight-valley/star-path.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476396,
-    "ast_hash": "1a91da1cfc618bf9b0a038fa9d1fa4a0",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226386,
+    "ast_hash": "55b865de409af8e0b880b05c7cf36492",
     "semantic_hash": ""
   },
   "games/elden-ring/builds.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476418,
-    "ast_hash": "cb20bfdeeda2e375c2a89fef3b9f01fb",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.52264,
+    "ast_hash": "22077d30250071dc556a44ec9a520071",
     "semantic_hash": ""
   },
   "games/elden-ring/index.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476441,
-    "ast_hash": "82bb42b6a57e3dad69deb5ca1d71290d",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226417,
+    "ast_hash": "e229f84b847b3945817c2ebac4781a07",
     "semantic_hash": ""
   },
   "games/elden-ring/missables.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476465,
-    "ast_hash": "7be86a5904ae2567934fb64d316ab24f",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.522643,
+    "ast_hash": "d375325ca512643d495e2a4e52ccd62c",
     "semantic_hash": ""
   },
   "games/epic7/index.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.047659,
-    "ast_hash": "af9273b458311124fec72d44959dab66",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226514,
+    "ast_hash": "a0df6c2e71bf41ea3e1ac70715937c7a",
     "semantic_hash": ""
   },
   "games/expedition-33/builds.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476613,
-    "ast_hash": "20e72f7d87975600862b1fe189804498",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.522653,
+    "ast_hash": "d89375b43c6089a1ec17022e56109398",
     "semantic_hash": ""
   },
   "games/expedition-33/index.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476642,
-    "ast_hash": "c5caee38890b7d187687332468b33241",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226548,
+    "ast_hash": "15ab05c06cc5694f6b5579bc798ec057",
     "semantic_hash": ""
   },
   "games/expedition-33/missables.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476668,
-    "ast_hash": "d64b64136ff74925b7ad94af9cef25a5",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226564,
+    "ast_hash": "9dcc7f77cec24f28d592d55f7cafe3e6",
     "semantic_hash": ""
   },
   "games/far-far-west/builds.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476687,
-    "ast_hash": "2b3fea752e956a6ceb9ea993f054daa9",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226576,
+    "ast_hash": "a4622f8c95ed03a619c59d9a90850e77",
     "semantic_hash": ""
   },
   "games/far-far-west/index.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476708,
-    "ast_hash": "f3cca3bc4a4aab64ac407cb13ed72034",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.522659,
+    "ast_hash": "fe2c9d5b640bc1efbadbb332c7cbdb3e",
     "semantic_hash": ""
   },
   "games/far-far-west/maps.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476732,
-    "ast_hash": "83b40cd2309916e8f1670192b4a21332",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226603,
+    "ast_hash": "331b0b5dc2b47003f153ace87399b931",
     "semantic_hash": ""
   },
   "games/ffxiv/dailies.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476835,
-    "ast_hash": "4e70c3711708a9070e449557c90aeaad",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.522669,
+    "ast_hash": "db0475c08e521447ac5695432b077aca",
     "semantic_hash": ""
   },
   "games/ffxiv/index.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476856,
-    "ast_hash": "dcaedd951c2e098657a28a3e497c0246",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226705,
+    "ast_hash": "a00e030c7f48dfe55809711501d48d9a",
     "semantic_hash": ""
   },
   "games/ffxiv/nodes.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.047688,
-    "ast_hash": "6364711fc2304cdb14056202fc929028",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226722,
+    "ast_hash": "f39d1a2e834d1baa16adc00c365c9cd9",
     "semantic_hash": ""
   },
   "games/god-of-war-ragnarok/builds.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476902,
-    "ast_hash": "a1f35073fa856945fefe9bb568b8a073",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226734,
+    "ast_hash": "22e630a90fc74483292ab48d0c0ea013",
     "semantic_hash": ""
   },
   "games/god-of-war-ragnarok/index.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476928,
-    "ast_hash": "d013a5b0598c487d97b26a4b732daebf",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.522675,
+    "ast_hash": "bc3886dd8e3bea26f429672cffb2be5d",
     "semantic_hash": ""
   },
   "games/god-of-war-ragnarok/missables.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476947,
-    "ast_hash": "56e7f4b1cf555d6360e5d7f5b0b7a14e",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.522676,
+    "ast_hash": "27e59470daa2d0442912a8117b3425a4",
     "semantic_hash": ""
   },
   "games/honkai-star-rail/builds.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476978,
-    "ast_hash": "6b9f34240212e3543955155d3208fdcd",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226774,
+    "ast_hash": "13cfee5d7088ba9161b9d73982867f35",
     "semantic_hash": ""
   },
   "games/honkai-star-rail/dailies.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0477002,
-    "ast_hash": "f69c571fa6842e2eeae7c329f61a7e96",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226786,
+    "ast_hash": "c515018ca2b54e850ddbb0c7c5bb2918",
     "semantic_hash": ""
   },
   "games/honkai-star-rail/event-calendar.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0477023,
-    "ast_hash": "9dd4b5c3352f04601b26e33b014fcb48",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.52268,
+    "ast_hash": "c64179cee7490345747e40d7e6178029",
     "semantic_hash": ""
   },
   "games/honkai-star-rail/index.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0477042,
-    "ast_hash": "1f4f38ef7d5ccfc94bd27e6ef94b6c9c",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226812,
+    "ast_hash": "0af317c2a4f3758caad54b6194bfa6f8",
     "semantic_hash": ""
   },
   "games/honkai-star-rail/meta-builds.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0477073,
-    "ast_hash": "185b7806d82a362d2795502f49f6484c",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.522683,
+    "ast_hash": "1817d54100a8a8b6385efa63d0f58dfc",
     "semantic_hash": ""
   },
   "games/honkai-star-rail/tier-list.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.04771,
-    "ast_hash": "3b04bb7307f7fed669f9469acfc0d510",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226839,
+    "ast_hash": "22cbbb1670e5922d96448f5d96f25449",
     "semantic_hash": ""
   },
   "games/honkai-star-rail/warp-calendar.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0477123,
-    "ast_hash": "43afecf178e58f43be2ec8acd01a41db",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226848,
+    "ast_hash": "5cb0a43d95759fbffe74aa795a7299bb",
     "semantic_hash": ""
   },
   "games/marvel-snap/cards.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0477145,
-    "ast_hash": "20005cf82311cebdbb98e83a4feb6718",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226862,
+    "ast_hash": "4650dc6d81aed110b7649d106892b3b2",
     "semantic_hash": ""
   },
   "games/marvel-snap/deck-builder.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.047717,
-    "ast_hash": "7be19478ed19d8fb121bb319f9b13cdb",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226874,
+    "ast_hash": "604fc9bd3f995dca7a8334ea7636b25b",
     "semantic_hash": ""
   },
   "games/marvel-snap/decks.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477192,
-    "ast_hash": "91fc7127adcdbb78b45ae69d037ecabb",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226889,
+    "ast_hash": "c58b64169fda3bfa762dde9826931326",
     "semantic_hash": ""
   },
   "games/marvel-snap/index.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.047722,
-    "ast_hash": "8b7c74012ef8477a9f859073da8d2eef",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226898,
+    "ast_hash": "1434a4ded1b4c8e69c093f8baec23bb1",
     "semantic_hash": ""
   },
   "games/nte/dailies.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477247,
-    "ast_hash": "4b87cc78faf8e0045a54ad7817533f0a",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.522691,
+    "ast_hash": "adfb596f85eaf8dfd38ae8621ea380ea",
     "semantic_hash": ""
   },
   "games/nte/gifts.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477276,
-    "ast_hash": "046a9fb3b333c9c94ba7ce91606319ef",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226924,
+    "ast_hash": "18282bba5e2eac0026a77ff23b772357",
     "semantic_hash": ""
   },
   "games/nte/index.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477297,
-    "ast_hash": "71177dbfdcd63a3db7b907d0b7b43c76",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226934,
+    "ast_hash": "4e0213ceb2181f6c5c4f21abc06800bd",
     "semantic_hash": ""
   },
   "games/nte/tier-list.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.047732,
-    "ast_hash": "3e474661cdc45e51b44ebcaf48c47d2e",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5226946,
+    "ast_hash": "dafb39b08de98c6e88c8dce5bbcdaddb",
     "semantic_hash": ""
   },
   "games/outlast-trials/builds.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477352,
-    "ast_hash": "f327b2b91204be8b8b1bb1e7de6704bd",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5226958,
+    "ast_hash": "0e7a3829053fb8b8fc6739f638f0b39b",
     "semantic_hash": ""
   },
   "games/outlast-trials/enemies.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477378,
-    "ast_hash": "e48d7cee8bb663f8dd8cf25480ce3968",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5226967,
+    "ast_hash": "6b4dbe32e370aba82b0192c712a1cc45",
     "semantic_hash": ""
   },
   "games/outlast-trials/index.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477402,
-    "ast_hash": "5b3a4cc35fdd5d262052fe099c421632",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.522698,
+    "ast_hash": "f8b5238da55c93a2cffbd86b5710dfd1",
     "semantic_hash": ""
   },
   "games/outlast-trials/loadout.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477424,
-    "ast_hash": "7c9386f4395cffb8206744b9acce95d3",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5226994,
+    "ast_hash": "ebfcbfba8da199e8747be96b0a2bc1a1",
     "semantic_hash": ""
   },
   "games/outlast-trials/trials.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.047745,
-    "ast_hash": "8cea2bfa4c97fba6b7d0316730a834a7",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5227003,
+    "ast_hash": "23d53311072e9bc21193f90abddff6f8",
     "semantic_hash": ""
   },
   "games/phasmophobia/cursed-possessions.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477614,
-    "ast_hash": "371fdbc4422060c44812e4b05f1dd2ea",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.522708,
+    "ast_hash": "c4113ce4d0ca8829a364b202fe3a9b37",
     "semantic_hash": ""
   },
   "games/phasmophobia/equipment.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.047764,
-    "ast_hash": "40d08bb2bbacb04be52e239b24359c7d",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5227091,
+    "ast_hash": "5cc252ddb5e71f139cc545319f45a7ab",
     "semantic_hash": ""
   },
   "games/phasmophobia/ghost-evidence.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477657,
-    "ast_hash": "9099d570949caa8f2fd56bf228632d92",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227108,
+    "ast_hash": "dde440ebb5f66ce0e2359866223cdca1",
     "semantic_hash": ""
   },
   "games/phasmophobia/index.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477684,
-    "ast_hash": "44ab6b6437f46b9a2657a26d1b2414f1",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.522712,
+    "ast_hash": "ff3f899ff4f26cff42443a4ad119df71",
     "semantic_hash": ""
   },
   "games/warframe/cycles.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478337,
-    "ast_hash": "201962131a2b908315b7d8b53cb86166",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.5227485,
+    "ast_hash": "477ed00083a6d6bcddf53aed0db978bb",
     "semantic_hash": ""
   },
   "games/warframe/drops.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478358,
-    "ast_hash": "0405c585ec32dab0242b73199aef93b8",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.5227497,
+    "ast_hash": "3d62f689c7095afabf6ad0b1e611cfb1",
     "semantic_hash": ""
   },
   "games/warframe/index.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478382,
-    "ast_hash": "fb4f8b1e9317abfa86f7d65bcfb5af54",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.5227506,
+    "ast_hash": "0045ac49d7c1c3a484e4ee4c472c5f6f",
     "semantic_hash": ""
   },
   "games/warframe/worldstate.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.047841,
-    "ast_hash": "0a11f2083a151d97b6572da862addc43",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.5227523,
+    "ast_hash": "b3a126aa935c16c3a632fdb70f7b5a92",
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478432,
-    "ast_hash": "69f486caf5d4d9e18b4d869bb78ae844",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.5227535,
+    "ast_hash": "1d073fa324f323290cfe31f476ab5bad",
     "semantic_hash": ""
   },
   "play/index.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478458,
-    "ast_hash": "b82ff3c96e619c7a3d5859804dcdc275",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.522755,
+    "ast_hash": "14152703df97661280fdaf5c4b9f8c29",
     "semantic_hash": ""
   },
   "play/murdoku/index.html": {
-    "mtime": 1795743503.6369612,
-    "seen": 1795743506.0478482,
-    "ast_hash": "b88fee05cf8686abedaee4d942cf5c3d",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.522756,
+    "ast_hash": "e477acf8d344c92c63f320b290ee1cbe",
     "semantic_hash": ""
   },
   "assets/img/ddv/anna.png": {
@@ -1972,63 +1972,63 @@
     "semantic_hash": ""
   },
   "games/ravenswatch/builds.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477731,
-    "ast_hash": "f7a95036c439d9f9ec3333db542aad27",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227153,
+    "ast_hash": "9e3524cd727bd0462830f7d5c82e6435",
     "semantic_hash": ""
   },
   "games/ravenswatch/heroes.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477753,
-    "ast_hash": "f7970e57b73f473089bb5f50661ff62d",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227172,
+    "ast_hash": "8ada971c4a294d9640cb6113123870a3",
     "semantic_hash": ""
   },
   "games/ravenswatch/index.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.047778,
-    "ast_hash": "c2c7bc39c1f3db961dfa5a9da65bee09",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227184,
+    "ast_hash": "e5285617f7619f66d833901b6246119d",
     "semantic_hash": ""
   },
   "games/ravenswatch/objects.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477796,
-    "ast_hash": "9631468d0a914845b939000ac14e1d3b",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227199,
+    "ast_hash": "413cdc924d84540cf76ec117cf783b8c",
     "semantic_hash": ""
   },
   "games/ravenswatch/talents.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.047782,
-    "ast_hash": "8921a7a679e213827ba1d5bc907abf42",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.522721,
+    "ast_hash": "55ff12d08ee38e5d69573e1657930c38",
     "semantic_hash": ""
   },
   "games/the-other-side/equipment.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477846,
-    "ast_hash": "166bb1fead6f8ef2fa49ad1b6336a468",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227222,
+    "ast_hash": "497d755dac07e88579e0e5d3fa113b94",
     "semantic_hash": ""
   },
   "games/the-other-side/evidence.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.047787,
-    "ast_hash": "342c03d037f6bb55a0c098f0c0f5b518",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227237,
+    "ast_hash": "81d6b12ff79f90c701ca8da4ac10a408",
     "semantic_hash": ""
   },
   "games/the-other-side/ghosts.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.047789,
-    "ast_hash": "92ac9c551e5c543d9603cd44f89f3a79",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227246,
+    "ast_hash": "f3cbaf5dcfa82d55694401fad82048e8",
     "semantic_hash": ""
   },
   "games/the-other-side/index.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.047791,
-    "ast_hash": "6ce869dd91c4eebf61798b702eb3f508",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227258,
+    "ast_hash": "bce00a8ade5e96b65f0f2e0fa539243c",
     "semantic_hash": ""
   },
   "profile.html": {
-    "mtime": 1795743503.6369612,
-    "seen": 1795743506.0478501,
-    "ast_hash": "9a690901a3ea55c028686b7b55ac742d",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.5227575,
+    "ast_hash": "1138446721c81aa04a8747458cb2c40f",
     "semantic_hash": ""
   },
   "reset.html": {
@@ -2331,81 +2331,81 @@
     "semantic_hash": ""
   },
   "games/farever/builds.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476756,
-    "ast_hash": "9ecdccc57c144703ac2d7a220b641728",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226624,
+    "ast_hash": "09dfad5fb5ead69a302c574777a022c8",
     "semantic_hash": ""
   },
   "games/farever/dungeons.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476778,
-    "ast_hash": "103fa225174b732cfa6a94eeb4cf0ece",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226638,
+    "ast_hash": "53afa490dde81c7d45769b3237589bad",
     "semantic_hash": ""
   },
   "games/farever/index.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476797,
-    "ast_hash": "1ebb8483edf8f6b1a2ee6472e10add1c",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.5226662,
+    "ast_hash": "fafe24fbb253186be733fd16c66685aa",
     "semantic_hash": ""
   },
   "games/farever/weapons.html": {
-    "mtime": 1795743503.6209614,
-    "seen": 1795743506.0476818,
-    "ast_hash": "57e983a9522c02465bac25332ef0583e",
+    "mtime": 1795743830.2489808,
+    "seen": 1795743832.522668,
+    "ast_hash": "1b00f24dc77387613d902bd5da0ed609",
     "semantic_hash": ""
   },
   "games/palworld/breeding.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477479,
-    "ast_hash": "2b7e2bd63c564fea92b2668d75ffdf7a",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.522702,
+    "ast_hash": "219ebcd30371013abd19c5db6b7946bb",
     "semantic_hash": ""
   },
   "games/palworld/index.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477505,
-    "ast_hash": "ad6c67c553c64e8b55f41e49373cd962",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.522703,
+    "ast_hash": "3424414127c10118d06df4262e5c2968",
     "semantic_hash": ""
   },
   "games/palworld/pal.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.0477538,
-    "ast_hash": "4e8569c4ef2927129b20a98b74776cb5",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5227041,
+    "ast_hash": "6aa9a82bae9ef44479d2b257d75aa1ad",
     "semantic_hash": ""
   },
   "games/palworld/pals.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.047756,
-    "ast_hash": "f842a3dc9b8480c33943fd19acb99d60",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.5227053,
+    "ast_hash": "52685be90377969aade94d20d82046cb",
     "semantic_hash": ""
   },
   "games/palworld/passives.html": {
-    "mtime": 1795743503.6249614,
-    "seen": 1795743506.047759,
-    "ast_hash": "1660bc6340717e9f75783f0bff030d40",
+    "mtime": 1795743830.2529807,
+    "seen": 1795743832.522707,
+    "ast_hash": "b2145a505ca833ea5cb250809ea8a323",
     "semantic_hash": ""
   },
   "games/vampire-survivors/achievements.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477934,
-    "ast_hash": "37cecd0c468e60d53d5c56c1a5be5f88",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227273,
+    "ast_hash": "94c530545a3490f524c864f75d3b2315",
     "semantic_hash": ""
   },
   "games/vampire-survivors/character.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477989,
-    "ast_hash": "ff622a4996bb8559daea69966dbdcffa",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227306,
+    "ast_hash": "7c21bc1766ed1338f6bb24f6e2d0efde",
     "semantic_hash": ""
   },
   "games/vampire-survivors/characters.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0478015,
-    "ast_hash": "309c857111535061ec3964939d1f0a66",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.522732,
+    "ast_hash": "4add28c8e83308aa46db905ee0bbd634",
     "semantic_hash": ""
   },
   "games/vampire-survivors/index.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478094,
-    "ast_hash": "4ca18fe371067d077ed0b50a4a209682",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227356,
+    "ast_hash": "809ee6efd3aeb1a7c5a9e872e8795730",
     "semantic_hash": ""
   },
   "assets/img/farever/weapons/axe.png": {
@@ -2637,39 +2637,39 @@
     "semantic_hash": ""
   },
   "games/vampire-survivors/arcana.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477962,
-    "ast_hash": "5eeae873b02989b2453e0b6712306947",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227287,
+    "ast_hash": "fdce82985ebd56430924f6f8bd2e88df",
     "semantic_hash": ""
   },
   "games/vampire-survivors/enemies.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478044,
-    "ast_hash": "9c80605891d88f417c49ed7cdddd203e",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227332,
+    "ast_hash": "8b71e508c7572c6a09f039486815f217",
     "semantic_hash": ""
   },
   "games/vampire-survivors/enemy.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.047807,
-    "ast_hash": "a33ca7d6bc771079ff66973c9c647916",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227344,
+    "ast_hash": "a9cd20ec7a156d59ce3bd2d177f2f70c",
     "semantic_hash": ""
   },
   "games/vampire-survivors/passive.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.047812,
-    "ast_hash": "d2b0e850aef771d7cdbde2b7e0a813ed",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227368,
+    "ast_hash": "a4881f4cebf5089d5364d9e5b6ed106e",
     "semantic_hash": ""
   },
   "games/vampire-survivors/weapon.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478237,
-    "ast_hash": "66d5c428dd4ba029e8f3d6998ea98a12",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.5227435,
+    "ast_hash": "56e932b9fba0d1c262b941f985256b01",
     "semantic_hash": ""
   },
   "games/vampire-survivors/weapons.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478258,
-    "ast_hash": "54d2a4f8dd173d00700e59496e5b773a",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.522745,
+    "ast_hash": "cee9afe786963ebc63aa8ebc79a5cf23",
     "semantic_hash": ""
   },
   "assets/img/updates/vs-enemies-database.jpg": {
@@ -2733,27 +2733,27 @@
     "semantic_hash": ""
   },
   "games/epic7/artifact.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476494,
-    "ast_hash": "d1749bab41467c284a9042cc2e71a5d3",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226448,
+    "ast_hash": "12fd0af0c6f799b6faa290a5582f9499",
     "semantic_hash": ""
   },
   "games/epic7/artifacts.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476515,
-    "ast_hash": "0c402840e23d65255ec65c08d773b62e",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226464,
+    "ast_hash": "e375a51634320ad5fe4b09eca1968db5",
     "semantic_hash": ""
   },
   "games/epic7/hero.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.047654,
-    "ast_hash": "779969160bdb4a38ad5c2df502474b86",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.522648,
+    "ast_hash": "c9a331239ac67a074b75915e16b269f5",
     "semantic_hash": ""
   },
   "games/epic7/heroes.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.047657,
-    "ast_hash": "19b34bfd85fe87c1db0e8ea71d482691",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.5226495,
+    "ast_hash": "0c8d93453a988474f1a8f3b3ec8fa6ad",
     "semantic_hash": ""
   },
   "assets/img/updates/epic7-heroes-artifacts.jpg": {
@@ -2961,93 +2961,93 @@
     "semantic_hash": ""
   },
   "games/aniimo/aniimo.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0475855,
-    "ast_hash": "70aa9e84b5af09ff66fc7fb334cc1d7b",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226011,
+    "ast_hash": "cc28492049ae8964dda1ba6d723e28f4",
     "semantic_hash": ""
   },
   "games/aniimo/aniimos.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0475895,
-    "ast_hash": "80eab2d1841744192c4d6c42b9059aee",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226033,
+    "ast_hash": "e3d3967ee8f2c515696fb5b52494e01a",
     "semantic_hash": ""
   },
   "games/aniimo/builds.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0475924,
-    "ast_hash": "1660f6c0aed42af2dc834b63c6ee8c96",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.522606,
+    "ast_hash": "20c3ba5862aeffa2ddbf2e30f9f8a6c2",
     "semantic_hash": ""
   },
   "games/aniimo/codes.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0475962,
-    "ast_hash": "5d827d92529e8f11c7c8ac449ffea191",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226078,
+    "ast_hash": "d6a10899a707600c77962a8835cf6004",
     "semantic_hash": ""
   },
   "games/aniimo/homeland.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.047599,
-    "ast_hash": "05f47c4e73819809282aad045f14b520",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226102,
+    "ast_hash": "4f4a0d0c9f02e2acd07f05c80dee8498",
     "semantic_hash": ""
   },
   "games/aniimo/index.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.047602,
-    "ast_hash": "ebc513d4f5f7d031cb2be3e15c787124",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226123,
+    "ast_hash": "93042422e07ac8ee42dda4a7c03c31f1",
     "semantic_hash": ""
   },
   "games/aniimo/map.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.047605,
-    "ast_hash": "374e9c9d2bc2809494186448f572f277",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226145,
+    "ast_hash": "9ad6099245cbbc313196a63f11b331e6",
     "semantic_hash": ""
   },
   "games/dreamlight-valley/presets.html": {
-    "mtime": 1795743503.6169612,
-    "seen": 1795743506.0476348,
-    "ast_hash": "f772e1533a533b1a2111143df843eaf8",
+    "mtime": 1795743830.2449808,
+    "seen": 1795743832.522636,
+    "ast_hash": "8936d80e723b0d241ba7475ee202494c",
     "semantic_hash": ""
   },
   "games/ravenswatch/build-route.html": {
-    "mtime": 1795743503.6289613,
-    "seen": 1795743506.0477703,
-    "ast_hash": "0d731fcccf6e82b77530dd44675cd57d",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.522714,
+    "ast_hash": "54be7e1fc6f37284de9b706ee1ea8f9a",
     "semantic_hash": ""
   },
   "games/vampire-survivors/pickup.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478141,
-    "ast_hash": "cc3af0579f5d87d521b97fa3c89639f2",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227385,
+    "ast_hash": "edfacbffcba9b4e3884fe9f2730c4b62",
     "semantic_hash": ""
   },
   "games/vampire-survivors/pickups.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.047817,
-    "ast_hash": "e08a7398392e55c3160ce8a5ef26875d",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227396,
+    "ast_hash": "7ea0a2220ef2da99f77ad67d67127d4e",
     "semantic_hash": ""
   },
   "games/vampire-survivors/stage.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478199,
-    "ast_hash": "41d12281b4cbf87d79ff3a916fd99aab",
+    "mtime": 1795743830.2569807,
+    "seen": 1795743832.5227408,
+    "ast_hash": "8a8c9ab0388043bd2c377d414a98d4ea",
     "semantic_hash": ""
   },
   "games/vampire-survivors/stages.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478215,
-    "ast_hash": "53a4b5ea71977052748fe567d98448f4",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.522742,
+    "ast_hash": "993892c9d1d952692642ab511f7bf5c9",
     "semantic_hash": ""
   },
   "games/warframe/builder.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478287,
-    "ast_hash": "6ed7eabd12c58c8da1e7a2b60d49df2a",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.522746,
+    "ast_hash": "ed0e935bb02483e7fce2a78374742577",
     "semantic_hash": ""
   },
   "games/warframe/builds.html": {
-    "mtime": 1795743503.6329613,
-    "seen": 1795743506.0478313,
-    "ast_hash": "0dd2e2668b7f753502afebf387826c72",
+    "mtime": 1795743830.2609808,
+    "seen": 1795743832.522747,
+    "ast_hash": "ab116cb02ef7fd409189238a0fbe557d",
     "semantic_hash": ""
   },
   "assets/img/games/aniimo-header.jpg": {
@@ -3201,9 +3201,21 @@
     "semantic_hash": ""
   },
   "games/aniimo/tier-list.html": {
-    "mtime": 1795743503.6129613,
-    "seen": 1795743506.0476081,
-    "ast_hash": "906316a3e376b0c2b7b2f0419971de07",
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226188,
+    "ast_hash": "4737c16f890839dbd945f893d5e0b911",
+    "semantic_hash": ""
+  },
+  "games/aniimo/regions.js": {
+    "mtime": 1795743742.2409756,
+    "seen": 1795743832.5198298,
+    "ast_hash": "0b87028b3b10779f9c8fd00736bf89da",
+    "semantic_hash": ""
+  },
+  "games/aniimo/regions.html": {
+    "mtime": 1795743830.2409806,
+    "seen": 1795743832.5226166,
+    "ast_hash": "258e81c5e35fdcd7c1fcba00e7fb5f97",
     "semantic_hash": ""
   }
 }

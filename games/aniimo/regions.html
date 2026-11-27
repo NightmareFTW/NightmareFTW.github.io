@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nftw-auth.nightmareftw.workers.dev https://api.github.com https://github.com https://api.warframestat.us https://cloudflareinsights.com; frame-src https://outlast.fex.dev; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniimo Regions · Aniimo · NightmareFTW</title>
+  <!--og-->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NightmareFTW">
+  <meta property="og:url" content="https://nightmareftw.github.io/games/aniimo/regions.html">
+  <meta property="og:title" content="Regions &amp; Habitats · Aniimo">
+  <meta property="og:description" content="Every region of Idyll and the new Whisperwake Isles: which Aniimo live where, the local mechanics, the official art, and a jump straight to that spot on the map.">
+  <meta property="og:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Regions &amp; Habitats · Aniimo">
+  <meta name="twitter:description" content="Every region of Idyll and the new Whisperwake Isles: which Aniimo live where, the local mechanics, the official art, and a jump straight to that spot on the map.">
+  <meta name="twitter:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
+  <!--/og-->
+  <meta name="description" content="Every region of Idyll and the Whisperwake Isles: which Aniimo live where, region mechanics, and links to the map and database.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=16a4aa29">
+  <style>
+    .rg-section-title { font-family: var(--disp); font-weight: 600; font-size: 1.3rem; margin: 28px 0 6px; display: flex; align-items: center; gap: 10px; }
+    .rg-section-title .tag { font: 700 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 4px 8px; border-radius: 5px; }
+    .rg-section-sub { color: var(--muted); font-size: .9rem; margin: 0 0 16px; }
+    .rg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .rg-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .rg-shot { height: 128px; background-size: cover; background-position: center; position: relative; display: flex; align-items: flex-end; }
+    .rg-shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 35%, rgba(6, 6, 9, .88)); }
+    .rg-name { position: relative; z-index: 1; padding: 12px 14px; font: 600 1.05rem/1.1 var(--disp); color: #fff; }
+    .rg-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; }
+    .rg-desc { color: var(--muted); font-size: .88rem; line-height: 1.5; margin: 0 0 10px; }
+    .rg-mech { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 10px; }
+    .rg-mech .ev-chip { background: rgba(255, 42, 56, .12); color: var(--accent-2); }
+    .rg-cr-lbl { font: 600 10px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: auto 0 8px; }
+    .rg-crs { display: flex; flex-wrap: wrap; gap: 5px; }
+    .rg-cr { width: 36px; height: 36px; border-radius: 7px; overflow: hidden; border: 1px solid var(--border); background: #0c0c10; display: block; }
+    .rg-cr img { width: 100%; height: 100%; object-fit: cover; }
+    .rg-foot { margin-top: 12px; }
+  </style>
+</head>
+<body data-game="aniimo">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark"><svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true"><path d="M10 0 0 18h10z" fill="#ff2a38"/><path d="M10 0v18h10z" fill="#c01320"/></svg></span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="nav" aria-label="Sections"><a href="../../index.html">Hub</a><a href="../../play/index.html">Play</a></nav>
+      <div class="top-nav"></div>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Aniimo</a> / regions</p>
+    <h1>Aniimo Regions</h1>
+    <p class="tool-sub">Every region of the world — which Aniimo live where, the local mechanics, and a jump straight to that spot on the interactive map. The original Idyll regions and the new Whisperwake Isles are grouped separately.</p>
+    <p class="codes-updated" id="rg-updated">Loading…</p>
+
+    <div id="rg-list"><p style="color:var(--muted)">Loading regions…</p></div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · region data via the official Aniimo site &amp; Game8.</span></div></footer>
+  <script src="regions.js?v=f4df6650"></script>
+  <script src="/assets/js/i18n.js?v=ee453bd8" defer></script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

@@ -1901,6 +1901,20 @@
     "No Aniimo match these filters.": "Nenhum Aniimo corresponde a estes filtros.",
     "Couldn't load the Aniimo tier list.": "Não foi possível carregar a tier list de Aniimo.",
     "Loading tier list…": "A carregar tier list…",
+    "Regions & Habitats": "Regiões e Habitats",
+    "Every region of Idyll and the new Whisperwake Isles: which Aniimo live where, the local mechanics, the official art, and a jump straight to that spot on the map.":
+      "Todas as regiões de Idyll e das novas Whisperwake Isles: que Aniimo vivem onde, as mecânicas locais, a arte oficial, e um salto direto para esse ponto no mapa.",
+    "Aniimo Regions": "Regiões de Aniimo",
+    "Every region of the world — which Aniimo live where, the local mechanics, and a jump straight to that spot on the interactive map. The original Idyll regions and the new Whisperwake Isles are grouped separately.":
+      "Todas as regiões do mundo — que Aniimo vivem onde, as mecânicas locais, e um salto direto para esse ponto no mapa interativo. As regiões originais de Idyll e as novas Whisperwake Isles estão agrupadas em separado.",
+    "The original overworld.": "O mundo original.", "New": "Novo",
+    "Added in the Season 1 Part 2 update — the official site is still filling in art and spawns for these.":
+      "Adicionadas na atualização Season 1 Part 2 — o site oficial ainda está a preencher a arte e os spawns destas.",
+    "No Aniimo recorded here yet": "Ainda sem Aniimo registados aqui",
+    "View on the map →": "Ver no mapa →",
+    "Couldn't load region data.": "Não foi possível carregar os dados das regiões.",
+    "Loading regions…": "A carregar regiões…",
+    "Built by NightmareFTW · region data via the official Aniimo site & Game8.": "Feito por NightmareFTW · dados das regiões via site oficial do Aniimo e Game8.",
     "Search Aniimo…": "Procurar Aniimo…", "Search regions…": "Procurar regiões…",
     "All stages": "Todos os estágios",
     "stats soon": "stats em breve", "Full data coming soon": "Dados completos em breve",
@@ -2253,6 +2267,8 @@
     [/^(\d+) team comps · (\d+) individual builds · updated (.+)$/,
       "$1 composições de equipa · $2 builds individuais · actualizado $3"],
     [/^(\d+) ranked · updated (.+)$/, "$1 ordenados · actualizado $2"],
+    [/^(\d+) regions · updated (.+)$/, "$1 regiões · actualizado $2"],
+    [/^(\d+) Aniimo here$/, "$1 Aniimo aqui"],
     [/^The current best endgame \/ meta teams, as of (.+) — compiled from and corroborated across up-to-date guides \((.+)\)\. Each member's Held Item, personality and stat priority is from our Game8 build data\. Metas shift with every patch\.$/,
       (m, date, src) => `As melhores equipas meta de endgame, de ${date} — compiladas e corroboradas a partir de guias actualizados (${src}). O Held Item, a personalidade e a prioridade de stats de cada membro vêm dos nossos dados de build do Game8. As metas mudam a cada patch.`],
 

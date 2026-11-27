@@ -774,6 +774,14 @@ const GAMES = [
         available: true,
       },
       {
+        id: "regions",
+        name: "Regions & Habitats",
+        type: "database",
+        desc: "Every region of Idyll and the new Whisperwake Isles: which Aniimo live where, the local mechanics, the official art, and a jump straight to that spot on the map.",
+        href: "games/aniimo/regions.html",
+        available: true,
+      },
+      {
         id: "builds",
         name: "Aniimo Teams & Builds",
         type: "builder",
