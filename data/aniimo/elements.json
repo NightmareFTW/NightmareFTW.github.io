@@ -1,0 +1,18 @@
+{
+  "updated": "2026-11-27",
+  "sourceName": "AniimoTools, GameWith & MetaBot",
+  "note": "The official Aniimo wiki doesn't publish a type chart, so this is the community-datamined element matchup matrix — corroborated across AniimoTools, GameWith and MetaBot, which agree on all 81 cells. Multipliers: super-effective 1.6×, neutral 1×, resisted 0.625×. Every element resists its own type (0.625×) except Dark, which hits Dark for 1×. Dual-type targets multiply the two values (up to 2.56× double-weak / ~0.39× double-resist). Re-verify after major balance patches.",
+  "multipliers": { "super": 1.6, "neutral": 1, "resisted": 0.625 },
+  "elements": ["Fire", "Water", "Grass", "Electric", "Ice", "Rock", "Wind", "Holy", "Dark"],
+  "chart": {
+    "Fire": { "strong": ["Grass", "Ice"], "resisted": ["Fire", "Water", "Rock", "Holy"] },
+    "Water": { "strong": ["Fire", "Rock"], "resisted": ["Water", "Grass", "Ice", "Holy"] },
+    "Grass": { "strong": ["Water", "Rock"], "resisted": ["Fire", "Grass", "Holy"] },
+    "Electric": { "strong": ["Water", "Wind"], "resisted": ["Electric", "Ice", "Rock"] },
+    "Ice": { "strong": ["Water", "Electric"], "resisted": ["Fire", "Ice", "Rock"] },
+    "Rock": { "strong": ["Fire", "Ice"], "resisted": ["Grass", "Water", "Rock", "Dark"] },
+    "Wind": { "strong": ["Grass", "Dark"], "resisted": ["Electric", "Wind"] },
+    "Holy": { "strong": ["Wind", "Dark"], "resisted": ["Electric", "Holy"] },
+    "Dark": { "strong": ["Grass", "Electric", "Holy"], "resisted": ["Water", "Wind"] }
+  }
+}

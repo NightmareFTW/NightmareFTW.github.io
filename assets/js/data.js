@@ -798,6 +798,14 @@ const GAMES = [
         available: true,
       },
       {
+        id: "elements",
+        name: "Element Chart",
+        type: "reference",
+        desc: "The full 9×9 element type-effectiveness chart — what every element is strong and weak against, with the damage multipliers. Tap an element for its matchups.",
+        href: "games/aniimo/elements.html",
+        available: true,
+      },
+      {
         id: "codes",
         name: "Community Codes",
         type: "database",

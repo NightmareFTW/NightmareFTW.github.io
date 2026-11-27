@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nftw-auth.nightmareftw.workers.dev https://api.github.com https://github.com https://api.warframestat.us https://cloudflareinsights.com; frame-src https://outlast.fex.dev; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniimo Element Chart · Aniimo · NightmareFTW</title>
+  <!--og-->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NightmareFTW">
+  <meta property="og:url" content="https://nightmareftw.github.io/games/aniimo/elements.html">
+  <meta property="og:title" content="Element Chart · Aniimo">
+  <meta property="og:description" content="The full 9×9 element type-effectiveness chart — what every element is strong and weak against, with the damage multipliers. Tap an element for its matchups.">
+  <meta property="og:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Element Chart · Aniimo">
+  <meta name="twitter:description" content="The full 9×9 element type-effectiveness chart — what every element is strong and weak against, with the damage multipliers. Tap an element for its matchups.">
+  <meta name="twitter:image" content="https://nightmareftw.github.io/assets/img/games/aniimo-header.jpg">
+  <!--/og-->
+  <meta name="description" content="The full Aniimo element type-effectiveness chart: what every element is strong and weak against, with the damage multipliers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=16a4aa29">
+  <style>
+    .el-legend { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 4px 0 18px; font: 600 11px/1 var(--mono); color: var(--muted); }
+    .el-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .el-key { width: 13px; height: 13px; border-radius: 3px; }
+    .el-wrap { overflow-x: auto; padding-bottom: 6px; }
+    .el-grid { display: grid; grid-template-columns: repeat(10, minmax(46px, 1fr)); gap: 3px; min-width: 520px; }
+    .el-h { display: flex; align-items: center; justify-content: center; text-align: center; font: 700 10px/1.1 var(--mono); letter-spacing: .02em; border-radius: 6px; padding: 7px 2px; cursor: pointer; user-select: none; transition: .12s; }
+    .el-h.col { color: #0a0a0c; min-height: 34px; }
+    .el-h.row { color: #0a0a0c; }
+    .el-corner { display: flex; align-items: center; justify-content: center; font: 600 8.5px/1.2 var(--mono); color: var(--muted); text-align: center; }
+    .el-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 6px; font: 700 11px/1 var(--mono); border: 1px solid var(--border); transition: .12s; }
+    .el-cell.super { background: rgba(52, 211, 153, .17); color: #34d399; border-color: rgba(52, 211, 153, .3); }
+    .el-cell.resist { background: rgba(255, 70, 80, .15); color: #ff6470; border-color: rgba(255, 70, 80, .28); }
+    .el-cell.neutral { background: var(--bg-soft); color: var(--text-4, #55535d); }
+    .el-grid.sel .el-h:not(.on), .el-grid.sel .el-cell:not(.hl) { opacity: .32; }
+    .el-cell.hl { outline: 1px solid rgba(255,255,255,.25); }
+    .el-sum { margin-top: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+    .el-sum h3 { font-family: var(--disp); margin: 0 0 12px; display: flex; align-items: center; gap: 9px; font-size: 1.1rem; }
+    .el-sum .dot { width: 14px; height: 14px; border-radius: 4px; }
+    .el-sum .row { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin: 7px 0; }
+    .el-sum .lbl { font: 600 10px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); width: 118px; flex: none; }
+    .el-sum .pill { font: 600 11px/1 var(--mono); padding: 4px 8px; border-radius: 5px; color: #0a0a0c; }
+    .el-hint { color: var(--muted); font-size: .85rem; margin-top: 10px; }
+  </style>
+</head>
+<body data-game="aniimo">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../index.html"><span class="brand-mark"><svg width="20" height="18" viewBox="0 0 20 18" aria-hidden="true"><path d="M10 0 0 18h10z" fill="#ff2a38"/><path d="M10 0v18h10z" fill="#c01320"/></svg></span><span class="brand-name">Nightmare<span class="accent">FTW</span></span></a>
+      <nav class="nav" aria-label="Sections"><a href="../../index.html">Hub</a><a href="../../play/index.html">Play</a></nav>
+      <div class="top-nav"></div>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <p class="breadcrumb"><a href="../../index.html">hub</a> / <a href="index.html">Aniimo</a> / elements</p>
+    <h1>Aniimo Element Chart</h1>
+    <p class="tool-sub">What beats what. Rows attack, columns defend — green is super-effective, red is resisted. Tap any element to see everything it's strong and weak against.</p>
+    <p class="codes-updated" id="el-updated">Loading…</p>
+
+    <div class="el-legend">
+      <span><span class="el-key" style="background:rgba(52,211,153,.5)"></span>Super-effective 1.6×</span>
+      <span><span class="el-key" style="background:var(--bg-soft);border:1px solid var(--border)"></span>Neutral 1×</span>
+      <span><span class="el-key" style="background:rgba(255,70,80,.5)"></span>Resisted 0.625×</span>
+    </div>
+    <div class="el-wrap"><div class="el-grid" id="el-grid"></div></div>
+    <div id="el-sum"></div>
+  </main>
+  <footer class="site-footer"><div class="container"><span>Built by NightmareFTW · matchup data via AniimoTools, GameWith &amp; MetaBot.</span></div></footer>
+  <script src="elements.js?v=2d581c72"></script>
+  <script src="/assets/js/i18n.js?v=2d313b90" defer></script>
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0fc25d6ec3948f58b0a240fab9e9500"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

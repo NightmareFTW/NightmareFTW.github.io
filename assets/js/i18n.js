@@ -1915,6 +1915,18 @@
     "Couldn't load region data.": "Não foi possível carregar os dados das regiões.",
     "Loading regions…": "A carregar regiões…",
     "Built by NightmareFTW · region data via the official Aniimo site & Game8.": "Feito por NightmareFTW · dados das regiões via site oficial do Aniimo e Game8.",
+    "Element Chart": "Tabela de Elementos",
+    "The full 9×9 element type-effectiveness chart — what every element is strong and weak against, with the damage multipliers. Tap an element for its matchups.":
+      "A tabela completa 9×9 de eficácia entre elementos — contra o que cada elemento é forte e fraco, com os multiplicadores de dano. Toca num elemento para os seus confrontos.",
+    "Aniimo Element Chart": "Tabela de Elementos de Aniimo",
+    "What beats what. Rows attack, columns defend — green is super-effective, red is resisted. Tap any element to see everything it's strong and weak against.":
+      "O que vence o quê. As linhas atacam, as colunas defendem — verde é super-eficaz, vermelho é resistido. Toca num elemento para ver tudo contra o que é forte e fraco.",
+    "Super-effective 1.6×": "Super-eficaz 1.6×", "Neutral 1×": "Neutro 1×", "Resisted 0.625×": "Resistido 0.625×",
+    "Strong against": "Forte contra", "Deals less to": "Faz menos a", "Weak to": "Fraco a", "Resists": "Resiste a",
+    "none": "nenhum",
+    "Tap an element in the grid to see its matchups.": "Toca num elemento na grelha para ver os confrontos.",
+    "Couldn't load the element chart.": "Não foi possível carregar a tabela de elementos.",
+    "Built by NightmareFTW · matchup data via AniimoTools, GameWith & MetaBot.": "Feito por NightmareFTW · dados de confronto via AniimoTools, GameWith e MetaBot.",
     "Search Aniimo…": "Procurar Aniimo…", "Search regions…": "Procurar regiões…",
     "All stages": "Todos os estágios",
     "stats soon": "stats em breve", "Full data coming soon": "Dados completos em breve",
@@ -2269,6 +2281,7 @@
     [/^(\d+) ranked · updated (.+)$/, "$1 ordenados · actualizado $2"],
     [/^(\d+) regions · updated (.+)$/, "$1 regiões · actualizado $2"],
     [/^(\d+) Aniimo here$/, "$1 Aniimo aqui"],
+    [/^(\d+) elements · updated (.+)$/, "$1 elementos · actualizado $2"],
     [/^The current best endgame \/ meta teams, as of (.+) — compiled from and corroborated across up-to-date guides \((.+)\)\. Each member's Held Item, personality and stat priority is from our Game8 build data\. Metas shift with every patch\.$/,
       (m, date, src) => `As melhores equipas meta de endgame, de ${date} — compiladas e corroboradas a partir de guias actualizados (${src}). O Held Item, a personalidade e a prioridade de stats de cada membro vêm dos nossos dados de build do Game8. As metas mudam a cada patch.`],
 
