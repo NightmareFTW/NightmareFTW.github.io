@@ -1,17 +1,17 @@
 # Graph Report - NightmareFTW.github.io  (2026-11-27)
 
 ## Corpus Check
-- 263 files · ~1,078,753 words
+- 263 files · ~1,079,654 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: .css 3, (none) 1, .xml 1)
 
 ## Summary
-- 2490 nodes · 3912 edges · 280 communities (162 shown, 118 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 187 edges (avg confidence: 0.85)
+- 2484 nodes · 3902 edges · 283 communities (165 shown, 118 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 184 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `96ccb4b0`
+- Built from commit: `152aa0b1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -197,7 +197,7 @@
 - Demonologist (game hub)
 - .claude/CLAUDE.md
 - elements.js
-- ref_path
+- update-animals.js
 - stamp-assets.js
 - ravenswatch/talents.js
 - update-the-other-side.js
@@ -275,6 +275,7 @@
 - build-route.js
 - honkai-star-rail/tier-list.js
 - homeland.js
+- ref_path
 - cards.js
 - warframe/builds.js
 - aniimos.js
@@ -290,9 +291,11 @@
 - stage.js
 - warframe/index.js
 - Project notes for Claude
+- update-recipes.js
 - update-starpath.js
 - update-drops.js
 - ref_fs
+- update-items.js
 - regions.js
 - build-sitemap.js
 
@@ -337,7 +340,7 @@
 - **Cross-game Meta Builds tool pattern** — games_elden_ring_builds_meta_builds, games_expedition_33_builds_meta_builds, games_far_far_west_builds_meta_builds [INFERRED 0.85]
 - **Cross-game Missables Checklist tool pattern (on-device ticks)** — games_elden_ring_missables_missables_checklist, games_expedition_33_missables_missables_checklist [INFERRED 0.85]
 
-## Communities (280 total, 118 thin omitted)
+## Communities (283 total, 118 thin omitted)
 
 ### Community 0 - "ref_child_process"
 Cohesion: 0.32
@@ -603,9 +606,9 @@ Nodes (3): Marvel Snap, Marvel Snap Zone, Update Marvel Snap Cards
 Cohesion: 0.27
 Nodes (11): ELEMENT_COLOR, ELS, esc(), grid, mult, pills(), rel(), renderGrid() (+3 more)
 
-### Community 182 - "ref_path"
-Cohesion: 0.06
-Nodes (71): buildCatalogue(), fs, parseCatalogue(), path, fs, load(), norm(), officialName() (+63 more)
+### Community 182 - "update-animals.js"
+Cohesion: 0.18
+Nodes (24): clean(), fileAndName(), parseTable(), sections(), tables(), wikitext(), getJson(), buildFoodMap() (+16 more)
 
 ### Community 183 - "stamp-assets.js"
 Cohesion: 0.14
@@ -648,8 +651,8 @@ Cohesion: 0.48
 Nodes (6): card(), esc(), evOrder(), labelOf(), render(), root
 
 ### Community 193 - "update-aniimo.js"
-Cohesion: 0.05
-Nodes (64): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildMap(), buildRegions(), decodeEntities() (+56 more)
+Cohesion: 0.06
+Nodes (59): getText(), attrName(), buildAniimoBuilds(), buildCommunityCodes(), buildHomelandGuide(), buildRegions(), decodeEntities(), findComponent() (+51 more)
 
 ### Community 194 - "builder.js"
 Cohesion: 0.11
@@ -911,6 +914,10 @@ Nodes (11): buildSection(), compsFor(), detail, esc(), member(), portrait(), ren
 Cohesion: 0.40
 Nodes (9): els, esc(), lessonTitle(), LEVELS, renderBlock(), renderItems(), renderLessons(), renderProdItem() (+1 more)
 
+### Community 260 - "ref_path"
+Cohesion: 0.17
+Nodes (15): buildCatalogue(), fs, parseCatalogue(), path, fs, load(), norm(), officialName() (+7 more)
+
 ### Community 261 - "cards.js"
 Cohesion: 0.31
 Nodes (10): cardArt(), CARDS, chips(), detail, esc(), openCard(), render(), root (+2 more)
@@ -967,6 +974,10 @@ Nodes (4): esc(), metaTable(), render(), root
 Cohesion: 0.33
 Nodes (5): graphify, Project notes for Claude, Shipping a change — two things to update every time, proactively, Warframe data — use WFCD, not scraping, "What's New" carousel — do this proactively
 
+### Community 276 - "update-recipes.js"
+Cohesion: 0.17
+Nodes (18): ADJ, SMALL, translateName(), tword(), WORD, ptName(), clean(), dlcOfCollection() (+10 more)
+
 ### Community 277 - "update-starpath.js"
 Cohesion: 0.27
 Nodes (10): clean(), discoverCurrentSeason(), FALLBACK_SEASON, fetchWikitext(), fs, iso(), OUT, parseWikiDate() (+2 more)
@@ -979,6 +990,10 @@ Nodes (7): fs, getJson(), OUT, path, RARITIES, ri(), run()
 Cohesion: 0.20
 Nodes (7): fs, missingBody, path, ROOT, SKIP_DIRS, walk(), fs
 
+### Community 280 - "update-items.js"
+Cohesion: 0.18
+Nodes (14): BIOMES, biomesIn(), dlcOf(), fs, isLimited(), LOC, LOC_PAIRS, MATERIALS (+6 more)
+
 ### Community 282 - "regions.js"
 Cohesion: 0.39
 Nodes (7): dominantColor(), ELEMENT_COLOR, els, esc(), regionCard(), section(), WHISPERWAKE
@@ -989,7 +1004,7 @@ Nodes (7): fs, pages, path, ROOT, SKIP_DIRS, SKIP_FILES, walk()
 
 ## Knowledge Gaps
 - **141 isolated node(s):** `Oswald the Lucky Rabbit — Dreamlight Valley character portrait`, `Pocahontas — Dreamlight Valley character portrait`, `Prince Eric — Dreamlight Valley character portrait`, `Rapunzel — Dreamlight Valley character portrait`, `Remy — Dreamlight Valley character portrait` (+136 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 996 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 994 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **118 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
