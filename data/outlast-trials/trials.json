@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-28T06:12:55.444Z",
+  "updated": "2026-11-28T12:10:55.239Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -958,7 +958,7 @@
         },
         {
           "name": "Incinerate the Relic",
-          "goal": "You are the heretic and you are the zealot. Relics are the proof of an impossible gospel, the belief that makes whole the deservedly slaughtered lamb. Pay your way into heaven, incinerate the relic, and we will let you out.",
+          "goal": "Stag Key - $80",
           "objectives": [
             "Find gems to buy the first key",
             "Purchase Liliya's Relic",
