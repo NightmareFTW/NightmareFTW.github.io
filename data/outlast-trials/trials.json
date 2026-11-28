@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T18:10:12.554Z",
+  "updated": "2026-11-28T00:19:10.825Z",
   "source": "https://outlast.fandom.com",
   "fex": "https://outlast.fex.dev/maps",
   "generalTips": [
@@ -767,7 +767,7 @@
         },
         {
           "name": "Eliminate the Legacy",
-          "goal": "Indoctrination is the sunlight that raises future generations, a discipline of retrieval and spaced repetition. Match the symbols that open the gates, show the children how to learn, foster a future of zealous factotums, and we will let you out.",
+          "goal": "Correct Target",
           "objectives": [
             "Find and Erase Franco's Legacy",
             "Exit the Trial"
