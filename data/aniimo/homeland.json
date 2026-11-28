@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T05:26:39.065Z",
+  "updated": "2026-11-28T05:25:34.491Z",
   "source": "https://steamcommunity.com/sharedfiles/filedetails/?id=3806795108",
   "title": "RV / Homeland Guide",
   "description": "A simplified guide to progressing through the RV / Homeland portion of Aniimo",
@@ -10,6 +10,16 @@
     {
       "type": "overview",
       "blocks": [
+        {
+          "heading": "Temp Event Note",
+          "images": [],
+          "items": [
+            {
+              "kind": "text",
+              "text": "2026-11-26: I put up a new blurb in the event section just before RV10. Since they aren't increasing our rates this time, get to growing the event crops if you haven't already! I have a checklist of the best things to sell."
+            }
+          ]
+        },
         {
           "heading": "Overview",
           "images": [],
@@ -1151,7 +1161,7 @@
             },
             {
               "kind": "text",
-              "text": "It looks to be exactly the same as the old one, except the event crops need a Sunlamp."
+              "text": "It shares some similarities with the previous event, though the event crops need a Sunlamp this time."
             },
             {
               "kind": "text",
@@ -1315,19 +1325,19 @@
             },
             {
               "kind": "text",
-              "text": "RV18: All trees on Quick Coconut ==> Coconut Coolers."
+              "text": "RV18: All trees on Quick Coconut ==> Coconut Coolers. Also, (Premium) Gemstone Dust."
             },
             {
               "kind": "text",
-              "text": "RV19: Trees: 4 Orange Flower, 6 Quick Coconut, 10 Cocoa. Sell Orange Flower Incense and Coconut Cocoa (which, surprisingly, doesn't need the water we can't spare.)"
+              "text": "RV19: Trees: 4 Orange Flower, 6 Quick Coconut, 10 Cocoa. Sell Orange Flower Incense, Coconut Cocoa, and (Premium) Gemstone Dust."
             },
             {
               "kind": "text",
-              "text": "RV20: 5 Orange Flower Trees + 15 Quick Coconut Trees. Sell Pearl Face Cream and Coconut Oil."
+              "text": "RV20: 5 Orange Flower Trees + 15 Quick Coconut Trees. Sell Pearl Face Cream, Coconut Oil, and (Premium) Gemstone Dust."
             },
             {
               "kind": "text",
-              "text": "RV21: 5 Orange Flower Trees + 15 Quick Coconut Trees. Sell Pearl Face Cream and Coconut Oil. When your Mills stall, consider temporarily crafting Bright Silver Powder."
+              "text": "RV21: 5 Orange Flower Trees + 15 Quick Coconut Trees. Sell Pearl Face Cream, Coconut Oil, and Dye. When your Mills stall, consider temporarily crafting Bright Silver Powder."
             }
           ]
         }
